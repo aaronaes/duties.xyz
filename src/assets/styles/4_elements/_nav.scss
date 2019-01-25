@@ -1,0 +1,36 @@
+nav {
+  height: 90px;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .item {
+    align-self: center;
+    text-align: center;
+  }
+
+  .menu {
+    align-self: center;
+    text-align: center;
+
+    .link {
+      padding: 0 10px;
+      text-align: center;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
+    .router-link-exact-active {
+      text-decoration: underline;
+    }
+
+    :not(.router-link-exact-active) {
+      opacity: 0.5;
+    }
+
+  }
+}

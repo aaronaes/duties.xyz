@@ -1,0 +1,59 @@
+
+// Labels
+label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+// Inputs and textareas
+input,
+textarea {
+    /* To get your input fields to render consistently across all browsers, you need to use both height and line-height, and avoid vertical padding. */
+    line-height: 2em;
+    min-height: 2em;
+    padding: 0 1em;
+    display: block;
+    border: 1px solid color(gray);
+
+    &:disabled {
+        border: 1px solid $color-gray;
+    }
+}
+
+// Checkboxes and radiobuttons
+label input[type='checkbox']:first-child,
+label input[type='radio']:first-child {
+    display: inline-block;
+    margin-right: spacing(small);
+}
+
+// Buttons
+button {
+    border: 0;
+    background: color(secondary);
+    color: color(white);
+    padding: 1rem;
+
+    &:focus,
+    &:hover {
+        background: $color-gray;
+    }
+
+    &:disabled {
+        color: $color-white;
+        background: $color-gray;
+    }
+}
+
+// Select fields
+select {
+    display: block;
+}
+
+// Fieldsets and legends
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 1rem;
+
+}

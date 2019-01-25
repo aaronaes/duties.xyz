@@ -1,0 +1,164 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: $font-sans;
+    line-height: 1.8;
+    font-size: $font-sm;
+    color: $color-black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+    font-family: $font-sans;
+    font-weight: 400;
+    padding-bottom: $sm / 6;
+}
+
+h1 {
+  font-size: $font-lg;
+  line-height: 1.2;
+  }
+
+h2 {
+  font-size: $font-md;
+  line-height: 1.4;
+  }
+
+h3 {
+  font-size: $font-md*0.8;
+  line-height: 1.55;
+  }
+
+// Text Block Elements
+p,
+ul,
+ol,
+dl,
+pre,
+blockquote,
+table {
+    margin-top: 0;
+    margin-bottom: 1em;
+
+    &:only-child,
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Paragraphs
+p {
+    font-size: $font-sm;
+    line-height: 1.8;
+    margin: 0;
+
+    @media (max-width: rem-calc($break-medium)) {
+        font-size: $font-sm * 0.8;
+    }
+}
+
+// Links
+a {
+    color: $color-black;
+    text-decoration: none;
+    padding-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+
+
+    &::before img {
+    content: '';
+      display: block;
+      width: 0px;
+      height: 0px;
+      background: transparent;
+      }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: rgba($color-black,.7);
+      }
+
+    &:hover::before {
+      right: 0%;
+      }
+
+    @media (max-width: rem-calc($break-medium)) {
+        font-size: $font-sm * 0.8;
+    }
+}
+
+small {
+  font-size: $font-tiny;
+  line-height: 1.6;
+  opacity: 0.6;
+}
+
+// Lists
+ul,
+ol {
+    padding-left: 1.4rem;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+}
+
+dd + dt,
+li {
+    margin-top: 0.5em;
+}
+
+blockquote {
+    margin-left: 1.4rem;
+}
+
+blockquote > p:only-of-type {
+    margin-bottom: 0;
+}
+
+blockquote > footer {
+    text-align: right;
+    margin-top: 0.6rem;
+}
+
+q {
+    font-style: italic;
+    quotes: "«" "»" "‘" "’"; // Norske anførselstegn
+}
+
+address {
+    font-style: normal;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: $color-gray;
+}
+
+// To control FOUT and make browsers behave the same with WebFontLoader
+// This will hide the content for 2 seconds (set in wenFontLoader.js) and then use fallback.
+
+.wf-loading {
+    visibility: hidden;
+}
+
+.wf-active,
+.wf-inactive {
+    visibility: visible;
+}

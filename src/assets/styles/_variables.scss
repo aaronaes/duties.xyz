@@ -1,0 +1,62 @@
+// ------------------------------------
+// Variables
+// ------------------------------------
+
+@font-face {
+    font-family: "Moderat";
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/fonts/Moderat-Regular.eot");
+    src: url("assets/fonts/Moderat-Regular.eot?#iefix") format("embedded-opentype"),
+        url("assets/fonts/Moderat-Regular.svg") format("svg"),
+        url("assets/fonts/Moderat-Regular.woff") format("woff"),
+        url("assets/fonts/Moderat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "NeueHaasText";
+    src: url("assets/fonts/neuehaasgrotesktext-55roman-webfont.woff2")
+            format("woff2"),
+        url("assets/fonts/neuehaasgrotesktext-55roman-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueHaasDisplay";
+    src: url("assets/fonts/neuehaasgroteskdisplay-55roman-webfont.woff2")
+            format("woff2"),
+        url("assets/fonts/neuehaasgroteskdisplay-55roman-webfont.woff")
+            format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$color-black: rgba(0, 0, 0, 0.85);
+$color-gray: rgba(0, 0, 0, 0.75);
+$color-white: rgba(255, 255, 255, 1);
+
+$color-primary: rgb(76, 0, 255);
+$color-secondary: rgb(226, 94, 155);
+
+$font-sans: "Moderat", sans-serif;
+// $font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$font-display: "Moderat", sans-serif;
+
+// $font-lg: 48px;
+// $font-md: 34px;
+// $font-sm: 20px;
+// $font-tiny: 16px;
+
+$font-lg: 42px;
+$font-md: 32px;
+$font-sm: 20px;
+$font-tiny: 16px;
+
+$lg: 12vw;
+$md: 6vw;
+$sm: 3vw;
+
+$break-large: 1280px;
+$break-medium: 980px;
+$break-small: 480px;

@@ -1,0 +1,9 @@
+.case-content {
+  opacity: 0;
+  height: 0px;
+
+  &.open {
+  height: auto;
+  opacity: 1;
+  }
+}
