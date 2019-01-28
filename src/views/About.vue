@@ -1,11 +1,9 @@
 <template>
   <main v-bind:class="['about']">
     <section class="row columns">
-      <section class="large-6 medium-9 small-12 float-center">
-        <h3>Senior designer and art-director at Netlife, working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats.</h3>
-      </section>
-      <section class="large-6 medium-9 small-12 float-center">
-        <p>
+      <section class="resume">
+        <h1>Senior designer and art-director at Netlife, working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats.</h1>
+        <p class="large-8 medium-10">
           I am an Oslo-based designer running the interdisciplinary studio known as Found. Found builds digital
           design solutions for all screens. Being committed to quality design with a human-centered approach, I aim
           to make sure that the right skills are brought to each project. At Netlife, I lead digital design
@@ -13,10 +11,6 @@
           all screen.
         </p>
       </section>
-      <small class="large-6 medium-9 small-12 float-center">
-        (In my free time, I work with startups, brands, cultural projects and friends,
-        telling their stories in a large variety of formats.)
-      </small>
     </section>
     <section class="row columns" @click="next()">
       <flickity ref="flickity" :options="flickityOptions">
@@ -68,11 +62,8 @@ export default {
       }
     }
   },
-  mounted() {
-    this.toggleBodyClass("addClass", "dark");
-  },
-  destroyed() {
-    this.toggleBodyClass("removeClass", "dark");
+  beforeCreate: function() {
+    document.body.className = "about";
   }
 };
 </script>

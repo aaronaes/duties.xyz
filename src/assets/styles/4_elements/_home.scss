@@ -1,33 +1,41 @@
 .row {
     width: 100vw;
-    max-width: 82vw;
-    margin: 0 auto;
+    max-width: 88vw;
 
-    @media (max-width: rem-calc($break-small)) {
-        max-width: 100vw;
+    @media (max-width: ($break-medium)) {
+        max-width: 94vw;
     }
-}
+
+    @media (max-width: ($break-small)) {
+        max-width: 94vw;
+    }
+  }
 
 .column,
 .columns {
-    padding: 0 $sm/3;
+    padding: 0 $sm;
 
-    @media (max-width: rem-calc($break-small)) {
-        padding: 0 $md;
+    @media (max-width: ($break-small)) {
+        padding: 0 $sm;
     }
 }
 
 main {
-    padding: $md 0;
 
-    -webkit-transition: background-color 0.25s ease-in-out;
-    transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
 }
 
 section {
-    margin-bottom: $md !important;
+    margin-bottom: $md;
+
+    &:only-child,
+    &:last-child {
+        margin-bottom: 0;
+    }
 
     section {
-      margin-bottom: $md/3 !important;
+      margin-bottom: $md;
+
     }
 }

@@ -1,46 +1,74 @@
 <template>
   <main>
     <section class="row columns">
-      <section class="large-8 medium-10 small-12 float-center">
-        <h3>Senior designer and art-director at Netlife, working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats.</h3>
+      <section class="large-10 medium-11 small-12 left">
+        <h1>Senior designer and art-director at Netlife, working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats.</h1>
       </section>
-      <section class="large-8 medium-10 small-12 float-center">
-        <p>
-          I am an Oslo-based designer running the interdisciplinary studio known as Found. Found builds digital
-          design solutions for all screens. Being committed to quality design with a human-centered approach, I aim
-          to make sure that the right skills are brought to each project. At Netlife, I lead digital design
-          projects together with a interdisciplinary team, focusing on creating immersive digital experiences for
-          all screen.
-        </p>
-      </section>
-      <small class="large-8 medium-10 small-12 float-center">
-        (In my free time, I work with startups, brands, cultural projects and friends,
-        telling their stories in a large variety of formats.)
-      </small>
-    </section>
-    <section class="row columns" @click="next()">
-      <flickity ref="flickity" :options="flickityOptions">
-        <img class="carousel-cell" src="./../assets/images/work/img1.jpg">
-        <img class="carousel-cell" src="./../assets/images/work/img4.jpg">
-        <img class="carousel-cell" src="./../assets/images/work/img6.jpg">
-      </flickity>
     </section>
 
-    <section class="row">
-      <div class="image-row" style="display: flex; padding-bottom: 2vw;">
-        <div class="columns large-4 left" style="flex:0.77;">
-          <img src="./../assets/images/work/test-2.jpg">
+    <!-- <section class="row columns">
+      <div @click="next()">
+        <flickity ref="flickity" :options="flickityOptions">
+          <img class="carousel-cell" src="./../assets/images/work/img1.jpg">
+          <img class="carousel-cell" src="./../assets/images/work/img4.jpg">
+          <img class="carousel-cell" src="./../assets/images/work/img6.jpg">
+        </flickity>
+      </div>
+    </section>-->
+    <section class="row project">
+      <div class="image-row">
+        <div class="columns left" style="flex:0.77;">
+          <video autoplay muted loop>
+            <source
+              preload="none"
+              src="http://nicolasvittori.com/assets/images/shelves-mobile-animation.mp4"
+              type="video/mp4"
+            >
+          </video>
         </div>
-        <div class="columns large-8 left" style="flex:1.765;">
+        <div class="columns left" style="flex:1.765;">
           <img src="./../assets/images/work/img4.jpg">
         </div>
       </div>
+      <div>
+        <div class="image-row">
+          <div class="large-12 columns">
+            <img src="./../assets/images/work/img6.jpg">
+          </div>
+        </div>
+        <div>
+          <a href="#" class="case-toggle">See full case</a>
+        </div>
+      </div>
+    </section>
 
-      <div class="image-row" style="display: flex;">
-        <div class="columns large-8 left" style="flex:1.765;">
+    <!-- Non-flex -->
+    <section class="row columns">
+      <div class="case-content">
+        <img src="./../assets/images/work/img7.jpg">
+        <img src="./../assets/images/work/img7.jpg">
+        <img src="./../assets/images/work/img7.jpg">
+      </div>
+    </section>
+
+    <!-- Flex -->
+    <section class="row">
+      <div class="image-row">
+        <div class="columns left" style="flex:0.77;">
+          <img src="./../assets/images/work/img2.jpg">
+        </div>
+        <div class="columns left" style="flex:1.765;">
+          <img src="./../assets/images/work/img4.jpg">
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="image-row">
+        <div class="columns large-8" style="flex:1.765;">
           <img src="./../assets/images/work/img9.jpg">
         </div>
-        <div class="columns large-4 left" style="flex:0.765;">
+        <div class="columns large-4" style="flex:0.765;">
           <video autoplay muted loop>
             <source
               preload="none"
@@ -52,42 +80,47 @@
       </div>
     </section>
 
-    <section class="row">
-      <div class="columns large-4 medium-4 small-12 left">
-        <b>Title</b>
-        <p>Second sentence, 20XX</p>
-        <a href="#">Link to project &rarr;</a>
+    <section class="row image-row">
+      <div class="large-8 columns" style="align-self: center;">
+        <img src="./../assets/images/work/img9.jpg">
       </div>
-      <div class="columns large-4 medium-4 small-12 left">
-        <b>Title</b>
-        <p>Second sentence, 20XX</p>
-        <a href="#">Link to project &rarr;</a>
-      </div>
-      <div class="columns large-4 medium-4 small-12 left">
-        <b>Title</b>
-        <p>Second sentence, 20XX</p>
-        <a href="#">Link to project &rarr;</a>
+      <div class="large-4 columns" style="align-self: center;">
+        <img src="//www.fillmurray.com/320/320">
       </div>
     </section>
 
-    <section class="large-8 medium-10 small-12 float-center">
-      <transition name="slide" mode="out-in" appear>
-        <router-link class="left" to="/projects/project2">View casestudy &rarr;</router-link>
-      </transition>
+    <section class="row image-row">
+      <div class="large-4 columns" style="align-self: center;">
+        <img src="//www.fillmurray.com/250/250" style=" padding-bottom: 1em;">
+        <p>Project</p>
+      </div>
+      <div class="large-4 columns" style="align-self: center;">
+        <img src="//www.fillmurray.com/250/400" style=" padding-bottom: 1em;">
+        <p>Project</p>
+      </div>
+      <div class="large-4 columns" style="align-self: center;">
+        <img src="//www.fillmurray.com/350/300" style=" padding-bottom: 1em;">
+        <p>Project</p>
+      </div>
     </section>
 
-    <section class="row" style="display: flex;">
-      <div class="large-4 columns" style="align-self: flex-end;">
-        <img src="//www.fillmurray.com/300/350" style=" padding-bottom: 1em;">
-        <p>Project &rarr;</p>
-      </div>
-      <div class="large-4 columns" style="align-self: flex-end;">
-        <img src="//www.fillmurray.com/300/300" style=" padding-bottom: 1em;">
-        <p>Project &rarr;</p>
-      </div>
-      <div class="large-4 columns" style="align-self: flex-end;">
-        <img src="//www.fillmurray.com/300/380" style=" padding-bottom: 1em;">
-        <p>Project &rarr;</p>
+    <section style="background-color: white; padding: 12vw 0;">
+      <div class="row">
+        <div class="columns large-4 medium-4 small-12 left">
+          <b>Title</b>
+          <p>Second sentence, 20XX</p>
+          <a href="#">Link to project</a>
+        </div>
+        <div class="columns large-4 medium-4 small-12 left">
+          <b>Title</b>
+          <p>Second sentence, 20XX</p>
+          <a href="#">Link to project</a>
+        </div>
+        <div class="columns large-4 medium-4 small-12 left">
+          <b>Title</b>
+          <p>Second sentence, 20XX</p>
+          <a href="#">Link to project</a>
+        </div>
       </div>
     </section>
 
@@ -136,6 +169,9 @@ export default {
     previous() {
       this.$refs.flickity.previous();
     }
+  },
+  beforeCreate: function() {
+    document.body.className = "home";
   }
 };
 </script>

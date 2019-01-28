@@ -1,12 +1,13 @@
 <template>
-  <footer>
-    <section class="row">
-      <div class="left large-8 medium-10 small-12">
-        <div class="columns block-p">
-          <p>© This is my stuff, please don't steal it.</p>
-        </div>
+  <footer v-bind:class="['footer']">
+    <div class="row columns">
+      <div class="menu">
+        <a href="//www.instagram.com/foundoslo" target="_blank">Instagram</a>
       </div>
-    </section>
+      <div class="item">
+        <a href="mailto:aaronaes@mac.com?subject=Let's talk about a project!">Message me</a>
+      </div>
+    </div>
   </footer>
 </template>
 

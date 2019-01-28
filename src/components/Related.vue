@@ -5,7 +5,7 @@
         <b>Select work (2009 — 2018)</b>
       </p>
 
-      <div class="large-12 medium-12 small-12 left">
+      <div class="large-12 medium-12 small-12 float-left">
         <div class="columns">
           <ul>
             <li>
@@ -32,8 +32,8 @@
         <ul class="columns">
           <li data-image-id="cursor">
             <p>
-              <span class="large-6 medium-6 small-12 left">
-                <a href="#project1" class="popup left">Project name, 2019</a>
+              <span class="large-6 medium-6 small-12 float-left">
+                <a href="#project1" class="popup float-left">Project name, 2019</a>
               </span>
             </p>
             <p>

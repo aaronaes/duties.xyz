@@ -1,18 +1,13 @@
 $(document).ready(function () {
 
   // Fade in images on scroll
-
-  $('.projects > div.images')
-    .slice(1)
-    .addClass('reveal');
-
-  $('.projects > div.text')
-    .slice(1)
-    .addClass('reveal');
+  // $('.test > div')
+  //   .slice(1)
+  //   .addClass('foo');
 
   $(window).load(() => {
     window.sr = ScrollReveal();
-    sr.reveal('.reveal', {
+    sr.reveal('.foo', {
       scale: 1,
       duration: 600,
       delay: 0,
@@ -25,7 +20,7 @@ $(document).ready(function () {
         top: 0,
         bottom: 0,
       },
-      reset: false,
+      reset: true,
     });
   });
 });

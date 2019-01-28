@@ -32,12 +32,13 @@
     font-style: normal;
 }
 
-$color-black: rgba(0, 0, 0, 0.85);
-$color-gray: rgba(0, 0, 0, 0.75);
+$color-black: rgba(0, 0, 0, 0.8);
+$color-gray: rgba(0, 0, 0, 0.6);
 $color-white: rgba(255, 255, 255, 1);
+$color-blue: rgba(#17243e, 1.0);
 
-$color-primary: rgb(76, 0, 255);
-$color-secondary: rgb(226, 94, 155);
+$color-primary: rgb(29, 69, 202);
+$color-secondary: rgb(202, 29, 67);
 
 $font-sans: "Moderat", sans-serif;
 // $font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -48,14 +49,18 @@ $font-display: "Moderat", sans-serif;
 // $font-sm: 20px;
 // $font-tiny: 16px;
 
-$font-lg: 42px;
-$font-md: 32px;
-$font-sm: 20px;
-$font-tiny: 16px;
+// $font-lg: 52px;
+$font-lg: 3.25rem;
+// $font-md: 27px;
+$font-md: 1.7rem;
+// $font-sm: 18px;
+$font-sm: 1.125rem;
+// $font-tiny: 16px;
+$font-tiny: 0.875rem;
 
-$lg: 12vw;
-$md: 6vw;
-$sm: 3vw;
+$lg: 8vw;
+$md: 4vw;
+$sm: 2vw;
 
 $break-large: 1280px;
 $break-medium: 980px;

@@ -1,9 +1,49 @@
+.image-row {
+  display: flex;
+
+  @media (max-width: ($break-small)) {
+    display: block;
+  }
+
+  div {
+    // padding-bottom: $md;
+
+    &:only-child,
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  img {
+    padding-bottom: $md;
+    width: 100%;
+    display: block;
+  }
+}
+
 .case-content {
   opacity: 0;
   height: 0px;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
 
   &.open {
   height: auto;
   opacity: 1;
+  }
+}
+
+a.case-toggle {
+  top: -30px;
+  color: $color-black;
+  padding: 10px 0 20px 20px;
+  border-bottom: transparent;
+
+  &::before {
+    content: "+";
+    padding-right: 10px;
+  }
+  &::after {
+    content: "";
   }
 }

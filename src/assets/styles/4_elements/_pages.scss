@@ -1,19 +1,19 @@
 .slide-enter-active {
-  transition-delay: 0.25s;
   transition: all 0.25s ease-in-out;
 }
 .slide-leave-active {
-  transition: all 0.25s cubic-bezier(1, 0.5, 1, 1);
+  // transition: all 0.25s cubic-bezier(1, 0.5, 1, 1);
+  transition: all 0.25s ease-in-out;
 }
-.slide-enter,
-.slide-leave-to {
-  transform: translateY(10px);
+
+.slide-enter {
+  transform: translateY(0px);
   opacity: 0;
 }
 
-body.dark {
+body.about {
   color: $color-white;
-  background-color: $color-black;
+  background-color: $color-blue;
   transition: background-color 0.25s ease-in-out;
 
   p,
@@ -22,13 +22,38 @@ body.dark {
   }
 }
 
-body.light {
-  background-color: $color-white;
+body.project1 {
   color: $color-black;
+  background-color: #98cab2;
   transition: background-color 0.25s ease-in-out;
 
   p,
   a {
     color: $color-black;
+  }
+}
+
+body.home {
+  background-color: $color-white;
+  color: $color-blue;
+  transition: background-color 0.25s ease-in-out;
+
+  p,
+  a {
+    color: $color-blue;
+  }
+}
+
+main.about {
+
+  .resume {
+
+    p {
+      columns: auto 2;
+
+      @media (max-width: ($break-small)) {
+        columns: auto 1;
+    }
+    }
   }
 }

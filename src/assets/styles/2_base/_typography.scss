@@ -6,34 +6,42 @@ body {
     font-family: $font-sans;
     line-height: 1.8;
     font-size: $font-sm;
-    color: $color-black;
+    color: $color-blue;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 // Headings
 h1,
-h2,
-h3 {
-    font-family: $font-sans;
-    font-weight: 400;
-    padding-bottom: $sm / 6;
+h2 {
+  font-family: $font-sans;
+  font-weight: 400;
+  margin-bottom: $md;
 }
 
 h1 {
   font-size: $font-lg;
-  line-height: 1.2;
+  line-height: 1.4;
+  font-size: $font-lg * 0.875;
+
+  @media (max-width: ($break-medium)) {
+    font-size: $font-lg * 0.725;
   }
+
+  @media (max-width: ($break-small)) {
+    font-size: $font-lg * 0.5;
+  }
+}
 
 h2 {
   font-size: $font-md;
   line-height: 1.4;
-  }
+  margin-bottom: $sm;
 
-h3 {
-  font-size: $font-md*0.8;
-  line-height: 1.55;
+  @media (max-width: ($break-small)) {
+    font-size: $font-md * 0.825;
   }
+}
 
 // Text Block Elements
 p,
@@ -44,7 +52,7 @@ pre,
 blockquote,
 table {
     margin-top: 0;
-    margin-bottom: 1em;
+    margin-bottom: 0;
 
     &:only-child,
     &:last-child {
@@ -54,26 +62,37 @@ table {
 
 // Paragraphs
 p {
-    font-size: $font-sm;
-    line-height: 1.8;
-    margin: 0;
+  font-size: $font-sm;
+  line-height: 1.6;
 
-    @media (max-width: rem-calc($break-medium)) {
-        font-size: $font-sm * 0.8;
-    }
+  @media (max-width: ($break-small)) {
+    font-size: $font-sm * 0.95;
+  }
 }
 
 // Links
 a {
-    color: $color-black;
+    color: $color-blue;
     text-decoration: none;
     padding-bottom: 5px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid transparent;
 
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
 
+    @media (max-width: ($break-small)) {
+      font-size: $font-sm * 0.95;
+    }
+
+    &::after {
+      content: '\2192';
+      position: absolute;
+      right: -10px;
+      width: 0;
+      transition: width .25s;
+    }
 
     &::before img {
     content: '';
@@ -86,8 +105,11 @@ a {
     &:hover,
     &:focus,
     &:active {
-      color: rgba($color-black,.7);
-      }
+      color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+      -webkit-transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out;
+    }
 
     &:hover::before {
       right: 0%;
@@ -100,8 +122,8 @@ a {
 
 small {
   font-size: $font-tiny;
-  line-height: 1.6;
-  opacity: 0.6;
+  line-height: 1.65;
+  opacity: 0.75;
 }
 
 // Lists
@@ -148,7 +170,7 @@ address {
 hr {
     border: 0;
     height: 1px;
-    background-color: $color-gray;
+    background-color: $color-blue;
 }
 
 // To control FOUT and make browsers behave the same with WebFontLoader
