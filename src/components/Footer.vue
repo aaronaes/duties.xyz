@@ -1,12 +1,7 @@
 <template>
-  <footer v-bind:class="['footer']">
-    <div class="row columns">
-      <div class="menu">
-        <a href="//www.instagram.com/foundoslo" target="_blank">Instagram</a>
-      </div>
-      <div class="item">
-        <a href="mailto:aaronaes@mac.com?subject=Let's talk about a project!">Message me</a>
-      </div>
+  <footer class="row" v-if="this.$route.name === 'Home'">
+    <div class="columns small-12 medium-3 large-3 float-left">
+      <p>&copy; It's my stuff.</p>
     </div>
   </footer>
 </template>

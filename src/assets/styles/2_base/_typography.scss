@@ -1,14 +1,14 @@
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 body {
-    font-family: $font-sans;
-    line-height: 1.8;
-    font-size: $font-sm;
-    color: $color-blue;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: $font-sans;
+  line-height: 1.8;
+  font-size: $font-sm;
+  color: $color-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Headings
@@ -21,15 +21,14 @@ h2 {
 
 h1 {
   font-size: $font-lg;
-  line-height: 1.4;
-  font-size: $font-lg * 0.875;
-
-  @media (max-width: ($break-medium)) {
-    font-size: $font-lg * 0.725;
-  }
+  line-height: 3.25rem;
+  margin: 0;
+  margin: 0 0 $sm;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-lg * 0.5;
+    font-size: $font-md;
+    line-height: 1.55;
+    margin: 0 0 0.625em;
   }
 }
 
@@ -39,148 +38,115 @@ h2 {
   margin-bottom: $sm;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-md * 0.825;
+    font-size: $font-md * 0.925;
   }
-}
-
-// Text Block Elements
-p,
-ul,
-ol,
-dl,
-pre,
-blockquote,
-table {
-    margin-top: 0;
-    margin-bottom: 0;
-
-    &:only-child,
-    &:last-child {
-        margin-bottom: 0;
-    }
 }
 
 // Paragraphs
 p {
   font-size: $font-sm;
-  line-height: 1.6;
+  line-height: 2.0625rem;
+  padding-bottom: 1em;
+  margin: 0;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-sm * 0.95;
+    font-size: $font-sm * 0.8947368421;
+    padding-bottom: $sm / 2;
   }
 }
 
 // Links
 a {
-    color: $color-blue;
-    text-decoration: none;
-    padding-bottom: 5px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid transparent;
+  color: $color-blue;
+  text-decoration: none;
+  margin-bottom: 0;
+  padding: 0;
+  border-bottom: 2px solid transparent;
 
-    -webkit-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
-    @media (max-width: ($break-small)) {
-      font-size: $font-sm * 0.95;
-    }
+  &:hover,
+  &:focus {
+    color: inherit;
+    border-bottom: 2px solid black;
+  }
 
-    &::after {
-      content: '\2192';
-      position: absolute;
-      right: -10px;
-      width: 0;
-      transition: width .25s;
-    }
+  &.external:after {
+    content: "\002197";
+    margin-left: 0.3vw;
+    display: inline-block;
+  }
 
-    &::before img {
-    content: '';
-      display: block;
-      width: 0px;
-      height: 0px;
-      background: transparent;
-      }
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color-blue;
-      border-bottom: 1px solid $color-blue;
-      -webkit-transition: all 0.25s ease-in-out;
-      transition: all 0.25s ease-in-out;
-    }
-
-    &:hover::before {
-      right: 0%;
-      }
-
-    @media (max-width: rem-calc($break-medium)) {
-        font-size: $font-sm * 0.8;
-    }
+  &.underline {
+    border-bottom: 2px solid $color-black;
+  }
 }
 
 small {
   font-size: $font-tiny;
   line-height: 1.65;
-  opacity: 0.75;
+}
+
+b {
+  font-weight: 700;
 }
 
 // Lists
 ul,
 ol {
-    padding-left: 1.4rem;
+  padding-left: 1.4rem;
 }
 
 dt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 dd {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 dd + dt,
 li {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 blockquote {
-    margin-left: 1.4rem;
+  margin-left: 1.4rem;
 }
 
 blockquote > p:only-of-type {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 blockquote > footer {
-    text-align: right;
-    margin-top: 0.6rem;
+  text-align: right;
+  margin-top: 0.6rem;
 }
 
 q {
-    font-style: italic;
-    quotes: "«" "»" "‘" "’"; // Norske anførselstegn
+  font-style: italic;
+  quotes: "«" "»" "‘" "’"; // Norske anførselstegn
 }
 
 address {
-    font-style: normal;
+  font-style: normal;
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background-color: $color-blue;
+  border: 0;
+  height: 1px;
+  background-color: $color-blue;
 }
 
 // To control FOUT and make browsers behave the same with WebFontLoader
 // This will hide the content for 2 seconds (set in wenFontLoader.js) and then use fallback.
 
 .wf-loading {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .wf-active,
 .wf-inactive {
-    visibility: visible;
+  visibility: visible;
 }

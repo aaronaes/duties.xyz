@@ -1,59 +1,53 @@
-.slide-enter-active {
-  transition: all 0.25s ease-in-out;
+// Transitions
+.fade-enter-active {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-.slide-leave-active {
-  // transition: all 0.25s cubic-bezier(1, 0.5, 1, 1);
-  transition: all 0.25s ease-in-out;
+.fade-leave-active {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  // -webkit-transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+  // transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
-
-.slide-enter {
-  transform: translateY(0px);
+.fade-enter,
+.fade-leave-to {
+  transform: translateY(10px);
   opacity: 0;
 }
 
-body.about {
-  color: $color-white;
-  background-color: $color-blue;
-  transition: background-color 0.25s ease-in-out;
+// Foundation code
+.row {
+  width: 100vw;
+  max-width: 80vw;
 
-  p,
-  a {
-    color: $color-white;
+  @media (max-width: ($break-medium)) {
+    max-width: 920vw;
+  }
+
+  @media (max-width: ($break-small)) {
+    max-width: 100vw;
   }
 }
 
-body.project1 {
-  color: $color-black;
-  background-color: #98cab2;
-  transition: background-color 0.25s ease-in-out;
+.column,
+.columns {
+  padding: 0 $sm;
 
-  p,
-  a {
-    color: $color-black;
+  @media (max-width: ($break-small)) {
+    padding: 0 1.25rem;
   }
 }
 
-body.home {
-  background-color: $color-white;
-  color: $color-blue;
-  transition: background-color 0.25s ease-in-out;
+section {
+  margin-bottom: $md;
+  position: relative;
 
-  p,
-  a {
-    color: $color-blue;
+  &:only-of-type,
+  &:last-of-type {
+    margin-bottom: 0;
   }
-}
 
-main.about {
-
-  .resume {
-
-    p {
-      columns: auto 2;
-
-      @media (max-width: ($break-small)) {
-        columns: auto 1;
-    }
-    }
+  section {
+    margin-bottom: $md;
   }
 }

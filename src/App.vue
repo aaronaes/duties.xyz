@@ -1,29 +1,20 @@
 <template>
-  <div>
-    <Header/>
-    <div id="app">
-      <transition name="slide" mode="out-in" appear>
-        <router-view/>
-      </transition>
-    </div>
-    <Footer/>
+  <div id="app">
+    <transition name="fade" mode="out-in">
+      <PageWrapper>
+        <router-view :key="$route.fullPath"></router-view>
+      </PageWrapper>
+    </transition>
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import PageWrapper from "@/components/PageWrapper.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Footer
-  },
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
+    PageWrapper
   }
 };
 </script>

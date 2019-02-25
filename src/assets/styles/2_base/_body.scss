@@ -2,24 +2,26 @@ html {
   box-sizing: border-box;
   height: 100%;
   font-family: sans-serif;
-  line-height: 1.15;
+  line-height: 1.2;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
 * {
-&::before,
-&::after {
-  box-sizing: inherit;
-}
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 body {
-	margin: 0;
-	min-height: 100%;
+  margin: 0;
+  min-height: 100%;
   scroll-behavior: smooth;
   font-size: 16px;
+  background-color: $color-white;
+  color: $color-black;
 
-
-	// Prevent top margin on children from bleeding outside top of body, creating annoying vertical scroll
-	padding-top: 1px;
-	background-color: rgba($color: #f6f6f4, $alpha: 1.0);
+  -webkit-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
 }

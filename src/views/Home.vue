@@ -1,174 +1,152 @@
 <template>
-  <main>
-    <section class="row columns">
-      <section class="large-10 medium-11 small-12 left">
-        <h1>Senior designer and art-director at Netlife, working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats.</h1>
-      </section>
-    </section>
+  <main id="home">
+    <Intro/>
+    <!-- Feed -->
+    <section class="feed">
+      <div class="row flex-block">
+        <div class="columns small-12 medium-8 large-8 float-left project" data-panel-hook="Test">
+          <figure v-scroll-reveal>
+            <img src="https://images.unsplash.com/photo-1534237187820-7177d9bbd685">
+            <router-link class="project-link" to="/projects/project1">Threatlevel: Midnight</router-link>
+          </figure>
+        </div>
+      </div>
 
-    <!-- <section class="row columns">
-      <div @click="next()">
-        <flickity ref="flickity" :options="flickityOptions">
-          <img class="carousel-cell" src="./../assets/images/work/img1.jpg">
-          <img class="carousel-cell" src="./../assets/images/work/img4.jpg">
-          <img class="carousel-cell" src="./../assets/images/work/img6.jpg">
-        </flickity>
-      </div>
-    </section>-->
-    <section class="row project">
-      <div class="image-row">
-        <div class="columns left" style="flex:0.77;">
-          <video autoplay muted loop>
-            <source
-              preload="none"
-              src="http://nicolasvittori.com/assets/images/shelves-mobile-animation.mp4"
-              type="video/mp4"
-            >
-          </video>
-        </div>
-        <div class="columns left" style="flex:1.765;">
-          <img src="./../assets/images/work/img4.jpg">
+      <div class="row flex-block">
+        <div class="columns project">
+          <figure v-scroll-reveal>
+            <img src="./../assets/images/work/img8.jpg">
+            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+          </figure>
         </div>
       </div>
-      <div>
-        <div class="image-row">
-          <div class="large-12 columns">
-            <img src="./../assets/images/work/img6.jpg">
-          </div>
-        </div>
-        <div>
-          <a href="#" class="case-toggle">See full case</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- Non-flex -->
-    <section class="row columns">
-      <div class="case-content">
-        <img src="./../assets/images/work/img7.jpg">
-        <img src="./../assets/images/work/img7.jpg">
-        <img src="./../assets/images/work/img7.jpg">
-      </div>
-    </section>
-
-    <!-- Flex -->
-    <section class="row">
-      <div class="image-row">
-        <div class="columns left" style="flex:0.77;">
-          <img src="./../assets/images/work/img2.jpg">
-        </div>
-        <div class="columns left" style="flex:1.765;">
-          <img src="./../assets/images/work/img4.jpg">
+      <div class="row flex-block">
+        <div class="columns project">
+          <figure v-scroll-reveal>
+            <v-lazy-image src="http://lorempixel.com/400/400/"/>
+            <router-link
+              class="project-link"
+              to="/projects/project2"
+            >Threatlevel: Midnight, part III</router-link>
+          </figure>
         </div>
       </div>
-    </section>
 
-    <section class="row">
-      <div class="image-row">
-        <div class="columns large-8" style="flex:1.765;">
-          <img src="./../assets/images/work/img9.jpg">
+      <div class="row flex-block" v-scroll-reveal>
+        <div class="columns project">
+          <figure class="square">
+            <img src="https://images.unsplash.com/photo-1534237187820-7177d9bbd685">
+            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+          </figure>
         </div>
-        <div class="columns large-4" style="flex:0.765;">
-          <video autoplay muted loop>
-            <source
-              preload="none"
-              src="http://nicolasvittori.com/assets/images/shelves-mobile-animation.mp4"
-              type="video/mp4"
-            >
-          </video>
+        <div class="columns project">
+          <figure class="portrait">
+            <img src="./../assets/images/work/test-2.jpg">
+            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row flex-block">
+        <div class="columns small-12 medium-6 large-4 float-left project">
+          <figure v-scroll-reveal>
+            <img src="./../assets/images/work/img8.jpg">
+            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+          </figure>
+        </div>
+        <div class="columns small-12 medium-6 large-4 float-left project">
+          <figure v-scroll-reveal>
+            <img src="./../assets/images/work/img11.jpg">
+            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="row image-row">
-      <div class="large-8 columns" style="align-self: center;">
-        <img src="./../assets/images/work/img9.jpg">
-      </div>
-      <div class="large-4 columns" style="align-self: center;">
-        <img src="//www.fillmurray.com/320/320">
-      </div>
-    </section>
-
-    <section class="row image-row">
-      <div class="large-4 columns" style="align-self: center;">
-        <img src="//www.fillmurray.com/250/250" style=" padding-bottom: 1em;">
-        <p>Project</p>
-      </div>
-      <div class="large-4 columns" style="align-self: center;">
-        <img src="//www.fillmurray.com/250/400" style=" padding-bottom: 1em;">
-        <p>Project</p>
-      </div>
-      <div class="large-4 columns" style="align-self: center;">
-        <img src="//www.fillmurray.com/350/300" style=" padding-bottom: 1em;">
-        <p>Project</p>
-      </div>
-    </section>
-
-    <section style="background-color: white; padding: 12vw 0;">
+    <section>
       <div class="row">
-        <div class="columns large-4 medium-4 small-12 left">
-          <b>Title</b>
-          <p>Second sentence, 20XX</p>
-          <a href="#">Link to project</a>
-        </div>
-        <div class="columns large-4 medium-4 small-12 left">
-          <b>Title</b>
-          <p>Second sentence, 20XX</p>
-          <a href="#">Link to project</a>
-        </div>
-        <div class="columns large-4 medium-4 small-12 left">
-          <b>Title</b>
-          <p>Second sentence, 20XX</p>
-          <a href="#">Link to project</a>
-        </div>
+        <Carousel
+          class="large-6 float-left"
+          :images="[
+      require('@/assets/images/work/img3.jpg'),
+      require('@/assets/images/work/img9.jpg'),
+      require('@/assets/images/work/img8.jpg'),
+      require('@/assets/images/work/img10.jpg')
+      ]"
+        />
+        <Carousel
+          class="large-6 float-left"
+          :images="[
+      require('@/assets/images/work/img8.jpg'),
+      require('@/assets/images/work/img9.jpg'),
+      require('@/assets/images/work/img10.jpg'),
+      require('@/assets/images/work/img7.jpg')
+      ]"
+        />
       </div>
     </section>
 
-    <!-- <section class="large-8 medium-10 small-12 float-center">
-      <ul>
-        <li>
-          <a href="#" class="case-toggle">
-            <h2 class="hover-text" data-image-id="cursor">Projectname, identity and digital</h2>
-          </a>
-          <div class="case-content">
-            <img src="./../assets/images/work/img2.jpg">
+    <!-- Resume -->
+    <section id="readMore" class="resume">
+      <div class="row">
+        <div class="small-12 medium-6 large-6 float-left">
+          <div class="columns">
+            <p>A design partner for your team.</p>
+            <br>
+            <p>
+              Located in Oslo,
+              <span style="color: red;">@aaronaes</span> is a design consultant working closely together with clients & agencies to create relevant digital experiences. I work strategically with my partners to create sophisticated and strong solutions.
+            </p>
           </div>
-        </li>
-      </ul>
-    </section>-->
+        </div>
+        <div class="small-12 medium-3 large-3 float-left">
+          <div class="columns">
+            <p>Select clients</p>
+            <br>
+            <p>Godt Levert</p>
+            <p>OBOS</p>
+            <p>Sparebanken Sogn og Fjordane</p>
+            <p>Proviant</p>
+            <p>Virke</p>
+            <p>Eika Gruppen</p>
+            <p>Coop</p>
+            <p>Amedia Group</p>
+            <p>Humid</p>
+            <p>Brygg Magasin</p>
+            <p>Holzweiler</p>
+          </div>
+        </div>
+        <div class="small-12 medium-3 large-3 float-left">
+          <div class="columns">
+            <p>Book a meet</p>
+            <br>
+            <p>
+              <a class="clearfix" href="#">Email me</a>
+              <a class="clearfix" href="#">+47 986 60 677</a>
+              <a class="clearfix" href="#">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer/>
+    </section>
   </main>
 </template>
 
 <script>
-import Flickity from "vue-flickity";
+import Intro from "@/components/Intro.vue";
+import Carousel from "@/components/Carousel.vue";
+import Footer from "@/components/Footer.vue";
+import VLazyImage from "v-lazy-image";
 
 export default {
   name: "Home",
   components: {
-    Flickity
-  },
-
-  data() {
-    return {
-      flickityOptions: {
-        pageDots: false,
-        prevNextButtons: false,
-        setGallerySize: false,
-        draggable: false,
-        wrapAround: true,
-        autoPlay: 5000
-      }
-    };
-  },
-
-  methods: {
-    next() {
-      this.$refs.flickity.next();
-    },
-
-    previous() {
-      this.$refs.flickity.previous();
-    }
+    Intro,
+    Carousel,
+    VLazyImage,
+    Footer
   },
   beforeCreate: function() {
     document.body.className = "home";

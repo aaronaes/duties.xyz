@@ -1,26 +1,19 @@
 // Styles
-@import 'variables';
+@import "variables";
 
-@import '1_tools/helpers';
-@import '1_tools/mixins';
+@import "1_tools/helpers";
+@import "1_tools/mixins";
 
-@import '2_base/body';
-@import '2_base/typography';
-@import '2_base/lists';
-@import '2_base/tables';
-@import '2_base/images';
-@import '2_base/forms';
+@import "2_base/body";
+@import "2_base/typography";
+@import "2_base/lists";
+@import "2_base/images";
 
-@import '3_blocks/button';
-@import '3_blocks/checkbox';
-@import '3_blocks/select';
-@import '3_blocks/icon';
-@import '3_blocks/responsive-table';
-
-@import '4_elements/nav';
-@import '4_elements/home';
-@import '4_elements/pages';
-@import '4_elements/carousel';
-@import '4_elements/projects';
-@import '4_elements/related';
-@import '4_elements/footer';
+@import "4_elements/nav";
+@import "4_elements/pages";
+@import "4_elements/home";
+@import "4_elements/about";
+@import "4_elements/journal";
+@import "4_elements/carousel";
+@import "4_elements/projects";
+@import "4_elements/footer";

@@ -1,41 +1,73 @@
-.row {
-    width: 100vw;
-    max-width: 88vw;
+// General
 
-    @media (max-width: ($break-medium)) {
-        max-width: 94vw;
-    }
+// Intro
+.intro {
+  padding: $md 0;
 
-    @media (max-width: ($break-small)) {
-        max-width: 94vw;
-    }
+  @media (max-width: ($break-small)) {
+    padding: $sm / 2 0;
+  }
+}
+// Feed
+.feed {
+  margin-bottom: $md;
+
+  @media (max-width: ($break-small)) {
+    margin-bottom: $sm / 2;
   }
 
-.column,
-.columns {
-    padding: 0 $sm;
+  .flex-block {
+    display: flex;
 
     @media (max-width: ($break-small)) {
-        padding: 0 $sm;
+      display: block;
     }
+
+    .project {
+      padding-bottom: $md;
+      height: 100vh;
+      display: flex;
+
+      @media (max-width: ($break-small)) {
+        padding-bottom: $sm;
+      }
+
+      figure {
+        align-items: center;
+
+        &.portrait {
+          flex: calc(960 / 1375);
+          margin: 0 2vw;
+          align-self: center;
+          align-items: center;
+        }
+
+        &.square {
+          flex: calc(1375 / 1375);
+          margin: 0 2vw;
+          align-self: center;
+          align-items: center;
+        }
+
+        &.landscape {
+          flex: calc(2200 / 1375);
+          margin: 0 2vw;
+          align-self: center;
+          align-items: center;
+        }
+      }
+    }
+  }
 }
 
-main {
+// Resume
+.resume {
+  padding: $md 0;
+  background-color: #efebe7;
+  min-height: 60vh;
 
-  -webkit-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
-}
-
-section {
-    margin-bottom: $md;
-
-    &:only-child,
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    section {
-      margin-bottom: $md;
-
-    }
+  p {
+    font-size: $font-tiny;
+    padding: 0;
+  }
 }
