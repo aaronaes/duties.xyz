@@ -4,10 +4,12 @@
     <!-- Feed -->
     <section class="feed">
       <div class="row flex-block">
-        <div class="columns small-12 medium-8 large-8 float-left project" data-panel-hook="Test">
+        <div class="columns small-12 medium-6 large-6 float-left project">
           <figure v-scroll-reveal>
             <img src="https://images.unsplash.com/photo-1534237187820-7177d9bbd685">
-            <router-link class="project-link" to="/projects/project1">Threatlevel: Midnight</router-link>
+            <router-link class="project-link" to="/project1">
+              <h2>{{ this.$route.name }}</h2>
+            </router-link>
           </figure>
         </div>
       </div>
@@ -16,7 +18,9 @@
         <div class="columns project">
           <figure v-scroll-reveal>
             <img src="./../assets/images/work/img8.jpg">
-            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+            <br>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part II</router-link>
+            <span style="font-size: .5em; vertical-align: super; padding-left: 20px;">[2018]</span>
           </figure>
         </div>
       </div>
@@ -25,10 +29,7 @@
         <div class="columns project">
           <figure v-scroll-reveal>
             <v-lazy-image src="http://lorempixel.com/400/400/"/>
-            <router-link
-              class="project-link"
-              to="/projects/project2"
-            >Threatlevel: Midnight, part III</router-link>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part III</router-link>
           </figure>
         </div>
       </div>
@@ -37,13 +38,13 @@
         <div class="columns project">
           <figure class="square">
             <img src="https://images.unsplash.com/photo-1534237187820-7177d9bbd685">
-            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part II</router-link>
           </figure>
         </div>
         <div class="columns project">
           <figure class="portrait">
             <img src="./../assets/images/work/test-2.jpg">
-            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part II</router-link>
           </figure>
         </div>
       </div>
@@ -52,13 +53,13 @@
         <div class="columns small-12 medium-6 large-4 float-left project">
           <figure v-scroll-reveal>
             <img src="./../assets/images/work/img8.jpg">
-            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part II</router-link>
           </figure>
         </div>
         <div class="columns small-12 medium-6 large-4 float-left project">
           <figure v-scroll-reveal>
             <img src="./../assets/images/work/img11.jpg">
-            <router-link class="project-link" to="/projects/project2">Threatlevel: Midnight, part II</router-link>
+            <router-link class="project-link" to="/project2">Threatlevel: Midnight, part II</router-link>
           </figure>
         </div>
       </div>
@@ -67,22 +68,28 @@
     <section>
       <div class="row">
         <Carousel
-          class="large-6 float-left"
+          class="large-6 medium-6 small-12 float-center"
           :images="[
-      require('@/assets/images/work/img3.jpg'),
-      require('@/assets/images/work/img9.jpg'),
-      require('@/assets/images/work/img8.jpg'),
-      require('@/assets/images/work/img10.jpg')
-      ]"
+          require('@/assets/images/pikk/mobile-img01.png'),
+          require('@/assets/images/pikk/mobile-img02.png'),
+          require('@/assets/images/pikk/mobile-img03.png'),
+          require('@/assets/images/pikk/mobile-img04.png'),
+          require('@/assets/images/pikk/mobile-img05.png')
+          ]"
         />
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
         <Carousel
-          class="large-6 float-left"
+          class="columns"
           :images="[
-      require('@/assets/images/work/img8.jpg'),
-      require('@/assets/images/work/img9.jpg'),
-      require('@/assets/images/work/img10.jpg'),
-      require('@/assets/images/work/img7.jpg')
-      ]"
+          require('@/assets/images/work/img3.jpg'),
+          require('@/assets/images/work/img9.jpg'),
+          require('@/assets/images/work/img8.jpg'),
+          require('@/assets/images/work/img10.jpg')
+          ]"
         />
       </div>
     </section>
@@ -150,6 +157,16 @@ export default {
   },
   beforeCreate: function() {
     document.body.className = "home";
+  },
+  methods: {
+    next() {
+      this.$refs.flickity.next();
+    }
+  },
+  computed: {
+    pageName() {
+      return this.$route.name;
+    }
   }
 };
 </script>

@@ -1,8 +1,9 @@
 figure {
-  margin: 0 0 $sm / 2;
+  padding: 0;
+  margin: 0 0 7vw;
 
-  @media (max-width: ($break-small)) {
-    margin: 0 0 $sm / 4;
+  p {
+    padding: $sm / 4 0 0;
   }
 }
 
@@ -12,12 +13,12 @@ img {
   border-radius: 1px;
 
   &.landscape {
-    width: 100vh;
+    width: 100%;
     max-width: 100%;
   }
 
   &.portrait {
-    width: 100vh;
+    width: 100%;
     max-width: 60%;
   }
 }

@@ -1,10 +1,13 @@
 <template>
   <main>
-    <section class="intro">
-      <div class="row">
-        <h1
-          class="columns small-12 medium-10 large-8"
-        >An unordered collections of non-organized work and unfinished ideas.</h1>
+    <section class="row">
+      <div class="columns small-12 medium-12 large-10 float-left">
+        <h2>An unordered collections of non-organized work and unfinished ideas. Some of these concepts were used, and some were not. Either way, I liked them enough to save them.
+          <router-link
+            to="//www.instagram.com/foundoslo"
+            target="_blank"
+          >More work can be found here -></router-link>
+        </h2>
       </div>
     </section>
 

@@ -3,6 +3,7 @@
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
 .fade-leave-active {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -18,10 +19,10 @@
 // Foundation code
 .row {
   width: 100vw;
-  max-width: 80vw;
+  max-width: 90vw;
 
   @media (max-width: ($break-medium)) {
-    max-width: 920vw;
+    max-width: 96vw;
   }
 
   @media (max-width: ($break-small)) {
@@ -39,7 +40,6 @@
 }
 
 section {
-  margin-bottom: $md;
   position: relative;
 
   &:only-of-type,

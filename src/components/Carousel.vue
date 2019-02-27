@@ -20,10 +20,11 @@ export default {
       flickityOptions: {
         cellSelector: ".carousel-cell",
         pageDots: false,
-        setGallerySize: false,
+        prevNextButtons: false,
+        imagesLoaded: true,
         draggable: false,
         wrapAround: true,
-        autoPlay: 2000
+        autoPlay: false
       }
     };
   },

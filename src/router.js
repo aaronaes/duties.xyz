@@ -35,14 +35,14 @@ export default new Router({
         import(/* webpackChunkName: "Journal" */ "./views/Journal.vue")
     },
     {
-      path: "/projects/project1",
-      name: "Threatlevel: Midnight",
+      path: "/project1",
+      name: "Project 1",
       component: () =>
         import(/* webpackChunkName: "Project1" */ "./projects/Project1.vue")
     },
     {
-      path: "/projects/project2",
-      name: "Threatlevel: Midnight, part II",
+      path: "/project2",
+      name: "Project 2",
       component: () =>
         import(/* webpackChunkName: "Project2" */ "./projects/Project2.vue")
     }

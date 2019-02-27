@@ -16,42 +16,59 @@ h1,
 h2 {
   font-family: $font-sans;
   font-weight: 400;
-  margin-bottom: $md;
 }
 
 h1 {
-  font-size: $font-lg;
-  line-height: 3.25rem;
-  margin: 0;
-  margin: 0 0 $sm;
+  font-size: calc(40px + (62 - 40) * ((100vw - 480px) / (1280 - 480)));
+  line-height: calc(1.3em + (1.45 - 1.25) * ((100vw - 480px) / (1280 - 480)));
+  margin-bottom: $sm;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-md;
-    line-height: 1.55;
-    margin: 0 0 0.625em;
+    font-size: 40px;
+    line-height: 1.25;
+  }
+
+  @media (min-width: ($break-large)) {
+    font-size: 62px;
+    line-height: 1.45;
   }
 }
 
 h2 {
-  font-size: $font-md;
-  line-height: 1.4;
+  // font-size: calc(18px + (27 - 18) * ((100vw - 480px) / (1280 - 480)));
+  // line-height: calc(1.45em + (1.65 - 1.45) * ((100vw - 480px) / (1280 - 480)));
+  font-size: 22px;
+  line-height: 1.6;
   margin-bottom: $sm;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-md * 0.925;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  @media (min-width: ($break-large)) {
+    font-size: 27px;
+    line-height: 1.65;
   }
 }
 
 // Paragraphs
 p {
-  font-size: $font-sm;
-  line-height: 2.0625rem;
+  // font-size: calc(18px + (22 - 18) * ((100vw - 375px) / (1280 - 375)));
+  // line-height: calc(1.45em + (1.65 - 1.45) * ((100vw - 375px) / (1280 - 375)));
+  font-size: 19px;
+  line-height: 1.6;
   padding-bottom: 1em;
   margin: 0;
 
   @media (max-width: ($break-small)) {
-    font-size: $font-sm * 0.8947368421;
-    padding-bottom: $sm / 2;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  @media (min-width: ($break-large)) {
+    font-size: 22px;
+    line-height: 1.65;
   }
 }
 
@@ -62,9 +79,6 @@ a {
   margin-bottom: 0;
   padding: 0;
   border-bottom: 2px solid transparent;
-
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
 
   &:hover,
   &:focus {
@@ -137,16 +151,4 @@ hr {
   border: 0;
   height: 1px;
   background-color: $color-blue;
-}
-
-// To control FOUT and make browsers behave the same with WebFontLoader
-// This will hide the content for 2 seconds (set in wenFontLoader.js) and then use fallback.
-
-.wf-loading {
-  visibility: hidden;
-}
-
-.wf-active,
-.wf-inactive {
-  visibility: visible;
 }

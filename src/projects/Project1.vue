@@ -1,30 +1,53 @@
 <template>
-  <main>
-    <section class="feed">
+  <main class="project">
+    <section class="row">
+      <!-- Intro -->
+      <div class="columns small-12 medium-10 large-8 float-left">
+        <h1>{{ title }}</h1>
+        <h2>Senior designer and art-director working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats. I collect my unused ideas and concepts in my Journal and you can read my Bio here.</h2>
+        <p>Senior designer and art-director working with startups, brands, cultural projects and friends, telling their stories in a large variety of formats. I collect my unused ideas and concepts in my Journal and you can read my Bio here.</p>
+      </div>
+    </section>
+    <section style="background-color: beige;">
       <div class="row">
-        <div class="columns project">
+        <div class="columns">
           <figure>
             <img src="./../assets/images/work/img6.jpg">
+            <p>Visjon / misjon</p>
           </figure>
         </div>
-        <div class="columns project">
+      </div>
+    </section>
+    <section class="feed">
+      <div class="row">
+        <div class="columns">
+          <figure>
+            <img src="./../assets/images/work/img6.jpg">
+            <p>Dildofest 2025, website coming soon.</p>
+          </figure>
+
           <figure>
             <img src="./../assets/images/work/img7.jpg">
           </figure>
-        </div>
-        <div class="columns project">
+
           <figure>
             <img src="./../assets/images/work/img9.jpg">
           </figure>
-        </div>
-        <div class="columns project">
+
           <figure>
             <img src="./../assets/images/work/img4.jpg">
           </figure>
         </div>
 
-        <div class="columns small-12 medium-11 large-10 project">
-          <img src="./../assets/images/work/img8.jpg">
+        <div class="columns float-left">
+          <div class="small-12 medium-4 large-4 float-left">
+            <p>Fuckhole-projects, available now!</p>
+          </div>
+          <div class="small-12 medium-8 large-8 float-right">
+            <figure>
+              <img src="./../assets/images/work/img8.jpg">
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -86,13 +109,12 @@ export default {
   name: "Project1",
   data() {
     return {
-      title: "Threatlevel: Midnight"
+      title: "Godt Levert"
     };
   },
   computed: {
     pageName() {
       return this.$route.name;
-      return this.$route.title;
     }
   },
   beforeCreate: function() {

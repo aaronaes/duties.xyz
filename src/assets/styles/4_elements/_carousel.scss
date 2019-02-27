@@ -1,7 +1,5 @@
 .flickity-viewport {
   left: 0px;
-  height: 100%;
-  padding-top: 62.5%;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 
@@ -10,16 +8,15 @@
   }
 
   .flickity-slider {
-    margin-top: -62.5%;
     transform: none !important;
 
     img.carousel-cell {
+      display: block;
       left: 0 !important;
       opacity: 0;
-      -webkit-transition: opacity 0.25s ease-in-out;
-      transition: opacity 0.25s ease-in-out;
+      -webkit-transition: opacity 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
       z-index: 1;
-      display: block;
 
       &.is-selected {
         opacity: 1;

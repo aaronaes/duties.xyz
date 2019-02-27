@@ -3,15 +3,15 @@
     <section class="overlay">
       <div class="row intro">
         <div class="columns">
-          <h1 class="small-12 medium-6 large-4">A design partner for your team.</h1>
+          <h1 class="small-12 medium-12 large-8">A design consultant for your creative team.</h1>
         </div>
         <div class="columns">
-          <div class="small-12 medium-10 large-6 float-left">
-            <p>
+          <div class="small-12 medium-12 large-10 float-left">
+            <h2>
               Located in Oslo,
-              <span style="color: red;">@aaronaes</span> is a design consultant working closely together with clients & agencies to create relevant digital experiences. I work strategically with my partners to create sophisticated and strong solutions. I run the interdisciplinary studio known as Found. Found builds digital design solutions for all screens.
-            </p>
-            <p>Being committed to quality design with a human-centered approach, I aim to make sure that the right skills are brought to each project.</p>
+              <b>Erling Aarønæs</b> is a design consultant working closely together with clients & agencies to create relevant digital experiences. I work strategically with my partners to create sophisticated and strong solutions. I run the interdisciplinary studio known as Found. Found builds digital design solutions for all screens.
+            </h2>
+            <h2>Being committed to quality design with a human-centered approach, I aim to make sure that the right skills are brought to each project.</h2>
           </div>
           <div class="large-4 float-right show-for-large-only">
             <img src="https://www.streamlineicons.com/ux/img/style-8.svg">
@@ -21,71 +21,43 @@
       <div class="row">
         <div class="small-12 medium-6 large-6 float-left">
           <div class="columns">
-            <p>
+            <h2>
               Sticking to digital
-              <span>&nbsp; &#8600;</span>
-            </p>
-            <p>Digital strategy, trending research, user experience, design and build — the end goal is to deliver a complete product.</p>
+              <span style="color: red;">&nbsp; &#8600;</span>
+            </h2>
+            <h2>Digital strategy, trending research, user experience, design and build — the end goal is to deliver a complete product.</h2>
             <br>
           </div>
           <div class="columns float-left">
-            <p>
-              Hands-on testing
-              <span>&nbsp; &#8600;</span>
-            </p>
-            <p>Creating prototypes, testing user patterns while including the client in the process. Making keynotes to show digital isn’t the way shit gets done.</p>
-            <br>
-          </div>
-          <div class="columns float-left">
-            <p>
+            <h2>
               Working WITH clients
-              <span>&nbsp; &#8600;</span>
-            </p>
-            <p>Slow, hidden processes have been proven to take more time. Working with a transparent process, I always make sure the client is up-to-date and happy.</p>
+              <span style="color: red;">&nbsp; &#8600;</span>
+            </h2>
+            <h2>Slow, hidden processes have been proven to take more time. Working with a transparent process, I always make sure the client is up-to-date and happy.</h2>
           </div>
         </div>
 
         <div class="small-12 medium-offset-1 medium-5 large-offset-1 large-5 float-left">
           <div class="columns">
-            <p>
+            <h2>
               Select clients
-              <span>&nbsp; &#8600;</span>
-            </p>
-            <ul>
-              <li>
-                <p>Godt Levert</p>
-              </li>
-              <li>
-                <p>OBOS</p>
-              </li>
-              <li>
-                <p>Sparebanken Sogn og Fjordane</p>
-              </li>
-              <li>
-                <p>Proviant</p>
-              </li>
-              <li>
-                <p>Virke</p>
-              </li>
-              <li>
-                <p>Eika Gruppen</p>
-              </li>
-              <li>
-                <p>Coop</p>
-              </li>
-              <li>
-                <p>Amedia Group</p>
-              </li>
-              <li>
-                <p>Humid</p>
-              </li>
-              <li>
-                <p>Brygg Magasin</p>
-              </li>
-              <li>
-                <p>Holzweiler</p>
-              </li>
-            </ul>
+              <span style="color: red;">&nbsp; &#8600;</span>
+            </h2>
+            <h2>
+              <ul>
+                <li>Godt Levert</li>
+                <li>OBOS</li>
+                <li>Sparebanken Sogn og Fjordane</li>
+                <li>Proviant</li>
+                <li>Virke</li>
+                <li>Eika Gruppen</li>
+                <li>Coop</li>
+                <li>Amedia Group</li>
+                <li>Humid</li>
+                <li>Brygg Magasin</li>
+                <li>Holzweiler</li>
+              </ul>
+            </h2>
           </div>
         </div>
       </div>
