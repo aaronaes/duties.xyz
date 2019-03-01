@@ -1,1 +1,22 @@
-// Header fade
+// About page
+body.about {
+  background-color: #252525;
+  color: white;
+
+  h1 {
+    &:first-of-type {
+      font-size: 70px;
+      margin-bottom: $md;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  nav {
+    .menu {
+      opacity: 0;
+    }
+  }
+}

@@ -1,1 +1,27 @@
-// Header fade
+// About page
+body.journal {
+  background-color: rgb(83, 102, 50);
+  color: white;
+
+  h1 {
+    &:first-of-type {
+      font-size: 70px;
+      margin-bottom: $md;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  nav .menu .router-link-exact-active::after,
+  nav .menu :not(.router-link-exact-active):hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ffffff !important;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+}

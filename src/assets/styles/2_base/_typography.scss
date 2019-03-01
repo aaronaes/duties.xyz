@@ -40,16 +40,6 @@ h2 {
   font-size: 22px;
   line-height: 1.6;
   margin-bottom: $sm;
-
-  @media (max-width: ($break-small)) {
-    font-size: 18px;
-    line-height: 1.45;
-  }
-
-  @media (min-width: ($break-large)) {
-    font-size: 27px;
-    line-height: 1.65;
-  }
 }
 
 // Paragraphs
@@ -74,26 +64,18 @@ p {
 
 // Links
 a {
-  color: $color-blue;
-  text-decoration: none;
-  margin-bottom: 0;
-  padding: 0;
-  border-bottom: 2px solid transparent;
+  color: inherit;
 
-  &:hover,
-  &:focus {
-    color: inherit;
-    border-bottom: 2px solid black;
+  &:focus,
+  &:active {
   }
 
-  &.external:after {
-    content: "\002197";
-    margin-left: 0.3vw;
-    display: inline-block;
+  &:hover {
+    color: inherit;
   }
 
   &.underline {
-    border-bottom: 2px solid $color-black;
+    background-color: antiquewhite;
   }
 }
 

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <transition name="fade" mode="out-in">
-      <PageWrapper>
+    <PageWrapper>
+      <transition name="fade-slide" mode="out-in">
         <router-view :key="$route.fullPath"></router-view>
-      </PageWrapper>
-    </transition>
+      </transition>
+    </PageWrapper>
   </div>
 </template>
 

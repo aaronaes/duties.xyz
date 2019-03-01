@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Nav/>
+    <transition name="fade" mode="out-in">
+      <Nav :key="$route.fullPath"/>
+    </transition>
     <slot></slot>
   </div>
 </template>

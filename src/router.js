@@ -1,6 +1,27 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import VueScrollReveal from "vue-scroll-reveal";
+import { VLazyImagePlugin } from "v-lazy-image";
+
+Vue.use(VLazyImagePlugin);
+
+// ScrollReveal
+Vue.use(VueScrollReveal, {
+  scale: 1,
+  duration: 500,
+  delay: 500,
+  distance: "0px",
+  viewFactor: 0.2,
+  easing: "cubic-bezier(0.645, 0.045, 0.355, 1.000)",
+  opacity: 0,
+  mobile: false,
+  viewOffset: {
+    top: 0,
+    bottom: 0
+  },
+  reset: false
+});
 
 // Projects
 import Project1 from "@/projects/Project1.vue";
@@ -13,7 +34,11 @@ export default new Router({
   base: process.env.BASE_URL,
 
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
   },
 
   routes: [

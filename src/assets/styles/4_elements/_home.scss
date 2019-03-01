@@ -6,14 +6,55 @@
     padding: $sm / 2 0;
   }
 }
-// Feed
-.feed {
-  margin-bottom: $md;
 
-  @media (max-width: ($break-small)) {
-    margin-bottom: $sm / 2;
+.currently {
+  background-color: white;
+  padding: $md 0;
+  margin-bottom: $md;
+  .title {
+    padding-bottom: $md;
   }
 
+  .project {
+    h2 {
+      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0px;
+      padding: 0px;
+      font-size: 16px;
+      color: rgba($color-black, 0.5);
+
+      span {
+        color: rgba($color-black, 1);
+      }
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.recently {
+  .title {
+    padding-bottom: $md;
+  }
+  p {
+    margin-top: 10px;
+
+    .year {
+      font-size: 0.7em;
+      vertical-align: super;
+      padding-left: 15px;
+    }
+  }
+}
+
+// Feed
+.feed {
   .flex-block {
     display: flex;
 
@@ -21,36 +62,28 @@
       display: block;
     }
 
-    .project {
-      display: flex;
+    div.images {
+      align-items: center;
 
-      @media (max-width: ($break-small)) {
-        padding-bottom: $sm;
+      &.portrait {
+        flex: calc(960 / 1375);
+        margin: 0 2vw;
+        align-self: center;
+        align-items: center;
       }
 
-      div.images {
+      &.square {
+        flex: calc(1375 / 1375);
+        margin: 0 2vw;
+        align-self: center;
         align-items: center;
+      }
 
-        &.portrait {
-          flex: calc(960 / 1375);
-          margin: 0 2vw;
-          align-self: center;
-          align-items: center;
-        }
-
-        &.square {
-          flex: calc(1375 / 1375);
-          margin: 0 2vw;
-          align-self: center;
-          align-items: center;
-        }
-
-        &.landscape {
-          flex: calc(2200 / 1375);
-          margin: 0 2vw;
-          align-self: center;
-          align-items: center;
-        }
+      &.landscape {
+        flex: calc(2200 / 1375);
+        margin: 0 2vw;
+        align-self: center;
+        align-items: center;
       }
     }
   }
