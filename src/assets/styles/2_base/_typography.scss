@@ -13,9 +13,11 @@ body {
 
 // Headings
 h1,
-h2 {
+h2,
+p,
+a {
   font-family: $font-sans;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1 {
