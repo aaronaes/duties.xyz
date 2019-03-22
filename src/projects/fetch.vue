@@ -6,12 +6,12 @@
           Fetch, a crowd-sourced delivery service.
           <span class="super">[2019]</span>
         </p>
-        <a class="toggle" href="#fetch">
+        <a @click="showMore = !showMore" class="toggle" tabindex="-1">
           <p>
             <span></span>
           </p>
         </a>
-        <div class="toggleInfo">
+        <div v-if="showMore" class="toggleInfo">
           <p>
             Fetch wanted to operate as a vendor for package shipping, which would differentiate from the current avilable carriers. Fetch would deliver flexible solutions by utilizing existing transport capacity in the market, such as messengerbikers, Uber and local taxi drivers. By doing so, they would open up to new markets and new players in the industry.
             <br>
@@ -52,7 +52,8 @@ export default {
   name: "Fetch",
   data() {
     return {
-      title: "Fetch"
+      title: "Fetch",
+      showMore: false
     };
   },
   computed: {

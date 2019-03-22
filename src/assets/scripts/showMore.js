@@ -1,17 +1,20 @@
-$(document).ready(function () {
+/*
+$(document).ready(function() {
+  var toggleHeight = $(".toggleInfo").height();
 
-  var toggleHeight = $('.toggleInfo').height();
+  $(".toggleInfo").css("height", "0");
+  $(".toggle").click(function() {
+    $(this)
+      .next()
+      .toggleClass("open");
+    $(this)
+      .find("span")
+      .toggleClass("opened");
 
-  $('.toggleInfo').css('height', '0')
-  $('.toggle').click(function () {
-    $(this).next().toggleClass('open');
-    $(this).find("span").toggleClass('opened')
-
-    if ($(this).hasClass('open')) {
+    if ($(this).hasClass("open")) {
       $(this)({
         height: toggleHeight
       });
-
     } else {
       $(this)({
         height: 0
@@ -24,3 +27,4 @@ $(document).ready(function () {
   //   $('.toggle').find("span").removeClass('opened')
   // });
 });
+*/
