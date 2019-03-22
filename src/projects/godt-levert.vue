@@ -6,12 +6,12 @@
           Godt Levert, a food-to-your-door service.
           <span class="super">[2018 - 19]</span>
         </p>
-        <a class="toggle" href="#gl">
+        <button @click="showMore = !showMore" class="toggle" href="#gl">
           <p>
             <span></span>
           </p>
-        </a>
-        <div class="toggleInfo">
+        </button>
+        <div v-if="showMore" class="toggleInfo">
           <p>Godt Levert didn't have as much of a presence in the market as they wanted. The service was new and was gaining traction, and with that Godt Levert wanted to become a household name.</p>
           <p>The solution was to take a more holistic approach to their product, through creating a new way to browse meals and weekly deals. As a part of the project, the whole app was revamped with new UI and a new website.</p>
           <a href="//www.godtlevert.no" target="_blank">Visit site &nearr;</a>
@@ -42,7 +42,8 @@ export default {
   name: "Godt Levert",
   data() {
     return {
-      title: "Godt Levert"
+      title: "Godt Levert",
+      showMore: false
     };
   },
   computed: {
