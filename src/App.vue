@@ -1,9 +1,8 @@
 <template>
   <div id="app">
+    <!-- <div class="cursor"></div> -->
     <PageWrapper>
-      <transition name="fade-slide" mode="out-in">
-        <router-view :key="$route.fullPath"></router-view>
-      </transition>
+      <router-view :key="$route.fullPath"></router-view>
     </PageWrapper>
   </div>
 </template>

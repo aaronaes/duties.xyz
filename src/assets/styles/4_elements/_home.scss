@@ -1,103 +1,170 @@
-// Intro
-.intro {
-  padding: $md 0;
+body {
+  background-color: $color-black;
+  color: $color-white;
 
-  @media (max-width: ($break-small)) {
-    padding: $sm / 2 0;
-  }
-}
+  -webkit-transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
-.currently {
-  background-color: white;
-  padding: $md 0;
-  margin-bottom: $md;
-  .title {
-    padding-bottom: $md;
-  }
+  a {
+    color: rgba($color-white, .5);
 
-  .project {
-    h2 {
-      margin-bottom: 30px;
-      margin-bottom: 10px;
+    &:hover {
+      color: rgba($color-white, 1);
     }
+  }
+
+
+  .foo {
+    position: relative;
+    overflow: hidden;
+    display: inline;
 
     p {
-      margin: 0px;
-      padding: 0px;
-      font-size: 16px;
-      color: rgba($color-black, 0.5);
+      display: inline;
+    }
 
-      span {
-        color: rgba($color-black, 1);
+    .bar {
+      width: 40px;
+      position: absolute;
+      text-align: center;
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+
+    &:hover {
+      .bar {
+        transform: translateY(0px);
+        opacity: 1;
+        -webkit-transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+    }
+  }
+
+  header {
+    display: block;
+    position: relative;
+    height: 100vh;
+    z-index: 0;
+
+    section {
+      padding-top: $md;
+
+      figure {
+        &.sticky {
+          position: absolute;
+          bottom: 0;
+        }
+
+        @media (max-width: ($break-small)) {
+          &.sticky {
+            position: absolute;
+            bottom: 20vh;
+          }
+        }
+      }
+
+      @media (max-width: ($break-small)) {
+        padding: $sm 0;
+      }
+    }
+  }
+
+  // Recently
+  main {
+    padding: $lg 0;
+    position: relative;
+
+    header {
+      padding: 0;
+      margin: 0;
+
+      .title {
+        padding-bottom: $md;
       }
     }
 
-    a {
-      text-decoration: underline;
+    section {
+      position: relative;
+
+      figure {
+        margin: 0 0 $md;
+
+        .title {
+          margin: 0 0 $sm;
+
+          &:first-child {
+            padding-right: 3px;
+          }
+        }
+
+        .super {
+          vertical-align: baseline;
+          position: relative;
+          top: -0.4em;
+          font-size: 14px;
+          opacity: 0.5;
+        }
+
+        @media (max-width: ($break-small)) {
+          margin: 0 0 $sm;
+        }
+
+        ul {
+          list-style-type: none;
+          margin: 20px auto 0 auto;
+          padding: 0;
+
+          p {
+            color: $color-dark;
+
+            span {
+              margin-left: 10px;
+              color: $color-black;
+            }
+          }
+        }
+      }
     }
   }
-}
 
-.recently {
-  .title {
-    padding-bottom: $md;
-  }
-  p {
-    margin-top: 10px;
+  a.toppp {
+    position: fixed;
+    top: 2rem;
+    z-index: 1;
+    right: -2rem;
+    opacity: 0;
+    padding: .5rem;
 
-    .year {
-      font-size: 0.7em;
-      vertical-align: super;
-      padding-left: 15px;
+    &:before {
+      content: "Up";
+      position: absolute;
+      opacity: 0;
+      // right: 1.5rem;
+      transform: translateX(-1.5rem);
+      padding-right: 5px;
+      -webkit-transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
     }
-  }
-}
 
-// Feed
-.feed {
-  .flex-block {
-    display: flex;
+    &.show {
+      opacity: .25;
+      right: 2rem;
+
+      &:hover {
+        color: $color-black;
+        opacity: 1 !important;
+
+        &:before {
+          opacity: 1;
+          transform: translateX(-2rem);
+        }
+      }
+    }
 
     @media (max-width: ($break-small)) {
-      display: block;
+      display: none;
     }
-
-    div.images {
-      align-items: center;
-
-      &.portrait {
-        flex: calc(960 / 1375);
-        margin: 0 2vw;
-        align-self: center;
-        align-items: center;
-      }
-
-      &.square {
-        flex: calc(1375 / 1375);
-        margin: 0 2vw;
-        align-self: center;
-        align-items: center;
-      }
-
-      &.landscape {
-        flex: calc(2200 / 1375);
-        margin: 0 2vw;
-        align-self: center;
-        align-items: center;
-      }
-    }
-  }
-}
-
-// Resume
-.resume {
-  padding: $md 0;
-  background-color: #efebe7;
-  min-height: 60vh;
-
-  p {
-    font-size: $font-sm;
-    padding: 0;
-    line-height: 1.65;
   }
 }

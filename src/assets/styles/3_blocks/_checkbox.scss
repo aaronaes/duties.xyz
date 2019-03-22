@@ -5,7 +5,7 @@
   padding-left: 2rem;
 
   &--disabled {
-    color: $color-gray;
+    color: $color-dark;
     cursor: default;
   }
 
@@ -22,7 +22,7 @@
     height: 1.33rem;
     line-height: 1.33rem;
     background-color: $color-white;
-    border: 2px solid $color-gray; // Always use a border on input elements for accessibility. High contrast mode in Windows will remove all background styling and render the field invisible if border is not used.
+    border: 2px solid $color-dark; // Always use a border on input elements for accessibility. High contrast mode in Windows will remove all background styling and render the field invisible if border is not used.
     user-select: none;
     text-align: center;
     border-radius: 0;
@@ -41,21 +41,21 @@
       border-color: color(
         gray
       ); // Always use a border on input elements for accessibility. High contrast mode in Windows will remove all background styling and render the field invisible if border is not used.
-      color: color(white);
+      color: color($color-white);
 
       &::before {
         content: "";
         display: inline-block;
         width: 0.7em;
         height: 0.7em;
-        border-left: 3px solid white;
-        border-bottom: 3px solid white;
+        border-left: 3px solid $color-white;
+        border-bottom: 3px solid $color-white;
         transform: translateY(-25%) rotate(-45deg);
       }
     }
 
     &:focus ~ .checkbox__indicator {
-      box-shadow: 0 0 0 0.2rem $color-gray, 0 0 0 0.2rem $color-white;
+      box-shadow: 0 0 0 0.2rem $color-dark, 0 0 0 0.2rem $color-white;
     }
 
     &:active ~ .checkbox__indicator {
@@ -65,12 +65,12 @@
     }
 
     &:disabled ~ .checkbox__indicator {
-      border-color: $color-gray;
+      border-color: $color-dark;
     }
 
     &:disabled:checked ~ .checkbox__indicator {
-      background-color: $color-gray;
-      border-color: $color-gray;
+      background-color: $color-dark;
+      border-color: $color-dark;
     }
 
     /* RADIO BUTTONS */

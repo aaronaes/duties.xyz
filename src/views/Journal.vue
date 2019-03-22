@@ -1,25 +1,56 @@
 <template>
-  <main>
-    <section class="row">
-      <div class="columns small-12 medium-10 large-6 float-left">
-        <h2>An unordered collections of non-organized work and unfinished ideas. Some of these concepts were used, and some were not. Either way, I liked them enough to save them.</h2>
-        <h2>
-          <router-link to="//www.instagram.com/foundoslo" target="_blank">Instagram —></router-link>
-        </h2>
+  <div>
+    <header>
+      <section class="row">
+        <figure class="columns">
+          <h2>
+            An unordered collections of discarded work and unfinished ideas. Some of these were used, and some were rejected.
+            i also have
+            <router-link to="//www.instagram.com/foundoslo" target="_blank">
+              instagram
+              <span class="super">&nearr;</span>
+            </router-link>
+          </h2>
+        </figure>
+      </section>
+    </header>
+    <main class="row">
+      <section class="float-left">
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/02.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/02.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+        <figure class="columns small-12 medium-6 large-6">
+          <img src="/images/journal/01.png">
+        </figure>
+      </section>
+    </main>
+    <footer>
+      <div class="columns small-12 medium-10 large-10 float-left">
+        <h3>Explore my work</h3>
       </div>
-      <figure class="columns small-12 medium-6 large-6 float-left">
-        <img src="http://www.fillmurray.com/g/600/800">
-      </figure>
-      <figure class="columns small-12 medium-6 large-6 float-left">
-        <img src="http://www.fillmurray.com/g/600/600">
-        <p>Unused concept for a client.</p>
-      </figure>
-      <figure class="columns small-12 medium-offset-1 medium-5 large-offset-2 large-4 float-left">
-        <img src="http://www.fillmurray.com/g/300/300">
-        <p>Unused concept for a client.</p>
-      </figure>
-    </section>
-  </main>
+    </footer>
+  </div>
 </template>
 
 <script>

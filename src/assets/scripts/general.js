@@ -1,49 +1,52 @@
-$(document).ready(function() {
-  // Toggle Menu
-  $(".project-toggle").click(() => {
-    $(".project-exp").toggleClass("open");
+$(document).ready(function () {
+  "use strict";
+
+  // Color change
+  var top = $("header").offset().top; //gets offset of header
+  var height = $("header").outerHeight(); //gets height of header
+
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() > top + height / 2) {
+      $("body").addClass("light");
+      $(".toppp").addClass("show");
+    } else {
+      //remove the background property so it comes transparent again (defined in your css)
+      $("body").removeClass("light");
+      $(".toppp").removeClass("show");
+    }
   });
 
-  $(".toggle").bind("click", function(e) {
-    $(".expanded")
-      .toggleClass("open")
-      .animateAuto("height", 1000);
-  });
-});
-
-$(window)
-  .scroll(function() {
-    // selectors
-    var $window = $(window),
-      $body = $("body"),
-      $panel = $(".panel");
-
-    // Change 33% earlier than scroll position so colour is there when you arrive.
-    var scroll = $window.scrollTop() + $window.height() / 3;
-
-    $panel.each(function() {
-      var $this = $(this);
-
-      // if position is within range of this panel.
-      // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
-      // Remember we set the scroll to 33% earlier in scroll var.
-      if (
-        $this.position().top <= scroll &&
-        $this.position().top + $this.height() > scroll
-      ) {
-        // Remove all classes on body with color-
-        $body.removeClass(function(index, css) {
-          return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
-        });
-
-        // Add class of currently active div
-        $body.addClass("color-" + $(this).data("color"));
-      }
+  // Manual shuffle
+  $(".shuffle-container").imagesLoaded(function () {
+    $(".shuffle-container img").hover(function () {
+      $(this).toggleClass("shuffleShow");
     });
-  })
-  .scroll();
+  });
 
-$(function() {
+  var $carousel = $(".carousel").flickity({
+    pauseAutoPlayOnHover: false
+  });
+
+  var $carouselStatus = $(".carousel-status");
+  var flkty = $carousel.data("flickity");
+
+  function updateStatus() {
+    var cellNumber = flkty.selectedIndex + 1;
+    $carouselStatus.text(cellNumber + "/" + flkty.slides.length);
+  }
+  updateStatus();
+  $carousel.on("change.flickity", updateStatus);
+
+  $carousel.on("mouseenter", function () {
+    $carousel.on("mouseleave", onNavMouseleave);
+  });
+
+  function onNavMouseleave() {
+    $carousel.flickity("playPlayer");
+    $carousel.off("mouseleave", onNavMouseleave);
+  }
+
+  // Carousel fix
   function setHeight(ab) {
     var target = $("img.carousel-cell"),
       heightImage;
@@ -51,7 +54,7 @@ $(function() {
       heightImage = target.height();
       ab.height(heightImage);
     } else {
-      target.on("load", function() {
+      target.on("load", function () {
         heightImage = $(this).height();
         console.log(heightImage);
         ab.height(heightImage);
@@ -59,7 +62,36 @@ $(function() {
     }
   }
   setHeight($(".flickity-viewport"));
-  $(window).resize(function() {
+
+  $(window).resize(function () {
     setHeight($(".flickity-viewport"));
   });
+
+  var $carousel = $(".carousel").flickity({});
+
+  $carousel.on("mouseenter", function () {
+    $carousel.on("mouseleave", onNavMouseleave);
+  });
+
+  function onNavMouseleave() {
+    $carousel.flickity("playPlayer");
+    $carousel.off("mouseleave", onNavMouseleave);
+  }
+
+  // Moment
+  $("span.clock");
+
+  function update() {
+    $("span.clock").html(moment().format("LT"));
+  }
+  setInterval(update, 100);
+
+});
+
+$(document).on('click', 'a[href^="#"]', function (event) {
+  event.preventDefault();
+
+  $('html, body').animate({
+    scrollTop: $($.attr(this, 'href')).offset().top,
+  }, 300);
 });

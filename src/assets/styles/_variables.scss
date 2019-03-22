@@ -3,35 +3,64 @@
 // --------------------------------------------
 
 @import url("https://rsms.me/inter/inter.css");
+
 html {
   font-family: "Inter", sans-serif;
 }
+
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
   }
 }
 
-$color-black: rgba(0, 0, 0, 0.8);
-$color-gray: rgba(0, 0, 0, 0.6);
-$color-white: rgba(255, 255, 255, 1);
-$color-blue: rgba(#17243e, 1);
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('/fonts/PxGroteskRegular.woff2') format('woff2'),
+    url('/fonts/PxGroteskRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
-$color-primary: rgb(29, 69, 202);
+@font-face {
+  font-family: 'Ginto';
+  src: url('/fonts/gintoregular.woff2') format('woff2'),
+    url('/fonts/gintoregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/UntitledSansTest-Regular.woff2') format('woff2'),
+    url('/fonts/UntitledSansTest-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$color-black: #0f0f0f;
+$color-dark: rgba($color-black, .5);
+$color-light: #f0f0f0;
+$color-white: #ffffff;
+$color-accent: rgb(0, 0, 255);
+
+$color-primary: rgb(5, 42, 161);
 $color-secondary: rgb(202, 29, 67);
 
-$font-sans: "Inter", sans-serif;
-$font-display: "Inter", sans-serif;
+// $font-sans: "Ginto",
+// $font-sans: "Px Grotesk",
+$font-sans: "Inter",
+sans-serif;
 
 $font-lg: 2.4375rem;
 $font-md: 1.6875rem;
 $font-sm: 1.1875rem;
 $font-tiny: 0.9375rem;
 
-$lg: 10vw;
-$md: 5vw;
-$sm: 2.5vw;
+$lg: 5rem;
+$md: 2.5rem;
+$sm: 1.25rem;
 
-$break-large: 1280px;
-$break-medium: 980px;
-$break-small: 480px;
+$break-large: 60rem;
+$break-medium: 61.25rem;
+$break-small: 30rem;

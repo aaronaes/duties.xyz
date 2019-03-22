@@ -1,9 +1,10 @@
 <template>
-  <div @click="next()">
+  <figure>
     <flickity class="carousel" ref="flickity" :options="flickityOptions">
       <img class="carousel-cell" :src="image" :key="image" v-for="image in images">
+      <span class="carousel-status"></span>
     </flickity>
-  </div>
+  </figure>
 </template>
 
 <script>
@@ -21,10 +22,10 @@ export default {
         cellSelector: ".carousel-cell",
         pageDots: false,
         prevNextButtons: false,
-        imagesLoaded: true,
         draggable: false,
-        wrapAround: true,
-        autoPlay: false
+        pauseAutoPlayOnHover: false,
+        autoPlay: 2000,
+        wrapAround: true
       }
     };
   },

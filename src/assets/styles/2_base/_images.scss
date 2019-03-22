@@ -1,29 +1,51 @@
-figure {
-  padding: 0;
-  margin: 0 0 $md;
-
-  p {
-    padding: $sm / 4 0 0;
-  }
-}
-
 img {
   width: 100%;
   height: auto;
   border-radius: 1px;
-
-  &.landscape {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  &.portrait {
-    width: 100%;
-    max-width: 60%;
-  }
 }
 
 video {
   width: 100%;
   border-radius: 1px;
+}
+
+.shuffle-container {
+  position: relative;
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  img.shuffle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  span {
+    position: absolute;
+    z-index: 2;
+    left: -10vw;
+    bottom: 1.5vh;
+    opacity: 0;
+
+    -webkit-transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  img.shuffleShow {
+    opacity: 0;
+    z-index: 3;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    +span {
+      left: 2vw;
+      opacity: .75;
+    }
+  }
 }

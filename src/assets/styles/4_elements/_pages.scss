@@ -1,72 +1,71 @@
 // Transitions
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
+body.light {
+  background-color: $color-white !important;
 
-.fade-slide-enter,
-.fade-slide-leave-active {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  opacity: 0.5;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.fade-enter,
-.fade-leave-active {
-  .close {
-    opacity: 0;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+  * {
+    color: $color-black;
   }
+
+  a {
+    color: rgba($color-black, .5);
+    -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    &:hover {
+      color: rgba($color-black, 1);
+    }
+  }
+}
+
+// Nav
+.fade-enter,
+.fade-leave {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+// Page
+.slide-enter-active,
+.slide-leave-active {
+  -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.slide-leave-active {
+  opacity: 0;
 }
 
 // Foundation code
 .row {
   width: 100vw;
-  max-width: 80vw;
-
-  @media (max-width: ($break-medium)) {
-    max-width: 90vw;
-  }
+  max-width: 1680px;
+  padding-left: $sm;
+  padding-right: $sm;
 
   @media (max-width: ($break-small)) {
     max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 .column,
 .columns {
   padding: 0 $sm;
-
-  @media (max-width: ($break-small)) {
-    padding: 0 1.25rem;
-  }
-}
-
-div {
-  position: relative;
-}
-
-main {
-  padding-bottom: $lg;
 }
 
 section {
   position: relative;
+  height: 100%;
+
+  figure {
+    margin: 0 0 $md;
+    padding: 0;
+    position: relative;
+  }
 
   &:only-of-type,
   &:last-of-type {
     margin-bottom: 0;
-  }
-
-  section {
-    margin-bottom: $md;
   }
 }

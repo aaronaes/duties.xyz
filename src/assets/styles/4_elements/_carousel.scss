@@ -1,26 +1,49 @@
 .flickity-viewport {
   left: 0px;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    cursor: url("/images/arrow-right.png") 75 15, auto;
-  }
 
   .flickity-slider {
     transform: none !important;
 
     img.carousel-cell {
-      display: block;
-      left: 0 !important;
+      display: inline-block;
+      max-height: 400px;
+      width: auto;
+      left: 0px !important;
       opacity: 0;
-      -webkit-transition: opacity 0.5s ease-in-out;
-      transition: opacity 0.5s ease-in-out;
       z-index: 1;
+
+      -webkit-transition: all .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition: all .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+      // &:hover {
+      //   cursor: url("/images/arrow-right.png") 75 15, auto;
+      // }
 
       &.is-selected {
         opacity: 1;
       }
     }
+  }
+}
+
+.carousel-status {
+  position: absolute;
+  z-index: 9;
+  bottom: 1rem;
+  left: 1.125rem;
+  font-size: 1rem;
+
+  -webkit-transition: all .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+
+.slideshow {
+  position: absolute;
+  bottom: 5rem;
+  width: 100%;
+
+  @media (max-width: ($break-small)) {
+    position: relative;
   }
 }

@@ -1,0 +1,76 @@
+body {
+  .toggle {
+    position: relative;
+
+    span {
+      -webkit-transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+      &:after {
+        content: 'More';
+      }
+
+      &.opened {
+        &:after {
+          content: 'Less';
+        }
+
+        &:hover {
+          &:after {
+            content: "Close";
+          }
+        }
+      }
+
+      &:hover {
+        &:after {
+          content: "More ...";
+        }
+      }
+    }
+
+
+  }
+
+  .toggleInfo {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    padding-bottom: $md;
+    padding-right: $md;
+    width: auto;
+    max-width: 70vw;
+    left: 20px;
+    background-color: $color-white;
+
+    -webkit-transition: height .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: height .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    a {
+      text-decoration: none !important;
+    }
+
+    p {
+      margin-bottom: $sm;
+    }
+
+    &.half {
+      width: calc(100% - 40px);
+      left: 20px;
+    }
+
+    &.open {
+      display: block;
+      opacity: 1 !important;
+      height: auto !important;
+    }
+
+    @media (max-width: ($break-small)) {
+      width: auto;
+      max-width: 100vw !important;
+      left: 0px;
+      padding: $sm;
+      border-bottom: 1px solid rgba(#000000, .1);
+    }
+  }
+}

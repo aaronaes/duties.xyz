@@ -1,69 +1,33 @@
 <template>
-  <main>
-    <section>
-      <div class="row intro">
-        <div class="columns">
-          <h1 class="small-12 medium-8 large-6">A Creative Lead for your design team.</h1>
-          <div class="small-12 medium-12 large-10 float-left">
-            <h2>
-              Located in Oslo,
-              <span>E &horbar; A</span> is a design consultant working closely together with clients & agencies to create relevant digital experiences. I work strategically with my partners to create sophisticated and strong solutions. I run the interdisciplinary studio known as Found. Found builds digital design solutions for all screens.
-            </h2>
-            <h2>Being committed to quality design with a human-centered approach, I aim to make sure that the right skills are brought to each project.</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 medium-6 large-6 float-left">
-          <div class="columns">
-            <h2>
-              Sticking to digital
-              <span class="icon">&nbsp; &#8600;</span>
-            </h2>
-            <h2>Digital strategy, trending research, user experience, design and build — the end goal is to deliver a complete product.</h2>
-            <br>
-          </div>
-          <div class="columns float-left">
-            <h2>
-              Working WITH clients
-              <span class="icon">&nbsp; &#8600;</span>
-            </h2>
-            <h2>Slow, hidden processes have been proven to take more time. Working with a transparent process, I always make sure the client is up-to-date and happy.</h2>
-          </div>
-        </div>
-
-        <div class="small-12 medium-offset-1 medium-5 large-offset-1 large-5 float-left">
-          <div class="columns">
-            <h2>
-              Select clients
-              <span class="icon">&nbsp; &#8600;</span>
-            </h2>
-            <h2>
-              <ul>
-                <li>Godt Levert</li>
-                <li>OBOS</li>
-                <li>Sparebanken Sogn og Fjordane</li>
-                <li>Proviant</li>
-                <li>Virke</li>
-                <li>Eika Gruppen</li>
-                <li>Coop</li>
-                <li>Amedia Group</li>
-                <li>Humid</li>
-                <li>Brygg Magasin</li>
-                <li>Holzweiler</li>
-              </ul>
-            </h2>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <div>
+    <header>
+      <section class="row">
+        <figure class="columns small-12 medium-8 large-6">
+          <p v-if="pageName !=='Home'">
+            <span style="opacity: 0;">Erling Aaronaes</span> is all about the details. His approach to design is working strategically with teams to create sophisticated and strong solutions.
+          </p>
+          <p>...</p>
+          <p>I’m an Oslo-based senior designer based, with over 10 years experience of creating websites, products and brands. As a designer, I am all about the details. Details in type, details in micro-interactions, details in experience. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products. I have worked with startups, established brands, cultural projects and friends, telling their stories in a large variety of formats.</p>
+          <p>...</p>
+          <p>Links</p>
+          <p>
+            <a href="#" target="_blank">Credentials &nearr;</a>
+          </p>
+          <p>
+            <a href="#">Business inquiry &nearr;</a>
+          </p>
+          <p>
+            <a href="#" target="_blank">Instagram &nearr;</a>
+          </p>
+        </figure>
+      </section>
+    </header>
+  </div>
 </template>
 
 <script>
 export default {
   name: "About",
-  components: {},
   beforeCreate: function() {
     document.body.className = "about";
   }

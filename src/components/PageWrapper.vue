@@ -3,14 +3,14 @@
     <transition name="fade" mode="out-in">
       <Nav :key="$route.fullPath"/>
     </transition>
-    <slot></slot>
+    <transition name="slide" mode="out-in">
+      <slot></slot>
+    </transition>
   </div>
 </template>
 
 <script>
 import Nav from "@/components/Nav.vue";
-import Home from "@/views/Home.vue";
-
 export default {
   name: "PageWrapper",
   components: {

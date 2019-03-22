@@ -7,19 +7,16 @@ import "./assets/scripts/main.js";
 
 // ScrollReveal
 Vue.use(VueScrollReveal, {
-  scale: 1,
-  duration: 500,
-  delay: 500,
-  distance: "60px",
-  viewFactor: 0.2,
+  duration: 600,
+  delay: 200,
+  viewFactor: 0,
+  distance: '10px',
   easing: "cubic-bezier(0.645, 0.045, 0.355, 1.000)",
   opacity: 0,
-  mobile: false,
   viewOffset: {
     top: 0,
     bottom: 0
-  },
-  reset: false
+  }
 });
 
 Vue.config.productionTip = false;

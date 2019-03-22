@@ -1,27 +1,54 @@
 // About page
 body.journal {
-  background-color: rgb(83, 102, 50);
-  color: white;
+  background-color: antiquewhite;
+  color: $color-black;
 
-  h1 {
-    &:first-of-type {
-      font-size: 70px;
-      margin-bottom: $md;
+  a {
+    color: $color-black;
+    text-decoration: none;
+  }
+
+  nav {
+    .router-link-exact-active {
+      border-bottom: 2px solid $color-white;
+    }
+
+    .menu .router-link-exact-active {
+      border-bottom: 2px solid $color-white;
     }
   }
 
-  a {
-    color: white;
-  }
+  main {
+    section {
+      display: block;
+      column-count: 1;
+      padding: $md 0;
 
-  nav .menu .router-link-exact-active::after,
-  nav .menu :not(.router-link-exact-active):hover::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: #ffffff !important;
-    -webkit-transition: width 0.25s ease-in-out;
-    transition: width 0.25s ease-in-out;
+
+      figure {
+        float: left;
+
+        &:nth-of-type(2n+3) {
+          float: right !important;
+        }
+
+
+        &.item {
+          width: 50%;
+          padding: 30px;
+          float: left;
+
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+
+        h2 {
+          margin: 0;
+        }
+      }
+    }
   }
 }

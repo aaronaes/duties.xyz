@@ -5,79 +5,90 @@ html {
 body {
   font-family: $font-sans;
   line-height: 1.8;
-  font-size: $font-sm;
   color: $color-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // -webkit-transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  // transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  // -webkit-transition: color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  // transition: color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
 }
 
 // Headings
 h1,
 h2,
-p,
-a {
+h3,
+p {
   font-family: $font-sans;
-  font-weight: 500;
+  font-weight: 400;
+  max-width: 700px;
+
+  // @media (max-width: ($break-medium)) {
+  //   max-width: 400px;
+  // }
 }
 
 h1 {
-  font-size: calc(40px + (62 - 40) * ((100vw - 480px) / (1280 - 480)));
-  line-height: calc(1.3em + (1.45 - 1.25) * ((100vw - 480px) / (1280 - 480)));
+  font-size: calc(36px + (52 - 36) * ((100vw - 480px) / (1280 - 480)));
+  line-height: calc(1.35em + (1.45 - 1.35) * ((100vw - 480px) / (1280 - 480)));
   margin-bottom: $sm;
-
-  @media (max-width: ($break-small)) {
-    font-size: 40px;
-    line-height: 1.25;
-  }
-
-  @media (min-width: ($break-large)) {
-    font-size: 62px;
-    line-height: 1.45;
-  }
 }
 
 h2 {
-  // font-size: calc(18px + (27 - 18) * ((100vw - 480px) / (1280 - 480)));
-  // line-height: calc(1.45em + (1.65 - 1.45) * ((100vw - 480px) / (1280 - 480)));
-  font-size: 22px;
-  line-height: 1.6;
+  font-size: calc(32px + (38 - 32) * ((100vw - 480px) / (1280 - 480)));
+  line-height: calc(1.45em + (1.65 - 1.45) * ((100vw - 480px) / (1280 - 480)));
+  margin-bottom: $sm;
+}
+
+h3 {
+  font-size: calc(21px + (28 - 21) * ((100vw - 480px) / (1280 - 480)));
+  line-height: calc(1.65em + (1.85 - 1.65) * ((100vw - 480px) / (1280 - 480)));
   margin-bottom: $sm;
 }
 
 // Paragraphs
 p {
-  // font-size: calc(18px + (22 - 18) * ((100vw - 375px) / (1280 - 375)));
-  // line-height: calc(1.45em + (1.65 - 1.45) * ((100vw - 375px) / (1280 - 375)));
-  font-size: 19px;
-  line-height: 1.6;
-  padding-bottom: 1em;
+  font-size: calc(18px + (20 - 18) * ((100vw - 375px) / (1280 - 375)));
+  line-height: calc(1.75em + (2.2 - 1.75) * ((100vw - 375px) / (1280 - 375)));
+  padding: 0;
   margin: 0;
 
   @media (max-width: ($break-small)) {
-    font-size: 18px;
-    line-height: 1.45;
-  }
-
-  @media (min-width: ($break-large)) {
-    font-size: 22px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.7rem;
   }
 }
 
 // Links
 a {
-  color: inherit;
+  color: $color-black;
+  text-decoration: none;
+  -webkit-transition: color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 
-  &:focus,
-  &:active {
+
+  &:after {
+    color: $color-black;
+    opacity: 0;
   }
 
-  &:hover {
-    color: inherit;
+  &:hover,
+  &:active,
+  &:focus {
+    color: rgba($color-black, 1);
+
+    &:after {
+      color: $color-black;
+      opacity: 0;
+    }
   }
 
-  &.underline {
-    background-color: antiquewhite;
+  @media (max-width: ($break-small)) {
+    font-size: 17px;
+    line-height: 1.7rem;
   }
 }
 
@@ -104,7 +115,7 @@ dd {
   margin-left: 0;
 }
 
-dd + dt,
+dd+dt,
 li {
   margin-top: 0.5em;
 }
@@ -113,18 +124,18 @@ blockquote {
   margin-left: 1.4rem;
 }
 
-blockquote > p:only-of-type {
+blockquote>p:only-of-type {
   margin-bottom: 0;
 }
 
-blockquote > footer {
+blockquote>footer {
   text-align: right;
   margin-top: 0.6rem;
 }
 
 q {
   font-style: italic;
-  quotes: "«" "»" "‘" "’"; // Norske anførselstegn
+  quotes: "«""»""‘""’"; // Norske anførselstegn
 }
 
 address {
@@ -134,5 +145,5 @@ address {
 hr {
   border: 0;
   height: 1px;
-  background-color: $color-blue;
+  background-color: $color-primary;
 }

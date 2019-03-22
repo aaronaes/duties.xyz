@@ -1,3 +1,42 @@
 // ------------------------------------
 // Helpers
 // ------------------------------------
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+  html {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  color: $color-black;
+  background-color: transparent;
+  font-size: 24px;
+  width: 100%;
+
+  &:before {
+    content: none;
+  }
+
+}
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  background: $color-white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%) translateY(-50%);
+  mix-blend-mode: difference;
+  z-index: 99999;
+  pointer-events: none;
+}

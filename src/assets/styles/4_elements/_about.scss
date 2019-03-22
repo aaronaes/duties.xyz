@@ -1,22 +1,76 @@
 // About page
 body.about {
-  background-color: #252525;
-  color: white;
+  background-color: $color-light;
 
-  h1 {
-    &:first-of-type {
-      font-size: 70px;
-      margin-bottom: $md;
-    }
+  * {
+    color: rgba($color-black, 1);
   }
 
   a {
-    color: white;
+    color: rgba($color-black, .5) !important;
+
+    &:hover {
+      color: rgba($color-black, 1) !important;
+    }
   }
 
   nav {
-    .menu {
-      opacity: 0;
+    height: auto;
+    color: rgba($color-black, 1);
+  }
+
+  header {
+    height: auto;
+
+    figure {
+
+      .clients {
+        visibility: hidden;
+
+        >* {
+          visibility: visible;
+          -webkit-transition: opacity .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition: opacity .25s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+          &:last-of-type {
+            text-decoration: none;
+          }
+        }
+
+        &:hover {
+          >* {
+            opacity: .5;
+
+            &:hover {
+              opacity: 1;
+              color: $color-white;
+            }
+          }
+        }
+
+        a {
+          .showCase {
+            position: fixed;
+            display: none;
+            bottom: 40px;
+            max-width: 500px;
+            right: 40px;
+            z-index: -1;
+            opacity: 0;
+          }
+
+          &:hover {
+            .showCase {
+              display: block;
+              opacity: 0;
+            }
+
+            @media (max-width: ($break-medium)) {
+              opacity: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

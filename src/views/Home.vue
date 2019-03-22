@@ -1,56 +1,75 @@
 <template>
-  <main id="home">
-    <Currently/>
-    <section>
-      <div class="row recently">
-        <div class="columns">
-          <div class="title">— Recently</div>
-        </div>
-        <div class="columns">
-          <figure class="small-12 medium-10 large-10 float-left" v-scroll-reveal>
-            <router-link to="/project2">
-              <img src="https://www.placecage.com/1200/800">
-              <p>1. Yah</p>
-            </router-link>
-          </figure>
-        </div>
-        <div class="columns">
-          <figure v-scroll-reveal>
-            <router-link class="project-link" to="/project2">
-              <img src="/images/work/img8.jpg">
-              <p>
-                Threatlevel: Midnight, part II
-                <span class="year">[2018]</span>
-              </p>
-            </router-link>
-          </figure>
-        </div>
-      </div>
-    </section>
-  </main>
+  <div id="home">
+    <header>
+      <section class="row">
+        <figure class="columns">
+          <p v-if="pageName ==='Home'">
+            <span style="opacity: 0;">Erling Aarønæs</span>
+            enjoys working with startups, established brands, cultural projects and good friends &horbar; telling their stories throught a large variety of formats.
+          </p>
+          <p>...</p>
+          <p>Recent work</p>
+          <p class="clients">
+            <a href="#fetch">Fetch</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#gl">Godt Levert</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#eika">Eika Gruppen</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Sparebanken Sogn og Fjordane</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Graphiq</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Fetch</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">University of Oslo</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Humid Mag</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Eika Gruppen</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Berg Hansen Reisebureau</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Amedia</a>
+          </p>
+          <p>...</p>
+          <p>Links</p>
+          <p>
+            <a href="#" target="_blank">Credentials &nearr;</a>
+          </p>
+          <p>
+            <a href="#">Business inquiry &nearr;</a>
+          </p>
+          <p>
+            <a href="#" target="_blank">Instagram &nearr;</a>
+          </p>
+        </figure>
+      </section>
+    </header>
+
+    <main id="main">
+      <Fetch/>
+      <GL/>
+      <Eika/>
+    </main>
+    <a href="#top" class="toppp">&uarr;</a>
+  </div>
 </template>
 
 <script>
-import Carousel from "@/components/Carousel.vue";
-import Footer from "@/components/Footer.vue";
-import Currently from "@/components/Currently.vue";
-import VLazyImage from "v-lazy-image";
+import Eika from "@/projects/eika.vue";
+import Fetch from "@/projects/fetch.vue";
+import GL from "@/projects/godt-levert.vue";
 
 export default {
   name: "Home",
   components: {
-    Currently,
-    Carousel,
-    VLazyImage,
-    Footer
+    Eika,
+    Fetch,
+    GL
   },
   beforeCreate: function() {
     document.body.className = "home";
-  },
-  methods: {
-    next() {
-      this.$refs.flickity.next();
-    }
   },
   computed: {
     pageName() {
