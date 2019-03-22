@@ -1,6 +1,7 @@
 body {
   .toggle {
     position: relative;
+    display: inline-block;
 
     span {
       -webkit-transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -51,7 +52,7 @@ body {
     }
 
     p {
-      margin-bottom: $sm;
+      margin-bottom: 0;
     }
 
     &.half {

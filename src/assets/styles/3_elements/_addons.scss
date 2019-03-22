@@ -1,0 +1,39 @@
+body {
+  .toppp {
+    position: fixed;
+    top: 2rem;
+    z-index: 1;
+    right: 0rem;
+    transform: translateX(-3rem);
+    opacity: 0;
+    padding: .5rem;
+
+    &:after {
+      content: "Index";
+      padding-left: 15px;
+      -webkit-transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    }
+
+    &.show {
+      opacity: 1;
+      right: -5rem;
+      color: rgba($color-black, 1);
+
+      &:hover {
+        color: $color-black;
+        opacity: 1 !important;
+        transform: translateX(-7rem);
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (max-width: ($break-small)) {
+      display: none;
+    }
+  }
+}
