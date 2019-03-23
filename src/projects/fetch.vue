@@ -6,7 +6,7 @@
           Fetch, a crowd-sourced delivery service.
           <span class="super">[2019]</span>
         </p>
-        <a @click="showMore = !showMore" class="toggle" href="#fetch">
+        <a href="#fetch" @click="showMore = !showMore" class="toggle" tabindex="-1">
           <p>
             <span></span>
           </p>

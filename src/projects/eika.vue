@@ -6,11 +6,11 @@
           Eika Gruppen, a strategic alliance of 77 banks.
           <span class="super">[2014 - 16]</span>
         </p>
-        <button @click="showMore = !showMore" class="toggle" href="#eika">
+        <a href="#eika" @click="showMore = !showMore" class="toggle">
           <p>
             <span></span>
           </p>
-        </button>
+        </a>
         <div v-if="showMore" class="toggleInfo">
           <p>Rethinking the design language for one of Norways largest strategic bank alliances. Eika Gruppen is a strategic alliance between 77 local Norwegian savings banks that co-ordinates work within the areas defined as falling within the alliance.</p>
           <p>Utilizing the concepts surrounding atomic design, I provided a clear methodology for crafting design systems. Clients and team members are able to better appreciate the concept of design systems by actually seeing the steps laid out in front of them.</p>
