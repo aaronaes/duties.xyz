@@ -19,24 +19,31 @@
             </p>
           </a>
           <div v-if="showMore" class="toggleBio">
-            <p>I’m an Oslo-based senior designer, with over 10 years experience of creating websites, products and brands. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products.</p>
-            <br>
-            <p>
-              I'm 50/50 Norwegian American.
-              <br>I love Figma and design systems.
-              <br>I'm a nice person.
-            </p>
-            <ul>
-              <li>
+            <div class="large-6 float-left">
+              <p>I’m an Oslo-based senior designer, with over 10 years experience of creating websites, products and brands. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products.</p>
+              <br>
+              <p>
+                I'm 50/50 Norwegian American.
+                <br>I love Figma and design systems.
+                <br>I'm a nice person.
+              </p>
+              <p>
                 <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
-              </li>
-              <li>
+                <br>
                 <a href="#" target="_blank">Instagram &nearr;</a>
-              </li>
-              <li>
+                <br>
                 <a href="#">Business inquiry &nearr;</a>
-              </li>
-            </ul>
+              </p>
+            </div>
+            <div class="large-6 float-left" style="padding-left: 2.5vw;">
+              <!-- <p>Through my career, I've had the pleasure to work closely with a large variety of clients.</p> -->
+              <small
+                style="text-transform: uppercase; opacity: .5; font-weight: bold; letter-spacing:2px; padding-bottom: 20px;"
+              >Client list</small>
+              <p
+                style="max-width: 400px;"
+              >Fetch / Aftenposten / Schibsted / Anthon B Nilsen / Godt Levert / Eika Gruppen / Amedia Group / Graphiq / Bielke & Yang / OBOS / Coop / Sparebanken Sogn & Fjordane / Posten Norge / Mathias Fossum</p>
+            </div>
           </div>
         </figure>
         <figure class="columns btm">
@@ -49,12 +56,6 @@
             <a href="#eika">Eika Gruppen</a>
             <span>&nbsp;/&nbsp;</span>
             <a href="#">Sparebanken Sogn og Fjordane</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Graphiq</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Fetch</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">University of Oslo</a>
             <span>&nbsp;/&nbsp;</span>
             <a href="#">Humid Magazine</a>
           </p>

@@ -66,6 +66,16 @@ a {
   &:focus {
     color: rgba($color-white, 1);
   }
+
+  &:after {
+    opacity: 1;
+    color: rgba($color-white, 1);
+  }
+
+  &:hover:after {
+    opacity: 1;
+    color: rgba($color-white, 1);
+  }
 }
 
 small {
