@@ -5,15 +5,6 @@ body {
   -webkit-transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
-  a {
-    color: rgba($color-white, .5);
-
-    &:hover {
-      color: rgba($color-white, 1);
-    }
-  }
-
-
   .foo {
     position: relative;
     overflow: hidden;
@@ -49,17 +40,24 @@ body {
 
     section {
       padding-top: $md;
+      padding-bottom: $lg * 2;
+
+      @media (max-width: ($break-small)) {
+        padding-top: $sm;
+        padding-bottom: $lg;
+      }
 
       figure {
         &.sticky {
           position: absolute;
           bottom: 0;
+          margin-bottom: $md;
         }
 
         @media (max-width: ($break-small)) {
           &.sticky {
             position: absolute;
-            bottom: 20vh;
+            bottom: 0;
           }
         }
       }

@@ -6,7 +6,7 @@
           Eika Gruppen, a strategic alliance of 77 banks.
           <span class="super">[2014 - 16]</span>
         </p>
-        <a href="#eika" @click="showMore = !showMore" class="toggle">
+        <a href="#eika" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
           <p>
             <span></span>
           </p>

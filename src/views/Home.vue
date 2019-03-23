@@ -3,11 +3,43 @@
     <header>
       <section class="row">
         <figure class="columns">
-          <p v-if="pageName ==='Home'">
-            <span style="opacity: 0;">Erling Aarønæs</span>
-            enjoys working with startups, established brands, cultural projects and good friends &horbar; telling their stories throught a large variety of formats.
+          <p>
+            Erling Aarønæs
+            <i style="opacity: .5;">Design Lead</i>
           </p>
-          <p>...</p>
+          <p class="timestamp float-right">
+            <span class="clock"></span>
+            <span>&nbsp;&rarr;&nbsp;Oslo, NO</span>
+          </p>
+          <a @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
+            <p>
+              <span></span>
+            </p>
+          </a>
+          <div v-if="showMore" class="toggleBio">
+            <p>I’m an Oslo-based senior designer, with over 10 years experience of creating websites, products and brands. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products.</p>
+            <br>
+            <p>
+              I'm 50/50 Norwegian American.
+              <br>I love Figma and design systems.
+              <br>I'm a nice person.
+            </p>
+            <br>
+            <p>
+              <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
+            </p>
+            <p>
+              <a href="#" target="_blank">Instagram &nearr;</a>
+            </p>
+            <p>
+              <a href="#">Business inquiry &nearr;</a>
+            </p>
+          </div>
+          <!-- <p v-if="pageName ==='Home'">
+            <span style="opacity: 0;">Erling Aarønæs</span>&nbsp;enjoys working with startups, established brands, cultural projects and good friends &horbar; telling their stories throught a large variety of formats.
+          </p>-->
+        </figure>
+        <figure class="columns sticky">
           <p>Recent work</p>
           <p class="clients">
             <a href="#fetch">Fetch</a>
@@ -24,24 +56,7 @@
             <span>&nbsp;/&nbsp;</span>
             <a href="#">University of Oslo</a>
             <span>&nbsp;/&nbsp;</span>
-            <a href="#">Humid Mag</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Eika Gruppen</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Berg Hansen Reisebureau</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Amedia</a>
-          </p>
-          <p>...</p>
-          <p>Links</p>
-          <p>
-            <a href="#" target="_blank">Credentials &nearr;</a>
-          </p>
-          <p>
-            <a href="#">Business inquiry &nearr;</a>
-          </p>
-          <p>
-            <a href="#" target="_blank">Instagram &nearr;</a>
+            <a href="#">Humid Magazine</a>
           </p>
         </figure>
       </section>
@@ -52,7 +67,7 @@
       <GL/>
       <Eika/>
     </main>
-    <a href="#top" class="toppp">&uarr;</a>
+    <a href="#home" class="toppp">&uarr;</a>
   </div>
 </template>
 
@@ -68,6 +83,12 @@ export default {
     Fetch,
     GL
   },
+  data() {
+    return {
+      title: "Home",
+      showMore: false
+    };
+  },
   beforeCreate: function() {
     document.body.className = "home";
   },
@@ -77,4 +98,12 @@ export default {
     }
   }
 };
+
+// Moment
+$("span.clock");
+
+function update() {
+  $("span.clock").html(moment().format("LT"));
+}
+setInterval(update, 100);
 </script>

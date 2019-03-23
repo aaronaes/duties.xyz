@@ -2,7 +2,7 @@
   <div>
     <header>
       <section class="row">
-        <figure class="columns small-12 medium-8 large-6">
+        <figure class="columns">
           <p v-if="pageName !=='Home'">
             <span style="opacity: 0;">Erling Aaronaes</span> is all about the details. His approach to design is working strategically with teams to create sophisticated and strong solutions.
           </p>

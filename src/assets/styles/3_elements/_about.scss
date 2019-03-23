@@ -1,22 +1,22 @@
 // About page
 body.about {
-  background-color: $color-light;
+  background-color: #e7afaf;
 
   * {
-    color: rgba($color-black, 1);
+    color: rgba(#860909, 1);
   }
 
   a {
-    color: rgba($color-black, .5) !important;
+    color: rgba(#860909, 1) !important;
 
     &:hover {
-      color: rgba($color-black, 1) !important;
+      color: rgba(#fff, 1) !important;
     }
   }
 
   nav {
     height: auto;
-    color: rgba($color-black, 1);
+    color: rgba(#581919, 1);
   }
 
   header {

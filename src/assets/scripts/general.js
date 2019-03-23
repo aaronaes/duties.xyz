@@ -78,20 +78,11 @@ $(document).ready(function () {
     $carousel.off("mouseleave", onNavMouseleave);
   }
 
-  // Moment
-  $("span.clock");
+  $(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
 
-  function update() {
-    $("span.clock").html(moment().format("LT"));
-  }
-  setInterval(update, 100);
-
-});
-
-$(document).on('click', 'a[href^="#"]', function (event) {
-  event.preventDefault();
-
-  $('html, body').animate({
-    scrollTop: $($.attr(this, 'href')).offset().top,
-  }, 300);
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top,
+    }, 500);
+  });
 });

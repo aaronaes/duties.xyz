@@ -51,38 +51,31 @@ h3 {
 
 // Paragraphs
 p {
-  font-size: calc(18px + (20 - 18) * ((100vw - 375px) / (1280 - 375)));
-  line-height: calc(1.75em + (2.2 - 1.75) * ((100vw - 375px) / (1280 - 375)));
+  font-size: calc(18px + (22 - 18) * ((100vw - 375px) / (1280 - 375)));
+  line-height: calc(1.75em + (2 - 1.75) * ((100vw - 375px) / (1280 - 375)));
   padding: 0;
   margin: 0;
-
-  @media (max-width: ($break-small)) {
-    font-size: 17px;
-    line-height: 1.7rem;
-  }
 }
 
 // Links
 a {
-  color: $color-black;
+  color: rgba($color-white, .5);
   text-decoration: none;
   -webkit-transition: color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 
 
   &:after {
-    color: $color-black;
-    opacity: 0;
+    opacity: 1;
   }
 
   &:hover,
   &:active,
   &:focus {
-    color: rgba($color-black, 1);
+    color: rgba($color-white, 1);
 
     &:after {
-      color: $color-black;
-      opacity: 0;
+      opacity: 1;
     }
   }
 

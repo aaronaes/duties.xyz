@@ -23,22 +23,8 @@ nav {
           margin: 0;
         }
 
-        a {
-          text-decoration: underline;
-          color: $color-white;
-          display: inline;
-
-          &:hover {
-            color: rgba($color-white, .5);
-          }
-        }
-
         .router-link-exact-active {
           display: inline;
-        }
-
-        .timestamp {
-          text-align: right;
         }
       }
     }

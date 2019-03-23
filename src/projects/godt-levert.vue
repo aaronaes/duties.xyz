@@ -6,7 +6,7 @@
           Godt Levert, a food-to-your-door service.
           <span class="super">[2018 - 19]</span>
         </p>
-        <a href="#gl" @click="showMore = !showMore" class="toggle">
+        <a href="#gl" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
           <p>
             <span></span>
           </p>
