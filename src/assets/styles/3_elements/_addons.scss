@@ -49,6 +49,7 @@ body {
 
     >* {
       visibility: visible;
+      cursor: s-resize;
       color: rgba($color-white, .5);
       -webkit-transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);
       transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);

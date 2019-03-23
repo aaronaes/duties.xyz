@@ -52,6 +52,10 @@ body.light {
 .column,
 .columns {
   padding: 0 $sm;
+
+  @media (max-width: ($break-small)) {
+    padding: 0 15px;
+  }
 }
 
 section {
@@ -59,13 +63,7 @@ section {
   height: 100%;
 
   figure {
-    margin: 0 0 $md;
+    margin: 0 0 $sm;
     padding: 0;
-    position: relative;
-  }
-
-  &:only-of-type,
-  &:last-of-type {
-    margin-bottom: 0;
   }
 }

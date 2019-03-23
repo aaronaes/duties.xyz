@@ -5,72 +5,48 @@ body {
   -webkit-transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: background-color .5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
-  .foo {
-    position: relative;
-    overflow: hidden;
-    display: inline;
-
-    p {
-      display: inline;
-    }
-
-    .bar {
-      width: 40px;
-      position: absolute;
-      text-align: center;
-      transform: translateY(-30px);
-      opacity: 0;
-    }
-
-    &:hover {
-      .bar {
-        transform: translateY(0px);
-        opacity: 1;
-        -webkit-transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        transition: transform .5s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-    }
-  }
-
   header {
     display: block;
     position: relative;
     height: 100vh;
-    z-index: 0;
+
+    @media (max-width: ($break-small)) {
+      padding: 0;
+    }
 
     section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-flow: row wrap;
       padding-top: $md;
-      padding-bottom: $lg * 2;
 
       @media (max-width: ($break-small)) {
         padding-top: $sm;
-        padding-bottom: $lg;
       }
 
       figure {
-        &.sticky {
-          position: absolute;
-          bottom: 0;
-          margin-bottom: $md;
-        }
+        position: relative;
 
-        @media (max-width: ($break-small)) {
-          &.sticky {
-            position: absolute;
-            bottom: 0;
+        &.btm {
+          flex: 0 0 auto;
+          margin-right: auto;
+          color: rgba($color-white, 1) !important;
+          margin-bottom: $md;
+          align-self: flex-end;
+          align-self: flex-end;
+
+          @media (max-width: ($break-small)) {
+            margin-bottom: -$md;
           }
         }
-      }
-
-      @media (max-width: ($break-small)) {
-        padding: $sm 0;
       }
     }
   }
 
   // Recently
   main {
-    padding: $lg 0;
+    padding: $sm 0;
     position: relative;
 
     header {

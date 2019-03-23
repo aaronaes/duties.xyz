@@ -4,12 +4,14 @@
       <section class="row">
         <figure class="columns">
           <p>
-            Erling Aarønæs
-            <i style="opacity: .5;">Design Lead</i>
+            Erling
+            <span class="hide-for-small-only">Aarønæs</span>
+            <span class="show-for-small-only">A</span>
+            <i style="opacity: .5; padding-left: 5px;">&nbsp;Design Lead</i>
           </p>
           <p class="timestamp float-right">
             <span class="clock"></span>
-            <span>&nbsp;&rarr;&nbsp;Oslo, NO</span>
+            <span class="hide-for-small-only">&nbsp;&rarr;&nbsp;Oslo, NO</span>
           </p>
           <a @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
             <p>
@@ -24,22 +26,20 @@
               <br>I love Figma and design systems.
               <br>I'm a nice person.
             </p>
-            <br>
-            <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
-            </p>
-            <p>
-              <a href="#" target="_blank">Instagram &nearr;</a>
-            </p>
-            <p>
-              <a href="#">Business inquiry &nearr;</a>
-            </p>
+            <ul>
+              <li>
+                <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
+              </li>
+              <li>
+                <a href="#" target="_blank">Instagram &nearr;</a>
+              </li>
+              <li>
+                <a href="#">Business inquiry &nearr;</a>
+              </li>
+            </ul>
           </div>
-          <!-- <p v-if="pageName ==='Home'">
-            <span style="opacity: 0;">Erling Aarønæs</span>&nbsp;enjoys working with startups, established brands, cultural projects and good friends &horbar; telling their stories throught a large variety of formats.
-          </p>-->
         </figure>
-        <figure class="columns sticky">
+        <figure class="columns btm">
           <p>Recent work</p>
           <p class="clients">
             <a href="#fetch">Fetch</a>

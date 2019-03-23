@@ -3,59 +3,42 @@ body {
     position: relative;
     display: inline-block;
 
-    span {
-      -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-      transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    p {
+      width: 200px;
 
       &:after {
         content: "Read more";
       }
 
-      &:hover {
-        &:after {
-          content: "Read more ...";
-        }
+      &:hover:after {
+        content: "Read more ...";
       }
     }
 
+
     &.opened {
-      span {
+      p {
         &:after {
           content: "Read less";
         }
 
-        &:hover {
-          &:after {
-            content: "Close";
-          }
-        }
-      }
-
-      @media (max-width: ($break-small)) {
-        span {
-          &:after {
-            content: "More";
-          }
-
-          &:hover {
-            &:after {
-              content: "Less";
-            }
-          }
+        &:hover:after {
+          content: "Close";
         }
       }
     }
-
   }
 
   .toggleInfo {
     position: absolute;
     z-index: 9;
-    padding-bottom: $md;
+    padding-top: $md;
+    padding-bottom: $sm;
     padding-right: $md;
+    border-radius: 1px;
     width: auto;
     max-width: 70vw;
-    left: 20px;
+    left: 40px;
     background-color: $color-white;
 
     -webkit-transition: height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -95,12 +78,17 @@ body {
       text-decoration: none !important;
     }
 
+    p {
+      padding-bottom: $sm;
+    }
+
     @media (max-width: ($break-small)) {
       width: auto;
       max-width: 100vw !important;
       left: 0px;
-      padding: $sm;
-      border-bottom: 1px solid rgba(#000000, 0.1);
+      padding: 0;
+      background-color: $color-black;
+      z-index: 999;
     }
   }
 }
