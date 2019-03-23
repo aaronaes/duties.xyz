@@ -3,10 +3,8 @@
     <section class="row">
       <figure class="columns title">
         <p>
-          <a href="#eika">
-            Eika Gruppen, a strategic alliance of 77 banks.
-            <span class="super">[2014 - 16]</span>
-          </a>
+          Eika Gruppen, a strategic alliance of 77 banks.
+          <span class="super">[2014 - 16]</span>
         </p>
         <a href="#eika" @click="showMore = !showMore" class="toggle">
           <p>

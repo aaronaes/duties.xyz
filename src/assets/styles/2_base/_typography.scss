@@ -93,8 +93,8 @@ a {
 }
 
 small {
-  font-size: $font-tiny;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.65rem;
 }
 
 b {
@@ -145,5 +145,5 @@ address {
 hr {
   border: 0;
   height: 1px;
-  background-color: $color-primary;
+  background-color: $color-black;
 }
