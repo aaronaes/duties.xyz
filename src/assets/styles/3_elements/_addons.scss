@@ -49,9 +49,14 @@ body {
   .clients {
     visibility: hidden;
 
-    >* {
-      visibility: visible;
+    a {
       cursor: s-resize;
+    }
+
+
+    >* {
+      cursor: none;
+      visibility: visible;
       color: rgba($color-white, .5);
       -webkit-transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);
       transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -59,15 +64,84 @@ body {
       &:last-of-type {
         text-decoration: none;
       }
+
     }
 
     &:hover {
       >* {
         opacity: .5;
 
+        &img {
+          opacity: 1;
+        }
+
         &:hover {
           opacity: 1;
           color: rgba($color-white, 1);
+        }
+
+      }
+
+    }
+  }
+}
+
+body {
+  .imagePeek {
+    width: auto;
+    z-index: 0;
+
+    a {
+
+
+      &:after {
+        content: "/";
+        opacity: .5;
+        width: 20px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      span {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        -webkit-transition: opacity 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+        img {
+          opacity: 0;
+          z-index: 999;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          top: 50%;
+          transform: translateY(-48%);
+          position: relative;
+          width: auto;
+          max-height: 40vh;
+          -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+      }
+
+      &:hover {
+        z-index: 1;
+
+        span {
+          visibility: visible;
+          opacity: 1;
+
+          img {
+            opacity: 1;
+            transform: translateY(-50%);
+          }
         }
       }
     }

@@ -1,28 +1,44 @@
 <template>
-  <div>
-    <header>
-      <section class="row">
-        <figure class="columns">
-          <p v-if="pageName !=='Home'">
-            <span style="opacity: 0;">Erling Aaronaes</span> is all about the details. His approach to design is working strategically with teams to create sophisticated and strong solutions.
-          </p>
-          <p>...</p>
-          <p>I’m an Oslo-based senior designer based, with over 10 years experience of creating websites, products and brands. As a designer, I am all about the details. Details in type, details in micro-interactions, details in experience. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products. I have worked with startups, established brands, cultural projects and friends, telling their stories in a large variety of formats.</p>
-          <p>...</p>
-          <p>Links</p>
+  <header style="height: 100vh;">
+    <section class="row">
+      <figure class="columns">
+        <div style="z-index: -1;">
           <p>
-            <a href="#" target="_blank">Credentials &nearr;</a>
+            Erling Aarønæs
+            <i style="opacity: .5; padding-left: 5px;">&nbsp;Design Lead</i>
           </p>
+          <br>
+          <div>
+            <p>I’m an Oslo-based senior designer, with over 10 years experience of creating websites, products and brands. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products.</p>
+            <p>I was born 50/50 Norwegian American, I always rely on Figma and design systems and I'm a nice guy.</p>
+          </div>
+        </div>
+        <div class="dingo" style="position: absolute; bottom: 2.5rem;">
           <p>
-            <a href="#">Business inquiry &nearr;</a>
+            <a href="#">
+              Fetch
+              <span>
+                <img src="/images/work/fetch/fetch-01.png">
+              </span>
+            </a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#gl">
+              Godt Levert
+              <span>
+                <img src="/images/work/gl/gl-04.png">
+              </span>
+            </a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#eika">Eika Gruppen</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Sparebanken Sogn og Fjordane</a>
+            <span>&nbsp;/&nbsp;</span>
+            <a href="#">Humid Magazine</a>
           </p>
-          <p>
-            <a href="#" target="_blank">Instagram &nearr;</a>
-          </p>
-        </figure>
-      </section>
-    </header>
-  </div>
+        </div>
+      </figure>
+    </section>
+  </header>
 </template>
 
 <script>

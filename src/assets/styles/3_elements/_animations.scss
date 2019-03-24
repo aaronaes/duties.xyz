@@ -1,0 +1,58 @@
+// Body transition
+body.light {
+  background-color: #F8F5F3 !important;
+
+  p {
+    color: $color-black;
+  }
+
+  a {
+    color: rgba($color-black, .5);
+    -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    &:hover {
+      color: rgba($color-black, 1);
+    }
+
+    &:after {
+      color: rgba($color-black, 1);
+    }
+
+    &:hover:after {
+      color: rgba($color-black, 1);
+    }
+  }
+}
+
+// Vue transitions
+
+// Fade
+.fade-enter,
+.fade-leave {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+// Slide
+.slide-enter-active,
+.slide-leave-active {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.slide-leave-active {
+  opacity: 0;
+}
+
+// pop
+.pop-enter-active,
+.pop-leave-active {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pop-enter-active,
+.pop-leave-active {
+  opacity: 0;
+}

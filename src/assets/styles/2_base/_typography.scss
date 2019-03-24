@@ -78,6 +78,14 @@ a {
   }
 }
 
+.super {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
 small {
   font-size: 1rem;
   line-height: 1.65rem;

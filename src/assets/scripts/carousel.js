@@ -1,3 +1,4 @@
+// Flickity fix
 $(document).ready(function () {
   "use strict";
   var $carousel = $('.carousel').flickity({

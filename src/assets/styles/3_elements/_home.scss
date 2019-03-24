@@ -72,14 +72,6 @@ body {
           }
         }
 
-        .super {
-          vertical-align: baseline;
-          position: relative;
-          top: -0.4em;
-          font-size: 14px;
-          opacity: 0.5;
-        }
-
         @media (max-width: ($break-small)) {
           margin: 0 0 $sm;
         }
@@ -90,7 +82,7 @@ body {
           padding: 0;
 
           p {
-            color: $color-dark;
+            color: $color-black;
 
             span {
               margin-left: 10px;

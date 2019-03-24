@@ -14,7 +14,9 @@
         <div v-if="showMore" class="toggleInfo">
           <p>Godt Levert didn't have as much of a presence in the market as they wanted. The service was new and was gaining traction, and with that Godt Levert wanted to become a household name.</p>
           <p>The solution was to take a more holistic approach to their product, through creating a new way to browse meals and weekly deals. As a part of the project, the whole app was revamped with new UI and a new website.</p>
-          <a href="//www.godtlevert.no" target="_blank">Visit site &nearr;</a>
+          <p>
+            <a href="//www.godtlevert.no" target="_blank">Visit site &nearr;</a>
+          </p>
         </div>
       </figure>
 
