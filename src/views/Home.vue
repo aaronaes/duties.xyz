@@ -10,7 +10,6 @@
             <i style="opacity: .5; padding-left: 5px;">&nbsp;Design Lead</i>
             <br>
           </p>
-          <a href="#" class="font-test">FUCK ME</a>
           <br>
           <p class="timestamp float-right">
             <span class="local-time" data-tz="Europe/Oslo"></span>

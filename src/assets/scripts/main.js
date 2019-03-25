@@ -6,7 +6,7 @@ import "@/assets/scripts/cursor.js";
 import "@/assets/scripts/noHover.js";
 import "@/assets/scripts/localWeather.js";
 import "@/assets/scripts/scrollTo.js";
-import "@/assets/scripts/fontUp.js";
+// import "@/assets/scripts/fontUp.js";
 // import "@/assets/scripts/colorBg.js";
 // import "@/assets/scripts/header.js";
 // import "@/assets/scripts/smooth.js";
