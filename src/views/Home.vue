@@ -8,9 +8,7 @@
             <span class="hide-for-small-only">Aarønæs</span>
             <span class="show-for-small-only">A</span>
             <i style="opacity: .5; padding-left: 5px;">&nbsp;Design Lead</i>
-            <br>
           </p>
-          <br>
           <p class="timestamp float-right">
             <span class="local-time" data-tz="Europe/Oslo"></span>
             <!-- <span class="clock"></span> -->
