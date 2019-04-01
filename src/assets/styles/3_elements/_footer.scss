@@ -1,4 +1,13 @@
 footer {
-  width: 100%;
-  padding: $lg 0 0;
+  padding-top: $lg;
+  padding-bottom: $lg;
+  z-index: 1;
+
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    line-height: 1.2;
+  }
 }

@@ -3,14 +3,15 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import VueScrollReveal from "vue-scroll-reveal";
+
 import "./assets/scripts/main.js";
 
 // ScrollReveal
 Vue.use(VueScrollReveal, {
-  duration: 600,
-  delay: 200,
+  duration: 500,
+  delay: 250,
   viewFactor: 0,
-  distance: "10px",
+  distance: "20px",
   easing: "cubic-bezier(0.645, 0.045, 0.355, 1.000)",
   opacity: 0,
   viewOffset: {

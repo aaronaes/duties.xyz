@@ -5,6 +5,12 @@
   padding-left: $sm;
   padding-right: $sm;
 
+  @media (min-width: ($break-large)) {
+    max-width: 100vw;
+    padding-left: $sm;
+    padding-right: $sm;
+  }
+
   @media (max-width: ($break-small)) {
     max-width: 100vw;
     padding-left: 0;
@@ -16,8 +22,12 @@
 .columns {
   padding: 0 $sm;
 
+  @media (min-width: ($break-large)) {
+    padding: 0 $sm;
+  }
+
   @media (max-width: ($break-small)) {
-    padding: 0 15px;
+    padding: 0 0.9375rem;
   }
 }
 
@@ -26,7 +36,11 @@ section {
   height: 100%;
 
   figure {
-    margin: 0 0 $sm;
+    margin: 0 0 $md;
     padding: 0;
+
+    @media (min-width: ($break-large)) {
+      margin: 0 0 $md;
+    }
   }
 }

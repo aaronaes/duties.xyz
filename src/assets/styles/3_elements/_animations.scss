@@ -1,18 +1,21 @@
 // Body transition
 body.light {
-  background-color: #F8F5F3 !important;
+  background-color: $color-white !important;
 
+  h1,
+  h2,
+  h3,
   p {
     color: $color-black;
   }
 
   a {
-    color: rgba($color-black, .5);
+    color: rgba($color-black, 1);
     -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     &:hover {
-      color: rgba($color-black, 1);
+      color: rgba($color-black, .35);
     }
 
     &:after {

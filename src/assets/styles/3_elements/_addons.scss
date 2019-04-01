@@ -7,15 +7,14 @@ body {
     right: 0rem;
     transform: translateX(-3rem);
     opacity: 0;
-    padding: .5rem;
+    padding: 0.5rem;
 
     &:after {
       content: "Index";
       opacity: 0;
       padding-left: 15px;
-      -webkit-transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
-      transition: all .5s cubic-bezier(0.25, 0.1, 0.25, 1);
-
+      -webkit-transition: all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
+      transition: all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
     }
 
     &.show {
@@ -24,10 +23,15 @@ body {
       right: -5rem;
       color: rgba($color-black, 1);
 
+      @media (max-width: ($break-small)) {
+        display: none !important;
+      }
+
       &:hover {
         color: $color-black;
         opacity: 1 !important;
         transform: translateX(-7rem);
+
 
         &:after {
           opacity: 1;
@@ -36,7 +40,8 @@ body {
     }
 
     @media (max-width: ($break-small)) {
-      display: none;
+      display: none !important;
+      opacity: 0 !important;
     }
   }
 
@@ -46,65 +51,21 @@ body {
     top: 0px;
   }
 
-  .clients {
-    visibility: hidden;
+  // Show projects on frontpage
 
+  .clients {
     a {
       cursor: s-resize;
-    }
+      color: rgba($color-white, 0.5);
+      -webkit-transition: all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
+      transition: all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
 
-
-    >* {
-      cursor: none;
-      visibility: visible;
-      color: rgba($color-white, .5);
-      -webkit-transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);
-      transition: color .25s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-      &:last-of-type {
-        text-decoration: none;
-      }
-
-    }
-
-    &:hover {
-      >* {
-        opacity: .5;
-
-        &img {
-          opacity: 1;
-        }
-
-        &:hover {
-          opacity: 1;
-          color: rgba($color-white, 1);
-        }
-
-      }
-
-    }
-  }
-}
-
-body {
-  .imagePeek {
-    width: auto;
-    z-index: 0;
-
-    a {
-
-
-      &:after {
-        content: "/";
-        opacity: .5;
-        width: 20px;
-        text-align: center;
-        display: inline-block;
+      &:first-of-type {
+        // color: $color-white !important;
       }
 
       span {
         position: fixed;
-        visibility: hidden;
         opacity: 0;
         top: 0;
         left: 0;
@@ -112,35 +73,117 @@ body {
         bottom: 0;
         z-index: -1;
 
-        -webkit-transition: opacity 5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        background-size: contain;
 
-        img {
-          opacity: 0;
-          z-index: 999;
-          margin-left: auto;
-          margin-right: auto;
-          display: block;
-          top: 50%;
-          transform: translateY(-48%);
-          position: relative;
-          width: auto;
-          max-height: 40vh;
-          -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-          transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
+        -webkit-transition: all 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+        transition: all 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+      }
+
+      &:last-of-type {
+        padding-left: 5px;
+      }
+
+      &:after {
+        content: "/";
+        opacity: 0.5;
+        padding-left: 2px;
+        text-align: center;
+        display: inline-block;
+        cursor: none;
+      }
+
+      &:last-of-type:after {
+        content: "";
       }
 
       &:hover {
-        z-index: 1;
+        color: rgba($color-white, 1);
 
         span {
-          visibility: visible;
           opacity: 1;
+          -webkit-transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+          transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+        }
 
-          img {
-            opacity: 1;
-            transform: translateY(-50%);
+        &.gl {
+          span {
+            background-image: url(/images/work/gl/gl-cover.png);
+            background-color: #7E7971;
+          }
+        }
+
+        &.gro {
+          span {
+            background-image: url(/images/work/gro/gro-cover.png);
+            background-color: #201B34;
+
+          }
+        }
+
+        &.as {
+          span {
+            background-image: url(/images/work/as/as-cover.png);
+            background-color: #172C43;
+            background-position: top left;
+
+          }
+        }
+
+        &.humid {
+          span {
+            background-image: url(/images/work/humid/humid-cover.png);
+            background-color: #AC6240;
+            background-position: center left;
+          }
+        }
+
+        &.eika {
+          span {
+            background-image: url(/images/work/eika/eika-cover.png);
+            background-color: #004F59;
+            background-position: bottom right;
+          }
+        }
+
+        &.fetch {
+          span {
+            background-image: url(/images/work/fetch/fetch-cover.png);
+            background-color: rgb(58, 58, 58);
+            background-position: center center;
+          }
+        }
+
+        &:not(:hover) {
+          span {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      a {
+
+        &:first-of-type {
+          color: rgba($color-white, 0.5) !important;
+
+          span {
+            opacity: 0;
+          }
+        }
+
+        &:hover {
+          &:first-of-type {
+            color: rgba($color-white, 1) !important;
+
+            span {
+              opacity: 1;
+            }
           }
         }
       }

@@ -15,57 +15,23 @@ html {
 }
 
 @font-face {
-  font-family: 'Px Grotesk';
-  src: url('/fonts/PxGroteskRegular.woff2') format('woff2'),
-    url('/fonts/PxGroteskRegular.woff') format('woff');
+  font-family: 'Sneak Regular';
+  src: url('/fonts/Sneak-Regular.woff2') format('woff2'),
+    url('/fonts/Sneak-Regular.woff') format('woff'),
+    url('/fonts/Sneak-Regular.eof') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Ginto';
-  src: url('/fonts/gintoregular.woff2') format('woff2'),
-    url('/fonts/gintoregular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+$color-black: #000000;
+$color-dark: #898989;
+$color-white: #FEFEF8;
 
-@font-face {
-  font-family: 'Maison Neue';
-  src: url('/fonts/MaisonNeue-Book.woff2') format('woff2'),
-    url('/fonts/MaisonNeue-Book.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+$color-primary: rgb(224, 32, 64);
+$color-alert: rgb(255, 255, 0);
 
-@font-face {
-  font-family: 'Graebenbach';
-  src: url('/fonts/Graebenbach-Regular.woff2') format('woff2'),
-    url('/fonts/Graebenbach-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Graphik';
-  src: url('/fonts/Graphik-Regular.woff2') format('woff2'),
-    url('/fonts/Graphik-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-$color-black: #100f14;
-$color-dark: rgba($color-black, .5);
-$color-light: #F8F5F3;
-$color-white: #F8F5F3;
-
-// $font-sans: "Ginto",
-// $font-sans: "Px Grotesk",
-// $font-sans: "Graebenbach",
-$font-sans: "Maison Neue",
-// $font-sans: "Graphik",
-// $font-sans: "Inter",
+$font-sans: "Sneak Regular",
+"Inter",
 sans-serif;
 
 $font-lg: 2.4375rem;
@@ -76,6 +42,12 @@ $lg: 5rem;
 $md: 2.5rem;
 $sm: 1.25rem;
 
-$break-large: 60rem;
-$break-medium: 61.25rem;
-$break-small: 30rem;
+
+// Small devices (landscape phones, less than 768px)
+$break-small: 575.98px;
+
+// Medium devices (tablets, less than 992px)
+$break-medium: 991.98px;
+
+// Large devices (desktops, less than 1200px)
+$break-large: 1199.98px;

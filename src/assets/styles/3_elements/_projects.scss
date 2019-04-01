@@ -1,9 +1,17 @@
 .project {
   padding-top: $md;
-  padding-bottom: $lg * 2;
+  padding-bottom: $lg * 3;
+
+  &:last-of-type {
+    padding-bottom: $lg;
+  }
 
   @media (max-width: ($break-small)) {
     padding-top: $sm;
     padding-bottom: $lg;
+
+    &:last-of-type {
+      padding-bottom: $lg;
+    }
   }
 }

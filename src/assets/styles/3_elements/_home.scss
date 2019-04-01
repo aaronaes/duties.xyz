@@ -25,20 +25,35 @@ body {
         padding-top: $sm;
       }
 
+      .nav {
+        -webkit-transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
+        transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
+
+        &.hideMe {
+          transform: translateY(-10vh);
+        }
+      }
+
       figure {
         position: relative;
+        -webkit-transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
+        transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
+
 
         &.btm {
           flex: 0 0 auto;
           margin-right: auto;
           color: rgba($color-white, 1) !important;
-          margin-bottom: $md;
           align-self: flex-end;
           align-self: flex-end;
 
           @media (max-width: ($break-small)) {
             margin-bottom: -$md;
           }
+        }
+
+        &.fuk {
+          transform: translateY(15vh);
         }
       }
     }
@@ -48,6 +63,7 @@ body {
   main {
     padding: $sm 0;
     position: relative;
+    background-color: $color-white;
 
     header {
       padding: 0;
@@ -62,7 +78,6 @@ body {
       position: relative;
 
       figure {
-        margin: 0 0 $md;
 
         .title {
           margin: 0 0 $sm;

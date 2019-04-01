@@ -2,19 +2,19 @@
   <section id="gl" class="project">
     <section class="row">
       <figure class="columns title">
-        <p>
-          Godt Levert, a food-to-your-door service.
-          <span class="super">[2018 - 19]</span>
-        </p>
+        <h2>Godt Levert</h2>
+        <p>A food-to-your-door subscription service.</p>
         <a href="#gl" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
           <p>
             <span></span>
           </p>
         </a>
         <div v-if="showMore" class="toggleInfo">
-          <p>Godt Levert didn't have as much of a presence in the market as they wanted. The service was new and was gaining traction, and with that Godt Levert wanted to become a household name.</p>
-          <p>The solution was to take a more holistic approach to their product, through creating a new way to browse meals and weekly deals. As a part of the project, the whole app was revamped with new UI and a new website.</p>
-          <p>
+          <p class="copy">
+            Godt Levert didn't have as much of a presence in the market as they wanted. The service was new and was gaining traction, and with that Godt Levert wanted to become a household name.
+            The solution to this was taking a more holistic approach to their product, through creating a new way to browse meals and weekly deals. As a part of the project, the whole app was revamped with new UI and a new website.
+          </p>
+          <p class="link">
             <a href="//www.godtlevert.no" target="_blank">Visit site &nearr;</a>
           </p>
         </div>
@@ -34,6 +34,18 @@
       </figure>
       <figure class="columns" v-scroll-reveal>
         <img src="/images/work/gl/gl-05.png">
+      </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/gl/gl-06.png">
+      </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/gl/gl-07.png">
+      </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/gl/gl-08.png">
+      </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/gl/gl-09.png">
       </figure>
     </section>
   </section>

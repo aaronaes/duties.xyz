@@ -4,21 +4,44 @@
 
   p {
     width: 200px;
+    display: inline-block;
 
     &:after {
       content: "Read more";
     }
 
+    &.bio {
+      &:after {
+        content: "Design Lead" !important;
+      }
+
+      &:hover:after {
+        content: "Read bio ..." !important;
+      }
+    }
+
     &:hover:after {
       content: "Read more ...";
     }
+
   }
+
 
 
   &.opened {
     p {
       &:after {
         content: "Read less";
+      }
+
+      &.bio {
+        &:after {
+          content: "Close" !important;
+        }
+
+        &:hover:after {
+          content: "Close ..." !important;
+        }
       }
 
       &:hover:after {
@@ -31,7 +54,7 @@
 .toggleInfo {
   position: absolute;
   z-index: 9;
-  padding-top: $md;
+  padding-top: $sm;
   padding-bottom: $sm;
   padding-right: $md;
   border-radius: 1px;
@@ -40,8 +63,8 @@
   left: 40px;
   background-color: $color-white;
 
-  -webkit-transition: height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   a {
     text-decoration: none !important;
@@ -49,6 +72,11 @@
 
   p {
     margin-bottom: $sm !important;
+    text-indent: 0;
+
+    &.copy {
+      text-indent: calc(2 * 0.5em);
+    }
   }
 
   &.open {
@@ -69,7 +97,6 @@
 .toggleBio {
   padding-bottom: $md;
   padding-right: $md;
-  background-color: $color-black;
   z-index: 999;
 
   -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -80,7 +107,12 @@
   }
 
   p {
-    padding-bottom: $sm;
+    margin-bottom: $sm !important;
+    text-indent: 0;
+
+    &.copy {
+      text-indent: calc(2 * 0.5em);
+    }
   }
 
   @media (max-width: ($break-small)) {

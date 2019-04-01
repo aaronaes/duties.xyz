@@ -1,5 +1,5 @@
 * {
-  // cursor: none !important;
+  cursor: none !important;
 
   &::before,
   &::after {
@@ -15,7 +15,7 @@ html {
   line-height: 1.2;
   font-size: 16px;
   vertical-align: baseline;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 body {

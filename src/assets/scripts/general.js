@@ -5,22 +5,27 @@ $(document).ready(function () {
   var height = $("header").outerHeight(); //gets height of header
 
   $(window).on("scroll", function () {
-    if ($(window).scrollTop() > top + height / 10) {
-      $(".imagePeek span img").css("opacity", "0");
-      $(".imagePeek span img").css("heigh", "0");
-    } else {
-      $(".imagePeek span img").css("opacity", "1");
-      $(".imagePeek span img").css("height", "auto");
-    }
 
     if ($(window).scrollTop() > top + height / 2) {
       $("body").addClass("light");
       $(".toppp").addClass("show");
+      $("header .clients a span").css("transform", "translateY(-100vh)");
     } else {
       $("body").removeClass("light");
       $(".toppp").removeClass("show");
+      $("header .clients a span").css("transform", "translateY(0)");
     }
   });
+
+  // Click outside
+  // $(document).click(function (e) {
+  //   var container = $(".toggleBio");
+
+  //   // if the target of the click isn't the container nor a descendant of the container
+  //   if (!container.is(e.target) && container.has(e.target).length === 0) {
+  //     container.hide();
+  //   }
+  // });
 
   // Manual shuffle
   $(".shuffle-container").imagesLoaded(function () {
