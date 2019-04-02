@@ -10,4 +10,14 @@ footer {
   p {
     line-height: 1.2;
   }
+
+  @media (max-width: ($break-small)) {
+    padding-top: $sm;
+    padding-bottom: $sm;
+
+    &.float-right {
+      float: left !important;
+      padding-bottom: $sm;
+    }
+  }
 }
