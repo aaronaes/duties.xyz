@@ -28,7 +28,7 @@
             <p>
               <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
               <br>
-              <a href="#" target="_blank">Instagram &nearr;</a>
+              <a href="https://www.instagram.com/aaronaes.studio/" target="_blank">Instagram &nearr;</a>
               <br>
               <a href="mailto:hello@aaronaes.studio?subject=Hi">Contact me &nearr;</a>
             </p>
