@@ -24,7 +24,6 @@
           </a>
           <div v-if="showMore" class="toggleBio">
             <p>I’m an Oslo-based product designer, with over 10 years experience of creating user-friendly products, apps and webites for humans. My ideal approach to a new project is working closely with interdisciplinary teams to create and build sophisticated and solid products that work really well.</p>
-            <p>As a detail-oriented designer with a strong understanding of composition and detail, my work can be described as minimalist and clean, with a focus on research-based user experience.</p>
             <p>Yes, I am currently available for projects :)</p>
             <p>
               <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
