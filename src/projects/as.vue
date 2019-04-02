@@ -43,6 +43,12 @@
       <figure class="columns" v-scroll-reveal>
         <img src="/images/work/as/as-07.png">
       </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/as/as-08.png">
+      </figure>
+      <figure class="columns" v-scroll-reveal>
+        <img src="/images/work/as/as-09.png">
+      </figure>
     </section>
   </section>
 </template>
