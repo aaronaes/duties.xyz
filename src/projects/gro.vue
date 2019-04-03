@@ -1,6 +1,6 @@
 <template>
   <section id="gro" class="project">
-    <section class="row" v-lazy-container="{ selector: 'img' }">
+    <section class="row">
       <figure class="columns title">
         <h2>Gro Grønt</h2>
         <p>An Oslo-based hydroponic startup.</p>
@@ -28,21 +28,23 @@
         </div>
       </figure>
 
-      <figure class="columns">
-        <img data-src="/images/work/gro/gro-01.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/gro/gro-02.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/gro/gro-03.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/gro/gro-04.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/gro/gro-05.jpg">
-      </figure>
+      <div v-lazy-container="{ selector: 'img' }">
+        <figure class="columns">
+          <img data-src="/images/work/gro/gro-01.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/gro/gro-02.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/gro/gro-03.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/gro/gro-04.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/gro/gro-05.jpg">
+        </figure>
+      </div>
     </section>
   </section>
 </template>

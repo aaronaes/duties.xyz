@@ -1,6 +1,6 @@
 <template>
   <section id="ssf" class="project">
-    <section class="row" v-lazy-container="{ selector: 'img' }">
+    <section class="row">
       <figure class="columns title">
         <p>
           SSF, a small local bank with big ambitions.
@@ -15,21 +15,22 @@
           <p>Rethinking the design language for one of Norways largest strategic bank alliances. Eika Gruppen is a strategic alliance between 77 local Norwegian savings banks that co-ordinates work within the areas defined as falling within the alliance.</p>
         </div>
       </figure>
-
-      <figure class="columns">
-        <img data-src="/images/work/ssf/ssf-01.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/ssf/ssf-02.jpg">
-      </figure>
-      <figure class="columns">
-        <span class="float-center">
-          <p>Rethinking the design language for one of Norways largest strategic bank alliances.</p>
-        </span>
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/ssf/ssf-03.jpg">
-      </figure>
+      <div v-lazy-container="{ selector: 'img' }">
+        <figure class="columns">
+          <img data-src="/images/work/ssf/ssf-01.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/ssf/ssf-02.jpg">
+        </figure>
+        <figure class="columns">
+          <span class="float-center">
+            <p>Rethinking the design language for one of Norways largest strategic bank alliances.</p>
+          </span>
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/ssf/ssf-03.jpg">
+        </figure>
+      </div>
     </section>
   </section>
 </template>

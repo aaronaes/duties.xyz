@@ -1,6 +1,6 @@
 <template>
   <section id="humid" class="project">
-    <section class="row" v-lazy-container="{ selector: 'img' }">
+    <section class="row">
       <figure class="columns title">
         <h2>Humid Magazine</h2>
         <p>A neo-erotic magazine, by women for women.</p>
@@ -15,29 +15,30 @@
           >Humid Magazine was the idea of a norwegian, neo-erotic magazine with a different approach. Inspired by foreign neo-eroticism, Humid introduced the Norwegian woman as a sexual being on her own terms.</p>
         </div>
       </figure>
-
-      <figure class="columns">
-        <img data-src="/images/work/humid/humid-01.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/humid/humid-02.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/humid/humid-03.jpg">
-      </figure>
-      <figure class="columns">
-        <img data-src="/images/work/humid/humid-04.jpg">
-      </figure>
-      <figure class="large-6 medium-6 small-12 float-left">
-        <div class="columns">
-          <img data-src="/images/work/humid/humid-05.jpg">
-        </div>
-      </figure>
-      <figure class="large-6 medium-6 small-12 float-left">
-        <div class="columns">
-          <img data-src="/images/work/humid/humid-06.jpg">
-        </div>
-      </figure>
+      <div v-lazy-container="{ selector: 'img' }">
+        <figure class="columns">
+          <img data-src="/images/work/humid/humid-01.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/humid/humid-02.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/humid/humid-03.jpg">
+        </figure>
+        <figure class="columns">
+          <img data-src="/images/work/humid/humid-04.jpg">
+        </figure>
+        <figure class="large-6 medium-6 small-12 float-left">
+          <div class="columns">
+            <img data-src="/images/work/humid/humid-05.jpg">
+          </div>
+        </figure>
+        <figure class="large-6 medium-6 small-12 float-left">
+          <div class="columns">
+            <img data-src="/images/work/humid/humid-06.jpg">
+          </div>
+        </figure>
+      </div>
     </section>
   </section>
 </template>
