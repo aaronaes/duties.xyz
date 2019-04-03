@@ -20,34 +20,34 @@
       </figure>
 
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-01.png">
+        <img src="/images/work/eika/eika-01.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-02.png">
+        <img src="/images/work/eika/eika-02.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-03.png">
+        <img src="/images/work/eika/eika-03.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-04.png">
+        <img src="/images/work/eika/eika-04.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-05.png">
+        <img src="/images/work/eika/eika-05.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-06.png">
+        <img src="/images/work/eika/eika-06.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-07.png">
+        <img src="/images/work/eika/eika-07.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-08.png">
+        <img src="/images/work/eika/eika-08.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-09.png">
+        <img src="/images/work/eika/eika-09.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-10.png">
+        <img src="/images/work/eika/eika-10.jpg">
       </figure>
     </section>
   </section>

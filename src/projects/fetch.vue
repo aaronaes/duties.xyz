@@ -17,34 +17,34 @@
       </figure>
 
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-01.png">
+        <img src="/images/work/fetch/fetch-01.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-02.png">
+        <img src="/images/work/fetch/fetch-02.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-03.png">
+        <img src="/images/work/fetch/fetch-03.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-04.png">
+        <img src="/images/work/fetch/fetch-04.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-05.png">
+        <img src="/images/work/fetch/fetch-05.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-07.png">
+        <img src="/images/work/fetch/fetch-07.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-08.png">
+        <img src="/images/work/fetch/fetch-08.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-09.png">
+        <img src="/images/work/fetch/fetch-09.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-10.png">
+        <img src="/images/work/fetch/fetch-10.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/fetch/fetch-11.png">
+        <img src="/images/work/fetch/fetch-11.jpg">
       </figure>
     </section>
   </section>

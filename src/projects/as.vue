@@ -23,31 +23,31 @@
       </figure>
 
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-01.png">
+        <img src="/images/work/as/as-01.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-02.png">
+        <img src="/images/work/as/as-02.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-03.png">
+        <img src="/images/work/as/as-03.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-04.png">
+        <img src="/images/work/as/as-04.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-05.png">
+        <img src="/images/work/as/as-05.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-06.png">
+        <img src="/images/work/as/as-06.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-07.png">
+        <img src="/images/work/as/as-07.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-08.png">
+        <img src="/images/work/as/as-08.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-09.png">
+        <img src="/images/work/as/as-09.jpg">
       </figure>
     </section>
   </section>

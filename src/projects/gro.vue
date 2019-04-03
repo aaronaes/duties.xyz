@@ -29,19 +29,19 @@
       </figure>
 
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gro/gro-01.png">
+        <img src="/images/work/gro/gro-01.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gro/gro-02.png">
+        <img src="/images/work/gro/gro-02.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gro/gro-03.png">
+        <img src="/images/work/gro/gro-03.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gro/gro-04.png">
+        <img src="/images/work/gro/gro-04.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gro/gro-05.png">
+        <img src="/images/work/gro/gro-05.jpg">
       </figure>
     </section>
   </section>

@@ -17,25 +17,25 @@
       </figure>
 
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/humid/humid-01.png">
+        <img src="/images/work/humid/humid-01.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/humid/humid-02.png">
+        <img src="/images/work/humid/humid-02.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/humid/humid-03.png">
+        <img src="/images/work/humid/humid-03.jpg">
       </figure>
       <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/humid/humid-04.png">
+        <img src="/images/work/humid/humid-04.jpg">
       </figure>
       <figure class="large-6 medium-6 small-12 float-left" v-scroll-reveal>
         <div class="columns">
-          <img src="/images/work/humid/humid-05.png">
+          <img src="/images/work/humid/humid-05.jpg">
         </div>
       </figure>
       <figure class="large-6 medium-6 small-12 float-left" v-scroll-reveal>
         <div class="columns">
-          <img src="/images/work/humid/humid-06.png">
+          <img src="/images/work/humid/humid-06.jpg">
         </div>
       </figure>
     </section>
