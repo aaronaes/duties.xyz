@@ -1,6 +1,6 @@
 <template>
   <section id="gl" class="project">
-    <section class="row">
+    <section class="row" v-lazy-container="{ selector: 'img' }">
       <figure class="columns title">
         <h2>Godt Levert</h2>
         <p>A food-to-your-door subscription service.</p>
@@ -20,32 +20,32 @@
         </div>
       </figure>
 
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-01.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-01.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-02.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-02.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-03.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-03.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-04.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-04.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-05.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-05.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-06.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-06.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-07.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-07.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-08.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-08.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/gl/gl-09.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/gl/gl-09.jpg">
       </figure>
     </section>
   </section>

@@ -2,23 +2,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import VueScrollReveal from "vue-scroll-reveal";
-
+import VueLazyload from "vue-lazyload"
 import "./assets/scripts/main.js";
 
-// ScrollReveal
-Vue.use(VueScrollReveal, {
-  duration: 500,
-  delay: 250,
-  viewFactor: 0,
-  distance: "20px",
-  easing: "cubic-bezier(0.645, 0.045, 0.355, 1.000)",
-  opacity: 0,
-  viewOffset: {
-    top: 0,
-    bottom: 0
-  }
-});
+Vue.use(VueLazyload)
 
 Vue.config.productionTip = false;
 

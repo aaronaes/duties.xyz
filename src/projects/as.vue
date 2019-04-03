@@ -1,6 +1,6 @@
 <template>
   <section id="as" class="project">
-    <section class="row">
+    <section class="row" v-lazy-container="{ selector: 'img' }">
       <figure class="columns title">
         <h2>Authentic Scandinavia</h2>
         <p>A crowd-sourced delivery service.</p>
@@ -22,32 +22,32 @@
         </div>
       </figure>
 
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-01.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-01.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-02.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-02.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-03.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-03.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-04.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-04.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-05.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-05.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-06.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-06.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-07.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-07.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-08.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-08.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/as/as-09.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/as/as-09.jpg">
       </figure>
     </section>
   </section>

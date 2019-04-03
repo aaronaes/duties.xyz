@@ -1,6 +1,6 @@
 <template>
   <section id="eika" class="project">
-    <section class="row">
+    <section class="row" v-lazy-container="{ selector: 'img' }">
       <figure class="columns title">
         <h2>Eika Gruppen</h2>
         <p>A strategic alliance of 77 local savings banks.</p>
@@ -19,35 +19,35 @@
         </div>
       </figure>
 
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-01.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-01.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-02.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-02.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-03.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-03.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-04.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-04.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-05.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-05.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-06.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-06.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-07.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-07.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-08.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-08.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-09.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-09.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/eika/eika-10.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/eika/eika-10.jpg">
       </figure>
     </section>
   </section>

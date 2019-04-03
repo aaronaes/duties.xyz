@@ -1,6 +1,6 @@
 <template>
   <section id="ssf" class="project">
-    <section class="row">
+    <section class="row" v-lazy-container="{ selector: 'img' }">
       <figure class="columns title">
         <p>
           SSF, a small local bank with big ambitions.
@@ -16,19 +16,19 @@
         </div>
       </figure>
 
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/ssf/ssf-01.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/ssf/ssf-01.jpg">
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/ssf/ssf-02.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/ssf/ssf-02.jpg">
       </figure>
       <figure class="columns">
         <span class="float-center">
           <p>Rethinking the design language for one of Norways largest strategic bank alliances.</p>
         </span>
       </figure>
-      <figure class="columns" v-scroll-reveal>
-        <img src="/images/work/ssf/ssf-03.jpg">
+      <figure class="columns">
+        <img data-src="/images/work/ssf/ssf-03.jpg">
       </figure>
     </section>
   </section>
