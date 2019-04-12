@@ -34,7 +34,7 @@
             </p>
           </div>
         </figure>
-        <figure class="columns btm" :class="{ fuk: showMore}">
+        <figure class="columns btm" :class="{ tuckAway: showMore}">
           <p>
             Select work
             <span class="super">[ 2009 - 19 ]</span>
