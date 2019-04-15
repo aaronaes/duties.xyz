@@ -3,7 +3,7 @@
     <section class="row">
       <figure class="columns title">
         <h2>Authentic Scandinavia</h2>
-        <p>A bespoke travel agenct for scandinavian exploration.</p>
+        <p>A bespoke travelagent for scandinavian exploration.</p>
         <a href="#as" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
           <p>
             <span></span>
