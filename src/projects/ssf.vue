@@ -11,26 +11,25 @@
             <span></span>
           </p>
         </a>
-        <div v-if="showMore" class="toggleInfo">
+        <div v-show="showMore" class="toggleInfo">
           <p>Rethinking the design language for one of Norways largest strategic bank alliances. Eika Gruppen is a strategic alliance between 77 local Norwegian savings banks that co-ordinates work within the areas defined as falling within the alliance.</p>
         </div>
       </figure>
-      <div v-lazy-container="{ selector: 'img' }">
-        <figure class="columns">
-          <img data-src="/images/work/ssf/ssf-01.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/ssf/ssf-02.jpg">
-        </figure>
-        <figure class="columns">
-          <span class="float-center">
-            <p>Rethinking the design language for one of Norways largest strategic bank alliances.</p>
-          </span>
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/ssf/ssf-03.jpg">
-        </figure>
-      </div>
+
+      <figure class="columns">
+        <img v-lazy="`/images/work/ssf/ssf-01.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/ssf/ssf-02.jpg`">
+      </figure>
+      <figure class="columns">
+        <span class="float-center">
+          <p>Rethinking the design language for one of Norways largest strategic bank alliances.</p>
+        </span>
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/ssf/ssf-03.jpg`">
+      </figure>
     </section>
   </section>
 </template>

@@ -9,7 +9,7 @@
             <span></span>
           </p>
         </a>
-        <div v-if="showMore" class="toggleInfo">
+        <div v-show="showMore" class="toggleInfo">
           <p
             class="copy"
           >Authentic Scandinavia is a dedicated online tour operator, creating and selling independent package tours and escorted coach tours throughout Scandinavia and the other Nordic countries.</p>
@@ -22,35 +22,33 @@
         </div>
       </figure>
 
-      <div v-lazy-container="{ selector: 'img' }">
-        <figure class="columns">
-          <img data-src="/images/work/as/as-01.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-02.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-03.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-04.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-05.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-06.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-07.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-08.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/as/as-09.jpg">
-        </figure>
-      </div>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-01.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-02.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-03.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-04.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-05.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-06.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-07.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-08.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/as/as-09.jpg`">
+      </figure>
     </section>
   </section>
 </template>
