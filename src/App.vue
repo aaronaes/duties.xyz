@@ -18,7 +18,6 @@ export default {
 };
 
 // VH height
-
 function calcVH() {
   $("body").innerHeight($(this).innerHeight());
 }

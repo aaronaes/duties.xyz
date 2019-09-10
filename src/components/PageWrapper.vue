@@ -4,7 +4,7 @@
     <transition name="slide" mode="out-in">
       <slot></slot>
     </transition>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 

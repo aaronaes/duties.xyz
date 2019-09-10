@@ -39,10 +39,10 @@
             <span class="super">[ 2009 - 19 ]</span>
           </p>
           <h3 class="clients">
-            <router-link to="/godt-levert" mode="out-in" class="gl">
+            <a href="#gl" class="gl">
               Godt Levert
               <span></span>
-            </router-link>
+            </a>
             <a href="#gro" class="gro">
               Gro Grønt
               <span></span>
