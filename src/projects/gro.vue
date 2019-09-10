@@ -9,7 +9,7 @@
             <span></span>
           </p>
         </a>
-        <div v-if="showMore" class="toggleInfo">
+        <div v-show="showMore" class="toggleInfo">
           <p
             class="copy"
           >Gro Grønt grows exotic and unique herbs and vegetables, from a container in the centre of Oslo. From here, they sell and distribute high-quality ingredients to all the top-shelf restaurants and chefs in the greater Oslo area.</p>
@@ -28,23 +28,21 @@
         </div>
       </figure>
 
-      <div v-lazy-container="{ selector: 'img' }">
-        <figure class="columns">
-          <img data-src="/images/work/gro/gro-01.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gro/gro-02.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gro/gro-03.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gro/gro-04.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gro/gro-05.jpg">
-        </figure>
-      </div>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gro/gro-01.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gro/gro-02.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gro/gro-03.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gro/gro-04.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gro/gro-05.jpg`">
+      </figure>
     </section>
   </section>
 </template>

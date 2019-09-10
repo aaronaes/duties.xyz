@@ -23,10 +23,7 @@
     &:hover:after {
       content: "Read more ...";
     }
-
   }
-
-
 
   &.opened {
     p {
@@ -62,7 +59,6 @@
   max-width: 70vw;
   left: 40px;
   background-color: $color-white;
-
   -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 

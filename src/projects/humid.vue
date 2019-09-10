@@ -9,36 +9,35 @@
             <span></span>
           </p>
         </a>
-        <div v-if="showMore" class="toggleInfo">
+        <div v-show="showMore" class="toggleInfo">
           <p
             class="copy"
           >Humid Magazine was the idea of a norwegian, neo-erotic magazine with a different approach. Inspired by foreign neo-eroticism, Humid introduced the Norwegian woman as a sexual being on her own terms.</p>
         </div>
       </figure>
-      <div v-lazy-container="{ selector: 'img' }">
-        <figure class="columns">
-          <img data-src="/images/work/humid/humid-01.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/humid/humid-02.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/humid/humid-03.jpg">
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/humid/humid-04.jpg">
-        </figure>
-        <figure class="large-6 medium-6 small-12 float-left">
-          <div class="columns">
-            <img data-src="/images/work/humid/humid-05.jpg">
-          </div>
-        </figure>
-        <figure class="large-6 medium-6 small-12 float-left">
-          <div class="columns">
-            <img data-src="/images/work/humid/humid-06.jpg">
-          </div>
-        </figure>
-      </div>
+
+      <figure class="columns">
+        <img v-lazy="`/images/work/humid/humid-01.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/humid/humid-02.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/humid/humid-03.jpg`">
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/humid/humid-04.jpg`">
+      </figure>
+      <figure class="large-6 medium-6 small-12 float-left">
+        <div class="columns">
+          <img v-lazy="`/images/work/humid/humid-05.jpg`">
+        </div>
+      </figure>
+      <figure class="large-6 medium-6 small-12 float-left">
+        <div class="columns">
+          <img v-lazy="`/images/work/humid/humid-06.jpg`">
+        </div>
+      </figure>
     </section>
   </section>
 </template>

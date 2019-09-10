@@ -9,7 +9,7 @@
             <span></span>
           </p>
         </a>
-        <div v-if="showMore" class="toggleInfo">
+        <div class="toggleInfo" v-show="showMore">
           <p class="copy">
             Godt Levert didn't have as much of a presence in the market as they wanted. The service was new and was gaining traction, and with that Godt Levert wanted to become a household name.
             The solution to this was taking a more holistic approach to their product, through creating a new way to browse meals and weekly deals. As a part of the project, the whole app was revamped with new UI and a new website.
