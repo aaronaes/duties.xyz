@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nav :key="$route.fullPath" />
+    <!-- <Nav :key="$route.fullPath" /> -->
     <transition name="slide" mode="out-in">
       <slot></slot>
     </transition>
