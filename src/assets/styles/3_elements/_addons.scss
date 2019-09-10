@@ -32,7 +32,6 @@ body {
         opacity: 1 !important;
         transform: translateX(-7rem);
 
-
         &:after {
           opacity: 1;
         }
@@ -54,6 +53,8 @@ body {
   // Show projects on frontpage
 
   .clients {
+    max-width: 65vw;
+    margin-top: 20px;
     a {
       cursor: s-resize;
       color: rgba($color-white, 0.5);
@@ -66,7 +67,7 @@ body {
 
       span {
         position: fixed;
-        opacity: 0;
+        opacity: 0 !important;
         top: 0;
         left: 0;
         right: 0;
@@ -84,11 +85,10 @@ body {
       }
 
       &:after {
-        content: "\00a0/\00a0";
+        content: "/";
         opacity: 0.5;
         text-align: left;
         cursor: none;
-        display: inline-block;
       }
 
       &:last-of-type:after {
@@ -99,7 +99,7 @@ body {
         color: rgba($color-white, 1);
 
         span {
-          opacity: 1;
+          opacity: 1 !important;
           -webkit-transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1);
           transition: opacity 1s cubic-bezier(0.39, 0.58, 0.57, 1);
         }
@@ -107,31 +107,29 @@ body {
         &.gl {
           span {
             background-image: url(/images/work/gl/gl-cover.png);
-            background-color: #7E7971;
+            background-color: #7e7971;
           }
         }
 
         &.gro {
           span {
             background-image: url(/images/work/gro/gro-cover.png);
-            background-color: #201B34;
-
+            background-color: #201b34;
           }
         }
 
         &.as {
           span {
             background-image: url(/images/work/as/as-cover.png);
-            background-color: #172C43;
+            background-color: #172c43;
             background-position: top left;
-
           }
         }
 
         &.humid {
           span {
             background-image: url(/images/work/humid/humid-cover.png);
-            background-color: #AC6240;
+            background-color: #ac6240;
             background-position: center left;
           }
         }
@@ -139,7 +137,7 @@ body {
         &.eika {
           span {
             background-image: url(/images/work/eika/eika-cover.png);
-            background-color: #004F59;
+            background-color: #004f59;
             background-position: bottom right;
           }
         }
@@ -149,36 +147,6 @@ body {
             background-image: url(/images/work/fetch/fetch-cover.png);
             background-color: rgb(58, 58, 58);
             background-position: center center;
-          }
-        }
-
-        &:not(:hover) {
-          span {
-            opacity: 0;
-            visibility: hidden;
-          }
-        }
-      }
-    }
-
-    &:hover {
-      a {
-
-        &:first-of-type {
-          color: rgba($color-white, 0.5) !important;
-
-          span {
-            opacity: 0;
-          }
-        }
-
-        &:hover {
-          &:first-of-type {
-            color: rgba($color-white, 1) !important;
-
-            span {
-              opacity: 1;
-            }
           }
         }
       }

@@ -1,12 +1,10 @@
 <template>
   <div>
-    <!-- <transition name="fade" mode="out-in">
-      <Nav :key="$route.fullPath"/>
-    </transition>-->
+    <Nav :key="$route.fullPath" />
     <transition name="slide" mode="out-in">
       <slot></slot>
     </transition>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 

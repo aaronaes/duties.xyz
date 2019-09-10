@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   $(window).on("scroll", function () {
 
-    if ($(window).scrollTop() > top + height / 2) {
+    if ($(window).scrollTop() > top + height / 4) {
       $("body").addClass("light");
       $(".toppp").addClass("show");
       $("header .clients a span").css("transform", "translateY(-100vh)");

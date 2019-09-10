@@ -15,24 +15,22 @@ html {
 }
 
 @font-face {
-  font-family: 'Sneak Regular';
-  src: url('/fonts/Sneak-Regular.woff2') format('woff2'),
-    url('/fonts/Sneak-Regular.woff') format('woff'),
-    url('/fonts/Sneak-Regular.eof') format('woff');
+  font-family: "Sneak Regular";
+  src: url("/fonts/Sneak-Regular.woff2") format("woff2"),
+    url("/fonts/Sneak-Regular.woff") format("woff"),
+    url("/fonts/Sneak-Regular.eof") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 $color-black: #000000;
 $color-dark: #898989;
-$color-white: #FEFEF8;
+$color-white: #fefef8;
 
 $color-primary: rgb(224, 32, 64);
 $color-alert: rgb(255, 255, 0);
 
-$font-sans: "Sneak Regular",
-"Inter",
-sans-serif;
+$font-sans: "Inter", "Sneak Regular", sans-serif;
 
 $font-lg: 2.4375rem;
 $font-md: 1.6875rem;
@@ -41,7 +39,6 @@ $font-sm: 1.1875rem;
 $lg: 5rem;
 $md: 2.5rem;
 $sm: 1.25rem;
-
 
 // Small devices (landscape phones, less than 768px)
 $break-small: 575.98px;
