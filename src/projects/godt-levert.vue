@@ -20,35 +20,33 @@
         </div>
       </figure>
 
-      <div v-lazy-container="{ selector: 'img' }">
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-01.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-02.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-03.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-04.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-05.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-06.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-07.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-08.jpg" />
-        </figure>
-        <figure class="columns">
-          <img data-src="/images/work/gl/gl-09.jpg" />
-        </figure>
-      </div>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-01.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-02.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-03.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-04.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-05.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-06.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-07.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-08.jpg`" />
+      </figure>
+      <figure class="columns">
+        <img v-lazy="`/images/work/gl/gl-09.jpg`" />
+      </figure>
     </section>
   </section>
 </template>
