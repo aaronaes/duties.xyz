@@ -8,48 +8,53 @@
           href="#fetch"
           @click.prevent="showMore = !showMore"
           class="toggle"
-          :class="{ opened: showMore}"
+          :class="{ opened: showMore }"
         >
           <p>
             <span></span>
           </p>
         </a>
         <div v-show="showMore" class="toggleInfo">
-          <p
-            class="copy"
-          >Fetch wanted to operate as a vendor for package shipping, which would differentiate from the current avilable carriers. Fetch would deliver flexible solutions by utilizing existing transport capacity in the market, such as messengerbikers, Uber and local taxi drivers. By doing so, they would open up to new markets and new players in the industry.</p>
+          <p class="copy">
+            Fetch wanted to operate as a vendor for package shipping, which
+            would differentiate from the current avilable carriers. Fetch would
+            deliver flexible solutions by utilizing existing transport capacity
+            in the market, such as messengerbikers, Uber and local taxi drivers.
+            By doing so, they would open up to new markets and new players in
+            the industry.
+          </p>
         </div>
       </figure>
       <div v-lazy-container="{ selector: 'img' }">
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-01.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-01.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-02.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-02.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-03.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-03.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-04.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-04.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-05.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-05.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-07.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-07.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-08.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-08.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-09.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-09.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-10.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-10.png`" />
         </figure>
         <figure class="columns">
-          <img v-lazy="`/images/work/fetch/fetch-11.jpg`">
+          <img v-lazy="`/images/work/fetch/fetch-11.png`" />
         </figure>
       </div>
     </section>
