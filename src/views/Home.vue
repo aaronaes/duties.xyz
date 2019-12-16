@@ -100,6 +100,7 @@
     </main>
     <p>
       <a href="#home" class="toppp">&uarr;</a>
+      <a href="#gl">Godt Levert</a>
     </p>
   </div>
 </template>
