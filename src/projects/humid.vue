@@ -24,25 +24,25 @@
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-01.png`" />
+        <img src="`/images/work/humid/humid-01.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-02.png`" />
+        <img src="`/images/work/humid/humid-02.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-03.png`" />
+        <img src="`/images/work/humid/humid-03.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-04.png`" />
+        <img src="`/images/work/humid/humid-04.png`" />
       </figure>
       <figure class="large-6 medium-6 small-12 float-left">
         <div class="columns">
-          <img v-lazy="`/images/work/humid/humid-05.png`" />
+          <img src="`/images/work/humid/humid-05.png`" />
         </div>
       </figure>
       <figure class="large-6 medium-6 small-12 float-left">
         <div class="columns">
-          <img v-lazy="`/images/work/humid/humid-06.png`" />
+          <img src="`/images/work/humid/humid-06.png`" />
         </div>
       </figure>
     </section>
