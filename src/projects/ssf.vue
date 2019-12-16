@@ -27,10 +27,10 @@
       </figure>
 
       <figure class="columns">
-        <img src="`/images/work/ssf/ssf-01.jpg`" />
+        <img src="/images/work/ssf/ssf-01.jpg" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/ssf/ssf-02.jpg`" />
+        <img src="/images/work/ssf/ssf-02.jpg" />
       </figure>
       <figure class="columns">
         <span class="float-center">
@@ -41,7 +41,7 @@
         </span>
       </figure>
       <figure class="columns">
-        <img src="`/images/work/ssf/ssf-03.jpg`" />
+        <img src="/images/work/ssf/ssf-03.jpg" />
       </figure>
     </section>
   </section>

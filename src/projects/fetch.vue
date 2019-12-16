@@ -27,34 +27,34 @@
       </figure>
       <div>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-01.png`" />
+          <img src="/images/work/fetch/fetch-01.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-02.png`" />
+          <img src="/images/work/fetch/fetch-02.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-03.png`" />
+          <img src="/images/work/fetch/fetch-03.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-04.png`" />
+          <img src="/images/work/fetch/fetch-04.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-05.png`" />
+          <img src="/images/work/fetch/fetch-05.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-07.png`" />
+          <img src="/images/work/fetch/fetch-07.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-08.png`" />
+          <img src="/images/work/fetch/fetch-08.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-09.png`" />
+          <img src="/images/work/fetch/fetch-09.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-10.png`" />
+          <img src="/images/work/fetch/fetch-10.png" />
         </figure>
         <figure class="columns">
-          <img src="`/images/work/fetch/fetch-11.png`" />
+          <img src="/images/work/fetch/fetch-11.png" />
         </figure>
       </div>
     </section>

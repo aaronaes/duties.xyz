@@ -31,31 +31,31 @@
       </figure>
 
       <figure class="columns">
-        <img src="`/images/work/gl/gl-01.png`" />
+        <img src="/images/work/gl/gl-01.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-02.png`" />
+        <img src="/images/work/gl/gl-02.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-03.png`" />
+        <img src="/images/work/gl/gl-03.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-04.png`" />
+        <img src="/images/work/gl/gl-04.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-05.png`" />
+        <img src="/images/work/gl/gl-05.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-06.png`" />
+        <img src="/images/work/gl/gl-06.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-07.png`" />
+        <img src="/images/work/gl/gl-07.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-08.png`" />
+        <img src="/images/work/gl/gl-08.png" />
       </figure>
       <figure class="columns">
-        <img src="`/images/work/gl/gl-09.png`" />
+        <img src="/images/work/gl/gl-09.png" />
       </figure>
     </section>
   </section>
