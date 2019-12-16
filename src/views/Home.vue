@@ -11,29 +11,51 @@
           <p class="timestamp float-right">
             It's
             <span class="hide-for-small-only">currently&nbsp;</span>
-            <span style="border-bottom: 2px solid;" class="local-time" data-tz="Europe/Oslo"></span>
-            <span class="hide-for-small-only">&nbsp;in Oslo, Norway</span>
+            <span
+              style="border-bottom: 2px solid;"
+              class="local-time"
+              data-tz="Europe/Oslo"
+            ></span>
+            <span class="hide-for-small-only">&nbsp;in Oslo, NO</span>
             <span class="show-for-small-only">&nbsp;in Oslo</span>
           </p>
-          <a @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
+          <a
+            @click="showMore = !showMore"
+            class="toggle"
+            :class="{ opened: showMore }"
+          >
             <p class="bio">
               <span></span>
             </p>
           </a>
           <div v-if="showMore" class="toggleBio">
-            <p>I’m an Oslo-based product designer, with over 10 years experience of creating user-friendly products, apps and websites for humans. My ideal approach to a new project is working closely with interdisciplinary teams to create and build sophisticated and solid products that work really well.</p>
+            <p>
+              I’m an Oslo-based product designer, with over 10 years experience
+              of creating user-friendly products, apps and websites for humans.
+              My ideal approach to a new project is working closely with
+              interdisciplinary teams to create and build sophisticated and
+              solid products that work really well.
+            </p>
             <p>Yes, I am currently available for projects :)</p>
             <br />
             <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank">Credentials &nearr;</a>
+              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
+                >Credentials &nearr;</a
+              >
               <br />
-              <a href="https://www.instagram.com/aaronaes.studio/" target="_blank">Instagram &nearr;</a>
+              <a
+                href="https://www.instagram.com/aaronaes.studio/"
+                target="_blank"
+                >Instagram &nearr;</a
+              >
               <br />
-              <a href="mailto:hello@aaronaes.studio?subject=Hi">Contact me &nearr;</a>
+              <a href="mailto:hello@aaronaes.studio?subject=Hi"
+                >Contact me &nearr;</a
+              >
             </p>
           </div>
         </figure>
-        <figure class="columns btm" :class="{ tuckAway: showMore}">
+        <figure class="columns btm" :class="{ tuckAway: showMore }">
           <p>
             Select work
             <span class="super">[ 2009 - 19 ]</span>
