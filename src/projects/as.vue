@@ -34,31 +34,31 @@
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-01.png`" />
+        <img src="`/images/work/as/as-01.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-02.png`" />
+        <img src="`/images/work/as/as-02.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-03.png`" />
+        <img src="`/images/work/as/as-03.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-04.png`" />
+        <img src="`/images/work/as/as-04.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-05.png`" />
+        <img src="`/images/work/as/as-05.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-06.png`" />
+        <img src="`/images/work/as/as-06.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-07.png`" />
+        <img src="`/images/work/as/as-07.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-08.png`" />
+        <img src="`/images/work/as/as-08.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-09.png`" />
+        <img src="`/images/work/as/as-09.png`" />
       </figure>
     </section>
   </section>
