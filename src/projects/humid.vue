@@ -4,38 +4,45 @@
       <figure class="columns title">
         <h2>Humid Magazine</h2>
         <p>A neo-erotic magazine, by women for women.</p>
-        <a href="#humid" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
+        <a
+          href="#humid"
+          @click="showMore = !showMore"
+          class="toggle"
+          :class="{ opened: showMore }"
+        >
           <p>
             <span></span>
           </p>
         </a>
         <div v-show="showMore" class="toggleInfo">
-          <p
-            class="copy"
-          >Humid Magazine was the idea of a norwegian, neo-erotic magazine with a different approach. Inspired by foreign neo-eroticism, Humid introduced the Norwegian woman as a sexual being on her own terms.</p>
+          <p class="copy">
+            Humid Magazine was the idea of a norwegian, neo-erotic magazine with
+            a different approach. Inspired by foreign neo-eroticism, Humid
+            introduced the Norwegian woman as a sexual being on her own terms.
+          </p>
         </div>
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-01.jpg`">
+        <img v-lazy="`/images/work/humid/humid-01.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-02.jpg`">
+        <img v-lazy="`/images/work/humid/humid-02.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-03.jpg`">
+        <img v-lazy="`/images/work/humid/humid-03.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/humid/humid-04.jpg`">
+        <img v-lazy="`/images/work/humid/humid-04.png`" />
       </figure>
       <figure class="large-6 medium-6 small-12 float-left">
         <div class="columns">
-          <img v-lazy="`/images/work/humid/humid-05.jpg`">
+          <img v-lazy="`/images/work/humid/humid-05.png`" />
         </div>
       </figure>
       <figure class="large-6 medium-6 small-12 float-left">
         <div class="columns">
-          <img v-lazy="`/images/work/humid/humid-06.jpg`">
+          <img v-lazy="`/images/work/humid/humid-06.png`" />
         </div>
       </figure>
     </section>
