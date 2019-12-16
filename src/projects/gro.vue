@@ -40,19 +40,19 @@
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/gro/gro-01.png`" />
+        <img src="`/images/work/gro/gro-01.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/gro/gro-02.png`" />
+        <img src="`/images/work/gro/gro-02.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/gro/gro-03.png`" />
+        <img src="`/images/work/gro/gro-03.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/gro/gro-04.png`" />
+        <img src="`/images/work/gro/gro-04.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/gro/gro-05.png`" />
+        <img src="`/images/work/gro/gro-05.png`" />
       </figure>
     </section>
   </section>
