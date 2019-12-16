@@ -4,50 +4,61 @@
       <figure class="columns title">
         <h2>Authentic Scandinavia</h2>
         <p>A bespoke travel agent for scandinavian exploration.</p>
-        <a href="#as" @click="showMore = !showMore" class="toggle" :class="{ opened: showMore}">
+        <a
+          href="#as"
+          @click="showMore = !showMore"
+          class="toggle"
+          :class="{ opened: showMore }"
+        >
           <p>
             <span></span>
           </p>
         </a>
         <div v-show="showMore" class="toggleInfo">
-          <p
-            class="copy"
-          >Authentic Scandinavia is a dedicated online tour operator, creating and selling independent package tours and escorted coach tours throughout Scandinavia and the other Nordic countries.</p>
-          <p
-            class="copy"
-          >The visual cues utilized in the new identity was high-end typography and luxurious colors, as Authentic Scandinavia delivers high-end travel packages.</p>
+          <p class="copy">
+            Authentic Scandinavia is a dedicated online tour operator, creating
+            and selling independent package tours and escorted coach tours
+            throughout Scandinavia and the other Nordic countries.
+          </p>
+          <p class="copy">
+            The visual cues utilized in the new identity was high-end typography
+            and luxurious colors, as Authentic Scandinavia delivers high-end
+            travel packages.
+          </p>
           <p>
-            <a href="https://authentic-scandinavia.com" target="_blank">Visit site &nearr;</a>
+            <a href="https://authentic-scandinavia.com" target="_blank"
+              >Visit site &nearr;</a
+            >
           </p>
         </div>
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-01.jpg`">
+        <img v-lazy="`/images/work/as/as-01.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-02.jpg`">
+        <img v-lazy="`/images/work/as/as-02.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-03.jpg`">
+        <img v-lazy="`/images/work/as/as-03.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-04.jpg`">
+        <img v-lazy="`/images/work/as/as-04.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-05.jpg`">
+        <img v-lazy="`/images/work/as/as-05.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-06.jpg`">
+        <img v-lazy="`/images/work/as/as-06.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-07.jpg`">
+        <img v-lazy="`/images/work/as/as-07.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-08.jpg`">
+        <img v-lazy="`/images/work/as/as-08.jpg`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/as/as-09.jpg`">
+        <img v-lazy="`/images/work/as/as-09.jpg`" />
       </figure>
     </section>
   </section>
