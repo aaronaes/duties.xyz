@@ -16,7 +16,7 @@
               class="local-time"
               data-tz="Europe/Oslo"
             ></span>
-            <span class="hide-for-small-only">&nbsp;in Oslo, NO</span>
+            <span class="hide-for-small-only">&nbsp;in Oslo, Norway</span>
             <span class="show-for-small-only">&nbsp;in Oslo</span>
           </p>
           <a
