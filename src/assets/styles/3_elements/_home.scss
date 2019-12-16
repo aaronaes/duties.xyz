@@ -12,6 +12,7 @@ body {
 
     @media (max-width: ($break-small)) {
       padding: 0;
+      height: auto;
     }
 
     section {
@@ -48,6 +49,7 @@ body {
 
           @media (max-width: ($break-small)) {
             margin-bottom: -$md;
+            display: none;
           }
         }
 

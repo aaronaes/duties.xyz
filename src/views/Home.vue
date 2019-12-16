@@ -21,14 +21,14 @@
           </p>
           <a
             @click="showMore = !showMore"
-            class="toggle"
+            class="toggle hide-for-small-only"
             :class="{ opened: showMore }"
           >
             <p class="bio">
               <span></span>
             </p>
           </a>
-          <div v-if="showMore" class="toggleBio">
+          <div v-if="showMore" class="toggleBio hide-for-small-only">
             <p>
               I’m an Oslo-based product designer, with over 10 years experience
               of creating user-friendly products, apps and websites for humans.
@@ -37,6 +37,30 @@
               solid products that work really well.
             </p>
             <p>Yes, I am currently available for projects :)</p>
+            <br />
+            <p>
+              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
+                >Credentials &nearr;</a
+              >
+              <br />
+              <a
+                href="https://www.instagram.com/aaronaes.studio/"
+                target="_blank"
+                >Instagram &nearr;</a
+              >
+              <br />
+              <a href="mailto:hello@aaronaes.studio?subject=Hi"
+                >Contact me &nearr;</a
+              >
+            </p>
+          </div>
+          <div class="show-for-small-only">
+            <br />
+            <p>
+              I’m an Oslo-based product designer, with over 10 years experience
+              of creating user-friendly products, apps and websites for humans.
+            </p>
+            <p>I am currently available for projects :)</p>
             <br />
             <p>
               <a href="//www.linkedin.com/in/aaronaes" target="_blank"
