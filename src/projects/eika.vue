@@ -30,34 +30,34 @@
       </figure>
 
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-01.png`" />
+        <img src="`/images/work/eika/eika-01.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-02.png`" />
+        <img src="`/images/work/eika/eika-02.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-03.png`" />
+        <img src="`/images/work/eika/eika-03.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-04.png`" />
+        <img src="`/images/work/eika/eika-04.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-05.png`" />
+        <img src="`/images/work/eika/eika-05.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-06.png`" />
+        <img src="`/images/work/eika/eika-06.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-07.png`" />
+        <img src="`/images/work/eika/eika-07.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-08.png`" />
+        <img src="`/images/work/eika/eika-08.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-09.png`" />
+        <img src="`/images/work/eika/eika-09.png`" />
       </figure>
       <figure class="columns">
-        <img v-lazy="`/images/work/eika/eika-10.png`" />
+        <img src="`/images/work/eika/eika-10.png`" />
       </figure>
     </section>
   </section>
