@@ -121,8 +121,15 @@
       <Fetch />
       <Humid />
       <Eika />
+      <section class="row">
+        <figure class="columns">
+          <p class="show-for-small-only">
+            <a href="#home">&uarr; To the top</a>
+          </p>
+        </figure>
+      </section>
     </main>
-    <p>
+    <p class="hide-for-small-only">
       <a href="#home" class="toppp">&uarr;</a>
     </p>
   </div>
