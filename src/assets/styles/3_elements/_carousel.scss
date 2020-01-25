@@ -1,40 +1,44 @@
-.flickity-viewport {
-  left: 0px;
+// CSS Carousel
+section {
+  &.slider {
+    figure {
+      position: relative;
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      margin: 0;
+      transform: translateY(20vh);
 
-  .flickity-slider {
-    transform: none !important;
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
-    img.carousel-cell {
-      display: inline-block;
-      max-height: 400px;
-      width: auto;
-      left: 0px !important;
-      opacity: 0;
-      z-index: 1;
-      transition: $animate-btn;
+      @media screen and (max-width: ($break-small)) {
+        margin-right: $xs/2;
+        margin-left: $xs/2;
+      }
 
-      &.is-selected {
-        opacity: 1;
+      div {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+
+        @media screen and (max-width: $break-small) {
+          &.columns {
+            padding-left: $xs/2;
+            padding-right: $xs/2;
+          }
+        }
+
+        a {
+          border-bottom: none;
+          display: inline-block;
+
+          h2 {
+            margin: 0;
+            padding: 0;
+          }
+        }
       }
     }
-  }
-}
-
-.carousel-status {
-  position: absolute;
-  z-index: 9;
-  bottom: 1rem;
-  left: 1.125rem;
-  font-size: 1rem;
-  transition: $animate-btn;
-}
-
-.slideshow {
-  position: absolute;
-  bottom: 5rem;
-  width: 100%;
-
-  @media (max-width: ($break-small)) {
-    position: relative;
   }
 }

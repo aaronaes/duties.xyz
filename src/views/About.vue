@@ -1,21 +1,51 @@
 <template>
   <div>
-    <section class="heeeero">
-      <div class="img1 large-2 medium-3">
-        <img src="https://media1.giphy.com/media/piFGZ3Vxk2NHOAPgE3/giphy.gif" alt />
-      </div>
-      <div class="img2 large-7 medium-7">
-        <img src="/images/about1.jpg" />
-      </div>
-      <div class="img3 large-3 medium-3">
-        <img src="https://i.pinimg.com/originals/76/68/5a/76685a8516685ac83b99bea541fc8f15.gif" />
-      </div>
+    <section class="heeeero slider">
+      <figure>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <router-link to="/wdv">
+            <img src="/images/carousel/big-01.jpg" />
+            <p>Vandals</p>
+          </router-link>
+        </div>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <img src="/images/carousel/big-02.jpg" />
+          <p>Authentic Scandinavia</p>
+        </div>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <img src="/images/carousel/big-03.jpg" />
+          <p>Humid Mag</p>
+        </div>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <img src="/images/carousel/big-04.jpg" />
+          <p>Humid Mag</p>
+        </div>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <img src="/images/carousel/big-03.jpg" />
+          <p>Humid Mag</p>
+        </div>
+        <div class="columns large-3 medium-5 small-10 float-left">
+          <img src="/images/carousel/big-04.jpg" />
+          <p>Humid Mag</p>
+        </div>
+      </figure>
     </section>
     <section class="row">
       <figure class="columns float-left">
-        <h2>Aa—studio is the house of Erling Aarønæs, an independant product-designer living and working in Oslo, Norway.</h2>
+        <h2>
+          Aa—studio is the house of Erling Aarønæs, an independant
+          product-designer living and working in Oslo, Norway.
+        </h2>
         <div class="copy">
-          <p>I’m an Oslo-based senior designer, with over 10 years experience of creating websites, products and brands. My approach to design is working strategically with interdisciplinary teams to create sophisticated and strong products. I was born 50/50 Norwegian American, I always rely on Figma and design systems and I'm a nice guy. My approach to a project is working strategically with interdisciplinary teams to create sophisticated and strong products.</p>
+          <p>
+            I’m an Oslo-based senior designer, with over 10 years experience of
+            creating websites, products and brands. My approach to design is
+            working strategically with interdisciplinary teams to create
+            sophisticated and strong products. I was born 50/50 Norwegian
+            American, I always rely on Figma and design systems and I'm a nice
+            guy. My approach to a project is working strategically with
+            interdisciplinary teams to create sophisticated and strong products.
+          </p>
         </div>
       </figure>
       <figure class="columns">
