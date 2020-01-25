@@ -11,7 +11,7 @@
 function showTheTime() {
   $('.local-time').each(function () {
     var timeZone = $(this).data('tz');
-    var now = moment().tz(timeZone).format('HH:mm');
+    var now = moment().tz(timeZone).format('Ha');
     $(this).html(now);
   });
 };

@@ -2,16 +2,85 @@
   padding-top: $md;
   padding-bottom: $lg * 3;
 
-  &:last-of-type {
-    padding-bottom: $lg;
-  }
-
   @media (max-width: ($break-small)) {
     padding-top: $sm;
     padding-bottom: $lg;
 
     &:last-of-type {
       padding-bottom: $lg;
+    }
+  }
+
+  section {
+    figure {
+      margin-bottom: $sm;
+      .copy {
+        float: left;
+        max-width: 800px;
+
+        a {
+          border-bottom: 1.25px solid;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+
+      button {
+        clear: both;
+      }
+
+      .toggle {
+        position: relative;
+
+        p {
+          &:after {
+            content: "Read more";
+          }
+        }
+
+        &.opened {
+          p {
+            &:after {
+              content: "Read less";
+            }
+          }
+        }
+      }
+
+      .toggleImg {
+        position: relative;
+        display: inline-block;
+
+        h3,
+        p {
+          display: inline-block;
+
+          &:after {
+            content: "Load more pics";
+          }
+        }
+
+        &.opened {
+          p {
+            &:after {
+              content: "Close";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    padding-bottom: $md;
+
+    &:first-of-type {
+      padding-bottom: $md;
+    }
+    &:last-of-type {
+      padding-bottom: $sm;
     }
   }
 }

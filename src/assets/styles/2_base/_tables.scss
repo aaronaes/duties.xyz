@@ -13,13 +13,13 @@ caption {
 
 th,
 td {
-  border-top: 2px solid $color-dark;
+  border-top: 2px solid $color-grey;
   vertical-align: top;
   padding-right: 0.25em;
 }
 
-th+*,
-td+* {
-  border-left: 2px solid $color-dark;
+th + *,
+td + * {
+  border-left: 2px solid $color-grey;
   padding-left: 0.25em;
 }

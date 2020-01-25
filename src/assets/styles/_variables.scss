@@ -23,22 +23,29 @@ html {
   font-style: normal;
 }
 
-$color-black: #000000;
-$color-dark: #898989;
-$color-white: #fefef8;
+$color-black: #111111;
+$color-grey: #d4d1c4;
+$color-white: #ffffff;
+$color-primary: #d75142;
 
-$color-primary: rgb(224, 32, 64);
-$color-alert: rgb(255, 255, 0);
+$font-sans: "Sneak Regular", "Inter", sans-serif;
 
-$font-sans: "Inter", "Sneak Regular", sans-serif;
+$animate: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$animate-btn: all 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86); /* easeInOutCirc */
+$animate-link: color 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86); /* easeInOutCirc */
+$animate-image: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$animate-transform: transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$animate-bg: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
 $font-lg: 2.4375rem;
 $font-md: 1.6875rem;
 $font-sm: 1.1875rem;
 
+$xl: 10rem;
 $lg: 5rem;
 $md: 2.5rem;
 $sm: 1.25rem;
+$xs: 0.625rem;
 
 // Small devices (landscape phones, less than 768px)
 $break-small: 575.98px;

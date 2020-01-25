@@ -2,7 +2,7 @@
   <section id="fetch" class="project">
     <section class="row">
       <figure class="columns title">
-        <h2>Fetch</h2>
+        <h1>Fetch</h1>
         <p>A crowd-sourced delivery service.</p>
         <a
           href="#fetch"

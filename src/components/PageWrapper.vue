@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!-- <Nav :key="$route.fullPath" /> -->
+    <Nav :key="$route.fullPath" />
     <transition name="slide" mode="out-in">
       <slot></slot>
     </transition>
-    <!-- <Footer /> -->
+    <Footer />
   </div>
 </template>
 
@@ -17,11 +17,6 @@ export default {
   components: {
     Nav,
     Footer
-  },
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
   }
 };
 </script>

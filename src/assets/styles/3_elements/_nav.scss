@@ -1,30 +1,35 @@
 nav {
-  width: 100%;
   position: absolute;
-  padding-top: $md;
-  z-index: 1;
-
-  @media (max-width: ($break-small)) {
-    padding: $sm 0;
-  }
+  top: 0;
+  z-index: 999;
 
   section {
+    padding-top: $md;
+
+    @media (max-width: ($break-small)) {
+      padding-top: $sm;
+    }
 
     figure {
-      float: left;
-      padding: 0;
-      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
 
-      .menu {
-
-        h1,
+      .logo {
+        height: 44px;
         h3 {
-          padding: 0;
+          vertical-align: bottom;
+          line-height: 44px;
           margin: 0;
-        }
-
-        .router-link-exact-active {
-          display: inline;
+          transition: $animate-bg;
+          &:first-of-type {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+          &:last-of-type {
+            transform: translateY(-22px);
+            opacity: 0;
+          }
         }
       }
     }

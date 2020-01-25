@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div class="cursor hide-for-small-only"></div> -->
     <PageWrapper>
       <router-view :key="$route.fullPath"></router-view>
     </PageWrapper>

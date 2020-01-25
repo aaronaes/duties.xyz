@@ -1,21 +1,83 @@
 // About page
 body.about {
-  background-color: #e7afaf;
+  background-color: #0e221d;
 
   * {
-    color: rgba(#860909, 1);
-  }
-
-  a {
-    color: rgba(#860909, 1) !important;
-
-    &:hover {
-      color: rgba(#fff, 1) !important;
-    }
+    color: $color-white;
   }
 
   nav {
-    height: auto;
-    color: rgba(#581919, 1);
+    section {
+      figure {
+        a {
+          .logo {
+            h3 {
+              &:first-of-type {
+                transform: translateY(-22px);
+                opacity: 0;
+              }
+              &:last-of-type {
+                transform: translateY(-44px);
+                opacity: 1;
+              }
+            }
+          }
+        }
+        button {
+          background-color: transparent;
+          border: 2px solid $color-white;
+          transition: $animate-btn;
+
+          &:hover {
+            width: auto;
+            background-color: $color-white;
+            border: 2px solid $color-white;
+            * {
+              color: $color-black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    &.heeeero {
+      background-color: black;
+      position: relative;
+      margin-bottom: $lg;
+      height: 90vh;
+      overflow-y: hidden;
+
+      .img1 {
+        position: absolute;
+        top: 0;
+        left: 2%;
+      }
+      .img2 {
+        position: absolute;
+        top: 17%;
+        left: 28%;
+        z-index: -1;
+        transform: rotate(7deg);
+      }
+      .img3 {
+        position: absolute;
+        bottom: 7%;
+        right: 2%;
+      }
+    }
+    figure {
+      .copy {
+        float: left;
+        padding: $lg 0;
+        column-count: 3;
+        column-gap: $lg;
+
+        @media (max-width: ($break-medium)) {
+          column-count: 2;
+        }
+      }
+    }
   }
 }

@@ -13,7 +13,6 @@
   &:before {
     content: none;
   }
-
 }
 
 .cursor {
@@ -28,4 +27,10 @@
   mix-blend-mode: difference;
   z-index: 99999;
   pointer-events: none;
+}
+
+.float-centered {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }

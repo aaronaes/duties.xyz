@@ -1,7 +1,7 @@
 // Click to change color
 
 $(document).ready(function () {
-  $('.font-test').on('click', function (event) {
+  $('.font-fuck').on('click', function (event) {
     var fonts = [
       "Ginto",
       "Px Grotesk",

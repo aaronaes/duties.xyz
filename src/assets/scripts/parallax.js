@@ -1,23 +1,22 @@
 // Paralax
+$(window).scroll(function (e) {
+  $("nav").css("opacity", 1 - $(window).scrollTop() / 400);
+
+});
+
+$(window).on('scroll', function () {
+  yPos = window.pageYOffset;
+  shift = yPos * 0.5 + 'px';
+  $('nav').css('top',
+    shift);
+});
 
 // $(window).scroll(function () {
-
 //   var scroll = $(window).scrollTop();
 
-//   if (scroll > 0) {
-//     $("header").css("opacity", "0");
-//     $("header .clients a span").css("opacity", "0");
-//     $("header .clients a span").css("top", "-100vh");
+//   if (scroll >= 50) {
+//     $(".clients").addClass("disable-hover");
 //   } else {
-//     $("header").css("opacity", "1");
-//     $("header .clients a span").css("opacity", "1");
-//     $("header .clients a span").css("top", "0");
+//     $(".clients").removeClass("disable-hover");
 //   }
-
-
-// });
-
-// $(window).scroll(function () {
-//   $("header").css("opacity", 1 - $(window).scrollTop() / 100);
-//   $("header").css("opacity", 1 - $(window).scrollTop() / 200);
 // });

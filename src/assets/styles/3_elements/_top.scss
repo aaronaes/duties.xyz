@@ -1,0 +1,46 @@
+.toppp {
+  position: fixed;
+  top: $sm;
+  padding: 20px 40px 20px 20px;
+  right: 0;
+  z-index: 9;
+  transform: translateX(150px);
+  transition: $animate-btn;
+
+  a {
+    display: inline-block;
+    height: 40px;
+    p {
+      text-align: center;
+      font-size: 18px;
+      line-height: 40px;
+      margin: 0;
+      line-height: 1;
+      border-radius: 25px;
+      padding: 10px 20px 10px 15px;
+
+      span {
+        opacity: 0;
+        text-align: left;
+      }
+    }
+  }
+
+  &.show {
+    transform: translateX(80px);
+  }
+
+  &:hover {
+    transform: translateX(10px);
+    a {
+      transform: skew(0deg) !important;
+      p {
+        background-color: $color-grey;
+
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

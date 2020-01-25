@@ -1,6 +1,4 @@
 * {
-  // cursor: none !important;
-
   &::before,
   &::after {
     box-sizing: inherit;
@@ -10,7 +8,7 @@
 html {
   box-sizing: border-box;
   min-height: 100%;
-  width: 100vw;
+  width: 100%;
   font-family: sans-serif;
   line-height: 1.2;
   font-size: 16px;
@@ -18,7 +16,9 @@ html {
 }
 
 body {
+  height: 100%;
   font-size: $font-sm;
   background-color: $color-white;
   color: $color-black;
+  transition: $animate-bg;
 }

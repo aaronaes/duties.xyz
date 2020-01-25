@@ -9,8 +9,11 @@
 @import "2_base/lists";
 @import "2_base/images";
 
-@import "3_elements/addons";
+@import "3_elements/preview";
+@import "3_elements/top";
+@import "3_elements/hero";
 @import "3_elements/animations";
+@import "3_elements/components";
 @import "3_elements/nav";
 @import "3_elements/pages";
 @import "3_elements/home";
@@ -18,5 +21,4 @@
 @import "3_elements/journal";
 @import "3_elements/carousel";
 @import "3_elements/projects";
-@import "3_elements/toggle";
 @import "3_elements/footer";

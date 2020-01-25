@@ -2,140 +2,36 @@
   <div id="home">
     <header>
       <section class="row">
-        <figure class="columns">
-          <p>
-            Erling
-            <span class="hide-for-small-only">Aarønæs</span>
-            <span class="show-for-small-only">A</span>
-          </p>
-          <p class="timestamp float-right">
-            It's
-            <span class="hide-for-small-only">currently&nbsp;</span>
-            <span
-              style="border-bottom: 2px solid;"
-              class="local-time"
-              data-tz="Europe/Oslo"
-            ></span>
-            <span class="hide-for-small-only">&nbsp;in Oslo, Norway</span>
-            <span class="show-for-small-only">&nbsp;in Oslo</span>
-          </p>
-          <a
-            @click="showMore = !showMore"
-            class="toggle hide-for-small-only"
-            :class="{ opened: showMore }"
-          >
-            <p class="bio">
-              <span></span>
-            </p>
-          </a>
-          <div v-if="showMore" class="toggleBio hide-for-small-only">
-            <p>
-              I’m an Oslo-based product designer, with over 10 years experience
-              of creating user-friendly products, apps and websites for humans.
-              My ideal approach to a new project is working closely with
-              interdisciplinary teams to create and build sophisticated and
-              solid products that work really well.
-            </p>
-            <p>Yes, I am currently available for projects :)</p>
-            <br />
-            <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
-                >Credentials &nearr;</a
-              >
-              <br />
-              <a
-                href="https://www.instagram.com/aaronaes.studio/"
-                target="_blank"
-                >Instagram &nearr;</a
-              >
-              <br />
-              <a href="mailto:hello@aaronaes.studio?subject=Hi"
-                >Contact me &nearr;</a
-              >
-            </p>
-          </div>
-          <div class="show-for-small-only">
-            <br />
-            <p>
-              I’m an Oslo-based product designer, with over 10 years experience
-              of creating user-friendly products, apps and websites for humans.
-            </p>
-            <p>I am currently available for projects :)</p>
-            <br />
-            <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
-                >Credentials &nearr;</a
-              >
-              <br />
-              <a
-                href="https://www.instagram.com/aaronaes.studio/"
-                target="_blank"
-                >Instagram &nearr;</a
-              >
-              <br />
-              <a href="mailto:hello@aaronaes.studio?subject=Hi"
-                >Contact me &nearr;</a
-              >
-            </p>
-          </div>
-        </figure>
-        <figure class="columns btm" :class="{ tuckAway: showMore }">
-          <p>
-            Select work
-            <span class="super">[ 2009 - 19 ]</span>
-          </p>
-          <h3 class="clients">
-            <a href="#gl" class="gl">
-              Godt Levert
-              <span></span>
-            </a>
-            <a href="#gro" class="gro">
-              Gro Grønt
-              <span></span>
-            </a>
-            <a href="#as" class="as">
-              Authentic Scandinavia
-              <span></span>
-            </a>
-            <a href="#fetch" class="fetch">
-              Fetch
-              <span></span>
-            </a>
-            <a href="#humid" class="humid">
-              Humid Magazine
-              <span></span>
-            </a>
-            <a href="#eika" class="eika">
-              Eika Gruppen
-              <span></span>
-            </a>
-          </h3>
-        </figure>
+        <Preview />
       </section>
     </header>
 
     <main id="main">
-      <GL />
-      <Gro />
-      <AS />
-      <Fetch />
-      <Humid />
-      <Eika />
-      <section class="row">
-        <figure class="columns">
-          <p class="show-for-small-only">
-            <a href="#home">&uarr; To the top</a>
-          </p>
-        </figure>
-      </section>
+      <GL class="list-item current" />
+      <Gro class="list-item" />
+      <AS class="list-item" />
+      <Fetch class="list-item" />
+      <Humid class="list-item" />
+      <Eika class="list-item" />
     </main>
-    <p class="hide-for-small-only">
-      <a href="#home" class="toppp">&uarr;</a>
-    </p>
+    <Footer />
+    <div class="toppp">
+      <a href="#app">
+        <p>
+          &uarr;
+          <span>Index</span>
+        </p>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
+//Components
+import Preview from "@/components/Preview.vue";
+import Footer from "@/components/Footer.vue";
+
+//Projects
 import Eika from "@/projects/eika.vue";
 import Fetch from "@/projects/fetch.vue";
 import GL from "@/projects/godt-levert.vue";
@@ -146,12 +42,14 @@ import AS from "@/projects/as.vue";
 export default {
   name: "Home",
   components: {
+    Preview,
     Eika,
     Fetch,
     GL,
     Humid,
     Gro,
-    AS
+    AS,
+    Footer
   },
   data() {
     return {

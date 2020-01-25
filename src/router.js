@@ -13,18 +13,18 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: () =>
+        import( /* webpackChunkName: "About" */ "./views/About.vue")
+    },
+    {
+      path: "/journal",
+      name: "Journal",
+      component: () =>
+        import( /* webpackChunkName: "Journal" */ "./views/Journal.vue")
     }
-    // {
-    //   path: "/about",
-    //   name: "About",
-    //   component: () =>
-    //     import( /* webpackChunkName: "About" */ "./views/About.vue")
-    // },
-    // {
-    //   path: "/journal",
-    //   name: "Journal",
-    //   component: () =>
-    //     import( /* webpackChunkName: "Journal" */ "./views/Journal.vue")
-    // }
   ]
 });

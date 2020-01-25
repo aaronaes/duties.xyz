@@ -1,24 +1,24 @@
 footer {
-  padding-top: $lg;
-  padding-bottom: $lg;
-  z-index: 1;
+  height: 100vh;
+  section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-flow: row wrap;
+    padding-top: $md;
+    padding-bottom: $md;
 
-  a {
-    text-decoration: underline;
-  }
+    figure {
+      align-self: flex-start;
 
-  p {
-    line-height: 1.2;
-  }
+      h3,
+      p {
+        max-width: 700px;
+      }
 
-  @media (max-width: ($break-small)) {
-    padding-top: $sm;
-    padding-bottom: $sm;
-
-    p {
-      &.float-right {
-        float: left !important;
-        padding-bottom: $sm;
+      &.impress {
+        margin-bottom: 0;
+        align-self: flex-end;
       }
     }
   }
