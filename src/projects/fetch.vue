@@ -1,55 +1,49 @@
 <template>
-  <details class="cell fetch">
-    <summary class="grid-x">
-      <h2 class="cell auto title"><span>●</span>{{ title }}</h2>
-      <h2 class="cell shrink togl"><a href="#"></a></h2>
-    </summary>
-    <div class="content">
-      <div class="grid-x">
-        <div class="cell meta">
-          <h4 class="status">Completed 2017</h4>
-        </div>
-        <div class="cell large-8 medium-10 description">
-          <h3>
-            Fetch wanted to operate as a vendor for package shipping, which
-            would differentiate from the current avilable carriers. The idea was
-            that they would deliver flexible solutions by utilizing existing
-            transport capacity in the market, such as messengerbikers, Uber and
-            local taxi drivers.
-          </h3>
-          <h3>
-            By doing so, they would open up to new markets and new players in
-            the industry.
-          </h3>
-        </div>
-        <div class="cell meta">
-          <h4>Photography by XXX</h4>
-          <h4>Build by YYY</h4>
-        </div>
+  <div class="content">
+    <div class="grid-x">
+      <div class="cell meta">
+        <h4 class="status">Completed 2017</h4>
       </div>
-      <div class="img-container" v-lazy-container="{ selector: 'img' }">
-        <img
-          style="background: red; mix-blend-mode: screen;"
-          data-src="/images/work/fetch/fetch-01.png"
-        />
-        <img data-src="/images/work/fetch/fetch-02.png" />
-        <img data-src="/images/work/fetch/fetch-03.png" />
-        <img data-src="/images/work/fetch/fetch-04.png" />
-        <img data-src="/images/work/fetch/fetch-05.png" />
-        <img data-src="/images/work/fetch/fetch-06.png" />
-        <img data-src="/images/work/fetch/fetch-07.png" />
-        <img data-src="/images/work/fetch/fetch-08.png" />
-        <img data-src="/images/work/fetch/fetch-09.png" />
-        <img data-src="/images/work/fetch/fetch-10.png" />
-        <img data-src="/images/work/fetch/fetch-11.png" />
+      <div class="cell large-8 medium-10 description">
+        <h3>
+          Fetch wanted to operate as a vendor for package shipping, which would
+          differentiate from the current avilable carriers. The idea was that
+          they would deliver flexible solutions by utilizing existing transport
+          capacity in the market, such as messengerbikers, Uber and local taxi
+          drivers.
+        </h3>
+        <h3>
+          By doing so, they would open up to new markets and new players in the
+          industry.
+        </h3>
+      </div>
+      <div class="cell meta">
+        <h4>Photography by XXX</h4>
+        <h4>Build by YYY</h4>
       </div>
     </div>
-  </details>
+    <div class="img-container" v-lazy-container="{ selector: 'img' }">
+      <img
+        style="background: red; mix-blend-mode: screen;"
+        data-src="/images/work/fetch/fetch-01.png"
+      />
+      <img data-src="/images/work/fetch/fetch-02.png" />
+      <img data-src="/images/work/fetch/fetch-03.png" />
+      <img data-src="/images/work/fetch/fetch-04.png" />
+      <img data-src="/images/work/fetch/fetch-05.png" />
+      <img data-src="/images/work/fetch/fetch-06.png" />
+      <img data-src="/images/work/fetch/fetch-07.png" />
+      <img data-src="/images/work/fetch/fetch-08.png" />
+      <img data-src="/images/work/fetch/fetch-09.png" />
+      <img data-src="/images/work/fetch/fetch-10.png" />
+      <img data-src="/images/work/fetch/fetch-11.png" />
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Fetch",
+  name: "fetch",
   data() {
     return {
       title: "Fetch"

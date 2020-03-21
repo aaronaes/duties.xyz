@@ -1,7 +1,6 @@
 import "@/assets/scripts/general.js";
 import "@/assets/scripts/noHover.js";
 import "@/assets/scripts/bg.js";
-import "@/assets/scripts/details.js";
 import "@/assets/scripts/scrollTo.js";
 import "@/assets/scripts/carousel.js";
 import "@/assets/scripts/header.js";

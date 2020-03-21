@@ -10,9 +10,7 @@ html {
   min-height: 100%;
   width: 100%;
   vertical-align: baseline;
-
   opacity: 0;
-
   animation-name: sitefade;
   animation-delay: 600ms;
   animation-duration: 300ms;
@@ -32,7 +30,7 @@ html {
 }
 
 body {
-  height: 100%;
+  height: auto !important;
   font-family: $font-texgyro;
   font-size: 16px;
   line-height: 1.6;

@@ -28,15 +28,21 @@
       </details>
 
       <!-- All work -->
-      <GL />
-      <Humid />
-      <As />
-      <Eika />
-      <Fetch />
-      <Ogle />
-      <Gro />
-      <SSF />
-      <Marks />
+
+      <details
+        v-for="(project, i) in projects"
+        :key="i"
+        :id="project.name"
+        class="cell as"
+        :open="active === project.name"
+      >
+        <summary @click="() => toggle(project.name)" class="grid-x">
+          <h2 class="cell auto title">
+            <span>●</span>{{ project.data().title }}
+          </h2>
+        </summary>
+        <component :is="project"></component>
+      </details>
     </figure>
     <figure class="grid-x grid-margin-x connect">
       <div class="cell auto">
@@ -63,24 +69,30 @@ import Marks from "@/projects/marks.vue";
 
 export default {
   name: "ProjectList",
+
   data() {
     return {
       title: "Project Index",
-      active: false
+      active: "",
+      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, SSF, Marks]
     };
   },
-  components: {
-    GL,
-    Ogle,
-    As,
-    Humid,
-    Eika,
-    Gro,
-    Fetch,
-    SSF,
-    Marks
-  },
   methods: {
+    toggle(name) {
+      if (name === this.active) {
+        this.active = "";
+      } else {
+        const el = document.querySelector("#" + name);
+        window.scrollTo({
+          top: window.pageYOffset + el.getBoundingClientRect().top,
+          behavior: "smooth"
+        });
+
+        setTimeout(() => {
+          this.active = name;
+        }, 500);
+      }
+    },
     mouseOver: function() {
       this.active = !this.active;
     }
