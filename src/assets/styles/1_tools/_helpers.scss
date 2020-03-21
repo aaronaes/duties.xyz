@@ -1,36 +1,12 @@
 // ------------------------------------
 // Helpers
 // ------------------------------------
-
-.tooltip {
-  display: none;
-  position: absolute;
-  color: $color-black;
-  background-color: transparent;
-  font-size: 24px;
-  width: 100%;
-
-  &:before {
-    content: none;
-  }
+*:focus {
+  outline: none;
 }
 
-.cursor {
-  width: 30px;
-  height: 30px;
-  background: $color-white;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateX(-50%) translateY(-50%);
-  mix-blend-mode: difference;
-  z-index: 99999;
-  pointer-events: none;
-}
-
-.float-centered {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+::selection {
+  color: $black;
+  background: $accent;
+  mix-blend-mode: multiply;
 }

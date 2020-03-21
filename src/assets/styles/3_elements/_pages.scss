@@ -1,46 +1,74 @@
 // Foundation code
-.row {
+.row,
+.grid-container {
   width: 100vw;
   max-width: 1680px;
-  padding-left: $sm;
-  padding-right: $sm;
+  padding-right: $md;
+  padding-left: $md;
 
-  @media (min-width: ($break-large)) {
-    max-width: 100%;
-    padding-left: $md;
-    padding-right: $md;
-  }
-
-  @media (max-width: ($break-small)) {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+  @include respond-to("sm") {
+    padding-right: $sm;
+    padding-left: $sm;
   }
 }
 
 .column,
-.columns {
-  padding: 0 $sm;
+.columns,
+.grid-padding-x {
+  padding-right: $sm;
+  padding-left: $sm;
+}
 
-  @media (min-width: ($break-large)) {
-    padding: 0 $sm;
-  }
-
-  @media (max-width: ($break-small)) {
-    padding: 0 $sm;
-  }
+.center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 section {
   position: relative;
-  height: 100%;
+  margin-bottom: 0;
 
   figure {
-    margin: 0 0 $md;
-    padding: 0;
+    position: relative;
+    padding-bottom: $md;
 
-    @media (min-width: ($break-large)) {
-      margin: 0 0 $md;
+    @include respond-to("medium") {
+      padding-bottom: $sm;
+    }
+  }
+}
+
+// Color Schemes
+body {
+  &.home,
+  &.color-home {
+    background-color: $grey;
+  }
+
+  &.light,
+  &.color-light {
+    background-color: $white;
+    * {
+      color: $black;
+    }
+  }
+
+  &.about,
+  &.color-about {
+    background-color: $black;
+
+    * {
+      color: $white;
+      fill: $accent;
+    }
+  }
+
+  &.footer,
+  &.color-footer {
+    background-color: $black;
+    * {
+      color: $white;
     }
   }
 }

@@ -1,20 +1,20 @@
 // About page
 body.journal {
   background-color: antiquewhite;
-  color: $color-black;
+  color: $black;
 
   a {
-    color: $color-black;
+    color: $black;
     text-decoration: none;
   }
 
   nav {
     .router-link-exact-active {
-      border-bottom: 2px solid $color-white;
+      border-bottom: 2px solid $white;
     }
 
     .menu .router-link-exact-active {
-      border-bottom: 2px solid $color-white;
+      border-bottom: 2px solid $white;
     }
   }
 

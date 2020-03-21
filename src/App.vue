@@ -15,19 +15,8 @@ export default {
     PageWrapper
   }
 };
-
-// VH height
-function calcVH() {
-  $("body").innerHeight($(this).innerHeight());
-}
-(function($) {
-  calcVH();
-  $(window).on("orientationchange resize", function() {
-    calcVH();
-  });
-})(jQuery);
 </script>
 
 <style lang="scss">
-@import "./../src/assets/styles/main.scss";
+// @import "./../src/assets/styles/main.scss";
 </style>

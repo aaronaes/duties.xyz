@@ -9,16 +9,35 @@ html {
   box-sizing: border-box;
   min-height: 100%;
   width: 100%;
-  font-family: sans-serif;
-  line-height: 1.2;
-  font-size: 16px;
   vertical-align: baseline;
+
+  opacity: 0;
+
+  animation-name: sitefade;
+  animation-delay: 600ms;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+
+  @keyframes sitefade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 body {
   height: 100%;
-  font-size: $font-sm;
-  background-color: $color-white;
-  color: $color-black;
-  transition: $animate-bg;
+  font-family: $font-texgyro;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: $grey;
+  color: $black;
+  transition: background-color 300ms ease-in-out;
+  will-change: background-color;
 }

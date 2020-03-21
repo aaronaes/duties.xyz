@@ -1,66 +1,55 @@
 <template>
-  <section id="gro" class="project">
-    <section class="row">
-      <figure class="columns">
-        <h1>An Oslo-based hydroponic startup.</h1>
-        <p class="copy">
-          Gro Grønt grows exotic and unique herbs and vegetables, from a
-          container in the centre of Oslo. From here, they sell and distribute
-          high-quality ingredients to all the top-shelf restaurants and chefs
-          in the greater Oslo area.
-        </p>
-        <p class="copy" v-show="showMore">
-          From the name, which was already decided on, I developed a unique
-          and flexible brand language and first-version of their website.
-          <br />Illustrations done by the very talanted
-          <a
-            href="https://www.byhands.no/illustrators/sandra-blikaas"
-          >Sandra Blikaas &nearr;</a>
-        </p>
-        <div class="meta">
-          <a
-            @click.prevent="showMore = !showMore"
-            class="toggle float-left"
-            href="#gro"
-            :class="{ opened: showMore }"
-          >
-            <p></p>
-          </a>
-          <a class="float-left" href="https://gro-hydrokultur.firebaseapp.com/" target="_blank">
-            <p>
-              View live
-              <span>&nearr;</span>
-            </p>
-          </a>
+  <details class="cell gro">
+    <summary class="grid-x">
+      <h2 class="cell auto title"><span>●</span>{{ title }}</h2>
+      <h2 class="cell shrink togl">
+        <a href="//gro-hydrokultur.firebaseapp.com/" target="_blank"></a>
+      </h2>
+    </summary>
+    <div class="content">
+      <div class="grid-x">
+        <div class="cell meta">
+          <h4 class="status">Completed 2016</h4>
         </div>
-      </figure>
-
-      <figure>
-        <img class="columns" src="/images/work/gro/gro-01.png" />
-      </figure>
-      <figure v-show="morePics">
-        <img class="columns" src="/images/work/gro/gro-02.png" />
-        <img class="columns" src="/images/work/gro/gro-03.png" />
-        <img class="columns" src="/images/work/gro/gro-04.png" />
-        <img class="columns" src="/images/work/gro/gro-05.png" />
-      </figure>
-      <figure class="columns">
-        <a @click.prevent="morePics = !morePics" class="toggleImg" :class="{ opened: morePics }">
-          <p></p>
-        </a>
-      </figure>
-    </section>
-  </section>
+        <div class="cell large-8 medium-10 description">
+          <h3>
+            Gro Grønt grows exotic and unique herbs and vegetables, from a
+            container in the centre of Oslo. From here, they sell and distribute
+            high-quality ingredients to all the top-shelf restaurants and chefs
+            in the greater Oslo area.
+          </h3>
+          <h3>
+            From the name, which was already decided on, I developed a unique
+            and flexible brand language and first-version of their website.
+          </h3>
+        </div>
+        <div class="cell meta">
+          <h4>
+            Illustrations by
+            <a href="https://www.byhands.no/illustrators/sandra-blikaas"
+              >Sandra Blikaas</a
+            >
+          </h4>
+          <h4>Build by YYY</h4>
+        </div>
+      </div>
+      <div class="img-container" v-lazy-container="{ selector: 'img' }">
+        <img data-src="/images/work/gro/gro-01.png" />
+        <img data-src="/images/work/gro/gro-02.png" />
+        <img data-src="/images/work/gro/gro-03.png" />
+        <img data-src="/images/work/gro/gro-04.png" />
+        <img data-src="/images/work/gro/gro-05.png" />
+      </div>
+    </div>
+  </details>
 </template>
 
 <script>
 export default {
-  name: "Gro",
+  name: "Gro Hydroponics",
   data() {
     return {
-      title: "Gro",
-      showMore: false,
-      morePics: false
+      title: "Gro Hydroponics"
     };
   },
   computed: {

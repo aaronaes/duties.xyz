@@ -1,53 +1,26 @@
-// Body transition
-body {
-  &.light {
-    background-color: $color-white;
+// Vue transition
 
-    * {
-      color: $color-black;
-    }
-  }
+// Slide
+.global-enter {
+  opacity: 0;
+}
 
-  // Nav button
+.global-leave-to {
+  opacity: 0;
+}
 
-  // Slide
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: $animate-btn;
-  }
+.global-enter-active,
+.global-leave-active {
+  transition-property: opacity 300ms $easing;
+}
 
-  // Fade
-  .slide-enter,
-  .slide-leave-to {
-    opacity: 0;
-    transform: translateY(2vh);
-  }
+// Images
+.img-fade-enter-active,
+.img-fade-leave-active {
+  transition: all 0.125s $easing;
+}
 
-  .slide-enter-active,
-  .slide-leave-active {
-    transition: all 1s cubic-bezier(0.39, 0.58, 0.57, 1);
-  }
-
-  // Image
-  .img-fade-enter-active,
-  .img-fade-leave-active {
-    transition: $animate-image;
-  }
-
-  .img-fade-enter,
-  .img-fade-leave-to {
-    opacity: 0;
-  }
-
-  .img-fade-enter-active img {
-    transition: $animate-image;
-  }
-
-  .img-fade-enter img {
-    opacity: 1;
-  }
+.img-fade-enter,
+.img-fade-leave-to {
+  opacity: 0;
 }

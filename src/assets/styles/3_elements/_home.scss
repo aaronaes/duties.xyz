@@ -1,93 +1,78 @@
 body {
-  background-color: $color-grey;
-
-  header {
-    position: relative;
-    display: block;
-    bottom: 0;
-    height: 100vh;
-    width: 100%;
-
-    @media (max-width: ($break-small)) {
-      padding: 0;
-      height: auto;
-    }
-
+  main {
     section {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      flex-flow: row wrap;
-      padding-top: $sm;
 
-      @media (max-width: ($break-small)) {
-        padding-top: $sm;
+      &.carousel {
+        padding: 0;
+        z-index: 0;
+        display: flex;
+
+        .carousel-inner {
+          align-self: flex-start;
+        }
+
+        .hooper-slide {
+          align-self: flex-start;
+
+          p {
+            padding-top: $xs / 2;
+            margin-bottom: 0;
+            max-width: 100%;
+
+            @include respond-to("md") {
+              max-width: calc(100% - #{$sm});
+            }
+          }
+        }
       }
 
-      figure {
-        position: relative;
+      &.hooper-nav {
+        padding-top: $md;
+        transition: color 300ms $easing;
 
-        &.intro {
-          & h1,
-          & h2,
-          & h3 {
-            font-weight: lighter;
-            line-height: 0.75;
-            font-weight: lighter;
-            margin: 0;
+        figure {
+          padding-bottom: 0;
 
-            &.title {
-              max-width: 100%;
-              font-weight: lighter;
-              line-height: 0.75;
-              padding-top: 10px;
+          .next {
+            cursor: pointer;
 
-              @media (max-width: ($break-small)) {
-                padding-top: 0;
-                padding-bottom: $sm;
+            p {
+              float: left;
+              transform: translateY(-5px);
+              margin-bottom: 0;
+              padding-right: $xs;
+            }
+
+            button {
+              float: left;
+              font-size: 1.25em;
+
+              animation-name: wiggle;
+              animation-duration: 2s;
+              animation-timing-function: $easing;
+              animation-iteration-count: infinite;
+
+              @keyframes wiggle {
+                0% {
+                  transform: translateX(0px);
+                }
+                50% {
+                  transform: translateX(4px);
+                }
+                100% {
+                  transform: translateX(0px);
+                }
+              }
+            }
+
+            &:hover {
+              button {
+                animation-play-state: paused;
               }
             }
           }
         }
-
-        &.btm {
-          -webkit-box-flex: 0;
-          -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-          margin-right: auto;
-          -ms-flex-item-align: end;
-          align-self: flex-end;
-
-          @media (max-width: ($break-small)) {
-            margin-bottom: $md;
-          }
-
-          h3 {
-            padding: 0;
-            margin: 0;
-          }
-        }
-
-        &.tuckAway {
-          transform: translateY(50vh);
-        }
-      }
-    }
-  }
-
-  // Recently
-  main {
-    position: relative;
-    margin-top: 20vh;
-
-    header {
-      padding: 0;
-      margin: 0;
-    }
-
-    section {
-      @media (max-width: ($break-small)) {
-        margin: 0 0 $sm;
       }
     }
   }

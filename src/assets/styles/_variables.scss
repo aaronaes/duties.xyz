@@ -7,7 +7,6 @@
 html {
   font-family: "Inter", sans-serif;
 }
-
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
@@ -18,40 +17,52 @@ html {
   font-family: "Sneak Regular";
   src: url("/fonts/Sneak-Regular.woff2") format("woff2"),
     url("/fonts/Sneak-Regular.woff") format("woff"),
-    url("/fonts/Sneak-Regular.eof") format("woff");
+    url("/fonts/Sneak-Regular.eof") format("eof");
   font-weight: normal;
   font-style: normal;
 }
 
-$color-black: #111111;
-$color-grey: #d4d1c4;
-$color-white: #ffffff;
-$color-primary: #d75142;
+@font-face {
+  font-family: "TeXGyreHerosBold";
+  src: url("/fonts/TeXGyreHeros-Bold.woff2") format("woff2"),
+    url("/fonts/TeXGyreHeros-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
-$font-sans: "Sneak Regular", "Inter", sans-serif;
+@font-face {
+  font-family: "TeXGyreHeros";
+  src: url("/fonts/TeXGyreHeros-Regular.woff2") format("woff2"),
+    url("/fonts/TeXGyreHeros-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
-$animate: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-$animate-btn: all 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86); /* easeInOutCirc */
-$animate-link: color 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86); /* easeInOutCirc */
-$animate-image: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-$animate-transform: transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-$animate-bg: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+// Colors
+$black: #17171c;
+$grey: #f8f8f8;
+$white: #ffffff;
+$accent: #ea400f;
 
-$font-lg: 2.4375rem;
-$font-md: 1.6875rem;
-$font-sm: 1.1875rem;
+// Fonts
+$font-sneak: "Sneak Regular", "Inter", sans-serif;
+$font-inter: "Inter", sans-serif;
+$font-texgyro: "TeXGyreHeros", "Inter", sans-serif;
 
+// Animations
+$animate: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$animate-image: opacity 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$animate-bg: background-color 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+// Easing
+$easing: cubic-bezier(0.785, 0.135, 0.15, 0.85);
+
+// Spacing
 $xl: 10rem;
 $lg: 5rem;
 $md: 2.5rem;
 $sm: 1.25rem;
-$xs: 0.625rem;
+$xs: 0.75rem;
 
-// Small devices (landscape phones, less than 768px)
-$break-small: 575.98px;
-
-// Medium devices (tablets, less than 992px)
-$break-medium: 991.98px;
-
-// Large devices (desktops, less than 1200px)
-$break-large: 1199.98px;
+// Other
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;

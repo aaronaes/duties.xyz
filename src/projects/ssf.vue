@@ -1,50 +1,42 @@
 <template>
-  <section id="ssf" class="project">
-    <section class="row">
-      <figure class="columns title">
-        <p>
-          SSF, a small local bank with big ambitions.
-          <span class="super">[2017 - 18]</span>
-        </p>
-        <a
-          href="#ssf"
-          @click="showMore = !showMore"
-          class="toggle"
-          :class="{ opened: showMore }"
-        >
-          <p>
-            <span></span>
-          </p>
-        </a>
-        <div v-show="showMore" class="toggleInfo">
-          <p>
-            Rethinking the design language for one of Norways largest strategic
-            bank alliances. Eika Gruppen is a strategic alliance between 77
-            local Norwegian savings banks that co-ordinates work within the
-            areas defined as falling within the alliance.
-          </p>
-        </div>
-      </figure>
+  <details class="cell ssf">
+    <summary id="ssf" class="grid-x">
+      <h2 class="cell auto title"><span>●</span>{{ title }}</h2>
+      <h2 class="cell shrink togl">
+        <a href="#" target="_blank"></a>
+      </h2>
+    </summary>
 
-      <figure class="columns">
-        <img src="/images/work/ssf/ssf-01.jpg" />
-      </figure>
-      <figure class="columns">
-        <img src="/images/work/ssf/ssf-02.jpg" />
-      </figure>
-      <figure class="columns">
-        <span class="float-center">
-          <p>
-            Rethinking the design language for one of Norways largest strategic
-            bank alliances.
-          </p>
-        </span>
-      </figure>
-      <figure class="columns">
-        <img src="/images/work/ssf/ssf-03.jpg" />
-      </figure>
-    </section>
-  </section>
+    <div class="content">
+      <div class="grid-x">
+        <div class="cell meta">
+          <h4 class="status">Completed 2016</h4>
+        </div>
+        <div class="cell large-8 medium-10 description">
+          <h3>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </h3>
+          <h3>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident.
+          </h3>
+        </div>
+        <div class="cell meta">
+          <h4>Photography by XXX</h4>
+          <h4>Build by YYY</h4>
+        </div>
+      </div>
+      <div class="img-container" v-lazy-container="{ selector: 'img' }">
+        <img data-src="/images/work/ssf/ssf-01.png" />
+        <img data-src="/images/work/ssf/ssf-02.png" />
+        <img data-src="/images/work/ssf/ssf-03.png" />
+      </div>
+    </div>
+  </details>
 </template>
 
 <script>
@@ -52,8 +44,8 @@ export default {
   name: "SSF",
   data() {
     return {
-      title: "SSF",
-      showMore: false
+      title: "Sparebanken Sogn & Fjordane",
+      smallTitle: "SSF"
     };
   },
   computed: {

@@ -1,0 +1,208 @@
+section.projectList {
+  padding-top: $lg;
+  position: relative;
+
+  @include respond-to("md") {
+    padding-top: $sm;
+  }
+
+  @include respond-to("sm") {
+    padding-top: $xs;
+  }
+
+  figure {
+    details {
+      ::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      border-bottom: 2px solid;
+
+      &:first-of-type {
+        border-top: 2px solid;
+      }
+
+      &.coming {
+        summary {
+          position: relative;
+
+          h2 {
+            color: rgba($black, 0.5);
+            &.title {
+              padding-right: $md;
+            }
+          }
+
+          .soon {
+            img {
+              right: 0;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              height: 32px;
+              width: 32px;
+            }
+          }
+        }
+      }
+
+      summary {
+        cursor: pointer;
+        z-index: 9;
+
+        h2 {
+          padding-top: $xs / 2;
+          padding-bottom: $xs;
+          opacity: 1;
+
+          &.title {
+            span {
+              display: none;
+            }
+
+            @include respond-to("sm") {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding-right: $md;
+            }
+          }
+
+          &.togl {
+            display: none;
+            align-self: flex-end;
+
+            a {
+              display: block;
+              border-bottom: 0;
+
+              &::after {
+                content: "View →";
+              }
+
+              @include respond-to("sm") {
+                &::after {
+                  content: "→";
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .content {
+        padding-top: $md;
+        padding-bottom: $md;
+
+        .meta {
+          margin-bottom: $md;
+          h4 {
+            margin-bottom: 0;
+          }
+
+          &:first-of-type {
+            h4 {
+              color: rgba($black, 0.5);
+              &:before {
+                content: "Status:";
+                padding-right: 3px;
+              }
+            }
+          }
+
+          &:last-of-type {
+            margin-bottom: $lg;
+          }
+        }
+
+        .description {
+          margin-bottom: $md;
+
+          h3 {
+            margin-bottom: $sm;
+            max-width: 1000px;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .img-container {
+          .text {
+            padding-top: $md;
+            padding-bottom: $lg;
+
+            h3 {
+              margin-bottom: $sm;
+            }
+          }
+
+          .double {
+            padding-top: $lg;
+          }
+
+          img {
+            padding-bottom: $md;
+
+            &.space {
+              padding-bottom: $lg;
+            }
+
+            @include respond-to("sm") {
+              padding-bottom: $sm;
+            }
+
+            &[lazy="loaded"] {
+              opacity: 0;
+              animation-name: fadein;
+              animation-duration: 100ms;
+              animation-iteration-count: 1;
+              animation-fill-mode: forwards;
+              animation-direction: normal;
+              animation-timing-function: linear;
+
+              @keyframes fadein {
+                0% {
+                  opacity: 0;
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &[open] {
+        summary {
+          top: $sm;
+          position: sticky;
+          position: -webkit-sticky;
+
+          h2,
+          h3 {
+            &.title {
+              margin-left: 36px;
+              span {
+                display: inline;
+                position: absolute;
+                color: $accent;
+                font-size: 0.6em;
+                padding-right: 8px;
+                transform: translate(-40px, -50%);
+                top: 50%;
+              }
+            }
+
+            &.togl {
+              display: inline;
+              color: rgba($black, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}

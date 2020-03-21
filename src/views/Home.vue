@@ -1,69 +1,111 @@
 <template>
-  <div id="home">
-    <header>
-      <section class="row">
-        <Preview />
-      </section>
-    </header>
-
-    <main id="main">
-      <GL class="list-item current" />
-      <Gro class="list-item" />
-      <AS class="list-item" />
-      <Fetch class="list-item" />
-      <Humid class="list-item" />
-      <Eika class="list-item" />
-    </main>
-    <Footer />
-    <div class="toppp">
-      <a href="#app">
-        <p>
-          &uarr;
-          <span>Index</span>
-        </p>
-      </a>
-    </div>
-  </div>
+  <main id="home">
+    <!-- HERO -->
+    <Masthead :heading="heading"></Masthead>
+    <!-- CAROUSEL -->
+    <section class="carousel">
+      <Hooper
+        class="carousel-inner"
+        :settings="hooperSettings"
+        ref="carousel"
+        @slide="updateCarousel"
+      >
+        <Slide>
+          <img src="/images/banner/banner-1.png" />
+          <p class="tag"><span>[WIP]</span> A new food thing</p>
+        </Slide>
+        <Slide>
+          <img src="/images/banner/banner-2.png" />
+          <p class="tag"><a href="#">Download Falafel Regular </a>↘</p>
+        </Slide>
+        <Slide>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT9MbuL7MOKsv5qOM_-i6__6oiQQJJPrXYc_nxkL891Jixe4xKI"
+          />
+          <p class="tag">
+            We are excited to start working with Askeladden & Co on their new
+            venture
+          </p>
+        </Slide>
+        <Slide>
+          <img src="/images/banner/banner-3.png" />
+          <p class="tag">Title</p>
+        </Slide>
+        <Slide class="big">
+          <img src="/images/banner/banner-4.png" />
+          <p class="tag">Title</p>
+        </Slide>
+      </Hooper>
+    </section>
+    <!-- PROJECT LIST -->
+    <section id="main" class="slide" data-color="light">
+      <ProjectList />
+    </section>
+  </main>
 </template>
 
 <script>
-//Components
-import Preview from "@/components/Preview.vue";
-import Footer from "@/components/Footer.vue";
+import { Hooper, Slide } from "hooper";
+import "hooper/dist/hooper.css";
 
-//Projects
-import Eika from "@/projects/eika.vue";
-import Fetch from "@/projects/fetch.vue";
-import GL from "@/projects/godt-levert.vue";
-import Humid from "@/projects/humid.vue";
-import Gro from "@/projects/gro.vue";
-import AS from "@/projects/as.vue";
+import Masthead from "@/components/Masthead.vue";
+import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
-    Preview,
-    Eika,
-    Fetch,
-    GL,
-    Humid,
-    Gro,
-    AS,
-    Footer
+    Masthead,
+    Hooper,
+    Slide,
+    ProjectList
   },
   data() {
     return {
       title: "Home",
-      showMore: false
+      heading:
+        "A creative partner and design studio for thoughtfully crafted products.",
+      carouselData: 0,
+      hooperSettings: {
+        transition: 300,
+        wheelControl: false,
+        breakpoints: {
+          992: {
+            itemsToShow: 4.75
+          },
+          768: {
+            itemsToShow: 3.25
+          },
+          375: {
+            itemsToShow: 2.25
+          },
+          0: {
+            itemsToShow: 1.25
+          }
+        }
+      }
     };
+  },
+  watch: {
+    carouselData() {
+      this.$refs.carousel.slideTo(this.carouselData);
+    }
+  },
+  methods: {
+    slidePrev() {
+      this.$refs.carousel.slidePrev();
+    },
+    slideNext() {
+      this.$refs.carousel.slideNext();
+    },
+    updateCarousel(payload) {
+      this.myCarouselData = payload.currentSlide;
+    }
+  },
+  currentRouteName() {
+    return this.$route.name;
   },
   beforeCreate: function() {
     document.body.className = "home";
-  },
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
   }
 };
 </script>

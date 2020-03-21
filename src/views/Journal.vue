@@ -47,7 +47,7 @@
     </main>
     <footer>
       <div class="columns small-12 medium-10 large-10 float-left">
-        <h3>Explore my work</h3>
+        <p>Explore my work</p>
       </div>
     </footer>
   </div>

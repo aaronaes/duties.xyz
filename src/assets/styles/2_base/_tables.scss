@@ -1,7 +1,6 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  font-family: $font-sans;
   text-align: left;
 }
 
@@ -13,13 +12,13 @@ caption {
 
 th,
 td {
-  border-top: 2px solid $color-grey;
+  border-top: 2px solid $grey;
   vertical-align: top;
   padding-right: 0.25em;
 }
 
 th + *,
 td + * {
-  border-left: 2px solid $color-grey;
+  border-left: 2px solid $grey;
   padding-left: 0.25em;
 }

@@ -1,81 +1,129 @@
 // About page
 body.about {
-  background-color: #0e221d;
-
-  * {
-    color: $color-white;
-  }
-
-  nav {
+  main {
     section {
-      figure {
-        a {
-          .logo {
-            h3 {
-              &:first-of-type {
-                transform: translateY(-22px);
-                opacity: 0;
-              }
+      &.bleed {
+        margin-top: $lg;
+        margin-bottom: $md;
+
+        @include respond-to("sm") {
+          margin-top: $sm;
+          margin-bottom: $sm;
+        }
+
+        figure {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-auto-flow: row;
+
+          @include respond-to("md") {
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+
+          @include respond-to("sm") {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          img {
+            width: 100%;
+            border-radius: 0px;
+            height: auto;
+            align-self: flex-start;
+
+            @include respond-to("md") {
               &:last-of-type {
-                transform: translateY(-44px);
-                opacity: 1;
+                display: none;
+              }
+            }
+
+            @include respond-to("sm") {
+              &:nth-last-of-type(-n + 2) {
+                display: none;
               }
             }
           }
         }
-        button {
-          background-color: transparent;
-          border: 2px solid $color-white;
-          transition: $animate-btn;
+      }
 
-          &:hover {
-            width: auto;
-            background-color: $color-white;
-            border: 2px solid $color-white;
-            * {
-              color: $color-black;
+      &.intro {
+        margin-bottom: $md;
+        figure {
+          @include respond-to("sm") {
+            padding-bottom: $xs;
+          }
+
+          h3 {
+            margin-bottom: $md;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+
+            @include respond-to("sm") {
+              margin-bottom: $sm;
             }
           }
         }
       }
-    }
-  }
 
-  section {
-    &.heeeero {
-      background-color: black;
-      position: relative;
-      margin-bottom: $lg;
-      height: 90vh;
-      overflow-y: hidden;
+      &.people {
+        figure {
+          .person {
+            align-self: flex-start;
+            margin-bottom: $md;
 
-      .img1 {
-        position: absolute;
-        top: 0;
-        left: 2%;
-      }
-      .img2 {
-        position: absolute;
-        top: 17%;
-        left: 28%;
-        z-index: -1;
-        transform: rotate(7deg);
-      }
-      .img3 {
-        position: absolute;
-        bottom: 7%;
-        right: 2%;
-      }
-    }
-    figure {
-      .copy {
-        float: left;
-        padding: $lg 0;
-        column-count: 3;
-        column-gap: $lg;
+            * {
+              margin-bottom: 0;
+            }
 
-        @media (max-width: ($break-medium)) {
-          column-count: 2;
+            .img-wrapper {
+              overflow: hidden;
+              margin-bottom: $sm;
+
+              &.erling {
+                filter: grayscale(100);
+              }
+            }
+          }
+        }
+      }
+
+      &.offduty {
+        padding-top: $lg;
+
+        figure {
+          div {
+            h3 {
+              margin-bottom: $md;
+            }
+          }
+
+          &:last-of-type {
+            padding-top: $md;
+          }
+
+          .image-grid {
+            columns: 4;
+            column-gap: $md;
+
+            @include respond-to("md") {
+              columns: 4;
+              column-gap: $md;
+            }
+
+            @include respond-to("sm") {
+              columns: 2;
+              column-gap: $sm;
+            }
+
+            img {
+              padding-bottom: $md;
+
+              @include respond-to("sm") {
+                padding-bottom: $md;
+              }
+            }
+          }
         }
       }
     }

@@ -1,3 +1,56 @@
-// ------------------------------------
+// Mixins //
+
 // Breakpoints
-// ------------------------------------
+$breakpoints: (
+  "sm": (
+    max-width: 575.98px
+  ),
+  "md": (
+    max-width: 767.98px
+  ),
+  "lg": (
+    max-width: 991.98px
+  ),
+  "xl": (
+    min-width: 1200px
+  )
+) !default;
+
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Spacing & Padding
+@mixin padding(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $media: null
+) {
+  @if $media {
+    @media #{$media} {
+      padding-top: $top;
+      padding-right: $right;
+      padding-bottom: $bottom;
+      padding-left: $left;
+    }
+  } @else {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+  }
+}

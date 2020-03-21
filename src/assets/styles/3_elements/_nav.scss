@@ -1,34 +1,95 @@
-nav {
-  position: absolute;
-  top: 0;
-  z-index: 999;
+body {
+  nav {
+    position: fixed;
+    display: flex;
+    z-index: 9999;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    transition: all 300ms $easing;
+    z-index: 99;
 
-  section {
-    padding-top: $md;
-
-    @media (max-width: ($break-small)) {
-      padding-top: $sm;
+    &.nav-up {
+      transform: translateY(-120px);
+      opacity: 1;
     }
 
-    figure {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    &.nav-down {
+      transform: translateY(0px);
+      opacity: 1;
+    }
 
-      .logo {
-        height: 44px;
-        h3 {
-          vertical-align: bottom;
-          line-height: 44px;
-          margin: 0;
-          transition: $animate-bg;
-          &:first-of-type {
-            transform: translateY(0px);
-            opacity: 1;
-          }
-          &:last-of-type {
-            transform: translateY(-22px);
-            opacity: 0;
+    @include respond-to("md") {
+      height: 100px;
+    }
+
+    @include respond-to("sm") {
+      height: 80px;
+    }
+
+    section {
+      align-self: center;
+      padding: 0;
+      margin-bottom: 0;
+
+      figure {
+        display: flex;
+
+        &.globalNav {
+          padding-bottom: 0;
+          justify-content: space-between;
+
+          a {
+            border-bottom: transparent !important;
+
+            h3,
+            p {
+              margin-bottom: 0;
+              &.logo {
+                span {
+                  &:before {
+                    content: ":";
+                    padding-left: 3px;
+                    font-weight: 900;
+                    font-size: 0.9em;
+                  }
+
+                  &:after {
+                    content: "xyz";
+                    opacity: 0;
+                    padding-left: 3px;
+                    font-weight: normal;
+                  }
+
+                  @include respond-to("sm") {
+                    &:before,
+                    &:after {
+                      padding-left: 1px;
+                    }
+                  }
+                }
+              }
+            }
+
+            &:hover {
+              color: inherit;
+
+              h3,
+              p {
+                &.logo {
+                  span {
+                    &:before {
+                      color: $accent;
+                    }
+
+                    &:after {
+                      opacity: 1;
+                      color: $accent;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

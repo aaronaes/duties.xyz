@@ -1,24 +1,57 @@
-footer {
-  height: 100vh;
-  section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-flow: row wrap;
-    padding-top: $md;
-    padding-bottom: $md;
+body {
+  &.home {
+    footer {
+      display: flex;
+      bottom: 0;
+      height: 100vh;
 
-    figure {
-      align-self: flex-start;
-
-      h3,
-      p {
-        max-width: 700px;
+      @include respond-to("sm") {
       }
 
-      &.impress {
-        margin-bottom: 0;
+      section {
         align-self: flex-end;
+
+        figure {
+          h3 {
+            margin-bottom: $md;
+          }
+
+          p {
+            margin-bottom: 0;
+
+            &.logo {
+              span {
+                color: $accent;
+                padding-right: 5px;
+              }
+            }
+          }
+
+          p.year {
+            span {
+              font-family: "Inter", sans-serif;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.about {
+    footer {
+      section {
+        figure {
+          div {
+            p {
+              &.logo {
+                span {
+                  color: $accent;
+                  padding-right: 5px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

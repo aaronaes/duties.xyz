@@ -1,103 +1,106 @@
 <template>
-  <div>
-    <section class="heeeero slider">
-      <figure>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <router-link to="/wdv">
-            <img src="/images/carousel/big-01.jpg" />
-            <p>Vandals</p>
-          </router-link>
-        </div>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <img src="/images/carousel/big-02.jpg" />
-          <p>Authentic Scandinavia</p>
-        </div>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <img src="/images/carousel/big-03.jpg" />
-          <p>Humid Mag</p>
-        </div>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <img src="/images/carousel/big-04.jpg" />
-          <p>Humid Mag</p>
-        </div>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <img src="/images/carousel/big-03.jpg" />
-          <p>Humid Mag</p>
-        </div>
-        <div class="columns large-3 medium-5 small-10 float-left">
-          <img src="/images/carousel/big-04.jpg" />
-          <p>Humid Mag</p>
-        </div>
+  <main id="home" class="slide" data-color="about">
+    <Masthead :heading="heading" :copy="copy"></Masthead>
+
+    <section class="grid-container full bleed">
+      <figure v-lazy-container="{ selector: 'img' }">
+        <img
+          data-src="/images/about/banner/about-1.png"
+          data-srcset="/images/about/banner/about-1@2x.png 2x"
+        />
+        <img
+          data-src="/images/about/banner/about-2.png"
+          data-srcset="/images/about/banner/about-2@2x.png 2x"
+        />
+        <img
+          data-src="/images/about/banner/about-3.png"
+          data-srcset="/images/about/banner/about-3@2x.png 2x"
+        />
+        <img
+          data-src="/images/about/banner/about-4.png"
+          data-srcset="/images/about/banner/about-4@2x.png 2x"
+        />
       </figure>
     </section>
-    <section class="row">
-      <figure class="columns float-left">
-        <h2>
-          Aa—studio is the house of Erling Aarønæs, an independant
-          product-designer living and working in Oslo, Norway.
-        </h2>
-        <div class="copy">
+    <section class="grid-container intro">
+      <figure class="grid-x grid-margin-x">
+        <h3 class="cell large-10">
+          Established in 2020, Duties is an independent digital design studio
+          based in Oslo. We believe it’s our duty as designers to provide the
+          world with thoughtfully designed products that are both functional,
+          accessible and visually beautiful.
+        </h3>
+        <h3 class="cell large-10">
+          We work at the intersection of visual and functional design; focusing
+          on brand identity design, product strategy, web and native application
+          development plus a bit of xyz...
+        </h3>
+        <h3 class="cell large-10">
+          We have worked with a range of excellent companies and people
+          throughout the years such as: Godtlevert, Orkla, Eika Gruppen, Amedia,
+          Berg-Hansen, Brygg Magasin, Humid Mag, Well Dressed Vandals,
+          Aftenposten, SSF, Authentic Scandinavia, Fetch, Holzweiler, Mathias
+          Fossum.
+        </h3>
+      </figure>
+    </section>
+
+    <section class="grid-container people slide">
+      <figure class="grid-x grid-margin-x">
+        <div class="cell large-3 medium-6 auto person">
+          <div class="img-wrapper">
+            <img src="/images/about/Paul.png" alt="Paul Polite v2.0" />
+          </div>
+          <p>Paul Conley</p>
           <p>
-            I’m an Oslo-based senior designer, with over 10 years experience of
-            creating websites, products and brands. My approach to design is
-            working strategically with interdisciplinary teams to create
-            sophisticated and strong products. I was born 50/50 Norwegian
-            American, I always rely on Figma and design systems and I'm a nice
-            guy. My approach to a project is working strategically with
-            interdisciplinary teams to create sophisticated and strong products.
+            <a href="#">paul@duties.xyz</a>
+          </p>
+        </div>
+
+        <div class="cell large-3 medium-6 auto person">
+          <div class="img-wrapper erling">
+            <img src="/images/about/Erling.png" alt="Unge Erling 3000" />
+          </div>
+          <p>Erling Aarønæs</p>
+          <p>
+            <a href="#">erling@duties.xyz</a>
           </p>
         </div>
       </figure>
-      <figure class="columns">
-        <img
-          class="columns large-4"
-          src="https://avatars3.githubusercontent.com/u/46806954"
-          alt="My happy face"
-        />
-        <img
-          class="columns large-4"
-          src="https://avatars3.githubusercontent.com/u/46806954"
-          alt="My happy face"
-        />
-        <img
-          class="columns large-4"
-          src="https://avatars3.githubusercontent.com/u/46806954"
-          alt="My happy face"
-        />
-      </figure>
-      <figure class="columns">
-        <div>
-          <h3>
-            <a href="#">Fetch</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#gl">Godt Levert</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#eika">Eika Gruppen</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Sparebanken Sogn og Fjordane</a>
-            <span>&nbsp;/&nbsp;</span>
-            <a href="#">Humid Magazine</a>
-          </h3>
+    </section>
+
+    <section class="grid-container offduty slide" data-color="offduty">
+      <figure class="grid-x">
+        <div class="image-grid">
+          <img class="item" src="/images/offduty/offduty-01.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-02.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-03.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-06.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-04.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-05.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-09.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-07.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-08.png" alt="" />
+          <img class="item" src="/images/offduty/offduty-10.png" alt="" />
         </div>
       </figure>
-      <figure class="columns">
-        <a href="//www.linkedin.com/in/aaronaes" target="_blank">
-          <p>Credentials &nearr;</p>
-        </a>
-        <a href="https://www.instagram.com/aaronaes.studio/" target="_blank">
-          <p>Social media &nearr;</p>
-        </a>
-        <a href="mailto:hello@aaronaes.studio?subject=Hi">
-          <p>Contact &nearr;</p>
-        </a>
-      </figure>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
+import Masthead from "@/components/Masthead.vue";
+
 export default {
   name: "About",
+  components: {
+    Masthead
+  },
+  data() {
+    return {
+      //heading: "Equal parts creative partner and digital studio."
+    };
+  },
   beforeCreate: function() {
     document.body.className = "about";
   }

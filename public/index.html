@@ -1,54 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" v-html="html">
+  <head>
+    <script
+      async
+      src="//www.googletagmanager.com/gtag/js?id=UA-138231613-1"
+    ></script>
+    <script
+      src="//kit.fontawesome.com/383bf4223f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-<head>
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-138231613-1");
+    </script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138231613-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="google-site-verification"
+      content="id_B9XxY5BH0Hz0F7mj4ykP4B6v2rjhPAXQxl7LOIYU"
+    />
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>● &nbsp;Duties:</title>
 
-    gtag('config', 'UA-138231613-1');
+    <!-- CSS -->
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="//cdn.jsdelivr.net/npm/animate.css@3.5.1"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  </script>
+    <style></style>
+  </head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="google-site-verification" content="id_B9XxY5BH0Hz0F7mj4ykP4B6v2rjhPAXQxl7LOIYU" />
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but this site doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
 
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-  <title>Erling Aaronaes — Product Designer</title>
-
-  <!-- jQuery -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script src="//unpkg.com/scrollreveal"></script>
-
-  <!-- CSS -->
-  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css" rel="stylesheet" type="text/css" />
-  <link href="//cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <noscript>
-    <strong>We're sorry but this site doesn't work properly without JavaScript
-      enabled. Please enable it to continue.</strong>
-  </noscript>
-  <div id="app">
-  </div>
-
-  <!-- Compressed JavaScript -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.0.0/foundation.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-  <script src="//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.2.0/dist/simpleParallax.min.js"></script>
-</body>
-
+    <!-- Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="//unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/2542/jquery.scrollie.min_1.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/simple-parallax-js@5.2.0/dist/simpleParallax.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+  </body>
 </html>

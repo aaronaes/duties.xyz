@@ -17,3 +17,14 @@ ul {
     }
   }
 }
+
+details,
+details summary {
+  padding-left: 0;
+  background-image: none;
+  -webkit-appearance: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}

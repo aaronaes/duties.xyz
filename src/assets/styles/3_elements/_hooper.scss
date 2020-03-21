@@ -1,0 +1,70 @@
+// CSS Carousel
+.carousel {
+  position: relative;
+
+  @include respond-to("sm") {
+    padding-top: $sm;
+    padding-bottom: $sm;
+  }
+
+  .carousel-inner {
+    padding-top: $md;
+    padding-bottom: $lg;
+    height: auto;
+
+    @include respond-to("sm") {
+      padding-top: $xs;
+      padding-bottom: $sm;
+    }
+
+    .hooper-list {
+      cursor: grab;
+      .hooper-track {
+        .hooper-slide {
+          margin-right: $md;
+
+          img,
+          video {
+            border-radius: 2px;
+          }
+
+          article {
+            padding: $md $md $md/1.5;
+            border-radius: 2px;
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+
+          &:first-of-type {
+            margin-left: $md;
+          }
+
+          @include respond-to("md") {
+            margin-right: 0;
+
+            img,
+            video {
+              max-width: calc(100% - #{$sm});
+              padding-left: 0;
+              padding-right: 0;
+            }
+
+            &:first-of-type {
+              margin-left: $md;
+            }
+          }
+
+          @include respond-to("sm") {
+            margin-right: 0;
+
+            &:first-of-type {
+              margin-left: $sm;
+            }
+          }
+        }
+      }
+      &:active {
+        cursor: grabbing !important;
+      }
+    }
+  }
+}
