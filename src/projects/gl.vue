@@ -29,29 +29,6 @@
       </div>
     </div>
 
-    <div class="grid-x">
-      <ul class="accordion" data-accordion>
-        <li class="accordion-item" data-accordion-item id="toggle-1">
-          <a class="accordion-title" href="#">accordion 1</a>
-          <div class="accordion-content" data-tab-content>
-            Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque
-            eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-            Phasellus molestie magna non est bibendum non venenatis nisl tempor.
-            Suspendisse dictum feugiat nisl ut dapibus.
-          </div>
-        </li>
-        <li class="accordion-item" data-accordion-item id="toggle-2">
-          <a class="accordion-title" href="#">accordion 2</a>
-          <div class="accordion-content" data-tab-content>
-            Suspendisse dictum feugiat nisl ut dapibus. Vivamus hendrerit arcu
-            sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie
-            magna non est bibendum non venenatis nisl tempor. Sed auctor neque
-            eu tellus rhoncus ut eleifend nibh porttitor.
-          </div>
-        </li>
-      </ul>
-    </div>
-
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
       <div class="grid-x grid-margin-x">
         <div class="cell">

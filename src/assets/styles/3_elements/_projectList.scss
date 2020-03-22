@@ -16,10 +16,10 @@ section.projectList {
         display: none !important;
       }
 
-      border-bottom: 2px solid;
+      border-bottom: solid 2px;
 
       &:first-of-type {
-        border-top: 2px solid;
+        border-top: solid 2px;
       }
 
       &.coming {

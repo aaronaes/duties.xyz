@@ -23,20 +23,83 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img
-        style="background: red; mix-blend-mode: screen;"
-        data-src="/images/work/fetch/fetch-01.png"
-      />
-      <img data-src="/images/work/fetch/fetch-02.png" />
-      <img data-src="/images/work/fetch/fetch-03.png" />
-      <img data-src="/images/work/fetch/fetch-04.png" />
-      <img data-src="/images/work/fetch/fetch-05.png" />
-      <img data-src="/images/work/fetch/fetch-06.png" />
-      <img data-src="/images/work/fetch/fetch-07.png" />
-      <img data-src="/images/work/fetch/fetch-08.png" />
-      <img data-src="/images/work/fetch/fetch-09.png" />
-      <img data-src="/images/work/fetch/fetch-10.png" />
-      <img data-src="/images/work/fetch/fetch-11.png" />
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <img
+            data-src="/images/work/fetch/fetch-01.png"
+            data-srcset="/images/work/fetch/fetch-01@2x.png 2x"
+          />
+          <img
+            data-src="/images/work/fetch/fetch-02.png"
+            data-srcset="/images/work/fetch/fetch-02@2x.png 2x"
+          />
+          <img
+            data-src="/images/work/fetch/fetch-03.png"
+            data-srcset="/images/work/fetch/fetch-03@2x.png 2x"
+          />
+          <img
+            data-src="/images/work/fetch/fetch-04.png"
+            data-srcset="/images/work/fetch/fetch-04@2x.png 2x"
+          />
+        </div>
+
+        <!-- DOUBLE -->
+        <div class="grid-x large-10 medium-10 center double">
+          <div class="cell auto grid-padding-x">
+            <img
+              data-src="/images/work/fetch/fetch-05.png"
+              data-srcset="/images/work/fetch/fetch-05@2x.png 2x"
+            />
+          </div>
+          <div class="cell auto grid-padding-x">
+            <img
+              data-src="/images/work/fetch/fetch-06.png"
+              data-srcset="/images/work/fetch/fetch-06@2x.png 2x"
+            />
+          </div>
+        </div>
+
+        <!-- TEXT -->
+        <div class="grid-x large-8 medium-10 text center">
+          <div class="cell auto grid-padding-x">
+            <h3>Ut enim ad minim veniam nostrud.</h3>
+          </div>
+          <div class="cell auto grid-padding-x">
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+          </div>
+        </div>
+
+        <div class="cell">
+          <img
+            data-src="/images/work/fetch/fetch-07.png"
+            data-srcset="/images/work/fetch/fetch-07@2x.png 2x"
+          />
+          <img
+            data-src="/images/work/fetch/fetch-08.png"
+            data-srcset="/images/work/fetch/fetch-08@2x.png 2x"
+          />
+        </div>
+
+        <div class="grid-x double">
+          <div class="cell auto grid-padding-x">
+            <img
+              data-src="/images/work/fetch/fetch-09.png"
+              data-srcset="/images/work/fetch/fetch-09@2x.png 2x"
+            />
+          </div>
+          <div class="cell auto grid-padding-x">
+            <img
+              data-src="/images/work/fetch/fetch-09.png"
+              data-srcset="/images/work/fetch/fetch-09@2x.png 2x"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
