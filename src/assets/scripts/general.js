@@ -17,7 +17,4 @@ $(document).ready(function() {
       $("body.home, main").removeClass("light");
     }
   });
-
-  var numImgs = $(".projectList > details > img").length;
-  $(".count").text(numImgs);
 });
