@@ -8,10 +8,14 @@
             >find us creating</a
           >
           experimental typefaces, dabbling in photography and curating our
-          <a href="#" target="_blank">studio playlists</a>.
+          <a
+            href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+            target="_blank"
+            >studio playlists</a
+          >.
         </h3>
       </figure>
-      <figure class="grid-x">
+      <figure class="grid-x contact">
         <div class="cell auto large-6 medium-6 small-6">
           <p>
             Contact
@@ -32,14 +36,16 @@
           </p>
         </div>
       </figure>
-      <figure class="grid-x">
-        <div class="cell auto large-6 medium-6 small-6">
-          <p class="logo"><span>●</span>Duties</p>
-        </div>
+      <figure class="grid-x grid-margin-x globalFooter">
+        <router-link class="cell shrink" to="/">
+          <p class="logo">Duties<span></span></p>
+        </router-link>
 
-        <div class="cell auto large-6 medium-6 small-6 text-right">
-          <p class="year">&copy; 2020</p>
-        </div>
+        <router-link class="cell shrink" to="/about">
+          <p>
+            Studio
+          </p>
+        </router-link>
       </figure>
     </section>
   </footer>

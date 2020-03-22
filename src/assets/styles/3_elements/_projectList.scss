@@ -204,5 +204,25 @@ section.projectList {
         }
       }
     }
+
+    &.connect {
+      h3 {
+        span {
+          display: block;
+        }
+      }
+    }
+
+    &.about {
+      height: 50vh;
+      align-content: center;
+
+      h3 {
+        span {
+          display: block;
+          padding-top: $sm;
+        }
+      }
+    }
   }
 }

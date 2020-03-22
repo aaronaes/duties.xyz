@@ -2,7 +2,6 @@ body {
   &.home {
     footer {
       display: flex;
-      bottom: 0;
       height: 100vh;
 
       @include respond-to("sm") {
@@ -12,24 +11,78 @@ body {
         align-self: flex-end;
 
         figure {
-          h3 {
-            margin-bottom: $md;
-          }
+          &.signoff {
+            padding-top: $sm;
+            padding-bottom: $lg;
 
-          p {
-            margin-bottom: 0;
-
-            &.logo {
+            h3 {
+              padding-bottom: $sm;
               span {
-                color: $accent;
-                padding-right: 5px;
+                display: block;
+                padding-top: $sm;
               }
             }
           }
 
-          p.year {
-            span {
-              font-family: "Inter", sans-serif;
+          &.contact {
+            padding-bottom: $lg;
+          }
+
+          &.globalFooter {
+            padding-bottom: $sm;
+            justify-content: space-between;
+
+            a {
+              border-bottom: transparent !important;
+
+              p {
+                margin-bottom: 0;
+                &.logo {
+                  span {
+                    &:before {
+                      color: initial;
+                      content: ":";
+                      padding-left: 3px;
+                      font-weight: 900;
+                      font-size: 0.9em;
+                    }
+
+                    &:after {
+                      content: "xyz";
+                      opacity: 0;
+                      padding-left: 3px;
+                      font-weight: normal;
+                    }
+
+                    @include respond-to("sm") {
+                      &:before,
+                      &:after {
+                        padding-left: 1px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              &:hover {
+                color: inherit;
+
+                h3,
+                p {
+                  &.logo {
+                    span {
+                      &:before {
+                        color: $accent;
+                      }
+
+                      &:after {
+                        opacity: 1;
+                        color: $accent;
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }

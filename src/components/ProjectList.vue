@@ -44,14 +44,11 @@
         <component :is="project"></component>
       </details>
     </figure>
-    <figure class="grid-x grid-margin-x connect">
-      <div class="cell auto">
-        <h3>
-          Want to talk about a project?
-          <br />
-          <a href="#">Let's talk about it</a>
-        </h3>
-      </div>
+    <figure class="grid-x connect">
+      <h3 class="cell auto large-8 medium-10">
+        Want to talk about a project?
+        <span><a href="#">Let's talk about it</a></span>
+      </h3>
     </figure>
   </section>
 </template>
@@ -90,7 +87,7 @@ export default {
 
         setTimeout(() => {
           this.active = name;
-        }, 500);
+        }, 2000);
       }
     },
     mouseOver: function() {

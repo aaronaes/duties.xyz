@@ -1,5 +1,5 @@
 <template>
-  <section class="grid-container masthead">
+  <section class="grid-container masthead slide" data-color="home">
     <figure class="grid-x">
       <div class="cell " v-if="this.$route.name === 'Home'">
         <h1 class="large-9 medium-10">
