@@ -98,7 +98,8 @@ export default {
   },
   data() {
     return {
-      //heading: "Equal parts creative partner and digital studio."
+      heading: "Equal parts creative partner and digital studio.",
+      copy: ""
     };
   },
   beforeCreate: function() {
