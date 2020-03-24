@@ -7,14 +7,12 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   hashbag: true,
-  scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return { selector: to.hash };
-    } else if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { x: 0, y: 0 };
-    }
+  scrollBehavior() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 });
+      }, 500);
+    });
   },
   routes: [
     {

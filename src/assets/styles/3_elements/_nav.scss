@@ -1,8 +1,6 @@
 body {
   nav {
-    // position: fixed;
-
-    position: relative;
+    position: absolute;
     display: flex;
     z-index: 9999;
     top: 0;

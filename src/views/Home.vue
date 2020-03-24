@@ -111,13 +111,13 @@ export default {
             itemsToShow: 4.25
           },
           768: {
-            itemsToShow: 3
+            itemsToShow: 3.25
           },
-          375: {
-            itemsToShow: 2
+          576: {
+            itemsToShow: 2.25
           },
           0: {
-            itemsToShow: 1
+            itemsToShow: 1.25
           }
         }
       }

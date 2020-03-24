@@ -1,84 +1,95 @@
 body {
-  &.home {
-    footer {
-      display: flex;
-      height: 100vh;
+  footer {
+    display: flex;
+    height: 100vh;
 
-      @include respond-to("sm") {
-      }
+    @include respond-to("sm") {
+    }
 
-      section {
-        align-self: flex-end;
+    section {
+      align-self: flex-end;
 
-        figure {
-          &.signoff {
-            padding-top: $sm;
-            padding-bottom: $lg;
+      figure {
+        &.signoff {
+          padding-top: $sm;
+          padding-bottom: $md;
 
-            h3 {
-              padding-bottom: $sm;
-              span {
-                display: block;
-                padding-top: $sm;
-              }
+          h3 {
+            padding-bottom: $sm;
+            span {
+              display: block;
+              padding-top: $sm;
             }
           }
+        }
 
-          &.contact {
-            padding-bottom: $lg;
-          }
+        &.contact {
+          padding-bottom: $md;
+        }
 
-          &.globalFooter {
-            padding-bottom: $sm;
-            justify-content: space-between;
+        &.globalFooter {
+          padding-bottom: $md;
+          justify-content: space-between;
 
-            a {
-              border-bottom: transparent !important;
+          a {
+            border-bottom: transparent !important;
 
-              p {
-                margin-bottom: 0;
-                &.logo {
-                  span {
-                    &:before {
-                      color: initial;
-                      content: ":";
-                      padding-left: 3px;
-                      font-weight: 900;
-                      font-size: 0.9em;
-                    }
+            &.burger {
+              svg {
+                height: 100%;
+                min-height: 16px;
+                max-height: 20px;
+                transform: translateY(2px);
 
+                path {
+                  fill: $accent;
+                }
+              }
+            }
+
+            p {
+              margin-bottom: 0;
+              &.logo {
+                span {
+                  &:before {
+                    color: initial;
+                    content: ":";
+                    padding-left: 3px;
+                    font-weight: 900;
+                    font-size: 0.9em;
+                  }
+
+                  &:after {
+                    content: "xyz";
+                    opacity: 0;
+                    padding-left: 3px;
+                    font-weight: normal;
+                  }
+
+                  @include respond-to("sm") {
+                    &:before,
                     &:after {
-                      content: "xyz";
-                      opacity: 0;
-                      padding-left: 3px;
-                      font-weight: normal;
-                    }
-
-                    @include respond-to("sm") {
-                      &:before,
-                      &:after {
-                        padding-left: 1px;
-                      }
+                      padding-left: 1px;
                     }
                   }
                 }
               }
+            }
 
-              &:hover {
-                color: inherit;
+            &:hover {
+              color: inherit;
 
-                h3,
-                p {
-                  &.logo {
-                    span {
-                      &:before {
-                        color: $accent;
-                      }
+              h3,
+              p {
+                &.logo {
+                  span {
+                    &:before {
+                      color: $accent;
+                    }
 
-                      &:after {
-                        opacity: 1;
-                        color: $accent;
-                      }
+                    &:after {
+                      opacity: 1;
+                      color: $accent;
                     }
                   }
                 }

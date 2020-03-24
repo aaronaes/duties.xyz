@@ -1,24 +1,26 @@
 // Vue transition
 
 // Slide
-.global-enter {
-  opacity: 0;
-}
-
-.global-leave-to {
-  opacity: 0;
-}
-
 .global-enter-active,
 .global-leave-active {
-  transition-property: all 300ms $easing;
-  transition-delay: 300ms;
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-timing-function: $easing;
+}
+
+.global-enter-active {
+  transition-delay: 500ms;
+}
+
+.global-enter,
+.global-leave-active {
+  opacity: 0;
 }
 
 // Images
 .img-fade-enter-active,
 .img-fade-leave-active {
-  transition: all 0.125s $easing;
+  transition: all 250ms $easing;
 }
 
 .img-fade-enter,

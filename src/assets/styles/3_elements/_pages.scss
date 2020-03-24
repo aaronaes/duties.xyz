@@ -60,11 +60,13 @@ body {
     }
   }
 
-  &.footer,
-  &.color-footer {
-    background-color: $grey;
-    * {
-      color: $black;
+  &.home {
+    &.footer,
+    &.color-footer {
+      background-color: $grey;
+      * {
+        color: $black;
+      }
     }
   }
 }

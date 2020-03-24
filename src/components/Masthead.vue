@@ -1,8 +1,8 @@
 <template>
   <section class="grid-container masthead slide" data-color="home">
     <figure class="grid-x">
-      <div class="cell " v-if="this.$route.name === 'Home'">
-        <h1 class="large-9 medium-10">
+      <div class="cell large-9 medium-10" v-if="this.$route.name === 'Home'">
+        <h1>
           A creative partner helping solve problems by making products that
           work.
         </h1>
