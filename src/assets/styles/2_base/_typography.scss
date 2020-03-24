@@ -24,28 +24,28 @@ h6 {
 
 h1 {
   font-size: calc(32px + (90 - 3) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.2em;
+  line-height: 1.1;
   margin-bottom: $sm;
 }
 
 h2 {
   font-size: calc(28px + (48 - 28) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 h3 {
   font-size: calc(22px + (29 - 22) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1em;
+  line-height: 1.4;
 }
 
 h4 {
-  font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.4em;
+  font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1680 - 320)));
+  line-height: 1.4;
 }
 
 p {
   font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: $sm;
 
   @include respond-to("sm") {
