@@ -4,7 +4,6 @@ import App from "./App.vue";
 import router from "./router";
 
 import "foundation-sites/dist/css/foundation.min.css";
-import "foundation-sites/dist/js/foundation.min.js";
 import "./assets/scripts/main.js";
 import "./assets/styles/main.scss";
 import VueLazyload from "vue-lazyload";
