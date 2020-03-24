@@ -107,13 +107,8 @@ export default {
         wheelControl: false,
         trimWhiteSpace: false,
         breakpoints: {
-<<<<<<< HEAD
           1220: {
             itemsToShow: 4.25
-=======
-          992: {
-            itemsToShow: 4
->>>>>>> df8594f05afaa29ba886bf5b600dadd5041660bf
           },
           768: {
             itemsToShow: 3
