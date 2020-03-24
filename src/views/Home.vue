@@ -68,18 +68,19 @@ export default {
       hooperSettings: {
         transition: 300,
         wheelControl: false,
+        trimWhiteSpace: false,
         breakpoints: {
           992: {
-            itemsToShow: 4.75
+            itemsToShow: 4
           },
           768: {
-            itemsToShow: 3.25
+            itemsToShow: 3
           },
           375: {
-            itemsToShow: 2.25
+            itemsToShow: 2
           },
           0: {
-            itemsToShow: 1.25
+            itemsToShow: 1
           }
         }
       }
