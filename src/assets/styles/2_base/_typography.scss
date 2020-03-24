@@ -19,28 +19,28 @@ h6 {
   font-family: inherit;
   margin-top: 0;
   margin-bottom: 0;
-  font-weight: 400; 
+  font-weight: 400;
 }
 
 h1 {
-  font-size: calc(35px + (90 - 35) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.1;
+  font-size: calc(32px + (90 - 3) * ((100vw - 320px) / (1680 - 320)));
+  line-height: 1.2em;
   margin-bottom: $sm;
 }
 
 h2 {
   font-size: calc(28px + (48 - 28) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.2;
+  line-height: 1.2em;
 }
 
 h3 {
   font-size: calc(22px + (29 - 22) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.3;
+  line-height: 1em;
 }
 
 h4 {
   font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.5;
+  line-height: 1.4em;
 }
 
 p {

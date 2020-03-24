@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav :key="$route.fullPath" />
-    <transition name="global" mode="out-in" appear>
+    <transition name="global" mode="out-in">
       <slot></slot>
     </transition>
     <Footer />

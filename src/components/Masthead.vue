@@ -3,11 +3,11 @@
     <figure class="grid-x">
       <div class="cell large-9 medium-10" v-if="this.$route.name === 'Home'">
         <h1>
-          A creative partner helping solve problems by making products that
-          work.
+          A creative partner <br />
+          abrand design studio for thoughtfully crafted products.
         </h1>
       </div>
-      <div v-else class="cell" data-scroll-speed="2">
+      <div v-else class="cell">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">
@@ -15,7 +15,7 @@
               /ˈdjuːti/<i
                 @click.prevent="
                   playSound(
-                    'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
+                    'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/duty-sound.mp3'
                   )
                 "
                 class="fas fa-volume-up"

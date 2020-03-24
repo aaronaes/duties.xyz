@@ -29,6 +29,7 @@ body {
             span {
               color: $accent;
               &:after {
+                font-family: $font-sneak;
                 content: " → ";
               }
             }
