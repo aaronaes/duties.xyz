@@ -2,7 +2,7 @@
   <footer class="slide" data-color="footer">
     <section class="grid-container">
       <figure class="grid-x signoff">
-        <h3 class="cell auto large-8 medium-10">
+        <h3 class="cell large-8 medium-10">
           When we are off-duty you can
           <a href="//instagram.com/duties.xyz" target="_blank"
             >find us creating</a
@@ -16,14 +16,14 @@
         </h3>
       </figure>
       <figure class="grid-x contact">
-        <div class="cell auto large-6 medium-6 small-6">
+        <div class="cell large-6 medium-6 small-6">
           <p>
             Contact
             <br />
             <a href="#">new@duties.xyz</a>
           </p>
         </div>
-        <div class="cell auto large-6 medium-6 hide">
+        <div class="cell large-6 medium-6 hide">
           <p>
             This website is built on the
             <a href="http://www.vuejs.org" target="_blank">Vue.js framework</a>

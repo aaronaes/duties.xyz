@@ -47,7 +47,7 @@
 
     <section class="grid-container people slide">
       <figure class="grid-x grid-margin-x">
-        <div class="cell large-3 medium-6 auto person">
+        <div class="cell large-3 medium-6 small-12 person">
           <div class="img-wrapper">
             <img src="/images/about/Paul.png" alt="Paul Polite v2.0" />
           </div>
@@ -57,7 +57,7 @@
           </p>
         </div>
 
-        <div class="cell large-3 medium-6 auto person">
+        <div class="cell large-3 medium-6 small-12 person">
           <div class="img-wrapper erling">
             <img src="/images/about/Erling.png" alt="Unge Erling 3000" />
           </div>
