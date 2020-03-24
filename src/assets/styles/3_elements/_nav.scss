@@ -44,7 +44,19 @@ body {
           a {
             border-bottom: transparent !important;
 
-            h3,
+            &.burger {
+              svg {
+                height: 100%;
+                min-height: 16px;
+                max-height: 20px;
+                transform: translateY(2px);
+
+                path {
+                  fill: $accent;
+                }
+              }
+            }
+
             p {
               margin-bottom: 0;
               &.logo {

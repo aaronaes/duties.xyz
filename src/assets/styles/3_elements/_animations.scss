@@ -11,7 +11,8 @@
 
 .global-enter-active,
 .global-leave-active {
-  transition-property: opacity 300ms $easing;
+  transition-property: all 300ms $easing;
+  transition-delay: 300ms;
 }
 
 // Images

@@ -6,49 +6,55 @@
       </div>
       <div class="cell large-8 medium-10 description">
         <h3>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
+          An ever changing selection of our favourite marks that we have created
+          for our clients, friends and personal projects over the years. We hope
+          to see yours here soon.
         </h3>
       </div>
     </div>
-    <div
-      class="grid-x grid-margin-x img-container"
-      v-lazy-container="{ selector: 'img' }"
-    >
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-01.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-02.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-03.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-04.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-05.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-06.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-07.png"
-      />
-      <img
-        class="cell large-6 medium-6 auto"
-        data-src="/images/work/marks/marks-08.png"
-      />
+    <div class="img-container" v-lazy-container="{ selector: 'img' }">
+      <div class="grid-x grid-margin-x">
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-01.png"
+          data-srcset="/images/work/marks/logo-01@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-02.png"
+          data-srcset="/images/work/marks/logo-02@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-03.png"
+          data-srcset="/images/work/marks/logo-03@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-04.png"
+          data-srcset="/images/work/marks/logo-04@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-05.png"
+          data-srcset="/images/work/marks/logo-05@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-06.png"
+          data-srcset="/images/work/marks/logo-06@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-07.png"
+          data-srcset="/images/work/marks/logo-07@2x.png 2x"
+        />
+        <img
+          class="cell large-6 medium-6 auto"
+          data-src="/images/work/marks/logo-08.png"
+          data-srcset="/images/work/marks/logo-08@2x.png 2x"
+        />
+      </div>
     </div>
   </div>
 </template>

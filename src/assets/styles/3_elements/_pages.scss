@@ -31,6 +31,7 @@ section {
 
   figure {
     position: relative;
+    margin: 0;
     padding-bottom: $md;
 
     @include respond-to("medium") {
@@ -41,11 +42,6 @@ section {
 
 // Color Schemes
 body {
-  &.home,
-  &.color-home {
-    background-color: $grey;
-  }
-
   &.light,
   &.color-light {
     background-color: $white;

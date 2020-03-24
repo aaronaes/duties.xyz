@@ -33,14 +33,14 @@
         <h3 class="cell large-10">
           We work at the intersection of visual and functional design; focusing
           on brand identity design, product strategy, web and native application
-          development plus a bit of xyz...
+          development plus a bit of xyz…
         </h3>
         <h3 class="cell large-10">
           We have worked with a range of excellent companies and people
-          throughout the years such as: Godtlevert, Orkla, Eika Gruppen, Amedia,
-          Berg-Hansen, Brygg Magasin, Humid Mag, Well Dressed Vandals,
-          Aftenposten, SSF, Authentic Scandinavia, Fetch, Holzweiler, Mathias
-          Fossum.
+          throughout the years such as: Godtlevert, Orkla, SSF, Authentic
+          Scandinavia, Fetch, Eika Gruppen, Brygg Magasin, Humid Mag, Well
+          Dressed Vandals, Aftenposten, Holzweiler, Mathias Fossum Amedia and
+          Berg-Hansen Reisebureau.
         </h3>
       </figure>
     </section>

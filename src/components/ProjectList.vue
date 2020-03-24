@@ -61,7 +61,7 @@ import Humid from "@/projects/humid.vue";
 import Eika from "@/projects/eika.vue";
 import Gro from "@/projects/gro.vue";
 import Fetch from "@/projects/fetch.vue";
-import SSF from "@/projects/ssf.vue";
+//import SSF from "@/projects/ssf.vue";
 import Marks from "@/projects/marks.vue";
 
 export default {
@@ -71,7 +71,7 @@ export default {
     return {
       title: "Project Index",
       active: "",
-      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, SSF, Marks]
+      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, Marks]
     };
   },
   methods: {

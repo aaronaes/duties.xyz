@@ -2,30 +2,23 @@
   <div class="content">
     <div class="grid-x grid-margin-x">
       <div class="cell meta">
-        <h4 class="status">Ongoing</h4>
+        <h4>Ongoing</h4>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3 class="cell large-10">
-          Godt Levert didn't have as much of a presence in the market as they
-          wanted. The service was new and was gaining traction, and with that
-          Godt Levert wanted to become a household name.
+          Godtlevert is a meal-kit company based in Norway. As a new service and
+          player in the market, Godtlevert wanted to become a national household
+          name and gain further traction in this emerging segment.
         </h3>
         <h3 class="cell large-10">
-          The solution to this was taking a more holistic approach to their
-          product, through creating a new way to browse meals and weekly deals.
-          As a part of the project, the whole app was revamped with new UI and a
-          new website.
+          Our solution was to take an holistic approach to their product by
+          creating a new way to browse meals and weekly specials. Their whole
+          app was revamped with a new UI alongside an updated website design.
         </h3>
       </div>
       <div class="cell meta">
-        <h4>
-          Photography by
-          <a href="#">Glarb</a>
-        </h4>
-        <h4>
-          Build by
-          <a href="#">WebsiteLords</a>
-        </h4>
+        <h4>All photography done in-house.</h4>
+        <h4>Site built in-house.</h4>
       </div>
     </div>
 
@@ -43,7 +36,7 @@
         </div>
 
         <!-- DOUBLE -->
-        <div class="grid-x large-10 medium-10 center double">
+        <div class="grid-x">
           <div class="cell auto grid-padding-x">
             <img
               data-src="/images/work/gl/godtlevert-03.png"
@@ -58,21 +51,6 @@
           </div>
         </div>
 
-        <!-- TEXT -->
-        <div class="grid-x large-8 medium-10 text center">
-          <div class="cell auto grid-padding-x">
-            <h3>Ut enim ad minim veniam nostrud.</h3>
-          </div>
-          <div class="cell auto grid-padding-x">
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-          </div>
-        </div>
-
         <div class="cell">
           <img
             data-src="/images/work/gl/godtlevert-05.png"
@@ -82,27 +60,19 @@
             data-src="/images/work/gl/godtlevert-06.png"
             data-srcset="/images/work/gl/godtlevert-06@2x.png 2x"
           />
-          <img
-            data-src="/images/work/gl/godtlevert-07.png"
-            data-srcset="/images/work/gl/godtlevert-07@2x.png 2x"
-          />
-          <img
-            data-src="/images/work/gl/godtlevert-08.png"
-            data-srcset="/images/work/gl/godtlevert-08@2x.png 2x"
-          />
         </div>
 
         <div class="grid-x double">
           <div class="cell auto grid-padding-x">
             <img
-              data-src="/images/work/gl/godtlevert-09.png"
-              data-srcset="/images/work/gl/godtlevert-09@2x.png 2x"
+              data-src="/images/work/gl/godtlevert-07.png"
+              data-srcset="/images/work/gl/godtlevert-07@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
-              data-src="/images/work/gl/godtlevert-09.png"
-              data-srcset="/images/work/gl/godtlevert-09@2x.png 2x"
+              data-src="/images/work/gl/godtlevert-08.png"
+              data-srcset="/images/work/gl/godtlevert-08@2x.png 2x"
             />
           </div>
         </div>

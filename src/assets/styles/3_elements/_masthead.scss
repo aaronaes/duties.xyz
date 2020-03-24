@@ -2,7 +2,7 @@
 body {
   section {
     &.masthead {
-      height: 85vh;
+      height: 70vh;
       display: flex;
 
       @include respond-to("sm") {

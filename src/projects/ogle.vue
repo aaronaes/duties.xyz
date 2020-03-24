@@ -2,14 +2,17 @@
   <div class="content">
     <div class="grid-x grid-margin-x">
       <div class="cell meta">
-        <h4 class="status">Completed 20XX</h4>
+        <h4 class="status">Completed 2019</h4>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3 class="cell large-10">
           Ogle Image is a bespoke signage and graphic installation agency based
-          in Melbourne with operations in Sydney. We gave their current website
-          a complete redesign and refreshed a variety of brand identity elements
-          such as typography and colour palettes.
+          in Melbourne with operations in Sydney.
+        </h3>
+        <h3 class="cell large-10">
+          We gave their current website a complete redesign and refreshed a
+          variety of brand identity elements such as typography and colour
+          palettes.
         </h3>
       </div>
     </div>

@@ -4,7 +4,7 @@ body {
       position: relative;
 
       &.carousel {
-        padding: 0;
+        padding: $md 0 0;
         z-index: 0;
         display: flex;
 
@@ -15,10 +15,23 @@ body {
         .hooper-slide {
           align-self: flex-start;
 
+          &.large {
+            min-width: 40vw !important;
+            display: block;
+          }
+
           p {
             padding-top: $xs / 2;
+            padding-bottom: 5px;
             margin-bottom: 0;
-            max-width: 100%;
+            font-size: 1em;
+
+            span {
+              color: $accent;
+              &:after {
+                content: " → ";
+              }
+            }
 
             @include respond-to("md") {
               max-width: calc(100% - #{$sm});

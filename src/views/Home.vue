@@ -2,8 +2,9 @@
   <main id="home">
     <!-- HERO -->
     <Masthead :heading="heading"></Masthead>
+
     <!-- CAROUSEL -->
-    <section class="carousel">
+    <section class="carousel grid-container">
       <Hooper
         class="carousel-inner"
         :settings="hooperSettings"
@@ -11,29 +12,65 @@
         @slide="updateCarousel"
       >
         <Slide>
-          <img src="/images/banner/banner-1.png" />
-          <p class="tag"><span>[WIP]</span> A new food thing</p>
-        </Slide>
-        <Slide>
-          <img src="/images/banner/banner-2.png" />
-          <p class="tag"><a href="#">Download Falafel Regular </a>↘</p>
-        </Slide>
-        <Slide>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT9MbuL7MOKsv5qOM_-i6__6oiQQJJPrXYc_nxkL891Jixe4xKI"
+            src="/images/banner/banner-01.png"
+            srcset="/images/banner/banner-01@2x.png 2x"
           />
-          <p class="tag">
-            We are excited to start working with Askeladden & Co on their new
-            venture
+          <p>
+            <span>Studio</span>
+            A growing selection of audio goodness from us to you.
+            <a
+              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+              target="_blank"
+              >Listen here</a
+            >.
           </p>
         </Slide>
         <Slide>
-          <img src="/images/banner/banner-3.png" />
-          <p class="tag">Title</p>
+          <img
+            src="/images/banner/banner-02.png"
+            srcset="/images/banner/banner-02@2x.png 2x"
+          />
+          <p>
+            <span>News</span>
+            We are excited to continue collaborating with
+            <a href="//www.godtlevert.no" target="_blank">Godtlevert</a>.
+          </p>
         </Slide>
-        <Slide class="big">
-          <img src="/images/banner/banner-4.png" />
-          <p class="tag">Title</p>
+        <Slide>
+          <img
+            src="/images/banner/banner-03.png"
+            srcset="/images/banner/banner-03@2x.png 2x"
+          />
+          <p>
+            <span>News</span>
+            We are revamping the way teams and stakeholders organise events for
+            Samspill.
+          </p>
+        </Slide>
+        <Slide class="large">
+          <img
+            src="/images/banner/banner-04.png"
+            srcset="/images/banner/banner-04@2x.png 2x"
+          />
+          <p>
+            <span>Studio</span>
+            See what duties we can help your business with
+            <router-link to="/about">here</router-link>.
+          </p>
+        </Slide>
+        <Slide>
+          <img
+            src="/images/banner/banner-05.png"
+            srcset="/images/banner/banner-05@2x.png 2x"
+          />
+          <p>
+            We’re always sharing past and present work alongside other fun
+            things on
+            <a href="//www.instagram.com/duties.xyz" target="_blank"
+              >Instagram</a
+            >.
+          </p>
         </Slide>
       </Hooper>
     </section>
@@ -69,8 +106,8 @@ export default {
         transition: 300,
         wheelControl: false,
         breakpoints: {
-          992: {
-            itemsToShow: 4.75
+          1220: {
+            itemsToShow: 4.25
           },
           768: {
             itemsToShow: 3.25

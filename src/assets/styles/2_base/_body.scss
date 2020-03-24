@@ -12,8 +12,8 @@ html {
   vertical-align: baseline;
   opacity: 0;
   animation-name: sitefade;
-  animation-delay: 600ms;
-  animation-duration: 300ms;
+  animation-delay: 1000ms;
+  animation-duration: 1000ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-direction: normal;
@@ -34,7 +34,7 @@ body {
   font-family: $font-texgyro;
   font-size: 16px;
   line-height: 1.6;
-  background-color: $grey;
+  background-color: $white;
   color: $black;
   transition: background-color 300ms ease-in-out;
   will-change: background-color;

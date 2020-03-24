@@ -7,28 +7,24 @@
       <div class="cell large-8 medium-10 description">
         <h3>
           Authentic Scandinavia is a dedicated online tour operator, creating
-          and selling independent package tours and escorted coach tours
-          throughout Scandinavia and the other Nordic countries.
+          and selling premium package tours throughout Scandinavia and the
+          Nordic region.
         </h3>
         <h3>
-          The visual cues utilized in the new identity was high-end typography
-          and luxurious colors, as Authentic Scandinavia delivers high-end
-          travel packages.
+          To help reflect their high-end travel offering we produced a visual
+          identity and website design that utilised luxurious headline
+          typography alongside a fresh yet understated colour palette.
         </h3>
-      </div>
-      <div class="cell meta">
-        <h4>Photography by XXX</h4>
-        <h4>Build by YYY</h4>
-        <h4>
-          <a href="https://authentic-scandinavia.com" target="_blank"
-            >Visit site</a
-          >
-        </h4>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
       <div class="grid-x grid-margin-x">
         <div class="cell">
+          <img
+            class="space"
+            data-src="/images/work/as/as-01.png"
+            data-srcset="/images/work/as/as-01@2x.png 2x"
+          />
           <img
             data-src="/images/work/as/as-02.png"
             data-srcset="/images/work/as/as-02@2x.png 2x"
@@ -36,10 +32,6 @@
           <img
             data-src="/images/work/as/as-03.png"
             data-srcset="/images/work/as/as-03@2x.png 2x"
-          />
-          <img
-            data-src="/images/work/as/as-09.png"
-            data-srcset="/images/work/as/as-09@2x.png 2x"
           />
         </div>
 
@@ -60,9 +52,8 @@
         </div>
         <div class="cell">
           <img
-            class="space"
-            data-src="/images/work/as/as-01.png"
-            data-srcset="/images/work/as/as-01@2x.png 2x"
+            data-src="/images/work/as/as-09.png"
+            data-srcset="/images/work/as/as-09@2x.png 2x"
           />
         </div>
         <!-- DOUBLE -->
@@ -79,12 +70,6 @@
               data-srcset="/images/work/as/as-08@2x.png 2x"
             />
           </div>
-        </div>
-        <div class="cell">
-          <img
-            data-src="/images/work/as/as-10.png"
-            data-srcset="/images/work/as/as-10@2x.png 2x"
-          />
         </div>
       </div>
     </div>
