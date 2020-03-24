@@ -23,7 +23,7 @@ h6 {
 }
 
 h1 {
-  font-size: calc(32px + (90 - 3) * ((100vw - 320px) / (1680 - 320)));
+  font-size: calc(32px + (80 - 32) * ((100vw - 320px) / (1680 - 320)));
   line-height: 1.1;
   margin-bottom: $sm;
 }
