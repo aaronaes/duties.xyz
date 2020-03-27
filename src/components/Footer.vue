@@ -1,7 +1,7 @@
 <template>
   <footer class="slide" data-color="footer">
     <section class="grid-container">
-      <figure class="grid-x signoff">
+      <figure class="grid-x signoff" v-if="this.$route.name === 'Home'">
         <h3 class="cell large-8 medium-10">
           When we are off-duty you can
           <a href="//instagram.com/duties.xyz" target="_blank"

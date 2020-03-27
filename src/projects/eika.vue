@@ -8,14 +8,16 @@
       <div class="cell large-8 medium-10 description">
         <h3>
           Eika Gruppen is a strategic alliance between 77 local Norwegian
-          savings banks that co-ordinates work within the areas defined as
-          falling within the alliance.
+          savings banks that provide various products and services within the
+          financial sector. With more banks joining the group, Eika required
+          content and visual consistency to be easily implemented and maintained
+          across the various individual websites and apps owned by its members.
         </h3>
         <h3>
-          With 77 banks and more joining, the goal was to create the perfect
-          tool to build layouts based on your user audience. A simple column
-          design combined with a flexible user interface makes it easy for the
-          local banks to create layouts based on what's current.
+          To achieve this we helped design and build a flexible design system
+          utilising a simple grid structure and a suite of UI elements, thereby
+          allowing its banks to easily produce tailored layouts and relevant
+          content for their respective customer bases.
         </h3>
       </div>
       <div class="cell meta">
@@ -24,16 +26,52 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/eika/eika-01.png" />
-      <img data-src="/images/work/eika/eika-02.png" />
-      <img data-src="/images/work/eika/eika-03.png" />
-      <img data-src="/images/work/eika/eika-04.png" />
-      <img data-src="/images/work/eika/eika-05.png" />
-      <img data-src="/images/work/eika/eika-06.png" />
-      <img data-src="/images/work/eika/eika-07.png" />
-      <img data-src="/images/work/eika/eika-08.png" />
-      <img data-src="/images/work/eika/eika-09.png" />
-      <img data-src="/images/work/eika/eika-10.png" />
+      <div class="grid-x grid-margin-x">
+        <img
+          data-src="/images/work/eika/eika-01.jpg"
+          data-srcset="/images/work/eika/eika-01@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-02.jpg"
+          data-srcset="/images/work/eika/eika-02@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-03.jpg"
+          data-srcset="/images/work/eika/eika-03@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-04.jpg"
+          data-srcset="/images/work/eika/eika-04@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-05.jpg"
+          data-srcset="/images/work/eika/eika-05@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-06.jpg"
+          data-srcset="/images/work/eika/eika-06@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-07.jpg"
+          data-srcset="/images/work/eika/eika-07@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-08.jpg"
+          data-srcset="/images/work/eika/eika-08@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-09.jpg"
+          data-srcset="/images/work/eika/eika-09@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-10.jpg"
+          data-srcset="/images/work/eika/eika-10@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/eika/eika-11.jpg"
+          data-srcset="/images/work/eika/eika-11@2x.jpg 2x"
+        />
+      </div>
     </div>
   </div>
 </template>

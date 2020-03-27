@@ -23,9 +23,20 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/ssf/ssf-01.png" />
-      <img data-src="/images/work/ssf/ssf-02.png" />
-      <img data-src="/images/work/ssf/ssf-03.png" />
+      <div class="grid-x grid-margin-x">
+        <img
+          data-src="/images/work/ssf/ssf-01.jpg"
+          data-srcset="/images/work/ssf/ssf-01@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/ssf/ssf-02.jpg"
+          data-srcset="/images/work/ssf/ssf-02@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/ssf/ssf-03.jpg"
+          data-srcset="/images/work/ssf/ssf-03@2x.jpg 2x"
+        />
+      </div>
     </div>
   </div>
 </template>

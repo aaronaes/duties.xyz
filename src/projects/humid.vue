@@ -21,37 +21,38 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img
-            data-src="/images/work/humid/humid-01.png"
-            data-srcset="/images/work/humid/humid-01@2x.png 2x"
+            data-src="/images/work/humid/humid-01.jpg"
+            data-srcset="/images/work/humid/humid-01@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/humid/humid-02.png"
-            data-srcset="/images/work/humid/humid-02@2x.png 2x"
+            data-src="/images/work/humid/humid-02.jpg"
+            data-srcset="/images/work/humid/humid-02@2x.jpg 2x"
           />
+        </div>
+        <div class="cell large-10 medium-10 center">
           <img
-            class="large-10 medium-10 center"
-            data-src="/images/work/humid/humid-03.png"
-            data-srcset="/images/work/humid/humid-03@2x.png 2x"
+            data-src="/images/work/humid/humid-03.jpg"
+            data-srcset="/images/work/humid/humid-03@2x.jpg 2x"
           />
+        </div>
+        <div class="cell">
           <img
-            data-src="/images/work/humid/humid-04.png"
-            data-srcset="/images/work/humid/humid-04@2x.png 2x"
+            data-src="/images/work/humid/humid-04.jpg"
+            data-srcset="/images/work/humid/humid-04@2x.jpg 2x"
           />
         </div>
 
-        <div class="grid-x double">
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/humid/humid-05.png"
-              data-srcset="/images/work/humid/humid-05@2x.png 2x"
-            />
-          </div>
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/humid/humid-06.png"
-              data-srcset="/images/work/humid/humid-06@2x.png 2x"
-            />
-          </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/humid/humid-05.jpg"
+            data-srcset="/images/work/humid/humid-05@2x.jpg 2x"
+          />
+        </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/humid/humid-06.jpg"
+            data-srcset="/images/work/humid/humid-06@2x.jpg 2x"
+          />
         </div>
       </div>
     </div>

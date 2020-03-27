@@ -26,16 +26,16 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img
-            data-src="/images/work/fetch/fetch-01.png"
-            data-srcset="/images/work/fetch/fetch-01@2x.png 2x"
+            data-src="/images/work/fetch/fetch-01.jpg"
+            data-srcset="/images/work/fetch/fetch-01@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/fetch/fetch-02.png"
-            data-srcset="/images/work/fetch/fetch-02@2x.png 2x"
+            data-src="/images/work/fetch/fetch-02.jpg"
+            data-srcset="/images/work/fetch/fetch-02@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/fetch/fetch-03.png"
-            data-srcset="/images/work/fetch/fetch-03@2x.png 2x"
+            data-src="/images/work/fetch/fetch-03.jpg"
+            data-srcset="/images/work/fetch/fetch-03@2x.jpg 2x"
           />
         </div>
 
@@ -43,34 +43,34 @@
         <div class="grid-x large-10 medium-10 center double">
           <div class="cell auto grid-padding-x">
             <img
-              data-src="/images/work/fetch/fetch-04.png"
-              data-srcset="/images/work/fetch/fetch-04@2x.png 2x"
+              data-src="/images/work/fetch/fetch-04.jpg"
+              data-srcset="/images/work/fetch/fetch-04@2x.jpg 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
-              data-src="/images/work/fetch/fetch-05.png"
-              data-srcset="/images/work/fetch/fetch-05@2x.png 2x"
+              data-src="/images/work/fetch/fetch-05.jpg"
+              data-srcset="/images/work/fetch/fetch-05@2x.jpg 2x"
             />
           </div>
         </div>
 
         <div class="cell">
           <img
-            data-src="/images/work/fetch/fetch-06.png"
-            data-srcset="/images/work/fetch/fetch-06@2x.png 2x"
+            data-src="/images/work/fetch/fetch-06.jpg"
+            data-srcset="/images/work/fetch/fetch-06@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/fetch/fetch-07.png"
-            data-srcset="/images/work/fetch/fetch-07@2x.png 2x"
+            data-src="/images/work/fetch/fetch-07.jpg"
+            data-srcset="/images/work/fetch/fetch-07@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/fetch/fetch-08.png"
-            data-srcset="/images/work/fetch/fetch-08@2x.png 2x"
+            data-src="/images/work/fetch/fetch-08.jpg"
+            data-srcset="/images/work/fetch/fetch-08@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/fetch/fetch-09.png"
-            data-srcset="/images/work/fetch/fetch-09@2x.png 2x"
+            data-src="/images/work/fetch/fetch-09.jpg"
+            data-srcset="/images/work/fetch/fetch-09@2x.jpg 2x"
           />
         </div>
       </div>

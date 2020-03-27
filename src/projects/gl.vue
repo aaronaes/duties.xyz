@@ -26,55 +26,52 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img
-            data-src="/images/work/gl/godtlevert-01.png"
-            data-srcset="/images/work/gl/godtlevert-01@2x.png 2x"
+            data-src="/images/work/gl/godtlevert-01.jpg"
+            data-srcset="/images/work/gl/godtlevert-01@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/gl/godtlevert-02.png"
-            data-srcset="/images/work/gl/godtlevert-02@2x.png 2x"
+            data-src="/images/work/gl/godtlevert-02.jpg"
+            data-srcset="/images/work/gl/godtlevert-02@2x.jpg 2x"
           />
         </div>
 
         <!-- DOUBLE -->
-        <div class="grid-x">
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/gl/godtlevert-03.png"
-              data-srcset="/images/work/gl/godtlevert-03@2x.png 2x"
-            />
-          </div>
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/gl/godtlevert-04.png"
-              data-srcset="/images/work/gl/godtlevert-04@2x.png 2x"
-            />
-          </div>
+
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/gl/godtlevert-03.jpg"
+            data-srcset="/images/work/gl/godtlevert-03@2x.jpg 2x"
+          />
+        </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/gl/godtlevert-04.jpg"
+            data-srcset="/images/work/gl/godtlevert-04@2x.jpg 2x"
+          />
         </div>
 
         <div class="cell">
           <img
-            data-src="/images/work/gl/godtlevert-05.png"
-            data-srcset="/images/work/gl/godtlevert-05@2x.png 2x"
+            data-src="/images/work/gl/godtlevert-05.jpg"
+            data-srcset="/images/work/gl/godtlevert-05@2x.jpg 2x"
           />
           <img
-            data-src="/images/work/gl/godtlevert-06.png"
-            data-srcset="/images/work/gl/godtlevert-06@2x.png 2x"
+            data-src="/images/work/gl/godtlevert-06.jpg"
+            data-srcset="/images/work/gl/godtlevert-06@2x.jpg 2x"
           />
         </div>
 
-        <div class="grid-x double">
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/gl/godtlevert-07.png"
-              data-srcset="/images/work/gl/godtlevert-07@2x.png 2x"
-            />
-          </div>
-          <div class="cell auto grid-padding-x">
-            <img
-              data-src="/images/work/gl/godtlevert-08.png"
-              data-srcset="/images/work/gl/godtlevert-08@2x.png 2x"
-            />
-          </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/gl/godtlevert-07.jpg"
+            data-srcset="/images/work/gl/godtlevert-07@2x.jpg 2x"
+          />
+        </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/gl/godtlevert-08.jpg"
+            data-srcset="/images/work/gl/godtlevert-08@2x.jpg 2x"
+          />
         </div>
       </div>
     </div>

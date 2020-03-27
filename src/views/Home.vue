@@ -13,8 +13,8 @@
       >
         <Slide>
           <img
-            src="/images/banner/banner-01.png"
-            srcset="/images/banner/banner-01@2x.png 2x"
+            src="/images/banner/banner-01.jpg"
+            srcset="/images/banner/banner-01@2x.jpg 2x"
           />
           <p>
             <span>Studio</span>
@@ -28,8 +28,8 @@
         </Slide>
         <Slide>
           <img
-            src="/images/banner/banner-02.png"
-            srcset="/images/banner/banner-02@2x.png 2x"
+            src="/images/banner/banner-02.jpg"
+            srcset="/images/banner/banner-02@2x.jpg 2x"
           />
           <p>
             <span>News</span>
@@ -39,8 +39,8 @@
         </Slide>
         <Slide>
           <img
-            src="/images/banner/banner-03.png"
-            srcset="/images/banner/banner-03@2x.png 2x"
+            src="/images/banner/banner-03.jpg"
+            srcset="/images/banner/banner-03@2x.jpg 2x"
           />
           <p>
             <span>News</span>
@@ -50,8 +50,8 @@
         </Slide>
         <Slide class="large">
           <img
-            src="/images/banner/banner-04.png"
-            srcset="/images/banner/banner-04@2x.png 2x"
+            src="/images/banner/banner-04.jpg"
+            srcset="/images/banner/banner-04@2x.jpg 2x"
           />
           <p>
             <span>Studio</span>
@@ -61,8 +61,8 @@
         </Slide>
         <Slide>
           <img
-            src="/images/banner/banner-05.png"
-            srcset="/images/banner/banner-05@2x.png 2x"
+            src="/images/banner/banner-05.jpg"
+            srcset="/images/banner/banner-05@2x.jpg 2x"
           />
           <p>
             We’re always sharing past and present work alongside other fun
@@ -103,7 +103,7 @@ export default {
         "A creative partner and design studio for thoughtfully crafted products.",
       carouselData: 0,
       hooperSettings: {
-        transition: 300,
+        transition: 500,
         wheelControl: false,
         trimWhiteSpace: false,
         breakpoints: {

@@ -16,43 +16,43 @@
       <div class="grid-x grid-margin-x">
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-01.png"
-          data-srcset="/images/work/marks/logo-01@2x.png 2x"
+          data-src="/images/work/marks/logo-01.jpg"
+          data-srcset="/images/work/marks/logo-01@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-02.png"
-          data-srcset="/images/work/marks/logo-02@2x.png 2x"
+          data-src="/images/work/marks/logo-02.jpg"
+          data-srcset="/images/work/marks/logo-02@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-03.png"
-          data-srcset="/images/work/marks/logo-03@2x.png 2x"
+          data-src="/images/work/marks/logo-03.jpg"
+          data-srcset="/images/work/marks/logo-03@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-04.png"
-          data-srcset="/images/work/marks/logo-04@2x.png 2x"
+          data-src="/images/work/marks/logo-04.jpg"
+          data-srcset="/images/work/marks/logo-04@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-05.png"
-          data-srcset="/images/work/marks/logo-05@2x.png 2x"
+          data-src="/images/work/marks/logo-05.jpg"
+          data-srcset="/images/work/marks/logo-05@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-06.png"
-          data-srcset="/images/work/marks/logo-06@2x.png 2x"
+          data-src="/images/work/marks/logo-06.jpg"
+          data-srcset="/images/work/marks/logo-06@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-07.png"
-          data-srcset="/images/work/marks/logo-07@2x.png 2x"
+          data-src="/images/work/marks/logo-07.jpg"
+          data-srcset="/images/work/marks/logo-07@2x.jpg 2x"
         />
         <img
           class="cell large-6 medium-6 auto"
-          data-src="/images/work/marks/logo-08.png"
-          data-srcset="/images/work/marks/logo-08@2x.png 2x"
+          data-src="/images/work/marks/logo-08.jpg"
+          data-srcset="/images/work/marks/logo-08@2x.jpg 2x"
         />
       </div>
     </div>

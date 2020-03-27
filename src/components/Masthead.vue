@@ -4,7 +4,7 @@
       <div class="cell large-9 medium-10" v-if="this.$route.name === 'Home'">
         <h1>
           A creative partner <br />
-          abrand design studio for thoughtfully crafted products.
+          and design studio for thoughtfully crafted products.
         </h1>
       </div>
       <div v-else class="cell">
@@ -15,7 +15,7 @@
               /ˈdjuːti/<i
                 @click.prevent="
                   playSound(
-                    'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/duty-sound.mp3'
+                    'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
                   )
                 "
                 class="fas fa-volume-up"

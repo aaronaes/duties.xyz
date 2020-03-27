@@ -40,6 +40,9 @@
           <h2 class="cell auto title">
             <span>●</span>{{ project.data().title }}
           </h2>
+          <h2 class="togl">
+            <span>ESC</span>
+          </h2>
         </summary>
         <component :is="project"></component>
       </details>
@@ -87,7 +90,7 @@ export default {
 
         setTimeout(() => {
           this.active = name;
-        }, 2000);
+        }, 5000);
       }
     },
     mouseOver: function() {
