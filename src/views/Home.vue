@@ -1,100 +1,38 @@
 <template>
   <main id="home">
-    <!-- HERO -->
+    <!-- Masthead -->
     <Masthead :heading="heading"></Masthead>
-
-    <!-- CAROUSEL -->
-    <section class="carousel grid-container">
-      <Hooper
-        class="carousel-inner"
-        :settings="hooperSettings"
-        ref="carousel"
-        @slide="updateCarousel"
-      >
-        <Slide>
-          <img
-            src="/images/banner/banner-01.jpg"
-            srcset="/images/banner/banner-01@2x.jpg 2x"
-          />
-          <p>
-            <span>Studio</span>
-            A growing selection of audio goodness from us to you.
-            <a
-              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
-              target="_blank"
-              >Listen here</a
-            >.
-          </p>
-        </Slide>
-        <Slide>
-          <img
-            src="/images/banner/banner-02.jpg"
-            srcset="/images/banner/banner-02@2x.jpg 2x"
-          />
-          <p>
-            <span>News</span>
-            We are excited to continue collaborating with
-            <a href="//www.godtlevert.no" target="_blank">Godtlevert</a>.
-          </p>
-        </Slide>
-        <Slide>
-          <img
-            src="/images/banner/banner-03.jpg"
-            srcset="/images/banner/banner-03@2x.jpg 2x"
-          />
-          <p>
-            <span>News</span>
-            We are revamping the way teams and stakeholders organise events for
-            Samspill.
-          </p>
-        </Slide>
-        <Slide class="large">
-          <img
-            src="/images/banner/banner-04.jpg"
-            srcset="/images/banner/banner-04@2x.jpg 2x"
-          />
-          <p>
-            <span>Studio</span>
-            See what duties we can help your business with
-            <router-link to="/about">here</router-link>.
-          </p>
-        </Slide>
-        <Slide>
-          <img
-            src="/images/banner/banner-05.jpg"
-            srcset="/images/banner/banner-05@2x.jpg 2x"
-          />
-          <p>
-            We’re always sharing past and present work alongside other fun
-            things on
-            <a href="//www.instagram.com/duties.xyz" target="_blank"
-              >Instagram</a
-            >.
-          </p>
-        </Slide>
-      </Hooper>
-    </section>
-    <!-- PROJECT LIST -->
-    <section id="main" class="slide" data-color="light">
-      <ProjectList />
+    <!-- Carousel -->
+    <Carousel />
+    <!-- Project List -->
+    <ProjectList />
+    <!-- About -->
+    <section class="grid-container clients">
+      <figure class="grid-x grid-margin-x">
+        <h3 class="cell large-8 medium-12 small-12 clients">
+          We have worked with a range of excellent companies and people
+          throughout the years such as: Godtlevert, Orkla, SSF, Authentic
+          Scandinavia, Fetch, Eika Gruppen, Brygg Magasin, Humid Mag, Well
+          Dressed Vandals, Aftenposten, Holzweiler, Mathias Fossum, Amedia and
+          Berg-Hansen Reisebureau.n, Holzweiler, Mathias Fossum, Amedia and
+          Berg-Hansen Reisebureau.
+        </h3>
+      </figure>
     </section>
   </main>
 </template>
 
 <script>
-import { Hooper, Slide } from "hooper";
-import "hooper/dist/hooper.css";
-
 import Masthead from "@/components/Masthead.vue";
+import Carousel from "@/components/Carousel.vue";
 import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
     Masthead,
-    Hooper,
-    Slide,
-    ProjectList
+    ProjectList,
+    Carousel
   },
   data() {
     return {
