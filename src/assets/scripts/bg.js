@@ -6,7 +6,7 @@ $(window)
       $slide = $(".slide");
 
     // Change 33% earlier than scroll position so colour is there when you arrive.
-    var scroll = $window.scrollTop() + $window.height() / 4;
+    var scroll = $window.scrollTop() + $window.height() / 10;
 
     $slide.each(function() {
       var $this = $(this);
