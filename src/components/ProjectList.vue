@@ -1,6 +1,6 @@
 <template>
   <section class="grid-container projectList">
-    <figure class="grid-x grid-margin-x">
+    <figure class="grid-x">
       <!-- Upcoming work -->
       <!-- <details class="cell coming" onclick="return false">
         <summary class="grid-x">
@@ -40,9 +40,11 @@
           <h2 class="cell auto title">
             <span>●</span>{{ project.data().title }}
           </h2>
-          <p class="togl">
-            <span>Close</span>
-          </p>
+          <div class="togl">
+            <span
+              style="content: url(/images/assets/close.svg); width: 20px; height: 20px;"
+            ></span>
+          </div>
         </summary>
         <component :is="project"></component>
       </details>
@@ -78,7 +80,7 @@ export default {
       } else {
         const el = document.querySelector("#" + name);
         window.scrollTo({
-          top: window.pageYOffset + el.getBoundingClientRect().top,
+          top: window.pageYOffset + el.getBoundingClientRect().top - 10,
           behavior: "smooth"
         });
 

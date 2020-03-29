@@ -2,7 +2,7 @@
   <section class="grid-container masthead">
     <figure class="grid-x grid-margin-x">
       <div
-        class="cell large-8 medium-12 small-12"
+        class="cell large-10 medium-10 small-12"
         v-if="this.$route.name === 'Home'"
       >
         <h1>
@@ -10,7 +10,7 @@
           and design studio for thoughtfully crafted products.
         </h1>
       </div>
-      <div v-else class="cell large-8 medium-12 small-12">
+      <div v-else class="cell large-10 medium-10 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">
