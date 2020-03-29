@@ -5,7 +5,7 @@
     <section class="grid-container intro">
       <figure class="grid-x grid-margin-x">
         <div class="cell large-10 medium-10 small-12">
-          <h3 class="focus">Story</h3>
+          <h3>Studio &searr;</h3>
           <h3>
             Established in 2020, Duties is an independent digital design studio
             based in Oslo. We believe it’s our duty as designers to provide the
@@ -23,6 +23,9 @@
 
     <section class="grid-container people">
       <figure class="grid-x grid-margin-x">
+        <div class="cell">
+          <h3>People &searr;</h3>
+        </div>
         <div class="cell large-4 medium-4 small-6 person">
           <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
             <img
