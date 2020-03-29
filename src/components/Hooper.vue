@@ -34,7 +34,7 @@ export default {
         autoPlay: true,
         hoverPause: true,
         touchDrag: true,
-        transition: 300
+        transition: 500
       }
     };
   }

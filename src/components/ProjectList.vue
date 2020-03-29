@@ -1,26 +1,26 @@
 <template>
-  <section class="grid-container projectList" id="projectList">
+  <section class="grid-container projectList">
     <figure class="grid-x grid-margin-x">
       <!-- Upcoming work -->
-      <details class="cell coming" onclick="return false">
+      <!-- <details class="cell coming" onclick="return false">
         <summary class="grid-x">
           <h2 class="cell auto title">A new way to get your take-out</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
-      </details>
-      <details class="cell coming" onclick="return false">
+      </details> -->
+      <!-- <details class="cell coming" onclick="return false">
         <summary class="grid-x">
           <h2 class="cell auto title">No more lines at the bar</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
-      </details>
-      <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
-          <h2 class="cell auto title">Club managenet app</h2>
+      </details> -->
+      <details class="cell" onclick="return false">
+        <summary class="grid-x coming">
+          <h2 class="cell auto title">Sport club app</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
@@ -40,18 +40,12 @@
           <h2 class="cell auto title">
             <span>●</span>{{ project.data().title }}
           </h2>
-          <h2 class="togl">
-            <span>ESC</span>
-          </h2>
+          <p class="togl">
+            <span>Close</span>
+          </p>
         </summary>
         <component :is="project"></component>
       </details>
-    </figure>
-    <figure class="grid-x connect">
-      <h3 class="cell auto large-8 medium-10">
-        Want to talk about a project?
-        <span><a href="#">Let's talk about it</a></span>
-      </h3>
     </figure>
   </section>
 </template>
@@ -90,7 +84,7 @@ export default {
 
         setTimeout(() => {
           this.active = name;
-        }, 5000);
+        }, 500);
       }
     },
     mouseOver: function() {

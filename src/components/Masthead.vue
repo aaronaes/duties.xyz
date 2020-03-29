@@ -1,27 +1,34 @@
 <template>
-  <section class="grid-container masthead slide" data-color="home">
-    <figure class="grid-x">
-      <div class="cell large-9 medium-10" v-if="this.$route.name === 'Home'">
+  <section class="grid-container masthead">
+    <figure class="grid-x grid-margin-x">
+      <div
+        class="cell large-8 medium-12 small-12"
+        v-if="this.$route.name === 'Home'"
+      >
         <h1>
           A creative partner <br />
           and design studio for thoughtfully crafted products.
         </h1>
       </div>
-      <div v-else class="cell">
+      <div v-else class="cell large-8 medium-12 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">
-            <h4>
-              /ˈdjuːti/<i
+            <h3>
+              /ˈdjuːti/
+              <span
                 @click.prevent="
                   playSound(
                     'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
                   )
                 "
-                class="fas fa-volume-up"
-              ></i>
-            </h4>
-            <h4>noun</h4>
+                ><i class="fas fa-volume-up"></i>
+                <p>
+                  Play
+                </p></span
+              >
+            </h3>
+            <h3>noun</h3>
           </div>
           <h3>
             <ol>
