@@ -2,7 +2,7 @@
   <div class="content">
     <div class="grid-x">
       <div class="cell meta">
-        <h4 class="status">Completed 2017</h4>
+        <p class="status">Completed 2017</p>
       </div>
 
       <div class="cell large-8 medium-10 description">
@@ -21,8 +21,8 @@
         </h3>
       </div>
       <div class="cell meta">
-        <h4>Photography by XXX</h4>
-        <h4>Build by YYY</h4>
+        <p>Photography by XXX</p>
+        <p>Build by YYY</p>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">

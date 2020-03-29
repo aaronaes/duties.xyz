@@ -2,7 +2,7 @@
   <div class="content">
     <div class="grid-x">
       <div class="cell meta">
-        <h4 class="status">Completed 2016</h4>
+        <p class="status">Completed 2016</p>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3>
@@ -18,7 +18,7 @@
         </h3>
       </div>
       <div class="cell meta">
-        <h4>
+        <p>
           Illustrations by
           <a
             href="https://www.byhands.no/illustrators/sandra-blikaas"
@@ -26,11 +26,11 @@
           >
             Sandra Blikås (ByHands)
           </a>
-        </h4>
-        <h4>
+        </p>
+        <p>
           Build by
           <a href="//www.leifriksheim.com" target="_blank">Leif Riksheim</a>
-        </h4>
+        </p>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">

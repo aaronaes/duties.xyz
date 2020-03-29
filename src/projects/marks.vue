@@ -2,7 +2,7 @@
   <div class="content">
     <div class="grid-x grid-margin-x">
       <div class="cell meta">
-        <h4 class="status">Worked from 2009 - 2020</h4>
+        <p class="status">Worked from 2009 - 2020</p>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3>
