@@ -26,10 +26,6 @@ h1 {
   font-size: calc(48px + (80 - 48) * ((100vw - 576px) / (1680 - 576)));
   line-height: 1.1em;
   margin-bottom: $xs;
-
-  @include respond-to("sm") {
-    font-size: 32px;
-  }
 }
 
 h2 {

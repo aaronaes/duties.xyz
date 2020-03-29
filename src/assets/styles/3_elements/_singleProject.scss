@@ -29,7 +29,7 @@ section.projectList {
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
-              padding-right: $md;
+              padding-right: $sm;
             }
           }
         }
@@ -44,6 +44,15 @@ section.projectList {
             transform-origin: center center;
             transition: all 150ms $easing;
             transition-delay: 500ms;
+
+            @include respond-to("sm") {
+              height: 14px !important;
+              width: 14px !important;
+            }
+          }
+
+          @include respond-to("sm") {
+            transform: translate(10px, 12px);
           }
         }
 
@@ -178,15 +187,15 @@ section.projectList {
           p {
             &.title {
               position: relative;
+              padding-left: 24px;
 
-              margin-left: 30px;
               span {
                 display: inline;
                 position: absolute;
                 color: $accent;
                 font-size: 0.6em;
                 padding-right: 8px;
-                transform: translate(-32px, -50%);
+                transform: translate(-20px, -50%);
                 top: 50%;
               }
             }

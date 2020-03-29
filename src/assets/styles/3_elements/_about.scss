@@ -2,6 +2,11 @@
 body.about {
   main {
     section {
+      h3 {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
       &.intro {
         margin-top: $md;
         margin-bottom: $md;

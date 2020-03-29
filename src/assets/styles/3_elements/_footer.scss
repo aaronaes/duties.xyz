@@ -25,6 +25,14 @@ footer {
           align-self: center;
           border-bottom: transparent;
 
+          @include respond-to("sm") {
+            margin-right: $xs;
+          }
+
+          &.top {
+            margin: 0;
+          }
+
           p {
             margin: 0;
             padding: 0;

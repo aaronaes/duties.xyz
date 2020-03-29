@@ -44,11 +44,15 @@ section {
             }
 
             @include respond-to("sm") {
+              margin-left: $xs;
               margin-right: 0;
+              &:first-of-type {
+                margin-left: $xs;
+              }
 
               img,
               video {
-                max-width: calc(100% - #{$sm});
+                max-width: 100%;
                 padding-left: 0;
                 padding-right: 0;
               }

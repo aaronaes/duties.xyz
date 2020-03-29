@@ -6,6 +6,11 @@
   padding-right: $md;
   padding-left: $md;
 
+  @include respond-to("sm") {
+    padding-left: $xs;
+    padding-right: $xs;
+  }
+
   &.fluid {
     padding-left: 0;
     padding-right: 0;

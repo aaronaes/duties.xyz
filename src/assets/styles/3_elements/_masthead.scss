@@ -6,7 +6,7 @@ body {
       display: flex;
 
       @include respond-to("sm") {
-        height: 50vh;
+        height: 65vh;
       }
 
       figure {
