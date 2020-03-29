@@ -3,87 +3,18 @@ body {
     section {
       position: relative;
 
-      &.carousel {
-        padding: $md 0 0;
-        z-index: 0;
-        display: flex;
-
-        .carousel-inner {
-          align-self: flex-start;
-        }
-
-        .hooper-slide {
-          align-self: flex-start;
-
-          &.large {
-            min-width: 40vw !important;
-            display: block;
-          }
-
-          p {
-            padding-top: $xs / 2;
-            padding-bottom: 5px;
-            margin-bottom: 0;
-            font-size: 1em;
-
-            span {
-              color: $accent;
-              &:after {
-                font-family: $font-sneak;
-                content: " → ";
-              }
-            }
-
-            @include respond-to("md") {
-              max-width: calc(100% - #{$sm});
-            }
-          }
-        }
-      }
-
-      &.hooper-nav {
+      &.clients {
         padding-top: $md;
-        transition: color 300ms $easing;
 
         figure {
-          padding-bottom: 0;
+          @include respond-to("sm") {
+            padding-bottom: $sm;
+          }
 
-          .next {
-            cursor: pointer;
-
-            p {
-              float: left;
-              transform: translateY(-5px);
-              margin-bottom: 0;
-              padding-right: $xs;
-            }
-
-            button {
-              float: left;
-              font-size: 1.25em;
-
-              animation-name: wiggle;
-              animation-duration: 2s;
-              animation-timing-function: $easing;
-              animation-iteration-count: infinite;
-
-              @keyframes wiggle {
-                0% {
-                  transform: translateX(0px);
-                }
-                50% {
-                  transform: translateX(4px);
-                }
-                100% {
-                  transform: translateX(0px);
-                }
-              }
-            }
-
-            &:hover {
-              button {
-                animation-play-state: paused;
-              }
+          h3 {
+            margin-bottom: 0;
+            span {
+              display: block;
             }
           }
         }

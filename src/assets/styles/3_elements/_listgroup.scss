@@ -21,7 +21,7 @@
           top: 0;
           right: max($sm);
           opacity: 0;
-          transition: opacity 0.5s;
+          transition: opacity 500ms;
 
           @include respond-to("sm") {
             position: relative;

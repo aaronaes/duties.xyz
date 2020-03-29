@@ -1,118 +1,35 @@
-body {
-  footer {
-    display: flex;
-    height: 100vh;
-
-    @include respond-to("sm") {
-    }
-
-    section {
-      align-self: flex-end;
+footer {
+  section {
+    &.globalFooter {
+      background-color: $accent;
+      padding: $xs 0;
 
       figure {
-        &.signoff {
-          padding-top: $sm;
-          padding-bottom: $md;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0;
+        justify-content: space-between;
 
-          h3 {
-            padding-bottom: $sm;
-            span {
-              display: block;
-              padding-top: $sm;
-            }
-          }
-        }
-
-        &.contact {
-          padding-bottom: $md;
-        }
-
-        &.globalFooter {
-          padding-bottom: $md;
+        span {
+          display: flex;
           justify-content: space-between;
-
           a {
-            border-bottom: transparent !important;
+            * {
+              color: $black !important;
 
-            &.burger {
-              svg {
-                height: 100%;
-                min-height: 16px;
-                max-height: 20px;
-                transform: translateY(2px);
-
-                path {
-                  fill: $accent;
-                }
+              &:hover {
+                color: $white !important;
               }
             }
+
+            margin-right: $sm;
+            align-self: center;
+            border-bottom: transparent;
 
             p {
-              margin-bottom: 0;
-              &.logo {
-                span {
-                  &:before {
-                    color: initial;
-                    content: ":";
-                    padding-left: 3px;
-                    font-weight: 900;
-                    font-size: 0.9em;
-                  }
-
-                  &:after {
-                    content: "xyz";
-                    opacity: 0;
-                    padding-left: 3px;
-                    font-weight: normal;
-                  }
-
-                  @include respond-to("sm") {
-                    &:before,
-                    &:after {
-                      padding-left: 1px;
-                    }
-                  }
-                }
-              }
-            }
-
-            &:hover {
-              color: inherit;
-
-              h3,
-              p {
-                &.logo {
-                  span {
-                    &:before {
-                      color: $accent;
-                    }
-
-                    &:after {
-                      opacity: 1;
-                      color: $accent;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.about {
-    footer {
-      section {
-        figure {
-          div {
-            p {
-              &.logo {
-                span {
-                  color: $accent;
-                  padding-right: 5px;
-                }
-              }
+              margin: 0;
+              padding: 0;
             }
           }
         }

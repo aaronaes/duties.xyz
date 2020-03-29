@@ -23,33 +23,44 @@ h6 {
 }
 
 h1 {
-  font-size: calc(32px + (80 - 32) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.1;
-  margin-bottom: $sm;
+  font-size: calc(48px + (80 - 48) * ((100vw - 576px) / (1680 - 576)));
+  line-height: 1.1em;
+  margin-bottom: $xs;
+
+  @include respond-to("sm") {
+    font-size: 32px;
+  }
 }
 
 h2 {
-  font-size: calc(28px + (48 - 28) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.2;
+  font-size: 40px;
+  line-height: 1.3em;
+
+  @include respond-to("sm") {
+    font-size: 26px;
+  }
 }
 
 h3 {
-  font-size: calc(22px + (29 - 22) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.4;
-}
+  font-size: 28px;
+  line-height: 1.3em;
 
-h4 {
-  font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.4;
+  @include respond-to("md") {
+    font-size: 25px;
+  }
+
+  @include respond-to("sm") {
+    font-size: 22px;
+  }
 }
 
 p {
-  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1680 - 320)));
-  line-height: 1.6;
-  margin-bottom: $sm;
+  font-size: 20px;
+  line-height: 1.4em;
+  margin-bottom: $xs;
 
   @include respond-to("sm") {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 
@@ -70,6 +81,10 @@ a {
   }
 }
 
+.arrow {
+  font-family: "Inter", sans-serif;
+}
+
 // ADDONS
 hr {
   max-width: 100%;
@@ -86,8 +101,4 @@ hr {
     margin-top: $xs / 2;
     margin-bottom: $xs / 2;
   }
-}
-
-.title-tag {
-  font-weight: 600;
 }
