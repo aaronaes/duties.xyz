@@ -18,10 +18,6 @@ body.about {
             &:last-of-type {
               margin-bottom: 0;
             }
-
-            @include respond-to("sm") {
-              margin-bottom: $sm;
-            }
           }
         }
       }

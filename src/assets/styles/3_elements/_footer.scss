@@ -1,36 +1,33 @@
 footer {
-  section {
-    &.globalFooter {
-      background-color: $accent;
-      padding: $xs 0;
+  background-color: $accent;
+  padding: $xs 0;
 
-      figure {
+  section.globalFooter {
+    figure {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: space-between;
+
+      span {
         display: flex;
-        margin: 0;
-        padding: 0;
-        margin-bottom: 0;
         justify-content: space-between;
+        a {
+          * {
+            color: $black !important;
 
-        span {
-          display: flex;
-          justify-content: space-between;
-          a {
-            * {
-              color: $black !important;
-
-              &:hover {
-                color: $white !important;
-              }
+            &:hover {
+              color: $white !important;
             }
+          }
 
-            margin-right: $sm;
-            align-self: center;
-            border-bottom: transparent;
+          margin-right: $sm;
+          align-self: center;
+          border-bottom: transparent;
 
-            p {
-              margin: 0;
-              padding: 0;
-            }
+          p {
+            margin: 0;
+            padding: 0;
           }
         }
       }
