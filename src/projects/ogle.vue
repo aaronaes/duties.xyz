@@ -2,14 +2,17 @@
   <div class="content">
     <div class="grid-x grid-margin-x">
       <div class="cell meta">
-        <h4 class="status">Completed 20XX</h4>
+        <p class="status">Completed 2019</p>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3 class="cell large-10">
           Ogle Image is a bespoke signage and graphic installation agency based
-          in Melbourne with operations in Sydney. We gave their current website
-          a complete redesign and refreshed a variety of brand identity elements
-          such as typography and colour palettes.
+          in Melbourne with operations in Sydney.
+        </h3>
+        <h3 class="cell large-10">
+          We gave their current website a complete redesign and refreshed a
+          variety of brand identity elements such as typography and colour
+          palettes.
         </h3>
       </div>
     </div>
@@ -18,80 +21,58 @@
       <div class="grid-x grid-margin-x" v-lazy-container="{ selector: 'img' }">
         <div class="cell">
           <img
-            width="800"
-            height="600"
-            data-src="/images/work/ogle/ogle-image-01.png"
-            data-srcset="/images/work/ogle/ogle-image-01@2x.png 2x"
+            data-src="/images/work/ogle/ogle-image-01.jpg"
+            data-srcset="/images/work/ogle/ogle-image-01@2x.jpg 2x"
           />
         </div>
 
-        <!-- DOUBLE -->
-        <div class="grid-x large-10 medium-10 center">
-          <div class="cell auto grid-padding-x">
-            <img
-              width="800"
-              height="600"
-              data-src="/images/work/ogle/ogle-image-02.png"
-              data-srcset="/images/work/ogle/ogle-image-02@2x.png 2x"
-            />
-          </div>
-          <div class="cell auto grid-padding-x">
-            <img
-              width="800"
-              height="600"
-              data-src="/images/work/ogle/ogle-image-03.png"
-              data-srcset="/images/work/ogle/ogle-image-03@2x.png 2x"
-            />
-          </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/ogle/ogle-image-02.jpg"
+            data-srcset="/images/work/ogle/ogle-image-02@2x.jpg 2x"
+          />
+        </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/ogle/ogle-image-03.jpg"
+            data-srcset="/images/work/ogle/ogle-image-03@2x.jpg 2x"
+          />
         </div>
 
         <div class="cell">
           <img
-            width="800"
-            height="600"
-            data-src="/images/work/ogle/ogle-image-04.png"
-            data-srcset="/images/work/ogle/ogle-image-04@2x.png 2x"
+            data-src="/images/work/ogle/ogle-image-04.jpg"
+            data-srcset="/images/work/ogle/ogle-image-04@2x.jpg 2x"
           />
         </div>
 
         <!-- DOUBLE -->
-        <div class="grid-x large-10 medium-10 center">
-          <div class="cell auto grid-padding-x">
-            <img
-              width="800"
-              height="600"
-              data-src="/images/work/ogle/ogle-image-05.png"
-              data-srcset="/images/work/ogle/ogle-image-05@2x.png 2x"
-            />
-          </div>
-          <div class="cell auto grid-padding-x">
-            <img
-              width="800"
-              height="600"
-              data-src="/images/work/ogle/ogle-image-06.png"
-              data-srcset="/images/work/ogle/ogle-image-06@2x.png 2x"
-            />
-          </div>
+
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/ogle/ogle-image-05.jpg"
+            data-srcset="/images/work/ogle/ogle-image-05@2x.jpg 2x"
+          />
+        </div>
+        <div class="cell large-6 medium-6 small-12">
+          <img
+            data-src="/images/work/ogle/ogle-image-06.jpg"
+            data-srcset="/images/work/ogle/ogle-image-06@2x.jpg 2x"
+          />
         </div>
 
         <div class="cell">
           <img
-            width="800"
-            height="600"
-            data-src="/images/work/ogle/ogle-image-07.png"
-            data-srcset="/images/work/ogle/ogle-image-07@2x.png 2x"
+            data-src="/images/work/ogle/ogle-image-07.jpg"
+            data-srcset="/images/work/ogle/ogle-image-07@2x.jpg 2x"
           />
           <img
-            width="800"
-            height="600"
-            data-src="/images/work/ogle/ogle-image-08.png"
-            data-srcset="/images/work/ogle/ogle-image-08@2x.png 2x"
+            data-src="/images/work/ogle/ogle-image-08.jpg"
+            data-srcset="/images/work/ogle/ogle-image-08@2x.jpg 2x"
           />
           <img
-            width="800"
-            height="600"
-            data-src="/images/work/ogle/ogle-image-09.png"
-            data-srcset="/images/work/ogle/ogle-image-09@2x.png 2x"
+            data-src="/images/work/ogle/ogle-image-09.jpg"
+            data-srcset="/images/work/ogle/ogle-image-09@2x.jpg 2x"
           />
         </div>
       </div>

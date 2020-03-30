@@ -27,4 +27,8 @@ details summary {
   &::-webkit-details-marker {
     display: none;
   }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

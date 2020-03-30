@@ -2,46 +2,68 @@
   <div class="content">
     <div class="grid-x">
       <div class="cell meta">
-        <h4 class="status">Completed 2016</h4>
+        <p class="status">Completed 2016</p>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3>
-          Gro Grønt grows exotic and unique herbs and vegetables, from a
-          container in the centre of Oslo. From here, they sell and distribute
-          high-quality ingredients to all the top-shelf restaurants and chefs in
-          the greater Oslo area.
+          Gro Grønt grows and distributes high-quality ingredients in the form
+          of exotic vegetables and unique herbs to high-end restaurants and
+          chefs around the Oslo metropolitan area; all from a custom-built
+          container in the centre of town.
         </h3>
         <h3>
-          From the name, which was already decided on, I developed a unique and
-          flexible brand language and first-version of their website.
+          We were asked to develop a unique and flexible brand identity to
+          reflect their offering across physical and digital touchpoints, as
+          well as the design of their company website.
         </h3>
       </div>
       <div class="cell meta">
-        <h4>
+        <p>
           Illustrations by
-          <a href="https://www.byhands.no/illustrators/sandra-blikaas">
-            Sandra Bliksaas
+          <a
+            href="https://www.byhands.no/illustrators/sandra-blikaas"
+            target="_blank"
+          >
+            Sandra Blikås (ByHands)
           </a>
-        </h4>
-        <h4>Build by YYY</h4>
+        </p>
+        <p>
+          Build by
+          <a href="//www.leifriksheim.com" target="_blank">Leif Riksheim</a>
+        </p>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img width="800" height="600" data-src="/images/work/gro/gro-01.png" />
-      <img width="800" height="600" data-src="/images/work/gro/gro-02.png" />
-      <img width="800" height="600" data-src="/images/work/gro/gro-03.png" />
-      <img width="800" height="600" data-src="/images/work/gro/gro-04.png" />
-      <img width="800" height="600" data-src="/images/work/gro/gro-05.png" />
+      <img
+        data-src="/images/work/gro/gro-gront-01.jpg"
+        data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-02.jpg"
+        data-srcset="/images/work/gro/gro-gront-02@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-03.jpg"
+        data-srcset="/images/work/gro/gro-gront-03@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-04.jpg"
+        data-srcset="/images/work/gro/gro-gront-04@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-05.jpg"
+        data-srcset="/images/work/gro/gro-gront-05@2x.jpg 2x"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "gro-hydroponics",
+  name: "gro-gront",
   data() {
     return {
-      title: "Gro Hydroponics"
+      title: "Gro Grønt"
     };
   },
   computed: {

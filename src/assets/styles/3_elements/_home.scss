@@ -3,73 +3,13 @@ body {
     section {
       position: relative;
 
-      &.carousel {
-        padding: 0;
-        z-index: 0;
-        display: flex;
-
-        .carousel-inner {
-          align-self: flex-start;
-        }
-
-        .hooper-slide {
-          align-self: flex-start;
-
-          p {
-            padding-top: $xs / 2;
-            margin-bottom: 0;
-            max-width: 100%;
-
-            @include respond-to("md") {
-              max-width: calc(100% - #{$sm});
-            }
-          }
-        }
-      }
-
-      &.hooper-nav {
-        padding-top: $md;
-        transition: color 300ms $easing;
-
+      &.clients {
         figure {
           padding-bottom: 0;
-
-          .next {
-            cursor: pointer;
-
-            p {
-              float: left;
-              transform: translateY(-5px);
-              margin-bottom: 0;
-              padding-right: $xs;
-            }
-
-            button {
-              float: left;
-              font-size: 1.25em;
-
-              animation-name: wiggle;
-              animation-duration: 2s;
-              animation-timing-function: $easing;
-              animation-iteration-count: infinite;
-
-              @keyframes wiggle {
-                0% {
-                  transform: translateX(0px);
-                }
-                50% {
-                  transform: translateX(4px);
-                }
-                100% {
-                  transform: translateX(0px);
-                }
-              }
-            }
-
-            &:hover {
-              button {
-                animation-play-state: paused;
-              }
+          h3 {
+            margin-bottom: 0;
+            span {
+              display: block;
             }
           }
         }

@@ -1,23 +1,49 @@
 // Vue transition
 
-// Slide
-.global-enter {
+// Page
+.page-enter-active,
+.page-leave-active {
+  transition: all 500ms linear;
+}
+
+.page-enter {
+  transform: translateX(3vw);
   opacity: 0;
 }
 
-.global-leave-to {
+.page-leave-to {
+  transform: translateX(-0.5vw);
   opacity: 0;
 }
 
-.global-enter-active,
-.global-leave-active {
-  transition-property: opacity 300ms $easing;
+// Nav
+.fade-leave-active,
+.fade-enter-active {
+  transition: all 250ms $easing;
+  transition-delay: 250ms;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// BottomNav
+.bottomNav-leave-active,
+.bottomNav-enter-active {
+  transition: all 250ms $easing;
+  transition-delay: 250ms;
+}
+
+.bottomNav-enter,
+.bottomNav-leave-to {
+  opacity: 0;
 }
 
 // Images
 .img-fade-enter-active,
 .img-fade-leave-active {
-  transition: all 0.125s $easing;
+  transition: all 250ms $easing;
 }
 
 .img-fade-enter,

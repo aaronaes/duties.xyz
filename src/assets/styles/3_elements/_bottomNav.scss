@@ -1,0 +1,22 @@
+section.bottomNav {
+  display: flex;
+  padding-top: $md;
+  padding-bottom: $md;
+  height: 50vh;
+
+  figure {
+    align-self: center;
+    padding-bottom: 0;
+    a {
+      border-bottom: 0px transparent !important;
+      h1 {
+        align-self: center;
+        margin-bottom: 0;
+
+        @include respond-to("sm") {
+          font-size: 42px;
+        }
+      }
+    }
+  }
+}

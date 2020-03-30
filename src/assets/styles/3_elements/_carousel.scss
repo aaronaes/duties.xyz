@@ -1,0 +1,135 @@
+section {
+  &.carousel {
+    position: relative;
+    padding: 0;
+    z-index: 0;
+    display: flex;
+
+    @include respond-to("sm") {
+      padding-top: $sm;
+      padding-bottom: $sm;
+    }
+
+    .carousel-inner {
+      padding-top: $md;
+      padding-bottom: $lg;
+      height: auto;
+      align-self: flex-start;
+      overflow: visible;
+
+      @include respond-to("sm") {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .hooper-list {
+        cursor: grab;
+
+        .hooper-track {
+          .hooper-slide {
+            align-self: flex-start;
+            margin-right: $md;
+
+            &:first-of-type {
+              margin-left: $md;
+            }
+
+            @include respond-to("md") {
+              margin-left: $sm;
+              margin-right: 0;
+
+              &:first-of-type {
+                margin-left: $sm;
+              }
+            }
+
+            @include respond-to("sm") {
+              margin-left: $xs;
+              margin-right: 0;
+              &:first-of-type {
+                margin-left: $xs;
+              }
+
+              img,
+              video {
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+              }
+            }
+
+            p {
+              padding-top: $xs;
+              margin-bottom: 0;
+
+              span {
+                color: $accent;
+
+                &:after {
+                  font-family: $font-sneak;
+                  content: " → ";
+                }
+              }
+
+              @include respond-to("md") {
+                max-width: calc(100% - #{$sm});
+              }
+            }
+          }
+        }
+
+        &:active {
+          cursor: grabbing !important;
+        }
+      }
+    }
+  }
+
+  &.hooper-nav {
+    padding-top: $md;
+    transition: color 500ms $easing;
+
+    figure {
+      padding-bottom: 0;
+
+      .next {
+        cursor: pointer;
+
+        p {
+          float: left;
+          transform: translateY(-5px);
+          margin-bottom: 0;
+          padding-right: $xs;
+        }
+
+        button {
+          float: left;
+          font-size: 1.25em;
+
+          animation-name: wiggle;
+          animation-duration: 2s;
+          animation-timing-function: $easing;
+          animation-iteration-count: infinite;
+
+          @keyframes wiggle {
+            0% {
+              transform: translateX(0px);
+            }
+            50% {
+              transform: translateX(4px);
+            }
+            100% {
+              transform: translateX(0px);
+            }
+          }
+        }
+
+        &:hover {
+          button {
+            animation-play-state: paused;
+          }
+        }
+      }
+    }
+  }
+}

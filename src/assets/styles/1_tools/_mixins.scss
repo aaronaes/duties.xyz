@@ -31,26 +31,3 @@ $breakpoints: (
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
-
-// Spacing & Padding
-@mixin padding(
-  $top: null,
-  $right: null,
-  $bottom: null,
-  $left: null,
-  $media: null
-) {
-  @if $media {
-    @media #{$media} {
-      padding-top: $top;
-      padding-right: $right;
-      padding-bottom: $bottom;
-      padding-left: $left;
-    }
-  } @else {
-    padding-top: $top;
-    padding-right: $right;
-    padding-bottom: $bottom;
-    padding-left: $left;
-  }
-}

@@ -9,11 +9,19 @@ export default new Router({
   hashbag: true,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return { selector: to.hash };
-    } else if (savedPosition) {
+      return {
+        selector: to.hash
+        // , offset: { x: 0, y: 10 }
+      };
+    }
+    if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve({ x: 0, y: 0 });
+        }, 500);
+      });
     }
   },
   routes: [

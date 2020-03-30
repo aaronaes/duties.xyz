@@ -1,35 +1,47 @@
 body {
-  &.home {
-    footer {
-      display: flex;
-      bottom: 0;
-      height: 100vh;
+  footer {
+    background-color: $accent;
+    padding: $xs 0;
 
-      @include respond-to("sm") {
+    a {
+      color: $black;
+
+      &:hover {
+        color: $white;
       }
+    }
 
-      section {
-        align-self: flex-end;
+    section.globalFooter {
+      figure {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: space-between;
 
-        figure {
-          h3 {
-            margin-bottom: $md;
-          }
+        @include respond-to("sm") {
+          padding-bottom: $xs;
+        }
 
-          p {
-            margin-bottom: 0;
+        span {
+          display: flex;
+          justify-content: space-between;
 
-            &.logo {
-              span {
-                color: $accent;
-                padding-right: 5px;
-              }
+          a {
+            margin-right: $sm;
+            align-self: center;
+            border-bottom: transparent;
+
+            @include respond-to("sm") {
+              margin-right: $xs;
             }
-          }
 
-          p.year {
-            span {
-              font-family: "Inter", sans-serif;
+            &.top {
+              margin: 0;
+            }
+
+            p {
+              margin: 0;
+              padding: 0;
             }
           }
         }
@@ -39,18 +51,11 @@ body {
 
   &.about {
     footer {
-      section {
-        figure {
-          div {
-            p {
-              &.logo {
-                span {
-                  color: $accent;
-                  padding-right: 5px;
-                }
-              }
-            }
-          }
+      a {
+        color: $black !important;
+
+        &:hover {
+          color: $white !important;
         }
       }
     }

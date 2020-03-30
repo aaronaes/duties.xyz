@@ -39,10 +39,10 @@ html {
 }
 
 // Colors
-$black: #17171c;
-$grey: #f8f8f8;
 $white: #ffffff;
-$accent: #ea400f;
+$grey: #c9c7bf;
+$black: #17171c;
+$accent: #e5594d;
 
 // Fonts
 $font-sneak: "Sneak Regular", "Inter", sans-serif;
@@ -58,11 +58,8 @@ $animate-bg: background-color 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $easing: cubic-bezier(0.785, 0.135, 0.15, 0.85);
 
 // Spacing
-$xl: 10rem;
+$xl: 7.5rem;
 $lg: 5rem;
-$md: 2.5rem;
-$sm: 1.25rem;
-$xs: 0.75rem;
-
-// Other
-$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$md: 3.75rem;
+$sm: 1.875rem;
+$xs: 0.9375rem;

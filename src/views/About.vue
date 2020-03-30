@@ -1,87 +1,82 @@
 <template>
-  <main id="home" class="slide" data-color="about">
+  <main id="about top">
     <Masthead :heading="heading" :copy="copy"></Masthead>
 
-    <section class="grid-container full bleed">
-      <figure v-lazy-container="{ selector: 'img' }">
-        <img
-          data-src="/images/about/banner/about-1.png"
-          data-srcset="/images/about/banner/about-1@2x.png 2x"
-        />
-        <img
-          data-src="/images/about/banner/about-2.png"
-          data-srcset="/images/about/banner/about-2@2x.png 2x"
-        />
-        <img
-          data-src="/images/about/banner/about-3.png"
-          data-srcset="/images/about/banner/about-3@2x.png 2x"
-        />
-        <img
-          data-src="/images/about/banner/about-4.png"
-          data-srcset="/images/about/banner/about-4@2x.png 2x"
-        />
-      </figure>
-    </section>
     <section class="grid-container intro">
-      <figure class="grid-x grid-margin-x">
-        <h3 class="cell large-10">
-          Established in 2020, Duties is an independent digital design studio
-          based in Oslo. We believe it’s our duty as designers to provide the
-          world with thoughtfully designed products that are both functional,
-          accessible and visually beautiful.
-        </h3>
-        <h3 class="cell large-10">
-          We work at the intersection of visual and functional design; focusing
-          on brand identity design, product strategy, web and native application
-          development plus a bit of xyz...
-        </h3>
-        <h3 class="cell large-10">
-          We have worked with a range of excellent companies and people
-          throughout the years such as: Godtlevert, Orkla, Eika Gruppen, Amedia,
-          Berg-Hansen, Brygg Magasin, Humid Mag, Well Dressed Vandals,
-          Aftenposten, SSF, Authentic Scandinavia, Fetch, Holzweiler, Mathias
-          Fossum.
-        </h3>
-      </figure>
-    </section>
-
-    <section class="grid-container people slide">
-      <figure class="grid-x grid-margin-x">
-        <div class="cell large-3 medium-6 auto person">
-          <div class="img-wrapper">
-            <img src="/images/about/Paul.png" alt="Paul Polite v2.0" />
-          </div>
-          <p>Paul Conley</p>
-          <p>
-            <a href="#">paul@duties.xyz</a>
-          </p>
-        </div>
-
-        <div class="cell large-3 medium-6 auto person">
-          <div class="img-wrapper erling">
-            <img src="/images/about/Erling.png" alt="Unge Erling 3000" />
-          </div>
-          <p>Erling Aarønæs</p>
-          <p>
-            <a href="#">erling@duties.xyz</a>
-          </p>
-        </div>
-      </figure>
-    </section>
-
-    <section class="grid-container offduty slide" data-color="offduty">
       <figure class="grid-x">
-        <div class="image-grid">
-          <img class="item" src="/images/offduty/offduty-01.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-02.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-03.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-06.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-04.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-05.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-09.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-07.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-08.png" alt="" />
-          <img class="item" src="/images/offduty/offduty-10.png" alt="" />
+        <div class="cell large-10 medium-10 small-12">
+          <h3>Studio &searr;</h3>
+          <h3>
+            Established in 2020, Duties is an independent digital design studio
+            based in Oslo. We believe it’s our duty as designers to provide the
+            world with thoughtfully designed products that are both functional,
+            accessible and visually beautiful.
+          </h3>
+          <h3>
+            We work at the intersection of visual and functional design;
+            focusing on brand identity design, product strategy, web and native
+            application development plus a bit of xyz…
+          </h3>
+        </div>
+      </figure>
+    </section>
+
+    <section class="people">
+      <figure class="grid-x">
+        <div class="grid-container">
+          <div class="cell">
+            <h3>People &searr;</h3>
+          </div>
+          <div class="grid-x grid-margin-x">
+            <div class="cell large-4 medium-4 small-6 person">
+              <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+                <img
+                  data-src="/images/about/Paul.jpg"
+                  data-srcset="/images/about/Paul@2x.jpg 2x"
+                  alt="Paul Polite v2.0"
+                />
+              </div>
+              <p>
+                <span>Paul Conley</span>
+                <span>Designer / partner</span>
+                <span><a href="#">+47 ‭967 48 685‬</a></span>
+                <a href="#">paul@duties.xyz</a>
+              </p>
+            </div>
+
+            <div class="cell large-4 medium-4 small-6 person">
+              <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+                <img
+                  data-src="/images/about/Erling.jpg"
+                  data-srcset="/images/about/Erling@2x.jpg 2x"
+                  alt="Unge Aarønæs"
+                />
+              </div>
+              <p>
+                <span>Erling Aarønæs</span>
+                <span>Designer / partner</span>
+                <span><a href="#">+47 986 60 788</a></span>
+                <a href="#">erling@duties.xyz</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="grid-container client">
+        <div class="cell large-8 medium-12 small-12">
+          <h3>
+            When we are off-duty you can
+            <a href="//instagram.com/duties.xyz" target="_blank"
+              >find us creating</a
+            >
+            experimental typefaces, dabbling in photography and curating our
+            <a
+              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+              target="_blank"
+              >studio playlists</a
+            >.
+          </h3>
         </div>
       </figure>
     </section>

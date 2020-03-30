@@ -1,57 +1,56 @@
 <template>
-  <section class="grid-container projectList" id="projectList">
-    <figure class="grid-x grid-margin-x">
+  <section id="go" class="grid-container projectList">
+    <figure class="grid-x">
       <!-- Upcoming work -->
-      <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
+      <details class="cell" onclick="return false">
+        <summary class="coming">
           <h2 class="cell auto title">A new way to get your take-out</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
       </details>
-      <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
+      <details class="cell" onclick="return false">
+        <summary class="coming">
           <h2 class="cell auto title">No more lines at the bar</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
       </details>
-      <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
-          <h2 class="cell auto title">Club managenet app</h2>
-          <div class="cell shrink soon">
+      <details class="cell" onclick="return false">
+        <summary class="coming">
+          <h2>
+            <span class="dot">●</span>
+            <span class="title">Sport club app</span>
+          </h2>
+          <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
       </details>
 
       <!-- All work -->
-
       <details
         v-for="(project, i) in projects"
         :key="i"
         :id="project.name"
-        class="cell as"
+        class="cell"
         :open="active === project.name"
       >
-        <summary @click="() => toggle(project.name)" class="grid-x">
-          <h2 class="cell auto title">
-            <span>●</span>{{ project.data().title }}
+        <summary
+          class="grid-x align-middle"
+          @click="() => toggle(project.name)"
+        >
+          <h2>
+            <span class="dot">●</span>
+            <span class="title">{{ project.data().title }}</span>
           </h2>
+
+          <h2 class="togl arrow"></h2>
         </summary>
         <component :is="project"></component>
       </details>
-    </figure>
-    <figure class="grid-x grid-margin-x connect">
-      <div class="cell auto">
-        <h3>
-          Want to talk about a project?
-          <br />
-          <a href="#">Let's talk about it</a>
-        </h3>
-      </div>
     </figure>
   </section>
 </template>
@@ -64,7 +63,7 @@ import Humid from "@/projects/humid.vue";
 import Eika from "@/projects/eika.vue";
 import Gro from "@/projects/gro.vue";
 import Fetch from "@/projects/fetch.vue";
-import SSF from "@/projects/ssf.vue";
+//import SSF from "@/projects/ssf.vue";
 import Marks from "@/projects/marks.vue";
 
 export default {
@@ -73,7 +72,7 @@ export default {
     return {
       title: "Project Index",
       active: "",
-      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, SSF, Marks]
+      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, Marks]
     };
   },
   methods: {
