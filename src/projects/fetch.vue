@@ -2,24 +2,21 @@
   <div class="content">
     <div class="grid-x">
       <div class="cell meta">
-        <p class="status">Completed 2017</p>
+        <p class="status">Concept, 2017</p>
       </div>
       <div class="cell large-8 medium-10 description">
         <h3>
-          Fetch wanted to operate as a vendor for package shipping, which would
-          differentiate from the current avilable carriers. The idea was that
-          they would deliver flexible solutions by utilizing existing transport
-          capacity in the market, such as messengerbikers, Uber and local taxi
-          drivers.
+          Fetch wanted to differentiate itself from other vendors in the parcel
+          delivery space with a disruptive approach by leveraging the
+          gig-economy. Their idea was to provide flexible delivery solutions by
+          utilising existing transport carriers in the market, such as bike
+          messengers, Uber and local taxi drivers.
         </h3>
         <h3>
-          By doing so, they would open up to new markets and new players in the
-          industry.
+          We helped to create a brand identity for Fetch alongside UX and UI
+          design for their core booking app which operated across mobile,
+          tablet, desktop and Apple Watch.
         </h3>
-      </div>
-      <div class="cell meta">
-        <p>Photography by XXX</p>
-        <p>Build by YYY</p>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
