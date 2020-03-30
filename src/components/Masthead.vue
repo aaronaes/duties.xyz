@@ -9,9 +9,6 @@
           A creative partner <br />
           and design studio for thoughtfully crafted products.
         </h1>
-        <a href="#go">
-          <h1 class="show-for-small-only arrow">&darr;</h1>
-        </a>
       </div>
       <div v-else class="cell large-10 medium-10 small-12">
         <h1>Duty / Duties</h1>
@@ -25,10 +22,27 @@
                     'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
                   )
                 "
-                ><i class="fas fa-volume-up"></i>
-                <p>
-                  Play
-                </p></span
+              >
+                <svg
+                  width="60"
+                  height="43"
+                  viewBox="0 0 60 43"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M27.1111 6.85181L14.2716 13.9075H4V28.685H14.2716L27.1111 35.7407V6.85181Z"
+                    stroke="#E5594D"
+                    stroke-width="6"
+                  />
+                  <path
+                    d="M47.4748 3C52.5066 7.85299 55.3333 14.4342 55.3333 21.2963C55.3333 28.1584 52.5066 34.7396 47.4748 39.5926M38 12.1352C40.5159 14.5617 41.9293 17.8523 41.9293 21.2834C41.9293 24.7144 40.5159 28.005 38 30.4315"
+                    stroke="#E5594D"
+                    stroke-width="6"
+                  />
+                </svg>
+
+                <p>Play</p></span
               >
             </h3>
             <h3>noun</h3>
@@ -36,11 +50,15 @@
           <h3>
             <ol>
               <li>
-                A moral or legal obligation; a responsibility.
+                <h3>
+                  A moral or legal obligation; a responsibility.
+                </h3>
               </li>
               <li>
-                A task or action that one is required to perform as part of
-                one’s job.
+                <h3>
+                  A task or action that one is required to perform as part of
+                  one’s job.
+                </h3>
               </li>
             </ol>
           </h3>

@@ -2,22 +2,22 @@
   <section id="go" class="grid-container projectList">
     <figure class="grid-x">
       <!-- Upcoming work -->
-      <!-- <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
+      <details class="cell" onclick="return false">
+        <summary class="coming">
           <h2 class="cell auto title">A new way to get your take-out</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
-      </details> -->
-      <!-- <details class="cell coming" onclick="return false">
-        <summary class="grid-x">
+      </details>
+      <details class="cell" onclick="return false">
+        <summary class="coming">
           <h2 class="cell auto title">No more lines at the bar</h2>
           <div class="cell shrink soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
-      </details> -->
+      </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
           <h2>
@@ -31,7 +31,6 @@
       </details>
 
       <!-- All work -->
-
       <details
         v-for="(project, i) in projects"
         :key="i"

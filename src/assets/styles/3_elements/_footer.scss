@@ -18,6 +18,10 @@ body {
         padding: 0;
         justify-content: space-between;
 
+        @include respond-to("sm") {
+          padding-bottom: $xs;
+        }
+
         span {
           display: flex;
           justify-content: space-between;

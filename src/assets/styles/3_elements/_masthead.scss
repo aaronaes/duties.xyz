@@ -33,11 +33,20 @@ body {
 
                 span {
                   cursor: pointer;
+
+                  svg {
+                    transform: translateY(8px);
+                    margin-left: $xs;
+
+                    path {
+                      fill: none !important;
+                    }
+                  }
                   p {
                     margin: 0;
                     display: inline;
                     position: absolute;
-                    transform: translate(-10px, 3px);
+                    transform: translate(0px, 10px);
                     color: $accent;
                     opacity: 0;
                     transition: all 500ms $easing;
@@ -51,7 +60,7 @@ body {
 
                   &:hover {
                     p {
-                      transform: translate(0px, 3px);
+                      transform: translate(10px, 10px);
                       opacity: 1;
                     }
                   }
@@ -64,10 +73,12 @@ body {
             }
 
             h3 {
+              margin-bottom: 0;
               ol {
                 counter-reset: foo;
                 display: table;
                 margin-bottom: 0;
+                margin-left: $xs;
 
                 & > li {
                   counter-increment: foo;
@@ -77,9 +88,13 @@ body {
                   &::before {
                     content: counter(foo) ".";
                     display: table-cell;
-                    padding-right: $xs;
-                    padding-right: $xs;
+                    font-size: inherit;
+                    padding-right: $xs / 2;
                     color: rgba($grey, $alpha: 0.5);
+                  }
+
+                  h3 {
+                    margin-bottom: $xs / 2;
                   }
                 }
               }
