@@ -12,45 +12,45 @@
         </h3>
       </div>
     </div>
-    <div class="img-container" v-lazy-container="{ selector: 'img' }">
+    <div class=" img-container" v-lazy-container="{ selector: 'img' }">
       <div class="grid-x grid-margin-x">
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-01.jpg"
           data-srcset="/images/work/marks/logo-01@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-02.jpg"
           data-srcset="/images/work/marks/logo-02@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-03.jpg"
           data-srcset="/images/work/marks/logo-03@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-04.jpg"
           data-srcset="/images/work/marks/logo-04@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-05.jpg"
           data-srcset="/images/work/marks/logo-05@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-06.jpg"
           data-srcset="/images/work/marks/logo-06@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-07.jpg"
           data-srcset="/images/work/marks/logo-07@2x.jpg 2x"
         />
         <img
-          class="cell large-6 medium-6 auto"
+          class="cell large-6 medium-6"
           data-src="/images/work/marks/logo-08.jpg"
           data-srcset="/images/work/marks/logo-08@2x.jpg 2x"
         />

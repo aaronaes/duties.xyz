@@ -60,10 +60,10 @@
 
 <script>
 export default {
-  name: "gro-hydroponics",
+  name: "gro-gront",
   data() {
     return {
-      title: "Gro Hydroponics"
+      title: "Gro Grønt"
     };
   },
   computed: {
