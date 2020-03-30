@@ -8,7 +8,7 @@
     <ProjectList />
     <!-- About -->
     <section class="grid-container clients">
-      <figure class="grid-x grid-margin-x">
+      <figure class="grid-x ">
         <h3 class="cell large-8 medium-12 small-12 clients">
           We have worked with a range of excellent companies and people
           throughout the years such as: Godtlevert, Orkla, SSF, Authentic

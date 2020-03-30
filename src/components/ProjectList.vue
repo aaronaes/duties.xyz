@@ -19,9 +19,12 @@
         </summary>
       </details> -->
       <details class="cell" onclick="return false">
-        <summary class="grid-x coming">
-          <h2 class="cell auto title">Sport club app</h2>
-          <div class="cell shrink soon">
+        <summary class="coming">
+          <h2>
+            <span class="dot">●</span>
+            <span class="title">Sport club app</span>
+          </h2>
+          <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
@@ -33,17 +36,19 @@
         v-for="(project, i) in projects"
         :key="i"
         :id="project.name"
-        class="cell as"
+        class="cell"
         :open="active === project.name"
       >
-        <summary @click="() => toggle(project.name)">
+        <summary
+          class="grid-x align-middle"
+          @click="() => toggle(project.name)"
+        >
           <h2>
-            <span class="dot">●</span
-            ><span class="title">{{ project.data().title }}</span>
+            <span class="dot">●</span>
+            <span class="title">{{ project.data().title }}</span>
           </h2>
-          <div class="togl">
-            <img src="/images/assets/close.svg" alt="Close" />
-          </div>
+
+          <h2 class="togl arrow"></h2>
         </summary>
         <component :is="project"></component>
       </details>
