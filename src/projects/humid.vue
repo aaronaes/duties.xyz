@@ -17,10 +17,26 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/humid/humid-01.png" />
-      <img data-src="/images/work/humid/humid-02.png" />
-      <img data-src="/images/work/humid/humid-03.png" />
-      <img data-src="/images/work/humid/humid-04.png" />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/humid/humid-01.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/humid/humid-02.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/humid/humid-03.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/humid/humid-04.png"
+      />
       <img
         class="large-6 medium-6 float-left"
         data-src="/images/work/humid/humid-05.png"
@@ -28,7 +44,11 @@
       <h1 class="large-5 medium-5 grid-padding-x float-left">
         HUMID FUCKING MAG IS HERE.
       </h1>
-      <img data-src="/images/work/humid/humid-06.png" />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/humid/humid-06.png"
+      />
     </div>
   </div>
 </template>

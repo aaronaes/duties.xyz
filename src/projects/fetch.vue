@@ -27,16 +27,56 @@
         style="background: red; mix-blend-mode: screen;"
         data-src="/images/work/fetch/fetch-01.png"
       />
-      <img data-src="/images/work/fetch/fetch-02.png" />
-      <img data-src="/images/work/fetch/fetch-03.png" />
-      <img data-src="/images/work/fetch/fetch-04.png" />
-      <img data-src="/images/work/fetch/fetch-05.png" />
-      <img data-src="/images/work/fetch/fetch-06.png" />
-      <img data-src="/images/work/fetch/fetch-07.png" />
-      <img data-src="/images/work/fetch/fetch-08.png" />
-      <img data-src="/images/work/fetch/fetch-09.png" />
-      <img data-src="/images/work/fetch/fetch-10.png" />
-      <img data-src="/images/work/fetch/fetch-11.png" />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-02.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-03.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-04.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-05.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-06.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-07.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-08.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-09.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-10.png"
+      />
+      <img
+        width="800"
+        height="600"
+        data-src="/images/work/fetch/fetch-11.png"
+      />
     </div>
   </div>
 </template>

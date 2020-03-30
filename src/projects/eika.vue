@@ -24,16 +24,16 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/eika/eika-01.png" />
-      <img data-src="/images/work/eika/eika-02.png" />
-      <img data-src="/images/work/eika/eika-03.png" />
-      <img data-src="/images/work/eika/eika-04.png" />
-      <img data-src="/images/work/eika/eika-05.png" />
-      <img data-src="/images/work/eika/eika-06.png" />
-      <img data-src="/images/work/eika/eika-07.png" />
-      <img data-src="/images/work/eika/eika-08.png" />
-      <img data-src="/images/work/eika/eika-09.png" />
-      <img data-src="/images/work/eika/eika-10.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-01.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-02.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-03.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-04.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-05.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-06.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-07.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-08.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-09.png" />
+      <img width="800" height="600" data-src="/images/work/eika/eika-10.png" />
     </div>
   </div>
 </template>

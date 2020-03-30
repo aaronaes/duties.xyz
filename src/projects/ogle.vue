@@ -18,6 +18,8 @@
       <div class="grid-x grid-margin-x" v-lazy-container="{ selector: 'img' }">
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/ogle/ogle-image-01.png"
             data-srcset="/images/work/ogle/ogle-image-01@2x.png 2x"
           />
@@ -27,12 +29,16 @@
         <div class="grid-x large-10 medium-10 center">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/ogle/ogle-image-02.png"
               data-srcset="/images/work/ogle/ogle-image-02@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/ogle/ogle-image-03.png"
               data-srcset="/images/work/ogle/ogle-image-03@2x.png 2x"
             />
@@ -41,6 +47,8 @@
 
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/ogle/ogle-image-04.png"
             data-srcset="/images/work/ogle/ogle-image-04@2x.png 2x"
           />
@@ -50,12 +58,16 @@
         <div class="grid-x large-10 medium-10 center">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/ogle/ogle-image-05.png"
               data-srcset="/images/work/ogle/ogle-image-05@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/ogle/ogle-image-06.png"
               data-srcset="/images/work/ogle/ogle-image-06@2x.png 2x"
             />
@@ -64,14 +76,20 @@
 
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/ogle/ogle-image-07.png"
             data-srcset="/images/work/ogle/ogle-image-07@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/ogle/ogle-image-08.png"
             data-srcset="/images/work/ogle/ogle-image-08@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/ogle/ogle-image-09.png"
             data-srcset="/images/work/ogle/ogle-image-09@2x.png 2x"
           />

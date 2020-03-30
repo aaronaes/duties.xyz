@@ -23,9 +23,9 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/ssf/ssf-01.png" />
-      <img data-src="/images/work/ssf/ssf-02.png" />
-      <img data-src="/images/work/ssf/ssf-03.png" />
+      <img width="800" height="600" data-src="/images/work/ssf/ssf-01.png" />
+      <img width="800" height="600" data-src="/images/work/ssf/ssf-02.png" />
+      <img width="800" height="600" data-src="/images/work/ssf/ssf-03.png" />
     </div>
   </div>
 </template>

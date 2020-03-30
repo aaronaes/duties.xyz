@@ -56,10 +56,14 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-01.png"
             data-srcset="/images/work/gl/godtlevert-01@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-02.png"
             data-srcset="/images/work/gl/godtlevert-02@2x.png 2x"
           />
@@ -69,12 +73,16 @@
         <div class="grid-x large-10 medium-10 center double">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/gl/godtlevert-03.png"
               data-srcset="/images/work/gl/godtlevert-03@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/gl/godtlevert-04.png"
               data-srcset="/images/work/gl/godtlevert-04@2x.png 2x"
             />
@@ -98,18 +106,26 @@
 
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-05.png"
             data-srcset="/images/work/gl/godtlevert-05@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-06.png"
             data-srcset="/images/work/gl/godtlevert-06@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-07.png"
             data-srcset="/images/work/gl/godtlevert-07@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/gl/godtlevert-08.png"
             data-srcset="/images/work/gl/godtlevert-08@2x.png 2x"
           />
@@ -118,12 +134,16 @@
         <div class="grid-x double">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/gl/godtlevert-09.png"
               data-srcset="/images/work/gl/godtlevert-09@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/gl/godtlevert-09.png"
               data-srcset="/images/work/gl/godtlevert-09@2x.png 2x"
             />

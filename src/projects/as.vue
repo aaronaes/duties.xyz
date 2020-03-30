@@ -30,14 +30,20 @@
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/as/as-02.png"
             data-srcset="/images/work/as/as-02@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/as/as-03.png"
             data-srcset="/images/work/as/as-03@2x.png 2x"
           />
           <img
+            width="800"
+            height="600"
             data-src="/images/work/as/as-09.png"
             data-srcset="/images/work/as/as-09@2x.png 2x"
           />
@@ -47,12 +53,16 @@
         <div class="grid-x large-10 medium-10 center">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/as/as-04.png"
               data-srcset="/images/work/as/as-04@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/as/as-05.png"
               data-srcset="/images/work/as/as-05@2x.png 2x"
             />
@@ -60,6 +70,8 @@
         </div>
         <div class="cell">
           <img
+            width="800"
+            height="600"
             class="space"
             data-src="/images/work/as/as-01.png"
             data-srcset="/images/work/as/as-01@2x.png 2x"
@@ -69,12 +81,16 @@
         <div class="grid-x large-10 medium-10 center">
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/as/as-07.png"
               data-srcset="/images/work/as/as-07@2x.png 2x"
             />
           </div>
           <div class="cell auto grid-padding-x">
             <img
+              width="800"
+              height="600"
               data-src="/images/work/as/as-08.png"
               data-srcset="/images/work/as/as-08@2x.png 2x"
             />
@@ -82,6 +98,8 @@
         </div>
         <div class="cell">
           <img
+            width="800"
+            height="600"
             data-src="/images/work/as/as-10.png"
             data-srcset="/images/work/as/as-10@2x.png 2x"
           />

@@ -18,34 +18,50 @@
       v-lazy-container="{ selector: 'img' }"
     >
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-01.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-02.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-03.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-04.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-05.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-06.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-07.png"
       />
       <img
+        width="800"
+        height="600"
         class="cell large-6 medium-6 auto"
         data-src="/images/work/marks/marks-08.png"
       />
