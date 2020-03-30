@@ -1,5 +1,5 @@
 <template>
-  <section class="grid-container projectList">
+  <section id="go" class="grid-container projectList">
     <figure class="grid-x">
       <!-- Upcoming work -->
       <!-- <details class="cell coming" onclick="return false">
@@ -36,14 +36,13 @@
         class="cell as"
         :open="active === project.name"
       >
-        <summary @click="() => toggle(project.name)" class="grid-x">
-          <h2 class="cell auto title">
-            <span>●</span>{{ project.data().title }}
+        <summary @click="() => toggle(project.name)">
+          <h2 class="title">
+            <span class="dot">●</span
+            ><span class="title">{{ project.data().title }}</span>
           </h2>
           <div class="togl">
-            <span
-              style="content: url(/images/assets/close.svg); width: 20px; height: 20px;"
-            ></span>
+            <img src="/images/assets/close.svg" alt="Close" />
           </div>
         </summary>
         <component :is="project"></component>

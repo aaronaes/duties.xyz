@@ -1,24 +1,24 @@
 <template>
   <nav>
     <section class="grid-container">
-      <figure class="grid-x grid-margin-x globalNav">
+      <figure class="grid-x globalNav">
         <router-link class="cell shrink" to="/">
           <transition name="fade" mode="out-in" appear>
             <h3 v-if="this.$route.name === 'Home'" class="logo">
-              Dutiess
+              Duties<span></span>
             </h3>
             <h3 v-if="this.$route.name === 'About'" class="logo">Studio</h3>
           </transition>
         </router-link>
 
         <router-link
-          class="burger"
+          class="cell shrink burger"
           to="/about"
           v-if="this.$route.name === 'Home'"
         >
           <h3>
             <transition name="fade" mode="out-in" appear>
-              <span>Info</span>
+              <span>Studio</span>
             </transition>
             <span class="arrow">&rarr;</span>
           </h3>
@@ -26,7 +26,7 @@
         <router-link class="burger" to="/" v-if="this.$route.name === 'About'">
           <h3>
             <transition name="fade" mode="out-in" appear>
-              <span>Projects</span>
+              <span>Duties</span>
             </transition>
             <span class="arrow">&rarr;</span>
           </h3>

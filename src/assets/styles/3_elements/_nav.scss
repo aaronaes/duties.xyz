@@ -3,20 +3,9 @@ body {
     position: absolute;
     display: flex;
     z-index: 9999;
-    top: 0;
+    top: $xs;
     width: 100%;
     height: 100px;
-    z-index: 99;
-
-    // &.nav-up {
-    //   transform: translateY(-120px);
-    //   opacity: 1;
-    // }
-
-    // &.nav-down {
-    //   transform: translateY(0px);
-    //   opacity: 1;
-    // }
 
     @include respond-to("md") {
       height: 100px;
@@ -24,6 +13,7 @@ body {
 
     @include respond-to("sm") {
       height: 80px;
+      top: 0;
     }
 
     section {
@@ -61,55 +51,22 @@ body {
               margin-bottom: 0;
               &.logo {
                 span {
-                  &:before {
-                    content: ":";
-                    padding-left: 3px;
-                    font-weight: 900;
-                    font-size: 0.9em;
-                    transition: all 500ms $easing;
-                  }
-
                   &:after {
-                    content: "xyz";
+                    content: ".xyz";
                     opacity: 0;
-                    padding-left: 0px;
-                    font-weight: normal;
-                    transition: all 500ms $easing;
-                  }
-
-                  @include respond-to("sm") {
-                    &:before,
-                    &:after {
-                      padding-left: 1px;
-                    }
+                    transition: all 250ms $easing;
                   }
                 }
               }
             }
 
             &:hover {
-              color: inherit;
-
-              &.burger {
-                svg {
-                  path {
-                    fill: $accent;
-                  }
-                }
-              }
-
-              h3,
-              p {
+              h3 {
                 &.logo {
                   span {
-                    &:before {
-                      color: $accent;
-                    }
-
                     &:after {
                       opacity: 1;
                       color: $accent;
-                      padding-left: 3px;
                     }
                   }
                 }

@@ -4,13 +4,8 @@ body {
       position: relative;
 
       &.clients {
-        padding-top: $md;
-
         figure {
-          @include respond-to("sm") {
-            padding-bottom: $sm;
-          }
-
+          padding-bottom: 0;
           h3 {
             margin-bottom: 0;
             span {

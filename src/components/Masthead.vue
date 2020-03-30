@@ -9,6 +9,9 @@
           A creative partner <br />
           and design studio for thoughtfully crafted products.
         </h1>
+        <a href="#go">
+          <h1 class="show-for-small-only arrow">&darr;</h1>
+        </a>
       </div>
       <div v-else class="cell large-10 medium-10 small-12">
         <h1>Duty / Duties</h1>

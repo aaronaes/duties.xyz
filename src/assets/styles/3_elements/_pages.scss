@@ -6,6 +6,11 @@
   padding-right: $md;
   padding-left: $md;
 
+  @include respond-to("lg") {
+    padding-left: $sm;
+    padding-right: $sm;
+  }
+
   @include respond-to("sm") {
     padding-left: $xs;
     padding-right: $xs;
@@ -20,8 +25,8 @@
 .column,
 .columns,
 .grid-padding-x {
-  padding-right: $sm;
-  padding-left: $sm;
+  padding-right: $xs;
+  padding-left: $xs;
 }
 
 .center {
@@ -35,10 +40,14 @@ section {
   width: 100%;
   figure {
     width: 100%;
-    padding-bottom: $sm;
+    padding-bottom: $md;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
 
     @include respond-to("sm") {
-      padding-bottom: $xs;
+      padding-bottom: $sm;
     }
   }
 }
@@ -46,23 +55,19 @@ section {
 // Color Schemes
 body {
   &.color-white {
+    color: $black;
     background-color: $white;
-    * {
-      color: $black;
-    }
   }
 
   &.color-grey {
+    color: $black;
     background-color: $grey;
-    * {
-      color: $black;
-    }
   }
 
   &.about {
+    color: $grey;
     background-color: $black;
     * {
-      color: $grey;
       fill: $accent;
     }
   }

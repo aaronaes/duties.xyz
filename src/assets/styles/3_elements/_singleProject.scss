@@ -8,51 +8,57 @@ section.projectList {
       }
 
       summary {
-        position: sticky;
-        position: -webkit-sticky;
         cursor: pointer;
-        z-index: 9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        h2,
-        p {
-          padding-top: $xs / 3;
-          padding-bottom: $xs / 2;
+        z-index: 999;
+
+        h2 {
+          padding-top: $xs / 2;
+          padding-bottom: $xs / 1.5;
           margin: 0;
           opacity: 1;
 
           &.title {
-            span {
-              display: none;
-            }
+            max-width: 70vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
-            @include respond-to("sm") {
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              padding-right: $sm;
+            span {
+              &.title {
+                padding-left: 0;
+              }
+              &.dot {
+                display: none;
+                position: absolute;
+                color: $accent;
+                font-size: 0.7em;
+              }
             }
           }
         }
 
         div.togl {
+          align-self: center;
           display: block;
-          height: 30px;
-          width: 30px;
-          transform: translate(5px, 21px);
+          height: 20px;
+          width: 20px;
+          margin-right: 5px;
+          transform: rotate(0deg);
+          transform-origin: center center;
+          transition: all 250ms $easing;
+          transition-delay: 250ms;
+
+          img,
           span {
-            transform: rotate(0deg);
-            transform-origin: center center;
-            transition: all 150ms $easing;
-            transition-delay: 500ms;
-
-            @include respond-to("sm") {
-              height: 14px !important;
-              width: 14px !important;
-            }
-          }
-
-          @include respond-to("sm") {
-            transform: translate(10px, 12px);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
 
@@ -63,29 +69,32 @@ section.projectList {
           h2 {
             color: rgba($black, 0.6);
             &.title {
-              padding-right: $md;
+              max-width: 70vw;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
 
           .soon {
-            h3 {
-              vertical-align: middle;
-            }
+            align-self: center;
+
             img {
-              right: 0;
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              height: 32px;
-              width: 32px;
+              display: block;
+              height: 20px;
+              width: 20px;
+              margin-right: 5px;
+              transform-origin: center center;
+              transition: all 250ms $easing;
+              transition-delay: 250ms;
             }
           }
         }
       }
 
       .content {
-        padding-top: $md;
-        padding-bottom: $md;
+        padding-top: $sm;
+        padding-bottom: $sm;
 
         @include respond-to("sm") {
           padding-top: $xs;
@@ -93,7 +102,7 @@ section.projectList {
         }
 
         .meta {
-          margin-bottom: $sm;
+          margin-bottom: $xs;
 
           p {
             margin-bottom: 0;
@@ -103,19 +112,19 @@ section.projectList {
 
             &.status {
               &:before {
-                color: rgba($black, 0.6);
+                color: rgba($black, $alpha: 0.5);
                 content: "Status:";
-                padding-right: 3px;
+                padding-right: 5px;
               }
             }
           }
         }
 
         .description {
-          margin-bottom: $md;
+          margin-bottom: $sm;
 
           @include respond-to("sm") {
-            margin-bottom: $sm;
+            margin-bottom: $xs;
           }
 
           h3 {
@@ -150,14 +159,14 @@ section.projectList {
             }
 
             @include respond-to("sm") {
-              padding-bottom: $sm;
+              padding-bottom: $xs;
             }
 
             &[lazy="loaded"] {
               opacity: 0;
               animation-name: fadein;
-              animation-duration: 500ms;
-              animation-delay: 500ms;
+              animation-duration: 250ms;
+              animation-delay: 250ms;
               animation-iteration-count: 1;
               animation-fill-mode: forwards;
               animation-direction: normal;
@@ -166,9 +175,11 @@ section.projectList {
               @keyframes fadein {
                 0% {
                   opacity: 0;
+                  transform: translateY(10px);
                 }
                 100% {
                   opacity: 1;
+                  transform: translateY(0px);
                 }
               }
             }
@@ -179,31 +190,30 @@ section.projectList {
       &[open] {
         summary {
           position: sticky;
-          position: -webkit-sticky;
-          top: 10px;
+          top: 0px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          transition: background-color 250ms $easing;
 
-          h2,
-          h3,
-          p {
+          h2 {
             &.title {
-              position: relative;
-              padding-left: 24px;
-
               span {
-                display: inline;
-                position: absolute;
-                color: $accent;
-                font-size: 0.6em;
-                padding-right: 8px;
-                transform: translate(-20px, -50%);
-                top: 50%;
+                &.title {
+                  padding-left: $sm;
+
+                  @include respond-to("sm") {
+                    padding-left: $xs * 1.5;
+                  }
+                }
+                &.dot {
+                  display: inline-block;
+                  opacity: 1;
+                }
               }
             }
           }
           div.togl {
-            span {
-              transform: rotate(-225deg);
-            }
+            transform: rotate(225deg);
           }
         }
       }

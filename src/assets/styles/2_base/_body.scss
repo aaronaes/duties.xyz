@@ -26,7 +26,7 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-direction: normal;
-  animation-timing-function: $easing;
+  animation-timing-function: linear;
 
   @keyframes fade {
     0% {

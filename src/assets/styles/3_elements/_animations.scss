@@ -3,7 +3,7 @@
 // Page
 .page-enter-active,
 .page-leave-active {
-  transition: all 500ms $easing;
+  transition: all 500ms linear;
 }
 
 .page-enter {

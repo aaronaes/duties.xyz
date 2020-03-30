@@ -3,7 +3,7 @@ body.about {
   main {
     section {
       h3 {
-        &:last-of-type {
+        &:last-of-type:not(:first-of-type) {
           margin-bottom: 0;
         }
       }
@@ -18,10 +18,6 @@ body.about {
               display: inline-block;
               margin-bottom: $xs;
               border-bottom: 2px solid;
-            }
-
-            &:last-of-type {
-              margin-bottom: 0;
             }
           }
         }

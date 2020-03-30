@@ -18,8 +18,8 @@ section {
       overflow: visible;
 
       @include respond-to("sm") {
-        padding-top: $xs;
-        padding-bottom: $sm;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       .hooper-list {
