@@ -68,7 +68,6 @@ import Marks from "@/projects/marks.vue";
 
 export default {
   name: "ProjectList",
-
   data() {
     return {
       title: "Project Index",
@@ -80,17 +79,21 @@ export default {
     toggle(name) {
       if (name === this.active) {
         this.active = "";
+        const el = document.querySelector(".projectList");
+        this.scrollTo(el);
       } else {
         const el = document.querySelector("#" + name);
-        window.scrollTo({
-          top: window.pageYOffset + el.getBoundingClientRect().top - 10,
-          behavior: "smooth"
-        });
-
+        this.scrollTo(el);
         setTimeout(() => {
           this.active = name;
         }, 500);
       }
+    },
+    scrollTo(el) {
+      window.scrollTo({
+        top: window.pageYOffset + el.getBoundingClientRect().top,
+        behavior: "smooth"
+      });
     },
     mouseOver: function() {
       this.active = !this.active;
