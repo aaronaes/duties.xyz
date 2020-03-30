@@ -6,7 +6,7 @@ body {
       display: flex;
 
       @include respond-to("sm") {
-        height: 60vh;
+        height: 65vh;
       }
 
       figure {
@@ -22,8 +22,6 @@ body {
         figure {
           padding-bottom: 0;
           .dictionary {
-            margin-bottom: $sm;
-
             .meta {
               margin-bottom: $xs;
               * {
@@ -39,7 +37,7 @@ body {
                     margin: 0;
                     display: inline;
                     position: absolute;
-                    transform: translate(-10px, 6px);
+                    transform: translate(-10px, 3px);
                     color: $accent;
                     opacity: 0;
                     transition: all 500ms $easing;
@@ -47,13 +45,13 @@ body {
 
                   i {
                     margin-left: $xs;
-                    padding-right: $xs;
+                    padding-right: $xs / 2;
                     color: $accent;
                   }
 
                   &:hover {
                     p {
-                      transform: translate(0px, 6px);
+                      transform: translate(0px, 3px);
                       opacity: 1;
                     }
                   }

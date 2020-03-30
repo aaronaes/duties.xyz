@@ -124,15 +124,13 @@ section.projectList {
         }
 
         .description {
-          margin-bottom: $sm;
+          margin-bottom: $xs;
 
           @include respond-to("sm") {
             margin-bottom: $xs;
           }
 
           h3 {
-            margin-bottom: $sm;
-
             &:last-of-type {
               margin-bottom: 0;
             }

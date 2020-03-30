@@ -34,11 +34,26 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <img data-src="/images/work/gro/gro-01.jpg" />
-      <img data-src="/images/work/gro/gro-02.jpg" />
-      <img data-src="/images/work/gro/gro-03.jpg" />
-      <img data-src="/images/work/gro/gro-04.jpg" />
-      <img data-src="/images/work/gro/gro-05.jpg" />
+      <img
+        data-src="/images/work/gro/gro-gront-01.jpg"
+        data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-02.jpg"
+        data-srcset="/images/work/gro/gro-gront-02@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-03.jpg"
+        data-srcset="/images/work/gro/gro-gront-03@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-04.jpg"
+        data-srcset="/images/work/gro/gro-gront-04@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gro/gro-gront-05.jpg"
+        data-srcset="/images/work/gro/gro-gront-05@2x.jpg 2x"
+      />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <section class="grid-container masthead">
-    <figure class="grid-x grid-margin-x">
+    <figure class="grid-x">
       <div
         class="cell large-10 medium-10 small-12"
         v-if="this.$route.name === 'Home'"

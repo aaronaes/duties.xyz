@@ -3,7 +3,7 @@
     <Masthead :heading="heading" :copy="copy"></Masthead>
 
     <section class="grid-container intro">
-      <figure class="grid-x grid-margin-x">
+      <figure class="grid-x">
         <div class="cell large-10 medium-10 small-12">
           <h3>Studio &searr;</h3>
           <h3>
@@ -21,45 +21,49 @@
       </figure>
     </section>
 
-    <section class="grid-container people">
-      <figure class="grid-x grid-margin-x">
-        <div class="cell">
-          <h3>People &searr;</h3>
-        </div>
-        <div class="cell large-4 medium-4 small-6 person">
-          <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
-            <img
-              data-src="/images/about/Paul.jpg"
-              data-srcset="/images/about/Paul@2x.jpg 2x"
-              alt="Paul Polite v2.0"
-            />
+    <section class="people">
+      <figure class="grid-x">
+        <div class="grid-container">
+          <div class="cell">
+            <h3>People &searr;</h3>
           </div>
-          <p>
-            <span>Paul Conley</span>
-            <span>Designer / partner</span>
-            <span><a href="#">+47 ‭967 48 685‬</a></span>
-            <a href="#">paul@duties.xyz</a>
-          </p>
-        </div>
+          <div class="grid-x grid-margin-x">
+            <div class="cell large-4 medium-4 small-6 person">
+              <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+                <img
+                  data-src="/images/about/Paul.jpg"
+                  data-srcset="/images/about/Paul@2x.jpg 2x"
+                  alt="Paul Polite v2.0"
+                />
+              </div>
+              <p>
+                <span>Paul Conley</span>
+                <span>Designer / partner</span>
+                <span><a href="#">+47 ‭967 48 685‬</a></span>
+                <a href="#">paul@duties.xyz</a>
+              </p>
+            </div>
 
-        <div class="cell large-4 medium-4 small-6 person">
-          <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
-            <img
-              data-src="/images/about/Erling.jpg"
-              data-srcset="/images/about/Erling@2x.jpg 2x"
-              alt="Unge Aarønæs"
-            />
+            <div class="cell large-4 medium-4 small-6 person">
+              <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+                <img
+                  data-src="/images/about/Erling.jpg"
+                  data-srcset="/images/about/Erling@2x.jpg 2x"
+                  alt="Unge Aarønæs"
+                />
+              </div>
+              <p>
+                <span>Erling Aarønæs</span>
+                <span>Designer / partner</span>
+                <span><a href="#">+47 986 60 788</a></span>
+                <a href="#">erling@duties.xyz</a>
+              </p>
+            </div>
           </div>
-          <p>
-            <span>Erling Aarønæs</span>
-            <span>Designer / partner</span>
-            <span><a href="#">+47 986 60 788</a></span>
-            <a href="#">erling@duties.xyz</a>
-          </p>
         </div>
       </figure>
 
-      <figure class="grid-x grid-margin-x client">
+      <figure class="grid-container client">
         <div class="cell large-8 medium-12 small-12">
           <h3>
             When we are off-duty you can
