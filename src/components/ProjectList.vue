@@ -37,7 +37,7 @@
         :open="active === project.name"
       >
         <summary @click="() => toggle(project.name)">
-          <h2 class="title">
+          <h2>
             <span class="dot">●</span
             ><span class="title">{{ project.data().title }}</span>
           </h2>
