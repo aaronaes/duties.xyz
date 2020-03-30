@@ -4,7 +4,7 @@
 
     <section class="grid-container intro">
       <figure class="grid-x">
-        <div class="cell large-10 medium-10 small-12">
+        <div class="cell large-8 medium-10 small-12">
           <h3>Studio &searr;</h3>
           <h3>
             Established in 2020, Duties is an independent digital design studio
@@ -64,19 +64,21 @@
       </figure>
 
       <figure class="grid-container client">
-        <div class="cell large-8 medium-12 small-12">
-          <h3>
-            When we are off-duty you can
-            <a href="//instagram.com/duties.xyz" target="_blank"
-              >find us creating</a
-            >
-            experimental typefaces, dabbling in photography and curating our
-            <a
-              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
-              target="_blank"
-              >studio playlists</a
-            >.
-          </h3>
+        <div class="grid-x">
+          <div class="cell large-8 medium-10 small-12">
+            <h3>
+              When we are off-duty you can
+              <a href="//instagram.com/duties.xyz" target="_blank"
+                >find us creating</a
+              >
+              experimental typefaces, dabbling in photography and curating our
+              <a
+                href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+                target="_blank"
+                >studio playlists</a
+              >.
+            </h3>
+          </div>
         </div>
       </figure>
     </section>

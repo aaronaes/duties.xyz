@@ -1,6 +1,7 @@
 <template>
   <section id="go" class="grid-container projectList">
-    <figure class="grid-x">
+    <figure class="grid-x ongoing">
+      <h3>Ongoing projects &searr;</h3>
       <!-- Upcoming work -->
       <details class="cell" onclick="return false">
         <summary class="coming">
@@ -29,6 +30,10 @@
           </div>
         </summary>
       </details>
+    </figure>
+
+    <figure class="grid-x projects" id="projectList">
+      <h3>Project Index &searr;</h3>
 
       <!-- All work -->
       <details
@@ -79,7 +84,7 @@ export default {
     toggle(name) {
       if (name === this.active) {
         this.active = "";
-        const el = document.querySelector(".projectList");
+        const el = document.querySelector("#projectList");
         this.scrollTo(el);
       } else {
         const el = document.querySelector("#" + name);
@@ -91,7 +96,7 @@ export default {
     },
     scrollTo(el) {
       window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top,
+        top: window.pageYOffset + el.getBoundingClientRect().top - 10,
         behavior: "smooth"
       });
     },

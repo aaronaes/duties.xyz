@@ -1,6 +1,14 @@
 section.projectList {
   figure {
     padding-bottom: $md;
+
+    &.ongoing {
+      padding-top: 0;
+    }
+    &.projects {
+      padding-top: $sm;
+    }
+
     details {
       border-bottom: solid 2px;
 
@@ -77,10 +85,10 @@ section.projectList {
           div {
             &.soon {
               float: right;
-              height: 20px;
-              width: 20px;
-              margin-right: 5px;
-              transform: rotate(0deg) translateY(100%);
+              height: 24px;
+              width: 24px;
+              margin-right: 8px;
+              transform: rotate(0deg) translateY(80%);
               transform-origin: center center;
               transition: all 150ms $easing;
 
@@ -195,7 +203,7 @@ section.projectList {
       &[open] {
         summary {
           position: sticky !important;
-          top: 0px;
+          top: 10px;
 
           h2 {
             span {

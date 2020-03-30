@@ -1,5 +1,5 @@
 section.projectList {
-  padding-top: $lg;
+  padding-top: $sm;
 
   @include respond-to("md") {
     padding-top: $sm;

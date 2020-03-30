@@ -2,23 +2,24 @@
   <main id="home">
     <!-- Masthead -->
     <Masthead :heading="heading"></Masthead>
-    <!-- Carousel -->
-    <Carousel />
     <!-- Project List -->
     <ProjectList />
     <!-- About -->
     <section class="grid-container clients">
       <figure class="grid-x ">
-        <h3 class="cell large-8 medium-12 small-12 clients">
+        <h3 class="cell large-8 medium-10 small-12 clients">
           We have worked with a range of excellent companies and people
           throughout the years such as: Godtlevert, Orkla, SSF, Authentic
           Scandinavia, Fetch, Eika Gruppen, Brygg Magasin, Humid Mag, Well
           Dressed Vandals, Aftenposten, Holzweiler, Mathias Fossum, Amedia and
-          Berg-Hansen Reisebureau.n, Holzweiler, Mathias Fossum, Amedia and
           Berg-Hansen Reisebureau.
         </h3>
       </figure>
     </section>
+
+    <!-- Carousel -->
+
+    <Carousel />
   </main>
 </template>
 
