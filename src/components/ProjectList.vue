@@ -79,7 +79,7 @@ export default {
     toggle(name) {
       if (name === this.active) {
         this.active = "";
-        const el = document.querySelector("#projectList");
+        const el = document.querySelector(".projectList");
         this.scrollTo(el);
       } else {
         const el = document.querySelector("#" + name);
