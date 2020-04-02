@@ -34,10 +34,26 @@ section {
         .hooper-track {
           .hooper-slide {
             align-self: flex-start;
-            margin-right: $md;
+            margin-right: $sm;
 
             &:first-of-type {
-              margin-left: $md;
+              margin-left: $sm;
+            }
+
+            &.landscape {
+              width: 600px !important;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
+            }
+
+            &.portrait {
+              width: 400px !important;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
             }
 
             @include respond-to("md") {

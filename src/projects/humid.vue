@@ -1,9 +1,6 @@
 <template>
   <div class="content">
-    <div class="grid-x grid-margin-x">
-      <div class="cell meta">
-        <p class="status">Completed 2017</p>
-      </div>
+    <div class="grid-x">
       <div class="cell large-8 medium-10 description">
         <h3 class="cell large-10">
           Humid Magazine was a Norwegian neo-erotic publication with a different
@@ -16,44 +13,54 @@
           photo-centric layouts across print and digital formats.
         </h3>
       </div>
+      <div class="grid-x meta large-8 medium-10">
+        <p class="cell large-4 medium-6 small-6 status">
+          <span>Concept, 2015</span>
+        </p>
+        <p class="cell large-4 medium-6 small-6 category">
+          <span>Identity, Art Direction & Digital Design</span>
+        </p>
+      </div>
     </div>
-    <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <div class="grid-x grid-margin-x">
-        <div class="cell">
-          <img
-            data-src="/images/work/humid/humid-01.jpg"
-            data-srcset="/images/work/humid/humid-01@2x.jpg 2x"
-          />
-          <img
-            data-src="/images/work/humid/humid-02.jpg"
-            data-srcset="/images/work/humid/humid-02@2x.jpg 2x"
-          />
-        </div>
-        <div class="cell large-10 medium-10 center">
-          <img
-            data-src="/images/work/humid/humid-03.jpg"
-            data-srcset="/images/work/humid/humid-03@2x.jpg 2x"
-          />
-        </div>
-        <div class="cell">
-          <img
-            data-src="/images/work/humid/humid-04.jpg"
-            data-srcset="/images/work/humid/humid-04@2x.jpg 2x"
-          />
-        </div>
+    <div
+      class="grid-x grid-margin-x img-container"
+      v-lazy-container="{ selector: 'img' }"
+    >
+      <div class="cell">
+        <img
+          data-src="/images/work/humid/humid-01.jpg"
+          data-srcset="/images/work/humid/humid-01@2x.jpg 2x"
+        />
+        <img
+          data-src="/images/work/humid/humid-02.jpg"
+          data-srcset="/images/work/humid/humid-02@2x.jpg 2x"
+        />
+      </div>
+      <div class="large-8 medium-8 center">
+        <img
+          class="space"
+          data-src="/images/work/humid/humid-03.jpg"
+          data-srcset="/images/work/humid/humid-03@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell">
+        <img
+          data-src="/images/work/humid/humid-04.jpg"
+          data-srcset="/images/work/humid/humid-04@2x.jpg 2x"
+        />
+      </div>
 
-        <div class="cell large-6 medium-6 small-12">
-          <img
-            data-src="/images/work/humid/humid-05.jpg"
-            data-srcset="/images/work/humid/humid-05@2x.jpg 2x"
-          />
-        </div>
-        <div class="cell large-6 medium-6 small-12">
-          <img
-            data-src="/images/work/humid/humid-06.jpg"
-            data-srcset="/images/work/humid/humid-06@2x.jpg 2x"
-          />
-        </div>
+      <div class="cell large-6 medium-6 small-12">
+        <img
+          data-src="/images/work/humid/humid-05.jpg"
+          data-srcset="/images/work/humid/humid-05@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell large-6 medium-6 small-12">
+        <img
+          data-src="/images/work/humid/humid-06.jpg"
+          data-srcset="/images/work/humid/humid-06@2x.jpg 2x"
+        />
       </div>
     </div>
   </div>

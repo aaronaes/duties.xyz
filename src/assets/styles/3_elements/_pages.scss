@@ -3,13 +3,8 @@
 .grid-container {
   width: 100%;
   max-width: 1680px;
-  padding-right: $md;
-  padding-left: $md;
-
-  @include respond-to("lg") {
-    padding-left: $sm;
-    padding-right: $sm;
-  }
+  padding-right: $sm;
+  padding-left: $sm;
 
   @include respond-to("sm") {
     padding-left: $xs;
@@ -19,6 +14,16 @@
   &.fluid {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+.grid-margin-x {
+  margin-left: -$xs;
+  margin-right: -$xs;
+
+  & > .cell {
+    margin-left: $xs;
+    margin-right: $xs;
   }
 }
 
@@ -37,6 +42,7 @@
 section {
   position: relative;
   width: 100%;
+
   figure {
     width: 100%;
     padding-bottom: $md;

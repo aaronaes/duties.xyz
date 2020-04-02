@@ -5,6 +5,7 @@ section.projectList {
     &.ongoing {
       padding-top: 0;
     }
+
     &.projects {
       padding-top: $sm;
     }
@@ -28,11 +29,6 @@ section.projectList {
           margin: 0;
           opacity: 1;
           float: left;
-          transition: all 150ms $easing;
-
-          &:hover {
-            color: $accent;
-          }
 
           span {
             &.dot {
@@ -41,17 +37,30 @@ section.projectList {
               position: absolute;
               color: $accent;
               font-size: 0.5em;
-              transform: translateX(-$xs);
-              transition: all 150ms $easing;
+              transform: translateX(-$sm, 60%);
             }
 
             &.title {
-              max-width: 90vw;
+              max-width: 80vw;
               padding-left: 0;
-              transition: all 150ms $easing;
 
               @include respond-to("sm") {
                 max-width: 65vw;
+              }
+            }
+          }
+
+          &:hover {
+            color: $accent;
+
+            span {
+              &.dot {
+                opacity: 1;
+                transform: translate(0px, 60%);
+              }
+
+              &.title {
+                padding-left: $xs * 1.5;
               }
             }
           }
@@ -62,8 +71,20 @@ section.projectList {
             top: 50%;
             transform: translateY(-50%);
 
+            &:before {
+              content: "Open";
+              font-size: 20px;
+              vertical-align: middle;
+              padding-right: $xs / 2;
+
+              @include respond-to("sm") {
+                content: none;
+              }
+            }
             &:after {
-              content: "↓";
+              content: "↘";
+              font-size: 20px;
+              vertical-align: middle;
             }
           }
         }
@@ -112,23 +133,46 @@ section.projectList {
         padding-bottom: $sm;
 
         @include respond-to("sm") {
-          padding-top: $xs;
-          padding-bottom: $xs;
+          padding-top: 0;
         }
 
         .meta {
           margin-bottom: $xs;
 
+          h3 {
+            margin-bottom: initial;
+          }
+
           p {
-            margin-bottom: 0;
+            margin-bottom: $xs;
+
+            @include respond-to("sm") {
+              padding-right: 0;
+            }
+
             span {
               display: block;
+            }
+
+            &.tag {
+              span {
+                color: rgba($black, $alpha: 0.5);
+              }
             }
 
             &.status {
               &:before {
                 color: rgba($black, $alpha: 0.5);
-                content: "Status:";
+                content: "Status ↘";
+                padding-right: 5px;
+                padding-right: 5px;
+              }
+            }
+
+            &.category {
+              &:before {
+                color: rgba($black, $alpha: 0.5);
+                content: "Work ↘";
                 padding-right: 5px;
               }
             }
@@ -141,16 +185,11 @@ section.projectList {
           @include respond-to("sm") {
             margin-bottom: $xs;
           }
-
-          h3 {
-            &:last-of-type {
-              margin-bottom: 0;
-            }
-          }
         }
 
         .img-container {
           margin-top: $md;
+          margin-bottom: $md;
           .text {
             padding-top: $md;
             padding-bottom: $lg;
@@ -165,36 +204,15 @@ section.projectList {
           }
 
           img {
-            padding-bottom: $md;
+            padding-bottom: $sm;
 
             &.space {
+              padding-top: $lg;
               padding-bottom: $lg;
             }
 
             @include respond-to("sm") {
               padding-bottom: $xs;
-            }
-
-            &[lazy="loaded"] {
-              opacity: 0;
-              animation-name: fadein;
-              animation-duration: 150ms;
-              animation-delay: 250ms;
-              animation-iteration-count: 1;
-              animation-fill-mode: forwards;
-              animation-direction: normal;
-              animation-timing-function: linear;
-
-              @keyframes fadein {
-                0% {
-                  opacity: 0;
-                  transform: translateY(10px);
-                }
-                100% {
-                  opacity: 1;
-                  transform: translateY(0px);
-                }
-              }
             }
           }
         }
@@ -209,11 +227,11 @@ section.projectList {
             span {
               &.dot {
                 opacity: 1;
-                transform: translateX(0px);
+                transform: translate(0px, 50%);
               }
 
               &.title {
-                padding-left: $sm;
+                padding-left: $xs * 1.5;
 
                 @include respond-to("sm") {
                   padding-left: $xs * 1.5;
@@ -222,10 +240,16 @@ section.projectList {
             }
 
             &.togl {
+              &:before {
+                content: "Close";
+
+                @include respond-to("sm") {
+                  content: none;
+                }
+              }
               &:after {
-                // content: "↑";
                 content: "×";
-                font-size: 1.4em;
+                font-size: 1em;
                 font-weight: 300;
               }
             }

@@ -23,34 +23,62 @@ h6 {
 }
 
 h1 {
-  font-size: calc(44px + (80 - 44) * ((100vw - 576px) / (1680 - 576)));
-  line-height: 1.1em;
-  margin-bottom: $sm;
+  font-size: 80px;
+  line-height: 1.1;
+  margin-bottom: $md;
+
+  @include respond-to("lg") {
+    font-size: 62px;
+    margin-bottom: $sm;
+  }
+
+  @include respond-to("md") {
+    font-size: 52px;
+    margin-bottom: $xs;
+  }
 
   @include respond-to("sm") {
-    margin-bottom: $xs;
+    font-size: 40px;
   }
 }
 
 h2 {
-  font-size: 37px;
-  line-height: 1.3em;
+  font-size: 40px;
+  line-height: 1.2;
   margin-bottom: $sm;
 
-  @include respond-to("sm") {
-    font-size: 26px;
+  @include respond-to("lg") {
+    font-size: 37px;
     margin-bottom: $xs;
+  }
+
+  @include respond-to("md") {
+    font-size: 33px;
+    margin-bottom: $xs;
+  }
+
+  @include respond-to("sm") {
+    font-size: 30px;
   }
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 30px;
   line-height: 1.4em;
   margin-bottom: $sm;
 
-  @include respond-to("sm") {
-    font-size: 22px;
+  @include respond-to("lg") {
+    font-size: 27px;
     margin-bottom: $xs;
+  }
+
+  @include respond-to("md") {
+    font-size: 24px;
+    margin-bottom: $xs;
+  }
+
+  @include respond-to("sm") {
+    font-size: 20px;
   }
 }
 
@@ -68,7 +96,6 @@ a {
   color: inherit;
   text-decoration: none;
   border-bottom: 1.4px solid;
-  transition: all 250ms $easing;
 
   &:hover,
   &:active {

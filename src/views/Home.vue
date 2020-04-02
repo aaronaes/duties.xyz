@@ -2,23 +2,49 @@
   <main id="home">
     <!-- Masthead -->
     <Masthead :heading="heading"></Masthead>
+
     <!-- Project List -->
     <ProjectList />
     <!-- About -->
     <section class="grid-container clients">
-      <figure class="grid-x ">
-        <h3 class="cell large-8 medium-10 small-12 clients">
+      <figure class="grid-x">
+        <h3 class="section-title">
+          Clients & friends &searr;
+        </h3>
+      </figure>
+      <figure class="grid-x client-grid">
+        <h3 class="cell large-3 shrink">Godtlevert</h3>
+        <h3 class="cell large-3 shrink">Adams Matkasse</h3>
+        <h3 class="cell large-3 shrink">Orkla</h3>
+        <h3 class="cell large-3 shrink">Nutrilett</h3>
+        <h3 class="cell large-3 shrink">Eika Gruppen</h3>
+        <h3 class="cell large-3 shrink">Brygg Magasin</h3>
+        <h3 class="cell large-3 shrink">Humid</h3>
+        <h3 class="cell large-3 shrink">WDV</h3>
+        <h3 class="cell large-3 shrink">Aftenposten</h3>
+        <h3 class="cell large-3 shrink">Schibsted Digital</h3>
+        <h3 class="cell large-3 shrink">Holzweiler Store</h3>
+        <h3 class="cell large-3 shrink">Kjentfolk</h3>
+        <h3 class="cell large-3 shrink">Bielke & Yang</h3>
+        <h3 class="cell large-3 shrink">Mathias Fossum</h3>
+        <h3 class="cell large-3 shrink">Amedia</h3>
+        <h3 class="cell large-3 shrink">Berg-Hansen</h3>
+      </figure>
+      <figure class="grid-x grid-margin-x">
+        <h3 class="cell large-8 medium-10 small-12">
           We have worked with a range of excellent companies and people
-          throughout the years such as: Godtlevert, Orkla, SSF, Authentic
-          Scandinavia, Fetch, Eika Gruppen, Brygg Magasin, Humid Mag, Well
-          Dressed Vandals, Aftenposten, Holzweiler, Mathias Fossum, Amedia and
-          Berg-Hansen Reisebureau.
+          throughout the years annd we’re always looking for new collaborators.
+        </h3>
+        <h3 class="cell large-8 medium-10 small-12">
+          To get in touch, email us at
+          <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+            >new@duties.xyz</a
+          >.
         </h3>
       </figure>
     </section>
 
     <!-- Carousel -->
-
     <Carousel />
   </main>
 </template>

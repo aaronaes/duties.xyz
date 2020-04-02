@@ -1,8 +1,7 @@
 <template>
   <section id="go" class="grid-container projectList">
+    <h3 class="section-title">Ongoing projects &searr;</h3>
     <figure class="grid-x ongoing">
-      <h3>Ongoing projects &searr;</h3>
-      <!-- Upcoming work -->
       <details class="cell" onclick="return false">
         <summary class="coming">
           <h2 class="cell auto title">A new way to get your take-out</h2>
@@ -21,10 +20,7 @@
       </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2>
-            <span class="dot">●</span>
-            <span class="title">Sport club app</span>
-          </h2>
+          <h2 class="cell auto title">Sport club app</h2>
           <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
@@ -32,10 +28,8 @@
       </details>
     </figure>
 
-    <figure class="grid-x projects" id="projectList">
-      <h3>Project Index &searr;</h3>
-
-      <!-- All work -->
+    <figure class="grid-x projects" id="projects">
+      <h3 class="section-title">Project Index &searr;</h3>
       <details
         v-for="(project, i) in projects"
         :key="i"
@@ -63,12 +57,9 @@
 <script>
 import GL from "@/projects/gl.vue";
 import Ogle from "@/projects/ogle.vue";
-import As from "@/projects/as.vue";
 import Humid from "@/projects/humid.vue";
 import Eika from "@/projects/eika.vue";
 import Gro from "@/projects/gro.vue";
-import Fetch from "@/projects/fetch.vue";
-//import SSF from "@/projects/ssf.vue";
 import Marks from "@/projects/marks.vue";
 
 export default {
@@ -77,21 +68,21 @@ export default {
     return {
       title: "Project Index",
       active: "",
-      projects: [GL, Ogle, As, Humid, Eika, Gro, Fetch, Marks]
+      projects: [GL, Ogle, Gro, Humid, Eika, Marks]
     };
   },
   methods: {
     toggle(name) {
       if (name === this.active) {
         this.active = "";
-        const el = document.querySelector("#projectList");
+        const el = document.querySelector("#projects");
         this.scrollTo(el);
       } else {
         const el = document.querySelector("#" + name);
         this.scrollTo(el);
         setTimeout(() => {
           this.active = name;
-        }, 500);
+        }, 250);
       }
     },
     scrollTo(el) {
