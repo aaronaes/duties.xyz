@@ -6,7 +6,7 @@
         <summary class="coming">
           <h2 class="cell auto title">A new way to get your take-out</h2>
           <div class="cell shrink soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt />
           </div>
         </summary>
       </details>
@@ -14,7 +14,7 @@
         <summary class="coming">
           <h2 class="cell auto title">No more lines at the bar</h2>
           <div class="cell shrink soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt />
           </div>
         </summary>
       </details>
@@ -25,7 +25,7 @@
             <span class="title">Sport club app</span>
           </h2>
           <div class="soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt />
           </div>
         </summary>
       </details>
@@ -82,11 +82,12 @@ export default {
         const el = document.querySelector(".projectList");
         this.scrollTo(el);
       } else {
-        const el = document.querySelector("#" + name);
-        this.scrollTo(el);
+        this.active = name;
+
         setTimeout(() => {
-          this.active = name;
-        }, 500);
+          const el = document.querySelector("#" + name);
+          this.scrollTo(el);
+        }, 0);
       }
     },
     scrollTo(el) {
