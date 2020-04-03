@@ -1,30 +1,35 @@
 <template>
   <div class="content">
-    <div class="grid-x grid-margin-x">
-      <div class="cell meta">
-        <p class="status">Ongoing</p>
-      </div>
-      <div class="cell large-8 medium-8 description">
-        <h3 class="cell">
+    <div class="grid-x">
+      <div class="cell large-8 medium-10 description">
+        <h3>
           Godtlevert is a meal-kit company based in Norway. As a new service and
           player in the market, Godtlevert wanted to become a national household
           name and gain further traction in this emerging segment.
         </h3>
-        <h3 class="cell">
+        <h3>
           Our solution was to take an holistic approach to their product by
           creating a new way to browse meals and weekly specials. Their whole
           app was revamped with a new UI alongside an updated website design.
         </h3>
+        <h3>
+          <a href="https://godtlevert.no/" target="_blankn">Visit site</a>
+        </h3>
       </div>
-      <div class="cell meta">
-        <p>
-          <span>All photography done in-house.</span>
-          <span>Site built in-house.</span>
+      <div class="grid-x meta large-8 medium-10 shrink">
+        <p class="cell large-4 medium-6 shrink float-left status">
+          <span>Ongoing</span>
+        </p>
+        <p class="cell large-4 medium-6 shrink float-left category">
+          <span>Art direction, UX & Design</span>
         </p>
       </div>
     </div>
 
-    <div class="img-container" v-lazy-container="{ selector: 'img' }">
+    <div
+      class="grid-x grid-margin-x img-container"
+      v-lazy-container="{ selector: 'img' }"
+    >
       <div class="grid-x grid-margin-x">
         <div class="cell">
           <img

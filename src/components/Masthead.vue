@@ -2,15 +2,15 @@
   <section class="grid-container masthead">
     <figure class="grid-x">
       <div
-        class="cell large-10 medium-10 small-12"
+        class="cell large-8 medium-10 small-12"
         v-if="this.$route.name === 'Home'"
       >
         <h1>
-          A creative partner <br />
-          and design studio for thoughtfully crafted products.
+          A creative partner and design studio for thoughtfully crafted
+          products.
         </h1>
       </div>
-      <div v-else class="cell large-10 medium-10 small-12">
+      <div v-else class="cell large-8 medium-10 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">
@@ -24,9 +24,9 @@
                 "
               >
                 <svg
-                  width="60"
-                  height="43"
-                  viewBox="0 0 60 43"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 60 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >

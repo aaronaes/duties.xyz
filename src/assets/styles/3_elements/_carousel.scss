@@ -1,4 +1,10 @@
 section {
+  &.carousel-title {
+    padding-top: $xl;
+    h3 {
+      margin-bottom: $xs;
+    }
+  }
   &.carousel {
     position: relative;
     padding: 0;
@@ -11,7 +17,7 @@ section {
     }
 
     .carousel-inner {
-      padding-top: $md;
+      padding-top: $xs;
       padding-bottom: $lg;
       height: auto;
       align-self: flex-start;
@@ -28,10 +34,26 @@ section {
         .hooper-track {
           .hooper-slide {
             align-self: flex-start;
-            margin-right: $md;
+            margin-right: $sm;
 
             &:first-of-type {
-              margin-left: $md;
+              margin-left: $sm;
+            }
+
+            &.landscape {
+              width: 600px !important;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
+            }
+
+            &.portrait {
+              width: 400px !important;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
             }
 
             @include respond-to("md") {

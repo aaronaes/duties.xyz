@@ -9,3 +9,11 @@
   color: $white;
   background: $accent;
 }
+
+body.hasHover {
+  * {
+    &:hover {
+      color: initial !important;
+    }
+  }
+}

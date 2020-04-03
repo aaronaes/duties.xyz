@@ -3,11 +3,11 @@
 // Page
 .page-enter-active,
 .page-leave-active {
-  transition: all 500ms linear;
+  transition: all 500ms ease-in-out;
 }
 
 .page-enter {
-  transform: translateX(3vw);
+  transform: translateX(1vw);
   opacity: 0;
 }
 
@@ -19,8 +19,8 @@
 // Nav
 .fade-leave-active,
 .fade-enter-active {
-  transition: all 250ms $easing;
-  transition-delay: 250ms;
+  transition: all 250ms ease-in-out;
+  transition-delay: 500ms;
 }
 
 .fade-enter,
@@ -31,22 +31,11 @@
 // BottomNav
 .bottomNav-leave-active,
 .bottomNav-enter-active {
-  transition: all 250ms $easing;
+  transition: all 500ms ease-in-out;
   transition-delay: 250ms;
 }
 
 .bottomNav-enter,
 .bottomNav-leave-to {
-  opacity: 0;
-}
-
-// Images
-.img-fade-enter-active,
-.img-fade-leave-active {
-  transition: all 250ms $easing;
-}
-
-.img-fade-enter,
-.img-fade-leave-to {
   opacity: 0;
 }
