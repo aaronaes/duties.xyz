@@ -89,44 +89,6 @@ export default {
   components: {
     Masthead
   },
-  data() {
-    return {
-      heading: "Equal parts creative partner and digital studio.",
-      copy: "",
-      swiperOptions: {
-        slidesPerView: "auto",
-        loopedSlides: "auto",
-        spaceBetween: 30,
-        slidesOffsetBefore: 30,
-        slidesOffsetAfter: 120,
-        loop: false,
-        grabCursor: true,
-        breakpoints: {
-          1200: {
-            slidesPerView: 3.5,
-            spaceBetween: 30
-          },
-          768: {
-            slidesPerView: 2.5,
-            spaceBetween: 30
-          },
-          320: {
-            slidesPerView: 1.5,
-            spaceBetween: 15
-          }
-        }
-      },
-      computed: {
-        swiper() {
-          return this.$refs.mySwiper.$swiper;
-        }
-      },
-      mounted() {
-        console.log("Current Swiper instance object", this.swiper);
-        this.swiper.slideTo(3, 1000, false);
-      }
-    };
-  },
   beforeCreate: function() {
     document.body.className = "about";
   }
