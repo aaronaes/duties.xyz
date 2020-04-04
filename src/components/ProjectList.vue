@@ -4,25 +4,25 @@
     <figure class="grid-x ongoing">
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">A take-out app</h2>
+          <h2 class="cell title">A take-out app</h2>
           <div class="soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt="Locked Icon" />
           </div>
         </summary>
       </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">A food and drinks app</h2>
+          <h2 class="cell title">A food and drinks app</h2>
           <div class="soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt="Locked Icon" />
           </div>
         </summary>
       </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">A sportsclub app</h2>
+          <h2 class="cell title">A sportsclub app</h2>
           <div class="soon">
-            <img src="/images/assets/locked.svg" alt />
+            <img src="/images/assets/locked.svg" alt="Locked Icon" />
           </div>
         </summary>
       </details>

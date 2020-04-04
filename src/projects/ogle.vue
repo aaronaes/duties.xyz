@@ -30,6 +30,7 @@
         <img
           data-src="/images/work/ogle/ogle-image-01.jpg"
           data-srcset="/images/work/ogle/ogle-image-01@2x.jpg 2x"
+          alt="Ogle Image Web Desktop"
         />
       </div>
 
@@ -37,12 +38,14 @@
         <img
           data-src="/images/work/ogle/ogle-image-02.jpg"
           data-srcset="/images/work/ogle/ogle-image-02@2x.jpg 2x"
+          alt="Ogle Image Logo Dark"
         />
       </div>
       <div class="cell large-6 medium-6 small-12">
         <img
           data-src="/images/work/ogle/ogle-image-03.jpg"
           data-srcset="/images/work/ogle/ogle-image-03@2x.jpg 2x"
+          alt="Ogle Image Icon"
         />
       </div>
 
@@ -50,6 +53,7 @@
         <img
           data-src="/images/work/ogle/ogle-image-04.jpg"
           data-srcset="/images/work/ogle/ogle-image-04@2x.jpg 2x"
+          alt="Ogle Image Installation Image"
         />
       </div>
 
@@ -57,6 +61,7 @@
         <img
           data-src="/images/work/ogle/ogle-image-05.jpg"
           data-srcset="/images/work/ogle/ogle-image-05@2x.jpg 2x"
+          alt="Ogle Image Web Tablet 1"
         />
       </div>
 
@@ -66,12 +71,14 @@
         <img
           data-src="/images/work/ogle/ogle-image-06.jpg"
           data-srcset="/images/work/ogle/ogle-image-06@2x.jpg 2x"
+          alt="Ogle Image Web Mobile 1"
         />
       </div>
       <div class="cell large-6 medium-6 small-12">
         <img
           data-src="/images/work/ogle/ogle-image-07.jpg"
           data-srcset="/images/work/ogle/ogle-image-07@2x.jpg 2x"
+          alt="Ogle Image Web Mobile 2"
         />
       </div>
 
@@ -79,14 +86,17 @@
         <img
           data-src="/images/work/ogle/ogle-image-08.jpg"
           data-srcset="/images/work/ogle/ogle-image-08@2x.jpg 2x"
+          alt="Ogle Image Web Tablet 2"
         />
         <img
           data-src="/images/work/ogle/ogle-image-09.jpg"
           data-srcset="/images/work/ogle/ogle-image-09@2x.jpg 2x"
+          alt="Ogle Image Web Tablet 3"
         />
         <img
           data-src="/images/work/ogle/ogle-image-10.jpg"
           data-srcset="/images/work/ogle/ogle-image-10@2x.jpg 2x"
+          alt="Ogle Image Web Mobile Grid"
         />
       </div>
     </div>

@@ -15,7 +15,6 @@
       <figure class="grid-x client-grid">
         <div class="grid-x large-8 medium-10">
           <h3 class="cell shrink">Godtlevert</h3>
-          <h3 class="cell shrink">Adams Matkasse</h3>
           <h3 class="cell shrink">Orkla</h3>
           <h3 class="cell shrink">Nutrilett</h3>
           <h3 class="cell shrink">Eika Gruppen</h3>
@@ -32,8 +31,8 @@
           <h3 class="cell shrink">Berg-Hansen</h3>
         </div>
       </figure>
-      <figure class="grid-x grid-margin-x">
-        <h3 class="cell large-8 medium-10 auto">
+      <figure class="grid-x">
+        <h3 class="cell large-8 medium-10 small-12">
           We have worked with a range of excellent companies and people
           throughout the years and we’re always looking for new collaborators
         </h3>

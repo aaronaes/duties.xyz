@@ -27,7 +27,7 @@
           <span>Identity, Art Direction & Design</span>
         </p>
       </div>
-      <div class="grid-x meta large-8 medium-10 auto">
+      <div class="grid-x meta large-8 medium-10 small-12">
         <p class="cell large-3 medium-3 small-12 float-left tag">
           <span>
             Built by &searr;
@@ -50,22 +50,27 @@
       <img
         data-src="/images/work/gro/gro-gront-01.jpg"
         data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
+        alt="Gro Grønt 01"
       />
       <img
         data-src="/images/work/gro/gro-gront-02.jpg"
         data-srcset="/images/work/gro/gro-gront-02@2x.jpg 2x"
+        alt="Gro Grønt 02"
       />
       <img
         data-src="/images/work/gro/gro-gront-03.jpg"
         data-srcset="/images/work/gro/gro-gront-03@2x.jpg 2x"
+        alt="Gro Grønt 03"
       />
       <img
         data-src="/images/work/gro/gro-gront-04.jpg"
         data-srcset="/images/work/gro/gro-gront-04@2x.jpg 2x"
+        alt="Gro Grønt 04"
       />
       <img
         data-src="/images/work/gro/gro-gront-05.jpg"
         data-srcset="/images/work/gro/gro-gront-05@2x.jpg 2x"
+        alt="Gro Grønt 05"
       />
     </div>
   </div>

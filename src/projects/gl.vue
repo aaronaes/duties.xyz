@@ -26,17 +26,18 @@
       </div>
     </div>
 
-    <div class="grid-x img-container" v-lazy-container="{ selector: 'img' }">
-      <div class="cell">
-        <img
-          data-src="/images/work/gl/godtlevert-01.jpg"
-          data-srcset="/images/work/gl/godtlevert-01@2x.jpg 2x"
-        />
-        <img
-          data-src="/images/work/gl/godtlevert-02.jpg"
-          data-srcset="/images/work/gl/godtlevert-02@2x.jpg 2x"
-        />
-      </div>
+    <div
+      class="grid-x grid-margin-x img-container"
+      v-lazy-container="{ selector: 'img' }"
+    >
+      <img
+        data-src="/images/work/gl/godtlevert-01.jpg"
+        data-srcset="/images/work/gl/godtlevert-01@2x.jpg 2x"
+      />
+      <img
+        data-src="/images/work/gl/godtlevert-02.jpg"
+        data-srcset="/images/work/gl/godtlevert-02@2x.jpg 2x"
+      />
 
       <!-- DOUBLE -->
 

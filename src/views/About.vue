@@ -5,13 +5,13 @@
     <section class="grid-container intro">
       <figure class="grid-x">
         <h3 class="cell">Studio &searr;</h3>
-        <h3 class="cell large-8 medium-10">
+        <h3 class="cell large-8 medium-10 small-12">
           Established in 2020, Duties is an independent digital design studio
           based in Oslo. We believe it’s our duty as designers to provide the
           world with thoughtfully designed products that are both functional,
           accessible and visually beautiful.
         </h3>
-        <h3 class="cell large-8 medium-10">
+        <h3 class="cell large-8 medium-10 small-12">
           We work at the intersection of visual and functional design; focusing
           on brand identity design, product strategy, web and native application
           development plus a bit of xyz…
@@ -29,7 +29,7 @@
             <img
               data-src="/images/about/Paul.jpg"
               data-srcset="/images/about/Paul@2x.jpg 2x"
-              alt="Paul Polite v2.0"
+              alt="Pauls face"
             />
           </div>
           <p>
@@ -45,14 +45,14 @@
             <img
               data-src="/images/about/Erling.jpg"
               data-srcset="/images/about/Erling@2x.jpg 2x"
-              alt="Unge Aarønæs"
+              alt="Erlings face"
             />
           </div>
           <p>
             <span>Erling Aarønæs</span>
             <span>Designer / partner</span>
             <span><a href="tel:+4798660788">+47 986 60 788</a></span>
-            <a href="mailto:paul@duties.xyz?subject=Hi Erling"
+            <a href="mailto:erling@duties.xyz?subject=Hi Erling"
               >erling@duties.xyz</a
             >
           </p>
