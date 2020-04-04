@@ -22,7 +22,7 @@
         <summary class="coming">
           <h2 class="cell auto title">A sportsclub app</h2>
           <div class="soon">
-            <img src="/images/assets/locked.svg" alt="" />
+            <img src="/images/assets/locked.svg" alt />
           </div>
         </summary>
       </details>
@@ -78,11 +78,12 @@ export default {
         const el = document.querySelector("#projects");
         this.scrollTo(el);
       } else {
-        const el = document.querySelector("#" + name);
-        this.scrollTo(el);
+        this.active = name;
+
         setTimeout(() => {
-          this.active = name;
-        }, 250);
+          const el = document.querySelector("#" + name);
+          this.scrollTo(el);
+        }, 0);
       }
     },
     scrollTo(el) {
