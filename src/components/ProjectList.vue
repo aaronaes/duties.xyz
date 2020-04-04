@@ -4,23 +4,23 @@
     <figure class="grid-x ongoing">
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">A new way to get your take-out</h2>
-          <div class="cell shrink soon">
+          <h2 class="cell auto title">A take-out app</h2>
+          <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
       </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">No more lines at the bar</h2>
-          <div class="cell shrink soon">
+          <h2 class="cell auto title">A food and drinks app</h2>
+          <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>
         </summary>
       </details>
       <details class="cell" onclick="return false">
         <summary class="coming">
-          <h2 class="cell auto title">Sport club app</h2>
+          <h2 class="cell auto title">A sportsclub app</h2>
           <div class="soon">
             <img src="/images/assets/locked.svg" alt="" />
           </div>

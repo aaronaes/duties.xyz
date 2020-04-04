@@ -21,22 +21,23 @@ body {
           }
 
           &.client-grid {
-            margin-bottom: $md;
+            margin-bottom: $sm;
 
             h3 {
-              margin-bottom: $xs / 2;
+              margin-bottom: 0;
+              padding-right: $xs / 3;
 
               @include respond-to("md") {
                 display: inline;
                 float: left;
-                margin-right: $xs / 2;
+                margin-right: 0;
               }
 
               &::before {
                 content: "•";
                 color: $accent;
                 font-family: "Inter", sans-serif;
-                padding-right: $xs / 2;
+                padding-right: $xs / 3;
               }
             }
           }

@@ -13,11 +13,11 @@
           photo-centric layouts across print and digital formats.
         </h3>
       </div>
-      <div class="grid-x meta large-8 medium-10">
-        <p class="cell large-4 medium-6 small-6 status">
+      <div class="grid-x meta large-8 medium-10 small-12">
+        <p class="cell large-4 medium-6 small-12 status">
           <span>Concept, 2015</span>
         </p>
-        <p class="cell large-4 medium-6 small-6 category">
+        <p class="cell large-4 medium-6 small-12 category">
           <span>Identity, Art Direction & Digital Design</span>
         </p>
       </div>

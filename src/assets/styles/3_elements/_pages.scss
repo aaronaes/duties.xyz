@@ -17,16 +17,6 @@
   }
 }
 
-.grid-margin-x {
-  margin-left: -$xs;
-  margin-right: -$xs;
-
-  & > .cell {
-    margin-left: $xs;
-    margin-right: $xs;
-  }
-}
-
 .column,
 .columns {
   padding-right: $xs;
@@ -41,10 +31,8 @@
 
 section {
   position: relative;
-  width: 100%;
 
   figure {
-    width: 100%;
     padding-bottom: $md;
 
     &:last-of-type {

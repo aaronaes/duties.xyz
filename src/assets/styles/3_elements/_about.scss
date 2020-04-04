@@ -24,8 +24,7 @@ body.about {
       &.people {
         figure {
           .person {
-            align-self: flex-start;
-            margin-bottom: $sm;
+            margin-bottom: $md;
 
             p {
               margin-bottom: 0;
@@ -36,7 +35,6 @@ body.about {
             }
 
             .img-wrapper {
-              overflow: hidden;
               margin-bottom: $xs;
             }
           }

@@ -4,10 +4,10 @@ body {
     padding: $xs 0;
 
     a {
-      color: $black;
+      color: $white !important;
 
       &:hover {
-        color: $white !important;
+        color: $black !important;
       }
     }
 
@@ -52,10 +52,10 @@ body {
   &.about {
     footer {
       a {
-        color: $black !important;
+        color: $white !important;
 
         &:hover {
-          color: $white !important;
+          color: $black !important;
         }
       }
     }

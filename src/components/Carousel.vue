@@ -1,134 +1,99 @@
 <template>
   <!-- CAROUSEL -->
-  <div>
+  <div class="boom">
     <section class="grid-container carousel-title">
       <div class="grid-x">
         <h3>Whats new &searr;</h3>
       </div>
     </section>
-    <section class="carousel grid-container fluid">
-      <Hooper
-        class="carousel-inner"
-        :settings="hooperSettings"
-        ref="carousel"
-        @slide="updateCarousel"
-      >
-        <Slide>
-          <img
-            src="/images/banner/banner-01.jpg"
-            srcset="/images/banner/banner-01@2x.jpg 2x"
-          />
-          <p>
-            <span>Studio</span>
-            A growing selection of audio goodness from us to you.
-            <a
-              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
-              target="_blank"
-              >Listen here</a
-            >.
-          </p>
-        </Slide>
-        <Slide>
-          <img
-            src="/images/banner/banner-02.jpg"
-            srcset="/images/banner/banner-02@2x.jpg 2x"
-          />
-          <p>
-            <span>News</span>
-            We are revamping the way teams and stakeholders organise events for
-            Samspill.
-          </p>
-        </Slide>
-        <Slide class="portrait">
-          <img
-            src="/images/banner/banner-03.jpg"
-            srcset="/images/banner/banner-03@2x.jpg 2x"
-          />
-          <p>
-            <span>News</span>
-            We are excited to continue collaborating with
-            <a href="//www.godtlevert.no" target="_blank">Godtlevert</a>.
-          </p>
-        </Slide>
-        <Slide class="landscape">
-          <img
-            src="/images/banner/banner-04.jpg"
-            srcset="/images/banner/banner-04@2x.jpg 2x"
-          />
-          <p>
-            <span>Studio</span>
-            See what duties we can help your business with
-            <router-link to="/about">here</router-link>.
-          </p>
-        </Slide>
-        <Slide>
-          <img
-            src="/images/banner/banner-05.jpg"
-            srcset="/images/banner/banner-05@2x.jpg 2x"
-          />
-          <p>
-            <span>Studio</span>
-            We’re always sharing past and present work alongside other fun
-            things on
-            <a href="//www.instagram.com/duties.xyz" target="_blank"
-              >Instagram</a
-            >.
-          </p>
-        </Slide>
-      </Hooper>
-    </section>
+
+    <swiper ref="mySwiper" :options="swiperOptions">
+      <swiper-slide>
+        <img src="/images/banner/banner-01.jpg" />
+        <p>
+          <span>Studio</span>
+          A growing selection of audio goodness from us to you.
+          <a
+            href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+            target="_blank"
+            >Listen here</a
+          >.
+        </p>
+      </swiper-slide>
+      <swiper-slide class="landscape">
+        <img src="/images/banner/banner-02.jpg" />
+        <p>
+          <span>News</span>
+          We are revamping the way teams and stakeholders organise events for
+          Samspill.
+        </p>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="/images/banner/banner-03.jpg" />
+        <p>
+          <span>News</span>
+          We are excited to continue collaborating with
+          <a href="//www.godtlevert.no" target="_blank">Godtlevert</a>.
+        </p>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="/images/banner/banner-04.jpg" />
+        <p>
+          <span>Studio</span>
+          See what duties we can help your business with
+          <router-link to="/about">here</router-link>.
+        </p>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="/images/banner/banner-05.jpg" />
+        <p>
+          <span>Studio</span>
+          We’re always sharing past and present work alongside other fun things
+          on
+          <a href="//www.instagram.com/duties.xyz" target="_blank">Instagram</a
+          >.
+        </p>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <script>
-import { Hooper, Slide } from "hooper";
-import "hooper/dist/hooper.css";
-
 export default {
   name: "Carousel",
-  components: {
-    Hooper,
-    Slide
-  },
+
   data() {
     return {
-      title: "Carousel",
-      carouselData: 0,
-      hooperSettings: {
-        transition: 200,
-        wheelControl: false,
+      swiperOptions: {
+        slidesPerView: 4.3,
+        spaceBetween: 30,
+        slidesOffsetBefore: 30,
+        slidesOffsetAfter: 60,
+        loop: false,
+        grabCursor: true,
         breakpoints: {
-          1200: {
-            itemsToShow: 4.25
+          992: {
+            slidesPerView: 3.3,
+            spaceBetween: 30
           },
-          768: {
-            itemsToShow: 3.25
-          },
-          576: {
-            itemsToShow: 2.25
-          },
-          0: {
-            itemsToShow: 1.25
+          320: {
+            slidesPerView: 1.3,
+            spaceBetween: 15,
+            slidesOffsetBefore: 15,
+            slidesOffsetAfter: 15
           }
         }
+      },
+      computed: {
+        swiper() {
+          return this.$refs.mySwiper.$swiper;
+        }
+      },
+      mounted() {
+        console.log("Current Swiper instance object", this.swiper);
+        this.swiper.slideTo(3, 1000, false);
       }
     };
-  },
-  watch: {
-    carouselData() {
-      this.$refs.carousel.slideTo(this.carouselData);
-    }
-  },
-  methods: {
-    slidePrev() {
-      this.$refs.carousel.slidePrev();
-    },
-    slideNext() {
-      this.$refs.carousel.slideNext();
-    },
-    updateCarousel(payload) {
-      this.myCarouselData = payload.currentSlide;
-    }
   }
 };
 </script>

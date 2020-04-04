@@ -12,10 +12,10 @@
           palettes.
         </h3>
         <div class="grid-x meta large-8 medium-10">
-          <p class="cell large-4 medium-6 small-12 float-left status">
+          <p class="cell large-3 medium-3 small-6 float-left status">
             <span>Ongoing</span>
           </p>
-          <p class="cell large-4 medium-6 small-12 float-left category">
+          <p class="cell large-6 medium-6 small-6 float-left category">
             <span>Identity & Digital Design</span>
           </p>
         </div>

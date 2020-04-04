@@ -7,10 +7,10 @@
           for our clients, friends and personal projects over the years. We hope
           to see yours here soon.
         </h3>
-        <div class="grid-x meta large-8 medium-10 shrink">
-          <p class="cell large-4 medium-6 shrink float-left tag">
-            <span>Range</span>
-            Worked from 2009 - 2020
+        <div class="grid-x meta large-8 medium-10 small-12">
+          <p class="cell large-6 medium-6 small-12 float-left tag">
+            <span>Range &searr;</span>
+            Work from 2009 - 2020
           </p>
         </div>
       </div>

@@ -20,10 +20,10 @@
         </h3>
       </div>
       <div class="grid-x meta large-8 medium-10 shrink">
-        <p class="cell large-4 medium-6 shrink float-left status">
+        <p class="cell large-3 medium-3 shrink float-left status">
           <span>Completed, 2015</span>
         </p>
-        <p class="cell large-4 medium-6 shrink float-left category">
+        <p class="cell large-6 medium-6 shrink float-left category">
           <span>Design System, UX & UI Design</span>
         </p>
       </div>

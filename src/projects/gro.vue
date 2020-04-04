@@ -19,14 +19,22 @@
           >
         </h3>
       </div>
-      <div class="grid-x meta large-8 medium-10 auto">
-        <p class="cell large-6 medium-6 small-6 float-left status">
+      <div class="grid-x meta large-8 medium-10 small-12">
+        <p class="cell large-3 medium-3 small-12 float-left status">
           <span>Completed, 2016</span>
         </p>
-        <p class="cell large-6 medium-6 small-6 float-left category">
+        <p class="cell large-6 medium-6 small-12 float-left category">
           <span>Identity, Art Direction & Design</span>
         </p>
-        <p class="cell large-6 medium-6 small-6 float-left tag">
+      </div>
+      <div class="grid-x meta large-8 medium-10 auto">
+        <p class="cell large-3 medium-3 small-12 float-left tag">
+          <span>
+            Built by &searr;
+          </span>
+          <a href="//www.leifriksheim.com" target="_blank">Leif Riksheim</a>
+        </p>
+        <p class="cell large-6 medium-6 small-12 float-left tag">
           <span>Illustrations &searr;</span>
 
           <a
@@ -36,18 +44,9 @@
             Sandra Blikås (ByHands)
           </a>
         </p>
-        <p class="cell large-6 medium-6 small-6 float-left tag">
-          <span>
-            Built by &searr;
-          </span>
-          <a href="//www.leifriksheim.com" target="_blank">Leif Riksheim</a>
-        </p>
       </div>
     </div>
-    <div
-      class="grid-x grid-margin-x img-container"
-      v-lazy-container="{ selector: 'img' }"
-    >
+    <div class="grid-x img-container" v-lazy-container="{ selector: 'img' }">
       <img
         data-src="/images/work/gro/gro-gront-01.jpg"
         data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
