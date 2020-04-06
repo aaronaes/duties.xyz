@@ -4,18 +4,18 @@
       <div class="cell meta">
         <p class="status">Completed 2016</p>
       </div>
-      <div class="cell large-8 medium-10 description">
-        <h3>
+      <div class="cell large-8 medium-12 small-12 description">
+        <h2>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est
           laborum.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident.
-        </h3>
+        </h2>
       </div>
       <div class="cell meta">
         <p>Photography by XXX</p>

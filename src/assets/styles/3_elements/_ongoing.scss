@@ -4,7 +4,7 @@ section.ongoing {
     position: relative;
 
     div {
-      margin-bottom: $md;
+      margin-bottom: $sm;
 
       @include respond-to("sm") {
         margin-bottom: $sm;
@@ -13,29 +13,6 @@ section.ongoing {
       img,
       video {
         padding-bottom: $xs / 2;
-        border-radius: 1px;
-      }
-
-      p {
-        margin-bottom: 0;
-        font-size: 18px;
-
-        span {
-          color: $accent;
-          display: block;
-          padding-bottom: 4px;
-          font-size: 15px;
-          font-weight: bold;
-          letter-spacing: 2%;
-          text-transform: uppercase;
-
-          &:after {
-            font-family: $font-sneak;
-            content: "↘";
-            padding-left: 4px;
-            font-weight: normal;
-          }
-        }
       }
     }
   }

@@ -2,14 +2,6 @@ section.projectList {
   figure {
     padding-bottom: $md;
 
-    &.ongoing {
-      padding-top: 0;
-    }
-
-    &.projects {
-      padding-top: $sm;
-    }
-
     details {
       border-bottom: solid 2px;
 
@@ -146,73 +138,56 @@ section.projectList {
         }
 
         .description {
-          margin-bottom: $xs;
+          margin-bottom: $sm;
+
+          h2 {
+            margin-bottom: $sm;
+          }
 
           @include respond-to("sm") {
             margin-bottom: $xs;
           }
         }
 
-        .masonry {
-          div {
-            margin-bottom: $sm;
-          }
-        }
-
         .img-container {
-          margin-top: $md;
+          margin-top: $sm;
           margin-bottom: -$sm;
-
-          @include respond-to("sm") {
-            margin-top: $sm;
-            margin-bottom: $sm;
-          }
 
           .text {
             padding-top: $md;
             padding-bottom: $lg;
-
-            h3 {
-              margin-bottom: $sm;
-            }
           }
 
-          .double {
-            padding-top: $lg;
+          .space {
+            img {
+              padding-top: 10vw;
+              padding-bottom: 10vw;
+            }
           }
 
           img {
             padding-bottom: $sm;
 
-            &[lazy="loaded"] {
-              opacity: 0;
-              animation-name: img-fade;
-              animation-delay: 250ms;
-              animation-duration: 500ms;
-              animation-iteration-count: 1;
-              animation-fill-mode: forwards;
-              animation-direction: normal;
-              animation-timing-function: linear;
+            opacity: 0;
+            animation-name: fade-in;
+            animation-delay: 250ms;
+            animation-duration: 500ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-timing-function: linear;
 
-              @keyframes img-fade {
-                0% {
-                  opacity: 0;
-                  transform: translateY(25px);
-                }
-                100% {
-                  opacity: 1;
-                  transform: translateY(0px);
-                }
+            @keyframes fade-in {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
               }
             }
 
-            &.space {
-              padding-top: $lg;
-              padding-bottom: $lg;
-            }
-
             @include respond-to("sm") {
-              padding-bottom: $xs;
+              padding-bottom: $xs * 1.5;
             }
           }
         }

@@ -1,23 +1,23 @@
 <template>
   <div class="content">
     <div class="grid-x">
-      <div class="cell large-8 medium-10 description">
-        <h3>
+      <div class="cell large-8 medium-12 small-12 description">
+        <h2>
           Gro Grønt grows and distributes high-quality ingredients in the form
           of exotic vegetables and unique herbs to high-end restaurants and
           chefs around the Oslo metropolitan area; all from a custom-built
           container in the centre of town.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           We were asked to develop a unique and flexible brand identity to
           reflect their offering across physical and digital touchpoints, as
           well as the design of their company website.
-        </h3>
-        <h3 class="cell">
+        </h2>
+        <h2 class="cell">
           <a href="https://gro-hydrokultur.firebaseapp.com/" target="_blankn"
             >Visit original site</a
           >
-        </h3>
+        </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 small-12">
         <p class="cell large-3 medium-3 small-12 float-left status">

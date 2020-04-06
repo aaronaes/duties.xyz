@@ -4,19 +4,19 @@
       <div class="cell meta">
         <p class="status">Concept, 2017</p>
       </div>
-      <div class="cell large-8 medium-10 description">
-        <h3>
+      <div class="cell large-8 medium-12 small-12 description">
+        <h2>
           Fetch wanted to differentiate itself from other vendors in the parcel
           delivery space with a disruptive approach by leveraging the
           gig-economy. Their idea was to provide flexible delivery solutions by
           utilising existing transport carriers in the market, such as bike
           messengers, Uber and local taxi drivers.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           We helped to create a brand identity for Fetch alongside UX and UI
           design for their core booking app which operated across mobile,
           tablet, desktop and Apple Watch.
-        </h3>
+        </h2>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">

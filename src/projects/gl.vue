@@ -1,20 +1,20 @@
 <template>
   <div class="content">
     <div class="grid-x">
-      <div class="cell large-8 medium-10 description">
-        <h3>
+      <div class="cell large-8 medium-12 small-12 description">
+        <h2>
           Godtlevert is a meal-kit company based in Norway. As a new service and
           player in the market, Godtlevert wanted to become a national household
           name and gain further traction in this emerging segment.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           Our solution was to take an holistic approach to their product by
           creating a new way to browse meals and weekly specials. Their whole
           app was revamped with a new UI alongside an updated website design.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           <a href="https://godtlevert.no/" target="_blankn">Visit site</a>
-        </h3>
+        </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 small-12">
         <p class="cell large-3 medium-3 small-12 float-left status">

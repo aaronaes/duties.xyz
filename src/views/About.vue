@@ -4,24 +4,24 @@
 
     <section class="grid-container intro">
       <figure class="grid-x">
-        <h3 class="cell">Studio &searr;</h3>
-        <h3 class="cell large-8 medium-10 small-12">
+        <h2 class="cell">Studio &searr;</h2>
+        <h2 class="cell large-8 medium-10 small-12">
           Established in 2020, Duties is an independent digital design studio
           based in Oslo. We believe it’s our duty as designers to provide the
           world with thoughtfully designed products that are both functional,
           accessible and visually beautiful.
-        </h3>
-        <h3 class="cell large-8 medium-10 small-12">
+        </h2>
+        <h2 class="cell large-8 medium-10 small-12">
           We work at the intersection of visual and functional design; focusing
           on brand identity design, product strategy, web and native application
           development plus a bit of xyz…
-        </h3>
+        </h2>
       </figure>
     </section>
 
     <section class="grid-container people">
       <div class="grid-x">
-        <h3 class="cell">People &searr;</h3>
+        <h2 class="cell">People &searr;</h2>
       </div>
       <figure class="grid-x grid-margin-x">
         <div class="cell large-4 medium-4 small-6 person">
@@ -63,7 +63,7 @@
     <section class="grid-container client">
       <figure class="grid-x">
         <div class="cell large-8 medium-10 small-12">
-          <h3>
+          <h2>
             When we are off-duty you can
             <a href="//instagram.com/duties.xyz" target="_blank"
               >find us creating</a
@@ -74,7 +74,7 @@
               target="_blank"
               >studio playlists</a
             >.
-          </h3>
+          </h2>
         </div>
       </figure>
     </section>

@@ -4,25 +4,24 @@
 
     <figure
       v-masonry
-      transition-duration="0s"
-      horizontal-order="true"
       item-selector=".item"
-      column-width=".item"
       class="masonry grid-x grid-margin-x"
-      v-lazy-container="{ selector: 'img' }"
     >
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
-          data-src="/images/banner/ongoing-06.jpg"
-          data-srcset="/images/banner/ongoing-06@2x.jpg 2x"
+          src="/images/banner/ongoing-06.jpg"
+          srcset="/images/banner/ongoing-06@2x.jpg 2x"
         />
-        <p>New project coming along nicely.</p>
+        <p>
+          We are currently helping the way businesses and customers interact
+          with guidelines and standards for the Norwegian retail industry.
+        </p>
       </div>
 
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
-          data-src="/images/banner/ongoing-05.jpg"
-          data-srcset="/images/banner/ongoing-05@2x.jpg 2x"
+          src="/images/banner/ongoing-05.jpg"
+          srcset="/images/banner/ongoing-05@2x.jpg 2x"
         />
         <p>
           An ever-growing selection of audio goodness from us to you.
@@ -36,41 +35,45 @@
 
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
-          data-src="/images/banner/ongoing-04.jpg"
-          data-srcset="/images/banner/ongoing-04@2x.jpg 2x"
+          src="/images/banner/ongoing-03.jpg"
+          srcset="/images/banner/ongoing-03@2x.jpg 2x"
+        />
+        <p>
+          We are excited to continue working and collaborating with the great
+          people at
+          <a href="//www.godtlevert.no" target="_blank">Godtlevert Gruppen</a>
+        </p>
+      </div>
+
+      <div v-masonry-tile class="cell item large-4 medium-6 small-12">
+        <img
+          src="/images/banner/ongoing-04.jpg"
+          srcset="/images/banner/ongoing-04@2x.jpg 2x"
         />
         <p>
           We are revamping the way teams and stakeholders organise events for
           Samspill.io.
         </p>
       </div>
+
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
-          data-src="/images/banner/ongoing-03.jpg"
-          data-srcset="/images/banner/ongoing-03@2x.jpg 2x"
+          src="/images/banner/ongoing-02.jpg"
+          srcset="/images/banner/ongoing-02@2x.jpg 2x"
         />
         <p>
-          We are excited to continue collaborating with
-          <a href="//www.godtlevert.no" target="_blank">Godtlevert</a>.
-        </p>
-      </div>
-      <div v-masonry-tile class="cell item large-4 medium-6 small-12">
-        <img
-          data-src="/images/banner/ongoing-02.jpg"
-          data-srcset="/images/banner/ongoing-02@2x.jpg 2x"
-        />
-        <p>
-          See what duties we can help your business with
+          Hi! See what duties we can help you and your business with
           <router-link to="/about">here</router-link>.
         </p>
       </div>
+
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
-          data-src="/images/banner/ongoing-01.jpg"
-          data-srcset="/images/banner/ongoing-01@2x.jpg 2x"
+          src="/images/banner/ongoing-01.jpg"
+          srcset="/images/banner/ongoing-01@2x.jpg 2x"
         />
         <p>
-          We’re always sharing past and present work alongside other fun things
+          We are always sharing past and present work alongside other fun things
           on
           <a href="//www.instagram.com/duties.xyz" target="_blank">Instagram</a
           >.

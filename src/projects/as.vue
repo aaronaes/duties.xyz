@@ -4,17 +4,17 @@
       <div class="cell meta">
         <p class="status">Completed 2017</p>
       </div>
-      <div class="cell large-8 medium-10 description">
-        <h3>
+      <div class="cell large-8 medium-12 small-12 description">
+        <h2>
           Authentic Scandinavia is a dedicated online tour operator, creating
           and selling premium package tours throughout Scandinavia and the
           Nordic region.
-        </h3>
-        <h3>
+        </h2>
+        <h2>
           To help reflect their high-end travel offering we produced a visual
           identity and website design that utilised luxurious headline
           typography alongside a fresh yet understated colour palette.
-        </h3>
+        </h2>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">

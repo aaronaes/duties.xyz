@@ -3,7 +3,7 @@
   <div class="boom">
     <section class="grid-container carousel-title">
       <div class="grid-x">
-        <h3>Whats new &searr;</h3>
+        <h2>Whats new &searr;</h2>
       </div>
     </section>
 

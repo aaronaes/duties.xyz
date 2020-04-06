@@ -44,7 +44,7 @@ h1 {
 
 h2 {
   font-size: 40px;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-bottom: $sm;
 
   @include respond-to("lg") {
@@ -58,7 +58,7 @@ h2 {
   }
 
   @include respond-to("sm") {
-    font-size: 28px;
+    font-size: 27px;
   }
 }
 
@@ -68,17 +68,16 @@ h3 {
   margin-bottom: $sm;
 
   @include respond-to("lg") {
-    font-size: 27px;
+    font-size: 32px;
     margin-bottom: $xs;
   }
 
   @include respond-to("md") {
-    font-size: 25px;
-    margin-bottom: $xs;
+    font-size: 27px;
   }
 
   @include respond-to("sm") {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 

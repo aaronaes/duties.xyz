@@ -11,40 +11,40 @@
     <!-- About -->
     <section class="grid-container clients">
       <div class="grid-x">
-        <h3 class="section-title">
+        <h2 class="section-title">
           Clients & friends &searr;
-        </h3>
+        </h2>
       </div>
       <figure class="grid-x client-grid">
-        <div class="grid-x large-8 medium-10">
-          <h3 class="cell shrink">Godtlevert</h3>
-          <h3 class="cell shrink">Orkla</h3>
-          <h3 class="cell shrink">Nutrilett</h3>
-          <h3 class="cell shrink">Eika Gruppen</h3>
-          <h3 class="cell shrink">Brygg Magasin</h3>
-          <h3 class="cell shrink">Humid</h3>
-          <h3 class="cell shrink">WDV</h3>
-          <h3 class="cell shrink">Aftenposten</h3>
-          <h3 class="cell shrink">Schibsted Digital</h3>
-          <h3 class="cell shrink">Holzweiler Store</h3>
-          <h3 class="cell shrink">Kjentfolk</h3>
-          <h3 class="cell shrink">Bielke & Yang</h3>
-          <h3 class="cell shrink">Mathias Fossum</h3>
-          <h3 class="cell shrink">Amedia</h3>
-          <h3 class="cell shrink">Berg-Hansen</h3>
+        <div class="grid-x large-8 medium-12 small-12">
+          <h2 class="cell shrink">Godtlevert</h2>
+          <h2 class="cell shrink">Orkla</h2>
+          <h2 class="cell shrink">Nutrilett</h2>
+          <h2 class="cell shrink">Eika Gruppen</h2>
+          <h2 class="cell shrink">Brygg Magasin</h2>
+          <h2 class="cell shrink">Humid</h2>
+          <h2 class="cell shrink">WDV</h2>
+          <h2 class="cell shrink">Aftenposten</h2>
+          <h2 class="cell shrink">Schibsted Digital</h2>
+          <h2 class="cell shrink">Holzweiler Store</h2>
+          <h2 class="cell shrink">Kjentfolk</h2>
+          <h2 class="cell shrink">Bielke & Yang</h2>
+          <h2 class="cell shrink">Mathias Fossum</h2>
+          <h2 class="cell shrink">Amedia</h2>
+          <h2 class="cell shrink">Berg-Hansen</h2>
         </div>
       </figure>
       <figure class="grid-x">
-        <h3 class="cell large-8 medium-10 small-12">
+        <h2 class="cell large-8 medium-12 small-12">
           We have worked with a range of excellent companies and people
-          throughout the years and we’re always looking for new collaborators
-        </h3>
-        <h3 class="cell large-8 medium-10 small-12">
+          throughout the years and we’re always looking for new collaborators.
+        </h2>
+        <h2 class="cell large-8 medium-10 small-12">
           To get in touch, email us at
           <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
             >new@duties.xyz</a
           >
-        </h3>
+        </h2>
       </figure>
     </section>
   </main>

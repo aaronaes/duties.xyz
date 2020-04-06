@@ -3,10 +3,12 @@ section.projectList {
   margin-bottom: $lg;
 
   @include respond-to("md") {
-    padding-top: $sm;
+    margin-top: $sm;
+    margin-bottom: $md;
   }
 
   @include respond-to("sm") {
-    padding-top: $xs;
+    margin-top: $xs;
+    margin-bottom: $sm;
   }
 }

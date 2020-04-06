@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="grid-x">
-      <div class="cell large-8 medium-10 description">
+      <div class="cell large-8 medium-12 small-12 description">
         <h3 class="cell large-10">
           Ogle Image is a bespoke signage and graphic installation agency based
           in Melbourne with operations in Sydney.

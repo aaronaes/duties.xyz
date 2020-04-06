@@ -7,8 +7,8 @@
   padding-left: $sm * 1.25;
 
   @include respond-to("sm") {
-    padding-left: $xs;
-    padding-right: $xs;
+    padding-left: $sm * 0.75;
+    padding-right: $sm * 0.75;
   }
 
   &.fluid {
@@ -33,14 +33,14 @@ section {
   position: relative;
 
   figure {
-    padding-bottom: $md;
+    margin-bottom: $md;
 
     &:last-of-type {
-      padding-bottom: 0;
+      margin-bottom: 0;
     }
 
     @include respond-to("sm") {
-      padding-bottom: $sm;
+      margin-bottom: $sm;
     }
   }
 }

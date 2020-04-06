@@ -51,18 +51,28 @@ export default {
         this.scrollTo(el);
       } else {
         this.active = name;
-        const el = document.querySelector("#" + name);
-        this.scrollTo(el);
+
+        setTimeout(() => {
+          const el = document.querySelector("#" + name);
+          this.scrollTo(el);
+        }, 500);
       }
     },
     scrollTo(el) {
-      window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top - 15,
-        behavior: "smooth"
-      });
+      setTimeout(() => {
+        window.scrollTo({
+          top: window.pageYOffset + el.getBoundingClientRect().top - 15,
+          behavior: "smooth"
+        });
+      }, 250);
     },
     mouseOver: function() {
       this.active = !this.active;
+    },
+    mounted() {
+      if (typeof this.$redrawVueMasonry === "function") {
+        this.$redrawVueMasonry();
+      }
     }
   }
 };
