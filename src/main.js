@@ -15,10 +15,7 @@ Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueMasonryPlugin);
 
-Vue.use(VueLazyload, {
-  preLoad: 1,
-  listenEvents: ["scroll", "wheel", "mousewheel", "resize", "touchmove"]
-});
+Vue.use(VueLazyload);
 
 new Vue({
   router,

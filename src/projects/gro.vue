@@ -47,31 +47,36 @@
       </div>
     </div>
     <div class="grid-x img-container" v-lazy-container="{ selector: 'img' }">
-      <img
-        data-src="/images/work/gro/gro-gront-01.jpg"
-        data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
-        alt="Gro Grønt 01"
-      />
-      <img
-        data-src="/images/work/gro/gro-gront-02.jpg"
-        data-srcset="/images/work/gro/gro-gront-02@2x.jpg 2x"
-        alt="Gro Grønt 02"
-      />
-      <img
-        data-src="/images/work/gro/gro-gront-03.jpg"
-        data-srcset="/images/work/gro/gro-gront-03@2x.jpg 2x"
-        alt="Gro Grønt 03"
-      />
-      <img
-        data-src="/images/work/gro/gro-gront-04.jpg"
-        data-srcset="/images/work/gro/gro-gront-04@2x.jpg 2x"
-        alt="Gro Grønt 04"
-      />
-      <img
-        data-src="/images/work/gro/gro-gront-05.jpg"
-        data-srcset="/images/work/gro/gro-gront-05@2x.jpg 2x"
-        alt="Gro Grønt 05"
-      />
+      <div class="cell">
+        <img
+          data-src="/images/work/gro/gro-gront-01.jpg"
+          data-srcset="/images/work/gro/gro-gront-01@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell">
+        <img
+          data-src="/images/work/gro/gro-gront-02.jpg"
+          data-srcset="/images/work/gro/gro-gront-02@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell">
+        <img
+          data-src="/images/work/gro/gro-gront-03.jpg"
+          data-srcset="/images/work/gro/gro-gront-03@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell">
+        <img
+          data-src="/images/work/gro/gro-gront-04.jpg"
+          data-srcset="/images/work/gro/gro-gront-04@2x.jpg 2x"
+        />
+      </div>
+      <div class="cell">
+        <img
+          data-src="/images/work/gro/gro-gront-05.jpg"
+          data-srcset="/images/work/gro/gro-gront-05@2x.jpg 2x"
+        />
+      </div>
     </div>
   </div>
 </template>

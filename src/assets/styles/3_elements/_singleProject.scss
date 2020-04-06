@@ -168,27 +168,14 @@ section.projectList {
           img {
             padding-bottom: $sm;
 
-            opacity: 0;
-            animation-name: fade-in;
-            animation-delay: 250ms;
-            animation-duration: 500ms;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-            animation-direction: normal;
-            animation-timing-function: linear;
-
-            @keyframes fade-in {
-              0% {
-                opacity: 0;
-              }
-              100% {
-                opacity: 1;
-              }
-            }
-
             @include respond-to("sm") {
               padding-bottom: $xs * 1.5;
             }
+          }
+
+          img[lazy="loaded"] {
+            opacity: 1;
+            display: block;
           }
         }
       }
