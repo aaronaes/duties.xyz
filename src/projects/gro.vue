@@ -20,7 +20,7 @@
         </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 small-12">
-        <p class="cell large-3 medium-3 small-12 float-left status">
+        <p class="cell large-4 medium-4 small-12 float-left status">
           <span>Completed, 2016</span>
         </p>
         <p class="cell large-6 medium-6 small-12 float-left category">
@@ -28,7 +28,7 @@
         </p>
       </div>
       <div class="grid-x meta large-8 medium-10 small-12">
-        <p class="cell large-3 medium-3 small-12 float-left tag">
+        <p class="cell large-4 medium-4 small-12 float-left tag">
           <span>
             Built by &searr;
           </span>

@@ -14,10 +14,10 @@
         </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 small-12">
-        <p class="cell large-4 medium-6 small-12 status">
+        <p class="cell large-3 medium-3 small-12 status">
           <span>Concept, 2015</span>
         </p>
-        <p class="cell large-4 medium-6 small-12 category">
+        <p class="cell large-6 medium-6 small-12 category">
           <span>Identity, Art Direction & Digital Design</span>
         </p>
       </div>

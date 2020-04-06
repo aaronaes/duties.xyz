@@ -11,14 +11,14 @@
           variety of brand identity elements such as typography and colour
           palettes.
         </h3>
-        <div class="grid-x meta large-8 medium-10">
-          <p class="cell large-3 medium-3 small-6 float-left status">
-            <span>Ongoing</span>
-          </p>
-          <p class="cell large-6 medium-6 small-6 float-left category">
-            <span>Identity & Digital Design</span>
-          </p>
-        </div>
+      </div>
+      <div class="grid-x meta large-8 medium-10 small-12">
+        <p class="cell large-3 medium-3 small-6 float-left status">
+          <span>Ongoing</span>
+        </p>
+        <p class="cell large-6 medium-6 small-6 float-left category">
+          <span>Identity & Digital Design</span>
+        </p>
       </div>
     </div>
 

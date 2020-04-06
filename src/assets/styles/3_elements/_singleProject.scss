@@ -89,8 +89,8 @@ section.projectList {
       }
 
       .content {
-        padding-top: $sm;
-        padding-bottom: $sm;
+        padding-top: $xs;
+        padding-bottom: $xs;
 
         @include respond-to("sm") {
           padding-top: 0;
