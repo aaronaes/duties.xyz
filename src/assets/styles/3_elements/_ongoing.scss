@@ -1,24 +1,42 @@
-// section.projectList {
-//   figure.ongoing {
-//     padding-bottom: $md;
-//     align-items: flex-start;
-//     flex-flow: row;
+section.ongoing {
+  figure {
+    padding-bottom: $md;
+    position: relative;
 
-//     div {
-//       img {
-//         padding-bottom: $xs/2;
-//       }
+    div {
+      margin-bottom: $md;
 
-//       p {
-//         span {
-//           color: $accent;
+      @include respond-to("sm") {
+        margin-bottom: $sm;
+      }
 
-//           &:before {
-//             content: "→";
-//             padding-right: $xs / 4;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+      img,
+      video {
+        padding-bottom: $xs / 2;
+        border-radius: 1px;
+      }
+
+      p {
+        margin-bottom: 0;
+        font-size: 18px;
+
+        span {
+          color: $accent;
+          display: block;
+          padding-bottom: 4px;
+          font-size: 15px;
+          font-weight: bold;
+          letter-spacing: 2%;
+          text-transform: uppercase;
+
+          &:after {
+            font-family: $font-sneak;
+            content: "↘";
+            padding-left: 4px;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}

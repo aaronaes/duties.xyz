@@ -14,6 +14,7 @@
     "vue": "^2.5.21",
     "vue-awesome-swiper": "^4.1.0",
     "vue-lazyload": "^1.2.6",
+    "vue-masonry": "^0.11.8",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

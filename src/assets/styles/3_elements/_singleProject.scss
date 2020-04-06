@@ -94,43 +94,6 @@ section.projectList {
             }
           }
         }
-
-        &.coming {
-          position: relative;
-          cursor: not-allowed;
-          align-items: center;
-          justify-content: space-between;
-          display: flex;
-
-          h2 {
-            color: rgba($black, 0.6);
-            &.title {
-              max-width: 80vw;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-          }
-
-          div {
-            &.soon {
-              position: relative;
-              height: 24px;
-              width: 24px;
-
-              img {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-
-              @include respond-to("sm") {
-                width: 18px;
-                height: 18px;
-              }
-            }
-          }
-        }
       }
 
       .content {
@@ -190,9 +153,15 @@ section.projectList {
           }
         }
 
+        .masonry {
+          div {
+            margin-bottom: $sm;
+          }
+        }
+
         .img-container {
           margin-top: $md;
-          margin-bottom: $md;
+          margin-bottom: -$sm;
 
           @include respond-to("sm") {
             margin-top: $sm;
@@ -214,6 +183,28 @@ section.projectList {
 
           img {
             padding-bottom: $sm;
+
+            &[lazy="loaded"] {
+              opacity: 0;
+              animation-name: img-fade;
+              animation-delay: 250ms;
+              animation-duration: 500ms;
+              animation-iteration-count: 1;
+              animation-fill-mode: forwards;
+              animation-direction: normal;
+              animation-timing-function: linear;
+
+              @keyframes img-fade {
+                0% {
+                  opacity: 0;
+                  transform: translateY(25px);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateY(0px);
+                }
+              }
+            }
 
             &.space {
               padding-top: $lg;

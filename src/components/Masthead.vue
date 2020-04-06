@@ -10,7 +10,7 @@
           products.
         </h1>
       </div>
-      <div v-else class="cell large-8 medium-10 small-12">
+      <div v-else class="cell large-10 medium-10 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">

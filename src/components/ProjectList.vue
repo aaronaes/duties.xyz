@@ -1,33 +1,5 @@
 <template>
   <section id="go" class="grid-container projectList">
-    <h3 class="section-title">Ongoing projects &searr;</h3>
-    <figure class="grid-x ongoing">
-      <details class="cell" onclick="return false">
-        <summary class="coming">
-          <h2 class="cell title">A take-out app</h2>
-          <div class="soon">
-            <img src="/images/assets/locked.svg" alt="Locked Icon" />
-          </div>
-        </summary>
-      </details>
-      <details class="cell" onclick="return false">
-        <summary class="coming">
-          <h2 class="cell title">A food and drinks app</h2>
-          <div class="soon">
-            <img src="/images/assets/locked.svg" alt="Locked Icon" />
-          </div>
-        </summary>
-      </details>
-      <details class="cell" onclick="return false">
-        <summary class="coming">
-          <h2 class="cell title">A sportsclub app</h2>
-          <div class="soon">
-            <img src="/images/assets/locked.svg" alt="Locked Icon" />
-          </div>
-        </summary>
-      </details>
-    </figure>
-
     <figure class="grid-x projects" id="projects">
       <h3 class="section-title">Project Index &searr;</h3>
       <details
@@ -79,11 +51,8 @@ export default {
         this.scrollTo(el);
       } else {
         this.active = name;
-
-        setTimeout(() => {
-          const el = document.querySelector("#" + name);
-          this.scrollTo(el);
-        }, 250);
+        const el = document.querySelector("#" + name);
+        this.scrollTo(el);
       }
     },
     scrollTo(el) {

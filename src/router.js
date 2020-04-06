@@ -10,8 +10,8 @@ export default new Router({
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return {
-        selector: to.hash
-        // , offset: { x: 0, y: 10 }
+        selector: to.hash,
+        offset: { x: 0, y: 10 }
       };
     }
     if (savedPosition) {
@@ -20,7 +20,7 @@ export default new Router({
       return new Promise(resolve => {
         setTimeout(() => {
           resolve({ x: 0, y: 0 });
-        }, 500);
+        }, 250);
       });
     }
   },
@@ -35,12 +35,6 @@ export default new Router({
       name: "About",
       component: () =>
         import(/* webpackChunkName: "About" */ "./views/About.vue")
-    },
-    {
-      path: "/journal",
-      name: "Journal",
-      component: () =>
-        import(/* webpackChunkName: "Journal" */ "./views/Journal.vue")
     }
   ]
 });

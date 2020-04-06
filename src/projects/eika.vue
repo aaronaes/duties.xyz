@@ -28,7 +28,7 @@
         </p>
       </div>
     </div>
-    <div class="grid-x img-container" v-lazy-container="{ selector: 'img' }">
+    <div class="grid-xw img-container" v-lazy-container="{ selector: 'img' }">
       <img
         data-src="/images/work/eika/eika-01.jpg"
         data-srcset="/images/work/eika/eika-01@2x.jpg 2x"

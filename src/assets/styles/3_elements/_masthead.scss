@@ -2,16 +2,17 @@
 body {
   section {
     &.masthead {
-      height: 75vh;
+      min-height: 65vh;
       display: flex;
 
-      @include respond-to("sm") {
-        height: 65vh;
-      }
-
       figure {
-        align-self: flex-end;
+        padding-top: 45vh;
+        align-self: flex-start;
         padding-bottom: 0;
+
+        h1 {
+          margin-bottom: $sm;
+        }
       }
     }
   }

@@ -5,13 +5,16 @@
 
     <!-- Project List -->
     <ProjectList />
+
+    <!-- News -->
+    <Ongoing />
     <!-- About -->
     <section class="grid-container clients">
-      <figure class="grid-x">
+      <div class="grid-x">
         <h3 class="section-title">
           Clients & friends &searr;
         </h3>
-      </figure>
+      </div>
       <figure class="grid-x client-grid">
         <div class="grid-x large-8 medium-10">
           <h3 class="cell shrink">Godtlevert</h3>
@@ -44,23 +47,20 @@
         </h3>
       </figure>
     </section>
-
-    <!-- Carousel -->
-    <Carousel />
   </main>
 </template>
 
 <script>
 import Masthead from "@/components/Masthead.vue";
-import Carousel from "@/components/Carousel.vue";
 import ProjectList from "@/components/ProjectList.vue";
+import Ongoing from "@/components/Ongoing.vue";
 
 export default {
   name: "Home",
   components: {
     Masthead,
     ProjectList,
-    Carousel
+    Ongoing
   },
   data() {
     return {

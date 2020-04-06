@@ -2,6 +2,7 @@ body {
   main {
     section {
       position: relative;
+      margin-bottom: $lg;
 
       h2,
       h3 {
@@ -12,7 +13,6 @@ body {
 
       &.clients {
         figure {
-          padding-bottom: 0;
           h3 {
             margin-bottom: $xs;
             span {
@@ -21,7 +21,7 @@ body {
           }
 
           &.client-grid {
-            margin-bottom: $sm;
+            margin-bottom: $md;
 
             h3 {
               margin-bottom: 0;
