@@ -72,9 +72,15 @@ export default {
         loop: false,
         grabCursor: true,
         breakpoints: {
-          992: {
+          768: {
             slidesPerView: 3.3,
             spaceBetween: 30
+          },
+          576: {
+            slidesPerView: 2.3,
+            spaceBetween: 15,
+            slidesOffsetBefore: 15,
+            slidesOffsetAfter: 15
           },
           320: {
             slidesPerView: 1.3,

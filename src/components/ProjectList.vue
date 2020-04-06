@@ -83,12 +83,12 @@ export default {
         setTimeout(() => {
           const el = document.querySelector("#" + name);
           this.scrollTo(el);
-        }, 0);
+        }, 250);
       }
     },
     scrollTo(el) {
       window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top - 10,
+        top: window.pageYOffset + el.getBoundingClientRect().top - 15,
         behavior: "smooth"
       });
     },
