@@ -15,27 +15,35 @@ html {
 
 @font-face {
   font-family: "Sneak Regular";
-  src: url("/fonts/Sneak-Regular.woff2") format("woff2"),
+  src: local("Custom Font"), url("/fonts/Sneak-Regular.woff2") format("woff2"),
     url("/fonts/Sneak-Regular.woff") format("woff"),
     url("/fonts/Sneak-Regular.eof") format("eof");
   font-weight: normal;
   font-style: normal;
+  font-display: swap; /* Read next point */
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 @font-face {
   font-family: "TeXGyreHerosBold";
-  src: url("/fonts/TeXGyreHeros-Bold.woff2") format("woff2"),
+  src: local("Custom Font"),
+    url("/fonts/TeXGyreHeros-Bold.woff2") format("woff2"),
     url("/fonts/TeXGyreHeros-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap; /* Read next point */
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 @font-face {
   font-family: "TeXGyreHeros";
-  src: url("/fonts/TeXGyreHeros-Regular.woff2") format("woff2"),
+  src: local("Custom Font"),
+    url("/fonts/TeXGyreHeros-Regular.woff2") format("woff2"),
     url("/fonts/TeXGyreHeros-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap; /* Read next point */
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 // Colors
