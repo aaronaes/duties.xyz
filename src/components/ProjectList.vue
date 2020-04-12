@@ -55,7 +55,7 @@ export default {
         setTimeout(() => {
           const el = document.querySelector("#" + name);
           this.scrollTo(el);
-        }, 500);
+        }, 150);
       }
     },
     scrollTo(el) {
@@ -64,7 +64,7 @@ export default {
           top: window.pageYOffset + el.getBoundingClientRect().top - 15,
           behavior: "smooth"
         });
-      }, 250);
+      }, 150);
     },
     mouseOver: function() {
       this.active = !this.active;

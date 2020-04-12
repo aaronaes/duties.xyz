@@ -69,19 +69,8 @@ section.projectList {
             top: 50%;
             transform: translateY(-50%);
 
-            &:before {
-              content: "Open";
-              font-size: 20px;
-              vertical-align: middle;
-              padding-right: $xs / 2;
-
-              @include respond-to("sm") {
-                content: none;
-              }
-            }
             &:after {
-              content: "↘";
-              font-size: 20px;
+              content: "+";
               vertical-align: middle;
             }
           }
@@ -151,7 +140,7 @@ section.projectList {
 
         .img-container {
           margin-top: $sm;
-          margin-bottom: -$sm;
+          margin-bottom: 0;
 
           .text {
             padding-top: $md;
@@ -174,8 +163,23 @@ section.projectList {
           }
 
           img[lazy="loaded"] {
-            opacity: 1;
-            display: block;
+            opacity: 0;
+            animation-name: fade-in;
+            animation-delay: 250ms;
+            animation-duration: 250ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-timing-function: linear;
+
+            @keyframes fade-in {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
           }
         }
       }
@@ -202,17 +206,8 @@ section.projectList {
             }
 
             &.togl {
-              &:before {
-                content: "Close";
-
-                @include respond-to("sm") {
-                  content: none;
-                }
-              }
               &:after {
                 content: "×";
-                font-size: 1em;
-                font-weight: 300;
               }
             }
           }
