@@ -37,10 +37,12 @@
       <figure class="grid-x">
         <h2 class="cell large-8 medium-12 small-12">
           We have worked with a range of excellent companies and people
-          throughout the years and we’re always looking for new collaborators.
+          throughout the years and we are always excited to hear from future
+          collaborators about exciting ventures, new opportunities and problems
+          to solve.
         </h2>
         <h2 class="cell large-8 medium-10 small-12">
-          To get in touch, email us at
+          Got something for us? Let’s chat:
           <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
             >new@duties.xyz</a
           >
