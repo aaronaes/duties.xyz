@@ -60,4 +60,10 @@ body {
       }
     }
   }
+
+  &.links {
+    footer {
+      display: none;
+    }
+  }
 }

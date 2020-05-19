@@ -7,6 +7,9 @@
             <h3 v-if="this.$route.name === 'Home'" class="logo">
               Duties<span></span>
             </h3>
+            <h3 v-if="this.$route.name === 'Links'" class="logo">
+              Duties<span></span>
+            </h3>
             <h3 v-if="this.$route.name === 'About'" class="logo">Studio</h3>
           </transition>
         </router-link>
@@ -14,7 +17,7 @@
         <router-link
           class="cell shrink burger"
           to="/about"
-          v-if="this.$route.name === 'Home'"
+          v-if="this.$route.name !== 'About'"
         >
           <h3>
             <transition name="fade" mode="out-in" appear>

@@ -1,21 +1,29 @@
-section.bottomNav {
-  display: flex;
-  padding-top: $md;
-  padding-bottom: $md;
-  height: 50vh;
+body {
+  section.bottomNav {
+    display: flex;
+    padding-top: $md;
+    padding-bottom: $md;
+    height: 50vh;
 
-  figure {
-    align-self: center;
-    padding-bottom: 0;
-    a {
-      border-bottom: 0px transparent !important;
-      h1 {
-        align-self: center;
-        margin-bottom: 0;
+    figure {
+      align-self: center;
+      padding-bottom: 0;
+      a {
+        border-bottom: 0px transparent !important;
+        h1 {
+          align-self: center;
+          margin-bottom: 0;
+        }
       }
     }
+    @include respond-to("sm") {
+      height: 40vh;
+    }
   }
-  @include respond-to("sm") {
-    height: 40vh;
+
+  &.links {
+    section.bottomNav {
+      display: none !important;
+    }
   }
 }
