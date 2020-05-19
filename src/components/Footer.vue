@@ -4,16 +4,13 @@
       <figure class="grid-x grid-margin-x">
         <span class="shrink">
           <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank">
-            <p class="hide-for-small-only">new@duties.xyz</p>
-            <p class="show-for-small-only">new@duties.xyz</p>
+            <p>Email</p>
           </a>
-          <a href="//www.facebook.com/duties.xyz" target="_blank">
-            <p class="hide-for-small-only">Facebook</p>
-            <p class="show-for-small-only">FB</p>
+          <a href="//medium.com/duties-xyz" target="_blank">
+            <p>Medium</p>
           </a>
           <a href="//www.instagram.com/duties.xyz" target="_blank">
-            <p class="hide-for-small-only">Instagram</p>
-            <p class="show-for-small-only">IG</p>
+            <p>Instagram</p>
           </a>
         </span>
         <span

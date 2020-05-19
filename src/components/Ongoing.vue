@@ -8,6 +8,19 @@
       class="masonry grid-x grid-margin-x"
     >
       <div v-masonry-tile class="cell item large-4 medium-6 small-12">
+        <img src="/images/banner/ongoing-07.gif" />
+        <p>
+          A little bit about who we are and what we do. Plus, why the name
+          Duties? Read more on
+          <a
+            href="https://medium.com/@duties.xyz/status-on-duty-c8eff5a326ef?sk=22de440ae553a2def08b5facb7c04840"
+            target="_blank"
+            >Medium</a
+          >.
+        </p>
+      </div>
+
+      <div v-masonry-tile class="cell item large-4 medium-6 small-12">
         <img
           src="/images/banner/ongoing-06.jpg"
           srcset="/images/banner/ongoing-06@2x.jpg 2x"

@@ -7,8 +7,8 @@
   padding-left: $sm * 1.25;
 
   @include respond-to("sm") {
-    padding-left: $sm * 0.75;
-    padding-right: $sm * 0.75;
+    padding-left: $xs;
+    padding-right: $xs;
   }
 
   &.fluid {

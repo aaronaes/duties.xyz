@@ -19,7 +19,7 @@ body {
         justify-content: space-between;
 
         @include respond-to("sm") {
-          padding-bottom: $xs;
+          padding-bottom: 0;
         }
 
         span {
