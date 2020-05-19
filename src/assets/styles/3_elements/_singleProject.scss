@@ -3,7 +3,9 @@ section.projectList {
     padding-bottom: $md;
 
     details {
-      border-bottom: solid 2px;
+      //border-bottom: solid 2px;
+      border-top: solid 2px;
+      margin-bottom: $xs;
 
       &:first-of-type {
         border-top: solid 2px;
@@ -12,8 +14,6 @@ section.projectList {
       summary {
         cursor: pointer;
         position: relative !important;
-        z-index: 999;
-        position: sticky;
 
         h2 {
           padding-top: $xs / 2;
@@ -66,14 +66,19 @@ section.projectList {
           &.togl {
             position: absolute;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 0%;
+            //transform: translateY(-50%);
 
             &:after {
               content: "+";
               vertical-align: middle;
             }
           }
+        }
+
+        img {
+          padding-bottom: $xs;
+          z-index: -99;
         }
       }
 
@@ -185,9 +190,12 @@ section.projectList {
       }
 
       &[open] {
+        width: calc(100% - 1.875rem);
+
         summary {
           position: sticky !important;
           top: 10px;
+          z-index: 9;
 
           h2 {
             span {
@@ -200,7 +208,7 @@ section.projectList {
                 padding-left: $sm;
 
                 @include respond-to("sm") {
-                  padding-left: $xs * 1.5;
+                  padding-left: $xs * 1.125;
                 }
               }
             }
@@ -210,6 +218,14 @@ section.projectList {
                 content: "×";
               }
             }
+          }
+
+          img {
+            width: 20vw !important;
+            padding: $xs * 1.5;
+            opacity: 0;
+            overflow: hidden;
+            height: 0px;
           }
         }
       }

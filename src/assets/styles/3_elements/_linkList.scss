@@ -1,13 +1,10 @@
 main.linkList {
   section.projectList {
     position: relative;
-    height: calc(100vh - 60px);
-    margin: 0;
+    margin-top: 200px;
 
     figure {
       position: relative;
-      top: 50%;
-      transform: translateY(-50%);
 
       details {
         border-top: solid 2px;
@@ -80,7 +77,8 @@ main.linkList {
               //transform: translateY(-50%);
 
               &:after {
-                content: "+";
+                content: "->";
+                padding-left: $xs / 2;
                 vertical-align: middle;
               }
             }
@@ -204,5 +202,8 @@ main.linkList {
 
   footer.links {
     display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
   }
 }

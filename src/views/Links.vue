@@ -6,44 +6,70 @@
         <details class="cell">
           <summary class="grid-x align-middle">
             <h2>
-              <span class="title">Link name</span>
+              <span class="dot">●</span>
+              <span class="title">Medium</span>
             </h2>
 
             <h2 class="togl arrow">
-              <a href="//www.google.com" target="_blank">Link</a>
+              <a href="https://medium.com/@duties.xyz" target="_blank">Link</a>
             </h2>
           </summary>
         </details>
         <details class="cell">
           <summary class="grid-x align-middle">
             <h2>
-              <span class="title">Link name</span>
+              <span class="dot">●</span>
+              <span class="title">Spotify</span>
             </h2>
 
             <h2 class="togl arrow">
-              <a href="//www.google.com" target="_blank">Link</a>
+              <a
+                href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
+                target="_blank"
+                >Link</a
+              >
             </h2>
           </summary>
         </details>
         <details class="cell">
           <summary class="grid-x align-middle">
             <h2>
-              <span class="title">Link name</span>
+              <span class="dot">●</span>
+              <span class="title">LinkedIn</span>
             </h2>
 
             <h2 class="togl arrow">
-              <a href="//www.google.com" target="_blank">Link</a>
+              <a href="https://www.linkedin.com/company/duties/" target="_blank"
+                >Link</a
+              >
             </h2>
           </summary>
         </details>
         <details class="cell">
           <summary class="grid-x align-middle">
             <h2>
-              <span class="title">Link name</span>
+              <span class="dot">●</span>
+              <span class="title">Dribbble</span>
             </h2>
 
             <h2 class="togl arrow">
-              <a href="//www.google.com" target="_blank">Link</a>
+              <a href="https://dribbble.com/duties/collections" target="_blank"
+                >Link</a
+              >
+            </h2>
+          </summary>
+        </details>
+        <details class="cell">
+          <summary class="grid-x align-middle">
+            <h2>
+              <span class="dot">●</span>
+              <span class="title">Facebook</span>
+            </h2>
+
+            <h2 class="togl arrow">
+              <a href="https://dribbble.com/duties/collections" target="_blank"
+                >Link</a
+              >
             </h2>
           </summary>
         </details>
