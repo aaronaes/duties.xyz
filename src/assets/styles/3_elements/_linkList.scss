@@ -17,180 +17,104 @@ main.linkList {
         summary {
           cursor: pointer;
           position: relative !important;
+          a {
+            width: 100%;
+            border-bottom: 0px solid transparent;
 
-          h2 {
-            padding-top: $xs / 2;
-            padding-bottom: $xs / 1.5;
-            margin: 0;
-            opacity: 1;
-            float: left;
-
-            span {
-              &.dot {
-                opacity: 0;
-                display: block;
-                position: absolute;
-                color: $accent;
-                font-size: 0.5em;
-                transform: translateX(-$sm, 60%);
-              }
-
-              &.title {
-                max-width: 80vw;
-                padding-left: 0;
-
-                @include respond-to("sm") {
-                  max-width: 80vw;
-                }
-              }
-            }
-
-            a {
-              border-bottom: 0px transparent !important;
-            }
-
-            &:hover {
-              color: $accent;
+            h2 {
+              padding-top: $xs / 2;
+              padding-bottom: $xs / 1.5;
+              margin: 0;
+              opacity: 1;
+              float: left;
 
               span {
                 &.dot {
-                  opacity: 1;
-                  transform: translate(0px, 60%);
+                  opacity: 0;
+                  display: block;
+                  position: absolute;
+                  color: $accent;
+                  font-size: 0.5em;
+                  transform: translateX(-$sm, 60%);
                 }
 
                 &.title {
-                  padding-left: $sm;
-                }
-              }
-
-              @include respond-to("sm") {
-                &.title {
+                  max-width: 80vw;
                   padding-left: 0;
+
+                  @include respond-to("sm") {
+                    max-width: 80vw;
+                  }
                 }
               }
-            }
 
-            &.togl {
-              position: absolute;
-              right: 0;
-              top: 0%;
-              //transform: translateY(-50%);
-
-              &:after {
-                content: "->";
-                padding-left: $xs / 2;
-                vertical-align: middle;
-              }
-            }
-          }
-
-          img {
-            padding-bottom: $xs;
-            z-index: -99;
-          }
-        }
-
-        .content {
-          padding-top: $xs;
-          padding-bottom: $xs;
-
-          @include respond-to("sm") {
-            padding-top: 0;
-          }
-
-          .meta {
-            h3 {
-              margin-bottom: initial;
-            }
-
-            p {
-              margin-bottom: $xs;
-
-              @include respond-to("sm") {
-                padding-right: 0;
+              a {
+                border-bottom: 0px transparent !important;
               }
 
-              span {
-                display: block;
-              }
+              &:hover {
+                color: initial;
 
-              &.tag {
                 span {
-                  color: rgba($black, $alpha: 0.5);
+                  &.dot {
+                    opacity: 1;
+                    transform: translate(0px, 60%);
+                  }
+
+                  &.title {
+                    padding-left: $sm;
+                  }
+                }
+
+                @include respond-to("sm") {
+                  &.title {
+                    padding-left: 0;
+                  }
                 }
               }
 
-              &.status {
-                &:before {
-                  color: rgba($black, $alpha: 0.5);
-                  content: "Status ↘";
-                  padding-right: 5px;
-                  padding-right: 5px;
+              &.togl {
+                position: absolute;
+                right: 0;
+                top: 0%;
+
+                &:after {
+                  content: "->";
+                  padding-left: $xs / 2;
+                  vertical-align: middle;
                 }
-              }
-
-              &.category {
-                &:before {
-                  color: rgba($black, $alpha: 0.5);
-                  content: "Work ↘";
-                  padding-right: 5px;
-                }
-              }
-            }
-          }
-
-          .description {
-            margin-bottom: $sm;
-
-            h2 {
-              margin-bottom: $sm;
-            }
-
-            @include respond-to("sm") {
-              margin-bottom: $xs;
-            }
-          }
-
-          .img-container {
-            margin-top: $sm;
-            margin-bottom: 0;
-
-            .text {
-              padding-top: $md;
-              padding-bottom: $lg;
-            }
-
-            .space {
-              img {
-                padding-top: 10vw;
-                padding-bottom: 10vw;
               }
             }
 
             img {
-              padding-bottom: $sm;
-
-              @include respond-to("sm") {
-                padding-bottom: $xs * 1.5;
-              }
+              padding-bottom: $xs;
+              z-index: -99;
             }
+          }
+        }
 
-            img[lazy="loaded"] {
-              opacity: 0;
-              animation-name: fade-in;
-              animation-delay: 250ms;
-              animation-duration: 250ms;
-              animation-iteration-count: 1;
-              animation-fill-mode: forwards;
-              animation-direction: normal;
-              animation-timing-function: linear;
+        &[open] {
+          width: 100%;
 
-              @keyframes fade-in {
-                0% {
-                  opacity: 0;
-                }
-                100% {
-                  opacity: 1;
+          summary {
+            a {
+              position: relative !important;
+              top: 0px;
+
+              h2 {
+                span {
+                  &.dot {
+                    opacity: 1;
+                    transform: translate(0px, 60%);
+                  }
+
+                  &.title {
+                    padding-left: $xs;
+
+                    @include respond-to("sm") {
+                      padding-left: $xs * 1.5;
+                    }
+                  }
                 }
               }
             }
