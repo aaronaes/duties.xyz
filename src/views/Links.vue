@@ -67,7 +67,7 @@
             </h2>
 
             <h2 class="togl arrow">
-              <a href="https://dribbble.com/duties/collections" target="_blank"
+              <a href="https://www.facebook.com/duties.xyz" target="_blank"
                 >Link</a
               >
             </h2>
