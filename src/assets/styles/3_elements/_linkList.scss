@@ -3,10 +3,14 @@ main.linkList {
     position: relative;
     margin-top: 200px;
 
+    @include respond-to("sm") {
+      margin-top: 20vh;
+    }
+
     figure {
       position: relative;
 
-      details {
+      .details {
         border-top: solid 2px;
         margin-bottom: 0px;
 
@@ -14,12 +18,16 @@ main.linkList {
           border-bottom: solid 2px;
         }
 
-        summary {
-          cursor: pointer;
+        .summary {
           position: relative !important;
           a {
             width: 100%;
+            display: block;
             border-bottom: 0px solid transparent;
+
+            &:hover {
+              color: initial;
+            }
 
             h2 {
               padding-top: $xs / 2;
@@ -27,26 +35,6 @@ main.linkList {
               margin: 0;
               opacity: 1;
               float: left;
-
-              span {
-                &.dot {
-                  opacity: 0;
-                  display: block;
-                  position: absolute;
-                  color: $accent;
-                  font-size: 0.5em;
-                  transform: translateX(-$sm, 60%);
-                }
-
-                &.title {
-                  max-width: 80vw;
-                  padding-left: 0;
-
-                  @include respond-to("sm") {
-                    max-width: 80vw;
-                  }
-                }
-              }
 
               a {
                 border-bottom: 0px transparent !important;
@@ -82,39 +70,6 @@ main.linkList {
                   content: "->";
                   padding-left: $xs / 2;
                   vertical-align: middle;
-                }
-              }
-            }
-
-            img {
-              padding-bottom: $xs;
-              z-index: -99;
-            }
-          }
-        }
-
-        &[open] {
-          width: 100%;
-
-          summary {
-            a {
-              position: relative !important;
-              top: 0px;
-
-              h2 {
-                span {
-                  &.dot {
-                    opacity: 1;
-                    transform: translate(0px, 60%);
-                  }
-
-                  &.title {
-                    padding-left: $xs;
-
-                    @include respond-to("sm") {
-                      padding-left: $xs * 1.5;
-                    }
-                  }
                 }
               }
             }
