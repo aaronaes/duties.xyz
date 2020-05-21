@@ -5,6 +5,17 @@
         <h3 class="section-title">Links &searr;</h3>
         <details class="cell">
           <summary class="grid-x align-middle">
+            <a href="https://www.duties.xyz" target="_blank">
+              <h2>
+                <span class="dot">●</span>
+                <span class="title">Website</span>
+              </h2>
+              <h2 class="togl arrow">Link</h2>
+            </a>
+          </summary>
+        </details>
+        <details class="cell">
+          <summary class="grid-x align-middle">
             <a href="https://medium.com/@duties.xyz" target="_blank">
               <h2>
                 <span class="dot">●</span>

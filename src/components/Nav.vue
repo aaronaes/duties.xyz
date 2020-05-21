@@ -7,15 +7,6 @@
             <h3 v-if="this.$route.name === 'Links'">Duties<span></span></h3>
           </transition>
         </router-link>
-
-        <a class="cell shrink burger" href="http://www.duties.xyz">
-          <h3>
-            <transition name="fade" mode="out-in" appear>
-              <span>Studio</span>
-            </transition>
-            <span class="arrow">&rarr;</span>
-          </h3>
-        </a>
         <router-link class="burger" to="/" v-if="this.$route.name === 'About'">
           <h3>
             <transition name="fade" mode="out-in" appear>
