@@ -7,7 +7,7 @@
           <div class="summary grid-x align-middle">
             <a href="https://www.duties.xyz" target="_blank">
               <h2>
-                <span class="title">Website</span>
+                <span>Website</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
@@ -17,7 +17,7 @@
           <div class="summary grid-x align-middle">
             <a href="https://medium.com/@duties.xyz" target="_blank">
               <h2>
-                <span class="title">Medium</span>
+                <span>Medium</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
@@ -30,7 +30,7 @@
               target="_blank"
             >
               <h2>
-                <span class="title">Spotify</span>
+                <span>Spotify</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
@@ -40,7 +40,7 @@
           <div class="summary grid-x align-middle">
             <a href="https://www.linkedin.com/company/duties/" target="_blank">
               <h2>
-                <span class="title">LinkedIn</span>
+                <span>LinkedIn</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
@@ -50,7 +50,7 @@
           <div class="summary grid-x align-middle">
             <a href="https://dribbble.com/duties/collections" target="_blank">
               <h2>
-                <span class="title">Dribbble</span>
+                <span>Dribbble</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
@@ -58,9 +58,9 @@
         </div>
         <div class="details cell">
           <div class="summary grid-x align-middle">
-            <a href="fb://page/?id=1100431026827219">
+            <a href="fb://page/1100431026827219">
               <h2>
-                <span class="title">Facebook</span>
+                <span>Facebook</span>
               </h2>
               <h2 class="togl arrow">Link</h2>
             </a>
