@@ -12,17 +12,17 @@ body {
       }
 
       &.clients {
+        padding-top: $lg;
+        padding-bottom: $xl * 1.75;
+
         figure {
+          margin-bottom: $sm;
+
           h2 {
-            margin-bottom: $xs;
-            span {
-              display: block;
-            }
+            margin-bottom: 0;
           }
 
           &.client-grid {
-            margin-bottom: $sm;
-
             h2 {
               margin-bottom: 0;
               padding-right: $xs / 2;
@@ -33,10 +33,17 @@ body {
                 margin-right: 0;
               }
 
-              &::before {
-                content: "•";
+              &::after {
+                content: "/";
+                padding-left: $xs / 1.5;
+                font-weight: bold;
                 color: $accent;
-                padding-right: $xs / 2;
+              }
+
+              &:last-of-type {
+                &::after {
+                  content: "";
+                }
               }
             }
           }

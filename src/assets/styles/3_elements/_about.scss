@@ -1,16 +1,48 @@
 // About page
 body.about {
-  main {
-    section {
-      h3 {
-        &:last-of-type:not(:first-of-type) {
-          margin-bottom: 0;
+  nav {
+    a {
+      color: $grey;
+      &.router-link-exact-active {
+        h1 {
+          color: $grey;
+        }
+        &:before {
+          opacity: 1;
         }
       }
+
+      &:hover,
+      &.router-link-exact-active {
+        h1 {
+          color: $grey;
+        }
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+    .logo {
+      svg {
+        path {
+          fill: $grey !important;
+        }
+      }
+    }
+  }
+  main {
+    section {
       &.intro {
-        margin-top: $md;
-        margin-bottom: $md;
+        padding-top: $xl;
+        padding-bottom: $xl;
+
+        @include respond-to("md") {
+          padding-top: $lg;
+          padding-bottom: $lg;
+        }
+
         figure {
+          h2,
           h3 {
             &.focus {
               display: inline-block;
@@ -22,6 +54,14 @@ body.about {
       }
 
       &.people {
+        padding-top: $xl;
+        padding-bottom: $xl;
+
+        @include respond-to("md") {
+          padding-top: $lg;
+          padding-bottom: $lg;
+        }
+
         figure {
           .person {
             margin-bottom: $md;
@@ -41,39 +81,18 @@ body.about {
         }
       }
 
-      &.offduty {
-        figure {
-          div {
-            h3 {
-              margin-bottom: $md;
-            }
-          }
+      &.clients {
+        padding-top: $xl;
+        padding-bottom: $xl * 3;
 
-          &:last-of-type {
-            padding-top: $md;
-          }
+        @include respond-to("md") {
+          padding-top: $lg;
+          padding-bottom: $lg * 2;
+        }
 
-          .image-grid {
-            columns: 4;
-            column-gap: $md;
-
-            @include respond-to("md") {
-              columns: 4;
-              column-gap: $md;
-            }
-
-            @include respond-to("sm") {
-              columns: 2;
-              column-gap: $sm;
-            }
-
-            img {
-              padding-bottom: $md;
-
-              @include respond-to("sm") {
-                padding-bottom: $md;
-              }
-            }
+        .footer {
+          h2 {
+            margin-right: $sm;
           }
         }
       }

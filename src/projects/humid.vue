@@ -76,7 +76,9 @@ export default {
   data() {
     return {
       title: "Humid",
-      showMore: false
+      image: "/images/work/humid/humid-01.jpg",
+      coverSize: "square",
+      bg: "#adb8c2"
     };
   },
   computed: {

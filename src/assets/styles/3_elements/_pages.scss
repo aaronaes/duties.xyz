@@ -6,9 +6,13 @@
   padding-right: $sm * 1.25;
   padding-left: $sm * 1.25;
 
+  // @include respond-to("xl") {
+  //   max-width: 80vw;
+  // }
+
   @include respond-to("sm") {
-    padding-left: $xs;
-    padding-right: $xs;
+    padding-left: $sm;
+    padding-right: $sm;
   }
 
   &.fluid {
@@ -47,6 +51,8 @@ section {
 
 // Color Schemes
 body {
+  transition: background-color 50ms linear !important;
+
   &.color-white {
     color: $black;
     background-color: $white;
@@ -60,8 +66,10 @@ body {
   &.about {
     color: $grey;
     background-color: $black;
-    * {
-      fill: $accent;
+    & > & {
+      &:hover {
+        color: inherit;
+      }
     }
   }
 }

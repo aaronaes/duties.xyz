@@ -1,24 +1,32 @@
 <template>
-  <div class="content">
-    <div class="grid-x">
-      <div class="cell large-8 medium-12 small-12 description">
-        <h3 class="cell large-10">
-          Ogle Image is a bespoke signage and graphic installation agency based
-          in Melbourne with operations in Sydney.
-        </h3>
-        <h3 class="cell large-10">
-          We gave their current website a complete redesign and refreshed a
-          variety of brand identity elements such as typography and colour
-          palettes.
-        </h3>
+  <div>
+    <div class="content grid-container" id="projectTop">
+      <div class="grid-x description">
+        <div class="cell">
+          <h2>
+            Ogle Image is a bespoke signage and graphic installation agency
+            based in Melbourne with operations in Sydney.
+          </h2>
+          <h2>
+            We gave their current website a complete redesign and refreshed a
+            variety of brand identity elements such as typography and colour
+            palettes.
+          </h2>
+          <!-- <h2 class="this">
+              <a href="https://godtlevert.no/" target="_blankn">Visit site</a>
+            </h2> -->
+        </div>
       </div>
-      <div class="grid-x meta large-8 medium-10 small-12">
-        <p class="cell large-3 medium-3 small-6 float-left status">
-          <span>Ongoing</span>
-        </p>
-        <p class="cell large-6 medium-6 small-6 float-left category">
-          <span>Identity & Digital Design</span>
-        </p>
+
+      <div class="grid-x meta">
+        <div class="cell">
+          <p>Services</p>
+        </div>
+        <div class="cell">
+          <h3 class="float-left">Build</h3>
+          <h3 class="float-left">Identity</h3>
+          <h3 class="float-left">Web</h3>
+        </div>
       </div>
     </div>
 
@@ -108,7 +116,10 @@ export default {
   name: "ogle-image",
   data() {
     return {
-      title: "Ogle Image"
+      title: "Ogle Image",
+      image: "/images/work/ogle/ogle-image-01.jpg",
+      coverSize: "square",
+      bg: "#eeeeee"
     };
   }
 };

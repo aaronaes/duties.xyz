@@ -3,28 +3,26 @@
     <Masthead :heading="heading" :copy="copy"></Masthead>
 
     <section class="grid-container intro">
-      <figure class="grid-x">
-        <h2 class="cell">Studio &searr;</h2>
-        <h2 class="cell large-8 medium-10 small-12">
-          Established in 2020, Duties is an independent digital design studio
-          based in Oslo. We believe it’s our duty as designers to provide the
-          world with thoughtfully designed products that are both functional,
-          accessible and visually beautiful.
-        </h2>
-        <h2 class="cell large-8 medium-10 small-12">
-          We work at the intersection of visual and functional design; focusing
-          on brand identity design, product strategy, web and native application
-          development plus a bit of xyz…
-        </h2>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-6 medium-10 small-12">
+          <h2 class="cell">
+            Established in 2020, Duties is an independent digital design studio
+            based in Oslo. We believe it’s our duty as designers to provide the
+            world with thoughtfully designed products that are both functional,
+            accessible and visually beautiful.
+          </h2>
+          <h2 class="cell">
+            We work at the intersection of visual and functional design;
+            focusing on brand identity design, product strategy, web and native
+            application development plus a bit of xyz…
+          </h2>
+        </div>
       </figure>
     </section>
 
     <section class="grid-container people">
-      <div class="grid-x">
-        <h2 class="cell">People &searr;</h2>
-      </div>
-      <figure class="grid-x grid-margin-x">
-        <div class="cell large-4 medium-4 small-6 person">
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-4 medium-6 small-12 person">
           <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
             <img
               data-src="/images/about/Paul.jpg"
@@ -40,7 +38,7 @@
           </p>
         </div>
 
-        <div class="cell large-4 medium-4 small-6 person">
+        <div class="cell large-4 medium-6 small-12 person">
           <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
             <img
               data-src="/images/about/Erling.jpg"
@@ -60,9 +58,9 @@
       </figure>
     </section>
 
-    <section class="grid-container client">
-      <figure class="grid-x">
-        <div class="cell large-8 medium-10 small-12">
+    <section class="grid-container clients">
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-6 medium-10 small-12">
           <h2>
             When we are off-duty you can
             <a href="//instagram.com/duties.xyz" target="_blank"
@@ -74,6 +72,28 @@
               target="_blank"
               >studio playlists</a
             >.
+          </h2>
+        </div>
+      </figure>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-6 medium-10 small-12 footer">
+          <h2 class="float-left">
+            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+              >Email</a
+            >
+          </h2>
+          <h2 class="float-left">
+            <a class="float-left" href="//medium.com/duties-xyz" target="_blank"
+              >Medium</a
+            >
+          </h2>
+          <h2 class="float-left">
+            <a
+              class="float-left"
+              href="//www.instagram.com/duties.xyz"
+              target="_blank"
+              >Instagram</a
+            >
           </h2>
         </div>
       </figure>

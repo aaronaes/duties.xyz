@@ -6,47 +6,51 @@
     <!-- Project List -->
     <ProjectList />
 
-    <!-- News -->
-    <Ongoing />
     <!-- About -->
     <section class="grid-container clients">
-      <div class="grid-x">
-        <h2 class="section-title">
-          Clients & friends &searr;
-        </h2>
-      </div>
-      <figure class="grid-x client-grid">
-        <div class="grid-x large-8 medium-12 small-12">
-          <h2 class="cell shrink">Godtlevert</h2>
-          <h2 class="cell shrink">Orkla</h2>
-          <h2 class="cell shrink">Nutrilett</h2>
-          <h2 class="cell shrink">Eika Gruppen</h2>
-          <h2 class="cell shrink">Brygg Magasin</h2>
-          <h2 class="cell shrink">Humid</h2>
-          <h2 class="cell shrink">WDV</h2>
-          <h2 class="cell shrink">Aftenposten</h2>
-          <h2 class="cell shrink">Schibsted Digital</h2>
-          <h2 class="cell shrink">Holzweiler Store</h2>
-          <h2 class="cell shrink">Kjentfolk</h2>
-          <h2 class="cell shrink">Bielke & Yang</h2>
-          <h2 class="cell shrink">Mathias Fossum</h2>
-          <h2 class="cell shrink">Amedia</h2>
-          <h2 class="cell shrink">Berg-Hansen</h2>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-7 medium-10 small-12">
+          <h2 class="section-title">Clients &amp; friends</h2>
         </div>
       </figure>
-      <figure class="grid-x">
-        <h2 class="cell large-8 medium-12 small-12">
-          We have worked with a range of excellent companies and people
-          throughout the years and we are always excited to hear from future
-          collaborators about exciting ventures, new opportunities and problems
-          to solve.
-        </h2>
-        <h2 class="cell large-8 medium-10 small-12">
-          Got something for us? Let’s chat:
-          <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
-            >new@duties.xyz</a
-          >
-        </h2>
+      <figure class="grid-x grid-padding-x align-center client-grid">
+        <div class="cell large-7 medium-10 small-12">
+          <h2 class="float-left">Godtlevert</h2>
+          <h2 class="float-left">Orkla</h2>
+          <h2 class="float-left">Nutrilett</h2>
+          <h2 class="float-left">Eika Gruppen</h2>
+          <h2 class="float-left">Brygg Magasin</h2>
+          <h2 class="float-left">Humid</h2>
+          <h2 class="float-left">WDV</h2>
+          <h2 class="float-left">Aftenposten</h2>
+          <h2 class="float-left">Schibsted Digital</h2>
+          <h2 class="float-left">Holzweiler Store</h2>
+          <h2 class="float-left">Kjentfolk</h2>
+          <h2 class="float-left">Bielke &amp; Yang</h2>
+          <h2 class="float-left">Mathias Fossum</h2>
+          <h2 class="float-left">Amedia</h2>
+          <h2 class="float-left">Berg-Hansen</h2>
+        </div>
+      </figure>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-7 medium-10 small-12">
+          <h2 class="cell">
+            We have worked with a range of excellent companies and people
+            throughout the years and we are always excited to hear from future
+            collaborators about exciting ventures, new opportunities and
+            problems to solve.
+          </h2>
+        </div>
+      </figure>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-7 medium-10 small-12">
+          <h2 class="cell large-8 medium-10 small-12">
+            Got something for us?
+            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+              >Let’s chat</a
+            >
+          </h2>
+        </div>
       </figure>
     </section>
   </main>
@@ -55,14 +59,12 @@
 <script>
 import Masthead from "@/components/Masthead.vue";
 import ProjectList from "@/components/ProjectList.vue";
-import Ongoing from "@/components/Ongoing.vue";
 
 export default {
   name: "Home",
   components: {
     Masthead,
-    ProjectList,
-    Ongoing
+    ProjectList
   },
   data() {
     return {

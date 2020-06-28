@@ -1,8 +1,8 @@
 <template>
   <section class="grid-container masthead">
-    <figure class="grid-x">
+    <figure class="grid-x align-center">
       <div
-        class="cell large-8 medium-10 small-12"
+        class="cell large-6 medium-8 small-12"
         v-if="this.$route.name === 'Home'"
       >
         <h1>
@@ -10,13 +10,14 @@
           products.
         </h1>
       </div>
-      <div v-else class="cell large-10 medium-10 small-12">
+      <div v-else class="cell large-6 medium-8 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
           <div class="meta">
-            <h3>
-              /ˈdjuːti/
+            <h2>
+              <span class="stretch">/ˈdjuːti/</span>
               <span
+                class="icon"
                 @click.prevent="
                   playSound(
                     'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
@@ -41,27 +42,21 @@
                     stroke-width="6"
                   />
                 </svg>
-
-                <p>Play</p></span
-              >
-            </h3>
-            <h3>noun</h3>
+              </span>
+            </h2>
+            <h2>noun</h2>
           </div>
-          <h3>
+          <h2>
             <ol>
               <li>
-                <h3>
-                  A moral or legal obligation; a responsibility.
-                </h3>
+                A moral or legal obligation; a responsibility.
               </li>
               <li>
-                <h3>
-                  A task or action that one is required to perform as part of
-                  one’s job.
-                </h3>
+                A task or action that one is required to perform as part of
+                one’s job.
               </li>
             </ol>
-          </h3>
+          </h2>
         </div>
       </div>
     </figure>

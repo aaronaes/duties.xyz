@@ -15,7 +15,10 @@
     "vue-awesome-swiper": "^4.1.0",
     "vue-lazyload": "^1.2.6",
     "vue-masonry": "^0.11.8",
-    "vue-router": "^3.0.1"
+    "vue-observe-visibility": "^0.4.6",
+    "vue-page-transition": "^0.2.2",
+    "vue-router": "^3.0.1",
+    "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
@@ -26,11 +29,12 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "foundation-sites": "^6.5.1",
-    "node-sass": "^4.13.1",
-    "sass-loader": "^7.1.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
     "script-loader": "^0.7.2",
     "scriptloader": "^1.1.2",
     "style-loader": "^0.23.1",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "vue-waypoint": "^3.4.1"
   }
 }

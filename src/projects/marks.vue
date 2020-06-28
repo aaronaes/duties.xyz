@@ -1,6 +1,6 @@
 <template>
-  <div class="content">
-    <div class="grid-x grid-margin-x">
+  <div class="content grid-container">
+    <div class="grid-x grid-margin-x grid-padding-x">
       <div class="cell large-8 medium-12 small-12 description">
         <h2>
           An ever changing selection of our favourite marks that we have created
@@ -16,50 +16,50 @@
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
-      <div class="grid-x grid-margin-x large-up-2 medium-up-2 small-up-1">
-        <div class="cell">
+      <div class="grid-x grid-margin-x grid-padding-x align-center">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-01.jpg"
             data-srcset="/images/work/marks/logo-01@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-02.jpg"
             data-srcset="/images/work/marks/logo-02@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-03.jpg"
             data-srcset="/images/work/marks/logo-03@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-04.jpg"
             data-srcset="/images/work/marks/logo-04@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-05.jpg"
             data-srcset="/images/work/marks/logo-05@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-06.jpg"
             data-srcset="/images/work/marks/logo-06@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-07.jpg"
             data-srcset="/images/work/marks/logo-07@2x.jpg 2x"
           />
         </div>
-        <div class="cell">
+        <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-08.jpg"
             data-srcset="/images/work/marks/logo-08@2x.jpg 2x"
@@ -75,7 +75,10 @@ export default {
   name: "logos-and-wordmarks",
   data() {
     return {
-      title: "Logos and wordmarks"
+      title: "Logos and wordmarks",
+      image: ["/images/work/marks/logo-01.jpg"],
+      coverSize: "square",
+      bg: "#f8f8f8"
     };
   },
   computed: {

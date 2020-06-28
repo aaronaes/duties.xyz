@@ -6,8 +6,8 @@ $(document).ready(function() {
     $(window).scrollTop(0);
   });
 
-  $(window).on("resize", function() {
-    $(".masonnry").masonry("reloadItems");
-  });
-  $(window).trigger("resize");
+  // $(window).on("resize", function() {
+  //   $(".masonnry").masonry("reloadItems");
+  // });
+  // $(window).trigger("resize");
 });

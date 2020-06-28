@@ -1,41 +1,66 @@
-// Vue transition
-
 // Page
-.page-enter-active,
-.page-leave-active {
-  transition: all 500ms ease-in-out;
+.global-enter-active,
+.global-leave-active {
+  transition: all 250ms linear;
+  opacity: 1;
 }
 
-.page-enter {
-  transform: translateX(1vw);
+.global-enter,
+.global-leave-to {
   opacity: 0;
 }
 
-.page-leave-to {
-  transform: translateX(-0.5vw);
+// Content
+.content-enter-active,
+.content-leave-active {
+  transition: all 250ms linear;
+  opacity: 1;
+}
+
+.content-enter,
+.content-leave-to {
   opacity: 0;
 }
 
-// Nav
-.fade-leave-active,
-.fade-enter-active {
-  transition: all 250ms ease-in-out;
-  transition-delay: 500ms;
+// Logo, top
+.fromTop-enter-active,
+.fromTop-leave-active {
+  transition: all 250ms linear;
+  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1;
 }
 
-.fade-enter,
-.fade-leave-to {
+.fromTop-enter,
+.fromTop-leave-to {
+  transform: translateX(-50%) translateY(-$xs) !important;
+  transition: all 0ms 0ms linear;
   opacity: 0;
 }
 
-// BottomNav
-.bottomNav-leave-active,
-.bottomNav-enter-active {
-  transition: all 500ms ease-in-out;
-  transition-delay: 250ms;
+// Nav, left
+.navLeft-enter-active,
+.navLeft-leave-active {
+  transition: all 250ms linear;
+  transform: translateY(-50%) translateX(0) !important;
+  opacity: 1;
 }
 
-.bottomNav-enter,
-.bottomNav-leave-to {
+.navLeft-enter,
+.navLeft-leave-to {
+  transform: translateY(-50%) translateX(-$sm) !important;
   opacity: 0;
+}
+
+// Nav, right
+.navRight-enter-active,
+.navRight-leave-active {
+  transition: all 250ms linear;
+  transform: translateY(-50%) translateX(0) !important;
+  opacity: 1;
+}
+
+.navRight-enter,
+.navRight-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX($sm) !important;
 }

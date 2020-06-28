@@ -2,18 +2,8 @@
 body {
   section {
     &.masthead {
-      min-height: 65vh;
-      display: flex;
-
-      figure {
-        padding-top: 45vh;
-        align-self: flex-start;
-        padding-bottom: 0;
-
-        h1 {
-          margin-bottom: $sm;
-        }
-      }
+      padding-top: $xl * 2;
+      padding-bottom: $lg;
     }
   }
 
@@ -21,14 +11,21 @@ body {
     section {
       &.masthead {
         figure {
-          padding-bottom: 0;
+          align-self: flex-end;
+
+          h1 {
+            margin-bottom: $sm;
+          }
+
           .dictionary {
             .meta {
               margin-bottom: $xs;
+
               * {
                 color: rgba($grey, $alpha: 0.5);
               }
 
+              h1,
               h2,
               h3 {
                 margin-bottom: 0;
@@ -36,14 +33,22 @@ body {
                 span {
                   cursor: pointer;
 
-                  svg {
-                    transform: translateY(8px);
-                    margin-left: $xs;
+                  &.icon {
+                    svg {
+                      transform: translateY(4px);
+                      margin-left: $xs;
+                      margin-right: $xs;
 
-                    path {
-                      fill: none !important;
+                      path {
+                        fill: none !important;
+                      }
                     }
                   }
+
+                  &.stretch {
+                    letter-spacing: 2px;
+                  }
+
                   p {
                     margin: 0;
                     display: inline;
