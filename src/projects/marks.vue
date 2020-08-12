@@ -1,28 +1,26 @@
 <template>
-  <div class="content grid-container">
-    <div class="grid-x grid-margin-x grid-padding-x">
-      <div class="cell large-8 medium-12 small-12 description">
-        <h2>
-          An ever changing selection of our favourite marks that we have created
-          for our clients, friends and personal projects over the years. We hope
-          to see yours here soon.
-        </h2>
-        <div class="grid-x meta large-8 medium-10 small-12">
-          <p class="cell large-6 medium-6 small-12 float-left tag">
-            <span>Range &searr;</span>
-            Work from 2009 - 2020
+  <div>
+    <div class="content grid-container">
+      <div class="grid-x description">
+        <div class="cell">
+          <h2>
+            An ever changing selection of our favourite marks that we have
+            created for our clients, friends and personal projects over the
+            years. We hope to see yours here soon.
+          </h2>
+        </div>
+      </div>
+      <div class="grid-x meta">
+        <div class="cell large-4 medium-4 small-12">
+          <p class="title">Range</p>
+          <p class="float-left">
+            <span>Work from 2009 - 2020</span>
           </p>
         </div>
       </div>
     </div>
     <div class="img-container" v-lazy-container="{ selector: 'img' }">
       <div class="grid-x grid-margin-x grid-padding-x align-center">
-        <div class="cell large-8">
-          <img
-            data-src="/images/work/marks/logo-01.jpg"
-            data-srcset="/images/work/marks/logo-01@2x.jpg 2x"
-          />
-        </div>
         <div class="cell large-8">
           <img
             data-src="/images/work/marks/logo-02.jpg"
@@ -76,7 +74,7 @@ export default {
   data() {
     return {
       title: "Logos and wordmarks",
-      image: ["/images/work/marks/logo-01.jpg"],
+      image: ["/images/work/marks/logo.gif"],
       coverSize: "square",
       bg: "#f8f8f8"
     };

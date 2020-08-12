@@ -4,12 +4,25 @@ body {
     &.masthead {
       padding-top: $xl * 2;
       padding-bottom: $lg;
+
+      @include respond-to("sm") {
+        padding-top: $xl;
+        padding-bottom: $md;
+      }
     }
   }
 
   &.about {
     section {
       &.masthead {
+        padding-top: $xl * 2;
+        padding-bottom: $lg;
+
+        @include respond-to("sm") {
+          padding-top: $xl;
+          padding-bottom: $md;
+        }
+
         figure {
           align-self: flex-end;
 

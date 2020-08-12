@@ -1,13 +1,6 @@
-.carousel-title {
-  padding-top: $md;
-  h3 {
-    margin-bottom: $sm;
-  }
-}
-
 .swiper-container {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: $md;
+  margin-bottom: $md;
   overflow-x: visible;
   width: 100vw;
 
@@ -33,7 +26,11 @@
         margin: auto;
         img,
         video {
-          padding-bottom: $xs / 2;
+          padding-bottom: $sm;
+        }
+
+        p {
+          padding: 0 $sm;
         }
       }
     }

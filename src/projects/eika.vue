@@ -1,7 +1,7 @@
 <template>
-  <div class="content">
-    <div class="grid-x">
-      <div class="cell large-8 medium-12 small-12 description">
+  <div class="content grid-container">
+    <div class="grid-x description">
+      <div class="cell">
         <h2>
           Eika Gruppen is a strategic alliance between 77 local Norwegian
           savings banks that provide various products and services within the
@@ -15,8 +15,8 @@
           allowing its banks to easily produce tailored layouts and relevant
           content for their respective customer bases.
         </h2>
-        <h2 class="this">
-          <a href="https://eika.no/" target="_blankn">Visit site</a>
+        <h2 class="cell this">
+          <a href="https://eika.no/" target="_blank">Visit site</a>
         </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 shrink">
@@ -28,6 +28,7 @@
         </p>
       </div>
     </div>
+
     <div class="grid-xw img-container" v-lazy-container="{ selector: 'img' }">
       <img
         data-src="/images/work/eika/eika-01.jpg"

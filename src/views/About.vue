@@ -22,7 +22,7 @@
 
     <section class="grid-container people">
       <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-4 medium-6 small-12 person">
+        <div class="cell large-4 medium-6 small-6 person">
           <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
             <img
               data-src="/images/about/Paul.jpg"
@@ -38,7 +38,7 @@
           </p>
         </div>
 
-        <div class="cell large-4 medium-6 small-12 person">
+        <div class="cell large-4 medium-6 small-6 person">
           <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
             <img
               data-src="/images/about/Erling.jpg"

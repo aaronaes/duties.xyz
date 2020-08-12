@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="content grid-container" id="projectTop">
+    <div class="content grid-container">
       <div class="grid-x description">
         <div class="cell">
           <h2>
-            Godtlevert is a meal-kit company based in Norway. As a new service
-            and player in the market, Godtlevert wanted to become a national
-            household name and gain further traction in this emerging segment.
+            As a new service and player in the market, Godtlevert wanted to
+            become a national household name and gain further traction in this
+            emerging segment.
           </h2>
           <h2>
             Our solution was to take an holistic approach to their product by
@@ -14,29 +14,67 @@
             app was revamped with a new UI alongside an updated website design.
           </h2>
           <h2 class="this">
-            <a href="https://godtlevert.no/" target="_blankn">Visit site</a>
+            <a href="https://godtlevert.no/" target="_blank">Visit site</a>
           </h2>
         </div>
       </div>
 
       <div class="grid-x meta">
         <div class="cell">
-          <p>Service</p>
+          <p class="title">Service</p>
         </div>
         <div class="cell">
-          <h3 class="float-left">
+          <p class="float-left">
             Art direction
-          </h3>
-          <h3 class="float-left">
+          </p>
+          <p class="float-left">
             User Experience
-          </h3>
-          <h3 class="float-left">Design</h3>
+          </p>
+          <p class="float-left">Design</p>
         </div>
       </div>
     </div>
     <div class="content grid-container fluid">
+      <div class="grid-x">
+        <swiper
+          ref="mySwiper"
+          :options="swiperOptions"
+          :auto-update="true"
+          :auto-destroy="true"
+          @slideChange="changeSwiperIndex"
+        >
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-01.jpg" />
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-02.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-03.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-04.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-05.jpg" />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+    <div class="content grid-container fluid">
       <div
-        class="grid-x grid-margin-x img-container align-center"
+        class="grid-x img-container align-center"
         v-lazy-container="{ selector: 'img' }"
       >
         <div class="cell">
@@ -99,10 +137,46 @@ export default {
   data() {
     return {
       title: "Godt Levert",
-      image: "/images/work/gl/godtlevert-01.jpg",
+      subtitle: "An Oslo-based meal-kit company",
+      image: "/images/work/gl/godtlevert-cover.gif",
       coverSize: "landscape",
-      bg: "#eeedeb"
+      bg: "#eeedeb",
+      swiperOptions: {
+        slidesPerView: 1.75,
+        centeredSlides: true,
+        spaceBetween: 40,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+        loop: false,
+        grabCursor: true,
+        speed: 600,
+        breakpoints: {
+          768: {
+            slidesPerView: 2.75
+          },
+          1366: {
+            centeredSlides: false,
+            slidesPerView: 4.125,
+            spaceBetween: 160,
+            slidesOffsetBefore: 240,
+            slidesOffsetAfter: 240
+          }
+        }
+      }
     };
+  },
+  method: {
+    changeSwiperIndex() {
+      this.$refs.mySwiper.$swiper.activeIndex;
+    }
+  },
+  computed: {
+    pageName() {
+      return this.$route.name;
+    },
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
+    }
   }
 };
 </script>

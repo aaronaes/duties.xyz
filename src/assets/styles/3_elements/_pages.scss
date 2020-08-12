@@ -1,14 +1,10 @@
 // Foundation code
 .row,
 .grid-container {
-  width: 100%;
+  width: 100vw;
   max-width: 1680px;
   padding-right: $sm * 1.25;
   padding-left: $sm * 1.25;
-
-  // @include respond-to("xl") {
-  //   max-width: 80vw;
-  // }
 
   @include respond-to("sm") {
     padding-left: $sm;

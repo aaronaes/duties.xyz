@@ -1,235 +1,279 @@
 section {
   &.projectList {
+    padding-top: 0;
     background-color: initial;
-    transition: background-color 0ms $easing;
+    transition: 250ms $easing 250ms;
 
     // Project Item
     figure {
       .details {
-        width: 100%;
         height: 100%;
         display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
         flex-flow: row wrap;
-        justify-content: center;
-        padding-top: $lg * 1.5;
-        padding-bottom: 0;
+        padding-top: $lg;
         background-color: initial;
         visibility: visible;
         opacity: 1;
-        transition: visibility 0s $easing, opacity 250ms $easing,
-          transform 250ms $easing, background-color 250ms $easing;
-
-        @include respond-to("md") {
-          padding-top: $md;
-          padding-bottom: $md;
-        }
-
-        h1,
-        h2,
-        h3,
-        p {
-          &.closeBtn {
-            position: fixed;
-            cursor: pointer;
-            transform: translateX(-$sm);
-            left: 3.75rem;
-            top: $lg;
-            z-index: 9999;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            opacity: 0;
-            transition: all 500ms $easing;
-
-            @include respond-to("md") {
-              font-size: 30px;
-            }
-          }
-        }
+        transition: visibility 0s $easing, opacity 250ms $easing;
 
         @include respond-to("sm") {
           padding-top: $sm;
-          padding-bottom: $sm;
         }
 
-        .summary {
-          align-self: center;
-          position: relative;
-
-          .imgBox {
+        .inner {
+          .closeBtn {
+            position: sticky;
+            top: -$md;
+            left: 50%;
+            transform: translateX(-50%) translateY(-$lg);
+            max-width: 100px;
             display: block;
-            transition: all 250ms $easing;
+            z-index: 999;
+            background-color: $black;
+            border-radius: 40px;
+            padding: 6px 18px;
+            opacity: 0;
+            transition-delay: 250ms;
+            transition: 250ms all $easing;
 
-            img {
+            @include respond-to("sm") {
+              top: 0;
+              transform: translateX(-50%) translateY(-$sm);
+            }
+
+            p {
               cursor: pointer;
-              display: block;
-              width: auto;
-              max-height: 80vh;
+              font-size: 15px;
+              margin: 0;
+              text-transform: uppercase;
+              text-align: center;
+              color: $white;
+            }
+          }
 
-              // @include respond-to("xl") {
-              //   max-height: none;
-              // }
+          .summary {
+            position: relative;
+            padding-top: $md;
 
-              @include respond-to("sm") {
-                max-height: 100%;
-              }
+            @include respond-to("sm") {
+              padding-top: $sm;
+            }
+
+            .imgBox {
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              transition: 250ms all $easing;
 
               &.landscape {
-                max-width: 80vw;
+                width: 70vw;
+
+                @include respond-to("sm") {
+                  width: 90vw;
+                }
               }
 
               &.square {
-                max-width: 60vw;
-              }
-
-              &.portrait {
-                max-width: 40vw;
-              }
-
-              &.landscape,
-              &.square,
-              &.portrait {
+                width: 50vw;
                 @include respond-to("sm") {
-                  max-width: 100%;
+                  width: 60vw;
+                }
+              }
+
+              &.portrait {
+                width: 30vw;
+
+                @include respond-to("sm") {
+                  width: 60vw;
+                }
+              }
+
+              img {
+                cursor: pointer;
+                display: block;
+                transition: 250ms $easing;
+
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+
+                @include respond-to("sm") {
+                  height: 100%;
                 }
               }
             }
 
-            h1 {
-              cursor: pointer;
-              text-align: center;
-              position: absolute;
-              transform: translate(-50%, -50%);
-              font-size: 90px;
-              width: 100%;
-              top: 50%;
-              left: 50%;
-              margin: 0;
-              opacity: 0;
-              color: $white;
-              transition: all 250ms $easing;
-            }
-          }
-        }
+            .project-title {
+              padding-top: $xs;
+              h1 {
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
+                margin: 0;
+                padding-top: $xs;
+                opacity: 0;
 
-        .content {
-          padding-top: $md;
-          margin-bottom: 0;
-
-          @include respond-to("sm") {
-            padding-top: $xs;
-            padding-bottom: $xs;
-          }
-
-          .description {
-            margin-bottom: $md;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 780px;
-            width: 100%;
-
-            @include respond-to("sm") {
-              max-width: 100%;
-            }
-
-            @include respond-to("sm") {
-              margin-bottom: $xs;
-            }
-
-            h2 {
-              &.this {
-                position: relative;
-
-                // SVG Graphic
-                &:before {
-                  content: "";
-                  background: transparent url(/images/assets/this.svg) no-repeat;
-                  background-size: contain;
-                  position: absolute;
-                  left: 0;
-                  right: 0;
-                  z-index: -1;
-                  width: 124px;
-                  transform: translate(0, 36px);
-                  height: 16px;
-                  transition: all 250ms $easing;
+                @include respond-to("sm") {
                   opacity: 1;
                 }
-                a {
-                  &:hover {
+              }
+
+              p {
+                cursor: pointer;
+                margin: 0;
+                opacity: 0;
+                z-index: 0;
+
+                @include respond-to("sm") {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          .content {
+            padding-top: $md;
+
+            @include respond-to("sm") {
+              padding-top: $xs;
+            }
+
+            h1,
+            h2 {
+              &.title {
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
+                margin-bottom: 0;
+              }
+              &.subtitle {
+                opacity: 0.6;
+              }
+            }
+            .projectTitle {
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 780px;
+              width: 100%;
+            }
+
+            .description {
+              margin-bottom: $md;
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 780px;
+              width: 100%;
+
+              @include respond-to("sm") {
+                max-width: 100%;
+              }
+
+              @include respond-to("sm") {
+                margin-bottom: $xs;
+              }
+
+              h2 {
+                &.this {
+                  position: relative;
+                  padding-top: $sm;
+
+                  // SVG Graphic
+                  &:before {
+                    content: "";
+                    background: transparent url(/images/assets/this.svg)
+                      no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    width: 124px;
+                    transform: translate(0, 36px);
+                    height: 16px;
                     transition: all 250ms $easing;
+                    opacity: 1;
+                  }
+                  a {
+                    &:hover {
+                      transition: all 250ms $easing;
+                    }
+                  }
+                }
+              }
+
+              a {
+                border-bottom: 0px solid transparent;
+              }
+            }
+
+            .meta {
+              margin-bottom: $sm;
+              max-width: 780px;
+              width: 100%;
+              margin-left: auto;
+              margin-right: auto;
+
+              div {
+                p {
+                  &.title {
+                    margin-bottom: 0;
+                    opacity: 0.5;
+                  }
+                }
+
+                h3,
+                p {
+                  padding-right: $sm;
+                  margin-bottom: 0px;
+
+                  span {
+                    display: block;
                   }
                 }
               }
             }
 
-            a {
-              border-bottom: 0px solid transparent;
-            }
-          }
+            .img-container {
+              &:last-of-type {
+                margin-bottom: 0;
+              }
 
-          .meta {
-            margin-bottom: $sm;
-            max-width: 780px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
+              .text {
+                padding-top: $lg;
+                padding-bottom: $lg;
 
-            div {
-              p {
-                &.title {
-                  margin-bottom: $xs;
-                  opacity: 0.5;
+                @include respond-to("sm") {
+                  padding-top: $sm;
+                  padding-bottom: $sm;
                 }
               }
 
-              h3,
-              p {
-                padding-right: $sm;
-                margin-bottom: 0px;
-
-                span {
-                  display: block;
-                }
-              }
-            }
-          }
-
-          .img-container {
-            &:last-of-type {
-              margin-bottom: 0;
-            }
-
-            .text {
-              padding-top: $xl;
-              padding-bottom: $xl;
-            }
-
-            img {
-              padding-bottom: $sm;
-
-              @include respond-to("sm") {
+              img {
                 padding-bottom: $sm;
-              }
-            }
 
-            img[lazy="loaded"] {
-              opacity: 0;
-              animation: opacity, transform;
-              animation-name: fade-in;
-              animation-duration: 250ms;
-              animation-iteration-count: 1;
-              animation-fill-mode: forwards;
-              animation-direction: normal;
-              animation-timing-function: $easing;
-
-              @keyframes fade-in {
-                0% {
-                  opacity: 0;
-                  transform: translateY($sm);
+                @include respond-to("sm") {
+                  padding-bottom: $xs;
                 }
-                100% {
-                  opacity: 1;
-                  transform: translateY(0px);
+              }
+
+              img[lazy="loaded"] {
+                opacity: 0;
+                animation: opacity, transform;
+                animation-name: fade-in;
+                animation-duration: 250ms;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+                animation-direction: normal;
+                animation-timing-function: $easing;
+
+                @keyframes fade-in {
+                  0% {
+                    opacity: 0;
+                  }
+                  100% {
+                    opacity: 1;
+                  }
                 }
               }
             }
@@ -239,7 +283,13 @@ section {
         .similarList {
           height: 100vh;
           width: 100vw;
+          z-index: 9999;
           transition: background-color 250ms $easing, color 250ms $easing;
+
+          @include respond-to("sm") {
+            max-width: 60vw;
+            padding-top: $lg;
+          }
 
           ul {
             li {
@@ -272,44 +322,15 @@ section {
           width: 100%;
           display: flex;
           overflow-y: scroll;
+          padding-bottom: 0;
           top: 0;
           left: 0;
           right: 0;
+          bottom: 0;
           z-index: 9998;
           visibility: visible !important;
           opacity: 1 !important;
           transition: visibility 0s $easing, opacity 250ms $easing;
-
-          .summary {
-            height: 100vh;
-            position: relative;
-
-            .imgBox {
-              position: relative;
-              top: $xl;
-              // transform: translateY(-50%);
-
-              img {
-                cursor: initial;
-              }
-            }
-
-            h1 {
-              text-align: center;
-              &.title {
-                padding-top: $md;
-              }
-            }
-          }
-        }
-
-        &:not(.loaded) {
-          flex-grow: 1;
-          overflow: auto;
-          visibility: visible;
-          opacity: 1;
-          transform: translateY(0);
-          transition: visibility 0s $easing, opacity 0ms $easing;
         }
       }
     }
@@ -317,40 +338,43 @@ section {
 }
 
 body.active {
-  position: fixed;
-  overflow: hidden;
-
   section {
     &.projectList {
-      position: fixed;
-      top: 0;
-      margin: 0;
-      bottom: 0;
-      width: 100vw;
-      z-index: 999;
       background-color: $white;
-      transition: background-color 250ms $easing;
 
-      h1,
-      h2,
-      p {
-        &.closeBtn {
-          opacity: 1;
-          transform: translateX(0);
+      .details {
+        .inner {
+          .closeBtn {
+            transform: translateX(-50%) translateY(-$md);
+            position: sticky;
+            opacity: 1;
+
+            @include respond-to("sm") {
+              transform: translateX(-50%) translateY(0);
+            }
+          }
+
+          .summary {
+            padding-top: $md;
+
+            @include respond-to("sm") {
+              padding-top: $sm;
+            }
+
+            .imgBox {
+              @include respond-to("sm") {
+                width: 100%;
+              }
+            }
+          }
         }
       }
 
       figure {
         .details {
-          padding-top: 0px;
-
           &:not(.loaded) {
-            flex-grow: 1;
-            overflow: auto;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            transition: visibility 0s 1500ms $easing,
-              opacity 250ms 1500ms $easing;
+            overflow-y: auto;
+            opacity: 0;
           }
         }
       }

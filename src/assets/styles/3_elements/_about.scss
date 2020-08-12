@@ -32,15 +32,25 @@ body.about {
   }
   main {
     section {
+      padding-top: $xl;
+      padding-bottom: $xl;
+
+      @include respond-to("md") {
+        padding-top: $lg;
+        padding-bottom: $lg;
+      }
+
+      @include respond-to("sm") {
+        padding-top: $md;
+        padding-bottom: $md;
+      }
+
+      // &.masthead {
+      //   padding-top: $xl;
+      //   padding-bottom: $xl;
+      // }
+
       &.intro {
-        padding-top: $xl;
-        padding-bottom: $xl;
-
-        @include respond-to("md") {
-          padding-top: $lg;
-          padding-bottom: $lg;
-        }
-
         figure {
           h2,
           h3 {
@@ -54,18 +64,8 @@ body.about {
       }
 
       &.people {
-        padding-top: $xl;
-        padding-bottom: $xl;
-
-        @include respond-to("md") {
-          padding-top: $lg;
-          padding-bottom: $lg;
-        }
-
         figure {
           .person {
-            margin-bottom: $md;
-
             p {
               margin-bottom: 0;
               padding-bottom: 0;
@@ -82,14 +82,6 @@ body.about {
       }
 
       &.clients {
-        padding-top: $xl;
-        padding-bottom: $xl * 3;
-
-        @include respond-to("md") {
-          padding-top: $lg;
-          padding-bottom: $lg * 2;
-        }
-
         .footer {
           h2 {
             margin-right: $sm;

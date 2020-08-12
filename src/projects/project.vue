@@ -16,7 +16,7 @@
           content for their respective customer bases.
         </h2>
         <h2 class="this">
-          <a href="https://eika.no/" target="_blankn">Visit site</a>
+          <a href="https://eika.no/" target="_blank">Visit site</a>
         </h2>
       </div>
       <div class="grid-x meta large-8 medium-10 shrink">

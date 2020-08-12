@@ -16,7 +16,7 @@ body {
       display: block;
       z-index: 9999;
       border-bottom: transparent;
-      transition: transform 250ms $easing, opacity 250ms $easing;
+      transition: transform 250ms $easing, opacity 250ms $easing 250ms;
 
       @include respond-to("md") {
         position: relative;
@@ -41,7 +41,6 @@ body {
           width: 240px;
           transform: translate(-24px, 0px);
           height: 108px;
-          transition: all 150ms cubic-bezier(0.4, 0, 0, 1);
           opacity: 0;
 
           @include respond-to("lg") {
@@ -51,9 +50,9 @@ body {
           }
 
           @include respond-to("md") {
-            width: 140px;
-            transform: translate(-12px, 0px);
-            height: 42px;
+            width: 130px;
+            transform: translate(-15px, 0px);
+            height: 40px;
           }
         }
       }
@@ -77,7 +76,6 @@ body {
           width: 240px;
           transform: translate(-24px, 0px);
           height: 108px;
-          transition: all 150ms cubic-bezier(0.4, 0, 0, 1);
           opacity: 0;
 
           @include respond-to("lg") {
@@ -87,9 +85,9 @@ body {
           }
 
           @include respond-to("md") {
-            width: 180px;
-            transform: translate(-12px, 0px);
-            height: 42px;
+            width: 130px;
+            transform: translate(-10px, 0px);
+            height: 40px;
           }
         }
       }
@@ -135,13 +133,22 @@ body {
       }
       a {
         opacity: 0;
+        visibility: hidden;
 
         &.left {
           transform: translateY(-50%) translateX(-$md);
+
+          @include respond-to("sm") {
+            transform: none;
+          }
         }
 
         &.right {
           transform: translateY(-50%) translateX($md);
+
+          @include respond-to("sm") {
+            transform: none;
+          }
         }
       }
     }
