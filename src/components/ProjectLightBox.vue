@@ -3,9 +3,9 @@
     <div class="content grid-container">
       <div class="grid-x description">
         <div class="cell">
-          <div v-html="project.description"></div>
+          <h2>{{ project.description }}</h2>
           <h2 class="this">
-            <a href="https://godtlevert.no/" target="_blank">Visit site</a>
+            <a :href="project.siteLink" target="_blank">Visit site</a>
           </h2>
         </div>
       </div>
