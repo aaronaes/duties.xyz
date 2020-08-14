@@ -15,13 +15,13 @@
           <p class="title">Service</p>
         </div>
         <div class="cell">
-          <p class="float-left">
-            Art direction
+          <p
+            v-for="(category, i) in project.categories"
+            :key="i"
+            class="float-left"
+          >
+            {{ category.categoryType }}
           </p>
-          <p class="float-left">
-            User Experience
-          </p>
-          <p class="float-left">Design</p>
         </div>
       </div>
     </div>
@@ -46,7 +46,6 @@
             >
               <div class="swiper-slide-container">
                 <img :src="asset.url" />
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
               </div>
             </swiper-slide>
           </swiper>
@@ -57,6 +56,7 @@
           >
             <img :data-src="block.image.url" :data-srcset="block.image.url" />
           </div>
+
           <div
             style="display: flex;"
             v-if="block._modelApiKey === 'double_image'"
