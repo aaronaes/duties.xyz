@@ -15,7 +15,7 @@ const getData = operation => {
   return makePromise(execute(graphLink, operation))
     .then(response => response)
     .catch(err => {
-      console.log(err);
+      throw new Error(err);
     });
 };
 
