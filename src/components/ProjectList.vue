@@ -23,10 +23,16 @@
             <p @click="() => toggle(project.id)">Close</p>
           </div>
           <div class="summary grid-container">
-            <div class="imgBox" :class="project.coverSize">
+            <a
+              target="_blank"
+              style="display: block"
+              :href="project.siteLink"
+              @click="e => handleProjectClick(e, project)"
+              class="imgBox"
+              :class="project.coverSize"
+            >
               <img
                 class="cover"
-                @click="() => toggle(project.id)"
                 :src="project.projectThumbnail.url"
                 v-show="project.projectThumbnail.url != ''"
                 v-if="!active"
@@ -38,7 +44,7 @@
                 :class="project.coverSize"
                 v-if="active"
               />
-            </div>
+            </a>
             <div class="project-title show-for-small-only">
               <h1>{{ project.title }}</h1>
               <p>{{ project.subtitle }}</p>
@@ -69,7 +75,11 @@
                 :class="{ isOpen: project.id === active }"
                 :id="project.id"
               >
-                <h1 class="jump" @click="toggle(project.id)">
+                <h1
+                  v-if="project.readMore"
+                  class="jump"
+                  @click="toggle(project.id)"
+                >
                   {{ project.title }}
                 </h1>
               </li>
@@ -112,6 +122,12 @@ export default {
           this.active = id;
           document.body.classList.add("active");
         }, 1000);
+      }
+    },
+    handleProjectClick(e, project) {
+      if (project.readMore) {
+        e.preventDefault();
+        this.toggle(project.id);
       }
     },
     scrollTo(el) {
