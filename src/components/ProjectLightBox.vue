@@ -1,84 +1,130 @@
 <template>
-  <div class="content">
-    <div class="grid-x">
-      <div class="cell large-8 medium-12 small-12 description">
-        <h2>
-          Eika Gruppen is a strategic alliance between 77 local Norwegian
-          savings banks that provide various products and services within the
-          financial sector. With more banks joining the group, Eika required
-          content and visual consistency to be easily implemented and maintained
-          across the various individual websites and apps owned by its members.
-        </h2>
-        <h2>
-          To achieve this we helped design and build a flexible design system
-          utilising a simple grid structure and a suite of UI elements, thereby
-          allowing its banks to easily produce tailored layouts and relevant
-          content for their respective customer bases.
-        </h2>
-        <h2 class="this">
-          <a href="https://eika.no/" target="_blank">Visit site</a>
-        </h2>
+  <div>
+    <div class="content grid-container">
+      <div class="grid-x description">
+        <div class="cell">
+          <div v-html="project.description"></div>
+          <h2 class="this">
+            <a href="https://godtlevert.no/" target="_blank">Visit site</a>
+          </h2>
+        </div>
       </div>
-      <div class="grid-x meta large-8 medium-10 shrink">
-        <p class="cell large-3 medium-3 shrink float-left status">
-          <span>Completed, 2015</span>
-        </p>
-        <p class="cell large-6 medium-6 shrink float-left category">
-          <span>Design System, UX & UI Design</span>
-        </p>
+
+      <div class="grid-x meta">
+        <div class="cell">
+          <p class="title">Service</p>
+        </div>
+        <div class="cell">
+          <p class="float-left">
+            Art direction
+          </p>
+          <p class="float-left">
+            User Experience
+          </p>
+          <p class="float-left">Design</p>
+        </div>
       </div>
     </div>
-    <div class="grid-xw img-container" v-lazy-container="{ selector: 'img' }">
-      <img
-        data-src="/images/work/eika/eika-01.jpg"
-        data-srcset="/images/work/eika/eika-01@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-02.jpg"
-        data-srcset="/images/work/eika/eika-02@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-03.jpg"
-        data-srcset="/images/work/eika/eika-03@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-04.jpg"
-        data-srcset="/images/work/eika/eika-04@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-05.jpg"
-        data-srcset="/images/work/eika/eika-05@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-06.jpg"
-        data-srcset="/images/work/eika/eika-06@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-07.jpg"
-        data-srcset="/images/work/eika/eika-07@2x.jpg 2x"
-      />
-      <img
-        data-src="/images/work/eika/eika-09.jpg"
-        data-srcset="/images/work/eika/eika-09@2x.jpg 2x"
-      />
+    <div class="content grid-container fluid">
+      <div class="grid-x">
+        <swiper
+          ref="mySwiper"
+          :options="swiperOptions"
+          :auto-update="true"
+          :auto-destroy="true"
+          @slideChange="changeSwiperIndex"
+        >
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-01.jpg" />
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-02.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-03.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-04.jpg" />
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="swiper-slide-container">
+              <img src="/images/work/gl/slide/godtlevert-slide-05.jpg" />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+    <div class="content grid-container fluid">
+      <div
+        class="grid-x img-container align-center"
+        v-lazy-container="{ selector: 'img' }"
+      >
+        <div v-for="block in project.blocks" :key="block.id">
+          <div
+            v-if="block._modelApiKey === 'single_image'"
+            class="cell large-6 medium-8 small-12"
+          >
+            <img :data-src="block.image.url" :data-srcset="block.image.url" />
+          </div>
+          <div v-if="block._modelApiKey === 'double_image'" class="cell">
+            Put double in here
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "eika-gruppen",
+  name: "gl",
+  props: ["project"],
   data() {
     return {
-      title: "Eika Gruppen",
-      image: "/images/work/eika/eika-01.jpg",
-      coverSize: "landscape",
-      bg: "#bdd4d5"
+      swiperOptions: {
+        slidesPerView: 1.75,
+        centeredSlides: true,
+        spaceBetween: 40,
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+        loop: false,
+        grabCursor: true,
+        speed: 600,
+        breakpoints: {
+          768: {
+            slidesPerView: 2.75
+          },
+          1366: {
+            centeredSlides: false,
+            slidesPerView: 4.125,
+            spaceBetween: 160,
+            slidesOffsetBefore: 240,
+            slidesOffsetAfter: 240
+          }
+        }
+      }
     };
+  },
+  method: {
+    changeSwiperIndex() {
+      this.$refs.mySwiper.$swiper.activeIndex;
+    }
   },
   computed: {
     pageName() {
       return this.$route.name;
+    },
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
     }
   }
 };

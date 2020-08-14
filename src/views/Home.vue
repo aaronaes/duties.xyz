@@ -113,6 +113,42 @@ export default {
               id
               title
               subtitle
+              siteLink
+              slug
+              readMore
+              client {
+                name
+              }
+              blocks {
+                ... on SingleImageRecord {
+                  id
+                  _modelApiKey
+                  description
+                  full
+                  image {
+                    url
+                  }
+                }
+                ... on QuoteRecord {
+                  id
+                  _modelApiKey
+                  centered
+                  left
+                  right
+                  text
+                }
+                ... on DoubleImageRecord {
+                  id
+                  _modelApiKey
+                  imageAsset {
+                    url
+                  }
+                }
+                ... on ImageCarouselRecord {
+                  id
+                  _modelApiKey
+                }
+              }
               description
               coverSize
               projectThumbnail {

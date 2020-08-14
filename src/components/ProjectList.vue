@@ -13,7 +13,7 @@
         :style="[
           project.id === active
             ? {
-                'background-color': project.backgroundColor
+                'background-color': project.backgroundColor || 'white'
               }
             : { 'background-color': 'initial' }
         ]"
@@ -46,7 +46,7 @@
           </div>
           <transition name="content" mode="out-in">
             <div class="grid-x align-center align-middle content" v-if="active">
-              <ProjectLightBox />
+              <ProjectLightBox :project="project" />
             </div>
           </transition>
         </div>
@@ -56,7 +56,7 @@
             :style="[
               project.id === active
                 ? {
-                    'background-color': project.backgroundColor
+                    'background-color': project.backgroundColor || 'white'
                   }
                 : { 'background-color': 'initial' }
             ]"
