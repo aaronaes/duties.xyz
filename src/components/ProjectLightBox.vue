@@ -26,53 +26,56 @@
       </div>
     </div>
 
-    <div class="content grid-container fluid">
-      <div
-        class="grid-x img-container align-center"
+    <div v-for="block in project.blocks" :key="block.id">
+      <swiper
+        class="content grid-container fluid"
+        v-if="block._modelApiKey === 'image_carousel'"
+        ref="mySwiper"
+        :options="swiperOptions"
+        :auto-update="true"
+        :auto-destroy="true"
+        @slideChange="changeSwiperIndex"
         v-lazy-container="{ selector: 'img' }"
       >
-        <div v-for="block in project.blocks" :key="block.id">
-          <swiper
-            v-if="block._modelApiKey === 'image_carousel'"
-            ref="mySwiper"
-            :options="swiperOptions"
-            :auto-update="true"
-            :auto-destroy="true"
-            @slideChange="changeSwiperIndex"
-          >
-            <swiper-slide
-              v-for="asset in block.imageCarouselAsset"
-              :key="asset.id"
-            >
-              <div class="swiper-slide-container">
-                <img :src="asset.url" />
-              </div>
-            </swiper-slide>
-          </swiper>
-
-          <div
-            v-if="block._modelApiKey === 'single_image'"
-            class="cell large-6 medium-8 small-12"
-          >
-            <img :data-src="block.image.url" :data-srcset="block.image.url" />
+        <swiper-slide v-for="asset in block.imageCarouselAsset" :key="asset.id">
+          <div class="swiper-slide-container">
+            <img :src="asset.url" />
           </div>
+        </swiper-slide>
+      </swiper>
 
-          <div
-            style="display: flex;"
-            v-if="block._modelApiKey === 'double_image'"
-            class="cell"
-          >
-            <img
-              style="width: 50%"
-              :data-src="block.firstImage.url"
-              :data-srcset="block.firstImage.url"
-            />
-            <img
-              style="width: 50%"
-              :data-src="block.lastImage.url"
-              :data-srcset="block.lastImage.url"
-            />
-          </div>
+      <div
+        class="content grid-container"
+        v-if="block._modelApiKey === 'single_image'"
+        :class="block.full ? 'fluid' : ''"
+      >
+        <div
+          class="grid-x img-container align-center"
+          v-lazy-container="{ selector: 'img' }"
+        >
+          <img :data-src="block.image.url" :data-srcset="block.image.url" />
+        </div>
+      </div>
+
+      <div
+        style="display: flex;"
+        v-if="block._modelApiKey === 'double_image'"
+        class="content grid-container"
+      >
+        <div
+          class="grid-x img-container align-center"
+          v-lazy-container="{ selector: 'img' }"
+        >
+          <img
+            style="width: 50%"
+            :data-src="block.firstImage.url"
+            :data-srcset="block.firstImage.url"
+          />
+          <img
+            style="width: 50%"
+            :data-src="block.lastImage.url"
+            :data-srcset="block.lastImage.url"
+          />
         </div>
       </div>
     </div>
