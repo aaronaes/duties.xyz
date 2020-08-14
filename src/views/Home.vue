@@ -15,21 +15,9 @@
       </figure>
       <figure class="grid-x grid-padding-x align-center client-grid">
         <div class="cell large-7 medium-10 small-12">
-          <h2 class="float-left">Godtlevert</h2>
-          <h2 class="float-left">Orkla</h2>
-          <h2 class="float-left">Nutrilett</h2>
-          <h2 class="float-left">Eika Gruppen</h2>
-          <h2 class="float-left">Brygg Magasin</h2>
-          <h2 class="float-left">Humid</h2>
-          <h2 class="float-left">WDV</h2>
-          <h2 class="float-left">Aftenposten</h2>
-          <h2 class="float-left">Schibsted Digital</h2>
-          <h2 class="float-left">Holzweiler Store</h2>
-          <h2 class="float-left">Kjentfolk</h2>
-          <h2 class="float-left">Bielke &amp; Yang</h2>
-          <h2 class="float-left">Mathias Fossum</h2>
-          <h2 class="float-left">Amedia</h2>
-          <h2 class="float-left">Berg-Hansen</h2>
+          <h2 v-for="project in projects" :key="project.id" class="float-left">
+            {{ project.title }}
+          </h2>
         </div>
       </figure>
       <figure class="grid-x grid-padding-x align-center">
@@ -116,6 +104,9 @@ export default {
               siteLink
               slug
               readMore
+              categories {
+                categoryType
+              }
               client {
                 name
               }
