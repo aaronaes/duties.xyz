@@ -4,49 +4,49 @@
       <div
         v-for="(project, i) in projects"
         :key="i"
-        :id="project.name"
+        :id="`project-${project.id}`"
         class="details"
-        :open="active === project.name"
+        :open="active === project.id"
         :class="{
-          loaded: project.name === active
+          loaded: project.id === active
         }"
         :style="[
-          project.name === active
+          project.id === active
             ? {
-                'background-color': project.data().bg
+                'background-color': project.backgroundColor
               }
             : { 'background-color': 'initial' }
         ]"
       >
         <div class="inner">
           <div class="closeBtn">
-            <p @click="() => toggle(project.name)">Close</p>
+            <p @click="() => toggle(project.id)">Close</p>
           </div>
           <div class="summary grid-container">
-            <div class="imgBox" :class="project.data().coverSize">
+            <div class="imgBox" :class="project.coverSize">
               <img
                 class="cover"
-                @click="() => toggle(project.name)"
-                :src="project.data().image"
-                v-show="project.data().image != ''"
+                @click="() => toggle(project.id)"
+                :src="project.projectThumbnail.url"
+                v-show="project.projectThumbnail.url != ''"
                 v-if="!active"
               />
               <img
                 class="cover"
-                :src="project.data().image"
-                v-show="project.data().image != ''"
-                :class="project.data().coverSize"
+                :src="project.projectThumbnail.url"
+                v-show="project.projectThumbnail.url != ''"
+                :class="project.coverSize"
                 v-if="active"
               />
             </div>
             <div class="project-title show-for-small-only">
-              <h1>{{ project.data().title }}</h1>
-              <p>{{ project.data().subtitle }}</p>
+              <h1>{{ project.title }}</h1>
+              <p>{{ project.subtitle }}</p>
             </div>
           </div>
           <transition name="content" mode="out-in">
             <div class="grid-x align-center align-middle content" v-if="active">
-              <component :is="project"></component>
+              <ProjectLightBox />
             </div>
           </transition>
         </div>
@@ -54,9 +54,9 @@
           <div
             class="grid-x align-center align-middle similarList"
             :style="[
-              project.name === active
+              project.id === active
                 ? {
-                    'background-color': project.data().bg
+                    'background-color': project.backgroundColor
                   }
                 : { 'background-color': 'initial' }
             ]"
@@ -66,11 +66,11 @@
               <li
                 v-for="(project, i) in projects"
                 :key="i"
-                :class="{ isOpen: project.name === active }"
-                :id="project.name"
+                :class="{ isOpen: project.id === active }"
+                :id="project.id"
               >
-                <h1 class="jump" @click="toggle(project.name)">
-                  {{ project.data().title }}
+                <h1 class="jump" @click="toggle(project.id)">
+                  {{ project.title }}
                 </h1>
               </li>
             </ul>
@@ -82,26 +82,22 @@
 </template>
 
 <script>
-import GL from "@/projects/gl.vue";
-import Ogle from "@/projects/ogle.vue";
-import Humid from "@/projects/humid.vue";
-import Eika from "@/projects/eika.vue";
-import Gro from "@/projects/gro.vue";
-import Marks from "@/projects/marks.vue";
+import ProjectLightBox from "@/components/ProjectLightBox";
 
 export default {
   name: "ProjectList",
+  props: ["projects"],
+  components: { ProjectLightBox },
   data() {
     return {
       title: "Projects",
-      active: "",
-      projects: [GL, Ogle, Gro, Humid, Eika, Marks]
+      active: ""
     };
   },
   methods: {
-    toggle(name) {
-      if (name === this.active) {
-        const el = document.querySelector("#" + name);
+    toggle(id) {
+      if (id === this.active) {
+        const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
 
         setTimeout(() => {
@@ -109,11 +105,11 @@ export default {
           document.body.classList.remove("active");
         }, 1000);
       } else {
-        const el = document.querySelector("#" + name);
+        const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
 
         setTimeout(() => {
-          this.active = name;
+          this.active = id;
           document.body.classList.add("active");
         }, 1000);
       }

@@ -4,7 +4,7 @@
     <Masthead :heading="heading"></Masthead>
 
     <!-- Project List -->
-    <ProjectList />
+    <ProjectList :projects="projects" />
 
     <!-- About -->
     <section class="grid-container clients">
@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
 import Masthead from "@/components/Masthead.vue";
 import ProjectList from "@/components/ProjectList.vue";
 
@@ -66,8 +68,12 @@ export default {
     Masthead,
     ProjectList
   },
+  async created() {
+    this.projects = await this.getProjects();
+  },
   data() {
     return {
+      projects: [],
       title: "Home",
       heading:
         "A creative partner and design studio for thoughtfully crafted products.",
@@ -99,6 +105,25 @@ export default {
     }
   },
   methods: {
+    async getProjects() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            allProjects {
+              id
+              title
+              subtitle
+              description
+              coverSize
+              projectThumbnail {
+                url
+              }
+            }
+          }
+        `
+      });
+      return data.allProjects;
+    },
     slidePrev() {
       this.$refs.carousel.slidePrev();
     },
@@ -108,9 +133,6 @@ export default {
     updateCarousel(payload) {
       this.myCarouselData = payload.currentSlide;
     }
-  },
-  currentRouteName() {
-    return this.$route.name;
   },
   beforeCreate: function() {
     document.body.className = "home";
