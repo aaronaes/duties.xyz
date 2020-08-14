@@ -25,58 +25,53 @@
         </div>
       </div>
     </div>
-    <div class="content grid-container fluid">
-      <div class="grid-x">
-        <swiper
-          ref="mySwiper"
-          :options="swiperOptions"
-          :auto-update="true"
-          :auto-destroy="true"
-          @slideChange="changeSwiperIndex"
-        >
-          <swiper-slide>
-            <div class="swiper-slide-container">
-              <img src="/images/work/gl/slide/godtlevert-slide-01.jpg" />
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="swiper-slide-container">
-              <img src="/images/work/gl/slide/godtlevert-slide-02.jpg" />
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="swiper-slide-container">
-              <img src="/images/work/gl/slide/godtlevert-slide-03.jpg" />
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="swiper-slide-container">
-              <img src="/images/work/gl/slide/godtlevert-slide-04.jpg" />
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="swiper-slide-container">
-              <img src="/images/work/gl/slide/godtlevert-slide-05.jpg" />
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-    </div>
+
     <div class="content grid-container fluid">
       <div
         class="grid-x img-container align-center"
         v-lazy-container="{ selector: 'img' }"
       >
         <div v-for="block in project.blocks" :key="block.id">
+          <swiper
+            v-if="block._modelApiKey === 'image_carousel'"
+            ref="mySwiper"
+            :options="swiperOptions"
+            :auto-update="true"
+            :auto-destroy="true"
+            @slideChange="changeSwiperIndex"
+          >
+            <swiper-slide
+              v-for="asset in block.imageCarouselAsset"
+              :key="asset.id"
+            >
+              <div class="swiper-slide-container">
+                <img :src="asset.url" />
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+              </div>
+            </swiper-slide>
+          </swiper>
+
           <div
             v-if="block._modelApiKey === 'single_image'"
             class="cell large-6 medium-8 small-12"
           >
             <img :data-src="block.image.url" :data-srcset="block.image.url" />
           </div>
-          <div v-if="block._modelApiKey === 'double_image'" class="cell">
-            Put double in here
+          <div
+            style="display: flex;"
+            v-if="block._modelApiKey === 'double_image'"
+            class="cell"
+          >
+            <img
+              style="width: 50%"
+              :data-src="block.firstImage.url"
+              :data-srcset="block.firstImage.url"
+            />
+            <img
+              style="width: 50%"
+              :data-src="block.lastImage.url"
+              :data-srcset="block.lastImage.url"
+            />
           </div>
         </div>
       </div>

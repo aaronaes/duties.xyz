@@ -140,13 +140,20 @@ export default {
                 ... on DoubleImageRecord {
                   id
                   _modelApiKey
-                  imageAsset {
+                  firstImage {
+                    url
+                  }
+                  lastImage {
                     url
                   }
                 }
                 ... on ImageCarouselRecord {
                   id
                   _modelApiKey
+                  imageCarouselAsset {
+                    id
+                    url
+                  }
                 }
               }
               description
