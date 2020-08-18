@@ -13,7 +13,7 @@
         :style="[
           project.id === active
             ? {
-                'background-color': project.backgroundColor || 'white'
+                'background-color': project.backgroundColor.hex || 'inital'
               }
             : { 'background-color': 'initial' }
         ]"

@@ -102,6 +102,9 @@ export default {
                 id
                 title
                 subtitle
+                backgroundColor {
+                  hex
+                }
                 siteLink
                 slug
                 readMore
