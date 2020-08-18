@@ -5,55 +5,40 @@
     <section class="grid-container intro">
       <figure class="grid-x grid-padding-x align-center">
         <div class="cell large-6 medium-10 small-12">
-          <h2 class="cell">
-            Established in 2020, Duties is an independent digital design studio
-            based in Oslo. We believe it’s our duty as designers to provide the
-            world with thoughtfully designed products that are both functional,
-            accessible and visually beautiful.
-          </h2>
-          <h2 class="cell">
-            We work at the intersection of visual and functional design;
-            focusing on brand identity design, product strategy, web and native
-            application development plus a bit of xyz…
-          </h2>
+          <div class="cell markdown" v-html="getMarkdown(about.aboutUs)"></div>
         </div>
       </figure>
     </section>
 
     <section class="grid-container people">
       <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-4 medium-6 small-6 person">
-          <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
-            <img
-              data-src="/images/about/Paul.jpg"
-              data-srcset="/images/about/Paul@2x.jpg 2x"
-              alt="Pauls face"
-            />
+        <div
+          class="cell large-4 medium-6 small-6 person"
+          v-for="(person, i) in about.team"
+          :key="i"
+        >
+          <div class="cell large-4 medium-6 small-6 person">
+            <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+              <img
+                :data-src="getUrl(person.image.url)"
+                :data-srcset="getUrl(person.image.url)"
+              />
+            </div>
+            <p>
+              <span>{{ person.name }}</span>
+              <span>{{ person.title }}</span>
+              <span
+                ><a :href="'tel:' + person.phoneNumber">
+                  {{ person.phoneNumber }}</a
+                >
+              </span>
+              <span>
+                <a :href="'mailto:' + person.email">
+                  {{ person.email }}
+                </a>
+              </span>
+            </p>
           </div>
-          <p>
-            <span>Paul Conley</span>
-            <span>Designer / partner</span>
-            <span><a href="tel:+4796748685‬">+47 ‭967 48 685‬</a></span>
-            <a href="mailto:paul@duties.xyz?subject=Hi Paul">paul@duties.xyz</a>
-          </p>
-        </div>
-
-        <div class="cell large-4 medium-6 small-6 person">
-          <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
-            <img
-              data-src="/images/about/Erling.jpg"
-              data-srcset="/images/about/Erling@2x.jpg 2x"
-              alt="Erlings face"
-            />
-          </div>
-          <p>
-            <span>Erling Aarønæs</span>
-            <span>Designer / partner</span>
-            <span><a href="tel:+4798660788">+47 986 60 788</a></span>
-            <a href="mailto:erling@duties.xyz?subject=Hi Erling"
-              >erling@duties.xyz</a
-            >
-          </p>
         </div>
       </figure>
     </section>
@@ -102,12 +87,83 @@
 </template>
 
 <script>
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
+import marked from "marked";
+import imgix from "@/utils/imgix";
 import Masthead from "@/components/Masthead.vue";
 
 export default {
   name: "About",
   components: {
     Masthead
+  },
+  async created() {
+    this.about = await this.getAbout();
+  },
+  data() {
+    return {
+      about: {
+        aboutUs: "",
+        team: {
+          person: {
+            image: "",
+            name: "",
+            title: "",
+            phoneNumber: "",
+            email: ""
+          }
+        }
+      }
+    };
+  },
+  methods: {
+    async getAbout() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            about {
+              aboutUs
+              team {
+                person {
+                  image {
+                    url
+                  }
+                  name
+                  title
+                  phoneNumber
+                  email
+                }
+              }
+            }
+          }
+        `
+      });
+      return data.about;
+    },
+    getMarkdown(content) {
+      return marked(content);
+    },
+    getUrl(url) {
+      return imgix({ url: url });
+    },
+    getSrcSet(url) {
+      return `
+      ${imgix({ url: url, w: 2048 })} 2048w,
+      ${imgix({ url: url, w: 1024 })} 1024w,
+      ${imgix({ url: url, w: 640 })} 640w,
+      ${imgix({ url: url, w: 576 })} 576w,
+      `;
+    },
+    slidePrev() {
+      this.$refs.carousel.slidePrev();
+    },
+    slideNext() {
+      this.$refs.carousel.slideNext();
+    },
+    updateCarousel(payload) {
+      this.myCarouselData = payload.currentSlide;
+    }
   },
   beforeCreate: function() {
     document.body.className = "about";

@@ -125,10 +125,11 @@ export default {
       return imgix({ url: url });
     },
     getSrcSet(url) {
-      return ` 
-      ${imgix({ url: url, w: 2400 })} 2400w, 
-      ${imgix({ url: url, w: 1200 })} 1200w, 
-      ${imgix({ url: url, w: 600 })} 600w,
+      return `
+      ${imgix({ url: url, w: 2048 })} 2048w,
+      ${imgix({ url: url, w: 1024 })} 1024w,
+      ${imgix({ url: url, w: 640 })} 640w,
+      ${imgix({ url: url, w: 576 })} 576w,
       `;
     }
   },

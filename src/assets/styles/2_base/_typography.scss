@@ -41,7 +41,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.markdown p {
   font-size: 32px;
   line-height: 1.35em;
   margin-bottom: $sm;
