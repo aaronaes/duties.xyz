@@ -45,8 +45,10 @@
               :key="asset.id"
             >
               <div class="swiper-slide-container">
-                <img :src="asset.url" />
-                <!-- <img :data-src="getUrl({ url: project.img.url, q: 2 })" /> -->
+                <img
+                  :data-src="getUrl(asset.url)"
+                  :data-srcset="getSrcSet(asset.url)"
+                />
               </div>
             </swiper-slide>
           </swiper>
@@ -55,7 +57,10 @@
             v-if="block._modelApiKey === 'single_image'"
             class="cell large-6 medium-8 small-12"
           >
-            <img :data-src="block.image.url" :data-srcset="block.image.url" />
+            <img
+              :data-src="getUrl(block.image.url)"
+              :data-srcset="getSrcSet(block.image.url)"
+            />
           </div>
 
           <div
@@ -65,13 +70,13 @@
           >
             <img
               class="large-6 medium-6 small-12"
-              :data-src="block.firstImage.url"
-              :data-srcset="block.firstImage.url"
+              :data-src="getUrl(block.firstImage.url)"
+              :data-srcset="getSrcSet(block.firstImage.url)"
             />
             <img
               class="large-6 medium-6 small-12"
-              :data-src="block.lastImage.url"
-              :data-srcset="block.lastImage.url"
+              :data-src="getUrl(block.lastImage.url)"
+              :data-srcset="getSrcSet(block.lastImage.url)"
             />
           </div>
         </div>
@@ -112,12 +117,19 @@ export default {
       }
     };
   },
-  method: {
+  methods: {
     changeSwiperIndex() {
       this.$refs.mySwiper.$swiper.activeIndex;
     },
-    getUrl(args) {
-      return imgix(args);
+    getUrl(url) {
+      return imgix({ url: url });
+    },
+    getSrcSet(url) {
+      return ` 
+      ${imgix({ url: url, w: 2400 })} 2400w, 
+      ${imgix({ url: url, w: 1200 })} 1200w, 
+      ${imgix({ url: url, w: 600 })} 600w,
+      `;
     }
   },
   computed: {
