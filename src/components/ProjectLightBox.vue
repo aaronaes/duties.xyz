@@ -3,9 +3,9 @@
     <div class="content grid-container">
       <div class="grid-x description">
         <div class="cell">
-          <h2>{{ project.description }}</h2>
+          <h2 v-html="project.description"></h2>
           <h2 class="this">
-            <a :href="project.siteLink" target="_blank">Visit site</a>
+            <a href="/" target="_blank">Visit site</a>
           </h2>
         </div>
       </div>
@@ -26,56 +26,54 @@
       </div>
     </div>
 
-    <div v-for="block in project.blocks" :key="block.id">
-      <swiper
-        class="content grid-container fluid"
-        v-if="block._modelApiKey === 'image_carousel'"
-        ref="mySwiper"
-        :options="swiperOptions"
-        :auto-update="true"
-        :auto-destroy="true"
-        @slideChange="changeSwiperIndex"
+    <div class="content grid-container fluid">
+      <div
+        class="grid-x img-container align-center"
         v-lazy-container="{ selector: 'img' }"
       >
-        <swiper-slide v-for="asset in block.imageCarouselAsset" :key="asset.id">
-          <div class="swiper-slide-container">
-            <img :src="asset.url" />
+        <div v-for="block in project.blocks" :key="block.id">
+          <swiper
+            v-if="block._modelApiKey === 'image_carousel'"
+            ref="mySwiper"
+            :options="swiperOptions"
+            :auto-update="true"
+            :auto-destroy="true"
+            @slideChange="changeSwiperIndex"
+          >
+            <swiper-slide
+              v-for="asset in block.imageCarouselAsset"
+              :key="asset.id"
+            >
+              <div class="swiper-slide-container">
+                <img :src="asset.url" />
+                <!-- <img :data-src="getUrl({ url: project.img.url, q: 2 })" /> -->
+              </div>
+            </swiper-slide>
+          </swiper>
+
+          <div
+            v-if="block._modelApiKey === 'single_image'"
+            class="cell large-6 medium-8 small-12"
+          >
+            <img :data-src="block.image.url" :data-srcset="block.image.url" />
           </div>
-        </swiper-slide>
-      </swiper>
 
-      <div
-        class="content grid-container"
-        v-if="block._modelApiKey === 'single_image'"
-        :class="block.full ? 'fluid' : ''"
-      >
-        <div
-          class="grid-x img-container align-center"
-          v-lazy-container="{ selector: 'img' }"
-        >
-          <img :data-src="block.image.url" :data-srcset="block.image.url" />
-        </div>
-      </div>
-
-      <div
-        style="display: flex;"
-        v-if="block._modelApiKey === 'double_image'"
-        class="content grid-container"
-      >
-        <div
-          class="grid-x img-container align-center"
-          v-lazy-container="{ selector: 'img' }"
-        >
-          <img
-            style="width: 50%"
-            :data-src="block.firstImage.url"
-            :data-srcset="block.firstImage.url"
-          />
-          <img
-            style="width: 50%"
-            :data-src="block.lastImage.url"
-            :data-srcset="block.lastImage.url"
-          />
+          <div
+            style="display: flex;"
+            v-if="block._modelApiKey === 'double_image'"
+            class="cell"
+          >
+            <img
+              class="large-6 medium-6 small-12"
+              :data-src="block.firstImage.url"
+              :data-srcset="block.firstImage.url"
+            />
+            <img
+              class="large-6 medium-6 small-12"
+              :data-src="block.lastImage.url"
+              :data-srcset="block.lastImage.url"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -83,6 +81,8 @@
 </template>
 
 <script>
+import imgix from "@/utils/imgix";
+
 export default {
   name: "gl",
   props: ["project"],
@@ -115,6 +115,9 @@ export default {
   method: {
     changeSwiperIndex() {
       this.$refs.mySwiper.$swiper.activeIndex;
+    },
+    getUrl(args) {
+      return imgix(args);
     }
   },
   computed: {

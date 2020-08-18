@@ -19,7 +19,7 @@
         ]"
       >
         <div class="inner">
-          <div class="closeBtn">
+          <div class="closeBtn" v-if="project.readMore === true">
             <p @click="() => toggle(project.id)">Close</p>
           </div>
           <div class="summary grid-container">
@@ -44,11 +44,11 @@
                 :class="project.coverSize"
                 v-if="active"
               />
+              <div class="project-title" v-if="project.readMore === false">
+                <h3>{{ project.title }}</h3>
+                <p v-html="project.subtitle"></p>
+              </div>
             </a>
-            <div class="project-title show-for-small-only">
-              <h1>{{ project.title }}</h1>
-              <p>{{ project.subtitle }}</p>
-            </div>
           </div>
           <transition name="content" mode="out-in">
             <div class="grid-x align-center align-middle content" v-if="active">
@@ -81,6 +81,12 @@
                   @click="toggle(project.id)"
                 >
                   {{ project.title }}
+                  <span
+                    ><img
+                      class="cover"
+                      :src="project.projectThumbnail.url"
+                      v-show="project.projectThumbnail.url != ''"
+                  /></span>
                 </h1>
               </li>
             </ul>
