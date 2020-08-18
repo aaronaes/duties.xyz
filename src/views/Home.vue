@@ -97,66 +97,68 @@ export default {
       const { data } = await getData({
         query: gql`
           query {
-            allProjects {
-              id
-              title
-              subtitle
-              siteLink
-              slug
-              readMore
-              categories {
-                categoryType
-              }
-              client {
-                name
-              }
-              blocks {
-                ... on SingleImageRecord {
-                  id
-                  _modelApiKey
-                  description
-                  full
-                  image {
-                    url
-                  }
+            frontpage {
+              projects {
+                id
+                title
+                subtitle
+                siteLink
+                slug
+                readMore
+                categories {
+                  categoryType
                 }
-                ... on QuoteRecord {
-                  id
-                  _modelApiKey
-                  centered
-                  left
-                  right
-                  text
+                client {
+                  name
                 }
-                ... on DoubleImageRecord {
-                  id
-                  _modelApiKey
-                  firstImage {
-                    url
-                  }
-                  lastImage {
-                    url
-                  }
-                }
-                ... on ImageCarouselRecord {
-                  id
-                  _modelApiKey
-                  imageCarouselAsset {
+                blocks {
+                  ... on SingleImageRecord {
                     id
-                    url
+                    _modelApiKey
+                    description
+                    full
+                    image {
+                      url
+                    }
+                  }
+                  ... on QuoteRecord {
+                    id
+                    _modelApiKey
+                    centered
+                    left
+                    right
+                    text
+                  }
+                  ... on DoubleImageRecord {
+                    id
+                    _modelApiKey
+                    firstImage {
+                      url
+                    }
+                    lastImage {
+                      url
+                    }
+                  }
+                  ... on ImageCarouselRecord {
+                    id
+                    _modelApiKey
+                    imageCarouselAsset {
+                      id
+                      url
+                    }
                   }
                 }
-              }
-              description
-              coverSize
-              projectThumbnail {
-                url
+                description
+                coverSize
+                projectThumbnail {
+                  url
+                }
               }
             }
           }
         `
       });
-      return data.allProjects;
+      return data.frontpage.projects;
     },
     slidePrev() {
       this.$refs.carousel.slidePrev();
