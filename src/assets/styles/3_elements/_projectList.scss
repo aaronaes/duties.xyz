@@ -1,14 +1,14 @@
 section.projectList {
-  margin-top: $md;
+  margin-top: $lg;
   margin-bottom: $lg;
 
   @include respond-to("md") {
-    margin-top: $sm;
+    margin-top: $md;
     margin-bottom: $md;
   }
 
   @include respond-to("sm") {
-    margin-top: $xs;
+    margin-top: $sm;
     margin-bottom: $sm;
   }
 }

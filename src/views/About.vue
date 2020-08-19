@@ -4,8 +4,26 @@
 
     <section class="grid-container intro">
       <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-6 medium-10 small-12">
-          <div class="cell markdown" v-html="getMarkdown(about.aboutUs)"></div>
+        <div class="columns small-12 medium-10 large-8">
+          <div class="markdown" v-html="getMarkdown(about.aboutUs)"></div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="grid-container services">
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="columns small-12 medium-10 large-8">
+          <div v-for="block in about.services" :key="block.id">
+            <h1>{{ block.title }}</h1>
+            <br />
+            <h2 class="markdown" v-html="getMarkdown(block.content)"></h2>
+            <h3 class="markdown" v-html="getMarkdown(block.lists)"></h3>
+            <h3>
+              <a href="'mailto:new@duties.xyz">
+                Ask us how we can help
+              </a>
+            </h3>
+          </div>
         </div>
       </figure>
     </section>
@@ -13,72 +31,52 @@
     <section class="grid-container people">
       <figure class="grid-x grid-padding-x align-center">
         <div
-          class="cell large-4 medium-6 small-6 person"
-          v-for="(person, i) in about.team"
-          :key="i"
+          class="columns small-10 medium-5 large-5 person"
+          v-for="person in about.team"
+          :key="person.id"
         >
-          <div class="cell large-4 medium-6 small-6 person">
-            <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
-              <img
-                :data-src="getUrl(person.image.url)"
-                :data-srcset="getUrl(person.image.url)"
-              />
-            </div>
-            <p>
-              <span>{{ person.name }}</span>
-              <span>{{ person.title }}</span>
-              <span
-                ><a :href="'tel:' + person.phoneNumber">
-                  {{ person.phoneNumber }}</a
-                >
-              </span>
-              <span>
-                <a :href="'mailto:' + person.email">
-                  {{ person.email }}
-                </a>
-              </span>
-            </p>
+          <div class="img-wrapper" v-lazy-container="{ selector: 'img' }">
+            <img
+              :data-src="getUrl(person.image.url)"
+              :data-srcset="getUrl(person.image.url)"
+            />
           </div>
+          <p>
+            <span>{{ person.name }}</span>
+            <span>{{ person.title }}</span>
+            <span>
+              <a :href="'mailto:' + person.email">
+                {{ person.email }}
+              </a>
+            </span>
+          </p>
         </div>
       </figure>
     </section>
 
-    <section class="grid-container clients">
+    <section class="grid-container clientList">
       <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-6 medium-10 small-12">
-          <h2>
-            When we are off-duty you can
-            <a href="//instagram.com/duties.xyz" target="_blank"
-              >find us creating</a
-            >
-            experimental typefaces, dabbling in photography and curating our
-            <a
-              href="https://open.spotify.com/playlist/39NC0tBJ0FrrqBD8Tj156m?si=HS5YF10BQfmFFN6VHJtYOQ"
-              target="_blank"
-              >studio playlists</a
-            >.
-          </h2>
-        </div>
+        <h3 class="small-12 medium-10 large-8 float-left">
+          A few of our friends —
+        </h3>
+        <marquee scrollamount="5" loop="infinite" direction="left">
+          <div class="inner">
+            <h1 v-for="client in about.clientList" :key="client.id">
+              {{ client.name }}
+            </h1>
+          </div>
+        </marquee>
       </figure>
+    </section>
+
+    <section class="grid-container summary">
       <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-6 medium-10 small-12 footer">
-          <h2 class="float-left">
-            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
-              >Email</a
-            >
-          </h2>
-          <h2 class="float-left">
-            <a class="float-left" href="//medium.com/duties-xyz" target="_blank"
-              >Medium</a
-            >
-          </h2>
-          <h2 class="float-left">
-            <a
-              class="float-left"
-              href="//www.instagram.com/duties.xyz"
-              target="_blank"
-              >Instagram</a
-            >
+        <div class="columns small-12 medium-10 large-8">
+          <div class="markdown" v-html="getMarkdown(about.summary)"></div>
+        </div>
+        <div class="columns small-12 medium-10 large-8 footer">
+          <h2 class="float-left" v-for="link in about.contact" :key="link.id">
+            <a :href="link.linkUrl" target="_blank">{{ link.linkTitle }}</a>
           </h2>
         </div>
       </figure>
@@ -105,14 +103,26 @@ export default {
     return {
       about: {
         aboutUs: "",
+        services: "",
         team: {
-          person: {
-            image: "",
-            name: "",
-            title: "",
-            phoneNumber: "",
-            email: ""
-          }
+          image: {
+            url: ""
+          },
+          name: "",
+          title: "",
+          phoneNumber: "",
+          email: ""
+        },
+        clientList: {
+          name: ""
+        },
+        studioImages: {
+          url: ""
+        },
+        summary: "",
+        contact: {
+          linkTitle: "",
+          linkURl: ""
         }
       }
     };
@@ -124,16 +134,32 @@ export default {
           query {
             about {
               aboutUs
-              team {
-                person {
-                  image {
-                    url
-                  }
-                  name
+              services {
+                ... on BlockRecord {
                   title
-                  phoneNumber
-                  email
+                  content
+                  lists
                 }
+              }
+              team {
+                image {
+                  url
+                }
+                name
+                title
+                phoneNumber
+                email
+              }
+              clientList {
+                name
+              }
+              studioImages {
+                url
+              }
+              summary
+              contact {
+                linkTitle
+                linkUrl
               }
             }
           }
@@ -149,10 +175,10 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 2048 })} 2048w,
-      ${imgix({ url: url, w: 1024 })} 1024w,
-      ${imgix({ url: url, w: 640 })} 640w,
       ${imgix({ url: url, w: 576 })} 576w,
+      ${imgix({ url: url, w: 640 })} 640w,
+      ${imgix({ url: url, w: 1024 })} 1024w,
+      ${imgix({ url: url, w: 1680 })} 1680w,
       `;
     },
     slidePrev() {

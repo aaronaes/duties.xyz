@@ -8,12 +8,13 @@
         class="details"
         :open="active === project.id"
         :class="{
-          loaded: project.id === active
+          loaded: project.id === active,
+          foobar: project.readMore === false
         }"
         :style="[
           project.id === active
             ? {
-                'background-color': project.backgroundColor.hex || 'inital'
+                'background-color': project.backgroundColor.hex || 'initial'
               }
             : { 'background-color': 'initial' }
         ]"
@@ -62,7 +63,7 @@
             :style="[
               project.id === active
                 ? {
-                    'background-color': project.backgroundColor || 'white'
+                    'background-color': project.backgroundColor.hex || 'white'
                   }
                 : { 'background-color': 'initial' }
             ]"

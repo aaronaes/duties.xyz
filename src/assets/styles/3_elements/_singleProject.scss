@@ -72,14 +72,14 @@ section {
                 width: 70vw;
 
                 @include respond-to("sm") {
-                  width: 90vw;
+                  width: auto;
                 }
               }
 
               &.Square {
-                width: 50vw;
+                width: 45vw;
                 @include respond-to("sm") {
-                  width: 60vw;
+                  width: auto;
                 }
               }
 
@@ -87,7 +87,7 @@ section {
                 width: 30vw;
 
                 @include respond-to("sm") {
-                  width: 60vw;
+                  width: auto;
                 }
               }
 
@@ -237,20 +237,22 @@ section {
               }
 
               .text {
-                padding-top: $lg;
-                padding-bottom: $lg;
+                margin-top: $lg;
+                margin-bottom: $lg;
 
                 @include respond-to("sm") {
-                  padding-top: $sm;
-                  padding-bottom: $sm;
+                  margin-top: $sm;
+                  margin-bottom: $sm;
                 }
               }
 
               img {
-                padding-bottom: $sm;
+                margin-bottom: $lg;
+                height: auto;
+                width: 100%;
 
                 @include respond-to("sm") {
-                  padding-bottom: $xs;
+                  margin-bottom: $sm;
                 }
               }
 
@@ -258,7 +260,7 @@ section {
                 opacity: 0;
                 animation: opacity, transform;
                 animation-name: fade-in;
-                animation-duration: 250ms;
+                animation-duration: 500ms;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
                 animation-direction: normal;
@@ -291,6 +293,7 @@ section {
 
           ul {
             li {
+              list-style: none !important;
               h1 {
                 margin-bottom: $xs;
                 cursor: pointer;
@@ -338,13 +341,11 @@ section {
           }
         }
 
-        &.foobar {
+        &.mini {
           justify-content: initial;
           display: inline-block;
           vertical-align: top;
           width: 50%;
-          padding-top: $xl;
-          padding-bottom: $md;
 
           .inner {
             .summary {
