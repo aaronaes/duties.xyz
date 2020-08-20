@@ -8,8 +8,7 @@
         class="details"
         :open="active === project.id"
         :class="{
-          loaded: project.id === active,
-          foobar: project.readMore === false
+          loaded: project.id === active
         }"
         :style="[
           project.id === active
@@ -45,8 +44,8 @@
                 :class="project.coverSize"
                 v-if="active"
               />
-              <div class="project-title" v-if="project.readMore === false">
-                <h3>{{ project.title }}</h3>
+              <div class="project-title">
+                <p v-if="project.readMore === true"><b>Case — </b></p>
                 <p v-html="project.subtitle"></p>
               </div>
             </a>
