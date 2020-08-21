@@ -34,14 +34,12 @@
             >
               <img
                 class="cover"
-                :src="project.projectThumbnail.url"
-                v-show="project.projectThumbnail.url != ''"
+                :src="getUrl(project.projectThumbnail.url)"
                 v-if="!active"
               />
               <img
                 class="cover"
-                :src="project.projectThumbnail.url"
-                v-show="project.projectThumbnail.url != ''"
+                :src="getUrl(project.projectThumbnail.url)"
                 :class="project.coverSize"
                 v-if="active"
               />
@@ -85,8 +83,7 @@
                   <span
                     ><img
                       class="cover"
-                      :src="project.projectThumbnail.url"
-                      v-show="project.projectThumbnail.url != ''"
+                      :src="getUrl(project.projectThumbnail.url)"
                   /></span>
                 </h1>
               </li>
@@ -99,6 +96,7 @@
 </template>
 
 <script>
+import imgix from "@/utils/imgix";
 import ProjectLightBox from "@/components/ProjectLightBox";
 
 export default {
@@ -112,6 +110,19 @@ export default {
     };
   },
   methods: {
+    getUrl(url) {
+      return imgix({ url: url });
+    },
+    getSrcSet(url) {
+      return `
+        ${imgix({ url: url, w: 640, q: 60 })} 640w,
+        ${imgix({ url: url, w: 768, q: 60 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+        ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+        ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
+        ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
+      `;
+    },
     toggle(id) {
       if (id === this.active) {
         const el = document.querySelector("#project-" + id);

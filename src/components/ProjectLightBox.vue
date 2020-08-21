@@ -26,53 +26,69 @@
       </div>
     </div>
 
-    <div class="content grid-container">
+    <div v-for="block in project.blocks" :key="block.id">
       <div
-        class="grid-x img-container align-center"
+        class="content grid-container fluid"
+        v-if="block._modelApiKey === 'image_carousel'"
+      >
+        <swiper
+          ref="mySwiper"
+          :options="swiperOptions"
+          :auto-update="true"
+          :auto-destroy="true"
+          @slideChange="changeSwiperIndex"
+        >
+          <swiper-slide
+            v-for="asset in block.imageCarouselAsset"
+            :key="asset.id"
+          >
+            <div
+              class="swiper-slide-container"
+              v-lazy-container="{ selector: 'img' }"
+            >
+              <img
+                :data-src="getUrl(asset.url)"
+                :data-srcset="getSrcSet(asset.url)"
+              />
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+
+      <div
+        class="content grid-container"
+        :class="{ fluid: block.full }"
+        v-if="block._modelApiKey === 'single_image'"
         v-lazy-container="{ selector: 'img' }"
       >
-        <div v-for="block in project.blocks" :key="block.id">
-          <swiper
-            v-if="block._modelApiKey === 'image_carousel'"
-            ref="mySwiper"
-            :options="swiperOptions"
-            :auto-update="true"
-            :auto-destroy="true"
-            @slideChange="changeSwiperIndex"
-          >
-            <swiper-slide
-              v-for="asset in block.imageCarouselAsset"
-              :key="asset.id"
-            >
-              <div class="swiper-slide-container">
-                <img
-                  :data-src="getUrl(asset.url)"
-                  :data-srcset="getSrcSet(asset.url)"
-                />
-              </div>
-            </swiper-slide>
-          </swiper>
-
+        <div class="grid-x img-container align-center">
           <div
-            v-if="block._modelApiKey === 'single_image'"
-            class="columns small-12 medium-12 large-8"
+            :class="{
+              'large-8 medium-10 small-12': !block.full,
+              cell: block.full
+            }"
           >
             <img
               :data-src="getUrl(block.image.url)"
               :data-srcset="getSrcSet(block.image.url)"
             />
           </div>
+        </div>
+      </div>
 
-          <div
-            style="display: flex;"
-            v-if="block._modelApiKey === 'double_image'"
-            class="columns"
-          >
+      <div
+        class="content grid-container"
+        v-if="block._modelApiKey === 'double_image'"
+        v-lazy-container="{ selector: 'img' }"
+      >
+        <div class="grid-x img-container align-center">
+          <div class="cell large-6 medium-8 small-12">
             <img
-              class="small-12 medium-6 large-5 large-offset-1"
               :data-src="getUrl(block.firstImage.url)"
               :data-srcset="getSrcSet(block.firstImage.url)"
             />
+          </div>
+          <div class="cell large-6 medium-8 small-12">
             <img
               class="small-12 medium-6 large-5"
               :data-src="getUrl(block.lastImage.url)"
@@ -126,10 +142,12 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 576 })} 576w,
-      ${imgix({ url: url, w: 640 })} 640w,
-      ${imgix({ url: url, w: 1024 })} 1024w,
-      ${imgix({ url: url, w: 1680 })} 1680w,
+      ${imgix({ url: url, w: 640, q: 60 })} 640w,
+      ${imgix({ url: url, w: 768, q: 60 })} 768w,
+      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+      ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
       `;
     }
   },

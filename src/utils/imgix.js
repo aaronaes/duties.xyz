@@ -3,21 +3,22 @@ export default function imgix({
   w = null,
   h = null,
   fm = "jpg",
-  q = 100
+  q = 100,
+  dpr = 1
 }) {
   if (!url) {
     return "";
   }
   if (!h) {
-    return url + `?w=${w}&fit=clip&fm=${fm}&q=${q}`;
+    return url + `?w=${w}&fit=clip&fm=${fm}&q=${q}&dpr=${dpr}`;
   }
   if (!w) {
-    return url + `?h=${h}&fit=clip&fm=${fm}&q=${q}`;
+    return url + `?h=${h}&fit=clip&fm=${fm}&q=${q}&dpr=${dpr}`;
   }
   if (!w && !h) {
-    return url + `?w=&300&fit=clip&fm=${fm}&q=${q}`;
+    return url + `?w=&300&fit=clip&fm=${fm}&q=${q}&dpr=${dpr}`;
   }
   if (w && h) {
-    return url + `?w=&${w}h=&${h}&fit=clip&fm=${fm}&q=${q}`;
+    return url + `?w=&${w}h=&${h}&fit=clip&fm=${fm}&q=${q}&dpr=${dpr}`;
   }
 }
