@@ -41,7 +41,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+h2.markdown p {
   font-size: 32px;
   line-height: 1.35em;
   margin-bottom: $sm;
@@ -55,7 +56,8 @@ h2 {
   }
 }
 
-h3 {
+h3,
+h3.markdown p {
   font-size: 26px;
   line-height: 1.3em;
   margin-bottom: $sm;
@@ -90,7 +92,7 @@ a {
   border-bottom: 1.5px solid;
 
   &:hover {
-    color: $grey;
+    color: $black;
   }
 
   &:active {
@@ -99,7 +101,6 @@ a {
 
   &:focus {
     outline: none;
-    border: none;
     color: $black;
   }
 

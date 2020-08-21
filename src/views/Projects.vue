@@ -1,22 +1,22 @@
 <template>
   <section class="projectList">
-    <figure class="grid-container" id="projects">
-      <div class="grid-x grid-margin-x large-up-4 medium-up-3 small-up-1">
-        <div
-          v-for="(project, i) in projects"
-          :key="i"
-          :id="project.name"
-          class="cell"
-        >
-          <div class="summary">
-            <div class="imgBox">
-              <img
-                class="cover"
-                :src="project.data().image"
-                v-show="project.data().image != ''"
-              />
-              <p>{{ project.data().title }}</p>
-            </div>
+    <figure class="grid-container">
+      <div
+        v-for="(project, i) in projects"
+        :key="i"
+        :id="`project-${project.id}`"
+        class="ping"
+        :open="active === project.id"
+      >
+        <div>
+          <img
+            class="cover"
+            :src="project.projectThumbnail.url"
+            v-show="project.projectThumbnail.url != ''"
+          />
+          <div class="project-title" v-if="!active">
+            <p v-if="project.readMore === true"><b>Case — </b></p>
+            <p v-html="project.subtitle"></p>
           </div>
         </div>
       </div>
@@ -25,55 +25,91 @@
 </template>
 
 <script>
-import GL from "@/projects/gl.vue";
-import Ogle from "@/projects/ogle.vue";
-import Humid from "@/projects/humid.vue";
-import Eika from "@/projects/eika.vue";
-import Gro from "@/projects/gro.vue";
-import Marks from "@/projects/marks.vue";
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
 
 export default {
   name: "ProjectList",
+  props: ["projects"],
   data() {
     return {
       title: "Projects",
-      active: "",
-      projects: [GL, Ogle, Gro, Humid, Eika, Marks]
+      active: ""
     };
   },
-
+  async created() {
+    this.projects = await this.getProjects();
+  },
   methods: {
-    toggle(name) {
-      if (name === this.active) {
-        const el = document.querySelector("#top");
-        this.scrollTo(el);
-
-        setTimeout(() => {
-          this.active = "";
-          document.body.classList.remove("active");
-          document.body.style.overflow = "visible";
-        }, 1000);
-      } else {
-        const el = document.querySelector("#" + name);
-        this.scrollTo(el);
-
-        setTimeout(() => {
-          document.body.classList.add("active");
-          this.active = name;
-        }, 1000);
-
-        setTimeout(() => {
-          document.body.style.overflow = "hidden";
-        }, 2000);
-      }
-    },
-    scrollTo(el) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: window.pageYOffset + el.getBoundingClientRect().top,
-          behavior: "smooth"
-        });
-      }, 250);
+    async getProjects() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            frontpage {
+              projects {
+                id
+                title
+                subtitle
+                backgroundColor {
+                  hex
+                }
+                siteLink
+                slug
+                readMore
+                categories {
+                  categoryType
+                }
+                client {
+                  name
+                }
+                blocks {
+                  ... on SingleImageRecord {
+                    id
+                    _modelApiKey
+                    description
+                    full
+                    image {
+                      url
+                    }
+                  }
+                  ... on QuoteRecord {
+                    id
+                    _modelApiKey
+                    centered
+                    left
+                    right
+                    text
+                  }
+                  ... on DoubleImageRecord {
+                    id
+                    _modelApiKey
+                    firstImage {
+                      url
+                    }
+                    lastImage {
+                      url
+                    }
+                  }
+                  ... on ImageCarouselRecord {
+                    id
+                    _modelApiKey
+                    imageCarouselAsset {
+                      id
+                      url
+                    }
+                  }
+                }
+                description
+                coverSize
+                projectThumbnail {
+                  url
+                }
+              }
+            }
+          }
+        `
+      });
+      return data.frontpage.projects;
     }
   }
 };

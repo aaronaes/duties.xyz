@@ -1,7 +1,7 @@
 import { execute, makePromise } from "apollo-link";
 import { HttpLink } from "apollo-link-http";
 
-const token = "033dd18b57d8391b42f307dd51443d";
+const token = "daf1c99998d196724b941d5cce121c";
 
 const graphLink = new HttpLink({
   uri: "https://graphql.datocms.com/",

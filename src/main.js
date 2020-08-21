@@ -3,9 +3,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import VueAwesomeSwiper from "vue-awesome-swiper";
 import VueLazyload from "vue-lazyload";
 import VueScrollTo from "vue-scrollto";
+import VueAwesomeSwiper from "vue-awesome-swiper";
 
 import "foundation-sites/dist/css/foundation.min.css";
 import "./assets/scripts/main.js";

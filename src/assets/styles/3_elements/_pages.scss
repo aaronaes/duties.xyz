@@ -3,8 +3,8 @@
 .grid-container {
   width: 100vw;
   max-width: 1680px;
-  padding-right: $sm * 1.25;
-  padding-left: $sm * 1.25;
+  padding-right: $md;
+  padding-left: $md;
 
   @include respond-to("sm") {
     padding-left: $sm;
@@ -19,8 +19,13 @@
 
 .column,
 .columns {
-  padding-right: $sm;
-  padding-left: $sm;
+  padding-right: $md;
+  padding-left: $md;
+
+  @include respond-to("sm") {
+    padding-right: $sm;
+    padding-left: $sm;
+  }
 }
 
 .center {

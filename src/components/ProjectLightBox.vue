@@ -2,7 +2,7 @@
   <div>
     <div class="content grid-container">
       <div class="grid-x description">
-        <div class="cell">
+        <div class="columns">
           <h2 v-html="project.description"></h2>
           <h2 class="this">
             <a href="/" target="_blank">Visit site</a>
@@ -11,10 +11,10 @@
       </div>
 
       <div class="grid-x meta">
-        <div class="cell">
+        <div class="columns">
           <p class="title">Service</p>
         </div>
-        <div class="cell">
+        <div class="columns">
           <p
             v-for="(category, i) in project.categories"
             :key="i"
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="content grid-container fluid">
+    <div class="content grid-container">
       <div
         class="grid-x img-container align-center"
         v-lazy-container="{ selector: 'img' }"
@@ -55,7 +55,7 @@
 
           <div
             v-if="block._modelApiKey === 'single_image'"
-            class="cell large-6 medium-8 small-12"
+            class="columns small-12 medium-12 large-8"
           >
             <img
               :data-src="getUrl(block.image.url)"
@@ -66,15 +66,15 @@
           <div
             style="display: flex;"
             v-if="block._modelApiKey === 'double_image'"
-            class="cell"
+            class="columns"
           >
             <img
-              class="large-6 medium-6 small-12"
+              class="small-12 medium-6 large-5 large-offset-1"
               :data-src="getUrl(block.firstImage.url)"
               :data-srcset="getSrcSet(block.firstImage.url)"
             />
             <img
-              class="large-6 medium-6 small-12"
+              class="small-12 medium-6 large-5"
               :data-src="getUrl(block.lastImage.url)"
               :data-srcset="getSrcSet(block.lastImage.url)"
             />
@@ -109,7 +109,7 @@ export default {
           1366: {
             centeredSlides: false,
             slidesPerView: 4.125,
-            spaceBetween: 160,
+            spaceBetween: 120,
             slidesOffsetBefore: 240,
             slidesOffsetAfter: 240
           }
@@ -125,10 +125,11 @@ export default {
       return imgix({ url: url });
     },
     getSrcSet(url) {
-      return ` 
-      ${imgix({ url: url, w: 2400 })} 2400w, 
-      ${imgix({ url: url, w: 1200 })} 1200w, 
-      ${imgix({ url: url, w: 600 })} 600w,
+      return `
+      ${imgix({ url: url, w: 576 })} 576w,
+      ${imgix({ url: url, w: 640 })} 640w,
+      ${imgix({ url: url, w: 1024 })} 1024w,
+      ${imgix({ url: url, w: 1680 })} 1680w,
       `;
     }
   },

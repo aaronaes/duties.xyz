@@ -6,7 +6,8 @@
 
   .swiper-wrapper {
     .swiper-slide {
-      max-width: 375px;
+      max-width: 327px;
+
       cursor: move; /* fallback if grab cursor is unsupported */
       cursor: url("/images/assets/openhand.cur"), 32 32;
       cursor: grab;

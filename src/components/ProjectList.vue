@@ -13,7 +13,7 @@
         :style="[
           project.id === active
             ? {
-                'background-color': project.backgroundColor || 'white'
+                'background-color': project.backgroundColor.hex || 'initial'
               }
             : { 'background-color': 'initial' }
         ]"
@@ -22,6 +22,7 @@
           <div class="closeBtn" v-if="project.readMore === true">
             <p @click="() => toggle(project.id)">Close</p>
           </div>
+
           <div class="summary grid-container">
             <a
               target="_blank"
@@ -44,8 +45,8 @@
                 :class="project.coverSize"
                 v-if="active"
               />
-              <div class="project-title" v-if="project.readMore === false">
-                <h3>{{ project.title }}</h3>
+              <div class="project-title" v-if="!active">
+                <p v-if="project.readMore === true"><b>Case — </b></p>
                 <p v-html="project.subtitle"></p>
               </div>
             </a>
@@ -62,7 +63,7 @@
             :style="[
               project.id === active
                 ? {
-                    'background-color': project.backgroundColor || 'white'
+                    'background-color': project.backgroundColor.hex || 'white'
                   }
                 : { 'background-color': 'initial' }
             ]"
