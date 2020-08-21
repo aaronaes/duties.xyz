@@ -1,14 +1,64 @@
-section.projectList {
-  margin-top: $lg;
-  margin-bottom: $lg;
+body {
+  section {
+    &.projectList {
+      margin-top: $lg;
+      margin-bottom: $lg;
+      padding-top: 0;
+      background-color: initial;
+      transition: 250ms $easing 250ms;
 
-  @include respond-to("md") {
-    margin-top: $md;
-    margin-bottom: $md;
+      @include respond-to("md") {
+        margin-top: $md;
+        margin-bottom: $md;
+      }
+
+      @include respond-to("sm") {
+        margin-top: $sm;
+        margin-bottom: $sm;
+      }
+    }
   }
+}
 
-  @include respond-to("sm") {
-    margin-top: $sm;
-    margin-bottom: $sm;
+body.active {
+  section {
+    &.projectList {
+      .details {
+        .inner {
+          .closeBtn {
+            transform: translateX(-50%) translateY(-$md);
+            position: sticky;
+            opacity: 1;
+
+            @include respond-to("sm") {
+              transform: translateX(-50%) translateY(0);
+            }
+          }
+
+          .summary {
+            padding-top: $md;
+
+            @include respond-to("sm") {
+              padding-top: $sm;
+            }
+
+            .imgBox {
+              @include respond-to("sm") {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      figure {
+        .details {
+          &:not(.loaded) {
+            overflow-y: auto;
+            opacity: 0;
+          }
+        }
+      }
+    }
   }
 }

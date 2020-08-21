@@ -22,6 +22,7 @@
           <div class="closeBtn" v-if="project.readMore === true">
             <p @click="() => toggle(project.id)">Close</p>
           </div>
+
           <div class="summary grid-container">
             <a
               target="_blank"
@@ -44,7 +45,7 @@
                 :class="project.coverSize"
                 v-if="active"
               />
-              <div class="project-title">
+              <div class="project-title" v-if="!active">
                 <p v-if="project.readMore === true"><b>Case — </b></p>
                 <p v-html="project.subtitle"></p>
               </div>

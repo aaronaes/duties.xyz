@@ -1,422 +1,367 @@
-section {
-  &.projectList {
-    padding-top: 0;
+figure {
+  .details {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    padding-top: $lg;
     background-color: initial;
-    transition: 250ms $easing 250ms;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s $easing, opacity 250ms $easing;
 
-    // Project Item
-    figure {
-      .details {
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-flow: row wrap;
-        padding-top: $lg;
-        background-color: initial;
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 0s $easing, opacity 250ms $easing;
+    @include respond-to("sm") {
+      padding-top: $sm;
+    }
+
+    .inner {
+      .closeBtn {
+        position: sticky;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-$lg);
+        max-width: 100px;
+        display: block;
+        z-index: 999;
+        background-color: $black;
+        border-radius: 40px;
+        padding: 8px 16px;
+        opacity: 0;
+        transition-delay: 250ms;
+        transition: 250ms all $easing;
+
+        @include respond-to("sm") {
+          top: 0;
+          transform: translateX(-50%) translateY(-$sm);
+        }
+
+        p {
+          cursor: pointer;
+          font-size: 17px;
+          margin: 0;
+          text-transform: uppercase;
+          text-align: center;
+          color: $white;
+        }
+      }
+
+      .summary {
+        position: relative;
+        padding-top: $md;
 
         @include respond-to("sm") {
           padding-top: $sm;
         }
 
-        .inner {
-          .closeBtn {
-            position: sticky;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(-$lg);
-            max-width: 100px;
+        a.imgBox {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: 250ms all $easing;
+          border-bottom: none;
+
+          &.Landscape {
+            width: 70vw;
+
+            @include respond-to("sm") {
+              width: auto;
+            }
+          }
+
+          &.Square {
+            width: 45vw;
+            @include respond-to("sm") {
+              width: auto;
+            }
+          }
+
+          &.Portrait {
+            width: 30vw;
+
+            @include respond-to("sm") {
+              width: auto;
+            }
+          }
+
+          img {
+            cursor: pointer;
             display: block;
-            z-index: 999;
-            background-color: $black;
-            border-radius: 40px;
-            padding: 8px 16px;
-            opacity: 0;
-            transition-delay: 250ms;
-            transition: 250ms all $easing;
+            transition: 250ms $easing;
 
-            @include respond-to("sm") {
-              top: 0;
-              transform: translateX(-50%) translateY(-$sm);
-            }
-
-            p {
-              cursor: pointer;
-              font-size: 17px;
-              margin: 0;
-              text-transform: uppercase;
-              text-align: center;
-              color: $white;
-            }
-          }
-
-          .summary {
             position: relative;
-            padding-top: $md;
+            left: 50%;
+            transform: translateX(-50%);
 
             @include respond-to("sm") {
-              padding-top: $sm;
-            }
-
-            a.imgBox {
-              position: relative;
-              left: 50%;
-              transform: translateX(-50%);
-              transition: 250ms all $easing;
-              border-bottom: none;
-
-              &.Landscape {
-                width: 70vw;
-
-                @include respond-to("sm") {
-                  width: auto;
-                }
-              }
-
-              &.Square {
-                width: 45vw;
-                @include respond-to("sm") {
-                  width: auto;
-                }
-              }
-
-              &.Portrait {
-                width: 30vw;
-
-                @include respond-to("sm") {
-                  width: auto;
-                }
-              }
-
-              img {
-                cursor: pointer;
-                display: block;
-                transition: 250ms $easing;
-
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-
-                @include respond-to("sm") {
-                  height: 100%;
-                }
-              }
-            }
-
-            .project-title {
-              padding-top: $xs;
-              h1,
-              h2,
-              h3 {
-                cursor: pointer;
-                text-transform: uppercase;
-                letter-spacing: -0.05em;
-                margin: 0;
-              }
-
-              p {
-                cursor: pointer;
-                margin: 0;
-                z-index: 0;
-                display: inline;
-              }
-            }
-          }
-
-          .content {
-            padding-top: $md;
-
-            @include respond-to("sm") {
-              padding-top: $xs;
-            }
-
-            h1,
-            h2 {
-              &.title {
-                text-transform: uppercase;
-                letter-spacing: -0.05em;
-                margin-bottom: 0;
-              }
-              &.subtitle {
-                opacity: 0.6;
-              }
-            }
-            .projectTitle {
-              margin-left: auto;
-              margin-right: auto;
-              max-width: 780px;
-              width: 100%;
-            }
-
-            .description {
-              margin-bottom: $md;
-              margin-left: auto;
-              margin-right: auto;
-              max-width: 780px;
-              width: 100%;
-
-              @include respond-to("sm") {
-                max-width: 100%;
-              }
-
-              @include respond-to("sm") {
-                margin-bottom: $xs;
-              }
-
-              h2 {
-                &.this {
-                  position: relative;
-                  padding-top: $sm;
-
-                  // SVG Graphic
-                  &:before {
-                    content: "";
-                    background: transparent url(/images/assets/this.svg)
-                      no-repeat;
-                    background-size: contain;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    z-index: -1;
-                    width: 124px;
-                    transform: translate(0, 36px);
-                    height: 16px;
-                    transition: all 250ms $easing;
-                    opacity: 1;
-                  }
-                  a {
-                    &:hover {
-                      transition: all 250ms $easing;
-                    }
-                  }
-                }
-              }
-
-              a {
-                border-bottom: 0px solid transparent;
-              }
-            }
-
-            .meta {
-              margin-bottom: $sm;
-              max-width: 780px;
-              width: 100%;
-              margin-left: auto;
-              margin-right: auto;
-
-              div {
-                p {
-                  &.title {
-                    margin-bottom: 0;
-                    opacity: 0.5;
-                  }
-                }
-
-                h3,
-                p {
-                  padding-right: $sm;
-                  margin-bottom: 0px;
-
-                  span {
-                    display: block;
-                  }
-                }
-              }
-            }
-
-            .img-container {
-              &:last-of-type {
-                margin-bottom: 0;
-              }
-
-              .text {
-                margin-top: $lg;
-                margin-bottom: $lg;
-
-                @include respond-to("sm") {
-                  margin-top: $sm;
-                  margin-bottom: $sm;
-                }
-              }
-
-              img {
-                margin-bottom: $lg;
-                height: auto;
-                width: 100%;
-
-                @include respond-to("sm") {
-                  margin-bottom: $sm;
-                }
-              }
-
-              img[lazy="loaded"] {
-                opacity: 0;
-                animation: opacity, transform;
-                animation-name: fade-in;
-                animation-duration: 500ms;
-                animation-iteration-count: 1;
-                animation-fill-mode: forwards;
-                animation-direction: normal;
-                animation-timing-function: $easing;
-
-                @keyframes fade-in {
-                  0% {
-                    opacity: 0;
-                  }
-                  100% {
-                    opacity: 1;
-                  }
-                }
-              }
+              height: 100%;
             }
           }
         }
 
-        .similarList {
-          height: 100vh;
-          width: 100vw;
-          z-index: 9999;
-          position: relative;
-          transition: background-color 250ms $easing, color 250ms $easing;
+        .project-title {
+          padding-top: $xs;
+          h1,
+          h2,
+          h3 {
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin: 0;
+          }
+
+          p {
+            cursor: pointer;
+            margin: 0;
+            z-index: 0;
+            display: inline;
+          }
+        }
+      }
+
+      .content {
+        padding-top: $md;
+
+        @include respond-to("sm") {
+          padding-top: $xs;
+        }
+
+        h1,
+        h2 {
+          &.title {
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin-bottom: 0;
+          }
+          &.subtitle {
+            opacity: 0.6;
+          }
+        }
+        .projectTitle {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 780px;
+          width: 100%;
+        }
+
+        .description {
+          margin-bottom: $md;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 780px;
+          width: 100%;
 
           @include respond-to("sm") {
-            max-width: 60vw;
-            padding-top: $lg;
+            max-width: 100%;
           }
 
-          ul {
-            li {
-              list-style: none !important;
-              h1 {
-                margin-bottom: $xs;
-                cursor: pointer;
+          @include respond-to("sm") {
+            margin-bottom: $xs;
+          }
 
-                span {
-                  img {
-                    max-width: 60vw;
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    z-index: -1;
-                    visibility: visible;
-                    opacity: 0;
-                    transition: visibility 0s $easing, opacity 250ms $easing;
-                  }
-                }
+          h2 {
+            &.this {
+              position: relative;
+              padding-top: $sm;
 
+              // SVG Graphic
+              &:before {
+                content: "";
+                background: transparent url(/images/assets/this.svg) no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                width: 124px;
+                transform: translate(0, 36px);
+                height: 16px;
+                transition: all 250ms $easing;
+                opacity: 1;
+              }
+              a {
                 &:hover {
-                  color: $accent;
-                  span {
-                    img {
-                      opacity: 1;
-                      visibility: visible;
-                      transition: visibility 0s $easing, opacity 250ms $easing;
-                    }
-                  }
-                }
-              }
-
-              &.isOpen {
-                pointer-events: none;
-                cursor: pointer;
-                h1 {
-                  text-decoration: line-through;
-
-                  span {
-                    img {
-                      opacity: 0 !important;
-                    }
-                  }
+                  transition: all 250ms $easing;
                 }
               }
             }
           }
-        }
 
-        &.mini {
-          justify-content: initial;
-          display: inline-block;
-          vertical-align: top;
-          width: 50%;
-
-          .inner {
-            .summary {
-              width: 100%;
-
-              a.imgBox {
-                .Portrait {
-                  justify-content: space-around;
-                }
-              }
-            }
+          a {
+            border-bottom: 0px solid transparent;
           }
         }
 
-        &.loaded {
-          position: fixed;
+        .meta {
+          margin-bottom: $sm;
+          max-width: 780px;
           width: 100%;
-          display: flex;
-          overflow-y: scroll;
-          padding-bottom: 0;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 9998;
-          visibility: visible !important;
-          opacity: 1 !important;
-          transition: visibility 0s $easing, opacity 250ms $easing;
+          margin-left: auto;
+          margin-right: auto;
+
+          div {
+            p {
+              &.title {
+                margin-bottom: 0;
+                opacity: 0.5;
+              }
+            }
+
+            h3,
+            p {
+              padding-right: $sm;
+              margin-bottom: 0px;
+
+              span {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .img-container {
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          .text {
+            margin-top: $lg;
+            margin-bottom: $lg;
+
+            @include respond-to("sm") {
+              margin-top: $sm;
+              margin-bottom: $sm;
+            }
+          }
+
+          img {
+            margin-bottom: $lg;
+            height: auto;
+            width: 100%;
+
+            @include respond-to("sm") {
+              margin-bottom: $sm;
+            }
+          }
+
+          img[lazy="loaded"] {
+            opacity: 0;
+            animation: opacity, transform;
+            animation-name: fade-in;
+            animation-duration: 500ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-timing-function: $easing;
+
+            @keyframes fade-in {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+              }
+            }
+          }
         }
       }
     }
-  }
-}
 
-body.active {
-  section {
-    &.projectList {
-      // background-color: $white;
+    .similarList {
+      height: 100vh;
+      width: 100vw;
+      z-index: 9999;
+      position: relative;
+      transition: background-color 250ms $easing, color 250ms $easing;
 
-      .details {
-        .inner {
-          .closeBtn {
-            transform: translateX(-50%) translateY(-$md);
-            position: sticky;
-            opacity: 1;
+      @include respond-to("sm") {
+        max-width: 60vw;
+        padding-top: $lg;
+      }
 
-            @include respond-to("sm") {
-              transform: translateX(-50%) translateY(0);
+      ul {
+        li {
+          list-style: none !important;
+          h1 {
+            margin-bottom: $xs;
+            cursor: pointer;
+
+            span {
+              img {
+                max-width: 60vw;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                visibility: visible;
+                opacity: 0;
+                transition: visibility 0s $easing, opacity 250ms $easing;
+              }
+            }
+
+            &:hover {
+              color: $accent;
+              span {
+                img {
+                  opacity: 1;
+                  visibility: visible;
+                  transition: visibility 0s $easing, opacity 250ms $easing;
+                }
+              }
             }
           }
 
-          .summary {
-            padding-top: $md;
+          &.isOpen {
+            pointer-events: none;
+            cursor: pointer;
+            h1 {
+              text-decoration: line-through;
 
-            @include respond-to("sm") {
-              padding-top: $sm;
-            }
-
-            .imgBox {
-              @include respond-to("sm") {
-                width: 100%;
+              span {
+                img {
+                  opacity: 0 !important;
+                }
               }
             }
           }
         }
       }
+    }
 
-      figure {
-        .details {
-          &:not(.loaded) {
-            overflow-y: auto;
-            opacity: 0;
+    &.mini {
+      justify-content: initial;
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+
+      .inner {
+        .summary {
+          width: 100%;
+
+          a.imgBox {
+            .Portrait {
+              justify-content: space-around;
+            }
           }
         }
       }
+    }
+
+    &.loaded {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      overflow-y: scroll;
+      padding-bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9998;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transition: visibility 0s $easing, opacity 250ms $easing;
     }
   }
 }
