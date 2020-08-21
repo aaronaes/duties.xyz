@@ -5,17 +5,7 @@
     <section class="grid-container intro">
       <figure class="grid-x grid-padding-x align-center">
         <div class="cell large-6 medium-10 small-12">
-          <h2 class="cell">
-            Established in 2020, Duties is an independent digital design studio
-            based in Oslo. We believe it’s our duty as designers to provide the
-            world with thoughtfully designed products that are both functional,
-            accessible and visually beautiful.
-          </h2>
-          <h2 class="cell">
-            We work at the intersection of visual and functional design;
-            focusing on brand identity design, product strategy, web and native
-            application development plus a bit of xyz…
-          </h2>
+          <div class="cell markdown" v-html="getMarkdown(about.aboutUs)"></div>
         </div>
       </figure>
     </section>
@@ -102,12 +92,39 @@
 </template>
 
 <script>
+import marked from "marked";
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
 import Masthead from "@/components/Masthead.vue";
 
 export default {
   name: "About",
+  async created() {
+    const { data } = await getData({
+      query: gql`
+        query {
+          about {
+            aboutUs
+          }
+        }
+      `
+    });
+    this.about = data.about;
+  },
+  data() {
+    return {
+      about: {
+        aboutUs: ""
+      }
+    };
+  },
   components: {
     Masthead
+  },
+  methods: {
+    getMarkdown(content) {
+      return marked(content);
+    }
   },
   beforeCreate: function() {
     document.body.className = "about";
