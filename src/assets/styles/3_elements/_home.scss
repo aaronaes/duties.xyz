@@ -2,7 +2,8 @@ body {
   main {
     section {
       position: relative;
-      margin-bottom: $lg;
+      padding-top: $lg;
+      padding-bottom: $lg;
 
       h2,
       h3 {
@@ -12,9 +13,6 @@ body {
       }
 
       &.clients {
-        padding-top: $lg;
-        padding-bottom: $xl * 1.75;
-
         figure {
           margin-bottom: $sm;
 
@@ -45,6 +43,22 @@ body {
                   content: "";
                 }
               }
+            }
+          }
+        }
+      }
+
+      &.footer {
+        figure {
+          margin: 0;
+          padding: 0;
+
+          h2 {
+            display: inline;
+            margin-right: $sm;
+
+            &::last-of-type {
+              margin-left: 0;
             }
           }
         }

@@ -80,11 +80,6 @@
                   @click="toggle(project.id)"
                 >
                   {{ project.title }}
-                  <span
-                    ><img
-                      class="cover"
-                      :src="getUrl(project.projectThumbnail.url)"
-                  /></span>
                 </h1>
               </li>
             </ul>

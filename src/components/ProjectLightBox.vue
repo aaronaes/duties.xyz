@@ -105,7 +105,7 @@
 import imgix from "@/utils/imgix";
 
 export default {
-  name: "gl",
+  name: "Project",
   props: ["project"],
   data() {
     return {

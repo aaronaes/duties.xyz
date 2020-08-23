@@ -22,7 +22,8 @@ h6 {
   font-weight: 400;
 }
 
-h1 {
+h1,
+h1.markdown p {
   font-size: 60px;
   line-height: 1.1em;
   margin-bottom: $md;

@@ -35,6 +35,12 @@ export default new Router({
       name: "Projects",
       component: () =>
         import(/* webpackChunkName: "About" */ "./views/Projects.vue")
+    },
+    {
+      path: "/imprint",
+      name: "Imprint",
+      component: () =>
+        import(/* webpackChunkName: "About" */ "./views/Imprint.vue")
     }
   ]
 });

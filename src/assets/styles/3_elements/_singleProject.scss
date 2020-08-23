@@ -286,20 +286,6 @@ figure {
             margin-bottom: $xs;
             cursor: pointer;
 
-            span {
-              img {
-                max-width: 60vw;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                visibility: visible;
-                opacity: 0;
-                transition: visibility 0s $easing, opacity 250ms $easing;
-              }
-            }
-
             &:hover {
               color: $accent;
               span {
@@ -317,12 +303,6 @@ figure {
             cursor: pointer;
             h1 {
               text-decoration: line-through;
-
-              span {
-                img {
-                  opacity: 0 !important;
-                }
-              }
             }
           }
         }

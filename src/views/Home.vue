@@ -15,8 +15,8 @@
       </figure>
       <figure class="grid-x grid-padding-x align-center client-grid">
         <div class="cell large-7 medium-10 small-12">
-          <h2 v-for="project in projects" :key="project.id" class="float-left">
-            {{ project.title }}
+          <h2 v-for="client in clients" :key="client.id" class="float-left">
+            {{ client.name }}
           </h2>
         </div>
       </figure>
@@ -41,6 +41,22 @@
         </div>
       </figure>
     </section>
+
+    <!-- About -->
+    <section class="grid-container footer">
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-7 medium-10 small-12">
+          <h2>
+            <router-link to="/imprint">Imprint</router-link>
+          </h2>
+          <h2>
+            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+              >Connect</a
+            >
+          </h2>
+        </div>
+      </figure>
+    </section>
   </main>
 </template>
 
@@ -58,13 +74,16 @@ export default {
   },
   async created() {
     this.projects = await this.getProjects();
+    this.clients = await this.getClients();
   },
   data() {
     return {
       projects: [],
+      clients: [],
       title: "Home",
       heading:
         "A creative partner and design studio for thoughtfully crafted products.",
+
       carouselData: 0,
       hooperSettings: {
         transition: 500,
@@ -157,11 +176,28 @@ export default {
                   url
                 }
               }
+              clients {
+                name
+              }
             }
           }
         `
       });
       return data.frontpage.projects;
+    },
+    async getClients() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            frontpage {
+              clients {
+                name
+              }
+            }
+          }
+        `
+      });
+      return data.frontpage.clients;
     },
     slidePrev() {
       this.$refs.carousel.slidePrev();
