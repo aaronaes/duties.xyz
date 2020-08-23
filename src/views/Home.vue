@@ -101,6 +101,7 @@ export default {
               projects {
                 id
                 title
+                slug
                 subtitle
                 backgroundColor {
                   hex

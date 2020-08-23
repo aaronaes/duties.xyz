@@ -6,17 +6,6 @@
         :key="i"
         :id="`project-${project.id}`"
         class="details"
-        :open="active === project.id"
-        :class="{
-          loaded: project.id === active
-        }"
-        :style="[
-          project.id === active
-            ? {
-                'background-color': project.backgroundColor.hex || 'initial'
-              }
-            : { 'background-color': 'initial' }
-        ]"
       >
         <div class="inner">
           <div class="closeBtn" v-if="project.readMore === true">
@@ -32,82 +21,49 @@
               class="imgBox"
               :class="project.coverSize"
             >
-              <img
-                class="cover"
-                :src="getUrl(project.projectThumbnail.url)"
-                v-if="!active"
-              />
-              <img
-                class="cover"
-                :src="getUrl(project.projectThumbnail.url)"
-                :class="project.coverSize"
-                v-if="active"
-              />
-              <div class="project-title" v-if="!active">
+              <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
+              <div class="project-title">
                 <p v-if="project.readMore === true"><b>Case — </b></p>
                 <p v-html="project.subtitle"></p>
               </div>
             </a>
           </div>
-          <transition name="content" mode="out-in">
-            <div class="grid-x align-center align-middle content" v-if="active">
-              <ProjectLightBox :project="project" />
-            </div>
-          </transition>
-        </div>
-        <div class="grid-x align-center align-middle content" v-if="active">
-          <div
-            class="grid-x align-center align-middle similarList"
-            :style="[
-              project.id === active
-                ? {
-                    'background-color': project.backgroundColor.hex || 'white'
-                  }
-                : { 'background-color': 'initial' }
-            ]"
-          >
-            <ul>
-              <p class="cell">Selected Works</p>
-              <li
-                v-for="(project, i) in projects"
-                :key="i"
-                :class="{ isOpen: project.id === active }"
-                :id="project.id"
-              >
-                <h1
-                  v-if="project.readMore"
-                  class="jump"
-                  @click="toggle(project.id)"
-                >
-                  {{ project.title }}
-                  <span
-                    ><img
-                      class="cover"
-                      :src="getUrl(project.projectThumbnail.url)"
-                  /></span>
-                </h1>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
+      <transition name="content" mode="out-in">
+        <div class="grid-x align-center align-middle content" v-if="isOpen">
+          <router-view />
+        </div>
+      </transition>
     </figure>
   </section>
 </template>
 
 <script>
 import imgix from "@/utils/imgix";
-import ProjectLightBox from "@/components/ProjectLightBox";
 
 export default {
   name: "ProjectList",
   props: ["projects"],
-  components: { ProjectLightBox },
   data() {
     return {
       title: "Projects",
       active: ""
     };
+  },
+  watch: {
+    isOpen: {
+      handler: val => {
+        if (val) document.body.classList.add("active");
+        else document.body.classList.remove("active");
+      },
+      immediate: true
+    }
+  },
+  computed: {
+    isOpen() {
+      return this.$route.name === "Project";
+    }
   },
   methods: {
     getUrl(url) {
@@ -146,6 +102,7 @@ export default {
       if (project.readMore) {
         e.preventDefault();
         this.toggle(project.id);
+        this.$router.push("/lightbox/" + project.slug);
       }
     },
     scrollTo(el) {

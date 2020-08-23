@@ -1,5 +1,29 @@
+<style>
+.project {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+</style>
+
 <template>
-  <div>
+  <div
+    class="project"
+    :style="{ 'background-color': project.backgroundColor.hex || 'initial' }"
+  >
+    <div class="closeBtn">
+      <router-link to="/">Close</router-link>
+    </div>
+
+    <div class="summary grid-container">
+      <div class="imgBox" :class="project.coverSize">
+        <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
+      </div>
+    </div>
+
     <div class="content grid-container">
       <div class="grid-x description">
         <div class="columns">
@@ -98,17 +122,50 @@
         </div>
       </div>
     </div>
+    <ul>
+      <p class="cell">Selected Works</p>
+      <li
+        v-for="(p, i) in projects"
+        :key="i"
+        :class="{ isOpen: p.id === project.id }"
+        :id="p.id"
+      >
+        <router-link v-if="p.readMore" class="jump" :to="'lightbox/' + p.slug">
+          {{ p.title }}
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 
 export default {
   name: "gl",
-  props: ["project"],
+  async created() {
+    this.project = await this.getProject(this.$route.params.slug);
+    this.projects = await this.getProjects();
+  },
   data() {
     return {
+      projects: [],
+      project: {
+        heading: "",
+        title: "",
+        slug: "",
+        backgroundColor: { hex: "" },
+        subtitle: "",
+        readMore: false,
+        categories: [],
+        client: {},
+        blocks: [],
+        description: "",
+        coverSize: "",
+        projectThumbnail: { url: "" }
+      },
       swiperOptions: {
         slidesPerView: 1.75,
         centeredSlides: true,
@@ -134,6 +191,91 @@ export default {
     };
   },
   methods: {
+    async getProjects() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            allProjects {
+              id
+              title
+              slug
+            }
+          }
+        `
+      });
+      return data.allProjects;
+    },
+    async getProject(slug) {
+      console.log(slug);
+      const { data } = await getData({
+        variables: { slug: slug },
+        query: gql`
+          query getProject($slug: String!) {
+            project(filter: { slug: { eq: $slug } }) {
+              id
+              title
+              subtitle
+              slug
+              description
+              coverSize
+              projectThumbnail {
+                url
+              }
+              backgroundColor {
+                hex
+              }
+              siteLink
+              slug
+              readMore
+              categories {
+                categoryType
+              }
+              client {
+                name
+              }
+              blocks {
+                ... on SingleImageRecord {
+                  id
+                  _modelApiKey
+                  description
+                  full
+                  image {
+                    url
+                  }
+                }
+                ... on QuoteRecord {
+                  id
+                  _modelApiKey
+                  centered
+                  left
+                  right
+                  text
+                }
+                ... on DoubleImageRecord {
+                  id
+                  _modelApiKey
+                  firstImage {
+                    url
+                  }
+                  lastImage {
+                    url
+                  }
+                }
+                ... on ImageCarouselRecord {
+                  id
+                  _modelApiKey
+                  imageCarouselAsset {
+                    id
+                    url
+                  }
+                }
+              }
+            }
+          }
+        `
+      });
+      return data.project;
+    },
     changeSwiperIndex() {
       this.$refs.mySwiper.$swiper.activeIndex;
     },
