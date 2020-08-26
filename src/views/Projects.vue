@@ -1,26 +1,22 @@
 <template>
-  <section class="projectList">
-    <figure class="grid-container">
-      <div
-        v-for="(project, i) in projects"
-        :key="i"
-        :id="`project-${project.id}`"
-        class="ping"
-        :open="active === project.id"
-      >
-        <div>
+  <section class="projectList ">
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div
+          class="cell small-12 medium-5 large-1"
+          v-for="(project, i) in projects"
+          :key="i"
+          :id="`project-${project.id}`"
+          :open="active === project.id"
+        >
           <img
             class="cover"
             :src="project.projectThumbnail.url"
             v-show="project.projectThumbnail.url != ''"
           />
-          <div class="project-title" v-if="!active">
-            <p v-if="project.readMore === true"><b>Case — </b></p>
-            <p v-html="project.subtitle"></p>
-          </div>
         </div>
       </div>
-    </figure>
+    </div>
   </section>
 </template>
 
@@ -75,9 +71,6 @@ export default {
                   ... on QuoteRecord {
                     id
                     _modelApiKey
-                    centered
-                    left
-                    right
                     text
                   }
                   ... on DoubleImageRecord {

@@ -1,58 +1,30 @@
-<style>
-.project {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-}
-</style>
-
 <template>
   <div
     class="project"
     :style="{ 'background-color': project.backgroundColor.hex || 'initial' }"
   >
-    <div class="closeBtn">
-      <router-link to="/">Close</router-link>
-    </div>
-
-    <div class="summary grid-container">
+    <div class="summary-block grid-container">
       <div class="imgBox" :class="project.coverSize">
         <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
       </div>
     </div>
 
-    <div class="content grid-container">
-      <div class="grid-x description">
-        <div class="columns">
-          <h2 v-html="project.description"></h2>
-          <h2 class="this">
-            <a href="/" target="_blank">Visit site</a>
-          </h2>
-        </div>
-      </div>
-
-      <div class="grid-x meta">
-        <div class="columns">
-          <p class="title">Service</p>
-        </div>
-        <div class="columns">
-          <p
-            v-for="(category, i) in project.categories"
-            :key="i"
-            class="float-left"
-          >
-            {{ category.categoryType }}
-          </p>
+    <div class="content-block">
+      <div class="grid-container info-block">
+        <div class="grid-x align-center text-container">
+          <div class="small-12 medium-12 large-12">
+            <h2 class="description" v-html="project.description"></h2>
+            <h2 class="this">
+              <a href="/" target="_blank">Visit site</a>
+            </h2>
+          </div>
         </div>
       </div>
     </div>
 
-    <div v-for="block in project.blocks" :key="block.id">
+    <div v-for="block in project.blocks" :key="block.id" class="content-block">
       <div
-        class="content grid-container fluid"
+        class="grid-container media-block fluid"
         v-if="block._modelApiKey === 'image_carousel'"
       >
         <swiper
@@ -80,7 +52,7 @@
       </div>
 
       <div
-        class="content grid-container"
+        class="grid-container media-block"
         :class="{ fluid: block.full }"
         v-if="block._modelApiKey === 'single_image'"
         v-lazy-container="{ selector: 'img' }"
@@ -88,7 +60,7 @@
         <div class="grid-x img-container align-center">
           <div
             :class="{
-              'large-8 medium-10 small-12': !block.full,
+              'small-12 medium-12 large-12': !block.full,
               cell: block.full
             }"
           >
@@ -101,18 +73,29 @@
       </div>
 
       <div
-        class="content grid-container"
+        class="grid-container media-block"
+        v-if="block._modelApiKey === 'quote'"
+      >
+        <div class="grid-x align-center text-container">
+          <div class="small-12 medium-8 large-6">
+            <h2>{{ block.text }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="grid-container media-block"
         v-if="block._modelApiKey === 'double_image'"
         v-lazy-container="{ selector: 'img' }"
       >
         <div class="grid-x img-container align-center">
-          <div class="cell large-6 medium-8 small-12">
+          <div class="cell large-6 medium-6 small-12">
             <img
               :data-src="getUrl(block.firstImage.url)"
               :data-srcset="getSrcSet(block.firstImage.url)"
             />
           </div>
-          <div class="cell large-6 medium-8 small-12">
+          <div class="cell large-6 medium-6 small-12">
             <img
               class="small-12 medium-6 large-5"
               :data-src="getUrl(block.lastImage.url)"
@@ -122,19 +105,72 @@
         </div>
       </div>
     </div>
-    <ul>
-      <p class="cell">Selected Works</p>
-      <li
-        v-for="(p, i) in projects"
-        :key="i"
-        :class="{ isOpen: p.id === project.id }"
-        :id="p.id"
-      >
-        <router-link v-if="p.readMore" class="jump" :to="'lightbox/' + p.slug">
-          {{ p.title }}
-        </router-link>
-      </li>
-    </ul>
+
+    <div class="content-block">
+      <div class="grid-container meta-block">
+        <div
+          class="grid-x align-center team-block"
+          v-if="!project.roles.length"
+        ></div>
+        <div class="grid-x align-center team-block" v-else>
+          <div class="small-12 medium-4 large-4">
+            <div class="cell">
+              <p class="title">On-duty</p>
+            </div>
+            <div class="cell" v-for="(block, i) in project.roles" :key="i">
+              <p class="float-left">
+                {{ block.role }} by
+                <a :href="block.link" target="_blank">
+                  {{ block.name }}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-x align-center deliverables-block">
+          <div class="small-12 medium-4 large-4">
+            <div class="cell">
+              <p class="title">Deliverables</p>
+            </div>
+            <div
+              class="cell"
+              v-for="(category, i) in project.categories"
+              :key="i"
+            >
+              <p>
+                {{ category.categoryType }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-x align-center align-middle similar-block">
+      <ul>
+        <p>Selected Works</p>
+        <li
+          v-for="(projectInList, i) in projects"
+          :key="i"
+          :class="{ isOpen: projectInList.id === project.id }"
+          :id="projectInList.id"
+          v-show="projectInList.readMore === true"
+        >
+          <router-link :to="'/project/' + projectInList.slug">
+            <h1>
+              {{ projectInList.title }}
+            </h1>
+
+            <div class="imgBox" :class="projectInList.coverSize">
+              <img
+                class="cover"
+                :src="getUrl(projectInList.projectThumbnail.url)"
+              />
+            </div>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -158,10 +194,11 @@ export default {
         slug: "",
         backgroundColor: { hex: "" },
         subtitle: "",
-        readMore: false,
+        readMore: "false",
         categories: [],
         client: {},
         blocks: [],
+        roles: [],
         description: "",
         coverSize: "",
         projectThumbnail: { url: "" }
@@ -191,6 +228,12 @@ export default {
     };
   },
   methods: {
+    toggle(id) {
+      if (id === this.active) {
+        this.active = "";
+        document.body.classList.remove("active");
+      }
+    },
     async getProjects() {
       const { data } = await getData({
         query: gql`
@@ -199,6 +242,14 @@ export default {
               id
               title
               slug
+              readMore
+              coverSize
+              projectThumbnail {
+                url
+              }
+              projectThumbnail {
+                url
+              }
             }
           }
         `
@@ -230,6 +281,11 @@ export default {
               categories {
                 categoryType
               }
+              roles {
+                role
+                name
+                link
+              }
               client {
                 name
               }
@@ -246,9 +302,6 @@ export default {
                 ... on QuoteRecord {
                   id
                   _modelApiKey
-                  centered
-                  left
-                  right
                   text
                 }
                 ... on DoubleImageRecord {

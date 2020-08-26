@@ -18,10 +18,9 @@ body {
   color: $black;
   background-color: $white;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
 
   &.active {
-    position: fixed;
     overflow-y: hidden;
 
     ::-webkit-scrollbar {

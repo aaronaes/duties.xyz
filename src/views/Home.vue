@@ -128,9 +128,6 @@ export default {
                   ... on QuoteRecord {
                     id
                     _modelApiKey
-                    centered
-                    left
-                    right
                     text
                   }
                   ... on DoubleImageRecord {

@@ -44,15 +44,15 @@ h1 {
 h2,
 h2.markdown p {
   font-size: 32px;
-  line-height: 1.35em;
+  line-height: 1.35;
   margin-bottom: $sm;
 
   @include respond-to("md") {
-    font-size: 27px;
+    font-size: 26px;
   }
 
   @include respond-to("sm") {
-    font-size: 21px;
+    font-size: 22px;
   }
 }
 
@@ -63,11 +63,11 @@ h3.markdown p {
   margin-bottom: $sm;
 
   @include respond-to("lg") {
-    font-size: 26px;
+    font-size: 23px;
   }
 
   @include respond-to("md") {
-    font-size: 23px;
+    font-size: 20px;
   }
 
   @include respond-to("sm") {
@@ -76,14 +76,9 @@ h3.markdown p {
 }
 
 p {
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: calc(16px + 5 * (100vw - 320px) / 1680);
+  line-height: 1.75;
   margin-bottom: $sm;
-
-  @include respond-to("sm") {
-    font-size: 16px;
-    margin-bottom: $xs;
-  }
 }
 
 a {

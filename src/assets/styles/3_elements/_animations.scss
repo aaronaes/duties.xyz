@@ -1,68 +1,38 @@
 // Page
 .global-enter-active,
 .global-leave-active {
-  transition: all 250ms $easing;
+  transition: all 500ms linear;
   opacity: 1;
 }
 
 .global-enter,
 .global-leave-to {
   opacity: 0;
-  transform: translateY(8px);
 }
 
-// Content
-.content-enter-active,
-.content-leave-active {
-  transition: all 250ms $easing;
+// Modal
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 500ms linear;
   opacity: 1;
 }
 
-.content-enter,
-.content-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
+.modal-enter,
+.modal-leave-to {
+  opacity: 0.5;
 }
 
-// Logo, top
-.fromTop-enter-active,
-.fromTop-leave-active {
-  transition: all 250ms $easing;
-  transform: translateX(-50%) translateY(0) !important;
-  opacity: 1;
-}
+body.active {
+  .details {
+  }
 
-.fromTop-enter,
-.fromTop-leave-to {
-  transform: translateX(-50%) translateY(-$xs) !important;
-  transition: all 250ms $easing;
-  opacity: 0;
-}
+  .project-title {
+    opacity: 0;
+    transition: opacity 250ms $easing;
+  }
 
-// Nav, left
-.navLeft-enter-active,
-.navLeft-leave-active {
-  transition: all 250ms $easing;
-  transform: translateY(-50%) translateX(0) !important;
-  opacity: 1;
-}
-
-.navLeft-enter,
-.navLeft-leave-to {
-  transform: translateY(-50%) translateX(-$sm) !important;
-  opacity: 0;
-}
-
-// Nav, right
-.navRight-enter-active,
-.navRight-leave-active {
-  transition: all 250ms $easing;
-  transform: translateY(-50%) translateX(0) !important;
-  opacity: 1;
-}
-
-.navRight-enter,
-.navRight-leave-to {
-  opacity: 0;
-  transform: translateY(-50%) translateX($sm) !important;
+  .closeBtn {
+    opacity: 1;
+    transform: translateX(-50%) translateY($md);
+  }
 }

@@ -13,10 +13,10 @@ body {
       overflow: visible;
       top: 50%;
       opacity: 1;
+      z-index: 99999;
       display: block;
-      z-index: 9999;
       border-bottom: transparent;
-      transition: transform 250ms $easing, opacity 250ms $easing 250ms;
+      transition: all 500ms $easing;
 
       @include respond-to("md") {
         position: relative;
@@ -28,7 +28,7 @@ body {
 
         @include respond-to("md") {
           position: absolute;
-          transform: translateY(0%) translateX(0);
+          transform: translateY(0) translateX(0);
           left: $sm;
         }
 
@@ -63,7 +63,7 @@ body {
 
         @include respond-to("md") {
           position: absolute;
-          transform: translateY(0%) translateX(0);
+          transform: translateY(0) translateX(0);
           right: $sm;
         }
 
@@ -111,6 +111,7 @@ body {
 
     .logo {
       transform: translateX(-50%) translateY(0px);
+      transition: all 500ms $easing;
       position: fixed;
       left: 50%;
 
@@ -128,15 +129,14 @@ body {
   &.active {
     nav {
       .logo {
-        transform: translateX(-50%) translateY(-$sm);
+        transform: translateX(-50%) translateY(-$md);
         opacity: 0;
       }
       a {
         opacity: 0;
-        visibility: hidden;
 
         &.left {
-          transform: translateY(-50%) translateX(-$md);
+          transform: translateY(-50%) translateX(-$xl);
 
           @include respond-to("sm") {
             transform: none;
@@ -144,7 +144,7 @@ body {
         }
 
         &.right {
-          transform: translateY(-50%) translateX($md);
+          transform: translateY(-50%) translateX($xl);
 
           @include respond-to("sm") {
             transform: none;

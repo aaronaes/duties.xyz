@@ -1,61 +1,143 @@
 body {
-  section {
-    &.projectList {
-      margin-top: $lg;
-      margin-bottom: $lg;
-      padding-top: 0;
-      background-color: initial;
-      transition: 250ms $easing 250ms;
+  .closeBtn {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-$sm);
+    max-width: 100px;
+    display: block;
+    z-index: 99999;
+    background-color: $black;
+    border-radius: 40px;
+    padding: 8px 16px;
+    opacity: 0;
+    transition-delay: 500ms;
+    transition: all 250ms $easing;
 
-      @include respond-to("md") {
-        margin-top: $md;
-        margin-bottom: $md;
-      }
-
-      @include respond-to("sm") {
-        margin-top: $sm;
-        margin-bottom: $sm;
+    a {
+      p {
+        cursor: pointer;
+        font-size: 17px;
+        margin: 0;
+        text-transform: uppercase;
+        text-align: center;
+        color: $white;
       }
     }
   }
-}
 
-body.active {
-  section {
-    &.projectList {
+  .projectList {
+    position: relative;
+    margin-top: $lg;
+    margin-bottom: $lg;
+    background-color: initial;
+    transition: 250ms $easing 250ms;
+
+    @include respond-to("md") {
+      margin-top: $md;
+      margin-bottom: $md;
+    }
+
+    @include respond-to("sm") {
+      margin-top: $sm;
+      margin-bottom: $sm;
+    }
+
+    figure {
       .details {
-        .inner {
-          .closeBtn {
-            transform: translateX(-50%) translateY(-$md);
-            position: sticky;
-            opacity: 1;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: row wrap;
+        background-color: initial;
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s $easing, opacity 250ms $easing;
 
-            @include respond-to("sm") {
-              transform: translateX(-50%) translateY(0);
-            }
-          }
+        &.isMini {
+          height: initial;
+          position: relative;
+          margin-top: $md;
+          margin-bottom: $md;
 
-          .summary {
-            padding-top: $md;
-
-            @include respond-to("sm") {
-              padding-top: $sm;
-            }
-
-            .imgBox {
-              @include respond-to("sm") {
-                width: 100%;
-              }
+          .summary-block {
+            .project-title {
+              position: relative;
             }
           }
         }
-      }
 
-      figure {
-        .details {
-          &:not(.loaded) {
-            overflow-y: auto;
-            opacity: 0;
+        @include respond-to("sm") {
+          padding-top: $sm;
+        }
+
+        .summary-block {
+          position: relative;
+          margin-top: $lg;
+          margin-bottom: $lg;
+
+          @include respond-to("sm") {
+            margin-top: $sm;
+            margin-bottom: $sm;
+          }
+
+          .imgBox {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 250ms all $easing;
+            border-bottom: none;
+            max-width: 60vw;
+
+            &.Landscape {
+              width: 60vw;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
+            }
+
+            &.Square {
+              width: 45vw;
+              @include respond-to("sm") {
+                width: auto;
+              }
+            }
+
+            &.Portrait {
+              width: 30vw;
+
+              @include respond-to("sm") {
+                width: auto;
+              }
+            }
+
+            img {
+              cursor: pointer;
+            }
+          }
+
+          .project-title {
+            padding-top: $xs;
+            position: absolute;
+            transition: opacity 250ms $easing;
+
+            h1,
+            h2,
+            h3 {
+              cursor: pointer;
+              text-transform: uppercase;
+              letter-spacing: -0.05em;
+              margin: 0;
+            }
+
+            p {
+              cursor: pointer;
+              margin: 0;
+              z-index: 0;
+              display: inline;
+            }
           }
         }
       }

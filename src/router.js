@@ -8,15 +8,12 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   hashbag: true,
+  // eslint-disable-next-line no-unused-vars
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    } else {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve({ x: 0, y: 0 });
-        }, 500);
-      });
+    if (to.hash) {
+      return {
+        selector: to.hash
+      };
     }
   },
   routes: [
@@ -26,9 +23,10 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: "/lightbox/:slug",
+          path: "/project/:slug",
           name: "Project",
-          component: Project
+          component: Project,
+          transition: "modal"
         }
       ]
     },

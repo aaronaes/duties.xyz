@@ -6,32 +6,37 @@
         :key="i"
         :id="`project-${project.id}`"
         class="details"
+        :class="{ isMini: project.readMore !== true }"
       >
-        <div class="inner">
-          <div class="closeBtn" v-if="project.readMore === true">
-            <p @click="() => toggle(project.id)">Close</p>
-          </div>
-
-          <div class="summary grid-container">
-            <a
-              target="_blank"
-              style="display: block"
-              :href="project.siteLink"
-              @click="e => handleProjectClick(e, project)"
-              class="imgBox"
-              :class="project.coverSize"
-            >
-              <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
-              <div class="project-title">
-                <p v-if="project.readMore === true"><b>Case — </b></p>
-                <p v-html="project.subtitle"></p>
-              </div>
-            </a>
-          </div>
+        <div class="summary-block grid-container">
+          <a
+            target="_blank"
+            style="display: block"
+            :href="project.siteLink"
+            @click="e => handleProjectClick(e, project)"
+            class="imgBox"
+            :class="project.coverSize"
+          >
+            <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
+            <div class="project-title">
+              <p v-if="project.readMore === true"><b>Case — </b></p>
+              <p v-html="project.subtitle"></p>
+            </div>
+          </a>
         </div>
       </div>
-      <transition name="content" mode="out-in">
-        <div class="grid-x align-center align-middle content" v-if="isOpen">
+      <div class="closeBtn" @click.native="$moveTo()">
+        <router-link to="/">
+          <p>
+            Close
+          </p>
+        </router-link>
+      </div>
+      <transition name="modal" mode="in-out" :transition="$route.transition">
+        <div
+          class="grid-x align-center align-middle content-block"
+          v-if="isOpen"
+        >
           <router-view />
         </div>
       </transition>
@@ -48,7 +53,8 @@ export default {
   data() {
     return {
       title: "Projects",
-      active: ""
+      active: "",
+      isMini: false
     };
   },
   watch: {
@@ -66,6 +72,17 @@ export default {
     }
   },
   methods: {
+    moveTo() {
+      let to = this.moveToDown ? this.$refs.description.offsetTop - 60 : 0;
+
+      window.scroll({
+        top: to,
+        left: 0,
+        behavior: "smooth"
+      });
+
+      this.moveToDown = !this.moveToDown;
+    },
     getUrl(url) {
       return imgix({ url: url });
     },
@@ -76,12 +93,12 @@ export default {
         ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
         ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
         ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
-        ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
+        ${imgix({ url: url, w: 1920, q: 60 })} 1920w
       `;
     },
     toggle(id) {
       if (id === this.active) {
-        const el = document.querySelector("#project-" + id);
+        const el = document.querySelector("#projects");
         this.scrollTo(el);
 
         setTimeout(() => {
@@ -91,9 +108,9 @@ export default {
       } else {
         const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
+        this.active = id;
 
         setTimeout(() => {
-          this.active = id;
           document.body.classList.add("active");
         }, 1000);
       }
@@ -102,7 +119,9 @@ export default {
       if (project.readMore) {
         e.preventDefault();
         this.toggle(project.id);
-        this.$router.push("/lightbox/" + project.slug);
+        setTimeout(() => {
+          this.$router.push("/project/" + project.slug);
+        }, 1000);
       }
     },
     scrollTo(el) {

@@ -1,7 +1,7 @@
 // Foundation code
 .row,
 .grid-container {
-  width: 100vw;
+  width: 100%;
   max-width: 1680px;
   padding-right: $md;
   padding-left: $md;
@@ -52,7 +52,7 @@ section {
 
 // Color Schemes
 body {
-  transition: background-color 50ms linear !important;
+  transition: background-color 500ms $easing !important;
 
   &.color-white {
     color: $black;

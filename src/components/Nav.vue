@@ -1,15 +1,13 @@
 <template>
-  <nav class="grid-container" v-if="this.$route.name !== 'Project Overview'">
-    <transition name="navLeft" mode="out-in">
-      <router-link
-        class="left"
-        to="/"
-        @mouseover="hover = true"
-        :class="{ selected: hover }"
-      >
-        <h1>Work</h1>
-      </router-link>
-    </transition>
+  <nav class="grid-container">
+    <router-link
+      class="left"
+      to="/"
+      @mouseover="hover = true"
+      :class="{ selected: hover }"
+    >
+      <h1>Work</h1>
+    </router-link>
 
     <transition name="fromTop" mode="out-in">
       <div class="logo">
@@ -48,16 +46,14 @@
       </div>
     </transition>
 
-    <transition name="navRight" mode="out-in">
-      <router-link
-        class="right"
-        to="/about"
-        @mouseover="hover = true"
-        :class="{ selected: hover }"
-      >
-        <h1>Studio</h1>
-      </router-link>
-    </transition>
+    <router-link
+      class="right"
+      to="/about"
+      @mouseover="hover = true"
+      :class="{ selected: hover }"
+    >
+      <h1>Studio</h1>
+    </router-link>
   </nav>
 </template>
 
