@@ -1,0 +1,61 @@
+.projectOverview {
+  position: relative;
+  margin-top: calc(80px + 170 * (100vw - 320px) / 1680);
+  margin-bottom: calc(80px + 170 * (100vw - 320px) / 1680);
+
+  figure {
+    button {
+      background-color: blue;
+      color: white;
+    }
+
+    .listView {
+      margin-top: calc(40px + 170 * (100vw - 320px) / 1640);
+      margin-bottom: calc(40px + 170 * (100vw - 320px) / 1680);
+
+      .project-card {
+        border-bottom: 2px solid;
+        margin-bottom: 0;
+        z-index: 999;
+        width: 100% !important;
+
+        &:first-of-type {
+          border-top: 2px solid;
+        }
+
+        img {
+          display: none;
+        }
+
+        p {
+          &.image-title {
+            padding-top: 0.46875rem;
+            padding-bottom: 0.625rem;
+            margin: 0;
+            opacity: 1;
+            float: left;
+            margin-right: $sm;
+
+            a {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+
+    .project-card {
+      margin-bottom: $md;
+
+      p {
+        &.image-title {
+          margin-top: $xs;
+
+          a {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

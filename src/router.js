@@ -1,19 +1,23 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Project from "./views/Project";
 
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
   hashbag: true,
-  // eslint-disable-next-line no-unused-vars
   scrollBehavior(to, from, savedPosition) {
+    if (to.matched.some(m => m.meta.disableScroll)) return;
     if (to.hash) {
       return {
         selector: to.hash
       };
+    }
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
     }
   },
   routes: [
@@ -21,12 +25,15 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home,
+      meta: { disableScroll: true },
       children: [
         {
-          path: "/project/:slug",
+          path: "/projects/:slug",
           name: "Project",
-          component: Project,
-          transition: "modal"
+          component: () =>
+            import(
+              /* webpackChunkName: "SingleProject" */ "./views/SingleProject.vue"
+            )
         }
       ]
     },
@@ -38,9 +45,11 @@ export default new Router({
     },
     {
       path: "/projects",
-      name: "Projects",
+      name: "ProjectOverview",
       component: () =>
-        import(/* webpackChunkName: "About" */ "./views/Projects.vue")
+        import(
+          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
+        )
     }
   ]
 });

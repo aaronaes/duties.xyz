@@ -1,6 +1,30 @@
-// My styles
+/******************************************************************
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here is where you import
+all of your Sass files so they can compile into one
+CSS file.
+
+******************************************************************/
+
+// Import local Foundation overrides - Don't link to Bower version as it will be overwritten whenever updated
+@import "settings";
+
+// Import foundation.scss from vendor files
+@import "~foundation-sites/scss/foundation";
+
+// Select the grid you would like to use
+@include foundation-global-styles;
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+
+// Import your custom styles
 @import "variables";
 
+@import "1_tools/reset";
 @import "1_tools/helpers";
 @import "1_tools/mixins";
 
@@ -16,8 +40,10 @@
 @import "3_elements/about";
 @import "3_elements/animations";
 @import "3_elements/nav";
-@import "3_elements/carousel";
+@import "3_elements/imgBox";
+@import "3_elements/swiper";
 @import "3_elements/projectList";
-@import "3_elements/project";
+@import "3_elements/projectOverview";
+@import "3_elements/singleProject";
 @import "3_elements/masthead";
 @import "3_elements/footer";

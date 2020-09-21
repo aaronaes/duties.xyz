@@ -1,27 +1,29 @@
-* {
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
-}
+// * {
+//   &::before,
+//   &::after {
+//     box-sizing: inherit;
+//   }
+// }
 
-html {
+html,
+body {
   box-sizing: border-box;
-  min-height: 100%;
-  width: 100%;
   vertical-align: baseline;
+  width: 100%;
+  height: 100% !important;
+  min-height: 100% !important;
 }
 
 body {
-  font-family: $font-texgyro;
-  font-size: 16px;
+  background: $white;
   color: $black;
-  background-color: $white;
-  overflow-x: hidden;
-  scroll-behavior: smooth; 
+  font-family: $font-tex-regular;
+  font-size: 16px;
+  position: relative;
+  scroll-behavior: smooth;
 
   &.active {
-    overflow-y: hidden;
+    overflow: hidden;
 
     ::-webkit-scrollbar {
       display: none;

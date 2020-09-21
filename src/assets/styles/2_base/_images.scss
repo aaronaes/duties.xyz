@@ -1,11 +1,26 @@
 img {
   width: 100%;
   height: auto;
-  border-radius: 1px;
+  display: block;
+  margin: 0 auto;
 }
 
 video {
   width: 100%;
   height: auto;
-  border-radius: 1px;
+}
+
+img[lazy="loaded"] {
+  animation-delay: 250ms;
+  animation: fadeIn 500ms linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,45 +1,33 @@
 <template>
   <section class="projectList">
-    <figure class="grid-container" id="projects">
+    <figure id="projects">
       <div
         v-for="(project, i) in projects"
         :key="i"
         :id="`project-${project.id}`"
-        class="details"
-        :class="{ isMini: project.readMore !== true }"
+        class="details grid-container"
       >
-        <div class="summary-block grid-container">
+        <div class="summary-block">
           <a
-            target="_blank"
-            style="display: block"
             :href="project.siteLink"
             @click="e => handleProjectClick(e, project)"
-            class="imgBox"
-            :class="project.coverSize"
           >
-            <img class="cover" :src="getUrl(project.projectThumbnail.url)" />
-            <div class="project-title">
-              <p v-if="project.readMore === true"><b>Case — </b></p>
-              <p v-html="project.subtitle"></p>
+            <div class="cell imgBox" :class="project.coverSize">
+              <img
+                :src="getUrl(project.projectThumbnail.url)"
+                :srcset="getSrcSet(project.projectThumbnail.url)"
+              />
+              <div class="title">
+                <p v-if="project.readMore === true"><b>Case — </b></p>
+                <p v-html="project.title"></p>
+              </div>
             </div>
           </a>
         </div>
       </div>
-      <div class="closeBtn" @click.native="$moveTo()">
-        <router-link to="/">
-          <p>
-            Close
-          </p>
-        </router-link>
+      <div v-if="isOpen" :key="$route.params.id">
+        <router-view :key="'a' + $route.params"></router-view>
       </div>
-      <transition name="modal" mode="in-out" :transition="$route.transition">
-        <div
-          class="grid-x align-center align-middle content-block"
-          v-if="isOpen"
-        >
-          <router-view />
-        </div>
-      </transition>
     </figure>
   </section>
 </template>
@@ -54,35 +42,11 @@ export default {
     return {
       title: "Projects",
       active: "",
-      isMini: false
+      isMini: false,
+      hover: false
     };
   },
-  watch: {
-    isOpen: {
-      handler: val => {
-        if (val) document.body.classList.add("active");
-        else document.body.classList.remove("active");
-      },
-      immediate: true
-    }
-  },
-  computed: {
-    isOpen() {
-      return this.$route.name === "Project";
-    }
-  },
   methods: {
-    moveTo() {
-      let to = this.moveToDown ? this.$refs.description.offsetTop - 60 : 0;
-
-      window.scroll({
-        top: to,
-        left: 0,
-        behavior: "smooth"
-      });
-
-      this.moveToDown = !this.moveToDown;
-    },
     getUrl(url) {
       return imgix({ url: url });
     },
@@ -98,21 +62,18 @@ export default {
     },
     toggle(id) {
       if (id === this.active) {
-        const el = document.querySelector("#projects");
-        this.scrollTo(el);
-
         setTimeout(() => {
           this.active = "";
           document.body.classList.remove("active");
-        }, 1000);
+        }, 500);
       } else {
         const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
-        this.active = id;
 
         setTimeout(() => {
+          this.active = id;
           document.body.classList.add("active");
-        }, 1000);
+        }, 500);
       }
     },
     handleProjectClick(e, project) {
@@ -120,7 +81,7 @@ export default {
         e.preventDefault();
         this.toggle(project.id);
         setTimeout(() => {
-          this.$router.push("/project/" + project.slug);
+          this.$router.replace("/projects/" + project.slug);
         }, 1000);
       }
     },
@@ -129,6 +90,20 @@ export default {
         top: window.pageYOffset + el.getBoundingClientRect().top,
         behavior: "smooth"
       });
+    }
+  },
+  watch: {
+    isOpen: {
+      handler: val => {
+        if (val) document.body.classList.add("active");
+        else document.body.classList.remove("active");
+      },
+      immediate: true
+    }
+  },
+  computed: {
+    isOpen() {
+      return this.$route.name === "Project";
     }
   }
 };
