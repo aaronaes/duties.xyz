@@ -1,171 +1,228 @@
 <template>
-  <div id="home">
-    <header>
-      <section class="row">
-        <figure class="columns">
-          <p>
-            Erling
-            <span class="hide-for-small-only">Aarønæs</span>
-            <span class="show-for-small-only">A</span>
-          </p>
-          <p class="timestamp float-right">
-            It's
-            <span class="hide-for-small-only">currently&nbsp;</span>
-            <span
-              style="border-bottom: 2px solid;"
-              class="local-time"
-              data-tz="Europe/Oslo"
-            ></span>
-            <span class="hide-for-small-only">&nbsp;in Oslo, Norway</span>
-            <span class="show-for-small-only">&nbsp;in Oslo</span>
-          </p>
-          <a
-            @click="showMore = !showMore"
-            class="toggle hide-for-small-only"
-            :class="{ opened: showMore }"
-          >
-            <p class="bio">
-              <span></span>
-            </p>
-          </a>
-          <div v-if="showMore" class="toggleBio hide-for-small-only">
-            <p>
-              I’m an Oslo-based product designer, with over 10 years experience
-              of creating user-friendly products, apps and websites for humans.
-              My ideal approach to a new project is working closely with
-              interdisciplinary teams to create and build sophisticated and
-              solid products that work really well.
-            </p>
-            <p>Yes, I am currently available for projects :)</p>
-            <br />
-            <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
-                >Credentials &nearr;</a
-              >
-              <br />
-              <a
-                href="https://www.instagram.com/aaronaes.studio/"
-                target="_blank"
-                >Instagram &nearr;</a
-              >
-              <br />
-              <a href="mailto:hello@aaronaes.studio?subject=Hi"
-                >Contact me &nearr;</a
-              >
-            </p>
-          </div>
-          <div class="show-for-small-only">
-            <br />
-            <p>
-              I’m an Oslo-based product designer, with over 10 years experience
-              of creating user-friendly products, apps and websites for humans.
-            </p>
-            <p>I am currently available for projects :)</p>
-            <br />
-            <p>
-              <a href="//www.linkedin.com/in/aaronaes" target="_blank"
-                >Credentials &nearr;</a
-              >
-              <br />
-              <a
-                href="https://www.instagram.com/aaronaes.studio/"
-                target="_blank"
-                >Instagram &nearr;</a
-              >
-              <br />
-              <a href="mailto:hello@aaronaes.studio?subject=Hi"
-                >Contact me &nearr;</a
-              >
-            </p>
-          </div>
-        </figure>
-        <figure class="columns btm" :class="{ tuckAway: showMore }">
-          <p>
-            Select work
-            <span class="super">[ 2009 - 19 ]</span>
-          </p>
-          <h3 class="clients">
-            <a href="#gl" class="gl">
-              Godt Levert
-              <span></span>
-            </a>
-            <a href="#gro" class="gro">
-              Gro Grønt
-              <span></span>
-            </a>
-            <a href="#as" class="as">
-              Authentic Scandinavia
-              <span></span>
-            </a>
-            <a href="#fetch" class="fetch">
-              Fetch
-              <span></span>
-            </a>
-            <a href="#humid" class="humid">
-              Humid Magazine
-              <span></span>
-            </a>
-            <a href="#eika" class="eika">
-              Eika Gruppen
-              <span></span>
-            </a>
-          </h3>
-        </figure>
-      </section>
-    </header>
+  <main class="feed">
+    <!-- Masthead -->
+    <Masthead></Masthead>
 
-    <main id="main">
-      <GL />
-      <Gro />
-      <AS />
-      <Fetch />
-      <Humid />
-      <Eika />
-      <section class="row">
-        <figure class="columns">
-          <p class="show-for-small-only">
-            <a href="#home">&uarr; To the top</a>
-          </p>
-        </figure>
-      </section>
-    </main>
-    <p class="hide-for-small-only">
-      <a href="#home" class="toppp">&uarr;</a>
-    </p>
-  </div>
+    <!-- Project List -->
+    <ProjectList :projects="projects" />
+
+    <!-- About -->
+    <section class="grid-container clients">
+      <figure class="grid-x grid-margin-x grid-padding-x align-center">
+        <div class="cell small-12 medium-10 large-8">
+          <h3 class="title">Clients &amp; friends</h3>
+        </div>
+      </figure>
+      <figure
+        class="grid-x grid-margin-x grid-padding-x align-center client-grid"
+      >
+        <div class="cell small-12 medium-10 large-8">
+          <h1 v-for="client in clientList" :key="client.id">
+            {{ client.name }}.
+          </h1>
+        </div>
+      </figure>
+      <figure class="grid-x grid-margin-x grid-padding-x align-center">
+        <div class="cell small-12 medium-10 large-8">
+          <h2 class="cell">
+            We have worked with a range of excellent companies and people
+            throughout the years and we are always excited to hear from future
+            collaborators about exciting ventures, new opportunities and
+            problems to solve.
+          </h2>
+        </div>
+      </figure>
+      <figure class="grid-x grid-margin-x grid-padding-x align-center">
+        <div class="cell small-12 medium-10 large-8">
+          <h2 class="cell small-12 medium-10 large-8">
+            Got something for us?
+            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+              >Let’s chat</a
+            >
+          </h2>
+        </div>
+      </figure>
+    </section>
+    <!-- About -->
+    <section class="grid-container footer">
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell large-7 medium-10 small-12">
+          <h2>
+            <router-link to="/imprint">Imprint</router-link>
+          </h2>
+          <h2>
+            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
+              >Connect</a
+            >
+          </h2>
+        </div>
+      </figure>
+    </section>
+  </main>
 </template>
 
 <script>
-import Eika from "@/projects/eika.vue";
-import Fetch from "@/projects/fetch.vue";
-import GL from "@/projects/godt-levert.vue";
-import Humid from "@/projects/humid.vue";
-import Gro from "@/projects/gro.vue";
-import AS from "@/projects/as.vue";
+import gql from "graphql-tag";
+import getData from "@/utils/getData";
+import Masthead from "@/components/Masthead.vue";
+import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
-    Eika,
-    Fetch,
-    GL,
-    Humid,
-    Gro,
-    AS
+    Masthead,
+    ProjectList
+  },
+  async created() {
+    this.projects = await this.getProjects();
+    this.clientList = await this.getClientList();
   },
   data() {
     return {
+      projects: [],
+      clientList: [],
       title: "Home",
-      showMore: false
+      heading:
+        "A creative partner and design studio for thoughtfully crafted products.",
+
+      carouselData: 0,
+      hooperSettings: {
+        transition: 500,
+        wheelControl: false,
+        trimWhiteSpace: false,
+        breakpoints: {
+          1220: {
+            itemsToShow: 4.25
+          },
+          768: {
+            itemsToShow: 3.25
+          },
+          576: {
+            itemsToShow: 2.25
+          },
+          0: {
+            itemsToShow: 1.25
+          }
+        }
+      }
     };
+  },
+  watch: {
+    carouselData() {
+      this.$refs.carousel.slideTo(this.carouselData);
+    }
+  },
+  methods: {
+    async getProjects() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            frontpage {
+              projects {
+                id
+                title
+                slug
+                subtitle
+                backgroundColor {
+                  hex
+                }
+                siteLink
+                slug
+                readMore
+                categories {
+                  categoryType
+                }
+                client {
+                  name
+                }
+                blocks {
+                  ... on SingleImageRecord {
+                    id
+                    caption
+                    _modelApiKey
+                    full
+                    image {
+                      url
+                    }
+                  }
+                  ... on QuoteRecord {
+                    id
+                    _modelApiKey
+                    text
+                  }
+                  ... on TwoUpRecord {
+                    id
+                    _modelApiKey
+                    firstImage {
+                      url
+                    }
+                    lastImage {
+                      url
+                    }
+                  }
+                  ... on ThreeUpRecord {
+                    id
+                    _modelApiKey
+                    leftImage {
+                      url
+                    }
+                    middleImage {
+                      url
+                    }
+                    rightImage {
+                      url
+                    }
+                  }
+                  ... on ImageCarouselRecord {
+                    id
+                    _modelApiKey
+                    imageCarouselAsset {
+                      id
+                      url
+                    }
+                  }
+                }
+                description
+                coverSize
+                projectThumbnail {
+                  url
+                }
+              }
+              clients {
+                name
+              }
+            }
+          }
+        `
+      });
+      return data.frontpage.projects;
+    },
+    async getClientList() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            frontpage {
+              clientList {
+                name
+              }
+            }
+          }
+        `
+      });
+      return data.frontpage.clients;
+    },
+    slidePrev() {
+      this.$refs.carousel.slidePrev();
+    },
+    slideNext() {
+      this.$refs.carousel.slideNext();
+    },
+    updateCarousel(payload) {
+      this.myCarouselData = payload.currentSlide;
+    }
   },
   beforeCreate: function() {
     document.body.className = "home";
-  },
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
   }
 };
 </script>

@@ -1,107 +1,77 @@
 body {
-  background-color: $color-black;
-  color: $color-white;
-
-  -webkit-transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-  header {
-    display: block;
-    position: relative;
-    height: 100vh;
-
-    @media (max-width: ($break-small)) {
-      padding: 0;
-      height: auto;
-    }
-
-    section {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      flex-flow: row wrap;
-      padding-top: $md;
-
-      @media (max-width: ($break-small)) {
-        padding-top: $sm;
-      }
-
-      .nav {
-        -webkit-transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
-        transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1);
-
-        &.hideMe {
-          transform: translateY(-10vh);
-        }
-      }
-
-      figure {
-        position: relative;
-        -webkit-transition: transform 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
-        transition: transform 0.5s cubic-bezier(0.39, 0.58, 0.57, 1);
-
-        &.btm {
-          flex: 0 0 auto;
-          margin-right: auto;
-          color: rgba($color-white, 1) !important;
-          align-self: flex-end;
-          align-self: flex-end;
-
-          @media (max-width: ($break-small)) {
-            margin-bottom: -$md;
-            display: none;
-          }
-        }
-
-        &.tuckAway {
-          transform: translateY(50vh);
-        }
-      }
-    }
-  }
-
-  // Recently
   main {
-    padding: $sm 0;
-    position: relative;
-    // background-color: $color-white;
-
-    header {
-      padding: 0;
-      margin: 0;
-
-      .title {
-        padding-bottom: $md;
-      }
-    }
-
     section {
       position: relative;
+      padding-top: $lg;
+      padding-bottom: $lg;
 
-      figure {
-        .title {
-          margin: 0 0 $sm;
+      h2,
+      h3 {
+        &.section-title {
+          margin-bottom: $xs;
+        }
+      }
 
-          &:first-child {
-            padding-right: 3px;
+      &.clients {
+        margin-top: calc(80px + 170 * (100vw - 320px) / 1680);
+        margin-bottom: calc(80px + 170 * (100vw - 320px) / 1680);
+
+        figure {
+          margin-bottom: $md;
+
+          @media screen and #{breakpoint(small only)} {
+            margin-bottom: $sm;
+          }
+
+          h2 {
+            margin-bottom: 0;
+          }
+
+          &.client-grid {
+            h1 {
+              font-size: calc(3rem);
+              padding-right: 0.05em;
+              display: inline;
+            }
+
+            h2 {
+              margin-bottom: 0;
+              padding-right: $xs / 1.5;
+
+              @media screen and #{breakpoint(medium down)} {
+                display: inline;
+                float: left;
+                margin-right: 0;
+              }
+
+              &::after {
+                content: "/";
+                padding-left: $xs / 3;
+                font-weight: bold;
+                color: $accent;
+              }
+
+              &:last-of-type {
+                &::after {
+                  content: "";
+                }
+              }
+            }
           }
         }
+      }
 
-        @media (max-width: ($break-small)) {
-          margin: 0 0 $sm;
-        }
-
-        ul {
-          list-style-type: none;
-          margin: 20px auto 0 auto;
+      &.footer {
+        figure {
+          margin: 0;
           padding: 0;
 
-          p {
-            color: $color-black;
+          h2 {
+            display: inline;
+            margin-right: $sm;
 
-            span {
-              margin-left: 10px;
-              color: $color-black;
+            &::last-of-type {
+              margin-left: 0;
             }
           }
         }

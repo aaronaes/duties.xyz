@@ -1,61 +1,164 @@
-// Body transition
-body.light {
-  background-color: $color-white !important;
-
-  h1,
-  h2,
-  h3,
-  p {
-    color: $color-black;
-  }
-
-  a {
-    color: rgba($color-black, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-    &:hover {
-      color: rgba($color-black, 0.35);
-    }
-
-    &:after {
-      color: rgba($color-black, 1);
-    }
-
-    &:hover:after {
-      color: rgba($color-black, 1);
-    }
-  }
+// Page
+.page-enter-active,
+.page-leave-active {
+  transition: all 500ms ease;
+  opacity: 1;
 }
-
-// Vue transitions
-
-// Fade
-.fade-enter,
-.fade-leave {
-  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-// Slide
-.slide-enter-active,
-.slide-leave-active {
-  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.slide-leave-active {
+.page-enter, .page-leave-to /* .page-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
-// pop
-.pop-enter-active,
-.pop-leave-active {
-  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+// Modal
+.modal-enter-active {
+  animation: fadeModalIn 1000ms ease;
+}
+.modal-leave-active {
+  animation: fadeModalOut 1000ms ease;
 }
 
-.pop-enter-active,
-.pop-leave-active {
-  opacity: 0;
+@keyframes fadeModalIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+@keyframes fadeModalOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Loading
+.loading-enter-active {
+  animation: loadingIn 1000ms ease;
+}
+.loading-leave-active {
+  animation: loadingOut 1000ms ease;
+}
+
+@keyframes loadingIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Nav Left
+.navLeft-enter-active {
+  animation: navLeft 1000ms ease;
+}
+.navLeft-leave-active {
+  animation: navLeft 1000ms ease reverse;
+}
+
+@keyframes navLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-$sm);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+// Nav Left
+.navRight-enter-active {
+  animation: navRight 1000ms ease;
+}
+.navRight-leave-active {
+  animation: navRight 1000ms ease reverse;
+}
+
+@keyframes navRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX($sm);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+body.active {
+  .project-title {
+    opacity: 0;
+    transition: opacity 1000ms ease;
+  }
+}
+
+body.disable {
+  .global-enter-active,
+  .global-leave-active {
+    transition: none !important;
+    opacity: 1;
+  }
+
+  .global-enter,
+  .global-leave-to {
+    transition: none !important;
+    opacity: 1;
+  }
+}
+
+.grid-item {
+  &.above-viewport {
+    opacity: 0;
+    transform: translate3d(0, -3vw, 0);
+    transition: transform 1s linear;
+    &.in-viewport {
+      opacity: 1;
+      transform: translate3D(0, 0, 0);
+    }
+  }
+
+  &.below-viewport {
+    opacity: 0;
+    transform: translate3d(0, 3vw, 0);
+    transition: transform 1s linear;
+    &.in-viewport {
+      opacity: 1;
+      transform: translate3D(0, 0, 0);
+    }
+  }
+}
+
+// body.home {
+//   main.feed {
+//     animation-delay: 10s;
+//     animation: hey 800s linear;
+
+//     @keyframes hey {
+//       from {
+//         transform: translateY(0);
+//       }
+//       to {
+//         transform: translateY(-200%);
+//       }
+//     }
+//   }
+
+//   &.active {
+//     main.feed {
+//       animation-play-state: paused;
+//     }
+//   }
+// }

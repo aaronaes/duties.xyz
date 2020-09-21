@@ -2,29 +2,64 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 
-// Projects
-
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
-  base: process.env.BASE_URL,
-  routes: [{
+  hashbag: true,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.matched.some(m => m.meta.disableScroll)) return;
+    if (to.hash) {
+      return {
+        selector: to.hash
+      };
+    }
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
+  routes: [
+    {
       path: "/",
       name: "Home",
-      component: Home
+      component: Home,
+      meta: { disableScroll: true },
+      children: [
+        {
+          path: "/projects/:slug",
+          name: "Project",
+          component: () =>
+            import(
+              /* webpackChunkName: "SingleProject" */ "./views/SingleProject.vue"
+            )
+        }
+      ]
+    },
+    {
+      path: "/about",
+      name: "About",
+      component: () =>
+        import(/* webpackChunkName: "About" */ "./views/About.vue")
+    },
+    {
+      path: "/projects",
+      name: "ProjectOverview",
+      component: () =>
+<<<<<<< HEAD
+        import(/* webpackChunkName: "About" */ "./views/Projects.vue")
+    },
+    {
+      path: "/imprint",
+      name: "Imprint",
+      component: () =>
+        import(/* webpackChunkName: "About" */ "./views/Imprint.vue")
+=======
+        import(
+          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
+        )
+>>>>>>> routing
     }
-    // {
-    //   path: "/about",
-    //   name: "About",
-    //   component: () =>
-    //     import( /* webpackChunkName: "About" */ "./views/About.vue")
-    // },
-    // {
-    //   path: "/journal",
-    //   name: "Journal",
-    //   component: () =>
-    //     import( /* webpackChunkName: "Journal" */ "./views/Journal.vue")
-    // }
   ]
 });

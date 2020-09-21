@@ -1,30 +1,159 @@
-nav {
-  width: 100%;
-  position: absolute;
-  padding-top: $md;
-  z-index: 1;
+body {
+  nav {
+    display: flex;
+    z-index: 1000;
+    position: relative;
 
-  @media (max-width: ($break-small)) {
-    padding: $sm 0;
-  }
+    .nav-item {
+      position: fixed;
+      overflow: visible;
+      top: 50%;
+      opacity: 1;
+      z-index: 1001;
+      transition: all 250ms $easing;
 
-  section {
+      @media screen and #{breakpoint(small only)} {
+        position: relative;
+      }
 
-    figure {
-      float: left;
-      padding: 0;
-      margin: 0;
+      a {
+        border-bottom: transparent;
+        position: relative;
+        display: block;
 
-      .menu {
+        &:hover,
+        &.router-link-exact-active {
+          h1 {
+            color: inherit;
+          }
 
-        h1,
-        h3 {
-          padding: 0;
-          margin: 0;
+          svg {
+            overflow: visible;
+            .path {
+              animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1) forwards;
+            }
+          }
         }
 
-        .router-link-exact-active {
-          display: inline;
+        h1 {
+          text-transform: uppercase;
+          letter-spacing: -0.05em;
+          margin-bottom: 0;
+        }
+
+        svg {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          bottom: 0;
+          width: 120%;
+          height: auto;
+
+          .path {
+            stroke-width: 10px;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+          }
+
+          @keyframes dash {
+            from {
+              stroke-dashoffset: 2000;
+            }
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+        }
+      }
+
+      &.left {
+        left: $sm * 1.5;
+        transform: translateY(-50%) translateX(0);
+
+        a {
+          svg {
+            .path {
+              transform-origin: center center;
+              transform: rotate(-5deg);
+            }
+          }
+        }
+
+        @media screen and #{breakpoint(small only)} {
+          position: absolute;
+          transform: translateY(0) translateX(0);
+          left: $sm;
+        }
+      }
+
+      &.right {
+        right: $sm * 1.5;
+        transform: translateY(-50%) translateX(0);
+
+        a {
+          svg {
+            .path {
+              transform-origin: center center;
+              transform: rotate(2deg);
+            }
+          }
+        }
+
+        @media screen and #{breakpoint(small only)} {
+          position: absolute;
+          transform: translateY(0) translateX(0);
+          right: $sm;
+        }
+      }
+    }
+
+    .logo {
+      transform: translateX(-50%) translateY($md);
+      transition: all 250ms $easing;
+      position: fixed;
+      left: 50%;
+
+      svg.big {
+        max-width: 80px;
+        align-content: space-around;
+      }
+
+      svg.small {
+        max-width: 8px;
+        align-content: space-around;
+      }
+
+      @media screen and #{breakpoint(small only)} {
+        position: relative;
+        transform: translateY($sm);
+      }
+    }
+  }
+
+  &.active {
+    nav {
+      .logo {
+        transform: translateX(-50%) translateY(-$md);
+        opacity: 0;
+      }
+      .nav-item {
+        opacity: 0;
+
+        &.left {
+          transform: translateY(-50%) translateX(-$md);
+
+          @media screen and #{breakpoint(small only)} {
+            transform: none;
+          }
+        }
+
+        &.right {
+          transform: translateY(-50%) translateX($md);
+
+          @media screen and #{breakpoint(small only)} {
+            transform: none;
+          }
         }
       }
     }

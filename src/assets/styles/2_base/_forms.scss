@@ -15,7 +15,7 @@ textarea {
   border: 2px solid color(gray);
 
   &:disabled {
-    border: 2px solid $color-dark;
+    border: 2px solid $grey;
   }
 }
 
@@ -35,12 +35,12 @@ button {
 
   &:focus,
   &:hover {
-    background: $color-dark;
+    background: $grey;
   }
 
   &:disabled {
-    color: $color-white;
-    background: $color-dark;
+    color: $white;
+    background: $grey;
   }
 }
 

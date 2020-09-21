@@ -1,60 +1,26 @@
 img {
   width: 100%;
   height: auto;
-  border-radius: 1px;
+  display: block;
+  margin: 0 auto;
 }
-
-// img[lazy=loaded] {
-//   -webkit-animation-duration: .5s;
-//   animation-duration: .5s;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   -webkit-animation-name: fadeIn;
-//   animation-name: fadeIn;
-// }
 
 video {
   width: 100%;
-  border-radius: 1px;
+  height: auto;
 }
 
-.shuffle-container {
-  position: relative;
-  align-self: center;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+img[lazy="loaded"] {
+  animation-delay: 250ms;
+  animation: fadeIn 500ms linear;
+  animation-fill-mode: forwards;
+}
 
-  img.shuffle {
-    position: absolute;
-    top: 0;
-    left: 0;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
-    z-index: 1;
-    -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-
-  span {
-    position: absolute;
-    z-index: 2;
-    left: -10vw;
-    bottom: 1.5vh;
-    opacity: 0;
-
-    -webkit-transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-
-  img.shuffleShow {
-    opacity: 0;
-    z-index: 3;
-    -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-    +span {
-      left: 2vw;
-      opacity: .75;
-    }
   }
 }

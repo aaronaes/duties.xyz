@@ -1,46 +1,70 @@
 // Foundation code
-.row {
-  width: 100vw;
-  max-width: 1680px;
-  padding-left: $sm;
-  padding-right: $sm;
-
-  @media (min-width: ($break-large)) {
-    max-width: 100vw;
-    padding-left: $sm;
-    padding-right: $sm;
-  }
-
-  @media (max-width: ($break-small)) {
-    max-width: 100vw;
-    padding-left: 0;
-    padding-right: 0;
-  }
+.grid-container {
+  width: 100%;
+  max-width: 100%;
 }
 
-.column,
-.columns {
-  padding: 0 $sm;
-
-  @media (min-width: ($break-large)) {
-    padding: 0 $sm;
-  }
-
-  @media (max-width: ($break-small)) {
-    padding: 0 0.9375rem;
-  }
+.grid-padding-x > .cell {
+  padding-right: $grid-padding-gutters;
+  padding-left: $grid-padding-gutters;
 }
 
+<<<<<<< HEAD
 section {
   position: relative;
-  height: 100%;
 
   figure {
-    margin: 0 0 $md;
-    padding: 0;
+    margin: 0 auto;
+    margin-bottom: $md;
 
-    @media (min-width: ($break-large)) {
-      margin: 0 0 $md;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include respond-to("sm") {
+      margin-bottom: $sm;
+    }
+  }
+=======
+.grid-margin-x > .cell {
+  margin-right: $grid-margin-gutters;
+  margin-left: $grid-margin-gutters;
+>>>>>>> routing
+}
+
+// Color Schemes
+body {
+  transition: background-color 500ms $easing !important;
+
+  &.color-white {
+    color: $black;
+    background: $white;
+  }
+
+  &.color-grey {
+    color: $black;
+    background: $grey;
+  }
+
+  &.home {
+    color: $black;
+    background-color: $white;
+  }
+
+  &.about {
+    color: $grey;
+    background-color: $black;
+
+    a {
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    & > & {
+      &:hover {
+        color: inherit;
+      }
     }
   }
 }

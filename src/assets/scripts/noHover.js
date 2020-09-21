@@ -1,7 +1,7 @@
 // $(document).ready(function () {
 
 //   function hasTouch() {
-//     return 'ontouchstart' in document.documentElement ||
+//     return "ontouchstart" in document.documentElement ||
 //       navigator.maxTouchPoints > 0 ||
 //       navigator.msMaxTouchPoints > 0;
 //   }
@@ -15,7 +15,7 @@
 //         for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
 //           if (!styleSheet.rules[ri].selectorText) continue;
 
-//           if (styleSheet.rules[ri].selectorText.match(':hover')) {
+//           if (styleSheet.rules[ri].selectorText.match(":hover")) {
 //             styleSheet.deleteRule(ri);
 //           }
 //         }

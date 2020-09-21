@@ -1,0 +1,62 @@
+// About page
+body.imprint {
+  background-color: $black;
+  color: $grey;
+
+  nav {
+    display: none;
+  }
+
+  main {
+    section {
+      margin-top: $md;
+
+      @include respond-to("md") {
+        margin-top: $lg;
+      }
+
+      @include respond-to("sm") {
+        margin-top: $md;
+      }
+
+      .closeBtn {
+        position: sticky;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-$lg);
+        max-width: 100px;
+        display: block;
+        z-index: 999;
+        background-color: $grey;
+        border-radius: 40px;
+        padding: 8px 16px;
+
+        @include respond-to("sm") {
+          top: 0;
+          transform: translateX(-50%) translateY(-$sm);
+        }
+
+        p {
+          cursor: pointer;
+          font-size: 17px;
+          margin: 0;
+          text-transform: uppercase;
+          text-align: center;
+          color: $black;
+        }
+      }
+
+      &.intro {
+        figure {
+          max-width: 1000px;
+          h1 {
+            padding-bottom: $sm;
+          }
+          h2 {
+            padding-bottom: $sm;
+          }
+        }
+      }
+    }
+  }
+}

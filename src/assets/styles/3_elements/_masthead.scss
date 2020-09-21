@@ -1,0 +1,18 @@
+// CSS Carousel
+body {
+  section {
+    &.block-masthead {
+      padding-top: 20rem;
+      padding-bottom: 5rem;
+
+      @media screen and #{breakpoint(small only)} {
+        padding-top: 10rem;
+        padding-bottom: 2.5rem;
+      }
+
+      figure {
+        align-content: flex-start;
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+body {
+  .projectList {
+    position: relative;
+    margin-top: $lg;
+    margin-bottom: $lg;
+
+    @media screen and #{breakpoint(medium only)} {
+      margin-top: $md;
+      margin-bottom: $md;
+    }
+
+    @media screen and #{breakpoint(small only)} {
+      margin-top: $sm;
+      margin-bottom: $sm;
+    }
+
+    figure {
+      .details {
+        height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        padding: 0;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: row wrap;
+        background-color: initial;
+        visibility: visible;
+        opacity: 1;
+        z-index: 1;
+        transition: visibility 0s $easing, opacity 500ms $easing;
+
+        &.isMini {
+          height: initial;
+          position: relative;
+          margin-top: $md;
+          margin-bottom: $md;
+
+          .summary-block {
+            .project-title {
+              position: relative;
+            }
+          }
+        }
+
+        @media screen and #{breakpoint(small only)} {
+          height: auto;
+          margin-top: calc(40px + 160 * (100vw - 320px) / 1680);
+          margin-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+        }
+
+        .summary-block {
+          position: relative;
+
+          @media screen and #{breakpoint(small only)} {
+            margin-top: $sm;
+            margin-bottom: $sm;
+          }
+
+          a {
+            border-bottom: none;
+            cursor: default;
+
+            .imgBox {
+              img {
+                cursor: pointer;
+              }
+
+              &:hover {
+                .title {
+                  opacity: 1 !important;
+                  transform: translateX(-50%) translateY($md + $xs / 2);
+                }
+              }
+
+              .title {
+                position: absolute;
+                display: block;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%) translateY($md);
+                transition: transform 500ms $easing, opacity 500ms $easing;
+                opacity: 0;
+                z-index: 500;
+
+                @media screen and #{breakpoint(small only)} {
+                  position: relative;
+                  left: 0;
+                  opacity: 1;
+                  transform: translateX(0) translateY($xs);
+                }
+
+                h1,
+                h2,
+                h3 {
+                  cursor: pointer;
+                  text-transform: uppercase;
+                  letter-spacing: -0.05em;
+                  margin: 0;
+                }
+
+                p {
+                  cursor: pointer;
+                  margin: 0;
+                  z-index: 0;
+                  display: inline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

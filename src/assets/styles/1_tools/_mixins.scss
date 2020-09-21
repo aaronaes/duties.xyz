@@ -1,37 +1,32 @@
-// ------------------------------------
-// Breakpoints
-// ------------------------------------
+// // Mixins //
 
-$breakpoints: (
-  small: 480,
-  medium: 720,
-  large: 960
-) !default;
+// $breakpoints: (
+//   "small": (
+//     max-width: 576px
+//   ),
+//   "medium": (
+//     max-width: 1024px
+//   ),
+//   "large": (
+//     max-width: 1680px
+//   ),
+//   "xlarge": (
+//     min-width: 1681px
+//   )
+// ) !default;
 
-@mixin breakpoint($label, $max: null) {
-  @if map-has-key($breakpoints, $label) {
-    $width: map-get($breakpoints, $label);
-    @if $max != null {
-      @media (max-width: rem-calc($width)) {
-        @content;
-      }
-    } @else {
-      @media (min-width: rem-calc($width)) {
-        @content;
-      }
-    }
-  }
-  @elseif type-of($label) == 'number' {
-    @if $max != null {
-      @media screen and (max-width: rem-calc($label)) {
-        @content;
-      }
-    } @else {
-      @media screen and (min-width: rem-calc($label)) {
-        @content;
-      }
-    }
-  } @else {
-    @warn '`#{$label} is not a valid key in `#{$breakpoints}`.';
-  }
-}
+// @mixin respond-to($breakpoint) {
+//   // If the key exists in the map
+//   @if map-has-key($breakpoints, $breakpoint) {
+//     // Prints a media query based on the value
+//     @media #{inspect(map-get($breakpoints, $breakpoint))} {
+//       @content;
+//     }
+//   }
+
+//   // If the key doesn't exist in the map
+//   @else {
+//     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+//         + "Available breakpoints are: #{map-keys($breakpoints)}.";
+//   }
+// }

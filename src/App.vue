@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div class="cursor hide-for-small-only"></div> -->
     <PageWrapper>
       <router-view :key="$route.fullPath"></router-view>
     </PageWrapper>
@@ -16,19 +15,4 @@ export default {
     PageWrapper
   }
 };
-
-// VH height
-function calcVH() {
-  $("body").innerHeight($(this).innerHeight());
-}
-(function($) {
-  calcVH();
-  $(window).on("orientationchange resize", function() {
-    calcVH();
-  });
-})(jQuery);
 </script>
-
-<style lang="scss">
-@import "./../src/assets/styles/main.scss";
-</style>

@@ -1,19 +1,25 @@
 <template>
-  <footer class="row">
-    <div class="columns">
-      <p class="float-left">
-        <small>&copy; This is my stuff.</small>
-      </p>
-      <p class="float-right">
-        <small>
-          I built this site with using
-          <a href="http://www.vuejs.org" target="_blank">Vue JS</a>.
-          <br>Type set in
-          <a href="https://tightype.com/sneak/" target="_blank">Sneak</a> by
-          <a href="http://www.tightype.com" target="_blank">Tight Type</a>.
-        </small>
-      </p>
-    </div>
+  <footer>
+    <section class="grid-container globalFooter">
+      <figure class="grid-x grid-margin-x">
+        <span class="shrink">
+          <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank">
+            <p>Email</p>
+          </a>
+          <a href="//medium.com/duties-xyz" target="_blank">
+            <p>Medium</p>
+          </a>
+          <a href="//www.instagram.com/duties.xyz" target="_blank">
+            <p>Instagram</p>
+          </a>
+        </span>
+        <span
+          ><a href="#top" class="shrink top">
+            <p class="arrow">&uarr;</p>
+          </a></span
+        >
+      </figure>
+    </section>
   </footer>
 </template>
 
