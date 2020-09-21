@@ -13,19 +13,32 @@ body {
       }
 
       &.clients {
+        margin-top: calc(80px + 170 * (100vw - 320px) / 1680);
+        margin-bottom: calc(80px + 170 * (100vw - 320px) / 1680);
+
         figure {
-          margin-bottom: $sm;
+          margin-bottom: $md;
+
+          @media screen and #{breakpoint(small only)} {
+            margin-bottom: $sm;
+          }
 
           h2 {
             margin-bottom: 0;
           }
 
           &.client-grid {
+            h1 {
+              font-size: calc(3rem);
+              padding-right: 0.05em;
+              display: inline;
+            }
+
             h2 {
               margin-bottom: 0;
-              padding-right: $xs / 2;
+              padding-right: $xs / 1.5;
 
-              @include respond-to("md") {
+              @media screen and #{breakpoint(medium down)} {
                 display: inline;
                 float: left;
                 margin-right: 0;
@@ -33,7 +46,7 @@ body {
 
               &::after {
                 content: "/";
-                padding-left: $xs / 1.5;
+                padding-left: $xs / 3;
                 font-weight: bold;
                 color: $accent;
               }

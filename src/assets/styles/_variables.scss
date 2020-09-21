@@ -1,6 +1,5 @@
-// --------------------------------------------
-// Variables
-// --------------------------------------------
+//  Site-specific settings
+//  -----------------------------
 
 @import url("https://rsms.me/inter/inter.css");
 
@@ -55,19 +54,19 @@ $accent: #e5594d;
 // Fonts
 $font-sneak: "Sneak Regular", "Inter", sans-serif;
 $font-inter: "Inter", sans-serif;
-$font-texgyro: "TeXGyreHeros", "Inter", sans-serif;
-
-// Animations
-$animate: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-$animate-image: opacity 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-$animate-bg: background-color 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
+$font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
 
 // Easing
-$easing: cubic-bezier(0.785, 0.135, 0.15, 0.85);
+$easing: cubic-bezier(0.75, 0, 0.25, 1);
 
-// Spacing
-$xl: 10rem;
+// Spacing Increments
+$xl: 7.5rem;
 $lg: 5rem;
 $md: 2.5rem;
 $sm: 1.25rem;
-$xs: 1rem;
+$xs: 0.625rem;
+
+// Foundation gutters
+$grid-padding-gutters: 1.25rem;
+$grid-margin-gutters: 2.5rem;

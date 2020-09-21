@@ -1,68 +1,164 @@
 // Page
-.global-enter-active,
-.global-leave-active {
-  transition: all 250ms $easing;
+.page-enter-active,
+.page-leave-active {
+  transition: all 500ms ease;
   opacity: 1;
 }
-
-.global-enter,
-.global-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-// Content
-.content-enter-active,
-.content-leave-active {
-  transition: all 250ms $easing;
-  opacity: 1;
-}
-
-.content-enter,
-.content-leave-to {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-// Logo, top
-.fromTop-enter-active,
-.fromTop-leave-active {
-  transition: all 250ms $easing;
-  transform: translateX(-50%) translateY(0) !important;
-  opacity: 1;
-}
-
-.fromTop-enter,
-.fromTop-leave-to {
-  transform: translateX(-50%) translateY(-$xs) !important;
-  transition: all 250ms $easing;
+.page-enter, .page-leave-to /* .page-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
-// Nav, left
-.navLeft-enter-active,
+// Modal
+.modal-enter-active {
+  animation: fadeModalIn 1000ms ease;
+}
+.modal-leave-active {
+  animation: fadeModalOut 1000ms ease;
+}
+
+@keyframes fadeModalIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeModalOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Loading
+.loading-enter-active {
+  animation: loadingIn 1000ms ease;
+}
+.loading-leave-active {
+  animation: loadingOut 1000ms ease;
+}
+
+@keyframes loadingIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Nav Left
+.navLeft-enter-active {
+  animation: navLeft 1000ms ease;
+}
 .navLeft-leave-active {
-  transition: all 250ms $easing;
-  transform: translateY(-50%) translateX(0) !important;
-  opacity: 1;
+  animation: navLeft 1000ms ease reverse;
 }
 
-.navLeft-enter,
-.navLeft-leave-to {
-  transform: translateY(-50%) translateX(-$sm) !important;
-  opacity: 0;
+@keyframes navLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-$sm);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
 }
 
-// Nav, right
-.navRight-enter-active,
+// Nav Left
+.navRight-enter-active {
+  animation: navRight 1000ms ease;
+}
 .navRight-leave-active {
-  transition: all 250ms $easing;
-  transform: translateY(-50%) translateX(0) !important;
-  opacity: 1;
+  animation: navRight 1000ms ease reverse;
 }
 
-.navRight-enter,
-.navRight-leave-to {
-  opacity: 0;
-  transform: translateY(-50%) translateX($sm) !important;
+@keyframes navRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX($sm);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
 }
+
+body.active {
+  .project-title {
+    opacity: 0;
+    transition: opacity 1000ms ease;
+  }
+}
+
+body.disable {
+  .global-enter-active,
+  .global-leave-active {
+    transition: none !important;
+    opacity: 1;
+  }
+
+  .global-enter,
+  .global-leave-to {
+    transition: none !important;
+    opacity: 1;
+  }
+}
+
+.grid-item {
+  &.above-viewport {
+    opacity: 0;
+    transform: translate3d(0, -3vw, 0);
+    transition: transform 1s linear;
+    &.in-viewport {
+      opacity: 1;
+      transform: translate3D(0, 0, 0);
+    }
+  }
+
+  &.below-viewport {
+    opacity: 0;
+    transform: translate3d(0, 3vw, 0);
+    transition: transform 1s linear;
+    &.in-viewport {
+      opacity: 1;
+      transform: translate3D(0, 0, 0);
+    }
+  }
+}
+
+// body.home {
+//   main.feed {
+//     animation-delay: 10s;
+//     animation: hey 800s linear;
+
+//     @keyframes hey {
+//       from {
+//         transform: translateY(0);
+//       }
+//       to {
+//         transform: translateY(-200%);
+//       }
+//     }
+//   }
+
+//   &.active {
+//     main.feed {
+//       animation-play-state: paused;
+//     }
+//   }
+// }

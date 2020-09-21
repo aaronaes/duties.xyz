@@ -1,347 +1,425 @@
-figure {
-  .details {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-flow: row wrap;
-    padding-top: $lg;
-    background-color: initial;
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s $easing, opacity 250ms $easing;
+.project {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1000;
+  background-color: $white;
 
-    @include respond-to("sm") {
-      padding-top: $sm;
+  .inner {
+    position: relative;
+    padding-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+
+    .loading {
+      backface-visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0%;
+      height: 100vh;
+      width: 100vw;
+      max-width: 100%;
+      display: flex;
+      padding: 0;
+      justify-content: space-around;
+      align-items: center;
+      flex-flow: row wrap;
+      background-color: initial;
+      opacity: 1;
+      transition: opacity 1000ms $easing;
+      z-index: 2000;
+      background-color: rgba($white, $alpha: 1);
+
+      .loading-title {
+        z-index: 3000;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+
+        h1 {
+          font-size: calc(15vw);
+          white-space: nowrap;
+          animation: hello 1000ms ease-in-out;
+
+          @keyframes hello {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .summary-block {
+        position: relative;
+
+        .imgBox {
+          img {
+            opacity: 0.5;
+          }
+        }
+
+        @media screen and #{breakpoint(small only)} {
+          margin-top: $sm;
+          margin-bottom: $sm;
+        }
+
+        .loadingBg {
+          position: fixed;
+          height: 100vh;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          opacity: 0.8;
+        }
+      }
     }
 
-    .inner {
+    .navTop {
+      backface-visibility: hidden;
+      position: sticky;
+      top: 0;
+      height: 0px;
+      z-index: 1500;
+
       .closeBtn {
-        position: sticky;
-        top: 0;
+        position: absolute;
         left: 50%;
-        transform: translateX(-50%) translateY(-$lg);
-        max-width: 100px;
-        display: block;
-        z-index: 999;
         background-color: $black;
         border-radius: 40px;
         padding: 8px 16px;
         opacity: 0;
-        transition-delay: 250ms;
-        transition: 250ms all $easing;
+        transform: translate(-50%, $sm);
+        transition: all 1000ms $easing;
 
-        @include respond-to("sm") {
-          top: 0;
-          transform: translateX(-50%) translateY(-$sm);
+        @include breakpoint(large down) {
+          padding: 5px 15px;
         }
 
-        p {
-          cursor: pointer;
-          font-size: 17px;
-          margin: 0;
-          text-transform: uppercase;
-          text-align: center;
-          color: $white;
-        }
-      }
-
-      .summary {
-        position: relative;
-        padding-top: $md;
-
-        @include respond-to("sm") {
-          padding-top: $sm;
-        }
-
-        a.imgBox {
-          position: relative;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: 250ms all $easing;
-          border-bottom: none;
-
-          &.Landscape {
-            width: 70vw;
-
-            @include respond-to("sm") {
-              width: auto;
-            }
-          }
-
-          &.Square {
-            width: 45vw;
-            @include respond-to("sm") {
-              width: auto;
-            }
-          }
-
-          &.Portrait {
-            width: 30vw;
-
-            @include respond-to("sm") {
-              width: auto;
-            }
-          }
-
-          img {
-            cursor: pointer;
-            display: block;
-            transition: 250ms $easing;
-
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-
-            @include respond-to("sm") {
-              height: 100%;
-            }
-          }
-        }
-
-        .project-title {
-          padding-top: $xs;
-          h1,
-          h2,
-          h3 {
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            margin: 0;
-          }
-
+        a {
           p {
             cursor: pointer;
+            font-size: 17px;
             margin: 0;
-            z-index: 0;
-            display: inline;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+
+            @media screen and #{breakpoint(small only)} {
+              font-size: 14px;
+              font-weight: bold;
+              letter-spacing: 1px;
+            }
           }
         }
       }
 
-      .content {
-        padding-top: $md;
+      &.isVisible {
+        .closeBtn {
+          opacity: 1;
+          transform: translate(-50%, $md);
+          transition-delay: 2500ms;
+        }
+      }
+    }
 
-        @include respond-to("sm") {
-          padding-top: $xs;
+    .details {
+      height: 100vh;
+      display: flex;
+      position: relative;
+      justify-content: space-around;
+      align-items: center;
+      flex-flow: row wrap;
+      background-color: initial;
+      opacity: 1;
+      margin: 0 !important;
+      transition: opacity 1000ms $easing;
+
+      .summary-block {
+        position: relative;
+      }
+
+      .scrollMe {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        bottom: $sm;
+        opacity: 0;
+        transform: translate(-50%, 0);
+        transition: all 500ms $easing;
+        animation: bounce 3000ms infinite;
+        animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+
+        a {
+          border-bottom: none;
+          transform: rotate(90deg);
+          p {
+            padding: 2rem;
+            transition: all 250ms $easing;
+          }
         }
 
-        h1,
-        h2 {
-          &.title {
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            margin-bottom: 0;
-          }
-          &.subtitle {
-            opacity: 0.6;
-          }
-        }
-        .projectTitle {
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 780px;
-          width: 100%;
+        &:hover {
+          animation-play-state: paused;
+          transform: translate(-50%, $md);
         }
 
-        .description {
-          margin-bottom: $md;
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 780px;
-          width: 100%;
+        &.isVisible {
+          opacity: 1;
+          transform: translate(-50%, $md);
+          transition-delay: 2500ms;
+        }
 
-          @include respond-to("sm") {
-            max-width: 100%;
+        @keyframes bounce {
+          0%,
+          100% {
+            transform: translateY(-$sm);
+          }
+          20% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-$sm);
+          }
+        }
+      }
+    }
+
+    .grid-block {
+      display: flex;
+      justify-content: space-around;
+      padding-top: calc(40px + 160 * (100vw - 320px) / 1680);
+
+      &:last-of-type {
+        padding-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+      }
+
+      .text-block {
+        & > div {
+          margin-top: $md;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+
+        & > div:only-child {
+          margin-top: 0;
+        }
+
+        .text-container {
+          max-width: 700px;
+          min-width: 0px;
+
+          @media screen and #{breakpoint(medium only)} {
+            padding-left: $lg;
+            padding-right: $lg;
           }
 
-          @include respond-to("sm") {
-            margin-bottom: $xs;
+          @media screen and #{breakpoint(small only)} {
+            padding-left: $md;
+            padding-right: $md;
           }
 
-          h2 {
-            &.this {
-              position: relative;
-              padding-top: $sm;
+          blockquote {
+            .body-title {
+              font-weight: bold;
+            }
 
-              // SVG Graphic
-              &:before {
-                content: "";
-                background: transparent url(/images/assets/this.svg) no-repeat;
-                background-size: contain;
-                position: absolute;
-                left: 0;
-                right: 0;
-                z-index: -1;
-                width: 124px;
-                transform: translate(0, 36px);
-                height: 16px;
-                transition: all 250ms $easing;
-                opacity: 1;
-              }
-              a {
-                &:hover {
-                  transition: all 250ms $easing;
-                }
-              }
+            .body-text {
+              color: rgba($black, $alpha: 0.9);
+              margin-top: $sm;
             }
           }
 
           a {
             border-bottom: 0px solid transparent;
-          }
-        }
+            position: relative;
+            display: inline-block;
+            transition: all 250ms cubic-bezier(0, 0.75, 0, 75, 0);
 
-        .meta {
-          margin-bottom: $sm;
-          max-width: 780px;
-          width: 100%;
-          margin-left: auto;
-          margin-right: auto;
-
-          div {
-            p {
-              &.title {
-                margin-bottom: 0;
-                opacity: 0.5;
-              }
+            svg {
+              width: 140%;
+              height: auto;
             }
 
-            h3,
-            p {
-              padding-right: $sm;
-              margin-bottom: 0px;
+            &:hover {
+              color: $accent;
+            }
+          }
+        }
+      }
 
-              span {
-                display: block;
+      .double-img {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        &.flip {
+          .img-container {
+            &.left-image {
+              img {
+                width: 100%;
+              }
+            }
+            &.right-image {
+              img {
+                width: 75%;
+                margin: 0 auto 0 0;
               }
             }
           }
         }
 
         .img-container {
-          &:last-of-type {
-            margin-bottom: 0;
-          }
+          padding: $sm;
 
-          .text {
-            margin-top: $lg;
-            margin-bottom: $lg;
-
-            @include respond-to("sm") {
-              margin-top: $sm;
-              margin-bottom: $sm;
+          &.left-image {
+            grid-row: 1;
+            grid-column: 3 / span 4;
+            img {
+              width: 75%;
+              margin: 0 0 0 auto;
             }
           }
-
-          img {
-            margin-bottom: $lg;
-            height: auto;
-            width: 100%;
-
-            @include respond-to("sm") {
-              margin-bottom: $sm;
-            }
+          &.right-image {
+            grid-row: 1;
+            grid-column: 7 / span 4;
           }
 
-          img[lazy="loaded"] {
-            opacity: 0;
-            animation: opacity, transform;
-            animation-name: fade-in;
-            animation-duration: 500ms;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-            animation-direction: normal;
-            animation-timing-function: $easing;
-
-            @keyframes fade-in {
-              0% {
-                opacity: 0;
-              }
-              100% {
-                opacity: 1;
-              }
+          figcaption {
+            padding-top: $xs;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            p {
+              opacity: 0.6;
             }
           }
         }
       }
-    }
 
-    .similarList {
-      height: 100vh;
-      width: 100vw;
-      z-index: 9999;
-      position: relative;
-      transition: background-color 250ms $easing, color 250ms $easing;
+      .triple-img {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
 
-      @include respond-to("sm") {
-        max-width: 60vw;
-        padding-top: $lg;
-      }
+        .img-container {
+          padding: $sm;
 
-      ul {
-        li {
-          list-style: none !important;
-          h1 {
-            margin-bottom: $xs;
-            cursor: pointer;
-
-            &:hover {
-              color: $accent;
-              span {
-                img {
-                  opacity: 1;
-                  visibility: visible;
-                  transition: visibility 0s $easing, opacity 250ms $easing;
-                }
-              }
-            }
+          &.left-image {
+            grid-row: 1;
+            grid-column: 2 / span 4;
           }
 
-          &.isOpen {
-            pointer-events: none;
-            cursor: pointer;
+          &.center-image {
+            grid-row: 1;
+            grid-column: 5 / span 4;
+          }
+
+          &.right-image {
+            grid-row: 1;
+            grid-column: 8 / span 4;
+          }
+
+          @media screen and #{breakpoint(large only)} {
+            grid-template-columns: repeat(12, 4fr);
+          }
+        }
+      }
+
+      .media-block {
+        .img-container {
+          // padding: $md;
+
+          figcaption {
+            padding-top: $xs;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            p {
+              opacity: 0.6;
+            }
+          }
+        }
+
+        &.fluid {
+          .img-container {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .similar-block {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2000;
+    transition: all 500ms $easing;
+
+    @include flex;
+    @include flex-align(center, middle);
+
+    .grid-container {
+      width: auto;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      @media screen and #{breakpoint(small only)} {
+        max-width: 100%;
+      }
+
+      li {
+        list-style: none !important;
+
+        &:hover {
+          color: $accent;
+          span {
+            img {
+              opacity: 1;
+              visibility: visible;
+              transition: visibility 0s $easing, opacity 250ms $easing;
+            }
+          }
+        }
+        a {
+          display: block;
+          position: relative;
+          border-bottom: none;
+
+          h1 {
+            margin-bottom: $xs;
+          }
+        }
+
+        &:hover {
+          a {
+            h1 {
+              text-decoration: line-through;
+              color: $accent;
+            }
+          }
+        }
+
+        &.isOpen {
+          pointer-events: none;
+          cursor: pointer;
+          a {
             h1 {
               text-decoration: line-through;
             }
           }
         }
       }
-    }
-
-    &.mini {
-      justify-content: initial;
-      display: inline-block;
-      vertical-align: top;
-      width: 50%;
-
-      .inner {
-        .summary {
-          width: 100%;
-
-          a.imgBox {
-            .Portrait {
-              justify-content: space-around;
-            }
-          }
-        }
-      }
-    }
-
-    &.loaded {
-      position: fixed;
-      width: 100%;
-      display: flex;
-      overflow-y: scroll;
-      padding-bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 9998;
-      visibility: visible !important;
-      opacity: 1 !important;
-      transition: visibility 0s $easing, opacity 250ms $easing;
     }
   }
 }

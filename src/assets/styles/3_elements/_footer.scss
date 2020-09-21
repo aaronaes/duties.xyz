@@ -18,7 +18,7 @@ body {
         padding: 0;
         justify-content: space-between;
 
-        @include respond-to("sm") {
+        @media screen and #{breakpoint(small only)} {
           padding-bottom: 0;
         }
 
@@ -31,7 +31,7 @@ body {
             align-self: center;
             border-bottom: transparent;
 
-            @include respond-to("sm") {
+            @media screen and #{breakpoint(small only)} {
               margin-right: $xs;
             }
 

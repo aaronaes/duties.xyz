@@ -1,0 +1,45 @@
+.swiper-container {
+  margin-top: $md;
+  margin-bottom: $md;
+  overflow-x: hidden;
+  width: 100vw;
+  height: auto;
+
+  .swiper-wrapper {
+    .swiper-slide {
+      cursor: move; /* fallback if grab cursor is unsupported */
+      cursor: grab;
+      height: auto;
+      max-width: 33vw;
+      margin-left: $md;
+
+      img {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:first-of-type {
+        margin-left: $lg !important;
+      }
+      &:last-of-type {
+        margin-right: $md !important;
+      }
+
+      @media screen and #{breakpoint(small only)} {
+        max-width: 44vw;
+      }
+      @media screen and #{breakpoint(small only)} {
+        max-width: 55vw;
+        margin-left: $sm;
+
+        &:first-of-type {
+          margin-left: $sm !important;
+        }
+        &:last-of-type {
+          margin-right: $sm !important;
+        }
+      }
+    }
+  }
+}
