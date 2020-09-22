@@ -377,7 +377,6 @@ export default {
       return data.allProjects;
     },
     async getProject(slug) {
-      console.log(slug);
       const { data } = await getData({
         variables: { slug: slug },
         query: gql`
@@ -497,7 +496,6 @@ export default {
     // eslint-disable-next-line no-unused-vars
     document.querySelector(".my-page .page__content").onscroll = (e, v) => {
       lastPosition.y = e.target.scrollTop;
-      console.log("scrolling", e.target.scrollTop);
     };
   },
   computed: {
