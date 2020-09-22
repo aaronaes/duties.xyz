@@ -381,18 +381,6 @@
       li {
         list-style: none !important;
 
-<<<<<<< HEAD
-            &:hover {
-              color: $accent;
-              span {
-                img {
-                  opacity: 1;
-                  visibility: visible;
-                  transition: visibility 0s $easing, opacity 250ms $easing;
-                }
-              }
-            }
-=======
         a {
           display: block;
           position: relative;
@@ -400,18 +388,13 @@
 
           h1 {
             margin-bottom: $xs;
->>>>>>> routing
           }
         }
 
         &:hover {
           a {
             h1 {
-<<<<<<< HEAD
-              text-decoration: line-through;
-=======
               color: $accent;
->>>>>>> routing
             }
           }
         }

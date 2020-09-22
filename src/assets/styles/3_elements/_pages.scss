@@ -9,27 +9,9 @@
   padding-left: $grid-padding-gutters;
 }
 
-<<<<<<< HEAD
-section {
-  position: relative;
-
-  figure {
-    margin: 0 auto;
-    margin-bottom: $md;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    @include respond-to("sm") {
-      margin-bottom: $sm;
-    }
-  }
-=======
 .grid-margin-x > .cell {
   margin-right: $grid-margin-gutters;
   margin-left: $grid-margin-gutters;
->>>>>>> routing
 }
 
 // Color Schemes

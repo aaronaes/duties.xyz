@@ -6,60 +6,6 @@
 
       <!-- Project List -->
 
-<<<<<<< HEAD
-    <!-- About -->
-    <section class="grid-container clients">
-      <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-7 medium-10 small-12">
-          <h2 class="section-title">Clients &amp; friends</h2>
-        </div>
-      </figure>
-      <figure class="grid-x grid-padding-x align-center client-grid">
-        <div class="cell large-7 medium-10 small-12">
-          <h2 v-for="client in clients" :key="client.id" class="float-left">
-            {{ client.name }}
-          </h2>
-        </div>
-      </figure>
-      <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-7 medium-10 small-12">
-          <h2 class="cell">
-            We have worked with a range of excellent companies and people
-            throughout the years and we are always excited to hear from future
-            collaborators about exciting ventures, new opportunities and
-            problems to solve.
-          </h2>
-        </div>
-      </figure>
-      <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-7 medium-10 small-12">
-          <h2 class="cell large-8 medium-10 small-12">
-            Got something for us?
-            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
-              >Let’s chat</a
-            >
-          </h2>
-        </div>
-      </figure>
-    </section>
-
-    <!-- About -->
-    <section class="grid-container footer">
-      <figure class="grid-x grid-padding-x align-center">
-        <div class="cell large-7 medium-10 small-12">
-          <h2>
-            <router-link to="/imprint">Imprint</router-link>
-          </h2>
-          <h2>
-            <a href="mailto:new@duties.xyz?subject=Hi there" target="_blank"
-              >Connect</a
-            >
-          </h2>
-        </div>
-      </figure>
-    </section>
-  </main>
-=======
       <ProjectList :projects="projects" />
 
       <!-- About -->
@@ -101,7 +47,6 @@
       </section>
     </main>
   </transition>
->>>>>>> routing
 </template>
 
 <script>
@@ -118,20 +63,12 @@ export default {
   },
   async created() {
     this.projects = await this.getProjects();
-<<<<<<< HEAD
-    this.clients = await this.getClients();
-=======
     this.clientList = await this.getClientList();
->>>>>>> routing
   },
   data() {
     return {
       projects: [],
-<<<<<<< HEAD
-      clients: [],
-=======
       clientList: [],
->>>>>>> routing
       title: "Home",
       heading:
         "A creative partner and design studio for thoughtfully crafted products.",
@@ -248,40 +185,19 @@ export default {
       });
       return data.frontpage.projects;
     },
-<<<<<<< HEAD
-    async getClients() {
-=======
     async getClientList() {
->>>>>>> routing
       const { data } = await getData({
         query: gql`
           query {
             frontpage {
-<<<<<<< HEAD
-              clients {
-=======
               clientList {
->>>>>>> routing
                 name
               }
             }
           }
         `
       });
-<<<<<<< HEAD
-      return data.frontpage.clients;
-    },
-    slidePrev() {
-      this.$refs.carousel.slidePrev();
-    },
-    slideNext() {
-      this.$refs.carousel.slideNext();
-    },
-    updateCarousel(payload) {
-      this.myCarouselData = payload.currentSlide;
-=======
       return data.frontpage.clientList;
->>>>>>> routing
     }
   },
   beforeCreate: function() {

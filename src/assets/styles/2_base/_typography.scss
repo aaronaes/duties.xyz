@@ -29,30 +29,9 @@ ul {
   word-spacing: 0.4px;
 }
 
-<<<<<<< HEAD
-h1,
-h1.markdown p {
-  font-size: 60px;
-  line-height: 1.1em;
-  margin-bottom: $md;
-
-  @include respond-to("lg") {
-    font-size: 52px;
-    margin-bottom: $sm;
-  }
-
-  @include respond-to("md") {
-    font-size: 44px;
-  }
-
-  @include respond-to("sm") {
-    font-size: 32px;
-  }
-=======
 h1 {
   font-size: calc(32px + 30 * (100vw - 320px) / 1680);
   line-height: 1.1;
->>>>>>> routing
 }
 
 h2,

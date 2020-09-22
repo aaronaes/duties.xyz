@@ -2,25 +2,11 @@ body {
   main {
     section {
       position: relative;
-<<<<<<< HEAD
-      padding-top: $lg;
-      padding-bottom: $lg;
-
-      h2,
-      h3 {
-        &.section-title {
-          margin-bottom: $xs;
-        }
-      }
 
       &.clients {
-=======
+        margin-top: calc(40px + 160 * (100vw - 320px) / 1680);
+        margin-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
 
-      &.clients {
-        margin-top: calc(80px + 170 * (100vw - 320px) / 1680);
-        margin-bottom: calc(80px + 170 * (100vw - 320px) / 1680);
-
->>>>>>> routing
         figure {
           margin-bottom: $md;
 

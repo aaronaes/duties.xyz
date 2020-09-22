@@ -17,7 +17,10 @@ export default new Router({
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return {
+        x: 0,
+        y: 0
+      };
     }
   },
   routes: [
@@ -25,14 +28,17 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home,
-      meta: { disableScroll: true },
+      meta: {
+        disableScroll: true
+      },
       children: [
         {
           path: "/projects/:slug",
           name: "Project",
           component: () =>
             import(
-              /* webpackChunkName: "SingleProject" */ "./views/SingleProject.vue"
+              /* webpackChunkName: "SingleProject" */
+              "./views/SingleProject.vue"
             )
         }
       ]
@@ -47,19 +53,15 @@ export default new Router({
       path: "/projects",
       name: "ProjectOverview",
       component: () =>
-<<<<<<< HEAD
-        import(/* webpackChunkName: "About" */ "./views/Projects.vue")
+        import(
+          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
+        )
     },
     {
       path: "/imprint",
       name: "Imprint",
       component: () =>
         import(/* webpackChunkName: "About" */ "./views/Imprint.vue")
-=======
-        import(
-          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
-        )
->>>>>>> routing
     }
   ]
 });
