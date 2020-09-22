@@ -1,39 +1,15 @@
 // Foundation code
-.row,
 .grid-container {
-  width: 100vw;
-  max-width: 1680px;
-  padding-right: $md;
-  padding-left: $md;
-
-  @include respond-to("sm") {
-    padding-left: $sm;
-    padding-right: $sm;
-  }
-
-  &.fluid {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  width: 100%;
+  max-width: 100%;
 }
 
-.column,
-.columns {
-  padding-right: $md;
-  padding-left: $md;
-
-  @include respond-to("sm") {
-    padding-right: $sm;
-    padding-left: $sm;
-  }
+.grid-padding-x > .cell {
+  padding-right: $grid-padding-gutters;
+  padding-left: $grid-padding-gutters;
 }
 
-.center {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
+<<<<<<< HEAD
 section {
   position: relative;
 
@@ -49,25 +25,42 @@ section {
       margin-bottom: $sm;
     }
   }
+=======
+.grid-margin-x > .cell {
+  margin-right: $grid-margin-gutters;
+  margin-left: $grid-margin-gutters;
+>>>>>>> routing
 }
 
 // Color Schemes
 body {
-  transition: background-color 50ms linear !important;
+  transition: background-color 500ms $easing !important;
 
   &.color-white {
     color: $black;
-    background-color: $white;
+    background: $white;
   }
 
   &.color-grey {
     color: $black;
-    background-color: $grey;
+    background: $grey;
+  }
+
+  &.home {
+    color: $black;
+    background-color: $white;
   }
 
   &.about {
     color: $grey;
     background-color: $black;
+
+    a {
+      &:hover {
+        color: $accent;
+      }
+    }
+
     & > & {
       &:hover {
         color: inherit;

@@ -8,21 +8,34 @@ export default new Router({
   mode: "history",
   hashbag: true,
   scrollBehavior(to, from, savedPosition) {
+    if (to.matched.some(m => m.meta.disableScroll)) return;
+    if (to.hash) {
+      return {
+        selector: to.hash
+      };
+    }
     if (savedPosition) {
       return savedPosition;
     } else {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve({ x: 0, y: 0 });
-        }, 500);
-      });
+      return { x: 0, y: 0 };
     }
   },
   routes: [
     {
       path: "/",
       name: "Home",
-      component: Home
+      component: Home,
+      meta: { disableScroll: true },
+      children: [
+        {
+          path: "/projects/:slug",
+          name: "Project",
+          component: () =>
+            import(
+              /* webpackChunkName: "SingleProject" */ "./views/SingleProject.vue"
+            )
+        }
+      ]
     },
     {
       path: "/about",
@@ -32,8 +45,9 @@ export default new Router({
     },
     {
       path: "/projects",
-      name: "Projects",
+      name: "ProjectOverview",
       component: () =>
+<<<<<<< HEAD
         import(/* webpackChunkName: "About" */ "./views/Projects.vue")
     },
     {
@@ -41,6 +55,11 @@ export default new Router({
       name: "Imprint",
       component: () =>
         import(/* webpackChunkName: "About" */ "./views/Imprint.vue")
+=======
+        import(
+          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
+        )
+>>>>>>> routing
     }
   ]
 });

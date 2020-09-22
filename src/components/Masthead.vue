@@ -1,23 +1,20 @@
 <template>
-  <section class="grid-container masthead">
+  <section class="grid-container block-masthead">
     <figure class="grid-x align-center">
       <div
-        class="cell large-6 medium-8 small-12"
-        v-if="this.$route.name === 'Home'"
+        class="cell small-12 medium-8 large-6"
+        v-if="this.$route.name === 'About'"
       >
-        <h1>
-          A creative partner and design studio for thoughtfully crafted
-          products.
-        </h1>
-      </div>
-      <div v-else class="cell large-6 medium-8 small-12">
         <h1>Duty / Duties</h1>
         <div class="dictionary">
-          <div class="meta">
-            <h2>
-              <span class="stretch">/ˈdjuːti/</span>
+          <div class="cell meta">
+            <h3>
+              <span>/ djuːti /</span>
+              <span>noun</span>
+            </h3>
+            <h3>
               <span
-                class="icon"
+                class="audio icon"
                 @click.prevent="
                   playSound(
                     'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
@@ -42,9 +39,9 @@
                     stroke-width="6"
                   />
                 </svg>
+                Listen
               </span>
-            </h2>
-            <h2>noun</h2>
+            </h3>
           </div>
           <h2>
             <ol>
@@ -59,6 +56,12 @@
           </h2>
         </div>
       </div>
+      <div class="cell small-12 medium-8 large-6" v-else>
+        <h1>
+          A creative partner and design studio for thoughtfully crafted
+          products.
+        </h1>
+      </div>
     </figure>
   </section>
 </template>
@@ -66,11 +69,10 @@
 <script>
 export default {
   name: "Masthead",
-  props: {
-    heading: {
-      type: String,
-      required: true
-    }
+  data() {
+    return {
+      showContent: false
+    };
   },
   methods: {
     playSound(sound) {
@@ -82,3 +84,12 @@ export default {
   }
 };
 </script>
+<style lang="css" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
