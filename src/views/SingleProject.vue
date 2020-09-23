@@ -238,8 +238,7 @@
         <!-- Project Meta Block -->
         <div class="grid-block">
           <div class="grid-y grid-padding-x text-block">
-            <div class="text-container" v-if="!project.roles.length"></div>
-            <div class="text-container cell" v-else>
+            <div class="text-container cell">
               <blockquote>
                 <h3 class="body-title">On-duty</h3>
                 <div class="body-text">
@@ -322,7 +321,6 @@ export default {
         categories: [],
         client: {},
         blocks: [],
-        roles: [],
         caption: "",
         coverSize: "",
         projectThumbnail: { url: "" }
