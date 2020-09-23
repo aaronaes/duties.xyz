@@ -176,9 +176,6 @@ export default {
                   url
                 }
               }
-              clients {
-                name
-              }
             }
           }
         `
