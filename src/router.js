@@ -33,7 +33,7 @@ export default new Router({
       },
       children: [
         {
-          path: "/projects/:slug",
+          path: "./projects/:slug",
           name: "Project",
           component: () =>
             import(

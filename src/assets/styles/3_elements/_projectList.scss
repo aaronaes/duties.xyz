@@ -4,16 +4,6 @@ body {
     margin-top: $lg;
     margin-bottom: $lg;
 
-    @media screen and #{breakpoint(medium only)} {
-      margin-top: $md;
-      margin-bottom: $md;
-    }
-
-    @media screen and #{breakpoint(small only)} {
-      margin-top: $sm;
-      margin-bottom: $sm;
-    }
-
     figure {
       .details {
         height: 100vh;
@@ -45,8 +35,8 @@ body {
 
         @media screen and #{breakpoint(small only)} {
           height: auto;
-          margin-top: calc(40px + 160 * (100vw - 320px) / 1680);
-          margin-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+          margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
+          margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
         }
 
         .summary-block {
@@ -86,6 +76,8 @@ body {
                 @media screen and #{breakpoint(small only)} {
                   position: relative;
                   left: 0;
+                  margin-left: $sm;
+                  width: calc(100% - #{$md});
                   opacity: 1;
                   transform: translateX(0) translateY($xs);
                 }

@@ -4,8 +4,8 @@ body {
       position: relative;
 
       &.clients {
-        margin-top: calc(40px + 160 * (100vw - 320px) / 1680);
-        margin-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+        margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
+        margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
 
         figure {
           margin-bottom: $md;
@@ -54,15 +54,15 @@ body {
 
       &.footer {
         figure {
-          margin: 0;
-          padding: 0;
+          margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
+          margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
 
           h2 {
             display: inline;
             margin-right: $sm;
 
-            &::last-of-type {
-              margin-left: 0;
+            &:last-of-type {
+              margin-right: 0;
             }
           }
         }

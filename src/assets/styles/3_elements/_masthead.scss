@@ -2,12 +2,10 @@
 body {
   section {
     &.block-masthead {
-      padding-top: 20rem;
-      padding-bottom: 5rem;
+      margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
 
       @media screen and #{breakpoint(small only)} {
-        padding-top: 10rem;
-        padding-bottom: 2.5rem;
+        padding-top: $lg * 2;
       }
 
       figure {

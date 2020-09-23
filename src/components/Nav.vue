@@ -25,8 +25,8 @@
     </transition>
 
     <transition name="navTop" mode="out-in">
-      <router-link :to="{ name: 'Home' }">
-        <div class="logo">
+      <div class="logo">
+        <router-link class="grid-x align-center" :to="{ name: 'Home' }">
           <svg
             class="big hide-for-small-only"
             width="98"
@@ -60,9 +60,10 @@
               fill="#17171C"
             />
           </svg>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </transition>
+
     <transition name="navRight" mode="out-in">
       <div class="nav-item right">
         <router-link :to="{ name: 'About' }">

@@ -6,11 +6,11 @@
           <p>Close</p>
         </router-link>
       </div>
-      <figure class="grid-x align-center">
-        <div class="cell ">
-          <h2>{{ imprint.title }}</h2>
-          <h2 class="markdown" v-html="getMarkdown(imprint.content)"></h2>
-          <h2 class="markdown" v-html="getMarkdown(imprint.copywrite)"></h2>
+      <figure class="grid-x grid-padding-x align-center">
+        <div class="cell small-12 medium-10 large-8">
+          <h1>{{ imprint.title }}</h1>
+          <h3 class="markdown" v-html="getMarkdown(imprint.content)"></h3>
+          <h3 class="markdown" v-html="getMarkdown(imprint.copywrite)"></h3>
         </div>
       </figure>
     </section>

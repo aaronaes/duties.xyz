@@ -4,6 +4,11 @@ body {
     z-index: 1000;
     position: relative;
 
+    a {
+      border: none !important;
+      text-decoration: none !important;
+    }
+
     .nav-item {
       position: fixed;
       overflow: visible;
@@ -82,7 +87,7 @@ body {
 
         @media screen and #{breakpoint(small only)} {
           position: absolute;
-          transform: translateY(0) translateX(0);
+          transform: translateY(50%) translateX(0);
           left: $sm;
         }
       }
@@ -102,7 +107,7 @@ body {
 
         @media screen and #{breakpoint(small only)} {
           position: absolute;
-          transform: translateY(0) translateX(0);
+          transform: translateY(50%) translateX(0);
           right: $sm;
         }
       }
@@ -114,19 +119,23 @@ body {
       position: fixed;
       left: 50%;
 
+      a {
+        border: none !important;
+        text-decoration: none !important;
+      }
+
       svg.big {
         max-width: 80px;
-        align-content: space-around;
       }
 
       svg.small {
-        max-width: 8px;
-        align-content: space-around;
+        max-width: 12px;
       }
 
       @media screen and #{breakpoint(small only)} {
-        position: relative;
-        transform: translateY($sm);
+        position: absolute;
+        transform: translateX(-50%) translateY($sm);
+        left: 50%;
       }
     }
   }

@@ -26,6 +26,7 @@ Vue.use(VueLazyload, {
   listenEvents: ["scroll"]
 });
 Vue.directive("in-viewport", inViewportDirective);
+inViewportDirective.defaults.margin = "-10% 0%";
 
 Vue.use(vueScrollBehavior, {
   router: router, // The router instance

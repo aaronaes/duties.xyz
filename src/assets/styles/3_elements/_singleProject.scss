@@ -11,7 +11,7 @@
 
   .inner {
     position: relative;
-    padding-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+    padding-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
 
     .loading {
       backface-visibility: hidden;
@@ -194,10 +194,10 @@
     .grid-block {
       display: flex;
       justify-content: space-around;
-      padding-top: calc(40px + 160 * (100vw - 320px) / 1680);
+      padding-top: calc(80px + 240 * (100vw - 320px) / 1680);
 
       &:last-of-type {
-        padding-bottom: calc(40px + 160 * (100vw - 320px) / 1680);
+        padding-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
       }
 
       .text-block {

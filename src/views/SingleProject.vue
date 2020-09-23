@@ -3,7 +3,7 @@
     <main class="project" id="top">
       <div class="inner">
         <!-- Loading Component -->
-        <!-- <transition name="loading">
+        <transition name="loading">
           <div class="loading grid-container" v-if="isLoading">
             <div class="grid-x summary-block">
               <div class="loading-title">
@@ -18,7 +18,7 @@
               <div class="loadingBg"></div>
             </div>
           </div>
-        </transition> -->
+        </transition>
 
         <!-- Close Button -->
         <div
@@ -241,7 +241,7 @@
             <div class="text-container" v-if="!project.roles.length"></div>
             <div class="text-container cell" v-else>
               <blockquote>
-                <h4 class="body-title">On-duty</h4>
+                <h3 class="body-title">On-duty</h3>
                 <div class="body-text">
                   <p v-for="(block, i) in project.roles" :key="i">
                     {{ block.role }} by
@@ -255,7 +255,7 @@
             <div class="text-container" v-if="!project.categories.length"></div>
             <div class="text-container cell" v-else>
               <blockquote>
-                <h4 class="body-title">Deliverables</h4>
+                <h3 class="body-title">Deliverables</h3>
                 <div class="body-text">
                   <p v-for="(category, i) in project.categories" :key="i">
                     {{ category.categoryType }}
@@ -302,22 +302,10 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 
 export default {
-  mixins: [
-    // eslint-disable-next-line
-    require("@/mixins/foundation")
-  ],
   name: "Project",
-  inserted: function(el, binding) {
-    let f = function(evt) {
-      if (binding.value(evt, el)) {
-        window.removeEventListener("scroll", f);
-      }
-    };
-    window.addEventListener("scroll", f);
-  },
   async created() {
     this.project = await this.getProject(this.$route.params.slug);
-    this.projects = await this.getProjects();
+    this.projects = await this.getAllProjects();
   },
   data() {
     return {
@@ -335,7 +323,7 @@ export default {
         client: {},
         blocks: [],
         roles: [],
-        description: "",
+        caption: "",
         coverSize: "",
         projectThumbnail: { url: "" }
       },
@@ -353,8 +341,7 @@ export default {
         this.$router.push("/");
       }, 1000);
     },
-
-    async getProjects() {
+    async getAllProjects() {
       const { data } = await getData({
         query: gql`
           query {
@@ -400,19 +387,14 @@ export default {
               categories {
                 categoryType
               }
-              roles {
-                role
-                name
-                link
-              }
               client {
                 name
               }
               blocks {
                 ... on SingleImageRecord {
                   id
-                  caption
                   _modelApiKey
+                  caption
                   full
                   image {
                     url
@@ -429,17 +411,15 @@ export default {
                   _modelApiKey
                   firstImage {
                     url
-                    title
                   }
                   lastImage {
                     url
-                    title
                   }
                   flip
                 }
                 ... on ThreeUpRecord {
-                  _modelApiKey
                   id
+                  _modelApiKey
                   leftImage {
                     url
                   }
