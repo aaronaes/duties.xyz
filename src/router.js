@@ -33,7 +33,7 @@ export default new Router({
       },
       children: [
         {
-          path: "./projects/:slug",
+          path: "projects/:slug",
           name: "Project",
           component: () =>
             import(
@@ -48,14 +48,6 @@ export default new Router({
       name: "About",
       component: () =>
         import(/* webpackChunkName: "About" */ "./views/About.vue")
-    },
-    {
-      path: "/projects",
-      name: "ProjectOverview",
-      component: () =>
-        import(
-          /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue"
-        )
     },
     {
       path: "/imprint",
