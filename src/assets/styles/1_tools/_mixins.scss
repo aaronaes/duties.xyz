@@ -1,32 +1,27 @@
 // // Mixins //
 
-// $breakpoints: (
-//   "small": (
-//     max-width: 576px
-//   ),
-//   "medium": (
-//     max-width: 1024px
-//   ),
-//   "large": (
-//     max-width: 1680px
-//   ),
-//   "xlarge": (
-//     min-width: 1681px
-//   )
-// ) !default;
-
-// @mixin respond-to($breakpoint) {
-//   // If the key exists in the map
-//   @if map-has-key($breakpoints, $breakpoint) {
-//     // Prints a media query based on the value
-//     @media #{inspect(map-get($breakpoints, $breakpoint))} {
-//       @content;
-//     }
-//   }
-
-//   // If the key doesn't exist in the map
-//   @else {
-//     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-//         + "Available breakpoints are: #{map-keys($breakpoints)}.";
-//   }
-// }
+@mixin clamp(
+  $property,
+  $min-size,
+  $scaler,
+  $max-size,
+  $min-size-left: false,
+  $scaler-left: false,
+  $max-size-left: false
+) {
+  @if $min-size-left == false {
+    #{$property}: $max-size;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"};
+    #{$property}: clamp($min-size, $scaler, $max-size);
+  } @else if $min-size-left == 0 or $min-size-left == auto {
+    #{$property}: $max-size $min-size-left;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}
+      $min-size-left;
+    #{$property}: clamp($min-size, $scaler, $max-size) $min-size-left;
+  } @else {
+    #{$property}: $max-size $min-size-left;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}
+      #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"};
+    #{$property}: clamp($min-size-left, $scaler-left, $max-size-left);
+  }
+}

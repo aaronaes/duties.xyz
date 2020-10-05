@@ -4,16 +4,17 @@
   transition: all 500ms ease;
   opacity: 1;
 }
-.page-enter, .page-leave-to /* .page-leave-active below version 2.1.8 */ {
+.page-enter,
+.page-leave-to /* .page-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
 // Modal
 .modal-enter-active {
-  animation: fadeModalIn 1000ms ease;
+  animation: fadeModalIn 500ms ease;
 }
 .modal-leave-active {
-  animation: fadeModalOut 1000ms ease;
+  animation: fadeModalOut 500ms ease;
 }
 
 @keyframes fadeModalIn {
@@ -36,10 +37,10 @@
 
 // Loading
 .loading-enter-active {
-  animation: loadingIn 1000ms ease;
+  animation: loadingIn 500ms ease;
 }
 .loading-leave-active {
-  animation: loadingOut 1000ms ease;
+  animation: loadingOut 500ms ease;
 }
 
 @keyframes loadingIn {
@@ -60,70 +61,30 @@
   }
 }
 
-// Nav Left
-.navLeft-enter-active {
-  animation: navLeft 1000ms ease;
+// Nav
+.nav-top-enter-active,
+.nav-top-leave-active {
+  transition: all 250ms ease-out;
+  opacity: 1;
+  transform: translateY(0px);
 }
-.navLeft-leave-active {
-  animation: navLeft 1000ms ease reverse;
-}
-
-@keyframes navLeft {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-$sm);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
-}
-
-// Nav Left
-.navRight-enter-active {
-  animation: navRight 1000ms ease;
-}
-.navRight-leave-active {
-  animation: navRight 1000ms ease reverse;
-}
-
-@keyframes navRight {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateX($sm);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
+.nav-top-enter,
+.nav-top-leave-to /* .page-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(-100px);
 }
 
 body.active {
   .project-title {
     opacity: 0;
-    transition: opacity 1000ms ease;
-  }
-}
-
-body.disable {
-  .global-enter-active,
-  .global-leave-active {
-    transition: none !important;
-    opacity: 1;
-  }
-
-  .global-enter,
-  .global-leave-to {
-    transition: none !important;
-    opacity: 1;
+    transition: opacity 500ms ease;
   }
 }
 
 .box {
   opacity: 0;
-  transform: translate3D(0, $sm, 0);
-  transition: transform 500ms linear, opacity 500ms linear;
-  transition-delay: 250ms;
+  transform: translate3D(0, $paddingS, 0);
+  transition: transform 250ms linear, opacity 250ms linear;
 
   &.in-viewport {
     opacity: 1;

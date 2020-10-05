@@ -11,7 +11,7 @@
 
   .inner {
     position: relative;
-    padding-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
+    padding-bottom: calc(80px + 240 * (100vw - 375px) / 1440);
 
     .loading {
       backface-visibility: hidden;
@@ -28,7 +28,7 @@
       flex-flow: row wrap;
       background-color: initial;
       opacity: 1;
-      transition: opacity 1000ms $easing;
+      transition: opacity 500ms $easing;
       z-index: 2000;
       background-color: rgba($white, $alpha: 1);
 
@@ -42,7 +42,7 @@
         h1 {
           font-size: calc(15vw);
           white-space: nowrap;
-          animation: hello 1000ms ease-in-out;
+          animation: hello 500ms ease-in-out;
 
           @keyframes hello {
             from {
@@ -64,9 +64,9 @@
           }
         }
 
-        @media screen and #{breakpoint(small only)} {
-          margin-top: $sm;
-          margin-bottom: $sm;
+        @include breakpoint(small down) {
+          margin-top: $paddingS;
+          margin-bottom: $paddingS;
         }
 
         .loadingBg {
@@ -81,49 +81,140 @@
       }
     }
 
-    .navTop {
+    .projectHeader {
       backface-visibility: hidden;
       position: sticky;
       top: 0;
       height: 0px;
       z-index: 1500;
 
-      .closeBtn {
-        position: absolute;
-        left: 50%;
-        background-color: $black;
-        border-radius: 40px;
-        padding: 8px 16px;
+      nav {
+        display: flex;
+        height: 100px;
+        position: relative;
         opacity: 0;
-        transform: translate(-50%, $sm);
-        transition: all 1000ms $easing;
-
-        @include breakpoint(large down) {
-          padding: 5px 15px;
-        }
+        transform: translateY(-100px);
+        transition: all 500ms $easing;
 
         a {
-          p {
-            cursor: pointer;
-            font-size: 17px;
-            margin: 0;
-            text-transform: uppercase;
-            text-align: center;
-            color: $white;
+          border: none !important;
+          text-decoration: none !important;
 
-            @media screen and #{breakpoint(small only)} {
-              font-size: 14px;
-              font-weight: bold;
-              letter-spacing: 1px;
+          &:hover {
+            color: initial;
+          }
+        }
+
+        .nav-item {
+          z-index: 1001;
+          transition: all 500ms $easing;
+          opacity: 1;
+          float: right;
+          padding-right: $paddingS;
+
+          @media screen and #{breakpoint(small only)} {
+            padding-right: 0;
+          }
+
+          h1,
+          h2 {
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin-bottom: 0;
+            line-height: 48px;
+
+            a {
+              border-bottom: transparent;
+              position: relative;
+              display: block;
+
+              &:hover,
+              &.router-link-exact-active {
+                h1 {
+                  color: $white;
+                }
+
+                svg {
+                  overflow: visible;
+
+                  .path {
+                    animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
+                      forwards;
+                  }
+                }
+              }
+
+              svg {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                bottom: 0;
+                width: 120%;
+                height: auto;
+
+                .path {
+                  stroke-width: 10px;
+                  stroke-dasharray: 2000;
+                  stroke-dashoffset: 2000;
+                }
+
+                @keyframes dash {
+                  from {
+                    stroke-dashoffset: 2000;
+                  }
+                  to {
+                    stroke-dashoffset: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .close {
+          float: left;
+
+          .logo {
+            float: left;
+            height: 48px;
+            width: 48px;
+            transition: all 500ms $easing;
+
+            a {
+              height: 100%;
+              width: 100%;
+              display: block;
+              border: none !important;
+              text-decoration: none !important;
+
+              svg {
+                position: relative;
+                transform: translateX(-50%) translateY(-45%);
+                left: 50%;
+                top: 50%;
+                height: calc(22px + 10 * (100vw - 375px) / 768);
+              }
+            }
+          }
+          .clientName {
+            float: left;
+
+            h2 {
+              text-transform: uppercase;
+              letter-spacing: -0.05em;
+              float: left;
+              white-space: nowrap;
+              line-height: 48px;
             }
           }
         }
       }
 
       &.isVisible {
-        .closeBtn {
+        nav {
           opacity: 1;
-          transform: translate(-50%, $md);
+          transform: translateY(0px);
           transition-delay: 2500ms;
         }
       }
@@ -139,7 +230,7 @@
       background-color: initial;
       opacity: 1;
       margin: 0 !important;
-      transition: opacity 1000ms $easing;
+      transition: opacity 500ms $easing;
 
       .summary-block {
         position: relative;
@@ -149,16 +240,29 @@
         position: absolute;
         display: flex;
         justify-content: space-around;
-        bottom: $sm;
+        bottom: $paddingS;
         opacity: 0;
         transform: translate(-50%, 0);
-        transition: all 500ms $easing;
         animation: bounce 3000ms infinite;
         animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 
+        &.box {
+          opacity: 0;
+          transition: opacity 500ms $easing;
+          transition-delay: 1500ms;
+          &.above-viewport {
+            opacity: 0;
+            &.is-viewport {
+              opacity: 1;
+            }
+          }
+        }
+
         a {
           border-bottom: none;
+          text-decoration: none !important;
           transform: rotate(90deg);
+
           p {
             padding: 2rem;
             transition: all 250ms $easing;
@@ -167,25 +271,25 @@
 
         &:hover {
           animation-play-state: paused;
-          transform: translate(-50%, $md);
+          transform: translate(-50%, $paddingM);
         }
 
         &.isVisible {
           opacity: 1;
-          transform: translate(-50%, $md);
+          transform: translate(-50%, $paddingM);
           transition-delay: 2500ms;
         }
 
         @keyframes bounce {
           0%,
           100% {
-            transform: translateY(-$sm);
+            transform: translateY(-$paddingS);
           }
           20% {
             transform: translateY(0);
           }
           100% {
-            transform: translateY(-$sm);
+            transform: translateY(-$paddingS);
           }
         }
       }
@@ -193,163 +297,172 @@
 
     .grid-block {
       display: flex;
-      justify-content: space-around;
-      padding-top: calc(80px + 240 * (100vw - 320px) / 1680);
 
-      &:last-of-type {
-        padding-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
-      }
+      .grid-item {
+        padding-top: calc(32px + 128 * (100vw - 375px) / 1440);
 
-      .text-block {
-        & > div {
-          margin-top: $md;
+        .text-block {
+          .text-container {
+            max-width: 640px;
 
-          &:first-of-type {
-            margin-top: 0;
-          }
-        }
+            blockquote {
+              .body-title {
+                font-weight: bold;
+              }
 
-        & > div:only-child {
-          margin-top: 0;
-        }
+              .body-text {
+                &:only-of-type {
+                  margin-top: 0;
+                }
+              }
 
-        .text-container {
-          max-width: 700px;
-          min-width: 0px;
-
-          @media screen and #{breakpoint(medium only)} {
-            padding-left: $lg;
-            padding-right: $lg;
-          }
-
-          @media screen and #{breakpoint(small only)} {
-            padding-left: $md;
-            padding-right: $md;
-          }
-
-          blockquote {
-            .body-title {
-              font-weight: bold;
+              .body-text {
+                color: rgba($black, $alpha: 0.9);
+                margin-top: $paddingXS;
+              }
             }
 
-            .body-text {
-              color: rgba($black, $alpha: 0.9);
-              margin-top: $sm;
-            }
-          }
+            a {
+              border-bottom: 0px solid transparent;
+              position: relative;
+              display: inline-block;
+              transition: all 250ms cubic-bezier(0, 0.75, 0, 75, 0);
 
-          a {
-            border-bottom: 0px solid transparent;
-            position: relative;
-            display: inline-block;
-            transition: all 250ms cubic-bezier(0, 0.75, 0, 75, 0);
+              svg {
+                width: 140%;
+                height: auto;
+              }
 
-            svg {
-              width: 140%;
-              height: auto;
-            }
-
-            &:hover {
-              color: $accent;
+              &:hover {
+                color: $accent;
+              }
             }
           }
         }
-      }
 
-      .double-img {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        &.double-img {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
 
-        &.flip {
+          &.flip {
+            .img-container {
+              &.left-image {
+                img {
+                  width: 100%;
+                }
+              }
+              &.right-image {
+                img {
+                  width: 75%;
+                  margin: 0 auto 0 0;
+                }
+              }
+            }
+          }
+
           .img-container {
+            padding: $paddingS;
+
             &.left-image {
+              grid-row: 1;
+              grid-column: 3 / span 4;
               img {
                 width: 100%;
+                // margin: 0 0 0 auto;
               }
             }
             &.right-image {
-              img {
-                width: 75%;
-                margin: 0 auto 0 0;
+              grid-row: 1;
+              grid-column: 7 / span 4;
+            }
+
+            figcaption {
+              padding-top: $paddingXS;
+              max-width: 450px;
+              margin-left: auto;
+              margin-right: auto;
+              p {
+                opacity: 0.6;
               }
             }
           }
         }
 
-        .img-container {
-          padding: $sm;
+        &.triple-img {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
 
-          &.left-image {
-            grid-row: 1;
-            grid-column: 3 / span 4;
-            img {
-              width: 75%;
-              margin: 0 0 0 auto;
-            }
-          }
-          &.right-image {
-            grid-row: 1;
-            grid-column: 7 / span 4;
-          }
-
-          figcaption {
-            padding-top: $xs;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            p {
-              opacity: 0.6;
-            }
-          }
-        }
-      }
-
-      .triple-img {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-
-        .img-container {
-          padding: $sm;
-
-          &.left-image {
-            grid-row: 1;
-            grid-column: 2 / span 4;
-          }
-
-          &.center-image {
-            grid-row: 1;
-            grid-column: 5 / span 4;
-          }
-
-          &.right-image {
-            grid-row: 1;
-            grid-column: 8 / span 4;
-          }
-
-          @media screen and #{breakpoint(large only)} {
-            grid-template-columns: repeat(12, 4fr);
-          }
-        }
-      }
-
-      .media-block {
-        .img-container {
-          // padding: $md;
-
-          figcaption {
-            padding-top: $xs;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            p {
-              opacity: 0.6;
-            }
-          }
-        }
-
-        &.fluid {
           .img-container {
-            padding: 0;
+            &.left-image {
+              grid-column-start: 1;
+              grid-column: span 4 / span 4;
+
+              @include breakpoint(medium down) {
+                grid-column-start: auto;
+                grid-column: 3 / span 8;
+              }
+            }
+            &.center-image {
+              grid-column-start: 5;
+              grid-column: span 4 / span 4;
+
+              @include breakpoint(medium down) {
+                grid-column-start: auto;
+                grid-column: 3 / span 8;
+              }
+            }
+            &.right-image {
+              grid-column-start: 9;
+              grid-column: span 4 / span 4;
+
+              @include breakpoint(medium down) {
+                grid-column-start: auto;
+                grid-column: 3 / span 8;
+              }
+            }
+
+            figcaption {
+              padding-top: $paddingXS;
+              max-width: 450px;
+              margin-left: auto;
+              margin-right: auto;
+              p {
+                opacity: 0.6;
+              }
+            }
+          }
+        }
+
+        &.media-block {
+          margin-bottom: $paddingS;
+
+          @media screen and #{breakpoint(medium up)} {
+            margin-bottom: $paddingM;
+          }
+
+          .img-container {
+            figcaption {
+              p {
+                padding-top: $paddingS;
+                max-width: 640px;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: monospace;
+              }
+            }
+          }
+
+          &.fluid {
+            .img-container {
+              padding: 0;
+            }
+          }
+        }
+
+        &.meta-block {
+          align-self: center;
+          a {
+            text-decoration: underline;
           }
         }
       }
@@ -361,7 +474,6 @@
     height: 100vh;
     width: 100vw;
     z-index: 2000;
-    transition: all 500ms $easing;
 
     @include flex;
     @include flex-align(center, middle);
@@ -374,7 +486,7 @@
       margin: 0;
       padding: 0;
 
-      @media screen and #{breakpoint(small only)} {
+      @include breakpoint(small down) {
         max-width: 100%;
       }
 
@@ -384,10 +496,9 @@
         a {
           display: block;
           position: relative;
-          border-bottom: none;
 
           h1 {
-            margin-bottom: $xs;
+            margin-bottom: $paddingXS;
           }
         }
 

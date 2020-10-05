@@ -1,5 +1,5 @@
 <template>
-  <section class="grid-container block-masthead">
+  <section class="grid-container masthead-block">
     <figure class="grid-x grid-padding-x align-center">
       <div class="cell small-12 medium-8 large-6">
         <h1>

@@ -29,33 +29,36 @@ ul {
   word-spacing: 0.4px;
 }
 
+.markdown {
+  white-space: pre-line;
+}
+
 h1,
 h1.markdown p {
-  font-size: calc(42px + 18 * (100vw - 320px) / 1680);
-  line-height: 105%;
+  font-size: calc(36px + 24 * (100vw - 375px) / 1680);
+  line-height: 115%;
 }
 
 h2,
 h2.markdown p {
-  font-size: calc(27px + 17 * (100vw - 320px) / 1680);
-  line-height: 125%;
+  font-size: calc(27px + 13 * (100vw - 375px) / 1680);
+  line-height: 115%;
 }
 
 h3,
 h3.markdown p {
-  font-size: calc(22px + 6 * (100vw - 320px) / 1680);
-  line-height: 125%;
+  font-size: calc(22px + 8 * (100vw - 375px) / 1680);
+  line-height: 115%;
 }
 
 p {
-  font-size: calc(18px + 2 * (100vw - 320px) / 1680);
+  font-size: calc(17px + 3 * (100vw - 375px) / 1680);
   line-height: 145%;
 }
 
 a {
   color: inherit;
-  // text-decoration: none;
-  // border-bottom: 1.5px solid;
+  text-decoration: none;
 
   &:hover {
     color: $black;

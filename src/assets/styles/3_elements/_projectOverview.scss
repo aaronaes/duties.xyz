@@ -1,7 +1,7 @@
 .projectOverview {
   position: relative;
-  margin-top: calc(80px + 170 * (100vw - 320px) / 1680);
-  margin-bottom: calc(80px + 170 * (100vw - 320px) / 1680);
+  margin-top: calc(80px + 170 * (100vw - 320px) / 1440);
+  margin-bottom: calc(80px + 170 * (100vw - 320px) / 1440);
 
   figure {
     button {
@@ -11,7 +11,7 @@
 
     .listView {
       margin-top: calc(40px + 170 * (100vw - 320px) / 1640);
-      margin-bottom: calc(40px + 170 * (100vw - 320px) / 1680);
+      margin-bottom: calc(40px + 170 * (100vw - 320px) / 1440);
 
       .project-card {
         border-bottom: 2px solid;
@@ -34,7 +34,7 @@
             margin: 0;
             opacity: 1;
             float: left;
-            margin-right: $sm;
+            margin-right: $paddingS;
 
             a {
               border-bottom: none;
@@ -45,11 +45,11 @@
     }
 
     .project-card {
-      margin-bottom: $md;
+      margin-bottom: $paddingM;
 
       p {
         &.image-title {
-          margin-top: $xs;
+          margin-top: $paddingXS;
 
           a {
             border-bottom: none;

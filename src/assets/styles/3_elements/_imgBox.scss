@@ -4,11 +4,11 @@
   &.Landscape {
     max-width: 58vw;
 
-    @media screen and #{breakpoint(medium only)} {
+    @include breakpoint(medium only) {
       max-width: 78vw;
     }
 
-    @media screen and #{breakpoint(small only)} {
+    @include breakpoint(small only) {
       max-width: 88vw;
     }
   }
@@ -16,11 +16,11 @@
   &.Portrait {
     max-width: 36vw;
 
-    @media screen and #{breakpoint(medium only)} {
+    @include breakpoint(medium only) {
       max-width: 52vw;
     }
 
-    @media screen and #{breakpoint(small only)} {
+    @include breakpoint(small only) {
       max-width: 78vw;
     }
   }

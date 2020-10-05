@@ -1,6 +1,6 @@
 .swiper-container {
-  margin-top: $md;
-  margin-bottom: $md;
+  margin-top: $paddingM;
+  margin-bottom: $paddingM;
   overflow-x: hidden;
   width: 100vw;
   height: auto;
@@ -11,7 +11,7 @@
       cursor: grab;
       height: auto;
       max-width: 33vw;
-      margin-left: $md;
+      margin-left: $paddingM;
 
       img {
         position: relative;
@@ -20,24 +20,24 @@
       }
 
       &:first-of-type {
-        margin-left: $lg !important;
+        margin-left: $paddingL !important;
       }
       &:last-of-type {
-        margin-right: $md !important;
+        margin-right: $paddingM !important;
       }
 
-      @media screen and #{breakpoint(small only)} {
+      @include breakpoint(small down) {
         max-width: 44vw;
       }
-      @media screen and #{breakpoint(small only)} {
+      @include breakpoint(small down) {
         max-width: 55vw;
-        margin-left: $sm;
+        margin-left: $paddingS;
 
         &:first-of-type {
-          margin-left: $sm !important;
+          margin-left: $paddingS !important;
         }
         &:last-of-type {
-          margin-right: $sm !important;
+          margin-right: $paddingS !important;
         }
       }
     }

@@ -2,7 +2,6 @@
 //  -----------------------------
 
 @import url("https://rsms.me/inter/inter.css");
-
 html {
   font-family: "Inter", sans-serif;
 }
@@ -52,7 +51,6 @@ $black: #17171c;
 $accent: #e5594d;
 
 // Fonts
-$font-sneak: "Sneak Regular", "Inter", sans-serif;
 $font-inter: "Inter", sans-serif;
 $font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
 $font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
@@ -60,12 +58,14 @@ $font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
 // Easing
 $easing: cubic-bezier(0.75, 0, 0.25, 1);
 
-// Spacing Increments
-$xl: 7.5rem;
-$lg: 5rem;
-$md: 2.5rem;
-$sm: 1.25rem;
-$xs: 0.625rem;
+// Padding Increments
+$paddingXS: 8px;
+$paddingS: 16px;
+$paddingM: 32px;
+$paddingL: 48px;
+$paddingXL: 64px;
+$paddingXXL: 128px;
+$paddingXXXL: 192px;
 
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;

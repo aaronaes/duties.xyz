@@ -2,7 +2,6 @@
   <transition name="modal">
     <main class="project" id="top">
       <div class="inner">
-        <!-- Loading Component -->
         <transition name="loading">
           <div class="loading grid-container" v-if="isLoading">
             <div class="grid-x summary-block">
@@ -20,24 +19,69 @@
           </div>
         </transition>
 
-        <!-- Close Button -->
         <div
-          class="navTop align-center"
+          class="grid-container projectHeader"
           :class="{ isVisible: project.readMore === true }"
         >
-          <transition name="closeBtn" appear>
-            <div
-              class="closeBtn"
-              v-scroll-to="{
-                el: '#top',
-                container: '.project',
-                duration: 500,
-                easing: 'ease'
-              }"
-            >
-              <a @click="closeProject()"><p>Close</p></a>
+          <nav class="grid-x grid-padding-x align-middle">
+            <div class="cell">
+              <div class="close">
+                <div class="logo">
+                  <a @click="closeProject()">
+                    <svg
+                      class="small"
+                      width="10"
+                      height="33"
+                      viewBox="0 0 10 33"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 4.92227C0 2.21665 2.16128 0 4.87096 0H5.12904C7.80646 0 10 2.18405 10 4.92227C10 7.62788 7.83872 9.84453 5.12904 9.84453H4.87096C2.19354 9.84453 0 7.62788 0 4.92227Z"
+                        fill="#17171C"
+                      />
+                      <path
+                        d="M0 27.5775C0 24.8719 2.16128 22.6553 4.87096 22.6553H5.12904C7.80646 22.6553 10 24.8393 10 27.5775C10 30.2832 7.83872 32.4998 5.12904 32.4998H4.87096C2.19354 32.4998 0 30.2832 0 27.5775Z"
+                        fill="#17171C"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="nav-item">
+                <h2
+                  v-scroll-to="{
+                    el: '#top',
+                    container: '.project',
+                    duration: 500,
+                    easing: 'ease'
+                  }"
+                >
+                  <router-link :to="{ name: 'Home' }">
+                    Close
+
+                    <svg
+                      width="525"
+                      height="146"
+                      viewBox="0 0 525 146"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M203.038 5.71637C207.038 5.71637 489.038 -13.2836 519.038 49.2164C549.038 111.716 296.538 139.716 252.038 141.216C207.538 142.716 6.53841 148.716 3.03841 93.2163C0.238414 48.8163 151.205 26.383 227.038 20.7163C281.705 18.383 401.338 19.9163 442.538 44.7163"
+                        stroke="#E5594D"
+                        class="path"
+                        stroke-width="6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </router-link>
+                </h2>
+              </div>
             </div>
-          </transition>
+          </nav>
         </div>
 
         <!-- Project Cover -->
@@ -52,8 +96,9 @@
           </div>
 
           <div
-            class="scrollMe"
+            class="scrollMe box"
             :class="{ isVisible: project.readMore === true }"
+            v-in-viewport
           >
             <a
               href="#"
@@ -61,7 +106,7 @@
                 el: '#jumpTo',
                 container: '.project',
                 duration: 1000,
-                offset: -200,
+                offset: -100,
                 easing: 'ease-in-out'
               }"
             >
@@ -71,16 +116,16 @@
         </div>
 
         <!-- Intro text -->
-        <div class="grid-block">
+        <div class="grid-block first">
           <div class="grid-container" id="jumpTo">
             <div class="grid-x grid-padding-x text-block align-center">
-              <div class="cell text-container">
+              <div class="small-12 medium-10 large-6 cell text-container">
                 <blockquote>
-                  <!-- <h1 class="body-title" v-html="project.title"></h1> -->
                   <h3
                     class="body-text markdown "
                     v-html="project.description"
                   ></h3>
+                  <br />
 
                   <a href="/" target="_blank">
                     <h3 class="body-text">
@@ -109,7 +154,7 @@
         <div v-for="block in project.blocks" :key="block.id" class="grid-block">
           <!-- Carousel Block -->
           <div
-            class="media-block grid-container full"
+            class="grid-item media-block grid-container full"
             v-if="block._modelApiKey === 'image_carousel'"
           >
             <swiper
@@ -130,7 +175,7 @@
 
           <!-- Single Image Block -->
           <div
-            class="media-block grid-container"
+            class="grid-item media-block grid-container"
             :class="{ fluid: block.full }"
             v-if="block._modelApiKey === 'single_image'"
             v-lazy-container="{ selector: 'img' }"
@@ -138,7 +183,7 @@
             <div class="grid-x grid-padding-x align-center">
               <figure
                 :class="{
-                  'img-container small-12 medium-9 large-9 cell': !block.full,
+                  'img-container small-12 medium-10 large-10 cell': !block.full,
                   'img-container small-auto medium-auto large-auto': block.full
                 }"
               >
@@ -146,27 +191,27 @@
                   :data-src="getUrl(block.image.url)"
                   :data-srcset="getSrcSet(block.image.url)"
                 />
-                <figcaption class="text-container align-center">
-                  <p>
-                    <small>
-                      {{ block.caption }}
-                    </small>
-                  </p>
+                <figcaption v-if="block.caption.length">
+                  <p
+                    class="cell text-container align-center markdown"
+                    v-html="block.caption"
+                  ></p>
                 </figcaption>
+                <figcaption v-else></figcaption>
               </figure>
             </div>
           </div>
 
           <!-- Quote Block -->
           <div
-            class="media-block grid-container"
+            class="grid-item media-block grid-container"
             v-if="block._modelApiKey === 'quote'"
           >
             <div class="grid-x grid-padding-x align-center text-block">
-              <div class="cell text-container">
+              <div class="small-12 medium-10 large-6 cell text-container">
                 <blockquote>
-                  <h3 class="body-title">{{ block.title }}</h3>
-                  <p class="body-text">{{ block.text }}</p>
+                  <!-- <h3 class="body-title markdown" v-html="block.title"></h3> -->
+                  <h3 class="body-text markdown" v-html="block.text"></h3>
                 </blockquote>
               </div>
             </div>
@@ -174,7 +219,7 @@
 
           <!-- Two Image Block -->
           <div
-            class="media-block grid-container double-img"
+            class="grid-item media-block grid-container double-img"
             :class="{ flip: block.flip }"
             v-if="block._modelApiKey === 'two_up'"
             v-lazy-container="{ selector: 'img' }"
@@ -210,7 +255,7 @@
 
           <!-- Three Image Block -->
           <div
-            class="media-block grid-container triple-img"
+            class="grid-item media-block grid-container triple-img"
             v-if="block._modelApiKey === 'three_up'"
             v-lazy-container="{ selector: 'img' }"
           >
@@ -222,8 +267,8 @@
             </figure>
             <figure class="img-container center-image">
               <img
-                :data-src="getUrl(block.middleImage.url)"
-                :data-srcset="getSrcSet(block.middleImage.url)"
+                :data-src="getUrl(block.centerImage.url)"
+                :data-srcset="getSrcSet(block.centerImage.url)"
               />
             </figure>
             <figure class="img-container right-image">
@@ -237,30 +282,36 @@
 
         <!-- Project Meta Block -->
         <div class="grid-block">
-          <div class="grid-y grid-padding-x text-block">
-            <div class="text-container cell">
-              <blockquote>
-                <h3 class="body-title">On-duty</h3>
-                <div class="body-text">
-                  <p v-for="(block, i) in project.roles" :key="i">
-                    {{ block.role }} by
-                    <a :href="block.link" target="_blank">
-                      {{ block.name }}
-                    </a>
-                  </p>
-                </div>
-              </blockquote>
-            </div>
-            <div class="text-container" v-if="!project.categories.length"></div>
-            <div class="text-container cell" v-else>
-              <blockquote>
-                <h3 class="body-title">Deliverables</h3>
-                <div class="body-text">
-                  <p v-for="(category, i) in project.categories" :key="i">
-                    {{ category.categoryType }}
-                  </p>
-                </div>
-              </blockquote>
+          <div class="grid-item meta-block grid-container">
+            <div class="grid-x grid-padding-x text-block align-center">
+              <div class="text-container" v-if="!project.roles.length"></div>
+              <div class="cell shrink text-container" v-else>
+                <blockquote>
+                  <p class="body-title">On-duty</p>
+                  <div class="body-text">
+                    <p v-for="(roles, i) in project.roles" :key="i">
+                      {{ roles.role }} by
+                      <a :href="roles.link" target="_blank">
+                        {{ roles.name }}
+                      </a>
+                    </p>
+                  </div>
+                </blockquote>
+              </div>
+              <div
+                class="text-container"
+                v-if="!project.categories.length"
+              ></div>
+              <div class="cell shrink text-container" v-else>
+                <blockquote>
+                  <p class="body-title">Deliverables</p>
+                  <div class="body-text">
+                    <p v-for="(category, i) in project.categories" :key="i">
+                      {{ category.categoryType }}
+                    </p>
+                  </div>
+                </blockquote>
+              </div>
             </div>
           </div>
         </div>
@@ -309,7 +360,9 @@ export default {
   data() {
     return {
       isLoading: true,
+      isHidden: false,
       show: false,
+      imgCaption: null,
       projects: [],
       project: {
         heading: "",
@@ -388,6 +441,11 @@ export default {
               client {
                 name
               }
+              roles {
+                name
+                link
+                role
+              }
               blocks {
                 ... on SingleImageRecord {
                   id
@@ -421,7 +479,7 @@ export default {
                   leftImage {
                     url
                   }
-                  middleImage {
+                  centerImage {
                     url
                   }
                   rightImage {
@@ -453,10 +511,10 @@ export default {
       return `
       ${imgix({ url: url, w: 640, q: 60 })} 640w,
       ${imgix({ url: url, w: 768, q: 60 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
+      ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
+      ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 80 })} 1920w,
       `;
     },
     scrollTo(el) {
@@ -470,11 +528,6 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
-    const lastPosition = { x: 0, y: 0 };
-    // eslint-disable-next-line no-unused-vars
-    document.querySelector(".my-page .page__content").onscroll = (e, v) => {
-      lastPosition.y = e.target.scrollTop;
-    };
   },
   computed: {
     pageName() {

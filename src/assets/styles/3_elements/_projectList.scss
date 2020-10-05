@@ -1,8 +1,8 @@
 body {
   .projectList {
     position: relative;
-    margin-top: $lg;
-    margin-bottom: $lg;
+    margin-top: $paddingL;
+    margin-bottom: $paddingL;
 
     figure {
       .details {
@@ -23,8 +23,8 @@ body {
         &.isMini {
           height: initial;
           position: relative;
-          margin-top: $md;
-          margin-bottom: $md;
+          margin-top: $paddingM;
+          margin-bottom: $paddingM;
 
           .summary-block {
             .project-title {
@@ -33,18 +33,12 @@ body {
           }
         }
 
-        @media screen and #{breakpoint(small only)} {
-          height: auto;
-          margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
-          margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
-        }
-
         .summary-block {
           position: relative;
 
-          @media screen and #{breakpoint(small only)} {
-            margin-top: $sm;
-            margin-bottom: $sm;
+          @include breakpoint(small down) {
+            margin-top: $paddingS;
+            margin-bottom: $paddingS;
           }
 
           a {
@@ -59,7 +53,8 @@ body {
               &:hover {
                 .title {
                   opacity: 1 !important;
-                  transform: translateX(-50%) translateY($md + $xs / 2);
+                  transform: translateX(-50%)
+                    translateY($paddingM + $paddingXS / 2);
                 }
               }
 
@@ -68,18 +63,18 @@ body {
                 display: block;
                 left: 50%;
                 bottom: 0;
-                transform: translateX(-50%) translateY($md);
+                transform: translateX(-50%) translateY($paddingM);
                 transition: transform 500ms $easing, opacity 500ms $easing;
                 opacity: 0;
                 z-index: 500;
 
-                @media screen and #{breakpoint(small only)} {
+                @include breakpoint(small down) {
                   position: relative;
                   left: 0;
-                  margin-left: $sm;
-                  width: calc(100% - #{$md});
+                  margin-left: $paddingS;
+                  width: calc(100% - #{$paddingM});
                   opacity: 1;
-                  transform: translateX(0) translateY($xs);
+                  transform: translateX(0) translateY($paddingXS);
                 }
 
                 h1,

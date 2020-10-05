@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <transition name="page" mode="out-in">
     <main class="feed">
       <!-- Masthead -->
       <Masthead></Masthead>
@@ -72,6 +72,11 @@ export default {
                 client {
                   name
                 }
+                roles {
+                  name
+                  link
+                  role
+                }
                 blocks {
                   ... on SingleImageRecord {
                     id
@@ -105,7 +110,7 @@ export default {
                     leftImage {
                       url
                     }
-                    middleImage {
+                    centerImage {
                       url
                     }
                     rightImage {

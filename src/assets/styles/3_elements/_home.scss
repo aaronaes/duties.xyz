@@ -4,14 +4,14 @@ body {
       position: relative;
 
       &.clients {
-        margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
-        margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
+        margin-top: calc(80px + 240 * (100vw - 320px) / 1440);
+        margin-bottom: calc(80px + 240 * (100vw - 320px) / 1440);
 
         figure {
-          margin-bottom: $md;
+          margin-bottom: $paddingM;
 
-          @media screen and #{breakpoint(small only)} {
-            margin-bottom: $sm;
+          @include breakpoint(small down) {
+            margin-bottom: $paddingS;
           }
 
           h2 {
@@ -27,9 +27,9 @@ body {
 
             h2 {
               margin-bottom: 0;
-              padding-right: $xs / 1.5;
+              padding-right: $paddingXS / 1.5;
 
-              @media screen and #{breakpoint(medium down)} {
+              @include breakpoint(medium down) {
                 display: inline;
                 float: left;
                 margin-right: 0;
@@ -37,7 +37,7 @@ body {
 
               &::after {
                 content: "/";
-                padding-left: $xs / 3;
+                padding-left: $paddingXS / 3;
                 font-weight: bold;
                 color: $accent;
               }
@@ -54,12 +54,12 @@ body {
 
       &.footer {
         figure {
-          margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
-          margin-bottom: calc(80px + 240 * (100vw - 320px) / 1680);
+          margin-top: calc(80px + 240 * (100vw - 320px) / 1440);
+          margin-bottom: calc(80px + 240 * (100vw - 320px) / 1440);
 
           h2 {
             display: inline;
-            margin-right: $sm;
+            margin-right: $paddingS;
 
             &:last-of-type {
               margin-right: 0;

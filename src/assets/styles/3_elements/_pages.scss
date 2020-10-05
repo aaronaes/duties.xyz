@@ -16,7 +16,7 @@
 
 // Color Schemes
 body {
-  transition: background-color 500ms $easing !important;
+  transition: background-color 150ms ease;
 
   &.color-white {
     color: $black;

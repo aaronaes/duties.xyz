@@ -1,7 +1,7 @@
 body {
   footer {
     background-color: $accent;
-    padding: $xs 0;
+    padding: $paddingXS 0;
 
     a {
       color: $white !important;
@@ -18,7 +18,7 @@ body {
         padding: 0;
         justify-content: space-between;
 
-        @media screen and #{breakpoint(small only)} {
+        @include breakpoint(small down) {
           padding-bottom: 0;
         }
 
@@ -27,12 +27,12 @@ body {
           justify-content: space-between;
 
           a {
-            margin-right: $sm;
+            margin-right: $paddingS;
             align-self: center;
             border-bottom: transparent;
 
-            @media screen and #{breakpoint(small only)} {
-              margin-right: $xs;
+            @include breakpoint(small down) {
+              margin-right: $paddingXS;
             }
 
             &.top {

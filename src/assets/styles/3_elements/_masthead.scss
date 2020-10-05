@@ -1,11 +1,11 @@
 // CSS Carousel
 body {
   section {
-    &.block-masthead {
-      margin-top: calc(80px + 240 * (100vw - 320px) / 1680);
+    &.masthead-block {
+      margin-top: calc(80px + 240 * (100vw - 320px) / 1440);
 
-      @media screen and #{breakpoint(small only)} {
-        padding-top: $lg * 2;
+      @include breakpoint(small down) {
+        padding-top: $paddingL * 2;
       }
 
       figure {
