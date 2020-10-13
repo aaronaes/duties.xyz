@@ -7,6 +7,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 
+import VueMeta from "vue-meta";
 import VueLazyload from "vue-lazyload";
 import VueScrollTo from "vue-scrollto";
 import VueAwesomeSwiper from "vue-awesome-swiper";
@@ -16,6 +17,10 @@ import inViewportDirective from "vue-in-viewport-directive";
 import "./assets/scripts/main.js";
 import "./assets/styles/main.scss";
 import "swiper/css/swiper.css";
+
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+});
 
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper);

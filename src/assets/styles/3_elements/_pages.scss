@@ -1,17 +1,12 @@
 // Foundation code
 .grid-container {
   width: 100%;
-  max-width: 100%;
+  max-width: calc(100% - #{$paddingL});
 }
 
 .grid-padding-x > .cell {
   padding-right: $grid-padding-gutters;
   padding-left: $grid-padding-gutters;
-}
-
-.grid-margin-x > .cell {
-  margin-right: $grid-margin-gutters;
-  margin-left: $grid-margin-gutters;
 }
 
 // Color Schemes
@@ -33,6 +28,10 @@ body {
     background-color: $white;
   }
 
+  &.projects {
+    background-color: #ddd9d5;
+  }
+
   &.about {
     color: $grey;
     background-color: $black;
@@ -48,5 +47,11 @@ body {
         color: inherit;
       }
     }
+  }
+}
+
+article {
+  & > * + * {
+    margin: 0;
   }
 }

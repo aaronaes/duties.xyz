@@ -1,18 +1,20 @@
 body {
   header.global {
-    position: sticky;
+    position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
 
     nav {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
       height: 100px;
       position: relative;
 
       a {
         border: none !important;
         text-decoration: none !important;
+        cursor: pointer !important;
 
         &:hover {
           color: initial;
@@ -21,10 +23,12 @@ body {
 
       .nav-item {
         z-index: 1001;
-        transition: all 500ms $easing;
         opacity: 1;
+        grid-column: 23 / span 2;
         float: right;
-        padding-right: $paddingS;
+        text-align: right;
+        width: auto;
+        position: relative;
 
         a {
           border-bottom: transparent;
@@ -56,14 +60,15 @@ body {
           svg {
             position: absolute;
             transform: translate(-50%, -50%);
+            transform-origin: center center;
             top: 50%;
             left: 50%;
             bottom: 0;
-            width: 120%;
+            width: 150%;
             height: auto;
 
             .path {
-              stroke-width: 10px;
+              stroke-width: 12px;
               stroke-dasharray: 2000;
               stroke-dashoffset: 2000;
             }
@@ -80,24 +85,28 @@ body {
         }
       }
 
-      .logo {
-        transition: all 500ms $easing;
-        float: left;
-        height: 48px;
-        width: 48px;
+      .home-btn {
+        grid-column: 2 / span 1;
+        .logo {
+          margin-left: auto;
+          margin-right: auto;
+          height: 48px;
+          width: 48px;
+          transition: all 500ms $easing;
 
-        a {
-          border: none !important;
-          text-decoration: none !important;
-          position: relative;
+          a {
+            border: none !important;
+            text-decoration: none !important;
+            position: relative;
 
-          svg {
-            &.small {
-              position: relative;
-              transform: translateX(-50%) translateY(-55%);
-              left: 50%;
-              top: 50%;
-              height: calc(24px + 8 * (100vw - 375px) / 1440);
+            svg {
+              &.small {
+                position: relative;
+                transform: translateX(-50%) translateY(-55%);
+                left: 50%;
+                top: 50%;
+                height: calc(24px + 8 * (100vw - 375px) / 1680);
+              }
             }
           }
         }

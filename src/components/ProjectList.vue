@@ -1,39 +1,57 @@
 <template>
   <section class="projectList">
-    <figure id="projects">
-      <div
-        v-for="(project, i) in projects"
-        :key="i"
-        :id="`project-${project.id}`"
-        class="details grid-container"
-      >
-        <div class="summary-block">
-          <a
-            :href="project.siteLink"
-            @click="e => handleProjectClick(e, project)"
-          >
-            <div class="cell imgBox" :class="project.coverSize">
+    <article
+      v-for="(project, i) in projects"
+      :key="i"
+      :id="`project-${project.id}`"
+      class="details"
+      :class="{
+        isMini: project.readMore === false
+      }"
+    >
+      <div class="summary-block">
+        <a
+          :href="project.siteLink"
+          @click="e => handleProjectClick(e, project)"
+        >
+          <figure class="imgBox" :class="project.coverSize">
+            <div
+              :class="{
+                device: project.isDevice,
+                website: project.isWebsite
+              }"
+            >
               <img
                 :src="getUrl(project.projectThumbnail.url)"
                 :srcset="getSrcSet(project.projectThumbnail.url)"
               />
-              <div class="title">
-                <p v-if="project.readMore === true"><b>Case — </b></p>
-                <p v-html="project.title"></p>
-              </div>
             </div>
-          </a>
-        </div>
+            <figcaption>
+              <div class="body-text markdown">
+                <h3 class="float-left" v-if="project.readMore">
+                  Case —
+                </h3>
+                <h3
+                  class="markdown"
+                  v-if="project.title.length"
+                  v-html="project.title"
+                ></h3>
+                <p v-if="project.subtitle.length" v-html="project.subtitle"></p>
+              </div>
+            </figcaption>
+          </figure>
+        </a>
       </div>
-      <div v-if="isOpen" :key="$route.params.id">
-        <router-view :key="'a' + $route.params"></router-view>
-      </div>
-    </figure>
+    </article>
+    <div v-if="isOpen" :key="$route.params.id">
+      <router-view :key="'a' + $route.params"></router-view>
+    </div>
   </section>
 </template>
 
 <script>
 import imgix from "@/utils/imgix";
+import marked from "marked";
 
 export default {
   name: "ProjectList",
@@ -81,7 +99,7 @@ export default {
         e.preventDefault();
         this.toggle(project.id);
         setTimeout(() => {
-          this.$router.replace("/projects/" + project.slug);
+          this.$router.push("/projects/" + project.slug);
         }, 1000);
       }
     },
@@ -90,6 +108,9 @@ export default {
         top: window.pageYOffset + el.getBoundingClientRect().top,
         behavior: "smooth"
       });
+    },
+    getMarkdown(content) {
+      return marked(content);
     }
   },
   watch: {

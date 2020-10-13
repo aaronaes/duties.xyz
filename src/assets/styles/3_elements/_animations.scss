@@ -1,25 +1,54 @@
 // Page
-.page-enter-active,
-.page-leave-active {
-  transition: all 500ms ease;
-  opacity: 1;
+// .page-enter-active,
+// .page-leave-active {
+//   opacity: 1;
+//   transition: all 500ms ease-out;
+// }
+// .page-enter,
+//  .page-leave-to /* .page-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+// }
+
+.page-enter-active {
+  animation: pageIn 500ms $easing;
 }
-.page-enter,
-.page-leave-to /* .page-leave-active below version 2.1.8 */ {
-  opacity: 0;
+.page-leave-active {
+  animation: pageOut 500ms $easing;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
 }
 
 // Modal
 .modal-enter-active {
-  animation: fadeModalIn 500ms ease;
+  animation: fadeModalIn 50ms ease-out;
 }
 .modal-leave-active {
-  animation: fadeModalOut 500ms ease;
+  animation: fadeModalOut 500ms ease-out;
 }
 
 @keyframes fadeModalIn {
   from {
-    opacity: 0;
+    opacity: 1;
   }
   to {
     opacity: 1;
@@ -37,15 +66,15 @@
 
 // Loading
 .loading-enter-active {
-  animation: loadingIn 500ms ease;
+  animation: loadingIn 0ms $easing;
 }
 .loading-leave-active {
-  animation: loadingOut 500ms ease;
+  animation: loadingOut 500ms $easing;
 }
 
 @keyframes loadingIn {
   from {
-    opacity: 0.5;
+    opacity: 1;
   }
   to {
     opacity: 1;
@@ -55,36 +84,31 @@
 @keyframes loadingOut {
   from {
     opacity: 1;
+    transform: translateY(0px);
   }
   to {
-    opacity: 0;
+    transform: translateY(-100vh);
+    opacity: 1;
   }
 }
 
 // Nav
-.nav-top-enter-active,
-.nav-top-leave-active {
-  transition: all 250ms ease-out;
+.nav-enter-active,
+.nav-leave-active {
   opacity: 1;
   transform: translateY(0px);
+  transition: all 500ms $easing;
 }
-.nav-top-enter,
-.nav-top-leave-to /* .page-leave-active below version 2.1.8 */ {
+.nav-enter,
+.nav-leave-to {
   opacity: 0;
-  transform: translateY(-100px);
-}
-
-body.active {
-  .project-title {
-    opacity: 0;
-    transition: opacity 500ms ease;
-  }
+  transform: translateY(-20px);
 }
 
 .box {
   opacity: 0;
-  transform: translate3D(0, $paddingS, 0);
-  transition: transform 250ms linear, opacity 250ms linear;
+  transform: translate3D(0, $paddingXS, 0);
+  transition: all 350ms ease-out;
 
   &.in-viewport {
     opacity: 1;

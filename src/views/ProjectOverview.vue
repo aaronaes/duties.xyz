@@ -1,39 +1,75 @@
-<template
-  ><transition name="global" mode="out-in">
-    <section class="projectOverview content-block">
-      <figure class="grid-container">
-        <div class="grid-x grid-margin-x grid-padding-x align-middle">
-          <button class="cell shrink" v-on:click="showListView = !showListView">
-            <p>Switch layout</p>
-          </button>
-        </div>
-        <div
-          class="grid-x grid-margin-x grid-padding-x align-middle"
-          v-bind:class="{ listView: showListView }"
-        >
-          <div
-            v-for="(project, i) in projectOverview.projects"
-            :key="i"
-            class="cell small-12 medium-6 large-4 project-card"
-          >
-            <a
-              :href="project.slug"
-              @click="e => handleProjectClick(e, project)"
-            >
-              <div class="img-container">
-                <img
-                  :src="getUrl(project.projectThumbnail.url)"
-                  :srcset="getSrcSet(project.projectThumbnail.url)"
-                />
-              </div>
-              <p class="image-title" v-html="project.subtitle"></p>
-              <p class="image-title" v-html="project.title"></p>
-            </a>
+<template>
+  <section class="content-block projectOverview">
+    <figure class="align-center hero">
+      <h1>
+        Duties is a full service micro studio based in Oslo.
+      </h1>
+
+      <router-link to="/about">
+        <p>More about us</p>
+      </router-link>
+    </figure>
+
+    <figure class="align-center project-grid">
+      <div
+        class="box project-item"
+        v-in-viewport.once
+        v-for="(project, index) in projectOverview.projects"
+        :key="project.id"
+      >
+        <a :href="project.siteLink" v-if="project.readMore === false">
+          <!-- <div class="project-img">
+          <img
+            :src="getUrl(project.projectThumbnail.url)"
+            :srcset="getSrcSet(project.projectThumbnail.url)"
+          />
+        </div> -->
+          <div class="project-counter">
+            <h1>0{{ index + 1 }}</h1>
           </div>
-        </div>
-      </figure>
-    </section>
-  </transition>
+          <div class="project-content">
+            <h3 class="project-title markdown" v-html="project.title"></h3>
+            <p class="project-subtitle markdown">
+              A full service micro studio
+            </p>
+            <p>{{ project.category }}</p>
+            <!-- <p
+                class="project-subtitle markdown"
+                v-html="project.subtitle"
+              ></p> -->
+            <p class="project-link">View project</p>
+          </div>
+        </a>
+
+        <a
+          :href="'/projects/' + project.slug"
+          v-if="project.readMore === true"
+          @click="e => handleProject(e, project)"
+        >
+          <div class="project-img">
+            <img
+              :src="getUrl(project.projectThumbnail.url)"
+              :srcset="getSrcSet(project.projectThumbnail.url)"
+            />
+          </div>
+          <div class="project-counter">
+            <h1>0{{ index + 1 }}</h1>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title markdown" v-html="project.title"></h3>
+            <p class="project-subtitle markdown">
+              A full service micro studio
+            </p>
+            <!-- <p
+                class="project-subtitle markdown"
+                v-html="project.subtitle"
+              ></p> -->
+            <p class="project-link">View project</p>
+          </div>
+        </a>
+      </div>
+    </figure>
+  </section>
 </template>
 
 <script>
@@ -42,25 +78,30 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 
 export default {
-  mixins: [
-    // eslint-disable-next-line
-    require("@/mixins/foundation")
-  ],
+  name: "projects",
   async created() {
     this.projectOverview = await this.getProjectOverview();
   },
   data() {
     return {
-      showListView: false,
+      isMini: false,
+
       projectOverview: {
-        project: {
-          heading: "",
+        projects: {
+          readMore: "",
           title: "",
           subtitle: "",
           slug: "",
+          siteLink: "",
           description: "",
+          id: "",
           coverSize: "",
-          projectThumbnail: { url: "" }
+          projectThumbnail: {
+            url: ""
+          },
+          categories: {
+            categoryType: ""
+          }
         }
       }
     };
@@ -71,14 +112,20 @@ export default {
         query: gql`
           query {
             projectOverview {
-              _modelApiKey
-              id
               projects {
+                readMore
                 title
                 subtitle
                 slug
+                siteLink
+                description
+                id
+                coverSize
                 projectThumbnail {
                   url
+                }
+                categories {
+                  categoryType
                 }
               }
             }
@@ -89,6 +136,18 @@ export default {
     },
     getUrl(url) {
       return imgix({ url: url });
+    },
+    handleProject(e, project) {
+      if (project.readMore) {
+        this.toggle(project.id);
+        this.$router.push("/projects/" + project.slug);
+      }
+    },
+    scrollTo(el) {
+      window.scrollTo({
+        top: window.pageYOffset + el.getBoundingClientRect().top,
+        behavior: "smooth"
+      });
     },
     myFilter: function() {
       this.isActive = !this.isActive;
@@ -104,11 +163,13 @@ export default {
       `;
     }
   },
-
   computed: {
     pageName() {
       return this.$route.name;
     }
+  },
+  beforeCreate: function() {
+    document.body.className = "projects";
   }
 };
 </script>

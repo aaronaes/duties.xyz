@@ -1,13 +1,10 @@
 <template>
-  <section class="grid-container masthead-block">
-    <figure class="grid-x grid-padding-x align-center">
-      <div class="cell small-12 medium-8 large-6">
-        <h1>
-          A creative partner and design studio for thoughtfully crafted
-          products.
-        </h1>
-      </div>
-    </figure>
+  <section class="masthead-block">
+    <article>
+      <h1>
+        A creative partner and design studio for thoughtfully crafted products.
+      </h1>
+    </article>
   </section>
 </template>
 

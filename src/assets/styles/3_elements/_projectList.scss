@@ -1,96 +1,67 @@
 body {
-  .projectList {
-    position: relative;
-    margin-top: $paddingL;
-    margin-bottom: $paddingL;
+  section {
+    &.projectList {
+      grid-column: 2 / 25;
 
-    figure {
-      .details {
-        height: 100vh;
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        padding: 0;
-        justify-content: space-around;
-        align-items: center;
-        flex-flow: row wrap;
-        background-color: initial;
-        visibility: visible;
-        opacity: 1;
-        z-index: 1;
-        transition: visibility 0s $easing, opacity 500ms $easing;
+      article {
+        &.details {
+          grid-column: 5 / 22;
 
-        &.isMini {
-          height: initial;
-          position: relative;
-          margin-top: $paddingM;
-          margin-bottom: $paddingM;
-
-          .summary-block {
-            .project-title {
-              position: relative;
-            }
+          @include breakpoint(medium down) {
+            grid-column: 4 / 23;
           }
-        }
-
-        .summary-block {
-          position: relative;
 
           @include breakpoint(small down) {
-            margin-top: $paddingS;
-            margin-bottom: $paddingS;
+            grid-column: 2 / 25;
           }
 
-          a {
-            border-bottom: none;
-            cursor: default;
+          margin-top: calc(8vh + 8vw);
+          margin-bottom: calc(8vh + 8vw);
+          align-items: center;
+          background-color: initial;
+          visibility: visible;
+          opacity: 1;
+          z-index: 1;
+          transition: visibility 0s $easing, opacity 500ms $easing;
 
-            .imgBox {
-              img {
+          &.isMini {
+            max-width: 50vw;
+            float: left;
+            height: initial;
+
+            .summary-block {
+              width: 100%;
+              position: relative;
+              align-items: center;
+            }
+
+            @include breakpoint(small down) {
+              padding: 0 $paddingM;
+            }
+
+            @include breakpoint(small down) {
+              grid-column: 2 / 25;
+            }
+          }
+
+          .summary-block {
+            position: relative;
+
+            a {
+              .imgBox {
                 cursor: pointer;
-              }
 
-              &:hover {
-                .title {
-                  opacity: 1 !important;
-                  transform: translateX(-50%)
-                    translateY($paddingM + $paddingXS / 2);
-                }
-              }
+                .body-text {
+                  margin-top: $paddingXS;
+                  display: block;
 
-              .title {
-                position: absolute;
-                display: block;
-                left: 50%;
-                bottom: 0;
-                transform: translateX(-50%) translateY($paddingM);
-                transition: transform 500ms $easing, opacity 500ms $easing;
-                opacity: 0;
-                z-index: 500;
-
-                @include breakpoint(small down) {
-                  position: relative;
-                  left: 0;
-                  margin-left: $paddingS;
-                  width: calc(100% - #{$paddingM});
-                  opacity: 1;
-                  transform: translateX(0) translateY($paddingXS);
-                }
-
-                h1,
-                h2,
-                h3 {
-                  cursor: pointer;
-                  text-transform: uppercase;
-                  letter-spacing: -0.05em;
-                  margin: 0;
-                }
-
-                p {
-                  cursor: pointer;
-                  margin: 0;
-                  z-index: 0;
-                  display: inline;
+                  h1,
+                  h2,
+                  h3 {
+                    cursor: pointer;
+                    letter-spacing: -0.05em;
+                    padding-right: 5px;
+                  }
                 }
               }
             }

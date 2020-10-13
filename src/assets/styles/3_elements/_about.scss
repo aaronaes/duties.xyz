@@ -1,6 +1,8 @@
 // About page
 
 body.about {
+  color: $grey !important;
+
   header {
     position: relative !important;
     nav {
@@ -36,7 +38,11 @@ body.about {
 
     section {
       &.content-block {
-        margin-top: calc(80px + 240 * (100vw - 320px) / 1440);
+        article {
+          display: grid;
+          margin-top: calc(7.5vh + 7.5vw);
+          align-items: stretch;
+        }
       }
 
       &.masthead {
@@ -111,18 +117,29 @@ body.about {
       }
 
       &.intro {
-        margin-top: calc(40px + 80 * (100vw - 320px) / 1440);
+        article {
+          grid-template-columns: repeat(25, 1fr);
 
-        .block-inner {
-          max-width: 820px;
-        }
+          figure {
+            &.block-inner {
+              grid-column: 6 / 21;
+              grid-row: 1;
 
-        figure {
-          .markdown {
-            margin-top: $paddingS;
-            p {
-              &:not(:first-child) {
+              @include breakpoint(medium down) {
+                grid-column: 4 / 23;
+              }
+
+              @include breakpoint(small down) {
+                grid-column: 2 / 25;
+              }
+
+              .markdown {
                 margin-top: $paddingS;
+                p {
+                  &:not(:first-child) {
+                    margin-top: $paddingS;
+                  }
+                }
               }
             }
           }
@@ -131,26 +148,12 @@ body.about {
 
       &.studioImages {
         article {
-          padding-left: $paddingS;
-          padding-right: $paddingS;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: minmax(20vh, auto);
-
-          @include breakpoint(medium down) {
-            grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-          }
+          align-items: stretch;
 
           figure {
             position: relative;
-            img {
-              width: 100%;
-              height: auto;
-
-              top: 50%;
-              position: relative;
-              transform: translateY(-50%);
-            }
 
             &:first-of-type {
               padding-left: 2vw;
@@ -200,28 +203,42 @@ body.about {
       }
 
       &.services {
-        figure {
-          .block-inner {
-            .service-items {
-              margin-top: $paddingS;
-              margin-bottom: $paddingL;
+        article {
+          grid-template-columns: repeat(25, 1fr);
+          figure {
+            &.block-inner {
+              grid-column: 3 / 24;
+              grid-row: 1;
 
-              h1 {
-                font-size: calc(40px + 52 * (100vw - 320px) / 1440);
-                text-align: center;
-                line-height: 115%;
+              @include breakpoint(medium down) {
+                grid-column: 4 / 23;
               }
-            }
 
-            .main-text-block {
-              max-width: 780px;
-              width: 76vw;
-              margin-top: 0;
-              margin-left: auto;
-              margin-right: auto;
+              @include breakpoint(small down) {
+                grid-column: 2 / 25;
+              }
 
-              @include breakpoint(small) {
-                width: 100%;
+              .service-items {
+                margin-top: $paddingS;
+                margin-bottom: $paddingL;
+
+                h1 {
+                  font-size: calc(40px + 52 * (100vw - 414px) / 1680);
+                  text-align: center;
+                  line-height: 115%;
+                }
+              }
+
+              .main-text-block {
+                max-width: 640px;
+                width: 75vw;
+                margin-top: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                @include breakpoint(small) {
+                  width: 100%;
+                }
               }
             }
           }
@@ -229,58 +246,59 @@ body.about {
       }
 
       &.people {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        article {
+          grid-template-columns: repeat(12, 1fr);
 
-        figure {
-          &.person {
-            padding: $paddingXS * 1.5;
+          figure {
+            &.person {
+              padding: $paddingXS * 1.5;
 
-            .main-text-block {
-              margin-top: $paddingS;
-              span {
-                display: block;
+              .main-text-block {
+                margin-top: $paddingS;
+                span {
+                  display: block;
+                }
+              }
+
+              .img-wrapper {
+                margin-bottom: $paddingXS;
+                overflow: hidden;
               }
             }
 
-            .img-wrapper {
-              margin-bottom: $paddingXS;
-              overflow: hidden;
-            }
-          }
-
-          &:first-of-type {
-            grid-row: 1;
-            grid-column: 3 / span 3;
-          }
-
-          &:nth-child(2) {
-            grid-row: 1;
-            grid-column: 8 / span 3;
-          }
-          &:last-of-type {
-            grid-row: 1;
-            grid-column: 6 / span 2;
-            svg {
-              position: relative;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-
-              path {
-                fill: $white;
-              }
-            }
-          }
-
-          @include breakpoint(small down) {
             &:first-of-type {
               grid-row: 1;
-              grid-column: 1 / span 6;
+              grid-column: 3 / span 3;
+            }
+
+            &:nth-child(2) {
+              grid-row: 1;
+              grid-column: 8 / span 3;
             }
             &:last-of-type {
               grid-row: 1;
-              grid-column: 7 / span 6;
+              grid-column: 6 / span 2;
+              svg {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                path {
+                  fill: $white;
+                }
+              }
+            }
+
+            @include breakpoint(small down) {
+              &:first-of-type {
+                grid-row: 1;
+                grid-column: 1 / span 6;
+              }
+              &:last-of-type {
+                grid-row: 1;
+                grid-column: 7 / span 6;
+              }
             }
           }
         }
@@ -288,50 +306,60 @@ body.about {
 
       &.marquee {
         width: 100vw;
-        overflow-x: hidden;
 
-        figure {
-          .block-inner {
-            max-width: 780px;
-            width: 76vw;
-            margin-bottom: $paddingM !important;
+        article {
+          grid-template-columns: repeat(25, 1fr);
+          grid-template-rows: auto;
 
-            h2 {
-              margin-bottom: $paddingS;
-            }
-          }
+          figure {
+            &.block-inner {
+              grid-column: 5 / 24;
+              grid-row: 1;
 
-          .inner {
-            overflow: visible;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            width: 200vw;
-            animation: icon-scroller 30s linear 0s normal infinite;
-            will-change: transform;
-
-            &.inner.right {
-              animation: icon-scroller 40s linear 0s reverse infinite;
-            }
-
-            @keyframes icon-scroller {
-              100% {
-                transform: translateX(calc(200vw * -0.35));
+              h2,
+              h3 {
+                margin-bottom: $paddingM;
               }
             }
 
-            h1 {
-              position: relative;
-              display: inline-block;
-              font-size: calc(40px + 52 * (100vw - 320px) / 1440);
-              white-space: nowrap;
-              padding-top: $paddingS;
-              margin-right: $paddingXL;
+            &.block-marquee {
+              .inner {
+                grid-column: 1 / 25;
+                grid-row: 2;
 
-              &:before {
-                content: url("/images/assets/arrow.svg");
-                padding-right: $paddingS;
-                left: -64px;
+                overflow: visible;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 200vw;
+                animation: icon-scroller 20s linear 0s alternate-reverse
+                  infinite;
+                will-change: transform;
+
+                &.inner.right {
+                  animation: icon-scroller 40s linear 0s normal infinite;
+                }
+
+                @keyframes icon-scroller {
+                  100% {
+                    transform: translateX(calc(200vw * -0.35));
+                  }
+                }
+
+                h1 {
+                  position: relative;
+                  display: inline-block;
+                  font-size: calc(36px + 84 * (100vw - 414px) / 1680);
+                  line-height: 1;
+                  white-space: nowrap;
+                  padding-bottom: $paddingS;
+                  margin-right: $paddingM;
+
+                  &:before {
+                    content: "•";
+                    padding-right: $paddingM;
+                  }
+                }
               }
             }
           }
@@ -339,25 +367,52 @@ body.about {
       }
 
       &.summary {
-        margin-bottom: calc(80px + 240 * (100vw - 320px) / 1440);
+        margin-top: calc(2.5vh + 2.5vw);
+        margin-bottom: calc(2.5vh + 2.5vw);
 
-        figure {
-          .block-inner {
-            max-width: 780px;
-          }
+        article {
+          display: grid;
+          grid-template-columns: repeat(25, 1fr);
+          grid-template-rows: auto;
 
-          .footer {
-            margin-top: $paddingS;
-            h2,
-            h3 {
-              margin-right: 1.25rem;
-            }
+          figure {
+            &.block-inner {
+              grid-column: 6 / 21;
 
-            @include breakpoint(small down) {
-              h2,
-              h3 {
-                display: block;
-                width: 100%;
+              @include breakpoint(medium down) {
+                grid-column: 4 / 23;
+              }
+
+              @include breakpoint(small down) {
+                grid-column: 2 / 25;
+              }
+
+              display: block;
+              margin: 0;
+              width: 100%;
+              margin-bottom: $paddingL;
+
+              ul {
+                li {
+                  list-style: none;
+                }
+              }
+
+              &.links,
+              &.contact {
+                h2,
+                h3 {
+                  float: left;
+                  margin-right: $paddingS;
+                }
+
+                @include breakpoint(small down) {
+                  h2,
+                  h3 {
+                    display: block;
+                    width: 100%;
+                  }
+                }
               }
             }
           }

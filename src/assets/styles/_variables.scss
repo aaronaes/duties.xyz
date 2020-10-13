@@ -46,6 +46,7 @@ html {
 
 // Colors
 $white: #ffffff;
+$sand: #f1f0ee;
 $grey: #c5c1bc;
 $black: #17171c;
 $accent: #e5594d;
@@ -59,10 +60,11 @@ $font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
 $easing: cubic-bezier(0.75, 0, 0.25, 1);
 
 // Padding Increments
+$paddingXXS: 4px;
 $paddingXS: 8px;
 $paddingS: 16px;
-$paddingM: 32px;
-$paddingL: 48px;
+$paddingM: 24px;
+$paddingL: 40px;
 $paddingXL: 64px;
 $paddingXXL: 128px;
 $paddingXXXL: 192px;

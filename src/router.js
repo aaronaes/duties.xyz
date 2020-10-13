@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
@@ -23,37 +24,37 @@ export default new Router({
       };
     }
   },
-  routes: [
-    {
+  routes: [{
       path: "/",
       name: "Home",
       component: Home,
-      meta: {
-        disableScroll: true
-      },
-      children: [
-        {
-          path: "projects/:slug",
-          name: "Project",
-          component: () =>
-            import(
-              /* webpackChunkName: "SingleProject" */
-              "./views/SingleProject.vue"
-            )
-        }
-      ]
+      children: [{
+        path: "projects/:slug",
+        name: "Project",
+        component: () =>
+          import(
+            /* webpackChunkName: "SingleProject" */
+            "./views/SingleProject.vue"
+          )
+      }]
+    },
+    {
+      path: "/projects/",
+      name: "Projects",
+      component: () =>
+        import( /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue")
     },
     {
       path: "/about",
       name: "About",
       component: () =>
-        import(/* webpackChunkName: "About" */ "./views/About.vue")
+        import( /* webpackChunkName: "About" */ "./views/About.vue")
     },
     {
       path: "/imprint",
       name: "Imprint",
       component: () =>
-        import(/* webpackChunkName: "About" */ "./views/Imprint.vue")
+        import( /* webpackChunkName: "About" */ "./views/Imprint.vue")
     }
   ]
 });
