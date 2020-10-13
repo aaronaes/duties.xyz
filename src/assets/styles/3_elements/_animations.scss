@@ -1,49 +1,20 @@
 // Page
-// .page-enter-active,
-// .page-leave-active {
-//   opacity: 1;
-//   transition: all 500ms ease-out;
-// }
-// .page-enter,
-//  .page-leave-to /* .page-leave-active below version 2.1.8 */ {
-//   opacity: 0;
-// }
-
-.page-enter-active {
-  animation: pageIn 500ms $easing;
-}
+.page-enter-active,
 .page-leave-active {
-  animation: pageOut 500ms $easing;
+  opacity: 1;
+  transition: all 500ms $easing;
 }
-
-@keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pageOut {
-  from {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-100vh);
-    opacity: 1;
-  }
+.page-enter,
+ .page-leave-to /* .page-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 // Modal
 .modal-enter-active {
-  animation: fadeModalIn 50ms ease-out;
+  animation: fadeModalIn 0ms linear;
 }
 .modal-leave-active {
-  animation: fadeModalOut 500ms ease-out;
+  animation: fadeModalOut 500ms $easing;
 }
 
 @keyframes fadeModalIn {
@@ -108,7 +79,7 @@
 .box {
   opacity: 0;
   transform: translate3D(0, $paddingXS, 0);
-  transition: all 350ms ease-out;
+  transition: all 350ms $easing;
 
   &.in-viewport {
     opacity: 1;

@@ -183,7 +183,7 @@
         <!-- Project Banner -->
         <div class="grid-block">
           <div class="grid-item media-block banner-block">
-            <figure class="img-container">
+            <figure class="img-container" v-if="project && bannerImg.url">
               <img
                 :src="getUrl(project.bannerImg.url)"
                 :srcset="getSrcSet(project.bannerImg.url)"
@@ -269,7 +269,7 @@
                   v-html="block.caption"
                 ></p>
               </figcaption>
-              <figcaption v-if="!block.caption.length"></figcaption>
+              <figcaption v-show="!block.caption.length"></figcaption>
             </figure>
           </article>
 
@@ -293,12 +293,12 @@
                     class="align-center markdown body-title title"
                     v-html="block.title"
                   ></h2>
-                  <h2 v-if="!block.title.length"></h2>
+                  <h2 v-show="!block.title.length"></h2>
                   <p
                     class="align-center markdown body-text"
                     v-html="block.description"
                   ></p>
-                  <p v-if="!block.description.length"></p>
+                  <p v-show="!block.description.length"></p>
                 </blockquote>
               </div>
             </figure>
@@ -530,7 +530,6 @@ export default {
       isLoading: true,
       isHidden: false,
       show: false,
-      imgCaption: null,
       url: process.env.URL,
       projects: [],
       project: {
