@@ -12,7 +12,7 @@
         <article>
           <figure>
             <div class="nav-item">
-              <h2>
+              <h2 class="title">
                 <router-link :to="{ name: 'Projects' }">
                   All work
 
@@ -48,7 +48,7 @@
           </figure>
           <figure class="text-container">
             <div class="text-block">
-              <h2 class="body">
+              <h2 class="body-text">
                 We work at the intersection of visual and functional design;
                 focusing on brand identity design, product strategy, web and
                 native application development plus a bit of xyz…
@@ -56,66 +56,15 @@
             </div>
             <div class="text-block align-bottom">
               <p>
-                <a href="#">Read more</a>
+                <router-link class="text-link" :to="{ name: 'About' }">
+                  Read more
+                </router-link>
               </p>
             </div>
           </figure>
         </article>
       </section>
-      <section class="content-block summary">
-        <article class="align-center">
-          <figure class="block-inner">
-            <!-- <h3 class="markdown" v-html="frontpage.summary"></h3> -->
-            <ul>
-              <li>
-                <p>
-                  <router-link :to="{ name: 'Home' }">Home</router-link>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <router-link :to="{ name: 'Projects' }"
-                    >Project Index</router-link
-                  >
-                </p>
-              </li>
-              <li>
-                <p>
-                  <router-link :to="{ name: 'About' }">Studio</router-link>
-                </p>
-              </li>
-              <li>
-                <p>
-                  <router-link :to="{ name: 'Imprint' }">Imprint</router-link>
-                </p>
-              </li>
-            </ul>
-          </figure>
-          <figure class="block-inner">
-            <p class="markdown">
-              Want to work with us on your next project?
-              <br />We’d love to hear from you.
-            </p>
-          </figure>
-          <figure class="block-inner">
-            <div class="contact">
-              <p>
-                <a href="#" target="_blank">new@duties.xyz</a>
-              </p>
-              <p>
-                <a href="#" target="_blank">+47 986 60 788</a>
-              </p>
-            </div>
-          </figure>
-          <figure class="block-inner links">
-            <div class="links">
-              <p v-for="link in frontpage.contact" :key="link.id">
-                <a :href="link.linkUrl" target="_blank">{{ link.linkTitle }}</a>
-              </p>
-            </div>
-          </figure>
-        </article>
-      </section>
+      <Footer />
     </main>
   </transition>
 </template>
@@ -123,12 +72,14 @@
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
+import Footer from "@/components/Footer.vue";
 import Masthead from "@/components/Masthead.vue";
 import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
+    Footer,
     Masthead,
     ProjectList
   },

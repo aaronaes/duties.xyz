@@ -33,14 +33,23 @@ body.about {
 
   main {
     a {
+      color: $grey !important;
       border-bottom: 1px solid;
+    }
+
+    svg {
+      &.arrow {
+        path {
+          stroke: $grey !important;
+        }
+      }
     }
 
     section {
       &.content-block {
         article {
           display: grid;
-          margin-top: calc(7.5vh + 7.5vw);
+          margin-top: $margin;
           align-items: stretch;
         }
       }
@@ -130,7 +139,7 @@ body.about {
               }
 
               @include breakpoint(small down) {
-                grid-column: 2 / 25;
+                grid-column: 3 / 24;
               }
 
               .markdown {
@@ -215,7 +224,7 @@ body.about {
               }
 
               @include breakpoint(small down) {
-                grid-column: 2 / 25;
+                grid-column: 3 / 24;
               }
 
               .service-items {
@@ -384,7 +393,7 @@ body.about {
               }
 
               @include breakpoint(small down) {
-                grid-column: 2 / 25;
+                grid-column: 3 / 24;
               }
 
               display: block;

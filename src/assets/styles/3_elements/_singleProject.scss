@@ -1,4 +1,4 @@
-.project {
+.feed {
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -13,18 +13,11 @@
     position: relative;
 
     .loading-block {
-      backface-visibility: hidden;
       position: fixed;
       top: 0;
-      left: 0%;
+      left: 0;
       height: 100vh;
       width: 100vw;
-      max-width: 100%;
-      display: flex;
-      padding: 0;
-      justify-content: space-around;
-      align-items: center;
-      flex-flow: row wrap;
       background-color: initial;
       opacity: 1;
       z-index: 2000;
@@ -32,21 +25,19 @@
       color: $white;
 
       .projectHeader {
-        backface-visibility: hidden;
         position: fixed;
-        width: 100vw;
         top: 0;
-        height: 0px;
-        z-index: 1500;
+        left: 0;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(25, 1fr);
 
         nav {
-          display: grid;
-          grid-template-columns: repeat(25, 1fr);
-          position: relative;
-          height: 100px;
-          opacity: 0;
-          transform: translateY(-100px);
-          transition: all 500ms $easing;
+          display: block;
+          grid-column: 2 / 25;
+          opacity: 1;
+          height: auto;
+          transition: all 200ms $easing;
           cursor: pointer !important;
 
           a {
@@ -58,61 +49,22 @@
             }
           }
 
-          .close {
-            grid-column: 1 / span 2;
-            display: none;
-
-            .logo {
-              margin-left: auto;
-              margin-right: auto;
-              height: 48px;
-              width: 48px;
-              transition: all 500ms $easing;
-
-              a {
-                height: 100%;
-                width: 100%;
-                display: block;
-                border: none !important;
-                text-decoration: none !important;
-
-                svg {
-                  position: relative;
-                  transform: translateX(-50%) translateY(-45%);
-                  left: 50%;
-                  top: 50%;
-                  height: calc(22px + 10 * (100vw - 320px) / 768);
-                }
-              }
-            }
-            .clientName {
-              float: left;
-            }
-          }
-
           .nav-item {
-            grid-column: 2 / span 19;
             z-index: 1001;
-            transition: all 500ms $easing;
+            transition: all 200ms $easing;
             opacity: 1;
-
-            @media screen and #{breakpoint(small only)} {
-              padding-right: 0;
-            }
 
             h1,
             h2 {
               text-transform: uppercase;
               letter-spacing: -0.05em;
               margin-bottom: 0;
-              line-height: 1;
+              line-height: 1.1;
               font-size: calc(36px + 84 * (100vw - 320px) / 1680);
               text-align: left;
-              float: left;
 
               &.loading {
-                padding-top: $paddingL;
-
+                margin-top: 4vw !important;
                 &:after {
                   overflow: hidden;
                   display: inline-block;
@@ -144,7 +96,7 @@
                     overflow: visible;
 
                     .path {
-                      animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
+                      animation: dash 200ms cubic-bezier(0.75, 0, 0.75, 1)
                         forwards;
                     }
                   }
@@ -178,13 +130,6 @@
             }
           }
         }
-
-        &.isVisible {
-          nav {
-            opacity: 1;
-            transform: translateY(0px);
-          }
-        }
       }
 
       .loading-title {
@@ -198,203 +143,138 @@
           font-size: calc(15vw);
         }
       }
-
-      .summary-block {
-        position: relative;
-
-        .imgBox {
-          img {
-            opacity: 0.5;
-          }
-        }
-
-        @include breakpoint(small down) {
-          margin-top: $paddingS;
-          margin-bottom: $paddingS;
-        }
-
-        .loadingBg {
-          position: fixed;
-          height: 100vh;
-          width: 100%;
-          top: 0;
-          left: 0;
-          z-index: 1000;
-          opacity: 1;
-        }
-      }
-    }
-
-    .projectHeader {
-      backface-visibility: hidden;
-      position: fixed;
-      width: 100vw;
-      top: 0;
-      z-index: 1500;
-
-      nav {
-        display: grid;
-        grid-template-columns: repeat(25, 1fr);
-        position: relative;
-        opacity: 0;
-        height: 100px;
-        transform: translateY(-20px);
-        transition: all 500ms $easing;
-        transition-delay: 1000ms;
-
-        .close {
-          grid-column-start: 2;
-          cursor: pointer !important;
-
-          .logo {
-            height: 48px;
-            width: 48px;
-            transition: all 500ms $easing;
-
-            a {
-              position: relative;
-              height: 100%;
-              width: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              border: none !important;
-              text-decoration: none !important;
-
-              svg {
-                height: calc(22px + 10 * (100vw - 320px) / 768);
-              }
-            }
-          }
-          .clientName {
-            float: left;
-
-            h2 {
-              text-transform: uppercase;
-              letter-spacing: -0.05em;
-              float: left;
-              white-space: nowrap;
-              line-height: 48px;
-            }
-          }
-        }
-
-        .nav-item {
-          grid-column: 24 / span 1;
-          float: right;
-          text-align: right;
-          z-index: 1001;
-          transition: all 500ms $easing;
-          opacity: 1;
-
-          @media screen and #{breakpoint(small only)} {
-            padding-right: 0;
-          }
-
-          h1,
-          h2 {
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            margin-bottom: 0;
-            line-height: 48px;
-
-            a {
-              border-bottom: transparent;
-              position: relative;
-              display: block;
-
-              &:hover,
-              &.router-link-exact-active {
-                h1 {
-                  color: $white;
-                }
-
-                svg {
-                  overflow: visible;
-
-                  .path {
-                    animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
-                      forwards;
-                  }
-                }
-              }
-
-              svg {
-                position: absolute;
-                transform: translate(-50%, -50%);
-                top: 50%;
-                left: 50%;
-                bottom: 0;
-                width: 120%;
-                height: auto;
-
-                .path {
-                  stroke-width: 10px;
-                  stroke-dasharray: 2000;
-                  stroke-dashoffset: 2000;
-                }
-
-                @keyframes dash {
-                  from {
-                    stroke-dashoffset: 2000;
-                  }
-                  to {
-                    stroke-dashoffset: 0;
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        &.is-loaded {
-          transform: translateY(0px);
-          opacity: 1;
-        }
-      }
     }
 
     .project-body {
+      position: relative;
       transform: translateY(100vh);
       opacity: 0;
-      transition: transform 500ms $easing;
+      visibility: hidden;
 
       &.is-loaded {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0vh);
+      }
+
+      .projectHeader {
+        position: sticky;
+        width: 100vw;
+        top: 0;
+        z-index: 1500;
+
+        nav {
+          display: grid;
+          grid-template-columns: repeat(25, 1fr);
+          position: relative;
+          opacity: 0;
+          height: 100px;
+          transform: translateY(-20px);
+          transition: all 200ms $easing;
+          transition-delay: 1000ms;
+
+          @include breakpoint(small down) {
+            height: 80px;
+          }
+
+          .nav-item {
+            grid-column-end: 25;
+            text-align: right;
+            z-index: 1001;
+            transition: all 200ms $easing;
+            opacity: 1;
+
+            h1,
+            h2 {
+              text-transform: uppercase;
+              letter-spacing: -0.05em;
+              margin-bottom: 0;
+              line-height: 48px;
+
+              a {
+                border-bottom: transparent;
+                position: relative;
+                display: block;
+
+                &:hover,
+                &.router-link-exact-active {
+                  h1 {
+                    color: $white;
+                  }
+
+                  svg {
+                    overflow: visible;
+
+                    .path {
+                      animation: dash 200ms cubic-bezier(0.75, 0, 0.75, 1)
+                        forwards;
+                    }
+                  }
+                }
+
+                svg {
+                  position: absolute;
+                  transform: translate(-50%, -50%);
+                  top: 50%;
+                  left: 50%;
+                  bottom: 0;
+                  width: 120%;
+                  height: auto;
+
+                  .path {
+                    stroke-width: 10px;
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                  }
+
+                  @keyframes dash {
+                    from {
+                      stroke-dashoffset: 2000;
+                    }
+                    to {
+                      stroke-dashoffset: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.is-loaded {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
       }
 
       .grid-block {
         .grid-item {
           display: grid;
+          position: relative;
           grid-template-columns: repeat(25, 1fr);
-          padding-top: calc(8px + 192 * (100vw - 320px) / 1680);
 
           &.details {
             background-color: initial;
             opacity: 1;
-            padding-top: calc(15vh + 15vw);
-            transition: opacity 500ms $easing;
+            padding-top: 3vw;
+            margin-top: calc(-100px - 20 * (100vw - 320px) / 1680);
 
             .text-block {
-              grid-column: 4 / 15;
+              grid-column: 2 / 15;
 
               @include breakpoint(medium down) {
                 grid-column: 3 / 21;
               }
 
               @include breakpoint(small down) {
-                grid-column: 2 / 24;
+                grid-column: 3 / 24;
               }
 
               .text-container {
-                padding-bottom: calc(5vh + 5vw);
-
                 blockquote {
                   .body-title {
                     font-size: calc(48px + 72 * (100vw - 320px) / 1680);
                     padding-bottom: $paddingS;
-                    white-space: nowrap;
                   }
                 }
               }
@@ -406,12 +286,12 @@
               .imgBox {
                 grid-column: 5 / 18;
                 line-height: 0;
-                border-radius: calc(32px + 24 * (100vw - 320px) / 1680);
+                border-radius: calc(2em + 2 * (100vw - 320px) / 1680);
                 background-color: $black;
                 overflow: hidden;
 
                 @include breakpoint(medium down) {
-                  grid-column: 4 / 19;
+                  grid-column: 2 / 19;
                 }
 
                 @include breakpoint(small down) {
@@ -419,10 +299,10 @@
                 }
 
                 img {
-                  border-radius: calc(32px + 24 * (100vw - 320px) / 1680);
+                  border-radius: calc(2em + 2 * (100vw - 320px) / 1680);
                   padding: calc(8px + 12 * (100vw - 320px) / 1680);
                   display: block !important;
-                  transition: transform 250ms $easing;
+                  transition: transform 200ms $easing;
                 }
               }
             }
@@ -439,8 +319,8 @@
 
               &.box {
                 opacity: 0;
-                transition: opacity 500ms $easing;
-                transition-delay: 1500ms;
+                transition: opacity 200ms $easing;
+                transition-delay: 1200ms;
                 &.above-viewport {
                   opacity: 0;
                   &.is-viewport {
@@ -456,7 +336,7 @@
 
                 p {
                   padding: 2rem;
-                  transition: all 250ms $easing;
+                  transition: all 200ms $easing;
                 }
               }
 
@@ -490,52 +370,55 @@
 
             .img-container {
               grid-column: 1 / 26;
+
+              @include breakpoint(small down) {
+                img {
+                  width: 100%;
+                  height: 30vh;
+                  object-fit: cover;
+                }
+              }
             }
           }
 
           &.single-img {
+            padding-top: 4vw;
+
             .img-container {
-              grid-column: 4 / 23;
+              grid-column: 3 / 24;
 
               @include breakpoint(medium only) {
                 grid-column: 3 / 24;
               }
 
               @include breakpoint(small down) {
-                grid-column: 2 / 25;
+                grid-column: 3 / 24;
               }
-            }
 
-            &.bleed {
-              .img-container {
-                grid-column: 1 / 26;
-              }
-            }
-
-            .img-container {
               &.website {
-                grid-column: 4 / 23;
+                grid-column: 3 / 24;
                 line-height: 0;
                 background-color: #f1f0ee;
                 overflow: hidden;
-                padding: calc(40px + 40 * (100vw - 320px) / 1680);
+                padding: calc(16px + 116 * (100vw - 320px) / 1680);
 
                 @include breakpoint(medium down) {
                   grid-column: 3 / 24;
                 }
 
                 @include breakpoint(small down) {
-                  grid-column: 2 / 25;
+                  grid-column: 1 / 26;
+                  padding: 8vw;
                 }
 
                 &:before {
                   content: "•••";
                   color: $black;
                   background-color: $grey;
-                  padding: 0px 8px;
-                  font-size: calc(8px + 16 * (100vw - 320px) / 1680);
+                  padding: 0px calc(4px + 4 * (100vw - 320px) / 1680);
+                  font-size: calc(4px + 20 * (100vw - 320px) / 1680);
                   line-height: 1;
-                  height: calc(16px + 16 * (100vw - 320px) / 1680);
+                  height: calc(12px + 20 * (100vw - 320px) / 1680);
                   display: block;
                   position: relative;
                   border-top-left-radius: calc(
@@ -553,21 +436,17 @@
 
                 img {
                   box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
-                  border-bottom-left-radius: calc(
-                    4px + 4 * (100vw - 320px) / 1680
-                  );
-                  border-bottom-right-radius: calc(
-                    4px + 4 * (100vw - 320px) / 1680
-                  );
                   display: block !important;
-                  transition: transform 250ms $easing;
+                  transition: transform 200ms $easing;
                 }
               }
 
               &.device {
-                grid-column: 5 / 22;
+                margin-top: 12vw;
+                margin-bottom: 4vw;
+                grid-column: 6 / 21;
                 line-height: 0;
-                border-radius: calc(32px + 40 * (100vw - 320px) / 1680);
+                border-radius: calc(24px + 40 * (100vw - 320px) / 1680);
                 background-color: $black;
                 overflow: hidden;
 
@@ -580,10 +459,26 @@
                 }
 
                 img {
-                  border-radius: calc(48px + 24 * (100vw - 320px) / 1680);
+                  border-radius: calc(24px + 24 * (100vw - 320px) / 1680);
                   padding: calc(8px + 16 * (100vw - 320px) / 1680);
                   display: block !important;
-                  transition: transform 250ms $easing;
+                  transition: transform 200ms $easing;
+                }
+              }
+            }
+
+            &.bleed {
+              padding-top: $margin;
+
+              .img-container {
+                grid-column: 1 / 26;
+
+                @include breakpoint(small down) {
+                  img {
+                    width: 100%;
+                    height: 60vh;
+                    object-fit: cover;
+                  }
                 }
               }
             }
@@ -591,7 +486,6 @@
 
           &.image-carousel {
             display: grid;
-            padding-top: calc(8vh + 8vw);
 
             .swiper-container {
               overflow-x: hidden;
@@ -603,7 +497,6 @@
                   cursor: move; /* fallback if grab cursor is unsupported */
                   cursor: grab;
                   height: auto;
-                  // max-width: 25vw;
                   width: clamp(335px, calc(25vw), 320px);
                   margin-left: $paddingL;
 
@@ -641,15 +534,59 @@
           }
 
           &.quote-block {
+            padding-top: $margin;
+            padding-bottom: $margin;
+
             .text-block {
-              grid-column: 4 / 15;
+              grid-column: 2 / 13;
 
               @include breakpoint(medium down) {
-                grid-column: 3 / 21;
+                grid-column: 2 / 14;
               }
 
               @include breakpoint(small down) {
                 grid-column: 2 / 24;
+              }
+            }
+          }
+
+          &.image-text {
+            padding-top: 12vw;
+
+            .img-container {
+              grid-column: 3 / 13;
+
+              @include breakpoint(medium only) {
+                grid-column: 3 / 13;
+              }
+
+              @include breakpoint(small down) {
+                grid-column: 3 / 24;
+                padding-bottom: $paddingM;
+              }
+
+              img {
+                padding-bottom: 4vw;
+
+                &:only-of-type,
+                &:last-of-type {
+                  padding-bottom: none;
+                }
+              }
+            }
+
+            .text-block {
+              grid-column: 15 / 24;
+              position: sticky;
+              top: $paddingXXL;
+              align-self: flex-start;
+
+              @include breakpoint(medium only) {
+                grid-column: 14 / 24;
+              }
+
+              @include breakpoint(small down) {
+                grid-column: 3 / 24;
               }
 
               .text-container {
@@ -657,40 +594,31 @@
                   .body-title {
                     padding-bottom: $paddingS;
                   }
-                }
-              }
-            }
-          }
 
-          &.image-text {
-            .img-container {
-              grid-column: 4 / 13;
+                  ul {
+                    list-style: none;
+                    margin: 0;
+                    padding-top: $paddingM;
 
-              @include breakpoint(medium only) {
-                grid-column: 3 / 12;
-              }
+                    li {
+                      overflow: hidden;
+                      position: relative;
 
-              @include breakpoint(small down) {
-                grid-column: 3 / 24;
-                padding-bottom: $paddingM;
-              }
-            }
+                      &:before {
+                        display: inline;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        content: "‣";
+                        font-size: calc(100% * 2);
+                        line-height: 0.6;
+                      }
 
-            .text-block {
-              grid-column: 14 / 23;
-
-              @include breakpoint(medium only) {
-                grid-column: 13 / 24;
-              }
-
-              @include breakpoint(small down) {
-                grid-column: 3 / 24;
-              }
-
-              .text-container {
-                blockquote {
-                  .body-title {
-                    padding-bottom: $paddingS;
+                      p {
+                        display: inline-block;
+                        padding-left: 32px;
+                      }
+                    }
                   }
                 }
               }
@@ -704,13 +632,14 @@
           }
 
           &.double-img {
+            padding-top: 4vw;
             .img-container {
               grid-row: 1;
               &.left-image {
-                grid-column: 4 / 13;
+                grid-column: 3 / 13;
               }
               &.right-image {
-                grid-column: 14 / 23;
+                grid-column: 14 / 24;
               }
 
               @include breakpoint(medium down) {
@@ -724,10 +653,13 @@
 
               @include breakpoint(small down) {
                 &.left-image {
-                  grid-column: 2 / 13;
+                  grid-column: 3 / 24;
+                  grid-row: 1;
+                  padding-bottom: 8vw;
                 }
                 &.right-image {
-                  grid-column: 14 / 25;
+                  grid-column: 3 / 24;
+                  grid-row: 2;
                 }
               }
             }
@@ -735,10 +667,10 @@
             &.flip {
               .img-container {
                 &.left-image {
-                  grid-column: 14 / 23;
+                  grid-column: 14 / 25;
                 }
                 &.right-image {
-                  grid-column: 4 / 13;
+                  grid-column: 2 / 13;
                 }
 
                 @include breakpoint(small down) {
@@ -754,28 +686,42 @@
           }
 
           &.triple-img {
-            .grid {
-              grid-column: 1 / 26;
-              display: grid;
-              grid-template-columns: repeat(23, 1fr);
-              align-content: flex-start;
+            padding-top: 4vw;
+            padding-bottom: 4vw;
 
-              @include breakpoint(small down) {
-                grid-template-columns: repeat(24, 1fr);
-              }
+            .grid {
+              display: grid;
+              grid-column: 3 / 24;
+
+              // @include breakpoint(small down) {
+              //   grid-template-columns: repeat(24, 1fr);
+              // }
 
               .img-container {
                 &.left-image {
-                  grid-column: 1 / span 7;
+                  grid-column: 1 / 8;
+                  padding-right: 2vw;
                 }
                 &.center-image {
-                  grid-column: 8 / span 7;
+                  grid-column: 9 / 16;
+                  padding-right: 2vw;
+                  padding-left: 2vw;
                 }
                 &.right-image {
-                  grid-column: 15 / span 7;
+                  padding-left: 2vw;
+                  grid-column: 17 / 24;
                 }
 
                 &.device {
+                  &.left-image {
+                    grid-column: 1 / span 7;
+                  }
+                  &.center-image {
+                    grid-column: 8 / span 7;
+                  }
+                  &.right-image {
+                    grid-column: 15 / span 7;
+                  }
                   .device-inner {
                     border-radius: calc(24px + 24 * (100vw - 320px) / 1680);
                     background-color: $black;
@@ -783,8 +729,8 @@
 
                     img {
                       border-radius: calc(24px + 24 * (100vw - 320px) / 1680);
-                      padding: calc(8px + 8 * (100vw - 320px) / 1680);
-                      transition: transform 250ms $easing;
+                      padding: calc(1vw + 0.5 * (100vw - 320px) / 1680);
+                      transition: transform 200ms $easing;
                     }
                   }
 
@@ -792,7 +738,7 @@
                     grid-column: 3 / 8;
 
                     @include breakpoint(medium down) {
-                      grid-column: 1 / 8;
+                      grid-column: 3 / 8;
                     }
 
                     @include breakpoint(small down) {
@@ -807,7 +753,7 @@
                     grid-column: 10 / 15;
 
                     @include breakpoint(medium down) {
-                      grid-column: 9 / 16;
+                      grid-column: 10 / 15;
                     }
 
                     @include breakpoint(small down) {
@@ -819,7 +765,7 @@
                     grid-column: 17 / 22;
 
                     @include breakpoint(medium down) {
-                      grid-column: 17 / 25;
+                      grid-column: 17 / 22;
                     }
 
                     @include breakpoint(small down) {
@@ -834,28 +780,49 @@
 
           &.meta-block {
             width: 100vw;
-            margin-top: calc(8vh + 8vw);
-            padding-bottom: calc(8vh + 8vw);
-            display: inline-grid;
-            grid-template-columns: repeat(4, 1fr);
+            padding-top: $margin;
+            padding-bottom: $margin;
 
             .text-block {
+              grid-column: 2 / span 9;
               &:first-of-type {
-                grid-column: 2 / 2;
+                grid-row: 1;
+                padding-bottom: 4vw;
               }
               &:last-of-type {
-                grid-column: 3 / 3;
+                grid-row: 2;
               }
-              .text-container {
-                padding: 0 $paddingM;
-                blockquote {
-                  h3 {
-                    &.body-title {
-                      padding-bottom: $paddingXS;
-                      font-weight: 700;
-                    }
-                  }
 
+              &:only-of-type {
+                grid-row: 1;
+                grid-column: 2 / span 9;
+              }
+
+              @include breakpoint(small down) {
+                margin-right: auto;
+                padding-bottom: 8vw;
+
+                &:first-of-type {
+                  grid-column: 2 / span 4;
+                  grid-row: 1;
+                }
+                &:last-of-type {
+                  grid-column: 2 / span 4;
+                  grid-row: 2;
+                }
+              }
+
+              .text-container {
+                @include breakpoint(small down) {
+                  padding: 0;
+                }
+
+                blockquote {
+                  h1,
+                  h2 {
+                    padding-bottom: $paddingS;
+                  }
+                  h3,
                   p {
                     &.body-text {
                       a {
@@ -867,61 +834,158 @@
               }
             }
           }
-        }
-      }
 
-      .similar-block {
-        height: 100vh;
-        width: 100vw;
-        justify-items: center;
-        align-items: center;
-        z-index: 2000;
-        display: inline-grid;
-        grid-template-columns: 1 1fr;
+          &.links {
+            width: 100vw;
+            padding: calc(4vh + 4vw) 0;
+            display: inline-grid;
+            grid-template-columns: repeat(6, 1fr);
 
-        article {
-          &.grid-item {
-            figure {
-              &.project-grid {
-                align-self: center;
-                justify-self: center;
-                .project-item {
-                  position: relative;
-                  margin-bottom: $paddingXL;
+            a {
+              &:hover {
+                border-bottom: none !important;
+              }
+            }
 
-                  @media screen and #{breakpoint(small only)} {
-                    margin-bottom: $paddingL;
-                  }
+            .text-block {
+              grid-column: 3 / span 2;
 
-                  a {
-                    float: left;
-                    width: 100%;
+              .text-container {
+                padding: 0 $paddingM;
+
+                blockquote {
+                  h3 {
+                    &.body-title {
+                      padding-bottom: $paddingXS;
+                      font-weight: 700;
+                    }
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+
+    .similar-block {
+      min-height: 100vh;
+      z-index: 2000;
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
+
+      .viewAll {
+        position: relative;
+        grid-row: 1;
+        grid-column: 20/25;
+        z-index: 9999;
+
+        nav {
+          display: grid;
+          position: relative;
+          opacity: 1;
+          height: 100px;
+
+          @include breakpoint(small down) {
+            height: 80px;
+          }
+
+          .nav-item {
+            margin-left: auto;
+            text-align: right;
+            h1,
+            h2 {
+              text-transform: uppercase;
+              letter-spacing: -0.05em;
+              margin-bottom: 0;
+              line-height: 48px;
+
+              a {
+                border-bottom: transparent;
+                position: relative;
+                display: block;
+
+                &:hover,
+                &.router-link-exact-active {
+                  h1 {
+                    color: $white;
+                  }
+
+                  svg {
+                    overflow: visible;
+
+                    .path {
+                      animation: dash 200ms cubic-bezier(0.75, 0, 0.75, 1)
+                        forwards;
+                    }
+                  }
+                }
+
+                svg {
+                  position: absolute;
+                  transform: translate(-50%, -50%);
+                  top: 50%;
+                  left: 50%;
+                  bottom: 0;
+                  width: 150%;
+                  height: auto;
+
+                  .path {
+                    stroke-width: 16px;
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                  }
+
+                  @keyframes dash {
+                    from {
+                      stroke-dashoffset: 2000;
+                    }
+                    to {
+                      stroke-dashoffset: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.is-loaded {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
+      }
+
+      article {
+        &.grid-item {
+          grid-row: 1;
+          grid-column: 2 / 22;
+
+          @include breakpoint(small down) {
+            grid-column: 2 / 22;
+          }
+
+          figure {
+            &.project-grid {
+              column-width: auto;
+              padding-top: 3vw;
 
               ul {
-                margin: 0;
-                padding: 0;
+                transform: translateY(-20px);
 
-                @include breakpoint(small down) {
-                  max-width: 100%;
+                p {
+                  padding-bottom: 4vw;
                 }
 
                 li {
-                  display: block;
                   list-style: none !important;
 
                   a {
-                    display: block;
-                    float: left;
-                    margin-bottom: $paddingS;
-                    padding-bottom: $paddingS;
                     border-bottom: none !important;
 
                     h1 {
-                      font-size: calc(40px + 60 * (100vw - 375px) / 1680);
-                      line-height: 72%;
+                      line-height: 1.1;
+                      font-size: calc(36px + 84 * (100vw - 320px) / 1680);
                     }
                   }
 

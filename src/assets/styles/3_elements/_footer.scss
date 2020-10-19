@@ -1,48 +1,46 @@
 body {
   footer {
-    background-color: $accent;
+    background-color: $white;
     padding: $paddingXS 0;
 
     a {
-      color: $white !important;
+      color: $black !important;
 
       &:hover {
         color: $black !important;
       }
     }
 
-    section.globalFooter {
-      figure {
+    figure {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: space-between;
+
+      @include breakpoint(small down) {
+        padding-bottom: 0;
+      }
+
+      span {
         display: flex;
-        margin: 0;
-        padding: 0;
         justify-content: space-between;
 
-        @include breakpoint(small down) {
-          padding-bottom: 0;
-        }
+        a {
+          margin-right: $paddingS;
+          align-self: center;
+          border-bottom: transparent;
 
-        span {
-          display: flex;
-          justify-content: space-between;
+          @include breakpoint(small down) {
+            margin-right: $paddingXS;
+          }
 
-          a {
-            margin-right: $paddingS;
-            align-self: center;
-            border-bottom: transparent;
+          &.top {
+            margin: 0;
+          }
 
-            @include breakpoint(small down) {
-              margin-right: $paddingXS;
-            }
-
-            &.top {
-              margin: 0;
-            }
-
-            p {
-              margin: 0;
-              padding: 0;
-            }
+          p {
+            margin: 0;
+            padding: 0;
           }
         }
       }
@@ -51,6 +49,7 @@ body {
 
   &.about {
     footer {
+      background-color: $black;
       a {
         color: $white !important;
 

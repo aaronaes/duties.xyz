@@ -25,8 +25,8 @@ ul {
   font-size: unset;
   font-weight: normal;
   color: inherit;
-  letter-spacing: 0.4px;
-  word-spacing: 0.4px;
+  letter-spacing: 0.2px;
+  word-spacing: 0.2px;
 }
 
 .markdown {
@@ -41,7 +41,7 @@ h1.markdown p {
 
 h2,
 h2.markdown p {
-  font-size: calc(22px + 18 * (100vw - 320px) / 1680);
+  font-size: calc(32px + 16 * (100vw - 320px) / 1680);
   line-height: 125%;
 }
 
@@ -52,8 +52,8 @@ h3.markdown p {
 }
 
 p {
-  font-size: calc(16px + 6 * (100vw - 320px) / 1680);
-  line-height: 145%;
+  font-size: calc(17px + 5 * (100vw - 320px) / 1680);
+  line-height: 125%;
 }
 
 a {
@@ -63,11 +63,20 @@ a {
   margin: 0;
   padding: 0;
   border-bottom: 2px solid transparent;
-  transition: all 250ms $easing;
+  transition: all 200ms $easing;
+
+  &.text-link {
+    border-bottom: 2px solid $grey;
+    transition: all 200ms $easing;
+
+    &:hover {
+      color: $black;
+      border-bottom: 2px solid $black;
+    }
+  }
 
   &:hover {
     color: $black;
-    border-bottom: 2px solid $black;
   }
 
   &:active {
@@ -98,8 +107,11 @@ h5,
 h6 {
   &.title {
     text-transform: uppercase;
-    letter-spacing: -0.05em;
     line-height: 1;
+  }
+  &.subtitle {
+    padding-bottom: $paddingXS;
+    color: rgba($black, $alpha: 0.4);
   }
 }
 

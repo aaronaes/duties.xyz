@@ -1,37 +1,19 @@
 // Page
-.page-enter-active,
+.page-enter-active {
+  animation: pageEnter 200ms $easing;
+}
+
 .page-leave-active {
-  opacity: 1;
-  transition: all 500ms $easing;
-}
-.page-enter,
- .page-leave-to /* .page-leave-active below version 2.1.8 */ {
-  opacity: 0;
+  animation: pageEnter 200ms reverse $easing;
+  animation-delay: 1000ms;
 }
 
-// Modal
-.modal-enter-active {
-  animation: fadeModalIn 0ms linear;
-}
-.modal-leave-active {
-  animation: fadeModalOut 500ms $easing;
-}
-
-@keyframes fadeModalIn {
+@keyframes pageEnter {
   from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeModalOut {
-  from {
-    opacity: 1;
-  }
-  to {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -40,15 +22,17 @@
   animation: loadingIn 0ms $easing;
 }
 .loading-leave-active {
-  animation: loadingOut 500ms $easing;
+  animation: loadingOut 200ms $easing;
 }
 
 @keyframes loadingIn {
   from {
     opacity: 1;
+    transform: translateY(100vh);
   }
   to {
     opacity: 1;
+    transform: translateY(0vh);
   }
 }
 
@@ -68,7 +52,7 @@
 .nav-leave-active {
   opacity: 1;
   transform: translateY(0px);
-  transition: all 500ms $easing;
+  transition: all 200ms $easing;
 }
 .nav-enter,
 .nav-leave-to {
@@ -76,10 +60,18 @@
   transform: translateY(-20px);
 }
 
+// LoadIn
+
 .box {
   opacity: 0;
   transform: translate3D(0, $paddingXS, 0);
-  transition: all 350ms $easing;
+  transition: all 200ms $easing;
+
+  &.left {
+    opacity: 0;
+    transform: translate3D($paddingXS), 0, 0;
+    transition: all 200ms $easing;
+  }
 
   &.in-viewport {
     opacity: 1;

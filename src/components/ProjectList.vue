@@ -28,15 +28,20 @@
             </div>
             <figcaption>
               <div class="body-text markdown">
-                <h3 class="float-left" v-if="project.readMore">
+                <h3 class="title float-left" v-if="project.readMore === true">
                   Case —
                 </h3>
                 <h3
-                  class="markdown"
-                  v-if="project.title.length"
+                  class="markdown title"
+                  v-show="project.title.length > 0"
                   v-html="project.title"
                 ></h3>
-                <p v-if="project.subtitle.length" v-html="project.subtitle"></p>
+                <h3 class="markdown subtitle">Category</h3>
+                <!-- <h3
+                  class="markdown subtitle"
+                  v-show="project.subtitle.length > 0"
+                  v-html="project.subtitle"
+                ></h3> -->
               </div>
             </figcaption>
           </figure>

@@ -212,53 +212,7 @@
         </article>
       </section>
 
-      <section class="content-block summary">
-        <article class="align-center">
-          <figure class="block-inner">
-            <ul>
-              <li>
-                <h3>
-                  <a
-                    href="/"
-                    aria-current="page"
-                    class="router-link-exact-active router-link-active"
-                    >Home</a
-                  >
-                </h3>
-              </li>
-              <li>
-                <h3><a href="/projects" class="">Index</a></h3>
-              </li>
-              <li>
-                <h3><a href="/about" class="">Studio</a></h3>
-              </li>
-              <li>
-                <h3><a href="/imprint" class="">Imprint</a></h3>
-              </li>
-            </ul>
-          </figure>
-          <figure class="block-inner">
-            <h3 class="markdown">
-              Want to work with us on your next project? <br />We’d love to hear
-              from you.
-            </h3>
-          </figure>
-          <figure class="block-inner">
-            <div class="contact">
-              <h3><a href="#" target="_blank">new@duties.xyz</a></h3>
-              <h3><a href="#" target="_blank">+47 986 60 788</a></h3>
-            </div>
-          </figure>
-          <figure class="block-inner links">
-            <div class="links">
-              <h3><a href="www.google.com" target="_blank">Facebook</a></h3>
-              <h3><a href="www.google.com" target="_blank">Medium</a></h3>
-              <h3><a href="www.google.com" target="_blank">Dribbble</a></h3>
-              <h3><a href="www.google.com" target="_blank">LinkedIn</a></h3>
-            </div>
-          </figure>
-        </article>
-      </section>
+      <Footer />
     </main>
   </transition>
 </template>
@@ -268,11 +222,15 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "About",
   async created() {
     this.about = await this.getAbout();
+  },
+  components: {
+    Footer
   },
   data() {
     return {

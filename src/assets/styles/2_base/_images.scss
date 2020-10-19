@@ -11,7 +11,7 @@ video {
 }
 
 img[lazy="loaded"] {
-  animation: fadeIn 250ms $easing;
+  animation: fadeIn 200ms $easing;
   animation-fill-mode: forwards;
 }
 

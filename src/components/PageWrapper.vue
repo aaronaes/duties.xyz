@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <transition name="page" mode="out-in">
+    <transition name="page">
       <slot></slot>
     </transition>
   </div>

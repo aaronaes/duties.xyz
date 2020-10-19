@@ -2,7 +2,7 @@ export default function imgix({
   url = null,
   w = null,
   h = null,
-  fm = "png",
+  fm = "png gif",
   q = 80,
   dpr = 1
 }) {

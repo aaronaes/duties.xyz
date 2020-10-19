@@ -1,48 +1,19 @@
 body {
   section {
     &.projectList {
-      grid-column: 2 / 25;
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
 
       article {
         &.details {
-          grid-column: 5 / 22;
-
-          @include breakpoint(medium down) {
-            grid-column: 4 / 23;
-          }
-
-          @include breakpoint(small down) {
-            grid-column: 2 / 25;
-          }
-
-          margin-top: calc(8vh + 8vw);
-          margin-bottom: calc(8vh + 8vw);
+          grid-column: 3 / 24;
+          margin-top: $margin;
           align-items: center;
           background-color: initial;
           visibility: visible;
           opacity: 1;
           z-index: 1;
-          transition: visibility 0s $easing, opacity 500ms $easing;
-
-          &.isMini {
-            max-width: 50vw;
-            float: left;
-            height: initial;
-
-            .summary-block {
-              width: 100%;
-              position: relative;
-              align-items: center;
-            }
-
-            @include breakpoint(small down) {
-              padding: 0 $paddingM;
-            }
-
-            @include breakpoint(small down) {
-              grid-column: 2 / 25;
-            }
-          }
+          transition: visibility 0s $easing, opacity 200ms $easing;
 
           .summary-block {
             position: relative;
@@ -59,8 +30,50 @@ body {
                   h2,
                   h3 {
                     cursor: pointer;
-                    letter-spacing: -0.05em;
+                    text-transform: uppercase;
+                    font-weight: bold;
                     padding-right: 5px;
+                  }
+                }
+              }
+            }
+          }
+
+          &.isMini {
+            grid-column: 6 / span 6;
+            height: auto;
+
+            &:nth-child(odd) {
+              grid-column: 15 / span 6;
+            }
+
+            .summary-block {
+              width: 100%;
+              position: relative;
+              align-items: center;
+
+              .imgBox {
+                &.Portrait {
+                  max-width: 100%;
+                }
+              }
+            }
+
+            @include breakpoint(small down) {
+              grid-column: 3 / 24;
+
+              &:nth-child(odd) {
+                grid-column: 3 / 24;
+              }
+
+              .summary-block {
+                width: 100%;
+                position: relative;
+                align-items: center;
+
+                .imgBox {
+                  &.Portrait {
+                    max-width: 100%;
                   }
                 }
               }
