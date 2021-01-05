@@ -1,73 +1,66 @@
-.imgBox {
-  z-index: 2000;
+// .imgBox {
+//   z-index: 2000;
 
-  &.Landscape {
-    width: 80vh;
-    height: auto;
-    max-width: 80%;
-    margin: 0 auto;
-  }
+//   &.Landscape {
+//     margin: 0 auto;
+//   }
 
-  &.Portrait {
-    width: 70vh;
-    height: auto;
-    max-width: 55%;
-    margin: 0 auto;
-  }
+//   &.Portrait {
+//     margin: 0 auto;
+//   }
 
-  &.Landscape,
-  &.Portrait {
-    .website {
-      border-radius: 1;
-      background-color: $sand;
-      overflow: hidden;
-      padding: calc(16px + 64 * (100vw - 320px) / 1680);
+//   &.Landscape,
+//   &.Portrait {
+//     .website {
+//       border-radius: 1;
+//       background-color: $sand;
+//       overflow: hidden;
+//       padding: calc(16px + 64 * (100vw - 375px) / 1680);
 
-      img {
-        box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
-        border-radius: 1;
-        display: block !important;
-        transition: transform 200ms $easing;
-      }
-    }
+//       img {
+//         box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
+//         border-radius: 1;
+//         display: block !important;
+//         transition: transform 300ms $easing;
+//       }
+//     }
 
-    .device {
-      margin: 0 auto;
-      background-color: $black;
-      border-radius: calc(32px + 24 * (100vw - 320px) / 1680);
-      box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
-      padding: calc(8px + 16 * (100vw - 320px) / 1680);
+//     .device {
+//       margin: 0 auto;
+//       box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
+//       border-radius: calc(32px + 24 * (100vw - 375px) / 1680);
+//       overflow: hidden;
 
-      img {
-        border-radius: calc(24px + 24 * (100vw - 320px) / 1680);
-        transition: transform 200ms $easing;
-      }
-    }
-  }
+//       img {
+//         background-color: $black;
+//         padding: calc(8px + 16 * (100vw - 375px) / 1680);
+//         border-radius: calc(32px + 24 * (100vw - 375px) / 1680);
+//       }
+//     }
+//   }
 
-  figcaption {
-    margin-top: $paddingS;
-  }
-}
+//   figcaption {
+//     margin-top: $x0p25;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//   }
+// }
 
-@include breakpoint(small down) {
-  .imgBox {
-    &.Landscape {
-      max-width: 100%;
-    }
-    &.Portrait {
-      max-width: 100%;
-    }
+// @include breakpoint(small down) {
+//   .imgBox {
+//     &.Landscape {
+//       max-width: 100%;
+//     }
+//     &.Portrait {
+//       max-width: 100%;
+//     }
 
-    img {
-      width: 100%;
-      max-height: 50vh;
-      object-fit: cover;
-      object-position: 50% 0%;
-    }
-
-    figcaption {
-      margin-top: $paddingXXS;
-    }
-  }
-}
+//     img {
+//       width: 100%;
+//       max-height: 50vh;
+//       object-fit: cover;
+//       object-position: 50% 0%;
+//     }
+//   }
+// }

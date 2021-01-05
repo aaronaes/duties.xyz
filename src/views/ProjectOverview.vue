@@ -1,40 +1,54 @@
 <template>
-  <section class="content-block projectOverview">
-    <figure class="align-center project-grid">
-      <div
-        class="box project-item"
-        v-in-viewport.once
-        v-for="project in projectOverview.projects"
-        :key="project.id"
-      >
-        <a :href="project.siteLink" v-if="project.readMore === false">
-          <div class="project-content">
-            <h1 class="title markdown" v-html="project.title"></h1>
-          </div>
-        </a>
-
-        <a
-          :href="'/projects/' + project.slug"
-          v-if="project.readMore === true"
-          @click="e => handleProject(e, project)"
+  <div>
+    <section class="content-block projectOverview">
+      <figure class="align-center project-grid">
+        <div
+          class="project-item fade-up"
+          v-in-viewport.once
+          v-for="project in projectOverview.projects"
+          :key="project.id"
         >
-          <div class="project-content">
-            <h1 class="title markdown" v-html="project.title"></h1>
-          </div>
-        </a>
-      </div>
-    </figure>
+          <a
+            :href="project.siteLink"
+            target="_blank"
+            v-if="project.readMore === false"
+          >
+            <div class="project-content heading">
+              <h1 class="float-left title markdown" v-html="project.title"></h1>
+              <div class="tags">
+                <p
+                  class="body-text markdown"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  {{ category.categoryType }}
+                </p>
+              </div>
+            </div>
+          </a>
 
-    <figure class="align-center hero">
-      <h1>
-        Duties is a full service micro studio based in Oslo.
-      </h1>
-
-      <router-link to="/about">
-        <p>More about us</p>
-      </router-link>
-    </figure>
-  </section>
+          <a
+            :href="'/projects/' + project.slug"
+            v-if="project.readMore === true"
+            @click="e => handleProject(e, project)"
+          >
+            <div class="project-content heading">
+              <h1 class="markdown title" v-html="project.title"></h1>
+              <div class="tags">
+                <p
+                  class="body-text markdown"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  {{ category.categoryType }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </figure>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -43,7 +57,8 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 
 export default {
-  name: "projects",
+  name: "Overview",
+  components: {},
   async created() {
     this.projectOverview = await this.getProjectOverview();
   },
@@ -134,7 +149,7 @@ export default {
     }
   },
   beforeCreate: function() {
-    document.body.className = "projects";
+    document.body.className = "overview";
   }
 };
 </script>

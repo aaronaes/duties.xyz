@@ -4,7 +4,7 @@
       v-for="(project, i) in projects"
       :key="i"
       :id="`project-${project.id}`"
-      class="details"
+      class="project-block"
       :class="{
         isMini: project.readMore === false
       }"
@@ -14,8 +14,13 @@
           :href="project.siteLink"
           @click="e => handleProjectClick(e, project)"
         >
-          <figure class="imgBox" :class="project.coverSize">
+          <figure
+            class="imgBox fade-up"
+            :class="project.coverSize"
+            v-in-viewport.once
+          >
             <div
+              class="img"
               :class="{
                 device: project.isDevice,
                 website: project.isWebsite
@@ -28,20 +33,22 @@
             </div>
             <figcaption>
               <div class="body-text markdown">
-                <h3 class="title float-left" v-if="project.readMore === true">
-                  Case —
-                </h3>
-                <h3
-                  class="markdown title"
-                  v-show="project.title.length > 0"
-                  v-html="project.title"
-                ></h3>
-                <h3 class="markdown subtitle">Category</h3>
-                <!-- <h3
-                  class="markdown subtitle"
-                  v-show="project.subtitle.length > 0"
-                  v-html="project.subtitle"
-                ></h3> -->
+                <blockquote class="heading">
+                  <h2
+                    class="markdown title"
+                    v-show="project.title.length > 0"
+                    v-html="project.title"
+                  ></h2>
+                </blockquote>
+                <div class="tags float-left">
+                  <p
+                    class="body-text markdown"
+                    v-for="(category, i) in project.categories"
+                    :key="i"
+                  >
+                    {{ category.categoryType }}
+                  </p>
+                </div>
               </div>
             </figcaption>
           </figure>

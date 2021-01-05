@@ -3,7 +3,7 @@ export default function imgix({
   w = null,
   h = null,
   fm = "png gif",
-  q = 80,
+  q = 60,
   dpr = 1
 }) {
   if (!url) {

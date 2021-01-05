@@ -23,25 +23,45 @@ html {
 }
 
 @font-face {
-  font-family: "TeXGyreHerosBold";
-  src: local("Custom Font"),
-    url("/fonts/TeXGyreHeros-Bold.woff2") format("woff2"),
-    url("/fonts/TeXGyreHeros-Bold.woff") format("woff");
+  font-family: "TeXGyreHeros";
+  src: url("/fonts/TeXGyreHeros-Regular.woff2") format("woff2"),
+    url("/fonts/TeXGyreHeros-Regular.woff") format("woff"),
+    url("/fonts/TeXGyreHeros-Regular.svg#TeXGyreHeros-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap; /* Read next point */
-  unicode-range: U+000-5FF; /* Download only latin glyphs */
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "TeXGyreHeros";
-  src: local("Custom Font"),
-    url("/fonts/TeXGyreHeros-Regular.woff2") format("woff2"),
-    url("/fonts/TeXGyreHeros-Regular.woff") format("woff");
+  font-family: "TeXGyreHerosBold";
+  src: url("/fonts/TeXGyreHeros-Bold.woff2") format("woff2"),
+    url("/fonts/TeXGyreHeros-Bold.woff") format("woff"),
+    url("/fonts/TeXGyreHeros-Bold.svg#TeXGyreHeros-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TeXGyreHerosCond";
+  src: url("/fonts/TeXGyreHerosCondensed-Regular.woff2") format("woff2"),
+    url("/fonts/TeXGyreHerosCondensed-Regular.woff") format("woff"),
+    url("/fonts/TeXGyreHerosCondensed-Regular.svg#TeXGyreHerosCondensed-Regular")
+      format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap; /* Read next point */
-  unicode-range: U+000-5FF; /* Download only latin glyphs */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TeXGyreHerosConBold";
+  src: url("/fonts/TeXGyreHerosCondensed-Bold.woff2") format("woff2"),
+    url("/fonts/TeXGyreHerosCondensed-Bold.woff") format("woff"),
+    url("/fonts/TeXGyreHerosCondensed-Bold.svg#TeXGyreHerosCondensed-Bold")
+      format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 // Colors
@@ -55,23 +75,46 @@ $accent: #e5594d;
 $font-inter: "Inter", sans-serif;
 $font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
 $font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
+$font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
+$font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 
 // Easing
 // $easing: cubic-bezier(0.75, 0, 0.25, 1);
 $easing: cubic-bezier(0.694, 0.0482, 0.335, 1);
 
-// Padding Increments
-$paddingXXS: 4px;
-$paddingXS: 8px;
-$paddingS: 16px;
-$paddingM: 24px;
-$paddingL: 40px;
-$paddingXL: 64px;
-$paddingXXL: 128px;
-$paddingXXXL: 192px;
-
-$margin: calc(16vw + 16 * (100vw - 320px) / 1680);
-
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;
 $grid-margin-gutters: 2.5rem;
+
+// Padding Increments
+$neg: -1;
+
+$x0p125: calc(100vw * 0.125 / 25);
+$x0p25: calc(100vw * 0.25 / 25);
+$x0p5: calc(100vw * 0.5 / 25);
+$x1: calc(100vw * 1 / 25);
+$x1p5: calc(100vw * 1.5 / 25);
+$x2: calc(100vw * 2 / 25);
+$x3: calc(100vw * 3 / 25);
+$x4: calc(100vw * 4 / 25);
+$x5: calc(100vw * 5 / 25);
+$x6: calc(100vw * 6 / 25);
+$x7: calc(100vw * 7 / 25);
+$x8: calc(100vw * 8 / 25);
+$x9: calc(100vw * 9 / 25);
+$x10: calc(100vw * 10 / 25);
+$x11: calc(100vw * 11 / 25);
+$x12: calc(100vw * 12 / 25);
+$x13: calc(100vw * 13 / 25);
+$x14: calc(100vw * 14 / 25);
+$x15: calc(100vw * 15 / 25);
+$x16: calc(100vw * 16 / 25);
+$x17: calc(100vw * 17 / 25);
+$x18: calc(100vw * 18 / 25);
+$x19: calc(100vw * 19 / 25);
+$x20: calc(100vw * 20 / 25);
+$x21: calc(100vw * 21 / 25);
+$x22: calc(100vw * 22 / 25);
+$x23: calc(100vw * 23 / 25);
+$x24: calc(100vw * 24 / 25);
+$x25: calc(100vw * 25 / 25);

@@ -6,7 +6,9 @@ nav ul {
 
 ul,
 ol {
-  margin-left: $paddingS;
+  margin-left: $x0p125;
+  padding-left: $x0p5;
+  list-style: square;
 
   li {
     p {
@@ -15,17 +17,49 @@ ol {
   }
 }
 
-details,
-details summary {
+project-block,
+project-block summary {
   padding-left: 0;
   background-image: none;
   -webkit-appearance: none;
 
-  &::-webkit-details-marker {
+  &::-webkit-project-block-marker {
     display: none;
   }
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.tags {
+  padding-top: $x0p25;
+  align-self: flex-end;
+  float: left;
+  cursor: default;
+
+  p {
+    font-family: $font-tex-regular;
+    padding: 4px 12px !important;
+    border: 2px solid $accent;
+    border-radius: 100px;
+    font-size: clamp(14px, 0.9vw, 18px);
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-right: 8px;
+    margin-bottom: $x0p125;
+  }
+
+  @include breakpoint(medium) {
+    p {
+      margin-bottom: $x0p25;
+
+      &:first-of-type {
+        margin-left: 0px;
+      }
+    }
   }
 }

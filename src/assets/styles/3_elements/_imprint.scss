@@ -16,7 +16,7 @@ body.imprint {
           position: sticky;
           top: 0;
           left: 50%;
-          transform: translateX(-50%) translateY($paddingL);
+          transform: translateX(-50%) translateY($x2);
           max-width: 100px;
           display: block;
           z-index: 999;
@@ -26,7 +26,7 @@ body.imprint {
 
           @include breakpoint(small down) {
             top: 0;
-            transform: translateX(-50%) translateY($paddingS);
+            transform: translateX(-50%) translateY($x0p25);
           }
 
           p {
@@ -39,16 +39,16 @@ body.imprint {
           }
         }
         figure {
-          padding-top: $paddingXL;
-          padding-bottom: $paddingXL;
+          padding-top: $x4;
+          padding-bottom: $x4;
 
           @include breakpoint(medium down) {
-            padding-top: $paddingL;
-            padding-bottom: $paddingL;
+            padding-top: $x2;
+            padding-bottom: $x2;
           }
 
           p {
-            margin-top: $paddingS;
+            margin-top: $x0p25;
           }
         }
       }

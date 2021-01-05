@@ -1,6 +1,6 @@
 // .swiper-container {
-//   margin-top: $paddingM;
-//   margin-bottom: $paddingM;
+//   margin-top: $x1p5;
+//   margin-bottom: $x1p5;
 //   overflow-x: hidden;
 //   width: 100vw;
 //   height: auto;
@@ -11,7 +11,7 @@
 //       cursor: grab;
 //       height: auto;
 //       max-width: 25vw;
-//       margin-left: $paddingL;
+//       margin-left: $x2;
 
 //       img {
 //         position: relative;
@@ -20,11 +20,11 @@
 //       }
 
 //       &:first-of-type {
-//         margin-left: $paddingXXL !important;
+//         margin-left: $x8 !important;
 //       }
 
 //       &:last-of-type {
-//         margin-right: $paddingL !important;
+//         margin-right: $x2 !important;
 //       }
 
 //       @include breakpoint(small down) {
@@ -32,13 +32,13 @@
 //       }
 //       @include breakpoint(small down) {
 //         max-width: 45vw;
-//         margin-left: $paddingM;
+//         margin-left: $x1p5;
 
 //         &:first-of-type {
-//           margin-left: $paddingL !important;
+//           margin-left: $x2 !important;
 //         }
 //         &:last-of-type {
-//           margin-right: $paddingL !important;
+//           margin-right: $x2 !important;
 //         }
 //       }
 //     }

@@ -2,21 +2,19 @@
 body {
   section {
     &.masthead-block {
-      margin-top: calc(#{$margin} + 100px);
+      margin-top: $x3;
       display: grid;
       grid-template-columns: repeat(25, 1fr);
 
       article {
-        grid-column: 6 / 21;
-        grid-row: 1;
+        grid-column: 5 / 21;
 
-        @include breakpoint(medium down) {
-          grid-column: 4 / 23;
+        @include breakpoint(medium) {
+          grid-column: 2 / 25;
         }
 
-        @include breakpoint(small down) {
-          margin-top: calc(#{$margin} + 80px);
-          grid-column: 3 / 24;
+        @include breakpoint(small) {
+          grid-column: 2 / 25;
         }
       }
     }

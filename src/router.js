@@ -28,6 +28,7 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home,
+      meta: "disableScroll",
       children: [{
         path: "projects/:slug",
         name: "Project",

@@ -3,36 +3,146 @@ body {
     &.projectList {
       display: grid;
       grid-template-columns: repeat(25, 1fr);
+      margin-top: $x4;
+
+      @include breakpoint(medium) {
+        margin-top: $x2;
+      }
 
       article {
-        &.details {
-          grid-column: 3 / 24;
-          margin-top: $margin;
+        &.project-block {
+          background-color: red;
+          grid-column: 2 / 25;
+          margin-top: $x4;
           align-items: center;
           background-color: initial;
           visibility: visible;
           opacity: 1;
           z-index: 1;
-          transition: visibility 0s $easing, opacity 200ms $easing;
+          transition: visibility 0s $easing, opacity 400ms $easing;
+
+          @include breakpoint(large) {
+            grid-column: 3 / 24;
+          }
 
           .summary-block {
-            position: relative;
+            grid-column: 2 / 25;
+
+            @include breakpoint(medium) {
+              grid-column: 3 / 24;
+            }
+
+            @include breakpoint(large) {
+              grid-column: 4 / 23;
+            }
+
+            @include breakpoint(xlarge) {
+              grid-column: 5 / 22;
+            }
 
             a {
               .imgBox {
-                cursor: pointer;
+                .img {
+                  background-color: $accent;
+                  img {
+                    opacity: 0.6;
+                  }
+                }
 
-                .body-text {
-                  margin-top: $paddingXS;
-                  display: block;
+                &.Landscape {
+                  grid-column: 5 / 22;
+                  .img {
+                    img {
+                      height: 55vw;
+                      overflow: hidden;
+                      object-fit: cover;
+                      object-position: 0% 50%;
+                    }
+                  }
 
-                  h1,
-                  h2,
-                  h3 {
-                    cursor: pointer;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    padding-right: 5px;
+                  @include breakpoint(large) {
+                    grid-column: 3 / 24;
+                  }
+                }
+
+                &.Portrait {
+                  grid-column: 8 / 19;
+
+                  @include breakpoint(large) {
+                    grid-column: 6 / 21;
+                  }
+
+                  @include breakpoint(small only) {
+                    grid-column: 3 / 24;
+                  }
+                }
+
+                &.Landscape,
+                &.Portrait {
+                  .website {
+                    border-radius: 1;
+                    background-color: $sand;
+                    overflow: hidden;
+                    padding: $x1;
+
+                    img {
+                      box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
+                      border-radius: 1;
+                      display: block !important;
+                      transition: transform 300ms $easing;
+                    }
+                  }
+
+                  .device {
+                    margin: 0 auto;
+                    box-shadow: 0px 16px 40px -16px rgba(0, 0, 0, 0.24);
+                    border-radius: calc(32px + 24 * (100vw - 375px) / 1680);
+                    overflow: hidden;
+
+                    img {
+                      background-color: $black;
+                      padding: calc(8px + 16 * (100vw - 375px) / 1680);
+                      border-radius: calc(32px + 24 * (100vw - 375px) / 1680);
+                    }
+                  }
+                }
+
+                @include breakpoint(small only) {
+                  .imgBox {
+                    &.Landscape {
+                      max-width: 100%;
+                    }
+                    &.Portrait {
+                      max-width: 100%;
+                    }
+
+                    img {
+                      width: 100%;
+                      max-height: 50vh;
+                      object-fit: cover;
+                      object-position: 50% 0%;
+                    }
+                  }
+                }
+
+                figcaption {
+                  margin-top: $x0p25;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: flex-start;
+
+                  * {
+                    transition: none !important;
+                  }
+
+                  h2 {
+                    pointer-events: all;
+                  }
+
+                  &:hover {
+                    h2 {
+                      color: $accent;
+                    }
                   }
                 }
               }
@@ -40,40 +150,53 @@ body {
           }
 
           &.isMini {
-            grid-column: 6 / span 6;
-            height: auto;
+            grid-column: 2 / 19;
+
+            @include breakpoint(medium) {
+              grid-column: 3 / 13;
+              padding: 0 $x0p5 0 0;
+            }
+
+            @include breakpoint(large) {
+              grid-column: 4 / 13;
+              padding-right: 0px;
+            }
+
+            @include breakpoint(large) {
+              grid-column: 4 / 12;
+            }
 
             &:nth-child(odd) {
-              grid-column: 15 / span 6;
-            }
+              grid-column: 8 / 25;
+              padding-left: 0px;
 
-            .summary-block {
-              width: 100%;
-              position: relative;
-              align-items: center;
-
-              .imgBox {
-                &.Portrait {
-                  max-width: 100%;
-                }
+              @include breakpoint(medium) {
+                grid-column: 14 / 24;
+                padding: 0 0 0 $x0p5;
               }
-            }
 
-            @include breakpoint(small down) {
-              grid-column: 3 / 24;
-
-              &:nth-child(odd) {
-                grid-column: 3 / 24;
+              @include breakpoint(large) {
+                grid-column: 15 / 24;
+                padding-left: 0px;
               }
 
               .summary-block {
                 width: 100%;
+                grid-column: auto;
                 position: relative;
                 align-items: center;
 
-                .imgBox {
-                  &.Portrait {
-                    max-width: 100%;
+                a {
+                  display: unset;
+
+                  .imgBox {
+                    &.Landscape {
+                      width: 100%;
+                    }
+
+                    &.Portrait {
+                      width: 100%;
+                    }
                   }
                 }
               }

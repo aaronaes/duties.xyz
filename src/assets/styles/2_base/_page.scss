@@ -1,0 +1,65 @@
+.page-wrapper {
+  transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+  will-change: background-color, color;
+
+  .light-theme {
+    background: $white;
+    color: $black;
+  }
+
+  .dark-theme {
+    background: $black;
+    color: $grey;
+  }
+}
+
+// Foundation code
+.grid-container {
+  width: 100%;
+  max-width: calc(100% - #{$x2});
+}
+
+.grid-padding-x > .cell {
+  padding-right: $grid-padding-gutters;
+  padding-left: $grid-padding-gutters;
+}
+
+// THEMES //
+
+body {
+  transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+  will-change: background-color, color;
+
+  &.home {
+    background-color: $white;
+    color: $black;
+  }
+
+  &.overview {
+    background-color: $grey;
+  }
+
+  &.about {
+    color: $grey;
+    background-color: $black;
+
+    a {
+      color: $grey !important;
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    & > & {
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+}
+
+article {
+  & > * + * {
+    margin: 0;
+  }
+}

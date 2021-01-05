@@ -11,20 +11,18 @@ video {
 }
 
 img[lazy="loaded"] {
-  animation: fadeIn 200ms $easing;
+  animation: fadeIn 300ms $easing;
   animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    filter: blur(16px);
   }
+
   100% {
     opacity: 1;
+    filter: blur(0px);
   }
-}
-
-.arrow {
-  transform: translateY(8px);
-  margin-right: 16px;
 }

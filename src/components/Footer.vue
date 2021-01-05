@@ -1,44 +1,12 @@
 <template>
   <footer>
-    <section class="content-block summary">
+    <section class="footer-block">
       <article class="align-center">
         <figure class="block-inner">
-          <ul>
-            <li>
-              <p>
-                <router-link class="text-link" :to="{ name: 'Home' }"
-                  >Home</router-link
-                >
-              </p>
-            </li>
-            <li>
-              <p>
-                <router-link class="text-link" :to="{ name: 'Projects' }"
-                  >Project Index</router-link
-                >
-              </p>
-            </li>
-            <li>
-              <p>
-                <router-link class="text-link" :to="{ name: 'About' }"
-                  >Studio</router-link
-                >
-              </p>
-            </li>
-            <li>
-              <p>
-                <router-link class="text-link" :to="{ name: 'Imprint' }"
-                  >Imprint</router-link
-                >
-              </p>
-            </li>
-          </ul>
-        </figure>
-        <figure class="block-inner">
-          <p class="markdown">
-            Want to work with us on your next project?
-            <br />We’d love to hear from you.
-          </p>
+          <h2 class="markdown">
+            Want to work with us on your next project? We’d love to hear from
+            you.
+          </h2>
         </figure>
         <figure class="block-inner">
           <div class="contact">

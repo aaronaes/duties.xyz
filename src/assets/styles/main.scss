@@ -26,9 +26,11 @@ CSS file.
 
 @import "1_tools/reset";
 @import "1_tools/helpers";
+@import "1_tools/grid";
 @import "1_tools/mixins";
 
 @import "2_base/body";
+@import "2_base/page";
 @import "2_base/forms";
 @import "2_base/images";
 @import "2_base/lists";

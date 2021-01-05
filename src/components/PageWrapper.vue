@@ -1,7 +1,9 @@
 <template>
   <div>
-    <Nav />
-    <transition name="page">
+    <transition name="nav" mode="out-in" appear>
+      <Nav />
+    </transition>
+    <transition name="page" mode="out-in">
       <slot></slot>
     </transition>
   </div>

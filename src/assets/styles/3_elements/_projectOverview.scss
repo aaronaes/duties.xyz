@@ -1,52 +1,66 @@
-.projectOverview {
-  display: grid;
-  grid-template-columns: repeat(25, 1fr);
+body {
+  &.overview {
+    .projectOverview {
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
+      margin-top: $x2;
 
-  a {
-    display: inline-block;
-    border-bottom: 2px solid $grey;
-    padding-bottom: 4px;
-
-    &:hover {
-      border-bottom: 2px solid $black;
-    }
-  }
-
-  figure {
-    &.hero {
-      grid-column: 2 / 16;
-      grid-row: 1;
-      margin-top: $margin;
-
-      @include breakpoint(medium down) {
-        grid-column: 2 / 25;
+      @include breakpoint(medium) {
+        margin-top: $x4;
       }
 
-      h1 {
-        padding-bottom: $paddingM;
+      a {
+        display: inline-block;
+        border-bottom: 2px solid $grey;
+
+        &:hover {
+          border-bottom: 2px solid $black;
+        }
       }
-    }
 
-    &.project-grid {
-      grid-row: 2;
-      grid-column: 2 / 25;
-      margin-top: 8vw;
+      figure {
+        &.project-grid {
+          grid-column: 2 / 25;
 
-      .project-item {
-        width: 100%;
-        a {
-          border-bottom: none !important;
-          transition: all 150ms $easing;
+          .project-item {
+            margin-bottom: 8px;
+            a {
+              border-bottom: none !important;
 
-          .project-content {
-            h1 {
-              line-height: 1.1;
-              font-size: calc(36px + 84 * (100vw - 320px) / 1680);
+              .project-content {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 200vw;
+
+                @include breakpoint(large) {
+                  flex-wrap: wrap;
+                  width: 100%;
+                }
+
+                .tags {
+                  margin-left: 16px;
+                  display: none;
+
+                  @include breakpoint(medium) {
+                    display: initial;
+                  }
+                }
+              }
+
+              &:hover {
+                h1,
+                .tags {
+                  color: $accent;
+                  p {
+                    background-color: $accent;
+                    color: $white;
+                    border-color: $accent;
+                  }
+                }
+              }
             }
-          }
-
-          &:hover {
-            color: $accent;
           }
         }
       }

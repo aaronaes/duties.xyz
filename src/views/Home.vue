@@ -1,80 +1,62 @@
 <template>
-  <transition name="page" mode="out-in">
-    <main class="feed">
-      <!-- Masthead -->
-      <Masthead></Masthead>
+  <main>
+    <!-- Masthead -->
+    <Masthead></Masthead>
 
-      <!-- Project List -->
-      <ProjectList :projects="projects" />
+    <!-- Project List -->
+    <ProjectList :projects="projects" />
 
-      <!-- About -->
-      <section class="content-block viewAll">
-        <article>
-          <figure>
-            <div class="nav-item">
-              <h2 class="title">
-                <router-link :to="{ name: 'Projects' }">
-                  All work
-
-                  <svg
-                    width="525"
-                    height="146"
-                    viewBox="0 0 525 146"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M203.038 5.71637C207.038 5.71637 489.038 -13.2836 519.038 49.2164C549.038 111.716 296.538 139.716 252.038 141.216C207.538 142.716 6.53841 148.716 3.03841 93.2163C0.238414 48.8163 151.205 26.383 227.038 20.7163C281.705 18.383 401.338 19.9163 442.538 44.7163"
-                      stroke="#E5594D"
-                      class="path"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </router-link>
-              </h2>
-            </div>
-          </figure>
-        </article>
-      </section>
-      <section class="content-block studio-block">
-        <article>
-          <figure class="studio-image">
-            <img
-              src="https://img2.storyblok.com/1300x0/filters:quality(85):format(webp)/f/69091/2814x4200/0af3e7802e/20200127-bedow000280-11a.jpg"
-              alt=""
-            />
-          </figure>
-          <figure class="text-container">
-            <div class="text-block">
-              <h2 class="body-text">
-                We work at the intersection of visual and functional design;
-                focusing on brand identity design, product strategy, web and
-                native application development plus a bit of xyz…
-              </h2>
-            </div>
-            <div class="text-block align-bottom">
-              <p>
-                <router-link class="text-link" :to="{ name: 'About' }">
-                  Read more
-                </router-link>
-              </p>
-            </div>
-          </figure>
-        </article>
-      </section>
-      <Footer />
-    </main>
-  </transition>
+    <!-- About -->
+    <section class="content-block viewAll">
+      <article>
+        <figure>
+          <div class="nav-item heading">
+            <h2 class="title">
+              <router-link :to="{ name: 'Projects' }">
+                View all projects
+                <span class="arrow">&rarr;</span>
+              </router-link>
+            </h2>
+          </div>
+        </figure>
+      </article>
+    </section>
+    <section class="content-block studio-block">
+      <article>
+        <figure class="studio-image">
+          <img
+            src="https://img2.storyblok.com/1300x0/filters:quality(85):format(webp)/f/69091/2814x4200/0af3e7802e/20200127-bedow000280-11a.jpg"
+            alt=""
+          />
+        </figure>
+        <figure class="text-container">
+          <blockquote class="text-block">
+            <h3 class="body-text">
+              We work at the intersection of visual and functional design;
+              focusing on brand identity design, product strategy, web and
+              native application development plus a bit of xyz…
+            </h3>
+          </blockquote>
+          <blockquote class="link-block">
+            <h3>
+              <router-link :to="{ name: 'About' }">
+                Read more
+              </router-link>
+            </h3>
+          </blockquote>
+        </figure>
+      </article>
+    </section>
+    <Footer />
+  </main>
 </template>
 
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
-import Footer from "@/components/Footer.vue";
 import Masthead from "@/components/Masthead.vue";
 import ProjectList from "@/components/ProjectList.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Home",
@@ -183,6 +165,9 @@ export default {
                 projectThumbnail {
                   url
                 }
+                projectBanner {
+                  url
+                }
                 isDevice
                 isWebsite
               }
@@ -207,6 +192,11 @@ export default {
         `
       });
       return data.frontpage;
+    }
+  },
+  computed: {
+    pageName() {
+      return this.$route.name;
     }
   },
   beforeCreate: function() {
