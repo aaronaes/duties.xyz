@@ -1,96 +1,251 @@
-// // Mixins //
+// ==============================
 
-// @mixin clamp(
-//   $property,
-//   $min-size,
-//   $scaler,
-//   $max-size,
-//   $min-size-left: false,
-//   $scaler-left: false,
-//   $max-size-left: false
-// ) {
-//   @if $min-size-left == false {
-//     #{$property}: $max-size;
-//     #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"};
-//     #{$property}: clamp($min-size, $scaler, $max-size);
-//   } @else if $min-size-left == 0 or $min-size-left == auto {
-//     #{$property}: $max-size $min-size-left;
-//     #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}
-//       $min-size-left;
-//     #{$property}: clamp($min-size, $scaler, $max-size) $min-size-left;
-//   } @else {
-//     #{$property}: $max-size $min-size-left;
-//     #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}
-//       #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"};
-//     #{$property}: clamp($min-size-left, $scaler-left, $max-size-left);
-//   }
-// }
+$lock-min: 576px;
+$lock-max: 1680px;
 
-// Fluid type
+// ==============================
+// Font-size Mixin
+// ==============================
 
-@mixin interpolate(
-  $properties,
-  $min-screen,
-  $max-screen,
-  $min-value,
-  $max-value
+//  default font scale bounding
+$font-lock-min: $lock-min !default;
+$font-lock-max: $lock-max !default;
+
+//  font-size
+@mixin font-size(
+  $min,
+  // font-size
+    $max: null,
+  // optional maximum font size
+    $lock-min: $font-lock-min,
+  // optional minimum viewport width
+    $lock-max: $font-lock-max // optional maximum viewport width
 ) {
   & {
-    @each $property in $properties {
-      #{$property}: $min-value;
-    }
-
-    @media screen and (min-width: $min-screen) {
-      @each $property in $properties {
-        #{$property}: calc-interpolation(
-          $min-screen,
-          $min-value,
-          $max-screen,
-          $max-value
+    font-size: $min;
+  }
+  @if $max {
+    @media (min-width: $lock-min) {
+      & {
+        font-size: calc(
+          #{$min} + #{num($max) - num($min)} * (100vw - #{$lock-min}) / #{num(
+              $lock-max
+            ) - num($lock-min)}
         );
       }
     }
-
-    @media screen and (min-width: $max-screen) {
-      @each $property in $properties {
-        #{$property}: $max-value;
+    @media (min-width: $lock-max) {
+      & {
+        font-size: $max;
       }
     }
   }
 }
 
-// Requires the calc-interpolation function which can also be used independently
+//  strip units helper function
+@function num($input) {
+  @return $input/($input * 0 + 1);
+}
 
-@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
-  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
-  $b: $min-value - $a * $min-screen;
+// ==============================
+// Spacing Mixin
+// ==============================
 
-  $sign: "+";
-  @if ($b < 0) {
-    $sign: "-";
-    $b: abs($b);
+$spacing-sizes: (
+  "x0": 0,
+  "x0p125": calc(100vw * 0.125 / 25),
+  "x0p25": calc(100vw * 0.25 / 25),
+  "x0p5": calc(100vw * 0.5 / 25),
+  "x1": calc(100vw * 1 / 25),
+  "x1p5": calc(100vw * 1.5 / 25),
+  "x2": calc(100vw * 2 / 25),
+  "x3": calc(100vw * 3 / 25),
+  "x4": calc(100vw * 4 / 25),
+  "x5": calc(100vw * 5 / 25)
+) !default;
+
+$spacing-important: true !default;
+
+@mixin m($t: 1, $r: null, $b: null, $l: null) {
+  @if ($t and $r and $b and $l) {
+    @include mt($t);
+    @include mr($r);
+    @include mb($b);
+    @include ml($l);
+  } @else if ($t and $r and $b and not $l) {
+    @include mt($t);
+    @include mx($r);
+    @include mb($b);
+  } @else if ($t and $r and not $b and not $l) {
+    @include my($t);
+    @include mx($r);
+  } @else if ($t and not $r and not $b and not $l) {
+    @if ($t == "auto") {
+      @include my(0); //be explicit about what the browser does
+      @include mx(auto);
+    } @else {
+      @include my($t);
+      @include mx($t);
+    }
+  } @else {
+    @error "m(#{$t}, #{$r}, #{$b}, #{$l}): Invalid parameters. Expects m($size), m($y, $x), m($t, $x, $b) or m($t, $r, $b, $l)";
   }
-  @return calc(#{$a * 100}vw #{$sign} #{$b});
 }
 
-// Indrek Pass also has a fantastic mixin here: http://sassmeister.com/gist/7f22e44ace49b5124eec
-
-/* Single property */
-html {
-  @include interpolate(font-size, 320px, 1366px, 16px, 22px);
+@mixin mx($r: 1, $l: null) {
+  @if ($r and $l) {
+    @include mr($r);
+    @include ml($l);
+  } @else if ($r and not $l) {
+    @include mr($r);
+    @include ml($r);
+  } @else {
+    @error "mx(#{$r}, #{$l}): Invalid parameters. Expects mx($size) or mx($r, $l)";
+  }
 }
 
-/* Multiple properties with same values */
-h1,
-h2,
-h3,
-h4,
-h5 {
-  @include interpolate(
-    (padding-top, padding-bottom),
-    20rem,
-    70rem,
-    0rem,
-    0.5rem
-  );
+@mixin my($t: 1, $b: null) {
+  @if ($t and $b) {
+    @include mt($t);
+    @include mb($b);
+  } @else if ($t and not $b) {
+    @include mt($t);
+    @include mb($t);
+  } @else {
+    @error "my(#{$t}, #{$b}): Invalid parameters. Expects my($size) or my($t, $b)";
+  }
+}
+
+@mixin ml($size: 1) {
+  @if ($size == "auto") {
+    margin-left: auto #{if($spacing-important, "!important", "")};
+  } @else {
+    margin-left: map-get($spacing-sizes, $size)
+      #{if($spacing-important, "!important", "")};
+  }
+}
+
+@mixin mt($size: 1) {
+  margin-top: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+@mixin mr($size: 1) {
+  @if ($size == "auto") {
+    margin-right: auto #{if($spacing-important, "!important", "")};
+  } @else {
+    margin-right: map-get($spacing-sizes, $size)
+      #{if($spacing-important, "!important", "")};
+  }
+}
+
+@mixin mb($size: 1) {
+  margin-bottom: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+@mixin p($t: 1, $r: null, $b: null, $l: null) {
+  @if ($t and $r and $b and $l) {
+    @include pt($t);
+    @include pr($r);
+    @include pb($b);
+    @include pl($l);
+  } @else if ($t and $r and $b and not $l) {
+    @include pt($t);
+    @include px($r);
+    @include pb($b);
+  } @else if ($t and $r and not $b and not $l) {
+    @include py($t);
+    @include px($r);
+  } @else if ($t and not $r and not $b and not $l) {
+    @include py($t);
+    @include px($t);
+  } @else {
+    @error "p(#{$t}, #{$r}, #{$b}, #{$l}): Invalid parameters. Expects p($size), p($y, $x), p($t, $x, $b) or p($t, $r, $b, $l)";
+  }
+}
+
+@mixin px($r: 1, $l: null) {
+  @if ($r and $l) {
+    @include pr($r);
+    @include pl($l);
+  } @else if ($r and not $l) {
+    @include pr($r);
+    @include pl($r);
+  } @else {
+    @error "px(#{$r}, #{$l}): Invalid parameters. Expects px($size) or px($r, $l)";
+  }
+}
+
+@mixin py($t: 1, $b: null) {
+  @if ($t and $b) {
+    @include pt($t);
+    @include pb($b);
+  } @else if ($t and not $b) {
+    @include pt($t);
+    @include pb($t);
+  } @else {
+    @error "py(#{$t}, #{$b}): Invalid parameters. Expects py($size) or py($t, $b)";
+  }
+}
+
+@mixin pl($size: 1) {
+  padding-left: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+@mixin pt($size: 1) {
+  padding-top: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+@mixin pr($size: 1) {
+  padding-right: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+@mixin pb($size: 1) {
+  padding-bottom: map-get($spacing-sizes, $size) #{if(
+      $spacing-important,
+      "!important",
+      ""
+    )};
+}
+
+// ==========================================================
+//  CSS Grid Mixins (take one)
+// ==========================================================
+
+@mixin display-grid {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+}
+
+@mixin display-grid-24 {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+@mixin grid-child($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
 }

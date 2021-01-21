@@ -4,10 +4,12 @@
 @import url("https://rsms.me/inter/inter.css");
 html {
   font-family: "Inter", sans-serif;
+  font-display: auto;
 }
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
+    font-display: auto;
   }
 }
 
@@ -69,7 +71,7 @@ $white: #ffffff;
 $sand: #f1f0ee;
 $grey: #c5c1bc;
 $black: #17171c;
-$accent: #e5594d;
+$accent: #ff4f3e;
 
 // Fonts
 $font-inter: "Inter", sans-serif;
@@ -87,8 +89,6 @@ $grid-padding-gutters: 1.25rem;
 $grid-margin-gutters: 2.5rem;
 
 // Padding Increments
-$neg: -1;
-
 $x0p125: calc(100vw * 0.125 / 25);
 $x0p25: calc(100vw * 0.25 / 25);
 $x0p5: calc(100vw * 0.5 / 25);
@@ -103,18 +103,9 @@ $x7: calc(100vw * 7 / 25);
 $x8: calc(100vw * 8 / 25);
 $x9: calc(100vw * 9 / 25);
 $x10: calc(100vw * 10 / 25);
-$x11: calc(100vw * 11 / 25);
-$x12: calc(100vw * 12 / 25);
-$x13: calc(100vw * 13 / 25);
-$x14: calc(100vw * 14 / 25);
-$x15: calc(100vw * 15 / 25);
-$x16: calc(100vw * 16 / 25);
-$x17: calc(100vw * 17 / 25);
-$x18: calc(100vw * 18 / 25);
-$x19: calc(100vw * 19 / 25);
-$x20: calc(100vw * 20 / 25);
-$x21: calc(100vw * 21 / 25);
-$x22: calc(100vw * 22 / 25);
-$x23: calc(100vw * 23 / 25);
-$x24: calc(100vw * 24 / 25);
-$x25: calc(100vw * 25 / 25);
+
+// Includes
+$grid: (
+  cols: repeat(25, 1fr),
+  gap: 0px
+);

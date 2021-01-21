@@ -8,7 +8,7 @@ body {
         article {
           margin-top: $x4;
           margin-bottom: $x1;
-          grid-column: 2 / 25;
+          grid-column: 1 / 26;
 
           @include breakpoint(medium) {
           }
@@ -69,7 +69,7 @@ body {
                   //     overflow: visible;
 
                   //     .path {
-                  //       animation: dash 300ms cubic-bezier(0.75, 0, 0.75, 1)
+                  //       animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
                   //         forwards;
                   //     }
                   //   }
@@ -83,62 +83,278 @@ body {
 
       &.studio-block {
         background-color: $black;
+        @include py(x1);
+        @include mt(x1);
+
+        @include breakpoint(large) {
+          @include py(x0p5);
+        }
 
         article {
-          display: grid;
-          grid-template-columns: repeat(25, 1fr);
+          grid-column: 1 / 26;
+          @include display-grid;
+          @include mt(x0);
 
           figure {
             &.studio-image {
-              grid-column: 2 / 25;
-              padding-top: $x1;
-              padding-bottom: $x1;
+              grid-column: 1 / 26;
+              @include mb(x0p5);
 
               img {
                 width: 100%;
-                height: 30vh;
+                max-height: 30vh;
+                overflow: hidden;
                 object-fit: cover;
-                object-position: 0% 40%;
+                object-position: 0% 50%;
               }
 
               @include breakpoint(medium) {
-                grid-column: 2 / 13;
-                padding-top: $x2;
-                padding-bottom: 0;
+                grid-column: 1 / 20;
+              }
 
+              @include breakpoint(large) {
+                grid-column: 1 / 9;
                 img {
-                  width: 100%;
-                  height: 40vh;
-                  object-fit: cover;
-                  object-position: 0% 20%;
+                  max-height: 25vh;
                 }
               }
             }
 
             &.text-container {
-              grid-column: 2 / 25;
-              margin-top: $x2;
-
-              * {
-                color: $white !important;
-              }
+              display: grid;
+              grid-column: 1 / 26;
+              align-items: space-between;
 
               blockquote {
+                color: $white;
+
                 &.text-block {
-                  padding-bottom: $x0p5;
+                  grid-row: 1;
+                  margin-bottom: $x1;
+
+                  h1,
+                  h2,
+                  h3 {
+                    &:before {
+                      content: "Studio";
+                      text-transform: uppercase;
+                      font-family: $font-tex-cond;
+
+                      @include pr(x0p125);
+                      @include font-size(18px, 24px);
+                    }
+                  }
+
+                  h3 {
+                    &.body-text {
+                      @include pb(x0p25);
+                    }
+                  }
+
+                  a {
+                    color: $white;
+
+                    &:hover {
+                      color: $accent;
+                    }
+                  }
                 }
 
                 &.link-block {
+                  grid-row: 2;
+                  align-self: end;
+
                   a {
-                    color: rgba($black, $alpha: 1);
-                    box-shadow: 0px -2px 0px $accent inset;
+                    color: $white;
+
+                    &:hover {
+                      color: $accent;
+                    }
                   }
                 }
               }
 
               @include breakpoint(medium) {
-                grid-column: 15 / 25;
-                padding-bottom: $x1;
+                grid-column: 1 / 26;
+              }
+
+              @include breakpoint(large) {
+                grid-column: 13 / 26;
+              }
+            }
+          }
+        }
+      }
+
+      &.test-block {
+        background-color: $sand;
+        margin-top: 0;
+        @include py(x1);
+
+        @include breakpoint(medium) {
+          @include py(x0p5);
+        }
+
+        @include breakpoint(large) {
+          @include py(x0p25);
+        }
+
+        article {
+          grid-column: 1 / 26;
+
+          @include display-grid;
+          @include mt(x0);
+
+          figure {
+            &.text-container {
+              grid-column: 1 / 26;
+              position: relative;
+
+              @include display-grid;
+
+              blockquote {
+                &.title-block {
+                  grid-row: 1;
+                  grid-column: 1 / 13;
+
+                  h1 {
+                    display: block !important;
+                    width: 100%;
+                  }
+                }
+              }
+
+              @include breakpoint(medium) {
+                &.title-block {
+                  grid-row: 1;
+                  grid-column: 1 / 13;
+
+                  h1 {
+                    display: block !important;
+                    width: 100%;
+                  }
+                }
+              }
+
+              .text-block {
+                grid-row: 2;
+                grid-column: 1 / 26;
+                position: relative;
+
+                @include breakpoint(medium) {
+                  grid-row: 1;
+                  grid-column: 13 / 26;
+
+                  h1 {
+                    display: block !important;
+                    width: 100%;
+                  }
+                }
+
+                .title {
+                  @include pb(x0p25);
+                }
+
+                .body {
+                  @include pb(x0p25);
+                }
+
+                a {
+                  color: $black;
+                  &:hover {
+                    color: $accent;
+                  }
+                }
+              }
+
+              .image-carousel {
+                position: relative;
+                @include pb(x0p25);
+
+                .swiper-container {
+                  position: relative;
+                  width: 100%;
+
+                  .swiper-wrapper {
+                    cursor: initial;
+                    width: auto;
+                    position: relative;
+
+                    .swiper-slide {
+                      height: clamp(320px, 30vw, 600px);
+                      width: auto;
+
+                      .slide-img {
+                        height: 100%;
+
+                        img {
+                          height: 100%;
+                          margin: 0;
+                          width: auto;
+                        }
+                      }
+                    }
+                  }
+
+                  .slide-caption {
+                    position: fixed;
+                    width: auto;
+                    bottom: 1vw;
+                    left: 0;
+                  }
+                }
+
+                .swiper-button-prev,
+                .swiper-button-next {
+                  position: absolute;
+                  top: 0%;
+                  width: 50%;
+                  height: 100%;
+                  margin: 0;
+                  padding: 0;
+                  z-index: 9999;
+                  cursor: pointer;
+                  display: block;
+                  align-items: center;
+                  justify-content: center;
+
+                  &:after {
+                    content: "";
+                  }
+                }
+
+                .swiper-button-prev {
+                  cursor: w-resize;
+                }
+
+                .swiper-button-next {
+                  cursor: e-resize;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                }
+              }
+
+              .swiper-pagination {
+                grid-row: 1;
+                grid-column-start: 1;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                text-align: left;
+                transition: 500ms opacity;
+                z-index: 9999;
+                text-align: left;
+                font-size: calc(30px + 74 * (100vw - 576px) / 1104);
+                letter-spacing: -6px;
+
+                span {
+                  &.swiper-pagination-current,
+                  &.swiper-pagination-total {
+                    letter-spacing: -3px;
+                    font-weight: normal;
+                  }
+                }
               }
             }
           }

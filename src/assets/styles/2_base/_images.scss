@@ -1,8 +1,9 @@
 img {
-  width: 100%;
+  display: inline-block;
+  border: 0;
+  vertical-align: middle;
   height: auto;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
 }
 
 video {
@@ -12,17 +13,16 @@ video {
 
 img[lazy="loaded"] {
   animation: fadeIn 300ms $easing;
+  animation-delay: 300ms;
   animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    filter: blur(16px);
   }
 
   100% {
     opacity: 1;
-    filter: blur(0px);
   }
 }

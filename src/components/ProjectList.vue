@@ -9,18 +9,15 @@
         isMini: project.readMore === false
       }"
     >
-      <div class="summary-block">
-        <a
-          :href="project.siteLink"
-          @click="e => handleProjectClick(e, project)"
-        >
-          <figure
-            class="imgBox fade-up"
+      <figure class="summary-block">
+        <a @click="e => handleProjectClick(e, project)">
+          <div
+            class="imgBox fade-in"
             :class="project.coverSize"
             v-in-viewport.once
           >
             <div
-              class="img"
+              class="img-container"
               :class="{
                 device: project.isDevice,
                 website: project.isWebsite
@@ -34,13 +31,29 @@
             <figcaption>
               <div class="body-text markdown">
                 <blockquote class="heading">
-                  <h2
-                    class="markdown title"
+                  <p
+                    v-if="project.readMore === true"
+                    class="title"
                     v-show="project.title.length > 0"
                     v-html="project.title"
+                  >
+                    :
+                  </p>
+                  <h2
+                    v-if="project.readMore === true"
+                    class="markdown title"
+                    v-show="project.subtitle.length > 0"
+                    v-html="project.subtitle"
                   ></h2>
+
+                  <p
+                    v-if="project.readMore === false"
+                    class="markdown"
+                    v-show="project.subtitle.length > 0"
+                    v-html="project.subtitle"
+                  ></p>
                 </blockquote>
-                <div class="tags float-left">
+                <div class="tags hide">
                   <p
                     class="body-text markdown"
                     v-for="(category, i) in project.categories"
@@ -51,13 +64,13 @@
                 </div>
               </div>
             </figcaption>
-          </figure>
+          </div>
         </a>
-      </div>
+      </figure>
     </article>
-    <div v-if="isOpen" :key="$route.params.id">
+    <article class="project-wrap" v-if="isOpen" :key="$route.params.id">
       <router-view :key="'a' + $route.params"></router-view>
-    </div>
+    </article>
   </section>
 </template>
 
@@ -82,9 +95,9 @@ export default {
     },
     getSrcSet(url) {
       return `
-        ${imgix({ url: url, w: 640, q: 60 })} 640w,
-        ${imgix({ url: url, w: 768, q: 60 })} 768w,
-        ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+        ${imgix({ url: url, w: 640, q: 40 })} 640w,
+        ${imgix({ url: url, w: 768, q: 40 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 40 })} 1024w,
         ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
         ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
         ${imgix({ url: url, w: 1920, q: 60 })} 1920w

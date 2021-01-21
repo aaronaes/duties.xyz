@@ -1,62 +1,101 @@
 body {
   &.overview {
-    .projectOverview {
-      display: grid;
-      grid-template-columns: repeat(25, 1fr);
-      margin-top: $x2;
+    section {
+      &.projectOverview {
+        margin-top: $x2;
+        @include display-grid;
 
-      @include breakpoint(medium) {
-        margin-top: $x4;
-      }
+        article {
+          &.project-grid {
+            @include display-grid;
+            grid-column: 1 / 26;
 
-      a {
-        display: inline-block;
-        border-bottom: 2px solid $grey;
+            figure {
+              grid-column: 1 / 26;
 
-        &:hover {
-          border-bottom: 2px solid $black;
-        }
-      }
+              ul {
+                list-style: none;
+                @include p(x0);
+                @include m(x0);
 
-      figure {
-        &.project-grid {
-          grid-column: 2 / 25;
-
-          .project-item {
-            margin-bottom: 8px;
-            a {
-              border-bottom: none !important;
-
-              .project-content {
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: flex-start;
-                width: 200vw;
-
-                @include breakpoint(large) {
+                li {
+                  display: flex;
                   flex-wrap: wrap;
+                  flex-direction: row;
+                  justify-content: flex-start;
                   width: 100%;
-                }
-
-                .tags {
-                  margin-left: 16px;
-                  display: none;
+                  list-style: none !important;
 
                   @include breakpoint(medium) {
-                    display: initial;
+                    width: 200vw;
                   }
-                }
-              }
 
-              &:hover {
-                h1,
-                .tags {
-                  color: $accent;
-                  p {
-                    background-color: $accent;
-                    color: $white;
-                    border-color: $accent;
+                  a {
+                    text-decoration: none;
+
+                    .project-content {
+                      display: flex;
+                      flex-wrap: wrap;
+                      flex-direction: row;
+                      width: 200vw;
+                      justify-content: flex-start;
+                      align-items: flex-end;
+
+                      @include breakpoint(large) {
+                        flex-wrap: wrap;
+                        width: 100%;
+                      }
+
+                      h1 {
+                        text-transform: uppercase;
+                        pointer-events: all;
+                        cursor: pointer;
+                        @include font-size(48px, 156px);
+                        line-height: 0.85;
+                        transition: color 150ms $easing;
+                        will-change: color;
+                      }
+
+                      .tags {
+                        display: none;
+                        @include ml(x0p25);
+
+                        p {
+                          display: inline-block;
+                          margin-bottom: clamp(4px, 0.5vw, 12px);
+                          transition: all 150ms ease-in-out;
+                          vertical-align: baseline;
+                        }
+
+                        @include breakpoint(medium) {
+                          display: initial;
+                        }
+                      }
+                    }
+
+                    &:hover {
+                      h1 {
+                        color: $white;
+                      }
+
+                      .tags {
+                        p {
+                          background-color: $black;
+                          color: $white;
+                          border-color: $black;
+                        }
+                      }
+                    }
+                  }
+
+                  &.isOpen {
+                    pointer-events: none;
+                    cursor: pointer;
+                    a {
+                      h1 {
+                        text-decoration: line-through;
+                      }
+                    }
                   }
                 }
               }

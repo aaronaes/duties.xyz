@@ -1,31 +1,4 @@
-.page-wrapper {
-  transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
-  will-change: background-color, color;
-
-  .light-theme {
-    background: $white;
-    color: $black;
-  }
-
-  .dark-theme {
-    background: $black;
-    color: $grey;
-  }
-}
-
-// Foundation code
-.grid-container {
-  width: 100%;
-  max-width: calc(100% - #{$x2});
-}
-
-.grid-padding-x > .cell {
-  padding-right: $grid-padding-gutters;
-  padding-left: $grid-padding-gutters;
-}
-
 // THEMES //
-
 body {
   transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   will-change: background-color, color;
@@ -36,17 +9,39 @@ body {
   }
 
   &.overview {
-    background-color: $grey;
+    background-color: $sand;
+
+    .logo {
+      svg {
+        path {
+          fill: $black;
+        }
+      }
+    }
+
+    * {
+      color: $black;
+
+      &:hover {
+        color: $accent !important;
+      }
+    }
   }
 
   &.about {
     color: $grey;
     background-color: $black;
 
+    .logo {
+      svg {
+        fill: $accent !important;
+      }
+    }
+
     a {
-      color: $grey !important;
+      color: $grey;
       &:hover {
-        color: $accent;
+        color: $accent !important;
       }
     }
 
@@ -61,5 +56,71 @@ body {
 article {
   & > * + * {
     margin: 0;
+  }
+}
+
+body {
+  section,
+  header {
+    article {
+      @include display-grid;
+      @include pl(x0p5);
+      @include pr(x0p5);
+      @include mt(x0p5);
+
+      figure {
+        @include pl(x0p5);
+        @include pr(x0p5);
+      }
+
+      @include breakpoint(large) {
+        @include pl(x0p25);
+        @include pr(x0p25);
+
+        figure {
+          @include pl(x0p25);
+          @include pr(x0p25);
+        }
+      }
+
+      @include breakpoint(xx-large) {
+        @include pl(x0p125);
+        @include pr(x0p125);
+
+        figure {
+          @include pl(x0p125);
+          @include pr(x0p125);
+        }
+      }
+    }
+  }
+
+  &.project {
+    section {
+      nav {
+        @include pl(x0p25);
+        @include pr(x0p25);
+
+        @include breakpoint(medium) {
+          @include pl(x0p125);
+          @include pr(x0p125);
+        }
+      }
+      article {
+        padding: 0;
+
+        @include breakpoint(medium) {
+          padding: 0;
+        }
+
+        figure {
+          padding: 0;
+
+          @include breakpoint(medium) {
+            padding: 0;
+          }
+        }
+      }
+    }
   }
 }

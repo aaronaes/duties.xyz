@@ -3,29 +3,30 @@
     <section class="footer-block">
       <article class="align-center">
         <figure class="block-inner">
-          <h2 class="markdown">
+          <h3 class="tagline">
             Want to work with us on your next project? We’d love to hear from
             you.
-          </h2>
+          </h3>
         </figure>
         <figure class="block-inner">
           <div class="contact">
-            <p>
-              <a class="text-link" href="#" target="_blank">new@duties.xyz</a>
-            </p>
-            <p>
-              <a class="text-link" href="#" target="_blank">+47 986 60 788</a>
-            </p>
+            <a href="#" target="_blank">
+              <h1>
+                new@duties.xyz
+              </h1>
+            </a>
           </div>
         </figure>
-        <figure class="block-inner links">
-          <div class="links">
-            <p v-for="link in frontpage.contact" :key="link.id">
-              <a class="text-link" :href="link.linkUrl" target="_blank">{{
-                link.linkTitle
-              }}</a>
-            </p>
-          </div>
+        <figure class="block-inner">
+          <ul class="links">
+            <li v-for="link in frontpage.contact" :key="link.id">
+              <a class="title" :href="link.linkUrl" target="_blank">
+                <p class="heading">
+                  {{ link.linkTitle }}
+                </p>
+              </a>
+            </li>
+          </ul>
         </figure>
       </article>
     </section>

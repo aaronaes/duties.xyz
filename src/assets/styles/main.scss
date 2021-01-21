@@ -13,6 +13,7 @@ CSS file.
 
 // Import foundation.scss from vendor files
 @import "~foundation-sites/scss/foundation";
+@import "~foundation-sites/scss/util/mixins";
 
 // Select the grid you would like to use
 @include foundation-global-styles;

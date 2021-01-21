@@ -1,98 +1,92 @@
 body {
   footer {
-    display: grid;
-    grid-template-columns: repeat(25, 1fr);
-    margin-top: $x2;
-
-    @include breakpoint(medium) {
-      margin-top: $x4;
-    }
+    @include display-grid;
 
     .footer-block {
       grid-column: 1 / 26;
-      margin-bottom: 0px;
-      padding-bottom: 0px;
 
       article {
-        display: grid;
-        grid-template-columns: repeat(25, 1fr);
-        grid-template-rows: auto;
-        align-content: end;
-        padding: 0;
+        @include display-grid;
+        @include mb(x0p25);
+
+        @include display-grid;
+        @include px(x0p5);
+        @include mt(x2);
+
+        figure {
+          @include px(x0p5);
+        }
+
+        @include breakpoint(medium) {
+          @include px(x0p25);
+
+          figure {
+            @include px(x0p25);
+          }
+        }
+
+        @include breakpoint(large) {
+          @include px(x0p125);
+
+          figure {
+            @include pl(x0p125);
+            @include pr(x0p125);
+          }
+        }
 
         figure {
           &.block-inner {
-            grid-column: 2 / 25;
+            grid-column: 1 / 26;
 
             @include breakpoint(medium) {
-              grid-column: 2 / 15;
+              grid-column: 1 / 18;
             }
 
-            display: block;
-            margin: 0;
-            width: 100%;
-            margin-bottom: $x1;
+            @include breakpoint(medium) {
+              grid-column: 1 / 13;
+            }
+
+            .tagline {
+              grid-row: 1;
+            }
+
+            .contact {
+              grid-row: 2;
+              @include mt(x0);
+              @include mb(x1);
+
+              @include breakpoint(medium) {
+                @include mb(x0p5);
+              }
+
+              a {
+                text-decoration: none;
+                display: block;
+                width: auto;
+
+                h1 {
+                  @include font-size(40px, 156px);
+                  line-height: 1;
+                }
+              }
+            }
 
             ul {
-              li {
-                list-style: none;
-              }
-            }
+              &.links {
+                grid-column: 1 / 26;
 
-            &.links,
-            &.contact {
-              h2,
-              p {
-                display: inline-block;
-                float: left;
-                margin-right: $x0p5;
-              }
-            }
-          }
-        }
-      }
+                li {
+                  display: inline-block;
+                  @include mr(x0p5);
 
-      a {
-        color: $black !important;
+                  &:last-of-type {
+                    @include mr(x0);
+                  }
 
-        &:hover {
-          color: $black;
-        }
-      }
-
-      figure {
-        &.block-inner {
-          grid-column: 2 / 25;
-          display: flex;
-          margin: 0;
-          padding: 0;
-          justify-content: space-between;
-
-          @include breakpoint(medium) {
-            grid-column: 2 / 20;
-            padding-bottom: 0;
-          }
-
-          span {
-            display: flex;
-            justify-content: space-between;
-
-            a {
-              margin-right: $x0p25;
-              align-self: center;
-              border-bottom: transparent;
-
-              @include breakpoint(small down) {
-                margin-right: $x0p125;
-              }
-
-              &.top {
-                margin: 0;
-              }
-
-              p {
-                margin: 0;
-                padding: 0;
+                  h2 {
+                    display: inline-block;
+                  }
+                }
               }
             }
           }

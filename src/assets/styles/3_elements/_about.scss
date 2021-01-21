@@ -4,40 +4,32 @@ body.about {
   color: $grey;
 
   header {
-    position: relative !important;
+    position: relative;
 
-    nav {
+    article {
       .nav-item {
-        a {
+        a,
+        .router-link-exact-active {
           overflow: visible;
-          h1,
-          h2,
-          h3,
-          p {
-            color: $grey;
-            &.router-link-exact-active {
-              color: $grey;
-            }
 
-            &:hover,
-            &.router-link-exact-active {
-              color: $grey !important;
+          h1,
+          h2 {
+            color: $grey;
+          }
+
+          &:hover,
+          &.router-link-exact-active {
+            h1,
+            h2 {
+              color: $grey;
             }
           }
         }
 
-        &:nth-of-type(2) {
-          grid-area: b;
-
-          a {
-            height: 40px;
-            width: 100%;
-            overflow: visible;
-
-            svg {
-              path {
-                fill: $grey;
-              }
+        &.logo {
+          svg {
+            path {
+              fill: $grey;
             }
           }
         }
@@ -56,80 +48,109 @@ body.about {
 
     section {
       &.content-block {
-        margin-top: $x2;
-
-        @include breakpoint(medium) {
-          margin-top: $x4;
-        }
-
         article {
-          display: grid;
-          grid-template-columns: repeat(25, 1fr);
+          @include display-grid;
+          @include px(x0p5);
+
+          figure {
+            @include px(x0p5);
+          }
+
+          @include breakpoint(medium) {
+            @include px(x0p25);
+
+            figure {
+              @include px(x0p25);
+            }
+          }
+
+          @include breakpoint(large) {
+            @include px(x0p125);
+
+            figure {
+              @include px(x0p125);
+            }
+          }
         }
       }
 
       &.masthead {
-        figure {
-          max-width: 100%;
-          margin: 0;
+        article {
+          figure {
+            display: grid;
+            grid-template-columns: repeat(25, 1fr);
+            width: 100%;
+            grid-column: 2 / 18;
 
-          .dictionary {
-            .meta {
-              margin-top: $x0p25;
-              p {
-                span {
-                  &.icon {
-                    cursor: pointer;
-                    svg {
-                      transform: translateY(7px);
-                      margin-left: $x0p125;
-                      path {
-                        stroke-width: 4px;
+            .title {
+              grid-column: 1 / 26;
+              grid-row: 1;
+            }
+
+            .dictionary {
+              grid-column: 1 / 26;
+              grid-row: 2;
+
+              .meta {
+                margin-top: $x0p5;
+
+                p {
+                  span {
+                    &.icon {
+                      cursor: pointer;
+                      svg {
+                        transform: translateY(7px);
+                        margin-left: $x1;
+                        path {
+                          stroke-width: 4px;
+                        }
                       }
+                    }
+
+                    &.audio {
+                      color: $accent;
+                      font-size: 0.7em;
+                      text-transform: uppercase;
+                      font-weight: bold;
+                      letter-spacing: 2px;
+                      margin-left: $x0p5;
+                    }
+                  }
+                }
+              }
+
+              .meaning {
+                margin-top: $x0p5;
+                h2,
+                p {
+                  position: relative;
+                  margin-top: $x0p5;
+                  padding-left: $x0p5;
+
+                  &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    transform: translateX(-$x1p5);
+                    opacity: 0.5;
+                  }
+
+                  &:first-of-type {
+                    &:before {
+                      content: "1.";
+                    }
+                  }
+                  &:last-of-type {
+                    &:before {
+                      content: "2.";
                     }
                   }
 
-                  &.audio {
-                    color: $accent;
-                    font-size: 0.7em;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    letter-spacing: 2px;
+                  @include breakpoint(small) {
+                    margin-top: $x1;
                   }
-                }
-              }
-
-              .audio {
-                margin-top: $x0p25;
-                margin-bottom: $x0p25;
-              }
-            }
-
-            .meaning {
-              h2,
-              p {
-                margin-top: $x0p25;
-                margin-left: $x1p5;
-                &:before {
-                  content: "";
-                  position: absolute;
-                  transform: translateX(-$x1p5);
-                  opacity: 0.5;
-                }
-
-                &:first-of-type {
-                  &:before {
-                    content: "1.";
-                  }
-                }
-                &:last-of-type {
-                  &:before {
-                    content: "2.";
-                  }
-                }
-
-                @include breakpoint(small) {
-                  margin-top: $x0p125;
                 }
               }
             }
@@ -139,11 +160,83 @@ body.about {
 
       &.intro {
         article {
-          grid-template-columns: repeat(25, 1fr);
+          @include display-grid;
+          @include mt(x1);
 
-          figure {
-            &.block-inner {
-              grid-column: 2 / 25;
+          @include breakpoint(medium) {
+            @include mt(x2);
+          }
+
+          @include breakpoint(large) {
+            @include mt(x3);
+          }
+
+          &.block-inner {
+            figure {
+              grid-column: 1 / 26;
+
+              .highlight,
+              .highlight p {
+                color: $accent !important;
+              }
+
+              .fadeOut {
+                color: rgba($grey, $alpha: 0.05);
+              }
+
+              @media (hover: hover) {
+                pointer-events: all;
+              }
+
+              h2 {
+                &.markdown {
+                  pointer-events: none;
+                  white-space: pre-line;
+                  display: block;
+                  transition: color 500ms $easing;
+                  will-change: color;
+
+                  &:before {
+                    content: "Studio";
+                    text-transform: uppercase;
+                    font-family: $font-tex-cond;
+                    @include font-size(18px, 24px);
+                    @include pr(x0p125);
+                  }
+
+                  span.audio {
+                    pointer-events: all;
+                    cursor: help !important;
+                    display: inline-block;
+                    transition: color 500ms $easing;
+                    will-change: color;
+                  }
+                }
+
+                &:hover {
+                  pointer-events: none;
+                  color: rgba($grey, $alpha: 0.05);
+
+                  span.audio {
+                    opacity: 1;
+                    pointer-events: all;
+                    color: $accent;
+                  }
+
+                  &:after {
+                    opacity: 1;
+                    color: $accent;
+                  }
+                }
+              }
+
+              p.tagline {
+                @include font-size(18px, 24px);
+                color: rgba($grey, $alpha: 0.25);
+                transition: color 500ms $easing;
+                display: block;
+                @include pt(x0p125);
+              }
             }
           }
         }
@@ -153,113 +246,62 @@ body.about {
         article {
           &.image-grid {
             display: grid;
-            grid-template-columns: repeat(2, 50%);
-
-            @include breakpoint(medium) {
-              grid-template-columns: repeat(6, 1fr);
-            }
+            grid-template-columns: repeat(3, 1fr);
 
             figure {
               position: relative;
-              &:first-of-type {
-                grid-column: 1 / 2;
+              opacity: 0;
+              transition: opacity 300 $easing;
+              transition-delay: calc(0.1s * var(--index));
+
+              &.in-viewport {
+                opacity: 1;
               }
 
-              &:nth-of-type(2) {
-                grid-column: 2 / 3;
-              }
+              @include breakpoint(small only) {
+                @include px(x0p5);
+                grid-column: 1 / 4;
+                @include pb(x0);
 
-              @include breakpoint(medium) {
                 &:first-of-type {
-                  grid-column: 1 / 2;
+                  @include pr(x5);
+                  grid-row: 1;
                 }
 
                 &:nth-of-type(2) {
-                  grid-column: 3 / 5;
-                }
-              }
-
-              &:first-of-type {
-                padding-left: 0;
-                padding-right: $x2;
-
-                @include breakpoint(medium) {
+                  @include pl(x2);
+                  grid-row: 2;
                   grid-column: 1 / 3;
-                  grid-row: 1;
-                  padding-left: $x1;
-                  padding-right: $x1;
-                  margin: auto 0;
                 }
-              }
 
-              &:nth-of-type(2) {
-                padding-top: $x2;
-                padding-right: $x2;
-                padding-bottom: $x1;
-
-                @include breakpoint(medium) {
-                  grid-column: 3 / 5;
-                  grid-row: 1;
-                  padding-top: $x1;
-                  padding-left: $x1p5;
-                  padding-right: $x0p5;
-                }
-              }
-
-              &:nth-of-type(3) {
-                grid-column: 1 / 3;
-                padding-top: 0;
-                padding-top: $x2;
-                padding-right: $x6;
-                padding-bottom: $x2;
-
-                @include breakpoint(medium) {
-                  grid-column: 5 / 7;
-                  grid-row: 1;
-                  padding-left: $x1;
-                  padding-right: $x0p5;
-                }
-              }
-
-              &:nth-of-type(4) {
-                padding-top: $x1;
-                padding-left: $x2;
-                padding-right: $x1;
-
-                @include breakpoint(medium) {
-                  grid-column: 1 / 3;
+                &:nth-of-type(3) {
                   grid-row: 2;
-                  padding-top: 0;
-                  padding-left: $x1;
-                  padding-right: $x1;
+                  grid-column: 3 / 3;
                 }
               }
+            }
 
-              &:nth-of-type(5) {
-                padding-top: $x1;
-                padding-left: $x2;
+            @include breakpoint(medium) {
+              figure {
+                &:first-of-type {
+                  grid-row: 1;
+                  grid-column: 1 / 1;
+                }
 
-                @include breakpoint(medium) {
-                  grid-column: 3 / 5;
-                  grid-row: 2;
-                  padding-top: $x1p5;
-                  padding-right: $x1p5;
-                  padding-left: $x0p5;
+                &:nth-of-type(2) {
+                  grid-row: 1;
+                  grid-column: 2 / 2;
+                }
+
+                &:nth-of-type(3) {
+                  grid-row: 1;
+                  grid-column: 3 / 3;
                 }
               }
+            }
 
-              &:nth-of-type(6) {
-                padding-top: $x3;
-                padding-left: $x2;
-                padding-right: $x2;
-
-                @include breakpoint(medium) {
-                  grid-column: 5 / 7;
-                  grid-row: 2;
-                  padding-top: $x1;
-                  padding-right: 0;
-                  padding-left: $x1;
-                }
+            @include breakpoint(large) {
+              figure {
               }
             }
           }
@@ -269,78 +311,127 @@ body.about {
       &.services {
         article {
           &.block-inner {
-            margin-top: $x4;
+            .service-title {
+              grid-row: 1;
+              grid-column: 1 / 26;
 
-            figure {
-              grid-column: 2 / 25;
+              h1,
+              h2 {
+                &:before {
+                  content: "Services";
+                  text-transform: uppercase;
+                  font-family: $font-tex-cond;
 
-              .service-items {
-                &.title {
-                  grid-column: 2 / 25;
-                  grid-row: 1;
+                  @include pr(x0p5);
+                  @include font-size(18px, 24px);
                 }
+              }
+            }
 
-                &.body-text {
-                  margin-top: $x1;
-                  display: grid;
-                  grid-template-columns: repeat(25, 1fr);
+            .service-items {
+              grid-column: 1 / 26;
+              grid-row: 2;
+              @include display-grid;
+              @include mt(x1);
 
-                  .main-text-block {
-                    padding-bottom: $x1;
+              figure {
+                &.service-item {
+                  grid-column: 1 / 26;
+                  grid-row: 1;
+                  display: flex;
+
+                  @include breakpoint(medium) {
                     &:first-of-type {
-                      grid-column: 1 / 25;
-                      grid-row: 1;
+                      grid-column: 1 / 8;
                     }
 
                     &:nth-of-type(2) {
-                      grid-column: 1 / 25;
-                      grid-row: 2;
+                      grid-column: 8 / 15;
+                    }
+
+                    &:nth-of-type(3) {
+                      grid-column: 15 / 22;
+                    }
+                  }
+
+                  @include breakpoint(large) {
+                    &:first-of-type {
+                      grid-column: 1 / span 8;
+                    }
+
+                    &:nth-of-type(2) {
+                      grid-column: 9 / span 8;
                     }
 
                     &:last-of-type {
-                      grid-column: 1 / 25;
-                      grid-row: 3;
-                    }
-
-                    h3 {
-                      padding-bottom: $x0p25;
-                    }
-
-                    @include breakpoint(medium) {
-                      &:first-of-type {
-                        grid-column: 1 / 9;
-                        grid-row: 1;
-                        padding-right: $x0p5;
-                      }
-
-                      &:nth-of-type(2) {
-                        grid-column: 9 / 18;
-                        grid-row: 1;
-                        padding-left: $x0p5;
-                        padding-right: $x0p5;
-                      }
-
-                      &:last-of-type {
-                        grid-column: 18 / 26;
-                        grid-row: 1;
-                        padding-left: $x0p5;
-                      }
-                    }
-
-                    &.link {
-                      grid-column: 1 / 26;
-                      grid-row: 2;
-                      padding: 0;
+                      grid-column: 18 / span 8;
                     }
                   }
-                }
 
-                h1 {
-                  text-align: left;
-                  grid-row: 1;
+                  .heading {
+                    grid-column: 1 / 14;
+                    grid-row: 1;
+                    padding-left: $x0p125;
+                    padding-right: $x0p125;
 
-                  @include breakpoint(medium) {
-                    grid-column: 2 / 25;
+                    .title {
+                      position: relative;
+                      padding-left: $x0p5;
+
+                      span {
+                        position: absolute;
+                        color: $accent;
+                        left: 0;
+                        top: 0;
+                        @include font-size(14px, 20px);
+                      }
+                    }
+                  }
+
+                  .text-block {
+                    grid-column: 1 / 26;
+                    grid-row: 1;
+                    align-items: start;
+
+                    .icon {
+                      position: relative;
+                      font-family: $font-tex-bold;
+                      float: left;
+                      width: 2rem;
+                      color: $accent;
+                    }
+
+                    .body {
+                      float: left;
+
+                      .title.bold {
+                        font-family: $font-tex-bold;
+                        @include pb(x0p125);
+                      }
+
+                      p.markdown {
+                        ul {
+                          list-style: none;
+                          @include m(x0);
+                          @include p(x0);
+
+                          li {
+                            @include m(x0);
+                            @include p(x0);
+
+                            &:after {
+                              content: "→";
+                              padding-left: 0.5rem;
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    &.last {
+                      grid-row: 3;
+                      @include mt(x1);
+                    }
                   }
                 }
               }
@@ -350,10 +441,11 @@ body.about {
       }
 
       &.people {
-        margin-top: $x4;
-
         article {
-          grid-template-columns: repeat(25, 1fr);
+          grid-template-columns: repeat(24, 1fr);
+          padding: 0;
+
+          @include mt(x2);
 
           figure {
             &.person {
@@ -362,57 +454,44 @@ body.about {
               }
 
               .main-text-block {
-                margin-top: $x0p25;
-              }
-            }
+                h2,
+                h3,
+                p {
+                  display: block;
+                }
 
-            &:first-of-type {
-              grid-row: 1;
-              grid-column: 2 / 12;
-            }
-
-            &:nth-child(2) {
-              grid-row: 1;
-              grid-column: 15 / 25;
-            }
-
-            &:last-of-type {
-              grid-row: 1;
-              grid-column: 12 / span 3;
-              svg {
-                position: relative;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                height: calc(40px + 30 * (100vw - 375px) / 1680);
-
-                path {
-                  fill: $white;
+                .title {
+                  margin-top: $x0p125;
+                  margin-bottom: $x0p125;
                 }
               }
             }
 
-            @include breakpoint(large) {
-              &:first-of-type {
-                grid-row: 1;
-                grid-column: 3 / 12;
-              }
+            &:nth-child(odd) {
+              grid-column: 1 / 13;
+            }
 
-              &:nth-child(2) {
-                grid-row: 1;
-                grid-column: 15 / 24;
-              }
+            &:nth-child(even) {
+              grid-column: 13 / 25;
             }
 
             @include breakpoint(medium) {
-              &:first-of-type {
-                grid-row: 1;
-                grid-column: 2 / 12;
+              &:nth-child(odd) {
+                grid-column: 3 / 13;
               }
 
-              &:nth-child(2) {
-                grid-row: 1;
-                grid-column: 15 / 25;
+              &:nth-child(even) {
+                grid-column: 13 / 23;
+              }
+            }
+
+            @include breakpoint(x-large) {
+              &:nth-child(odd) {
+                grid-column: 5 / 13;
+              }
+
+              &:nth-child(even) {
+                grid-column: 13 / 21;
               }
             }
           }
@@ -421,22 +500,16 @@ body.about {
 
       &.marquee {
         width: 100vw;
+        @include mt(x2);
 
         article {
-          grid-template-columns: repeat(25, 1fr);
-
+          @include display-grid;
           grid-template-rows: auto;
 
           figure {
             &.block-inner {
-              grid-column: 2 / 15;
+              grid-column: 1 / 26;
               grid-row: 1;
-
-              h2,
-              h3,
-              p {
-                margin-bottom: $x1;
-              }
             }
 
             &.block-marquee {
@@ -455,47 +528,46 @@ body.about {
 
                 animation-iteration-count: infinite;
                 animation-timing-function: linear;
-                animation-direction: normal;
+                animation-direction: alternate-reverse;
                 animation-name: ticker;
-                animation-duration: 40s;
+                animation-duration: 80s;
 
                 will-change: transform;
 
-                &:hover {
-                  animation-play-state: paused;
-                }
-
                 @keyframes ticker {
                   0% {
-                    -webkit-transform: translate3d(0, 0, 0);
                     transform: translate3d(0, 0, 0);
                     visibility: visible;
                   }
 
-                  100% {
-                    -webkit-transform: translate3d(-100%, 0, 0);
+                  50% {
                     transform: translate3d(-100%, 0, 0);
+                  }
+
+                  100% {
+                    transform: translate3d(0, 0, 0);
                   }
                 }
 
                 &.inner.right {
                   animation-direction: alternate-reverse;
-                  animation-duration: 64s;
+                  animation-duration: 48s;
                 }
 
                 h1 {
                   position: relative;
                   display: inline-block;
                   white-space: nowrap;
-                  margin-right: $x0p25;
-                  font-size: calc(64px + 156 * (100vw - 375px) / 1680);
-                  line-height: calc(64px + 156 * (100vw - 375px) / 1680);
+                  margin-right: $x0p125;
+                  line-height: 0.825;
+
+                  @include font-size(72px, 192px);
 
                   &:before {
                     content: "•";
-                    line-height: calc(40px + 120 * (100vw - 375px) / 1680);
+                    color: $accent;
                     font-family: $font-tex-regular;
-                    padding-right: $x0p25;
+                    padding-right: $x0p125;
                   }
                 }
               }

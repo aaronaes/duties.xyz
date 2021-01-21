@@ -1,12 +1,50 @@
 <template>
   <main id="about">
-    <!-- <section class="grid-container masthead-block content-block masthead">
-      <figure class="grid-x grid-margin-x grid-padding-x align-center">
-        <div class="cell small-12 medium-10 block-inner">
-          <h1>Duty / Duties</h1>
+    <section class="content-block intro">
+      <article class="block-inner">
+        <figure>
+          <!-- <h2 class="markdown" v-html="getMarkdown(about.aboutUs)"></h2> -->
+          <h2
+            class="markdown fittext"
+            v-in-viewport.once="{ margin: '-5% 0%' }"
+            :class="{ fadeOut: isHovering }"
+          >
+            Established in 2020,
+            <span
+              class="audio"
+              ref="audioElm"
+              @click.prevent="
+                playSound(
+                  'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
+                )
+              "
+              @mouseover="isHovering = true"
+              @mouseout="isHovering = false"
+              :class="{ highlight: isHovering }"
+            >
+              Duties*
+            </span>
+            is an independent digital design studio based in Oslo. We believe
+            it’s our duty as designers to provide the world with thoughtfully
+            designed products that are both functional, accessible and visually
+            beautiful.
+          </h2>
+          <p class="tagline" :class="{ highlight: isHovering }">
+            * A moral or legal obligation a responsibility.
+          </p>
+        </figure>
+      </article>
+    </section>
+
+    <section class="content-block masthead hide">
+      <article class="block-inner">
+        <figure>
+          <div class="heading title">
+            <h2 class="title">Duty / Duties</h2>
+          </div>
           <div class="dictionary">
-            <div class="cell meta">
-              <p>
+            <div class="meta">
+              <p class="font-body">
                 / djuːti / <span>noun</span>
                 <span
                   class="audio icon"
@@ -39,7 +77,7 @@
                 </span>
               </p>
             </div>
-            <div class="cell meaning">
+            <div class="meaning">
               <p>
                 A moral or legal obligation; a responsibility.
               </p>
@@ -49,46 +87,52 @@
               </p>
             </div>
           </div>
-        </div>
-      </figure>
-    </section> -->
-
-    <section class="content-block intro">
-      <article>
-        <figure class="block-inner" v-in-viewport.once>
-          <h2 class="markdown" v-html="getMarkdown(about.aboutUs)"></h2>
         </figure>
       </article>
     </section>
 
     <section class="content-block studioImages">
       <article class="image-grid">
-        <figure class="fade-up" v-in-viewport.once>
+        <figure class="fade-in" v-in-viewport.once style="--index: 1;">
+          <img src="/images/about/studio-01.png" />
+        </figure>
+        <figure class="fade-in" v-in-viewport.once style="--index: 2;">
+          <img src="/images/about/studio-03.png" />
+        </figure>
+        <figure class="fade-in" v-in-viewport.once style="--index: 3;">
+          <img src="/images/about/studio-02.png" />
+        </figure>
+      </article>
+    </section>
+    <section class="content-block studioImages hide">
+      <article class="image-grid">
+        <figure class="fade-in" v-in-viewport.once style="--index: 1;">
           <img
             src="https://media1.tenor.com/images/f49ee9c7011c6dcfacc063b4b733b41d/tenor.gif?itemid=5143866"
           />
         </figure>
-        <figure class="fade-up" v-in-viewport.once>
+        <figure class="fade-in" v-in-viewport.once style="--index: 2;">
           <img
             src="https://www.datocms-assets.com/33121/1601924843-studioimage-01.jpg"
           />
         </figure>
-        <figure class="fade-up" v-in-viewport.once>
+        <figure class="fade-in" v-in-viewport.once style="--index: 6;">
           <img
             src="https://www.datocms-assets.com/33121/1601925059-studioshot-01.png?auto=format&ar=3154%3A1972&fit=max&ixlib=react-9.0.1&w=594"
           />
         </figure>
-        <figure class="fade-up" v-in-viewport.once>
+
+        <figure class="fade-in" v-in-viewport.once style="--index: 4;">
           <img
             src="https://www.datocms-assets.com/33121/1601926682-studioimg.png?auto=format&ar=740%3A852&fit=max&ixlib=react-9.0.1&w=282"
           />
         </figure>
-        <figure class="fade-up" v-in-viewport.once>
+        <figure class="fade-in" v-in-viewport.once style="--index: 3;">
           <img
             src="https://www.datocms-assets.com/33121/1598817693-img2924.jpg?auto=format&ar=3024%3A4032&fit=max&ixlib=react-9.0.1&w=442"
           />
         </figure>
-        <figure class="fade-up" v-in-viewport.once>
+        <figure class="fade-in" v-in-viewport.once style="--index: 5;">
           <img
             src="https://www.datocms-assets.com/33121/1601926752-img.png?auto=format&ar=500%3A530&fit=max&ixlib=react-9.0.1&w=380"
           />
@@ -98,99 +142,40 @@
 
     <section class="content-block services">
       <article class="block-inner">
-        <figure v-for="block in about.services" :key="block.id">
-          <div class="service-items title">
-            <h1>
-              Concepts. Branding. Design. Code. Products. UX. Apps. Websites.
-              One-pagers. XYZ...
-            </h1>
-            <br />
-          </div>
-          <div class="service-items body-text">
-            <div class="main-text-block heading">
-              <h3 class="title">Ideas</h3>
-              <p>
-                We work at the intersection of visual and functional design;
-                focusing on...
-              </p>
-              <ul style="list-style: arrow;">
-                <li>
-                  <p>Brand Identity</p>
-                </li>
-                <li>
-                  <p>Product Strategy</p>
-                </li>
-                <li>
-                  <p>Digital Design</p>
-                </li>
-                <li>
-                  <p>Tech development</p>
-                </li>
-              </ul>
-            </div>
-            <div class="main-text-block heading">
-              <h3 class="title">Products</h3>
-              <p>
-                We work at the intersection of visual and functional design;
-                focusing on...
-              </p>
-              <ul style="list-style: arrow;">
-                <li>
-                  <p>Brand Identity</p>
-                </li>
-                <li>
-                  <p>Product Strategy</p>
-                </li>
-                <li>
-                  <p>Digital Design</p>
-                </li>
-                <li>
-                  <p>Tech development</p>
-                </li>
-              </ul>
-            </div>
-            <div class="main-text-block heading">
-              <h3 class="title">Brands</h3>
-              <p>
-                We work at the intersection of visual and functional design;
-                focusing on...
-              </p>
-              <ul style="list-style: arrow;">
-                <li>
-                  <p>Brand Identity</p>
-                </li>
-                <li>
-                  <p>Product Strategy</p>
-                </li>
-                <li>
-                  <p>Digital Design</p>
-                </li>
-                <li>
-                  <p>Tech development</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="service-items body-text">
-            <div class="main-text-block link">
-              <p>
-                <span class="arrow">
-                  &rarr;
-                </span>
-                <a class="text-link" href="'mailto:new@duties.xyz"
-                  >Let's chat!</a
-                >
-              </p>
-            </div>
-          </div>
+        <figure class="service-title">
+          <h2 class="markdown" v-html="getMarkdown(about.offeringIntro)"></h2>
         </figure>
+
+        <div class="service-items" v-if="about.offerings.length > 0">
+          <figure
+            class="service-item"
+            v-for="offer in about.offerings"
+            :key="offer.id"
+          >
+            <div class="heading hide">
+              <h2 class="title">
+                <span>{{ offer.icon }}</span>
+                {{ offer.title }}
+              </h2>
+            </div>
+            <div class="text-block">
+              <p class="icon">{{ offer.icon }}</p>
+              <div class="body">
+                <p class="title bold">
+                  {{ offer.title }}
+                </p>
+                <p class="markdown" v-html="getMarkdown(offer.content)"></p>
+              </div>
+            </div>
+          </figure>
+        </div>
       </article>
     </section>
 
     <section class="content-block people">
       <article>
         <figure
-          class="person fade-up"
+          class="person fade-in"
           v-in-viewport.once
           v-for="person in about.team"
           :key="person.id"
@@ -203,48 +188,26 @@
           </div>
           <div class="main-text-block heading">
             <h2 class="title">{{ person.name }}</h2>
-            <p>{{ person.title }}</p>
 
-            <p>
-              <a class="text-link" :href="'callto:' + person.phoneNumber">
-                {{ person.phoneNumber }}
-              </a>
-            </p>
-            <p>
-              <a class="text-link" :href="'mailto:' + person.email">
-                {{ person.email }}
-              </a>
-            </p>
+            <p>{{ person.title }}</p>
+            <a :href="'callto:' + person.phoneNumber">
+              <p>{{ person.phoneNumber }}</p>
+            </a>
+            <a :href="'mailto:' + person.email">
+              <p>{{ person.email }}</p>
+            </a>
           </div>
-        </figure>
-        <figure class="bing">
-          <svg
-            width="22"
-            height="70"
-            viewBox="0 0 22 70"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 11.1018C0 5.27432 4.75482 0.5 10.7161 0.5H11.2839C17.1742 0.5 22 5.20411 22 11.1018C22 16.9293 17.2452 21.7036 11.2839 21.7036H10.7161C4.82579 21.7036 0 16.9293 0 11.1018Z"
-              fill="#F8F8F8"
-            />
-            <path
-              d="M0 59.8987C0 54.0712 4.75482 49.2969 10.7161 49.2969H11.2839C17.1742 49.2969 22 54.001 22 59.8987C22 65.7262 17.2452 70.5005 11.2839 70.5005H10.7161C4.82579 70.5005 0 65.7262 0 59.8987Z"
-              fill="#F8F8F8"
-            />
-          </svg>
         </figure>
       </article>
     </section>
 
     <section class="content-block marquee">
       <article class="align-center">
-        <figure class="block-inner fade-up" v-in-viewport.once>
-          <h3 class="float-left">A few of our friends</h3>
+        <figure class="block-inner fade-in" v-in-viewport.once>
+          <p class="float-left">A few of our friends</p>
         </figure>
         <figure class="block-marquee">
-          <div class="inner fade-up heading" v-in-viewport.once>
+          <div class="inner fade-in heading" v-in-viewport.once>
             <h1 class="title">Domino’s Pizza</h1>
             <h1 class="title">Feed</h1>
             <h1 class="title">Circle K</h1>
@@ -252,7 +215,7 @@
             <h1 class="title">Bielke & Yang</h1>
             <h1 class="title">Humid Mag</h1>
           </div>
-          <div class="inner right heading fade-up" v-in-viewport.once>
+          <div class="inner right heading fade-in" v-in-viewport.once>
             <h1 class="title">Nutrilett</h1>
             <h1 class="title">Orkla</h1>
             <h1 class="title">Godtlevert</h1>
@@ -285,9 +248,11 @@ export default {
   },
   data() {
     return {
+      isHovering: false,
       about: {
         aboutUs: "",
-        services: "",
+        offeringIntro: "",
+        offerings: [],
         team: {
           name: "",
           title: "",
@@ -340,12 +305,11 @@ export default {
           query {
             about {
               aboutUs
-              services {
-                ... on BlockRecord {
-                  title
-                  content
-                  lists
-                }
+              offeringIntro
+              offerings {
+                icon
+                title
+                content
               }
               team {
                 name
@@ -401,6 +365,15 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
+
+    // $(".fittext").each(function() {
+    //   let t = $(this),
+    //     width = t.data("width") * 1.5,
+    //     characters = t.html().length,
+    //     size = width / characters;
+
+    //   $(this).css("font-size", `${size}vw`);
+    // });
   },
   computed: {
     pageName() {

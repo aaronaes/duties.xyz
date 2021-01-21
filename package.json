@@ -30,6 +30,7 @@
     "vue-motion": "^0.2.3",
     "vue-observe-visibility": "^0.4.6",
     "vue-page-transition": "^0.2.2",
+    "vue-picture-swipe": "^2.0.2",
     "vue-router": "^3.4.3",
     "vue-scroll-behavior": "^0.3.0",
     "vue-scroll-reveal": "^1.0.11",

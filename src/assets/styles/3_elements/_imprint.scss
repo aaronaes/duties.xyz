@@ -26,13 +26,11 @@ body.imprint {
 
           @include breakpoint(small down) {
             top: 0;
-            transform: translateX(-50%) translateY($x0p25);
+            transform: translateX(-50%) translateY($x2);
           }
 
           p {
             cursor: pointer;
-            font-size: 17px;
-            margin: 0;
             text-transform: uppercase;
             text-align: center;
             color: $black;
@@ -48,7 +46,7 @@ body.imprint {
           }
 
           p {
-            margin-top: $x0p25;
+            margin-top: $x2;
           }
         }
       }
