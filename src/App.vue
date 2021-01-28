@@ -29,7 +29,7 @@ export default {
           content:
             "Duties.xyz — A creative partner and design studio for thoughtfully crafted products"
         },
-        { property: "og:site_name", content: "Epiloge" },
+        { property: "og:site_name", content: "Duties.xyz" },
         { property: "og:type", content: "website" },
         { name: "robots", content: "index,follow" }
       ]

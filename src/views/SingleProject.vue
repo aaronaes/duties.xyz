@@ -1,133 +1,145 @@
 <template>
-  <main>
-    <div class="row" id="top">
-      <transition name="loading">
-        <section class="loading-block" v-if="isLoading">
-          <article class="projectHeader">
-            <nav>
-              <div class="nav-item heading">
-                <h2 class="loading title">XYZ<span>:</span></h2>
+  <div class="single-project">
+    <transition name="loadProject" mode="in-out" appear>
+      <section class="outer-margin loading" v-if="isLoading">
+        <article class="row">
+          <figure class="projectHeader">
+            <div class="nav-item heading">
+              <h3 class="title blinking">XYZ<span>:</span></h3>
+            </div>
+          </figure>
+        </article>
+      </section>
+    </transition>
+    <div class="bar" :class="{ 'is-loaded': !isLoading }">
+      <section class="outer-margin header">
+        <article class="row section-main nav">
+          <figure class="text heading">
+            <h3 class="title">
+              <router-link :to="{ name: 'Home' }">XYZ</router-link>
+              <span>:</span>
+              {{ project.title }}
+            </h3>
+          </figure>
+        </article>
+      </section>
+
+      <!-- Banner Blocks -->
+      <section class="outer-margin banner">
+        <article class="row section-main" v-if="project.projectBanner">
+          <figure class="img-container banner-img">
+            <img
+              :src="getUrl(project.projectBanner.url)"
+              :srcset="getSrcSet(project.projectBanner.url)"
+            />
+          </figure>
+        </article>
+        <article v-else></article>
+      </section>
+      <!-- Info Blocks -->
+      <section class="outer-margin info">
+        <article class="row section-main">
+          <figure class="text">
+            <div class="text-container heading">
+              <h1 class="title markdown" v-html="project.subtitle"></h1>
+              <p
+                class="body-text markdown"
+                v-html="project.description"
+                v-if="project.description.length > 0"
+              ></p>
+              <div class="tags float-left">
+                <p
+                  class="markdown"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  {{ category.categoryType }}
+                </p>
               </div>
-            </nav>
-          </article>
-        </section>
-      </transition>
-
-      <div class="project-body" :class="{ 'is-loaded': !isLoading }">
-        <section class="grid-block">
-          <article class="grid-item nav-block">
-            <figure class="text-block heading">
-              <h2 class="title">
-                <router-link :to="{ name: 'Home' }">
-                  XYZ
-                </router-link>
-                <span>:</span>
-                {{ project.title }}
-              </h2>
-            </figure>
-          </article>
-        </section>
-
-        <!-- Banner Blocks -->
-        <section class="grid-block">
-          <article class="grid-item banner-block" v-if="project.projectBanner">
-            <figure class="img-container banner-img">
-              <img
-                :src="getUrl(project.projectBanner.url)"
-                :srcset="getSrcSet(project.projectBanner.url)"
-              />
-            </figure>
-          </article>
-          <article v-else></article>
-        </section>
-
-        <!-- Info Blocks -->
-        <section class="grid-block">
-          <article class="grid-item info-block">
-            <figure class="text-block">
-              <div class="text-container">
-                <h1 class="title markdown" v-html="project.subtitle"></h1>
-                <h3
-                  class="body-text markdown"
-                  v-html="project.description"
-                  v-if="project.description.length > 0"
-                ></h3>
-                <div class="tags float-left">
-                  <p
-                    class="markdown"
-                    v-for="(category, i) in project.categories"
-                    :key="i"
-                  >
-                    {{ category.categoryType }}
-                  </p>
-                </div>
-                <a class="hide" href="/" target="_blank">
-                  <p>
-                    Visit site
-                  </p>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="152"
-                    height="20"
-                    viewBox="0 0 152 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M75.1069 0.936449C71.0723 1.15875 67.0401 1.42708 63.0085 1.71563C63.6626 1.26373 63.3521 -0.0549248 62.3974 0.00177316C46.8504 0.925782 31.3051 1.86551 15.7593 2.80973C11.3175 3.07974 6.87579 3.34808 2.43404 3.61697C1.7723 3.65683 1.76356 4.64708 2.43404 4.61677C16.004 4.00263 29.5739 3.39748 43.1432 2.77436C39.8298 3.24759 36.5152 3.71521 33.1989 4.17329C27.8875 4.66617 22.5789 5.18655 17.2744 5.74174C11.8203 6.31265 6.36842 6.90939 0.920063 7.52745C-0.271783 7.66274 -0.341103 9.3328 0.920063 9.36817C8.92628 9.5944 16.9156 8.24376 24.8228 7.2041C28.5236 6.7174 32.222 6.21834 35.9199 5.71143C43.502 5.02207 51.0906 4.39222 58.6844 3.83815C64.1566 3.43902 69.6323 3.09995 75.1058 2.72496C76.2894 2.64468 76.3063 0.870207 75.1069 0.936449Z"
-                      fill="#E5594D"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </figure>
-          </article>
-        </section>
-
-        <!-- Dato Blocks -->
-        <section
-          v-for="block in project.blocks"
-          :key="block.id"
-          class="grid-block"
-        >
-          <!-- Carousel Block -->
-          <article
-            class="grid-item media-block image-carousel"
-            v-if="block._modelApiKey === 'image_carousel'"
-          >
-            <swiper
-              ref="mySwiper"
-              :options="swiperOptions"
-              :auto-update="true"
-              :auto-destroy="true"
-              @slideChange="changeSwiperIndex"
-            >
-              <swiper-slide
-                v-for="asset in block.imageCarouselAsset"
-                :key="asset.id"
-              >
-                <div class="img-container fade-in" v-in-viewport.once>
-                  <img
-                    :src="getUrl(asset.url)"
-                    :srcset="getSrcSet(asset.url)"
+              <a class="hide" href="/" target="_blank">
+                <p>Visit site</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="152"
+                  height="20"
+                  viewBox="0 0 152 20"
+                  fill="none"
+                >
+                  <path
+                    d="M75.1069 0.936449C71.0723 1.15875 67.0401 1.42708 63.0085 1.71563C63.6626 1.26373 63.3521 -0.0549248 62.3974 0.00177316C46.8504 0.925782 31.3051 1.86551 15.7593 2.80973C11.3175 3.07974 6.87579 3.34808 2.43404 3.61697C1.7723 3.65683 1.76356 4.64708 2.43404 4.61677C16.004 4.00263 29.5739 3.39748 43.1432 2.77436C39.8298 3.24759 36.5152 3.71521 33.1989 4.17329C27.8875 4.66617 22.5789 5.18655 17.2744 5.74174C11.8203 6.31265 6.36842 6.90939 0.920063 7.52745C-0.271783 7.66274 -0.341103 9.3328 0.920063 9.36817C8.92628 9.5944 16.9156 8.24376 24.8228 7.2041C28.5236 6.7174 32.222 6.21834 35.9199 5.71143C43.502 5.02207 51.0906 4.39222 58.6844 3.83815C64.1566 3.43902 69.6323 3.09995 75.1058 2.72496C76.2894 2.64468 76.3063 0.870207 75.1069 0.936449Z"
+                    fill="#E5594D"
                   />
-                </div>
-              </swiper-slide>
-            </swiper>
+                </svg>
+              </a>
+            </div>
+          </figure>
+        </article>
+      </section>
+      <!-- Dato Blocks -->
+      <div v-for="block in project.blocks" :key="block.id">
+        <!-- Carousel Block -->
+        <section
+          class="outer-margin image-carousel"
+          v-if="block._modelApiKey === 'image_carousel'"
+        >
+          <article class="row section-main">
+            <figure class="carousel-inner">
+              <swiper
+                ref="mySwiper"
+                :options="swiperOptions"
+                :auto-update="true"
+                :auto-destroy="true"
+              >
+                <swiper-slide
+                  v-for="asset in block.imageCarouselAsset"
+                  :key="asset.id"
+                  class="fade-right"
+                  v-in-viewport
+                >
+                  <div class="img-container">
+                    <img
+                      :src="getUrl(asset.url)"
+                      :srcset="getSrcSet(asset.url)"
+                    />
+                  </div>
+                </swiper-slide>
+              </swiper>
+              <div
+                class="carousel-button-next"
+                v-bind:style="{ cursor: cursorNext }"
+              ></div>
+              <div
+                class="carousel-button-prev"
+                v-bind:style="{ cursor: cursorPrev }"
+              ></div>
+              <div class="carousel-pagination"></div>
+            </figure>
           </article>
-
-          <!-- Single Image Block -->
-          <article
-            class="grid-item media-block single-img"
-            :class="{ full: block.full, narrow: block.narrow }"
-            v-if="block._modelApiKey === 'single_image'"
-          >
+        </section>
+        <!-- Single Image Block -->
+        <section
+          class="outer-margin single-img fade-in"
+          v-in-viewport.once
+          :class="{ full: block.full, narrow: block.narrow }"
+          v-if="block._modelApiKey === 'single_image'"
+        >
+          <article class="row">
             <figure>
               <div
                 class="content"
                 :class="{ device: block.device, website: block.website }"
+                :style="[
+                  condition
+                    ? {
+                        backgroundColor: project.backgroundColor.hex
+                      }
+                    : {
+                        backgroundColor: inherit
+                      }
+                ]"
               >
                 <div class="device-inner">
-                  <div class="img-container fade-in" v-in-viewport.once>
+                  <div class="img-container">
                     <img
                       :src="getUrl(block.image.url)"
                       :srcset="getSrcSet(block.image.url)"
@@ -143,13 +155,17 @@
               </figcaption>
             </figure>
           </article>
-
-          <!-- Image + Text Block -->
+        </section>
+        <!-- Image + Text Block -->
+        <section
+          class="outer-margin image-text"
+          v-if="block._modelApiKey === 'image_text'"
+        >
           <article
-            class="grid-item media-block image-text"
+            class="row section-main"
             v-if="block._modelApiKey === 'image_text'"
           >
-            <figure class="img-block">
+            <figure class="img">
               <div class="img-container fade-in" v-in-viewport.once>
                 <img
                   v-in-viewport.once
@@ -159,7 +175,7 @@
                 />
               </div>
             </figure>
-            <figure class="align-center text-block ">
+            <figure class="align-center text ">
               <div class="text-container">
                 <div class="heading">
                   <h2
@@ -178,154 +194,149 @@
               </div>
             </figure>
           </article>
+        </section>
 
-          <!-- Quote Block -->
-          <article
-            class="grid-item quote-block"
-            :class="{ big: block.big }"
-            v-if="block._modelApiKey === 'quote'"
-          >
-            <figure class="text-block align-center">
-              <div class="text-container ">
-                <div class="heading">
-                  <h2
-                    class="title markdown"
-                    v-html="block.title"
-                    v-show="block.title.length > 0"
-                  ></h2>
-                </div>
-                <h3
-                  class="subtitle markdown"
-                  v-html="block.subtitle"
-                  v-show="block.subtitle.length > 0"
-                ></h3>
-                <p
-                  class="body markdown"
-                  v-html="block.text"
-                  v-show="block.text.length > 0"
-                ></p>
+        <!-- Quote Block -->
+        <section
+          class="outer-margin quote"
+          :class="{ big: block.big }"
+          v-if="block._modelApiKey === 'quote'"
+        >
+          <article class="row section-main text">
+            <div class="text-container">
+              <div class="heading">
+                <h2
+                  class="title markdown"
+                  v-html="block.title"
+                  v-show="block.title.length > 0"
+                ></h2>
               </div>
+              <h3
+                class="subtitle markdown"
+                v-html="block.subtitle"
+                v-show="block.subtitle.length > 0"
+              ></h3>
+              <p
+                class="body markdown"
+                v-html="block.text"
+                v-show="block.text.length > 0"
+              ></p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Two Image Block -->
+        <section
+          class="outer-margin double-img"
+          v-if="block._modelApiKey === 'two_up'"
+          :class="{
+            full: block.full,
+            narrow: block.narrow,
+            flip: block.flip
+          }"
+        >
+          <article class="row section-main module left-image">
+            <figure
+              v-in-viewport.once
+              class="img-container fade-in"
+              v-for="image in block.firstImage"
+              :key="image.id"
+            >
+              <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
             </figure>
           </article>
-
-          <!-- Two Image Block -->
-          <article
-            class="grid-item media-block double-img"
-            v-if="block._modelApiKey === 'two_up'"
-            :class="{
-              full: block.full,
-              narrow: block.narrow,
-              flip: block.flip
-            }"
-          >
-            <figure class="left-image">
-              <div
-                v-in-viewport.once
-                class="img-container fade-in"
-                v-for="image in block.firstImage"
-                :key="image.id"
-              >
-                <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
-              </div>
-            </figure>
-            <figure class="right-image">
-              <div
-                v-in-viewport.once
-                class="img-container fade-in"
-                v-for="image in block.lastImage"
-                :key="image.id"
-              >
-                <img
-                  :src="getUrl(block.lastImage.url)"
-                  :srcset="getSrcSet(block.lastImage.url)"
-                />
-              </div>
-            </figure>
-          </article>
-
-          <!-- Three Image Block -->
-          <article
-            class="grid-item media-block triple-img"
-            v-if="block._modelApiKey === 'three_up'"
-          >
-            <figure>
-              <div class="grid" data-layoutmethod="grid">
-                <div class="content" :class="{ device: block.device }">
-                  <div class="device-inner">
-                    <div class="img-container fade-in" v-in-viewport.once>
-                      <div class="notch"></div>
-                      <img
-                        :src="getUrl(block.leftImage.url)"
-                        :srcset="getSrcSet(block.leftImage.url)"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="content" :class="{ device: block.device }">
-                  <div class="device-inner">
-                    <div class="img-container fade-in" v-in-viewport.once>
-                      <div class="notch"></div>
-                      <img
-                        :src="getUrl(block.centerImage.url)"
-                        :srcset="getSrcSet(block.centerImage.url)"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="content" :class="{ device: block.device }">
-                  <div class="device-inner">
-                    <div class="img-container fade-in" v-in-viewport.once>
-                      <div class="notch"></div>
-                      <img
-                        :src="getUrl(block.rightImage.url)"
-                        :srcset="getSrcSet(block.rightImage.url)"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <article class="module right-image">
+            <figure
+              v-in-viewport.once
+              class="img-container fade-in"
+              v-for="image in block.lastImage"
+              :key="image.id"
+            >
+              <img
+                :src="getUrl(block.lastImage.url)"
+                :srcset="getSrcSet(block.lastImage.url)"
+              />
             </figure>
           </article>
         </section>
 
-        <!-- Meta Block -->
-        <section class="grid-block" v-if="project.roles.length > 0">
-          <article class="grid-item meta-block">
-            <figure class="text-block">
-              <h1 class="block-title markdown">
-                <p>
-                  For each project we work on, we are lucky to collaborate with
-                  lots of talented and fun people.
-                </p>
-              </h1>
-            </figure>
-
-            <figure class="text-block fade-in" v-in-viewport.once>
-              <div
-                class="text-container"
-                v-for="person in project.roles"
-                :key="person.id"
-              >
-                <h3 class="role">
-                  {{ person.role }} <span class="arrow">&rarr;</span>
-                </h3>
-                <h3 class="name heading" v-if="person.link.length > 0">
-                  <a class="title" :href="person.link" target="_blank">{{
-                    person.name
-                  }}</a>
-                </h3>
-                <h3 class="name" v-else>
-                  {{ person.name }}
-                </h3>
+        <!-- Three Image Block -->
+        <section
+          class="outer-margin triple-img"
+          v-if="block._modelApiKey === 'three_up'"
+          :style="[
+            condition
+              ? {
+                  backgroundColor: project.backgroundColor.hex
+                }
+              : {
+                  backgroundColor: inherit
+                }
+          ]"
+        >
+          <article>
+            <div class="section-item">
+              <div class="device-inner" :class="{ device: block.device }">
+                <div class="img-container fade-in" v-in-viewport.once>
+                  <div class="notch"></div>
+                  <img
+                    :src="getUrl(block.leftImage.url)"
+                    :srcset="getSrcSet(block.leftImage.url)"
+                  />
+                </div>
               </div>
-            </figure>
+            </div>
+            <div class="section-item">
+              <div class="device-inner" :class="{ device: block.device }">
+                <div class="img-container fade-in" v-in-viewport.once>
+                  <div class="notch"></div>
+                  <img
+                    :src="getUrl(block.centerImage.url)"
+                    :srcset="getSrcSet(block.centerImage.url)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="section-item">
+              <div class="device-inner" :class="{ device: block.device }">
+                <div class="img-container fade-in" v-in-viewport.once>
+                  <div class="notch"></div>
+                  <img
+                    :src="getUrl(block.rightImage.url)"
+                    :srcset="getSrcSet(block.rightImage.url)"
+                  />
+                </div>
+              </div>
+            </div>
           </article>
         </section>
       </div>
-
-      <!-- Project List Block -->
-      <section class="similar-block" :class="{ 'is-loaded': !isLoading }">
-        <figure class="align-center project-grid">
+      <!-- Meta Block -->
+      <section class="outer-margin meta" v-if="project.roles.length > 0">
+        <article class="row">
+          <div
+            class="text-container"
+            v-for="person in project.roles"
+            :key="person.id"
+          >
+            <h3 class="role">
+              {{ person.role }} by
+              <span class="name" v-if="person.link.length > 0">
+                <a :href="person.link" target="_blank">{{ person.name }}</a>
+              </span>
+              <span class="name" v-else>{{ person.name }}</span>
+            </h3>
+          </div>
+          <div class="text-container">
+            <h3>This project was launched in {{ project.year }}</h3>
+          </div>
+        </article>
+      </section>
+    </div>
+    <!-- Similar Block -->
+    <section class="outer-margin similar">
+      <article class="row module section-main">
+        <figure class="similar-list">
           <p class="title">Similar projects we have worked on...</p>
           <ul>
             <li
@@ -334,18 +345,16 @@
               :class="{ isOpen: projectInList.id === project.id }"
               :id="projectInList.id"
               v-show="projectInList.readMore === true"
-              class=""
             >
               <router-link :to="'/projects/' + projectInList.slug">
-                <div class="project-content heading">
-                  <div class="title">
+                <div class="list-item">
+                  <div class="heading">
                     <h1 class="title">
                       {{ projectInList.title }}
                     </h1>
                   </div>
                   <div class="tags">
                     <p
-                      class="markdown"
                       v-for="(category, i) in projectInList.categories"
                       :key="i"
                     >
@@ -357,13 +366,11 @@
             </li>
           </ul>
         </figure>
-      </section>
-
-      <Footer />
-    </div>
-  </main>
+      </article>
+    </section>
+    <Footer />
+  </div>
 </template>
-
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
@@ -374,6 +381,9 @@ export default {
   name: "Project",
   components: {
     Footer
+  },
+  beforeCreate: function() {
+    document.body.className = "project";
   },
   async created() {
     this.project = await this.getProject(this.$route.params.slug);
@@ -396,7 +406,10 @@ export default {
           property: "og:title",
           content: this.project.title + this.project.subtitle + " — Duties.xyz"
         },
-        { property: "og:site_name", content: "Duties.xyz" },
+        {
+          property: "og:site_name",
+          content: "Duties.xyz"
+        },
         {
           property: "og:description",
           content:
@@ -405,7 +418,10 @@ export default {
             " on Duties.xyz — " +
             this.project.description
         },
-        { property: "og:type", content: "profile" },
+        {
+          property: "og:type",
+          content: "profile"
+        },
         {
           property: "og:image",
           content: this.project.projectThumbnail.url
@@ -413,36 +429,57 @@ export default {
       ]
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 4000);
+  },
   data() {
     return {
+      url: process.env.URL,
       isLoading: true,
       isHidden: false,
       show: false,
-      url: process.env.URL,
       frontpage: [],
       projects: [],
       project: {
         heading: "",
         title: "",
         slug: "",
-        backgroundColor: { hex: "" },
+        year: "",
+        backgroundColor: {
+          hex: ""
+        },
         subtitle: "",
         readMore: "false",
         categories: [],
         client: {},
         blocks: [],
         caption: "",
-        coverSize: "",
-        projectThumbnail: { url: "" },
-        projectBanner: { url: "" },
+        projectThumbnail: {
+          url: ""
+        },
+        projectBanner: {
+          url: ""
+        },
         projectThumb: []
       },
       swiperOptions: {
-        slidesPerView: "auto",
+        speed: 100,
         loop: false,
-        grabCursor: true,
-        speed: 300
-      }
+        centeredSlides: false,
+        slidesPerView: "auto",
+        pagination: {
+          el: ".carousel-pagination",
+          type: "fraction"
+        },
+        navigation: {
+          nextEl: ".carousel-button-next",
+          prevEl: ".carousel-button-prev"
+        }
+      },
+      cursorPrev: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.2388 2.10976C11.6294 1.71923 11.6294 1.08607 11.2388 0.695542C10.8483 0.305018 10.2152 0.305018 9.82463 0.695542L0.824632 9.69554C0.434107 10.0861 0.434107 10.7192 0.824632 11.1098L9.82463 20.1098C10.2152 20.5003 10.8483 20.5003 11.2388 20.1098C11.6294 19.7192 11.6294 19.0861 11.2388 18.6955L3.94595 11.4026H24.5317C25.084 11.4026 25.5317 10.9549 25.5317 10.4026C25.5317 9.85036 25.084 9.40265 24.5317 9.40265H3.94595L11.2388 2.10976Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`,
+      cursorNext: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5167 0.695542C16.1262 0.305018 15.493 0.305018 15.1025 0.695542C14.7119 1.08607 14.7119 1.71923 15.1025 2.10976L22.3954 9.40265H1.80957C1.25729 9.40265 0.80957 9.85036 0.80957 10.4026C0.80957 10.9549 1.25729 11.4026 1.80957 11.4026H22.3954L15.1025 18.6955C14.7119 19.0861 14.7119 19.7192 15.1025 20.1098C15.493 20.5003 16.1262 20.5003 16.5167 20.1098L25.5167 11.1098C25.9072 10.7192 25.9072 10.0861 25.5167 9.69554L16.5167 0.695542Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`
     };
   },
   methods: {
@@ -460,7 +497,6 @@ export default {
               title
               slug
               readMore
-              coverSize
               projectThumbnail {
                 url
               }
@@ -478,7 +514,9 @@ export default {
     },
     async getProject(slug) {
       const { data } = await getData({
-        variables: { slug: slug },
+        variables: {
+          slug: slug
+        },
         query: gql`
           query getProject($slug: String!) {
             project(filter: { slug: { eq: $slug } }) {
@@ -487,7 +525,7 @@ export default {
               subtitle
               slug
               description
-              coverSize
+              year
               projectThumbnail {
                 url
               }
@@ -500,7 +538,6 @@ export default {
                 hex
               }
               siteLink
-              slug
               readMore
               categories {
                 categoryType
@@ -584,11 +621,11 @@ export default {
       });
       return data.project;
     },
-    changeSwiperIndex() {
-      this.$refs.mySwiper.$swiper.activeIndex;
-    },
+
     getUrl(url) {
-      return imgix({ url: url });
+      return imgix({
+        url: url
+      });
     },
     getSrcSet(url) {
       return `
@@ -607,11 +644,6 @@ export default {
       });
     }
   },
-  mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 0);
-  },
   computed: {
     pageName() {
       return this.$route.name;
@@ -619,9 +651,6 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
-  },
-  beforeCreate: function() {
-    document.body.className = "project";
   }
 };
 </script>

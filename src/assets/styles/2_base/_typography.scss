@@ -1,3 +1,7 @@
+:root {
+  --font-body: @include font-size(17px, 24px);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +23,8 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
+  display: inline-block;
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -30,65 +34,50 @@ p {
   vertical-align: baseline;
 }
 
-* {
-  .markdown p {
-    white-space: pre-line;
-    display: inline;
-  }
-}
-
 h1,
-h1.markdown p {
+h1.markdown > p {
   font-family: $font-tex-cond;
-  font-size: 44px;
-  // @include font-size(44px, 104px);
-  line-height: 1;
-
-  @include breakpoint(medium) {
-    font-size: 56px;
-  }
-
-  @include breakpoint(large) {
-    font-size: 72px;
-  }
-
-  @include breakpoint(x-large) {
-    font-size: 96px;
-  }
+  line-height: 1.1;
+  @include font-size(48px, 96px);
 }
 
 h2,
-h2.markdown p {
+h2.markdown > p {
   font-family: $font-tex-cond;
   line-height: 1.1;
-  @include font-size(32px, 80px);
+  @include font-size(40px, 72px);
 }
 
 h3,
-h3.markdown p {
+h3.markdown > p {
+  font-family: $font-tex-cond;
   line-height: 1.1;
-  @include font-size(24px, 40px);
+  @include font-size(32px, 48px);
 }
 
 p,
-p.markdown p {
-  @include font-size(17px, 24px);
+p.markdown > p {
+  @include font-size(18px, 28px);
   line-height: 1.4;
+
+  span {
+    display: block;
+    @include mb(x1);
+  }
 }
 
 a {
   color: $black;
-  position: relative;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  transition: all 150ms ease-in-out 0ms;
-  display: inline;
+
+  &.link {
+    text-decoration: underline;
+  }
 
   &:hover,
   &:focus,
   &:active {
-    color: $accent;
+    color: $black;
+    text-decoration: none;
   }
 
   &:focus {
@@ -112,17 +101,18 @@ a {
   h3,
   p {
     &.title {
-      display: inline-block;
       font-family: $font-tex-cond;
-      line-height: 1;
+      font-weight: 400;
+      line-height: 0.9;
       text-transform: uppercase;
-      letter-spacing: -0.1rem;
+      letter-spacing: -0.03em;
     }
-  }
+    a {
+      border: none;
 
-  p {
-    &.title {
-      letter-spacing: 0rem;
+      &:hover {
+        column-gap: $grey;
+      }
     }
   }
 }
@@ -133,43 +123,38 @@ a {
 
 strong {
   font-weight: bolder;
+  transition: color 300ms $easing;
 }
 
-// Page variants
+.text {
+  .title {
+    p {
+      @include pb(x0p5);
+      opacity: 0.4;
+    }
+  }
 
-body.about {
-  a {
-    color: $grey;
+  .body {
+    p {
+      @include pb(x1);
 
-    &.text-link {
-      box-shadow: inset 0 -2px 0 0 $black, inset 0 -4px 0 0 $grey;
+      &:last-of-type {
+        @include pb(x0);
+      }
 
-      &:hover {
-        color: $black;
-        box-shadow: inset 0 -2px 0 0 $black, inset 0 -4px 0 0 $accent;
+      a {
+        display: inline;
+        @include pl(x0p5);
+
+        @include breakpoint(large) {
+          @include pl(x0p25);
+        }
       }
     }
 
-    &:hover {
-      color: $black;
-    }
-
-    &:active {
-      color: $black;
-    }
-
-    &:focus {
-      outline: none;
-      color: $black;
-    }
-
-    @media (hover: hover) {
-      a {
-        &:hover,
-        &:active,
-        &:focus {
-          color: $black;
-        }
+    @include breakpoint(medium) {
+      p {
+        @include pb(x0p5);
       }
     }
   }

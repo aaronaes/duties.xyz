@@ -1,63 +1,32 @@
 body {
-  header.global {
+  .global {
     position: relative;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1000;
+    transition: opacity 300ms linear;
+    transition-delay: 300ms;
 
-    article {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-areas: "a b c";
-      @include mt(x1);
-      @include mb(x1);
+    &.outer-margin {
+      @include display-grid;
+      @include my(x0);
 
-      @include breakpoint(large) {
+      .row {
+        display: grid;
+        grid-column: 1 / 26;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "a b c";
         @include mt(x0p5);
-      }
+        @include px(x0p25);
 
-      .nav-item {
-        overflow: visible;
-        position: relative;
-        justify-items: center;
-
-        a {
-          cursor: pointer !important;
-          border: none !important;
-          position: relative;
-          display: inline;
-          overflow: visible;
-          box-shadow: unset !important;
-
-          @media (hover: hover) and (pointer: fine) {
-            svg {
-              .path {
-                animation: none;
-              }
-            }
-          }
-
-          &:hover,
-          &.router-link-exact-active {
-            box-shadow: unset !important;
-            h2,
-            h3 {
-              color: $black;
-            }
-
-            svg {
-              overflow: visible;
-
-              .path {
-                animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1) forwards;
-              }
-            }
-          }
+        @include breakpoint(x-large) {
+          grid-column: 2 / 25;
         }
 
-        &:first-of-type {
+        .nav-item {
+          overflow: visible;
           position: relative;
-          grid-area: a;
+          justify-items: center;
 
           a {
             cursor: pointer !important;
@@ -67,33 +36,8 @@ body {
             overflow: visible;
             box-shadow: unset !important;
 
-            h2,
-            h3 {
-              svg {
-                position: absolute;
-                transform: translate(-50%, -50%);
-                transform-origin: center;
-                top: 0%;
-                left: 50%;
-                width: 100%;
-                height: auto;
-                overflow: visible;
-
-                .path {
-                  stroke-width: 12px;
-                  stroke-dasharray: 2000;
-                  stroke-dashoffset: 2000;
-                }
-
-                @keyframes dash {
-                  from {
-                    stroke-dashoffset: 0;
-                  }
-                  to {
-                    stroke-dashoffset: 2000;
-                  }
-                }
-              }
+            h3.title {
+              @include m(x0);
             }
 
             @media (hover: hover) and (pointer: fine) {
@@ -106,12 +50,6 @@ body {
 
             &:hover,
             &.router-link-exact-active {
-              box-shadow: unset !important;
-              h2,
-              h3 {
-                color: $black;
-              }
-
               svg {
                 overflow: visible;
 
@@ -121,54 +59,134 @@ body {
               }
             }
           }
-        }
 
-        &:nth-of-type(2) {
-          grid-area: b;
-          position: relative;
-
-          a {
+          &:first-of-type {
             position: relative;
-            display: inline-block;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            grid-area: a;
 
-            img {
-              height: clamp(24px, 2.5vw, 40px);
-              width: auto;
-            }
-          }
-        }
+            a {
+              cursor: pointer;
+              border: none;
+              position: relative;
 
-        &:last-of-type {
-          grid-area: c;
+              .svg-container {
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                width: 5em;
+                height: 2em;
+                transform: translate3d(-50%, -50%, 0);
 
-          a {
-            float: right;
+                .svg {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 100%;
 
-            svg {
-              position: absolute;
-              transform: translate(-50%, -50%);
-              transform-origin: center;
-              top: 50%;
-              left: 50%;
-              width: 120%;
-              overflow: visible;
-              height: auto;
+                  .path {
+                    stroke-width: clamp(12px, 3.5vw, 18px);
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                  }
 
-              .path {
-                stroke-width: 16px;
-                stroke-dasharray: 2000;
-                stroke-dashoffset: 2000;
+                  @keyframes dash {
+                    from {
+                      stroke-dashoffset: 0;
+                    }
+                    to {
+                      stroke-dashoffset: 2000;
+                    }
+                  }
+                }
               }
 
-              @keyframes dash {
-                from {
-                  stroke-dashoffset: 0;
+              @media (hover: hover) and (pointer: fine) {
+                svg {
+                  .path {
+                    animation: none;
+                  }
                 }
-                to {
-                  stroke-dashoffset: 2000;
+              }
+
+              &:hover,
+              &.router-link-exact-active {
+                box-shadow: unset !important;
+                h2,
+                h3 {
+                  color: $black;
+                }
+
+                svg {
+                  overflow: visible;
+
+                  .path {
+                    animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
+                      forwards;
+                  }
+                }
+              }
+            }
+          }
+
+          &:nth-of-type(2) {
+            grid-area: b;
+            position: relative;
+
+            a {
+              position: relative;
+              display: inline-block;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+
+              img {
+                height: clamp(24px, 3vw, 48px);
+                width: auto;
+              }
+            }
+          }
+
+          &:last-of-type {
+            grid-area: c;
+
+            a {
+              float: right;
+
+              .svg-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 8em;
+                height: 4em;
+                transform: translate3d(-50%, -50%, 0);
+                @include m(x0);
+
+                .svg {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 100%;
+
+                  .path {
+                    stroke-width: clamp(12px, 3.5vw, 18px);
+                    stroke-dasharray: 2000;
+                    stroke-dashoffset: 2000;
+                  }
+
+                  @keyframes dash {
+                    from {
+                      stroke-dashoffset: 0;
+                    }
+                    to {
+                      stroke-dashoffset: 2000;
+                    }
+                  }
                 }
               }
             }
@@ -179,9 +197,8 @@ body {
   }
 
   &.active {
-    header.global {
+    .global {
       opacity: 0;
-      z-index: -1;
     }
   }
 }

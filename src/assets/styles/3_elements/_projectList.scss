@@ -1,101 +1,89 @@
-body {
-  section {
-    &.projectList {
-      @include display-grid-24;
+.outer-margin {
+  &.project-list {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
 
-      article {
-        grid-column: 1 / 25;
-        @include display-grid;
-        @include mt(x1);
+    .project {
+      grid-column: 1 / 25;
+      align-items: center;
+      background-color: initial;
+      visibility: visible;
+      z-index: 1;
+      pointer-events: none;
+      align-items: flex-start;
+      @include display-grid;
+      @include mt(x1);
+      @include mb(x1);
+      @include px(x0p25);
 
-        &.project-block {
-          grid-column: 1 / 25;
-          align-items: center;
-          background-color: initial;
-          visibility: visible;
-          opacity: 1;
-          z-index: 1;
-          transition: visibility 0s $easing, opacity 500ms $easing;
-          pointer-events: none;
-          align-items: flex-start;
+      &:first-of-type {
+        @include mt(x0);
+      }
 
-          figure {
-            grid-column: 1 / 26;
+      figure {
+        grid-column: 1 / 26;
 
-            &.summary-block {
-              a {
-                display: block;
+        &.summary {
+          a {
+            display: block;
 
-                .imgBox {
-                  pointer-events: all;
-                  cursor: pointer;
-                  max-width: 100%;
+            .imgBox {
+              pointer-events: all;
+              cursor: pointer;
+              max-width: 100%;
 
-                  &.Landscape {
-                    @include breakpoint(medium) {
-                      .img-container {
-                        max-height: 70vh;
-                        overflow: hidden;
+              @include breakpoint(medium) {
+                .img-container {
+                  max-height: 70vh;
+                  overflow: hidden;
+                  @include mb(x0p125);
 
-                        img {
-                          object-fit: cover;
-                          object-position: 0% 50%;
-                        }
-                      }
+                  img {
+                    object-fit: cover;
+                    object-position: 0% 50%;
+                  }
+                }
+              }
+
+              figcaption {
+                grid-column: 1 / 26;
+                @include mt(x0p5);
+
+                .body-text {
+                  .heading {
+                    h2,
+                    h3 {
+                      @include m(x0);
+                      pointer-events: all;
                     }
 
-                    figcaption {
-                      grid-column: 1 / 26;
+                    p {
+                      transform: translateY(-0.25rem);
+                      @include m(x0);
+                      &.title {
+                        @include pr(x0p125);
 
-                      @include mt(x0p25);
+                        &:after {
+                          content: " :";
+                          display: inline;
+                          animation: blinker 1400ms step-start infinite;
+                          padding-left: 2px;
+                        }
 
-                      @include breakpoint(medium) {
-                        @include mt(x0p125);
-                      }
-
-                      .body-text {
-                        blockquote {
-                          &.heading {
-                            h2,
-                            h3 {
-                              pointer-events: all;
-                            }
-
-                            p {
-                              &.title {
-                                @include pr(x0p125);
-
-                                &:after {
-                                  content: " :";
-                                  display: inline-block;
-                                  animation: blinker 1400ms step-start infinite;
-                                  padding-left: 2px;
-
-                                  @include font-size(24px, 30px);
-                                }
-
-                                @keyframes blinker {
-                                  50% {
-                                    opacity: 0;
-                                  }
-                                }
-
-                                @keyframes ellipsis {
-                                  from {
-                                    opacity: 0;
-                                    width: 0px;
-                                  }
-                                  to {
-                                    opacity: 1;
-                                    width: 20px;
-                                  }
-                                }
-                              }
-                            }
+                        @keyframes blinker {
+                          50% {
+                            opacity: 0;
                           }
+                        }
 
-                          a {
-                            display: inline;
+                        @keyframes ellipsis {
+                          from {
+                            opacity: 0;
+                            width: 0px;
+                          }
+                          to {
+                            opacity: 1;
+                            width: 20px;
                           }
                         }
                       }
@@ -105,55 +93,85 @@ body {
               }
             }
           }
+        }
+      }
 
-          &.isMini {
-            figcaption {
-              .body-text {
-                blockquote {
-                  a {
-                    display: inline;
-                  }
-                  &:after {
-                    content: "View case";
-                    opacity: 0;
-                    display: none !important;
+      &.isMini {
+        grid-column: 1 / span 26;
+
+        + .isMini {
+          grid-column: span 26 / 26;
+        }
+
+        .summary {
+          a {
+            display: block;
+
+            &:hover {
+              color: $black;
+
+              strong {
+                color: $black;
+                font-weight: 400;
+              }
+            }
+
+            .imgBox {
+              pointer-events: all;
+              cursor: default;
+              max-width: 100%;
+
+              .img-container {
+                max-height: 100%;
+                overflow: hidden;
+
+                img {
+                  object-fit: unset;
+                }
+              }
+
+              figcaption {
+                .body-text {
+                  .heading {
+                    a {
+                      display: inline;
+                    }
+                    p {
+                      text-decoration: none;
+
+                      strong {
+                        font-weight: 400 !important;
+                        text-decoration: underline;
+                      }
+                    }
                   }
                 }
               }
             }
+          }
+        }
 
-            &:nth-child(odd) {
-              grid-column: 1 / 13;
+        @include breakpoint(medium) {
+          grid-column: 2 / span 11;
 
-              @include pr(x0);
-            }
+          + .isMini {
+            grid-column: span 11 / 24;
+          }
+        }
 
-            &:nth-child(even) {
-              grid-column: 13 / 25;
-              @include pl(x0);
-            }
+        @include breakpoint(large) {
+          grid-column: 3 / span 10;
 
-            @include breakpoint(medium) {
-              &:nth-child(odd) {
-                grid-column: 2 / 13;
-                @include pr(x0);
-              }
+          + .isMini {
+            grid-column: span 10 / 23;
+          }
+        }
 
-              &:nth-child(even) {
-                grid-column: 13 / 24;
-                @include pl(x0);
-              }
-            }
+        @include breakpoint(x-large) {
+          grid-column: 5 / span 8;
 
-            @include breakpoint(x-large) {
-              &:nth-child(odd) {
-                grid-column: 5 / 13;
-              }
-
-              &:nth-child(even) {
-                grid-column: 13 / 21;
-              }
-            }
+          + .isMini {
+            grid-column: span 8 / 21;
           }
         }
       }

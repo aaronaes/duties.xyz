@@ -1,20 +1,9 @@
 <template>
-  <section class="content-block masthead-block">
-    <article class="block-inner">
-      <figure>
-        <h1 class="markdown">
-          We believe it’s our duty as designers to provide the world with
-          thoughtfully designed products that are both functional, accessible
-          and visually beautiful.
-        </h1>
-      </figure>
-    </article>
-
-    <article class="hide">
-      <figure>
-        <h1>
-          A creative partner and design studio for thoughtfully crafted
-          products.
+  <section class="outer-margin">
+    <article class="row masthead">
+      <figure class="heading">
+        <h1 class="markdown title">
+          A digital design partner and creative studio for ambitious businesses.
         </h1>
       </figure>
     </article>
@@ -28,14 +17,6 @@ export default {
     return {
       showContent: false
     };
-  },
-  methods: {
-    playSound(sound) {
-      if (sound) {
-        var audio = new Audio(sound);
-        audio.play();
-      }
-    }
   }
 };
 </script>

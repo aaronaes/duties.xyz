@@ -1,0 +1,48 @@
+header,
+section {
+  @include my(x3);
+
+  &.outer-margin {
+    @include display-grid;
+    @include px(x0p5);
+
+    @include breakpoint(medium) {
+      @include px(x0p25);
+    }
+
+    &.full {
+      @include px(x0);
+
+      article {
+        &.row {
+          @include px(x0);
+        }
+      }
+    }
+
+    article {
+      &.row {
+        grid-column: 1 / 26;
+        @include px(x0p5);
+
+        @include breakpoint(medium) {
+          @include px(x0p125);
+        }
+
+        @include breakpoint(large) {
+          @include px(x0);
+        }
+
+        figure {
+          &:last-of-type {
+            @include mb(x0);
+          }
+
+          .module {
+            @include mb(x0p5);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,50 +1,50 @@
 // Page
-.page-enter-active {
-  animation: pageLoadIn 500ms $easing;
+.loadPage-enter-active {
+  animation: pageLoadIn 800ms $easing;
 }
 
-.page-leave-active {
-  animation: pageLoadInOut 500ms $easing;
-}
-
-.page-enter,
-.page-leave-to {
-  opacity: 0;
+.loadPage-leave-active {
+  animation: pageLoadOut 400ms $easing;
 }
 
 @keyframes pageLoadIn {
   from {
-    opacity: 1;
+    opacity: 0;
   }
   to {
     opacity: 1;
   }
 }
 
-@keyframes pageLoadInOut {
+@keyframes pageLoadOut {
   from {
     opacity: 1;
   }
   to {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
+.loadPage-enter,
+.loadPage-leave-to {
+  opacity: 0;
+}
+
 // Project Overlay
-.loading-enter-active {
-  animation: loadingIn 500ms $easing;
+.loadProject-enter-active {
+  animation: loadingIn 800ms $easing;
   overflow: hidden;
 }
-.loading-leave-active {
-  animation: loadingOut 500ms $easing;
+.loadProject-leave-active {
+  animation: loadingOut 400ms $easing;
   overflow: hidden;
 }
 
 @keyframes loadingIn {
   from {
     opacity: 1;
-    transform: translateY(100vh);
-    height: 0vh;
+    transform: translateY(0vh);
+    height: 100vh;
     overflow: hidden;
   }
   to {
@@ -78,20 +78,30 @@
 // In Viewport
 .fade-in {
   opacity: 0;
-  transition: opacity 500ms $easing;
-  transition-delay: 500ms;
-  will-change: opacity;
+  transition: opacity 300ms $easing;
+  transition-delay: 300ms;
 
   &.in-viewport {
     opacity: 1;
   }
 }
 
-.fade {
+.fade-up {
   opacity: 0;
-  transition: opacity 500ms $easing;
-  transition-delay: 500ms;
-  will-change: opacity;
+  transform: translateY($x0p5);
+  transition: opacity 300ms $easing, transform 300ms linear;
+  transition-delay: 300ms;
+
+  &.in-viewport {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.fade-right {
+  opacity: 0;
+  transition: opacity 300ms $easing;
+  transition-delay: 300ms;
 
   &.in-viewport {
     opacity: 1;

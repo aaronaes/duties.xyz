@@ -56,12 +56,18 @@ $spacing-sizes: (
   "x0p125": calc(100vw * 0.125 / 25),
   "x0p25": calc(100vw * 0.25 / 25),
   "x0p5": calc(100vw * 0.5 / 25),
+  "x0p75": calc(100vw * 0.75 / 25),
   "x1": calc(100vw * 1 / 25),
   "x1p5": calc(100vw * 1.5 / 25),
   "x2": calc(100vw * 2 / 25),
   "x3": calc(100vw * 3 / 25),
   "x4": calc(100vw * 4 / 25),
-  "x5": calc(100vw * 5 / 25)
+  "x5": calc(100vw * 5 / 25),
+  "x6": calc(100vw * 6 / 25),
+  "x7": calc(100vw * 7 / 25),
+  "x8": calc(100vw * 8 / 25),
+  "x9": calc(100vw * 9 / 25),
+  "x10": calc(100vw * 10 / 25)
 ) !default;
 
 $spacing-important: true !default;

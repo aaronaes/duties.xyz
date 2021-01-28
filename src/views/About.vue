@@ -1,15 +1,13 @@
 <template>
-  <main id="about">
-    <section class="content-block intro">
-      <article class="block-inner">
-        <figure>
-          <!-- <h2 class="markdown" v-html="getMarkdown(about.aboutUs)"></h2> -->
-          <h2
-            class="markdown fittext"
+  <main id="about dark">
+    <section class="outer-margin intro">
+      <article class="row">
+        <figure class="heading">
+          <h1
             v-in-viewport.once="{ margin: '-5% 0%' }"
             :class="{ fadeOut: isHovering }"
+            class="title"
           >
-            Established in 2020,
             <span
               class="audio"
               ref="audioElm"
@@ -22,22 +20,30 @@
               @mouseout="isHovering = false"
               :class="{ highlight: isHovering }"
             >
-              Duties*
+              Duties<strong>*</strong>
             </span>
-            is an independent digital design studio based in Oslo. We believe
-            it’s our duty as designers to provide the world with thoughtfully
-            designed products that are both functional, accessible and visually
-            beautiful.
-          </h2>
+            is an independent digital design studio based in Oslo.
+          </h1>
           <p class="tagline" :class="{ highlight: isHovering }">
             * A moral or legal obligation a responsibility.
+          </p>
+        </figure>
+        <figure class="body">
+          <p>
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are both functional, accessible
+            and visually beautiful.
+            <span class="block" />
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are both functional, accessible
+            and visually beautiful.
           </p>
         </figure>
       </article>
     </section>
 
-    <section class="content-block masthead hide">
-      <article class="block-inner">
+    <section class="outer-margin masthead hide">
+      <article class="row">
         <figure>
           <div class="heading title">
             <h2 class="title">Duty / Duties</h2>
@@ -91,80 +97,39 @@
       </article>
     </section>
 
-    <section class="content-block studioImages">
-      <article class="image-grid">
-        <figure class="fade-in" v-in-viewport.once style="--index: 1;">
-          <img src="/images/about/studio-01.png" />
-        </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 2;">
+    <section class="outer-margin full image">
+      <article class="row">
+        <figure class="image-grid fade-in" v-in-viewport.once>
           <img src="/images/about/studio-03.png" />
         </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 3;">
-          <img src="/images/about/studio-02.png" />
-        </figure>
-      </article>
-    </section>
-    <section class="content-block studioImages hide">
-      <article class="image-grid">
-        <figure class="fade-in" v-in-viewport.once style="--index: 1;">
-          <img
-            src="https://media1.tenor.com/images/f49ee9c7011c6dcfacc063b4b733b41d/tenor.gif?itemid=5143866"
-          />
-        </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 2;">
-          <img
-            src="https://www.datocms-assets.com/33121/1601924843-studioimage-01.jpg"
-          />
-        </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 6;">
-          <img
-            src="https://www.datocms-assets.com/33121/1601925059-studioshot-01.png?auto=format&ar=3154%3A1972&fit=max&ixlib=react-9.0.1&w=594"
-          />
-        </figure>
-
-        <figure class="fade-in" v-in-viewport.once style="--index: 4;">
-          <img
-            src="https://www.datocms-assets.com/33121/1601926682-studioimg.png?auto=format&ar=740%3A852&fit=max&ixlib=react-9.0.1&w=282"
-          />
-        </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 3;">
-          <img
-            src="https://www.datocms-assets.com/33121/1598817693-img2924.jpg?auto=format&ar=3024%3A4032&fit=max&ixlib=react-9.0.1&w=442"
-          />
-        </figure>
-        <figure class="fade-in" v-in-viewport.once style="--index: 5;">
-          <img
-            src="https://www.datocms-assets.com/33121/1601926752-img.png?auto=format&ar=500%3A530&fit=max&ixlib=react-9.0.1&w=380"
-          />
-        </figure>
       </article>
     </section>
 
-    <section class="content-block services">
-      <article class="block-inner">
-        <figure class="service-title">
-          <h2 class="markdown" v-html="getMarkdown(about.offeringIntro)"></h2>
+    <section class="outer-margin services">
+      <article class="row">
+        <figure class="service-title heading fade-in" v-in-viewport.once>
+          <h2
+            class="markdown title"
+            v-html="getMarkdown(about.offeringIntro)"
+          ></h2>
         </figure>
 
-        <div class="service-items" v-if="about.offerings.length > 0">
-          <figure
-            class="service-item"
-            v-for="offer in about.offerings"
-            :key="offer.id"
-          >
-            <div class="heading hide">
-              <h2 class="title">
-                <span>{{ offer.icon }}</span>
-                {{ offer.title }}
-              </h2>
-            </div>
-            <div class="text-block">
-              <p class="icon">{{ offer.icon }}</p>
+        <div class="service-items fade-in" v-in-viewport.once>
+          <figure class="service-item">
+            <div class="text">
               <div class="body">
-                <p class="title bold">
-                  {{ offer.title }}
+                <p>
+                  We believe it’s our duty as designers to provide the world
+                  with thoughtfully designed products that are both functional,
+                  accessible and visually beautiful.
                 </p>
-                <p class="markdown" v-html="getMarkdown(offer.content)"></p>
+                <p>
+                  We believe it’s our duty as designers to provide the world
+                  with thoughtfully designed products that are both functional,
+                  accessible and visually beautiful.
+                </p>
+
+                <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
               </div>
             </div>
           </figure>
@@ -172,8 +137,51 @@
       </article>
     </section>
 
-    <section class="content-block people">
-      <article>
+    <section class="outer-margin image-carousel fade-in" v-in-viewport.once>
+      <article class="row section-main">
+        <figure class="carousel-inner">
+          <swiper
+            ref="mySwiper"
+            :options="swiperOptions"
+            @slideChange="onSlideChange"
+            @swiper="onSwiper"
+          >
+            <swiper-slide>
+              <div class="img-container">
+                <img src="/images/offduty/offduty-01@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="img-container">
+                <img src="/images/offduty/offduty-02@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="img-container">
+                <img src="/images/offduty/offduty-03@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="img-container">
+                <img src="/images/offduty/offduty-04@2x.jpg" />
+              </div>
+            </swiper-slide>
+          </swiper>
+          <div
+            class="carousel-button-next"
+            v-bind:style="{ cursor: cursorNext }"
+          ></div>
+          <div
+            class="carousel-button-prev"
+            v-bind:style="{ cursor: cursorPrev }"
+          ></div>
+          <div class="carousel-pagination"></div>
+        </figure>
+      </article>
+    </section>
+
+    <section class="outer-margin people">
+      <article class="row">
         <figure
           class="person fade-in"
           v-in-viewport.once
@@ -190,43 +198,96 @@
             <h2 class="title">{{ person.name }}</h2>
 
             <p>{{ person.title }}</p>
-            <a :href="'callto:' + person.phoneNumber">
-              <p>{{ person.phoneNumber }}</p>
-            </a>
-            <a :href="'mailto:' + person.email">
-              <p>{{ person.email }}</p>
-            </a>
+            <p>
+              <a :href="'callto:' + person.phoneNumber">
+                {{ person.phoneNumber }}
+              </a>
+            </p>
+            <p>
+              <a :href="'mailto:' + person.email">
+                {{ person.email }}
+              </a>
+            </p>
+          </div>
+        </figure>
+        <figure class="foobar fade-in" v-in-viewport.once>
+          <div class="text">
+            <div class="title">
+              <p>Small team = big network</p>
+            </div>
+            <div class="body">
+              <p>
+                We believe it’s our duty as designers to provide the world with
+                thoughtfully designed products that are both functional,
+                accessible and visually beautiful.
+              </p>
+              <p>
+                We believe it’s our duty as designers to provide the world with
+                thoughtfully designed products that are both functional,
+                accessible and visually beautiful.
+              </p>
+
+              <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
+            </div>
           </div>
         </figure>
       </article>
     </section>
 
-    <section class="content-block marquee">
-      <article class="align-center">
-        <figure class="block-inner fade-in" v-in-viewport.once>
-          <p class="float-left">A few of our friends</p>
+    <section class="outer-margin marquee fade-in" v-in-viewport.once>
+      <article class="row">
+        <figure class="block">
+          <p>A few of our friends</p>
         </figure>
         <figure class="block-marquee">
-          <div class="inner fade-in heading" v-in-viewport.once>
-            <h1 class="title">Domino’s Pizza</h1>
-            <h1 class="title">Feed</h1>
-            <h1 class="title">Circle K</h1>
-            <h1 class="title">Simplenæss</h1>
-            <h1 class="title">Bielke & Yang</h1>
-            <h1 class="title">Humid Mag</h1>
-          </div>
-          <div class="inner right heading fade-in" v-in-viewport.once>
-            <h1 class="title">Nutrilett</h1>
-            <h1 class="title">Orkla</h1>
-            <h1 class="title">Godtlevert</h1>
-            <h1 class="title">Ogle Image</h1>
-            <h1 class="title">Spoortz</h1>
-            <h1 class="title">Snowmelt</h1>
-            <h1 class="title">Psynapse</h1>
-          </div>
+          <ul class="inner heading">
+            <li>
+              <h1 class="title">Domino’s Pizza</h1>
+            </li>
+            <li>
+              <h1 class="title">Feed</h1>
+            </li>
+            <li>
+              <h1 class="title">Circle K</h1>
+            </li>
+            <li>
+              <h1 class="title">Simplenæss</h1>
+            </li>
+            <li>
+              <h1 class="title">Bielke & Yang</h1>
+            </li>
+            <li>
+              <h1 class="title">Humid Mag</h1>
+            </li>
+          </ul>
+
+          <ul class="inner right heading ">
+            <li>
+              <h1 class="title">Nutrilett</h1>
+            </li>
+            <li>
+              <h1 class="title">Orkla</h1>
+            </li>
+            <li>
+              <h1 class="title">Godtlevert</h1>
+            </li>
+            <li>
+              <h1 class="title">Ogle Image</h1>
+            </li>
+            <li>
+              <h1 class="title">Spoortz</h1>
+            </li>
+            <li>
+              <h1 class="title">Snowmelt</h1>
+            </li>
+            <li>
+              <h1 class="title">Psynapse</h1>
+            </li>
+          </ul>
         </figure>
       </article>
     </section>
+
     <Footer />
   </main>
 </template>
@@ -275,27 +336,22 @@ export default {
         }
       },
       swiperOptions: {
-        slidesPerView: 1.5,
+        speed: 200,
+        loop: true,
         centeredSlides: false,
-        spaceBetween: 40,
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-        loop: false,
-        grabCursor: true,
-        speed: 1000,
-        autoHeight: true, //enable auto height
-        breakpoints: {
-          768: {
-            slidesPerView: 2.75
-          },
-          1366: {
-            slidesPerView: 3.5,
-            spaceBetween: 60,
-            slidesOffsetBefore: 120,
-            slidesOffsetAfter: 120
-          }
+        slidesPerView: "auto",
+        grabCursor: "true",
+        pagination: {
+          el: ".carousel-pagination",
+          type: "fraction"
+        },
+        navigation: {
+          nextEl: ".carousel-button-next",
+          prevEl: ".carousel-button-prev"
         }
-      }
+      },
+      cursorPrev: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.2388 2.10976C11.6294 1.71923 11.6294 1.08607 11.2388 0.695542C10.8483 0.305018 10.2152 0.305018 9.82463 0.695542L0.824632 9.69554C0.434107 10.0861 0.434107 10.7192 0.824632 11.1098L9.82463 20.1098C10.2152 20.5003 10.8483 20.5003 11.2388 20.1098C11.6294 19.7192 11.6294 19.0861 11.2388 18.6955L3.94595 11.4026H24.5317C25.084 11.4026 25.5317 10.9549 25.5317 10.4026C25.5317 9.85036 25.084 9.40265 24.5317 9.40265H3.94595L11.2388 2.10976Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`,
+      cursorNext: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5167 0.695542C16.1262 0.305018 15.493 0.305018 15.1025 0.695542C14.7119 1.08607 14.7119 1.71923 15.1025 2.10976L22.3954 9.40265H1.80957C1.25729 9.40265 0.80957 9.85036 0.80957 10.4026C0.80957 10.9549 1.25729 11.4026 1.80957 11.4026H22.3954L15.1025 18.6955C14.7119 19.0861 14.7119 19.7192 15.1025 20.1098C15.493 20.5003 16.1262 20.5003 16.5167 20.1098L25.5167 11.1098C25.9072 10.7192 25.9072 10.0861 25.5167 9.69554L16.5167 0.695542Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`
     };
   },
   methods: {

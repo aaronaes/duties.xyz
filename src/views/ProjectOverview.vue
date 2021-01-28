@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="content-block projectOverview">
+    <section class="outer-margin projectOverview">
       <article class="project-grid">
         <figure
           class="project-item"
@@ -81,7 +81,6 @@ export default {
           siteLink: "",
           description: "",
           id: "",
-          coverSize: "",
           projectThumbnail: {
             url: ""
           },
@@ -106,7 +105,6 @@ export default {
                 siteLink
                 description
                 id
-                coverSize
                 projectThumbnail {
                   url
                 }

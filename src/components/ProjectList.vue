@@ -1,21 +1,18 @@
 <template>
-  <section class="projectList">
+  <section class="outer-margin project-list">
     <article
       v-for="(project, i) in projects"
       :key="i"
       :id="`project-${project.id}`"
-      class="project-block"
+      class="row project fade-in"
+      v-in-viewport.once
       :class="{
         isMini: project.readMore === false
       }"
     >
-      <figure class="summary-block">
+      <figure class="summary">
         <a @click="e => handleProjectClick(e, project)">
-          <div
-            class="imgBox fade-in"
-            :class="project.coverSize"
-            v-in-viewport.once
-          >
+          <div class="imgBox">
             <div
               class="img-container"
               :class="{
@@ -30,21 +27,21 @@
             </div>
             <figcaption>
               <div class="body-text markdown">
-                <blockquote class="heading">
-                  <p
+                <div class="heading">
+                  <h2
                     v-if="project.readMore === true"
                     class="title"
                     v-show="project.title.length > 0"
                     v-html="project.title"
                   >
                     :
-                  </p>
-                  <h2
+                  </h2>
+                  <p
                     v-if="project.readMore === true"
-                    class="markdown title"
+                    class="markdown"
                     v-show="project.subtitle.length > 0"
                     v-html="project.subtitle"
-                  ></h2>
+                  ></p>
 
                   <p
                     v-if="project.readMore === false"
@@ -52,8 +49,8 @@
                     v-show="project.subtitle.length > 0"
                     v-html="project.subtitle"
                   ></p>
-                </blockquote>
-                <div class="tags hide">
+                </div>
+                <div class="tags">
                   <p
                     class="body-text markdown"
                     v-for="(category, i) in project.categories"

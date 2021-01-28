@@ -1,93 +1,73 @@
 body {
-  footer {
+  .footer {
     @include display-grid;
+    @include mb(x0p5);
 
-    .footer-block {
-      grid-column: 1 / 26;
+    .row {
+      @include display-grid;
+      @include pb(x0p5);
 
-      article {
-        @include display-grid;
-        @include mb(x0p25);
-
-        @include display-grid;
-        @include px(x0p5);
-        @include mt(x2);
-
-        figure {
-          @include px(x0p5);
-        }
+      .tagline {
+        grid-row: 1;
+        grid-column: 1 / 20;
+        @include mb(x2);
 
         @include breakpoint(medium) {
-          @include px(x0p25);
+          @include mb(x1);
+          grid-column: 1 / 13;
+          @include mb(x0p5);
+        }
+      }
 
-          figure {
-            @include px(x0p25);
-          }
+      .contact {
+        grid-row: 2;
+        grid-column: 1 / 24;
+        @include mb(x2);
+
+        @include breakpoint(medium) {
+          @include mb(x1);
         }
 
-        @include breakpoint(large) {
-          @include px(x0p125);
+        a {
+          text-decoration: none;
+          color: $black;
+          line-height: 0.5;
+          float: left;
 
-          figure {
-            @include pl(x0p125);
-            @include pr(x0p125);
+          h1 {
+            display: inline-block;
+            border-bottom: 3px solid $black;
+            @include font-size(96px, 144px);
+            @include m(x0);
+          }
+
+          &:hover {
+            color: $black;
+            text-decoration: none;
+
+            h1 {
+              border-color: transparent;
+            }
           }
         }
+      }
 
-        figure {
-          &.block-inner {
-            grid-column: 1 / 26;
+      .links {
+        grid-row: 3;
+        grid-column: 1 / 26;
+        ul {
+          li {
+            display: block;
+            @include mr(x0p5);
+            @include mb(x0);
 
-            @include breakpoint(medium) {
-              grid-column: 1 / 18;
+            &:last-of-type {
+              @include mr(x0);
             }
 
-            @include breakpoint(medium) {
-              grid-column: 1 / 13;
-            }
-
-            .tagline {
-              grid-row: 1;
-            }
-
-            .contact {
-              grid-row: 2;
-              @include mt(x0);
-              @include mb(x1);
-
-              @include breakpoint(medium) {
-                @include mb(x0p5);
-              }
-
-              a {
-                text-decoration: none;
-                display: block;
-                width: auto;
-
-                h1 {
-                  @include font-size(40px, 156px);
-                  line-height: 1;
-                }
-              }
-            }
-
-            ul {
-              &.links {
-                grid-column: 1 / 26;
-
-                li {
-                  display: inline-block;
-                  @include mr(x0p5);
-
-                  &:last-of-type {
-                    @include mr(x0);
-                  }
-
-                  h2 {
-                    display: inline-block;
-                  }
-                }
-              }
+            p {
+              display: inline;
+              @include p(x0);
             }
           }
         }
@@ -96,15 +76,18 @@ body {
   }
 
   &.about {
-    footer {
-      .footer-block {
-        background-color: $black;
-        a {
-          color: $grey !important;
-
-          &:hover {
-            color: $accent !important;
-            border-color: $accent;
+    .footer {
+      .row {
+        .contact {
+          a {
+            h1 {
+              border-bottom: 3px solid $grey;
+            }
+            &:hover {
+              h1 {
+                border-color: transparent;
+              }
+            }
           }
         }
       }

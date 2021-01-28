@@ -1,36 +1,43 @@
 <template>
-  <footer>
-    <section class="footer-block">
-      <article class="align-center">
-        <figure class="block-inner">
-          <h3 class="tagline">
-            Want to work with us on your next project? We’d love to hear from
-            you.
-          </h3>
-        </figure>
-        <figure class="block-inner">
-          <div class="contact">
-            <a href="#" target="_blank">
-              <h1>
-                new@duties.xyz
-              </h1>
-            </a>
-          </div>
-        </figure>
-        <figure class="block-inner">
-          <ul class="links">
-            <li v-for="link in frontpage.contact" :key="link.id">
+  <section class="outer-margin footer">
+    <article class="row">
+      <figure class="tagline fade-in" v-in-viewport.once>
+        <p>
+          Want to work with us on your next project? We’d love to hear from you.
+        </p>
+      </figure>
+      <figure class="contact fade-in" v-in-viewport.once>
+        <div class="heading">
+          <a
+            href="mailto:new@duties.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h1 class="title">
+              new@
+            </h1>
+            <h1 class="title">
+              duties.
+            </h1>
+            <h1 class="title">
+              xyz
+            </h1>
+          </a>
+        </div>
+      </figure>
+      <figure class="links fade-in" v-in-viewport.once>
+        <ul>
+          <li v-for="link in frontpage.contact" :key="link.id">
+            <p class="heading">
               <a class="title" :href="link.linkUrl" target="_blank">
-                <p class="heading">
-                  {{ link.linkTitle }}
-                </p>
+                {{ link.linkTitle }}
               </a>
-            </li>
-          </ul>
-        </figure>
-      </article>
-    </section>
-  </footer>
+            </p>
+          </li>
+        </ul>
+      </figure>
+    </article>
+  </section>
 </template>
 
 <script>

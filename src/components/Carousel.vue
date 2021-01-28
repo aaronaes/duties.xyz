@@ -1,12 +1,6 @@
 <template>
   <!-- CAROUSEL -->
-  <div class="boom">
-    <section class="grid-container carousel-title">
-      <div class="grid-x">
-        <h2>Whats new &searr;</h2>
-      </div>
-    </section>
-
+  <figure class="boom">
     <swiper ref="mySwiper" :options="swiperOptions">
       <swiper-slide>
         <img src="/images/banner/banner-01.jpg" />
@@ -55,7 +49,7 @@
         </p>
       </swiper-slide>
     </swiper>
-  </div>
+  </figure>
 </template>
 
 <script>

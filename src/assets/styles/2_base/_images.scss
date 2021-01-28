@@ -3,7 +3,7 @@ img {
   border: 0;
   vertical-align: middle;
   height: auto;
-  width: 100%;
+  max-width: 100%;
 }
 
 video {
@@ -13,7 +13,6 @@ video {
 
 img[lazy="loaded"] {
   animation: fadeIn 300ms $easing;
-  animation-delay: 300ms;
   animation-fill-mode: forwards;
 }
 

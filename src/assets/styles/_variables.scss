@@ -1,3 +1,4 @@
+//  -----------------------------
 //  Site-specific settings
 //  -----------------------------
 
@@ -68,8 +69,8 @@ html {
 
 // Colors
 $white: #ffffff;
-$sand: #f1f0ee;
-$grey: #c5c1bc;
+$grey: #f1f0ee;
+$sand: #c5c1bc;
 $black: #17171c;
 $accent: #ff4f3e;
 
@@ -81,14 +82,14 @@ $font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
 $font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 
 // Easing
-// $easing: cubic-bezier(0.75, 0, 0.25, 1);
-$easing: cubic-bezier(0.694, 0.0482, 0.335, 1);
+$easing: cubic-bezier(0.75, 0, 0.25, 1);
 
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;
 $grid-margin-gutters: 2.5rem;
 
 // Padding Increments
+$x0: 0;
 $x0p125: calc(100vw * 0.125 / 25);
 $x0p25: calc(100vw * 0.25 / 25);
 $x0p5: calc(100vw * 0.5 / 25);

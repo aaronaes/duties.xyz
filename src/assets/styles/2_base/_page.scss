@@ -1,11 +1,11 @@
 // THEMES //
 body {
-  transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+  transition: background-color 200ms $easing, color 200ms $easing;
   will-change: background-color, color;
 
   &.home {
-    background-color: $white;
-    color: $black;
+    background-color: var(--color-page-background);
+    color: var(--color-text);
   }
 
   &.overview {
@@ -38,10 +38,14 @@ body {
       }
     }
 
-    a {
+    a,
+    p a {
       color: $grey;
+      border-color: $grey;
+      display: inline-block;
       &:hover {
-        color: $accent !important;
+        color: $grey;
+        border-color: transparent;
       }
     }
 
@@ -56,71 +60,5 @@ body {
 article {
   & > * + * {
     margin: 0;
-  }
-}
-
-body {
-  section,
-  header {
-    article {
-      @include display-grid;
-      @include pl(x0p5);
-      @include pr(x0p5);
-      @include mt(x0p5);
-
-      figure {
-        @include pl(x0p5);
-        @include pr(x0p5);
-      }
-
-      @include breakpoint(large) {
-        @include pl(x0p25);
-        @include pr(x0p25);
-
-        figure {
-          @include pl(x0p25);
-          @include pr(x0p25);
-        }
-      }
-
-      @include breakpoint(xx-large) {
-        @include pl(x0p125);
-        @include pr(x0p125);
-
-        figure {
-          @include pl(x0p125);
-          @include pr(x0p125);
-        }
-      }
-    }
-  }
-
-  &.project {
-    section {
-      nav {
-        @include pl(x0p25);
-        @include pr(x0p25);
-
-        @include breakpoint(medium) {
-          @include pl(x0p125);
-          @include pr(x0p125);
-        }
-      }
-      article {
-        padding: 0;
-
-        @include breakpoint(medium) {
-          padding: 0;
-        }
-
-        figure {
-          padding: 0;
-
-          @include breakpoint(medium) {
-            padding: 0;
-          }
-        }
-      }
-    }
   }
 }
