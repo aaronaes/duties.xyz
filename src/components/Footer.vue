@@ -1,12 +1,13 @@
 <template>
   <section class="outer-margin footer">
-    <article class="row">
-      <figure class="tagline fade-in" v-in-viewport.once>
+    <article class="row column">
+      <figure class="column tagline fade-in" v-in-viewport.once>
         <p>
-          Want to work with us on your next project? We’d love to hear from you.
+          Want to work with us on your next project? <br />
+          We’d love to hear from you.
         </p>
       </figure>
-      <figure class="contact fade-in" v-in-viewport.once>
+      <figure class="column contact fade-in" v-in-viewport.once>
         <div class="heading">
           <a
             href="mailto:new@duties.xyz"
@@ -25,7 +26,7 @@
           </a>
         </div>
       </figure>
-      <figure class="links fade-in" v-in-viewport.once>
+      <figure class="column links fade-in" v-in-viewport.once>
         <ul>
           <li v-for="link in frontpage.contact" :key="link.id">
             <p class="heading">

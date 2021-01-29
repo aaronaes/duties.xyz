@@ -1,446 +1,328 @@
-:root {
-  --margin: $x1;
-}
-
 .outer-margin {
   &.hero {
-    article {
-      &.row {
-        @include px(x0p25);
+    .row {
+      .column {
+        grid-column: 1 / 26;
 
-        .heading {
-          h1 {
-            @include m(x0);
-          }
+        @include breakpoint(x-large) {
+          grid-column: 2 / 25;
         }
       }
     }
   }
 
   &.studio {
-    background-color: $black;
     @include mb(x0);
-    @include pb(x1);
-    @include px(x0);
 
-    h1,
-    h2,
-    h3,
-    p {
-      color: $white;
-    }
+    .row {
+      grid-column: 1 / 26;
+      @include display-grid;
+      @include pt(x1);
+      @include pb(x2);
 
-    article {
-      &.row {
+      @include breakpoint(large) {
+        @include pt(x0p5);
+        @include pb(x1);
+      }
+
+      .header {
         grid-column: 1 / 26;
-        @include display-grid;
-        @include px(x0);
-        @include py(x1);
+        grid-row: 1;
+        @include pl(x1);
+        @include pb(x0p5);
 
         @include breakpoint(medium) {
-          @include mt(x0);
-          @include pt(x1);
-          @include pb(x0);
-          @include px(x0p5);
+          @include pl(x0);
+        }
+
+        @include breakpoint(large) {
+          grid-column: 1 / 10;
+          grid-row: 1;
+        }
+      }
+
+      .body {
+        grid-column: 1 / 20;
+        grid-row: 3;
+        @include pl(x1);
+
+        @include breakpoint(medium) {
+          grid-row: 1;
+          grid-column: 1 / 13;
+          @include pl(x0p5);
+        }
+
+        @include breakpoint(large) {
+          grid-column: 1 / 9;
         }
 
         @include breakpoint(x-large) {
-          grid-column: 2 / 25;
+          grid-column: 2 / 9;
+          @include pl(x0);
         }
 
-        figure {
-          &.text-header {
-            grid-column: 1 / 26;
-            grid-row: 1;
+        .text {
+          grid-row: 1;
+          @include mb(x1);
+        }
+      }
 
-            .text {
-              color: $white;
-              grid-row: 1;
+      .image {
+        grid-column: 1 / 26;
+        grid-row: 2;
+        @include px(x1);
+        @include mb(x1);
 
-              h1 {
-                @include mb(x0p5);
-              }
+        img {
+          width: 100%;
+          height: clamp(205px, 55vw, 445px);
+          overflow: hidden;
+          object-fit: cover;
+          object-position: 0 45%;
+        }
 
-              a {
-                color: $white;
+        @include breakpoint(medium) {
+          grid-column: 13 / 26;
+          grid-row: 1;
+          @include pr(x0p5);
+          @include pl(x0);
+          @include mb(x0p5);
 
-                &:hover {
-                  color: $accent;
-                }
-              }
-            }
-
-            .link {
-              grid-row: 2;
-              @include mt(x1);
-
-              @include breakpoint(medium) {
-                @include mt(x0p5);
-              }
-
-              a {
-                color: $white;
-
-                &:hover {
-                  color: $accent;
-                }
-              }
-            }
-
-            @include breakpoint(medium) {
-              grid-column: 1 / 10;
-              grid-row: 1;
-            }
+          img {
+            @include mb(x2);
           }
+        }
 
-          &.studio-image {
-            grid-column: 2 / 26;
-            grid-row: 2;
-
-            @include mb(x1);
-            @include px(x0);
-
-            @include breakpoint(medium) {
-              grid-row: 2;
-              @include mb(x0);
-            }
-
-            img {
-              width: 100%;
-              max-height: 40vh;
-              overflow: hidden;
-              object-fit: cover;
-              object-position: 0% 50%;
-            }
-
-            @include breakpoint(medium) {
-              grid-column: 12 / 26;
-              grid-row: 1;
-
-              img {
-                max-height: 50vh;
-              }
-            }
-          }
-
-          &.text-container {
-            grid-column: 1 / 26;
-            grid-row: 3;
-            height: 100%;
-
-            @include breakpoint(medium) {
-              max-width: 60vw;
-              grid-row: 1;
-            }
-
-            .text {
-              display: flex;
-              color: $white;
-              grid-row: 1;
-              flex-direction: column;
-              align-items: stretch;
-              height: 100%;
-
-              h1 {
-                @include pb(x0p25);
-              }
-
-              p {
-                align-self: stretch;
-                flex: 1;
-                @include mb(x0p5);
-              }
-
-              a {
-                color: $white;
-
-                &.link {
-                  grid-row: 2;
-                  p {
-                    @include mb(x0);
-                  }
-                  &:hover {
-                    color: $accent;
-                  }
-                }
-              }
-            }
-
-            @include breakpoint(medium) {
-              grid-column: 1 / 10;
-            }
-
-            @include breakpoint(x-large) {
-            }
-          }
+        @include breakpoint(large) {
+          grid-column: 13 / 25;
+          @include pr(x0);
         }
       }
     }
   }
 
   &.off-duty {
-    background-color: $sand;
-    color: $black;
-    @include px(x0);
     @include mt(x0);
     @include mb(x0);
 
-    @include breakpoint(medium) {
-      @include px(x0p25);
-    }
-
-    @include breakpoint(x-large) {
-      @include py(x0p5);
-    }
-
     .row {
-      @include display-grid;
-      @include px(x0);
-      @include pt(x3);
+      @include pt(x1);
+      @include pb(x0);
 
       @include breakpoint(medium) {
-        @include pt(x2);
-        @include px(x0p25);
         @include pb(x0p5);
       }
 
-      @include breakpoint(large) {
-        @include pt(x1);
+      @include breakpoint(x-large) {
+        @include pb(x0p25);
       }
 
-      figure {
-        &.text-header {
-          position: relative;
-          grid-row: 1;
+      .header {
+        position: relative;
+        grid-row: 1;
+        grid-column: 1 / 26;
+
+        @include breakpoint(medium) {
           grid-column: 1 / 26;
-
-          @include breakpoint(large) {
-            @include px(x0p5);
-          }
-
-          @include breakpoint(large) {
-            grid-column: 17 / 26;
-          }
-
-          @include breakpoint(x-large) {
-            grid-column: 17 / 25;
-          }
-
-          .heading {
-            grid-row: 1;
-            grid-column: 1 / 26;
-
-            @include breakpoint(large) {
-              grid-column: 17 / 26;
-
-              .title {
-                @include mb(x0p5);
-              }
-            }
-
-            @include breakpoint(x-large) {
-              grid-column: 17 / 25;
-            }
-          }
         }
 
-        &.text-container {
-          position: relative;
+        @include breakpoint(large) {
+          grid-column: 18 / 13;
+        }
+
+        @include breakpoint(x-large) {
+          grid-column: 18 / 25;
+        }
+      }
+
+      .body {
+        position: relative;
+        grid-row: 2;
+        grid-column: 1 / 22;
+        @include mb(x2);
+
+        @include breakpoint(medium) {
+          grid-column: 1 / 20;
+          @include mb(x0p5);
+        }
+
+        @include breakpoint(large) {
           grid-row: 2;
-          grid-column: 1 / 22;
-          @include px(x1);
-
-          @include breakpoint(medium) {
-            @include px(x0);
-          }
-
-          @include breakpoint(large) {
-            grid-row: 2;
-            grid-column: 17 / 26;
-          }
-
-          @include breakpoint(x-large) {
-            grid-column: 17 / 25;
-          }
-
-          .title {
-            grid-row: 1;
-          }
-
-          .text {
-            grid-row: 2;
-            @include mb(x1);
-
-            @include breakpoint(medium) {
-              grid-row: 2;
-            }
-            @include breakpoint(large) {
-              grid-column: 13 / 26;
-              @include mb(x0p5);
-
-              h1,
-              h2,
-              h3 {
-                display: block !important;
-                width: 100%;
-              }
-            }
-          }
+          grid-column: 18 / 26;
         }
 
-        &.image-carousel {
-          position: relative;
-          grid-column: 1 / 26;
-          grid-row: 3;
+        @include breakpoint(x-large) {
+          @include px(x0);
+          grid-column: 18 / 25;
+        }
 
-          @include breakpoint(medium) {
-            grid-column: 1 / 20;
-          }
+        .title {
+          grid-row: 1;
+        }
+
+        .text {
+          grid-row: 2;
 
           @include breakpoint(large) {
-            grid-column: 1 / 16;
-            grid-row: 2;
+            grid-column: 13 / 26;
           }
+        }
+      }
 
-          @include breakpoint(x-large) {
-            grid-column: 2 / 16;
-          }
+      .carousel {
+        grid-column: 1 / 26;
+        grid-row: 3;
+        position: relative;
+        @include px(x0);
 
-          .swiper-container {
+        @include breakpoint(medium) {
+          grid-column: 1 / 22;
+        }
+
+        @include breakpoint(large) {
+          grid-column: 1 / 16;
+          grid-row: 2;
+        }
+
+        @include breakpoint(x-large) {
+          grid-column: 2 / 16;
+        }
+
+        .swiper-container {
+          position: relative;
+          width: 100%;
+
+          .swiper-wrapper {
+            width: auto;
             position: relative;
-            width: 100%;
 
-            .swiper-wrapper {
+            .swiper-slide {
+              height: clamp(225px, 30vw, 500px);
+              background-color: $black;
               width: auto;
-              position: relative;
 
-              .swiper-slide {
-                height: clamp(275px, 35vw, 540px);
-                background-color: $black;
+              .slide-img {
+                height: 100%;
                 width: auto;
 
-                .slide-img {
+                img {
                   height: 100%;
+                  margin: 0;
                   width: auto;
+                }
+              }
 
-                  img {
-                    height: 100%;
-                    margin: 0;
-                    width: auto;
-                  }
+              .slide-text {
+                position: absolute;
+                bottom: 8px;
+                left: 10px;
+                z-index: 9999 !important;
+                cursor: pointer !important;
+
+                p {
+                  background-color: $black;
+                  color: $white;
+                  padding: 2px 6px 3px;
+                  @include font-size(14px, 16px);
+                  @include m(x0);
                 }
 
-                .slide-text {
-                  position: absolute;
-                  bottom: 8px;
-                  left: 10px;
-                  z-index: 999;
-                  cursor: pointer !important;
-
-                  p {
-                    background-color: $black;
+                &:hover {
+                  a,
+                  a p {
+                    background-color: transparent;
                     color: $white;
-                    padding: 2px 6px 3px;
-                    @include font-size(14px, 16px);
-                    @include m(x0);
                   }
 
-                  &:hover {
-                    a,
-                    a p {
-                      background-color: transparent;
-                      color: $white;
-                    }
-
-                    + .slide-img {
-                      img {
-                        opacity: 0;
-                      }
+                  + .slide-img {
+                    img {
+                      opacity: 0;
                     }
                   }
                 }
               }
-            }
-          }
-
-          @include breakpoint(small only) {
-            .swiper-button-prev,
-            .swiper-button-next {
-              display: none;
-            }
-          }
-
-          @include breakpoint(medium) {
-            .swiper-button-prev,
-            .swiper-button-next {
-              display: block;
-              position: absolute;
-              top: 20%;
-              bottom: 20%;
-              left: 0;
-              width: 20%;
-              height: 60%;
-              margin: 0;
-              padding: 0;
-              z-index: 1000 !important;
-              cursor: pointer;
-              display: block;
-              align-items: center;
-              justify-content: center;
-
-              &:after {
-                display: none;
-              }
-            }
-
-            .swiper-button-prev {
-              cursor: w-resize;
-              position: absolute;
-              left: 0;
-              right: auto;
-            }
-
-            .swiper-button-next {
-              cursor: e-resize;
-              position: absolute;
-              right: 0;
-              left: auto;
             }
           }
         }
 
-        &.swiper-pagination {
-          grid-column: span 8 / 25;
-          grid-row: 2;
-          position: relative !important;
-          text-align: right;
-          transition: 300ms opacity $easing;
-          z-index: 1000;
-          align-self: flex-end;
+        .swiper-button-prev,
+        .swiper-button-next {
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 20%;
+          width: 15%;
+          height: 80%;
+          margin: 0;
+          padding: 0;
+          z-index: 500 !important;
+          cursor: pointer;
+          display: block;
+          align-items: center;
+          justify-content: center;
+
+          &:after {
+            display: none;
+          }
+        }
+
+        .swiper-button-prev {
+          cursor: w-resize;
+          position: absolute;
+          left: $x0p5;
+          right: auto;
+        }
+
+        .swiper-button-next {
+          cursor: e-resize;
+          position: absolute;
+          right: $x0p5;
+          left: auto;
+        }
+      }
+
+      .swiper-pagination {
+        grid-column: span 8 / 26;
+        grid-row: 2;
+        position: relative !important;
+        text-align: right;
+        transition: 300ms opacity $easing;
+        z-index: 1000;
+        align-self: flex-end;
+        line-height: 0.6;
+        @include font-size(18px, 28px);
+        @include mb(x2);
+
+        span {
+          line-height: 0.6;
+
+          &.swiper-pagination-current,
+          &.swiper-pagination-total {
+            letter-spacing: -3px;
+            font-weight: normal;
+          }
+        }
+
+        @include breakpoint(medium) {
+          grid-row: 3;
+          grid-column: span 4 / 26;
+          @include font-size(32px, 48px);
+          font-family: $font-tex-cond;
+
           line-height: 0.9;
-          @include font-size(16px, 28px);
 
           span {
-            line-height: 0.6;
-
-            &.swiper-pagination-current,
-            &.swiper-pagination-total {
-              letter-spacing: -3px;
-              font-weight: normal;
-            }
+            line-height: 0.9;
           }
+        }
 
-          @include breakpoint(medium) {
-            grid-row: 3;
-            grid-column: span 4 / 26;
-            @include font-size(48px, 96px);
-            font-family: $font-tex-cond;
-          }
+        @include breakpoint(large) {
+          grid-row: 2;
+          grid-column: span 4 / 26;
+        }
 
-          @include breakpoint(x-large) {
-            grid-row: 2;
-            grid-column: span 4 / 25;
-          }
+        @include breakpoint(x-large) {
+          grid-column: span 4 / 25;
         }
       }
     }

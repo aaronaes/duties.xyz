@@ -1,177 +1,147 @@
-.outer-margin {
-  &.project-list {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
+.project-list {
+  @include display-grid;
 
-    .project {
-      grid-column: 1 / 25;
+  .project {
+    @include mt(x3);
+    grid-column: 1 / 26;
+
+    @include breakpoint(x-large) {
+      grid-column: 2 / 25;
+    }
+
+    &:first-of-type {
+      @include mt(x0);
+    }
+
+    .column {
+      grid-column: 1 / 26;
       align-items: center;
       background-color: initial;
       visibility: visible;
       z-index: 1;
       pointer-events: none;
       align-items: flex-start;
-      @include display-grid;
-      @include mt(x1);
-      @include mb(x1);
-      @include px(x0p25);
 
-      &:first-of-type {
-        @include mt(x0);
-      }
+      &.summary {
+        a.imgBox {
+          display: block;
+          border-bottom: none;
+          pointer-events: all;
+          cursor: pointer;
+          max-width: 100%;
 
-      figure {
-        grid-column: 1 / 26;
+          .image {
+            max-height: 70vh;
+            overflow: hidden;
+            @include mb(x0p25);
 
-        &.summary {
-          a {
-            display: block;
+            @include breakpoint(medium) {
+              @include mb(x0p125);
+            }
 
-            .imgBox {
-              pointer-events: all;
-              cursor: pointer;
-              max-width: 100%;
+            img {
+              object-fit: cover;
+              object-position: 0% 50%;
+            }
+          }
 
-              @include breakpoint(medium) {
-                .img-container {
-                  max-height: 70vh;
-                  overflow: hidden;
-                  @include mb(x0p125);
+          .caption {
+            grid-column: 1 / 26;
+            @include mt(x0p75);
 
-                  img {
-                    object-fit: cover;
-                    object-position: 0% 50%;
+            .heading {
+              h2,
+              h3 {
+                @include m(x0);
+                pointer-events: all;
+              }
+            }
+
+            .body {
+              p {
+                &.title {
+                  @include pr(x0p125);
+
+                  &:after {
+                    content: " :";
+                    display: inline;
+                    animation: blinker 1400ms step-start infinite;
+                    padding-left: 2px;
+                  }
+
+                  @keyframes blinker {
+                    50% {
+                      opacity: 0;
+                    }
+                  }
+
+                  @keyframes ellipsis {
+                    from {
+                      opacity: 0;
+                      width: 0px;
+                    }
+                    to {
+                      opacity: 1;
+                      width: 20px;
+                    }
                   }
                 }
-              }
 
-              figcaption {
-                grid-column: 1 / 26;
-                @include mt(x0p5);
-
-                .body-text {
-                  .heading {
-                    h2,
-                    h3 {
-                      @include m(x0);
-                      pointer-events: all;
-                    }
-
-                    p {
-                      transform: translateY(-0.25rem);
-                      @include m(x0);
-                      &.title {
-                        @include pr(x0p125);
-
-                        &:after {
-                          content: " :";
-                          display: inline;
-                          animation: blinker 1400ms step-start infinite;
-                          padding-left: 2px;
-                        }
-
-                        @keyframes blinker {
-                          50% {
-                            opacity: 0;
-                          }
-                        }
-
-                        @keyframes ellipsis {
-                          from {
-                            opacity: 0;
-                            width: 0px;
-                          }
-                          to {
-                            opacity: 1;
-                            width: 20px;
-                          }
-                        }
-                      }
-                    }
-                  }
+                code {
+                  font-family: $font-tex-regular !important;
                 }
               }
             }
           }
         }
       }
+    }
 
-      &.isMini {
-        grid-column: 1 / span 26;
+    &.isMini {
+      grid-column: 4 / 23;
+
+      + .isMini {
+        grid-column: 4 / 23;
+      }
+
+      @include breakpoint(medium) {
+        grid-column: 3 / span 10;
+
+        .column {
+          @include pr(x0p5);
+          @include pl(x0);
+        }
 
         + .isMini {
-          grid-column: span 26 / 26;
-        }
+          grid-column: span 10 / 24;
 
-        .summary {
-          a {
-            display: block;
-
-            &:hover {
-              color: $black;
-
-              strong {
-                color: $black;
-                font-weight: 400;
-              }
-            }
-
-            .imgBox {
-              pointer-events: all;
-              cursor: default;
-              max-width: 100%;
-
-              .img-container {
-                max-height: 100%;
-                overflow: hidden;
-
-                img {
-                  object-fit: unset;
-                }
-              }
-
-              figcaption {
-                .body-text {
-                  .heading {
-                    a {
-                      display: inline;
-                    }
-                    p {
-                      text-decoration: none;
-
-                      strong {
-                        font-weight: 400 !important;
-                        text-decoration: underline;
-                      }
-                    }
-                  }
-                }
-              }
-            }
+          .column {
+            @include pr(x0);
+            @include pl(x0p5);
           }
         }
+      }
 
-        @include breakpoint(medium) {
-          grid-column: 2 / span 11;
+      @include breakpoint(large) {
+        grid-column: 3 / span 9;
 
-          + .isMini {
-            grid-column: span 11 / 24;
-          }
+        + .isMini {
+          grid-column: span 9 / 23;
+        }
+      }
+
+      @include breakpoint(x-large) {
+        grid-column: 4 / span 8;
+
+        .column {
+          @include px(x0);
         }
 
-        @include breakpoint(large) {
-          grid-column: 3 / span 10;
+        + .isMini {
+          grid-column: span 8 / 23;
 
-          + .isMini {
-            grid-column: span 10 / 23;
-          }
-        }
-
-        @include breakpoint(x-large) {
-          grid-column: 5 / span 8;
-
-          + .isMini {
-            grid-column: span 8 / 21;
+          .column {
+            @include px(x0);
           }
         }
       }

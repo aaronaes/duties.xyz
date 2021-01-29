@@ -65,8 +65,7 @@ $breakpoints: (
   small: 0px,
   medium: 576px,
   large: 1024px,
-  x-large: 1220px,
-  xx-large: 1440px
+  x-large: 1220px
 );
 $breakpoints-hidpi: (
   hidpi-1: 1,
@@ -76,7 +75,7 @@ $breakpoints-hidpi: (
   hidpi-3: 3
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large x-large xx-large);
+$breakpoint-classes: (small medium large x-large);
 
 // 3. The Grid
 // -----------

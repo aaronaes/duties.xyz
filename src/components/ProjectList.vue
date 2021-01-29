@@ -1,66 +1,63 @@
 <template>
   <section class="outer-margin project-list">
     <article
-      v-for="(project, i) in projects"
-      :key="i"
-      :id="`project-${project.id}`"
       class="row project fade-in"
       v-in-viewport.once
+      :id="`project-${project.id}`"
+      v-for="(project, i) in projects"
+      :key="i"
       :class="{
         isMini: project.readMore === false
       }"
     >
-      <figure class="summary">
-        <a @click="e => handleProjectClick(e, project)">
-          <div class="imgBox">
-            <div
-              class="img-container"
-              :class="{
-                device: project.isDevice,
-                website: project.isWebsite
-              }"
-            >
-              <img
-                :src="getUrl(project.projectThumbnail.url)"
-                :srcset="getSrcSet(project.projectThumbnail.url)"
-              />
+      <figure class="column summary">
+        <a class="imgBox" @click="e => handleProjectClick(e, project)">
+          <div
+            class="image"
+            :class="{
+              device: project.isDevice,
+              website: project.isWebsite
+            }"
+          >
+            <img
+              :src="getUrl(project.projectThumbnail.url)"
+              :srcset="getSrcSet(project.projectThumbnail.url)"
+            />
+          </div>
+          <div class="caption">
+            <div class="heading">
+              <h2
+                v-if="project.readMore === true"
+                class="title"
+                v-show="project.title.length > 0"
+                v-html="project.title"
+              >
+                :
+              </h2>
             </div>
-            <figcaption>
-              <div class="body-text markdown">
-                <div class="heading">
-                  <h2
-                    v-if="project.readMore === true"
-                    class="title"
-                    v-show="project.title.length > 0"
-                    v-html="project.title"
-                  >
-                    :
-                  </h2>
-                  <p
-                    v-if="project.readMore === true"
-                    class="markdown"
-                    v-show="project.subtitle.length > 0"
-                    v-html="project.subtitle"
-                  ></p>
-
-                  <p
-                    v-if="project.readMore === false"
-                    class="markdown"
-                    v-show="project.subtitle.length > 0"
-                    v-html="project.subtitle"
-                  ></p>
-                </div>
-                <div class="tags">
-                  <p
-                    class="body-text markdown"
-                    v-for="(category, i) in project.categories"
-                    :key="i"
-                  >
-                    {{ category.categoryType }}
-                  </p>
-                </div>
-              </div>
-            </figcaption>
+            <div class="body">
+              <p
+                v-if="project.readMore === true"
+                class="markdown"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
+              ></p>
+              <p
+                v-if="project.readMore === false"
+                class="markdown"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
+              ></p>
+            </div>
+            <div class="tags">
+              <p
+                class="body-text markdown"
+                v-for="(category, i) in project.categories"
+                :key="i"
+              >
+                {{ category.categoryType }}
+              </p>
+            </div>
           </div>
         </a>
       </figure>

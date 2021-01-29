@@ -1,8 +1,3 @@
-:root {
-  --body: clamp(16px, 2.2vw, 22px) !important;
-  --body2: clamp(20px, 2.2vw, 32px) !important;
-}
-
 $theme-color: $black;
 $radius: clamp(28px, 3.5vw, 56px);
 
@@ -24,6 +19,11 @@ body.project {
       grid-column: 1 / 26;
       position: relative;
 
+      @include breakpoint(x-large) {
+        grid-column: 2 / 25;
+        @include my(x0p5);
+      }
+
       .loading {
         position: fixed;
         top: 0;
@@ -36,29 +36,23 @@ body.project {
         z-index: 9999;
         background-color: $black;
         color: $grey;
-
         @include m(x0);
-        @include pt(x0p5);
-        @include px(x0p5);
 
-        .row {
-          .projectHeader {
-            position: relative;
-            opacity: 1;
-            transition: all 500ms $easing;
-            cursor: pointer !important;
-            @include mt(x0);
+        .nav {
+          cursor: pointer !important;
+          @include display-grid;
+          @include mt(x0p5);
 
+          .column {
+            grid-column: 1 / 26;
+
+            @include breakpoint(x-large) {
+             grid-column: 2 / 25;
+            }
             .nav-item {
-              z-index: 1001;
-              transition: all 500ms $easing;
-
-              h1,
-              h2,
               h3 {
                 text-transform: uppercase;
-                text-align: left;
-                @include m(x0);
+                display: inline-block;
 
                 &.blinking {
                   span {
@@ -144,137 +138,120 @@ body.project {
           opacity: 1;
         }
 
-        section {
-          position: relative;
+        .header {
+          grid-column: 1 / 26;
+          z-index: 9999;
+          @include m(x0);
 
-          &.header {
-            position: absolute;
+          .row {
             width: 100vw;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            transform: translate3d(0, 0, 0);
-            transition: all 100ms $easing;
+            opacity: 1;
+            @include mt(x0p5);
 
-            &:hover {
-              background: $white;
-              cursor: pointer;
+            @include breakpoint(x-large) {
+              @include mt(x0p125);
             }
 
-            @include m(x0);
-            @include pb(x0p25);
-
-            .row {
+            .heading {
               grid-column: 1 / 26;
-              opacity: 1;
-              @include mt(x0p5);
 
-              .text {
-                grid-column: 1 / 26;
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
+              }
 
-                h2,
-                h3 {
-                  a {
-                    text-decoration: none;
-                  }
-
-                  span {
-                    margin-left: 6px;
-                  }
-
-                  &:hover {
-                    color: $black;
-                  }
+              h2,
+              h3 {
+                a {
+                  border-bottom: none;
                 }
 
-                figure {
-                  &.text-container {
-                    @include mt(x1);
-                  }
+                span {
+                  margin-left: 6px;
+                }
+
+                &:hover {
+                  color: $black;
+                }
+              }
+
+              figure {
+                &.text-container {
+                  @include mt(x1);
                 }
               }
             }
           }
+        }
 
-          &.banner {
-            @include m(x0);
+        .banner {
+          @include m(x0);
+          @include p(x0);
+
+          .row {
             @include p(x0);
 
-            .section-main {
-              @include p(x0);
+            .image {
+              grid-column: 1 / 26;
+              margin: 0 !important;
+              padding: 0 !important;
 
-              .img-container {
-                grid-column: 1 / 26;
-                margin: 0 !important;
-                padding: 0 !important;
-
-                img {
-                  width: 100%;
-                  height: 40vh;
-                  max-height: 40vh;
-                  object-fit: cover;
-                  object-position: top left;
-                }
-
-                @include breakpoint(medium) {
-                  img {
-                    width: 100%;
-                    height: 73vh;
-                    max-height: 73vh;
-                    object-fit: cover;
-                    object-position: 0% 0%;
-                  }
-                }
+              img {
+                width: 100%;
+                height: clamp(225px, 50vw, 720px);
+                object-fit: cover;
+                object-position: 0 0;
               }
             }
           }
+        }
 
-          &.info {
-            grid-column: 1 / 26;
-            background-color: initial;
-            opacity: 1;
-            @include mt(x0p25);
-            @include mb(x4);
-            article {
+        .info {
+          grid-column: 1 / 26;
+          background-color: initial;
+          opacity: 1;
+          @include mt(x0p5);
+
+          @include breakpoint(medium) {
+            @include mt(x0p125);
+          }
+
+          article {
+            .text {
               grid-column: 1 / 26;
 
               @include breakpoint(medium) {
                 grid-column: 1 / 24;
               }
 
-              figure {
-                &.text {
-                  .text-container {
-                    h1 {
-                      @include pb(x0p25);
-                    }
+              @include breakpoint(x-large) {
+                grid-column: 2 / 24;
+              }
 
-                    h2 {
-                      &.title {
-                        @include pb(x0p25);
-                      }
-                    }
+              .text-container {
+                .body {
+                  @include pb(x0p25);
 
-                    .body-text {
-                      @include pb(x0p25);
+                  p {
+                    display: block;
+                    @include pb(x0p25);
 
-                      p {
-                        display: block;
-                        @include pb(x0p25);
-
-                        &:last-of-type {
-                          @include pb(x0p125);
-                        }
-                      }
+                    &:last-of-type {
+                      @include pb(x0p125);
                     }
                   }
                 }
               }
             }
           }
+        }
 
-          // Case Block
-          &.quote {
+        // Case Block
+        .asset {
+          .outer-margin {
+            @include mt(x1);
+          }
+
+          .quote {
             margin: 0 !important;
             @include pt(x1);
             @include pb(x1);
@@ -313,143 +290,150 @@ body.project {
             }
           }
 
-          &.single-img {
-            .content {
+          .single-img {
+            .column {
               grid-column: 1 / 26;
 
-              .device-inner {
-                .img-container {
-                  img {
-                    object-fit: cover;
-                    object-position: center center;
-                  }
-                }
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
               }
 
-              &.website {
-                background-color: $sand;
-                overflow: hidden;
-
-                img,
-                video {
-                  border: 2px solid $black;
+              .content {
+                .device-inner {
+                  .image {
+                    img {
+                      object-fit: cover;
+                      object-position: center center;
+                    }
+                  }
                 }
 
-                &:before {
-                  content: "•••";
-                  color: $white;
-                  background-color: $black;
-                  padding: 0px $x0p5;
-                  font-size: clamp(6px, 3vw, 12px);
-                  letter-spacing: 2px;
-                  height: clamp(16px, 3vw, 34px);
-                  display: block;
-                  position: relative;
-                  width: 100%;
-                  display: flex;
-                  flex-direction: row;
-                  text-align: left;
-                  justify-content: flex-start;
-                }
+                &.website {
+                  background-color: $sand;
+                  overflow: hidden;
 
-                @include breakpoint(medium) {
-                  @include py(x1);
-                  @include px(x2);
+                  img,
+                  video {
+                    border: 2px solid $black;
+                  }
 
                   &:before {
-                    content: "○○○";
+                    content: "•••";
                     color: $white;
                     background-color: $black;
-                    padding: 0px clamp(6px, 3vw, 12px);
+                    padding: 0px $x0p5;
                     font-size: clamp(6px, 3vw, 12px);
-                    letter-spacing: 3px;
-                    line-height: clamp(16px, 3vw, 34px);
+                    letter-spacing: 2px;
                     height: clamp(16px, 3vw, 34px);
                     display: block;
                     position: relative;
                     width: 100%;
                     display: flex;
                     flex-direction: row;
-                    text-align: justify;
+                    text-align: left;
                     justify-content: flex-start;
+                  }
+
+                  @include breakpoint(medium) {
+                    @include py(x1);
+                    @include px(x2);
+
+                    &:before {
+                      content: "○○○";
+                      color: $white;
+                      background-color: $black;
+                      padding: 0px clamp(6px, 3vw, 12px);
+                      font-size: clamp(6px, 3vw, 12px);
+                      letter-spacing: 3px;
+                      line-height: clamp(16px, 3vw, 34px);
+                      height: clamp(16px, 3vw, 34px);
+                      display: block;
+                      position: relative;
+                      width: 100%;
+                      display: flex;
+                      flex-direction: row;
+                      text-align: justify;
+                      justify-content: flex-start;
+                    }
+                  }
+
+                  @include breakpoint(large) {
+                    @include px(x3);
                   }
                 }
 
-                @include breakpoint(large) {
-                  @include px(x3);
-                }
-              }
+                &.device {
+                  background-color: $sand;
+                  @include px(x2);
+                  @include py(x2);
 
-              &.device {
-                background-color: $sand;
-                @include px(x2);
-                @include py(x2);
+                  @include breakpoint(large) {
+                    @include px(x3);
+                  }
 
-                @include breakpoint(large) {
-                  @include px(x3);
-                }
+                  .device-inner {
+                    position: relative;
 
-                .device-inner {
-                  position: relative;
-
-                  .img-container {
-                    img,
-                    video {
-                      width: 100%;
-                      height: auto;
-                      border-radius: $radius;
-                      border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                    .image {
+                      img,
+                      video {
+                        width: 100%;
+                        height: auto;
+                        border-radius: $radius;
+                        border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                      }
                     }
                   }
                 }
-              }
-            }
 
-            figcaption {
-              grid-column: 3 / 24;
-              padding-top: $x0p5;
+                figcaption {
+                  grid-column: 3 / 24;
+                  padding-top: $x0p5;
 
-              @include breakpoint(medium) {
-                grid-column: 3 / 20;
-              }
+                  @include breakpoint(medium) {
+                    grid-column: 3 / 20;
+                  }
 
-              @include breakpoint(large) {
-                grid-column: 4 / 13;
-              }
+                  @include breakpoint(large) {
+                    grid-column: 4 / 13;
+                  }
 
-              p {
-                font-size: clamp(14px, 1vw, 18px);
-                line-height: 1.45;
-                float: left;
+                  p {
+                    font-size: clamp(14px, 1vw, 18px);
+                    line-height: 1.45;
+                    float: left;
+                  }
+                }
               }
             }
 
             &.full {
               @include my(x2);
               @include px(x0);
+              .column {
+                .content {
+                  background-color: transparent !important;
 
-              .content {
-                background-color: transparent !important;
+                  .device-inner {
+                    .image {
+                      grid-column: 1 / 26;
+                      background-color: transparent !important;
+                      @include px(x0);
 
-                .device-inner {
-                  .img-container {
-                    grid-column: 1 / 26;
-                    background-color: transparent !important;
-                    @include px(x0);
-
-                    img {
-                      width: 100%;
-                      height: 44vh;
-                      object-fit: cover;
-                      object-position: 60% 0%;
-                    }
-
-                    @include breakpoint(medium) {
                       img {
                         width: 100%;
-                        height: auto;
-                        object-fit: unset;
-                        object-position: unset;
+                        height: 44vh;
+                        object-fit: cover;
+                        object-position: 60% 0%;
+                      }
+
+                      @include breakpoint(medium) {
+                        img {
+                          width: 100%;
+                          height: auto;
+                          object-fit: unset;
+                          object-position: unset;
+                        }
                       }
                     }
                   }
@@ -459,18 +443,21 @@ body.project {
 
             &.narrow {
               margin-top: $x3;
+              .column {
+                .content {
+                  .image {
+                    grid-column: 1 / 26;
 
-              .img-container {
-                grid-column: 1 / 26;
-
-                @include breakpoint(large) {
-                  grid-column: 6 / 21;
+                    @include breakpoint(large) {
+                      grid-column: 6 / 21;
+                    }
+                  }
                 }
               }
             }
           }
 
-          &.image-text {
+          .image-text {
             .img {
               align-self: stretch;
               grid-column: 1 / 26;
@@ -488,7 +475,7 @@ body.project {
                 padding-right: $x0p5;
               }
 
-              .img-container {
+              .image {
                 img {
                   align-self: flex-start;
                 }
@@ -514,52 +501,52 @@ body.project {
             }
           }
 
-          &.double-img {
-            @include mt(x0p5);
-            @include mb(x0p5);
+          .double-img {
+            @include mt(x4);
+            @include mb(x4);
 
-            .module {
-              .img-container {
+            .row {
+              .column {
                 &:nth-child(odd) {
                   grid-column: 1 / 13;
                   @include pr(x0);
 
-                  &:first-of-type {
-                    @include mb(x0p5);
+                  .image {
+                    &:first-of-type {
+                      @include mb(x1);
+                    }
                   }
                 }
-              }
-
-              &:nth-child(even) {
-                grid-column: 13 / 25;
-                @include pl(x0);
-              }
-
-              @include breakpoint(medium) {
-                &:nth-child(odd) {
-                  grid-column: 3 / 13;
-                  @include pr(x0p25);
-                }
 
                 &:nth-child(even) {
-                  grid-column: 13 / 23;
-                  @include pl(x0p25);
-                }
-              }
-
-              @include breakpoint(x-large) {
-                &:nth-child(odd) {
-                  grid-column: 5 / 13;
+                  grid-column: 14 / 26;
+                  @include pl(x0);
                 }
 
-                &:nth-child(even) {
-                  grid-column: 13 / 21;
+                @include breakpoint(medium) {
+                  &:nth-child(odd) {
+                    grid-column: 3 / 13;
+                  }
+
+                  &:nth-child(even) {
+                    grid-column: 14 / 24;
+                  }
+                }
+
+                @include breakpoint(x-large) {
+                  &:nth-child(odd) {
+                    grid-column: 5 / 13;
+                  }
+
+                  &:nth-child(even) {
+                    grid-column: 14 / 22;
+                  }
                 }
               }
             }
           }
 
-          &.triple-img {
+          .triple-img {
             display: flex;
 
             @include breakpoint(small only) {
@@ -573,7 +560,7 @@ body.project {
                     background-color: $theme-color;
                     border-radius: $radius;
 
-                    .img-container {
+                    .image {
                       .notch {
                         position: absolute;
                         top: clamp(6px, 0.6vw, 12px);
@@ -696,7 +683,7 @@ body.project {
             }
           }
 
-          &.image-carousel {
+          .image-carousel {
             display: grid;
             grid-template-columns: repeat(1, auto);
 
@@ -706,6 +693,9 @@ body.project {
             @include pl(x0);
             @include pr(x0);
             @include pb(x1);
+
+            @include breakpoint(large) {
+            }
 
             .carousel-inner {
               @include p(x0);
@@ -725,32 +715,22 @@ body.project {
                     cursor: grab;
                     width: auto;
                     height: auto;
-                    @include ml(x0p25);
+                    @include ml(x1);
 
-                    @include breakpoint(large) {
+                    @include breakpoint(medium) {
                       @include ml(x0p5);
                     }
 
-                    .img-container {
+                    .image {
                       img {
                         height: 100%;
                         width: auto;
-                        max-height: 50vh;
-                      }
-
-                      @include breakpoint(medium) {
-                        img {
-                          max-height: 60vh;
-                        }
+                        height: clamp(275px, 40vw, 500px);
                       }
                     }
 
                     &:first-of-type {
                       @include ml(x0);
-
-                      @include breakpoint(large) {
-                        @include ml(x0p25);
-                      }
                     }
 
                     &:last-of-type {
@@ -773,11 +753,11 @@ body.project {
               .carousel-button-prev,
               .carousel-button-next {
                 position: absolute;
-                top: 0;
+                top: 20%;
                 bottom: 20%;
                 left: 0;
-                width: 50%;
-                height: 80%;
+                width: 20%;
+                height: 60%;
                 margin: 0;
                 padding: 0;
                 z-index: 1000 !important;
@@ -809,17 +789,14 @@ body.project {
                 grid-row: 1;
                 grid-column: 1 / span 4;
                 position: absolute;
-                bottom: -3vw;
-                left: $x0p5;
+                bottom: 0;
+                left: $x1;
                 text-align: left;
+                transform: translateY($x2);
                 transition: 500ms opacity;
                 z-index: 1000;
                 text-align: left;
-                font-size: var(--font-body);
-
-                &:before {
-                  content: "— Item ";
-                }
+                @include font-size(18px, 30px);
 
                 span {
                   &.swiper-pagination-current,
@@ -831,55 +808,32 @@ body.project {
               }
             }
           }
+        }
 
-          &.meta {
-            @include mt(x0p25);
-            @include mb(x2);
-
-            @include breakpoint(medium) {
-              @include mb(x3);
-            }
-
-            .row {
+        .meta {
+          .row {
+            .column {
               grid-column: 1 / 26;
+              @include mb(x0);
 
-              .text-container {
-                h3 {
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
+              }
+
+              @include breakpoint(small) {
+                padding: 0;
+              }
+
+              p {
+                display: inline;
+
+                &:after {
+                  content: ".";
+                }
+
+                span {
                   display: inline;
                 }
-
-                @include breakpoint(small) {
-                  padding: 0;
-                }
-
-                .name {
-                  &:last-of-type {
-                    &:after {
-                      content: ".";
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          &.links {
-            width: 100vw;
-            padding: calc(4vh + 4vw) 0;
-            display: inline-grid;
-            grid-template-columns: repeat(6, 1fr);
-
-            a {
-              &:hover {
-                border-bottom: none !important;
-              }
-            }
-
-            .text {
-              grid-column: 3 / span 2;
-
-              .text-container {
-                padding: 0 $x1p5;
               }
             }
           }
@@ -888,10 +842,9 @@ body.project {
 
       .similar {
         background-color: $sand;
-        @include display-grid;
-        @include mt(x4);
-        .module {
-          @include m(x0);
+
+        .row {
+          @include display-grid;
 
           .similar-list {
             position: relative;
@@ -905,8 +858,13 @@ body.project {
               @include my(x0p5);
             }
 
+            @include breakpoint(x-large) {
+              grid-column: 2 / 25;
+            }
+
             p.title {
-              @include pb(x0p25);
+              @include pb(x0p5);
+              grid-column: 1 / 26;
             }
 
             ul {
@@ -927,7 +885,7 @@ body.project {
                 }
 
                 a {
-                  box-shadow: unset;
+                  border: none;
 
                   .list-item {
                     display: flex;
@@ -948,6 +906,7 @@ body.project {
                       cursor: pointer;
                       transform: translateX(-3px);
                       @include font-size(48px, 156px);
+                      border-bottom: 2px solid $black;
                     }
 
                     .tags {

@@ -1,0 +1,85 @@
+// THEMES //
+body {
+  transition: background-color 300ms $easing, color 300ms $easing;
+  will-change: background-color, color;
+
+  &.home {
+    background-color: $white;
+    color: $black;
+
+    svg {
+      fill: $black !important;
+    }
+  }
+
+  &.overview {
+    background-color: $sand;
+
+    .logo {
+      svg {
+        path {
+          fill: $black;
+        }
+      }
+    }
+
+    * {
+      color: $black;
+
+      &:hover {
+        color: $accent !important;
+      }
+    }
+  }
+
+  &.about,
+  &.dark {
+    color: $grey;
+    background-color: $black;
+
+    svg {
+      fill: $grey !important;
+    }
+
+    a,
+    p a {
+      color: $grey;
+      border-color: $grey;
+      display: inline-block;
+      &:hover {
+        color: $grey;
+        border-color: transparent;
+      }
+    }
+
+    & > & {
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.dark {
+  background-color: $black;
+  * {
+    color: $grey;
+
+    img {
+      svg {
+        fill: $accent !important;
+      }
+    }
+
+    a {
+      border-color: $grey;
+    }
+  }
+}
+
+.sand {
+  background-color: $sand;
+  * {
+    color: $black;
+  }
+}

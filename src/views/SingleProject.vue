@@ -2,8 +2,8 @@
   <div class="single-project">
     <transition name="loadProject" mode="in-out" appear>
       <section class="outer-margin loading" v-if="isLoading">
-        <article class="row">
-          <figure class="projectHeader">
+        <article class="nav">
+          <figure class="column">
             <div class="nav-item heading">
               <h3 class="title blinking">XYZ<span>:</span></h3>
             </div>
@@ -11,10 +11,12 @@
         </article>
       </section>
     </transition>
+
+    <!-- Project Nav -->
     <div class="bar" :class="{ 'is-loaded': !isLoading }">
       <section class="outer-margin header">
-        <article class="row section-main nav">
-          <figure class="text heading">
+        <article class="row nav">
+          <figure class="column heading">
             <h3 class="title">
               <router-link :to="{ name: 'Home' }">XYZ</router-link>
               <span>:</span>
@@ -24,10 +26,10 @@
         </article>
       </section>
 
-      <!-- Banner Blocks -->
+      <!-- Project Banner -->
       <section class="outer-margin banner">
-        <article class="row section-main" v-if="project.projectBanner">
-          <figure class="img-container banner-img">
+        <article class="row" v-if="project.projectBanner">
+          <figure class="column image banner-img">
             <img
               :src="getUrl(project.projectBanner.url)"
               :srcset="getSrcSet(project.projectBanner.url)"
@@ -36,14 +38,15 @@
         </article>
         <article v-else></article>
       </section>
-      <!-- Info Blocks -->
+
+      <!-- Project Info -->
       <section class="outer-margin info">
-        <article class="row section-main">
-          <figure class="text">
+        <article class="row">
+          <figure class="column text">
             <div class="text-container heading">
               <h1 class="title markdown" v-html="project.subtitle"></h1>
               <p
-                class="body-text markdown"
+                class="body markdown"
                 v-html="project.description"
                 v-if="project.description.length > 0"
               ></p>
@@ -75,15 +78,16 @@
           </figure>
         </article>
       </section>
-      <!-- Dato Blocks -->
-      <div v-for="block in project.blocks" :key="block.id">
-        <!-- Carousel Block -->
+
+      <!-- Project Assets -->
+      <div class="asset" v-for="block in project.blocks" :key="block.id">
+        <!-- Asset - Carousel -->
         <section
           class="outer-margin image-carousel"
           v-if="block._modelApiKey === 'image_carousel'"
         >
-          <article class="row section-main">
-            <figure class="carousel-inner">
+          <article class="row fade-in" v-in-viewport.once>
+            <figure class="column carousel-inner">
               <swiper
                 ref="mySwiper"
                 :options="swiperOptions"
@@ -93,10 +97,8 @@
                 <swiper-slide
                   v-for="asset in block.imageCarouselAsset"
                   :key="asset.id"
-                  class="fade-right"
-                  v-in-viewport
                 >
-                  <div class="img-container">
+                  <div class="image">
                     <img
                       :src="getUrl(asset.url)"
                       :srcset="getSrcSet(asset.url)"
@@ -116,7 +118,8 @@
             </figure>
           </article>
         </section>
-        <!-- Single Image Block -->
+
+        <!-- Asset - Single Image -->
         <section
           class="outer-margin single-img fade-in"
           v-in-viewport.once
@@ -124,7 +127,7 @@
           v-if="block._modelApiKey === 'single_image'"
         >
           <article class="row">
-            <figure>
+            <figure class="column">
               <div
                 class="content"
                 :class="{ device: block.device, website: block.website }"
@@ -139,54 +142,51 @@
                 ]"
               >
                 <div class="device-inner">
-                  <div class="img-container">
+                  <div class="image">
                     <img
                       :src="getUrl(block.image.url)"
                       :srcset="getSrcSet(block.image.url)"
                     />
                   </div>
                 </div>
+                <figcaption v-if="block.caption.length > 0">
+                  <p
+                    class="cell text-container align-center markdown"
+                    v-html="block.caption"
+                  ></p>
+                </figcaption>
               </div>
-              <figcaption v-if="block.caption.length > 0">
-                <p
-                  class="cell text-container align-center markdown"
-                  v-html="block.caption"
-                ></p>
-              </figcaption>
             </figure>
           </article>
         </section>
-        <!-- Image + Text Block -->
+
+        <!-- Asset - Image + Text -->
         <section
           class="outer-margin image-text"
           v-if="block._modelApiKey === 'image_text'"
         >
-          <article
-            class="row section-main"
-            v-if="block._modelApiKey === 'image_text'"
-          >
-            <figure class="img">
-              <div class="img-container fade-in" v-in-viewport.once>
-                <img
-                  v-in-viewport.once
-                  class="fade-in"
-                  :src="getUrl(block.image.url)"
-                  :srcset="getSrcSet(block.image.url)"
-                />
-              </div>
+          <article class="row" v-if="block._modelApiKey === 'image_text'">
+            <figure class="column img image fade-in" v-in-viewport.once>
+              <img
+                v-in-viewport.once
+                class="fade-in"
+                :src="getUrl(block.image.url)"
+                :srcset="getSrcSet(block.image.url)"
+              />
             </figure>
-            <figure class="align-center text ">
+
+            <figure class="column align-center text ">
               <div class="text-container">
                 <div class="heading">
                   <h2
-                    class="align-center markdown title"
+                    class="align-center title"
                     v-html="block.title"
                     v-show="block.title.length > 0"
                   ></h2>
                 </div>
                 <div>
                   <h3
-                    class="align-center markdown body-text"
+                    class="column align-center body-text"
                     v-html="block.description"
                     v-show="block.description.length > 0"
                   ></h3>
@@ -196,14 +196,14 @@
           </article>
         </section>
 
-        <!-- Quote Block -->
+        <!-- Asset - Quote -->
         <section
           class="outer-margin quote"
           :class="{ big: block.big }"
           v-if="block._modelApiKey === 'quote'"
         >
-          <article class="row section-main text">
-            <div class="text-container">
+          <article class="row">
+            <figure class="column text-container">
               <div class="heading">
                 <h2
                   class="title markdown"
@@ -221,11 +221,11 @@
                 v-html="block.text"
                 v-show="block.text.length > 0"
               ></p>
-            </div>
+            </figure>
           </article>
         </section>
 
-        <!-- Two Image Block -->
+        <!-- Asset - Two Image -->
         <section
           class="outer-margin double-img"
           v-if="block._modelApiKey === 'two_up'"
@@ -235,32 +235,34 @@
             flip: block.flip
           }"
         >
-          <article class="row section-main module left-image">
-            <figure
-              v-in-viewport.once
-              class="img-container fade-in"
-              v-for="image in block.firstImage"
-              :key="image.id"
-            >
-              <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
+          <article class="row">
+            <figure class="column left-image">
+              <div
+                v-in-viewport.once
+                class="image fade-in"
+                v-for="image in block.firstImage"
+                :key="image.id"
+              >
+                <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
+              </div>
             </figure>
-          </article>
-          <article class="module right-image">
-            <figure
-              v-in-viewport.once
-              class="img-container fade-in"
-              v-for="image in block.lastImage"
-              :key="image.id"
-            >
-              <img
-                :src="getUrl(block.lastImage.url)"
-                :srcset="getSrcSet(block.lastImage.url)"
-              />
+            <figure class="column right-image">
+              <div
+                v-in-viewport.once
+                class="image fade-in"
+                v-for="image in block.lastImage"
+                :key="image.id"
+              >
+                <img
+                  :src="getUrl(block.lastImage.url)"
+                  :srcset="getSrcSet(block.lastImage.url)"
+                />
+              </div>
             </figure>
           </article>
         </section>
 
-        <!-- Three Image Block -->
+        <!-- Asset - Three Image -->
         <section
           class="outer-margin triple-img"
           v-if="block._modelApiKey === 'three_up'"
@@ -275,9 +277,9 @@
           ]"
         >
           <article>
-            <div class="section-item">
+            <figure class="column section-item">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="img-container fade-in" v-in-viewport.once>
+                <div class="image fade-in" v-in-viewport.once>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.leftImage.url)"
@@ -285,10 +287,10 @@
                   />
                 </div>
               </div>
-            </div>
-            <div class="section-item">
+            </figure>
+            <figure class="column section-item">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="img-container fade-in" v-in-viewport.once>
+                <div class="image fade-in" v-in-viewport.once>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.centerImage.url)"
@@ -296,10 +298,10 @@
                   />
                 </div>
               </div>
-            </div>
-            <div class="section-item">
+            </figure>
+            <figure class="column section-item">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="img-container fade-in" v-in-viewport.once>
+                <div class="image fade-in" v-in-viewport.once>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.rightImage.url)"
@@ -307,36 +309,38 @@
                   />
                 </div>
               </div>
-            </div>
+            </figure>
           </article>
         </section>
       </div>
-      <!-- Meta Block -->
+
+      <!-- Project Meta -->
       <section class="outer-margin meta" v-if="project.roles.length > 0">
         <article class="row">
-          <div
-            class="text-container"
+          <figure
+            class="column"
             v-for="person in project.roles"
             :key="person.id"
           >
-            <h3 class="role">
+            <p class="role">
               {{ person.role }} by
               <span class="name" v-if="person.link.length > 0">
                 <a :href="person.link" target="_blank">{{ person.name }}</a>
               </span>
               <span class="name" v-else>{{ person.name }}</span>
-            </h3>
-          </div>
-          <div class="text-container">
-            <h3>This project was launched in {{ project.year }}</h3>
-          </div>
+            </p>
+          </figure>
+          <figure class="column text-container">
+            <p class="date">This project was launched in {{ project.year }}</p>
+          </figure>
         </article>
       </section>
     </div>
-    <!-- Similar Block -->
+
+    <!-- Similar Projects -->
     <section class="outer-margin similar">
-      <article class="row module section-main">
-        <figure class="similar-list">
+      <article class="row">
+        <figure class="column similar-list">
           <p class="title">Similar projects we have worked on...</p>
           <ul>
             <li
@@ -368,20 +372,15 @@
         </figure>
       </article>
     </section>
-    <Footer />
   </div>
 </template>
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
-import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Project",
-  components: {
-    Footer
-  },
   beforeCreate: function() {
     document.body.className = "project";
   },
@@ -431,8 +430,8 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.isLoading = false;
-    }, 4000);
+      this.isLoading = true;
+    }, 3000);
   },
   data() {
     return {
@@ -465,10 +464,11 @@ export default {
         projectThumb: []
       },
       swiperOptions: {
-        speed: 100,
-        loop: false,
+        speed: 200,
+        loop: true,
         centeredSlides: false,
         slidesPerView: "auto",
+        grabCursor: "true",
         pagination: {
           el: ".carousel-pagination",
           type: "fraction"

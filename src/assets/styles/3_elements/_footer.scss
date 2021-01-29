@@ -1,87 +1,116 @@
-body {
-  .footer {
+.footer {
+  @include mt(x10);
+  @include mb(x0);
+
+  .row {
     @include display-grid;
-    @include mb(x0p5);
+    @include px(x0);
+    @include pb(x1);
 
-    .row {
-      @include display-grid;
+    @include breakpoint(medium) {
       @include pb(x0p5);
+    }
 
-      .tagline {
-        grid-row: 1;
-        grid-column: 1 / 20;
-        @include mb(x2);
+    @include breakpoint(x-large) {
+      @include pb(x0p25);
+    }
 
-        @include breakpoint(medium) {
-          @include mb(x1);
-          grid-column: 1 / 13;
-          @include mb(x0p5);
-        }
+    .column {
+      @include mb(x0p5);
+
+      @include breakpoint(medium) {
+        @include mb(x0p5);
       }
 
-      .contact {
-        grid-row: 2;
-        grid-column: 1 / 24;
-        @include mb(x2);
+      @include breakpoint(x-large) {
+        grid-column: 2 / 25;
+      }
+    }
 
-        @include breakpoint(medium) {
-          @include mb(x1);
+    .tagline {
+      grid-row: 1;
+      grid-column: 1 / 26;
+      @include mb(x1p5);
+
+      @include breakpoint(medium) {
+        @include mb(x1);
+      }
+    }
+
+    .contact {
+      grid-row: 2;
+      grid-column: 1 / 22;
+      @include mb(x1p5);
+
+      @include breakpoint(medium) {
+        grid-column: 1 / 26;
+        @include mb(x1);
+      }
+
+      a {
+        line-height: 0.5;
+        display: inline;
+        border-bottom: none;
+
+        h1 {
+          display: inline-block;
+          border-bottom: 2px solid $black;
+          @include font-size(72px, 144px);
+          @include m(x0);
+          @include pb(x0p125);
+          @include mb(x0p125);
         }
 
-        a {
-          text-decoration: none;
+        &:hover {
           color: $black;
-          line-height: 0.5;
-          float: left;
 
           h1 {
-            display: inline-block;
-            border-bottom: 3px solid $black;
-            @include font-size(96px, 144px);
-            @include m(x0);
-          }
-
-          &:hover {
-            color: $black;
-            text-decoration: none;
-
-            h1 {
-              border-color: transparent;
-            }
+            border-color: transparent;
           }
         }
       }
+    }
 
-      .links {
-        grid-row: 3;
-        grid-column: 1 / 26;
-        ul {
-          li {
-            display: block;
+    .links {
+      grid-row: 3;
+      grid-column: 1 / 26;
+      @include mb(x0);
+
+      ul {
+        li {
+          display: inline;
+          @include mr(x1);
+          @include mb(x0);
+
+          @include breakpoint(medium) {
             @include mr(x0p5);
-            @include mb(x0);
+          }
 
-            &:last-of-type {
-              @include mr(x0);
-            }
+          @include breakpoint(large) {
+            @include mr(x0p25);
+          }
 
-            p {
-              display: inline;
-              @include p(x0);
-            }
+          &:last-of-type {
+            @include mr(x0);
+          }
+
+          p {
+            display: inline;
           }
         }
       }
     }
   }
+}
 
+body {
   &.about {
     .footer {
       .row {
         .contact {
           a {
             h1 {
-              border-bottom: 3px solid $grey;
+              border-color: $grey;
             }
             &:hover {
               h1 {

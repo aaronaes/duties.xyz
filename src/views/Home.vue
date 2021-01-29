@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 <template>
   <main>
     <!-- Masthead -->
     <section class="outer-margin hero">
       <article class="row">
-        <figure class="heading">
-          <h1 class="markdown title">
+        <figure class="column heading">
+          <h1 class="title">
             A digital design partner and creative studio for ambitious
             businesses.
           </h1>
@@ -16,41 +15,40 @@
     <!-- Project List -->
     <ProjectList :projects="projects" />
 
-    <!-- About Block -->
-    <section class="outer-margin studio fade-in" v-in-viewport.once>
-      <article class="row">
-        <figure class="text-header show-for-small-only">
+    <!-- Studio Block -->
+    <section class="outer-margin studio dark">
+      <article class="row fade-in" v-in-viewport.once>
+        <figure class="header">
           <div class="heading">
             <h1 class="title">On-duty</h1>
           </div>
         </figure>
-        <figure class="studio-image">
+        <figure class="image">
           <img src="/images/about/studio-03.png" />
         </figure>
-        <figure class="text-container">
+        <figure class="body">
           <div class="text">
-            <div class="heading hide-for-small-only">
-              <h1 class="title">On-duty</h1>
-            </div>
             <p>
               We allow businesses to achieve their potential through considered
               design solutions.
             </p>
+          </div>
 
-            <router-link class="link" :to="{ name: 'About' }">
-              <p>
+          <div class="link">
+            <p>
+              <router-link :to="{ name: 'About' }">
                 Read more
-              </p>
-            </router-link>
+              </router-link>
+            </p>
           </div>
         </figure>
       </article>
     </section>
 
     <!-- Off-duty Block -->
-    <section class="outer-margin off-duty fade-in" v-in-viewport.once>
-      <article class="row">
-        <figure class="text-header">
+    <section class="outer-margin off-duty sand">
+      <article class="row fade-in" v-in-viewport.once>
+        <figure class="column header">
           <div class="heading">
             <h1 class="title">
               Off-duty <br />
@@ -58,7 +56,7 @@
             </h1>
           </div>
         </figure>
-        <figure class="text-container">
+        <figure class="column body">
           <div class="text">
             <p>
               When we are off-duty, you can find us creating experimental
@@ -66,7 +64,7 @@
             </p>
           </div>
         </figure>
-        <figure class="image-carousel">
+        <figure class="column carousel">
           <swiper ref="mySwiper" :options="swiperOptions" :auto-update="true">
             <swiper-slide>
               <div class="slide-text">
@@ -113,7 +111,7 @@
             v-bind:style="{ cursor: cursorPrev }"
           ></div>
         </figure>
-        <figure class="swiper-pagination"></figure>
+        <figure class="column swiper-pagination"></figure>
       </article>
     </section>
     <Footer />
@@ -148,7 +146,6 @@ export default {
         loop: true,
         slidesPerView: "auto",
         grabCursor: "true",
-        simulateTouch: "true",
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"

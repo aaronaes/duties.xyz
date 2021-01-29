@@ -1,8 +1,8 @@
 <template>
-  <main id="about dark">
+  <main id="about">
     <section class="outer-margin intro">
       <article class="row">
-        <figure class="heading">
+        <figure class="column heading">
           <h1
             v-in-viewport.once="{ margin: '-5% 0%' }"
             :class="{ fadeOut: isHovering }"
@@ -28,7 +28,7 @@
             * A moral or legal obligation a responsibility.
           </p>
         </figure>
-        <figure class="body">
+        <figure class="column body">
           <p>
             We believe it’s our duty as designers to provide the world with
             thoughtfully designed products that are both functional, accessible
@@ -42,126 +42,68 @@
       </article>
     </section>
 
-    <section class="outer-margin masthead hide">
+    <section class="outer-margin image fade-in" v-in-viewport.once>
       <article class="row">
-        <figure>
-          <div class="heading title">
-            <h2 class="title">Duty / Duties</h2>
-          </div>
-          <div class="dictionary">
-            <div class="meta">
-              <p class="font-body">
-                / djuːti / <span>noun</span>
-                <span
-                  class="audio icon"
-                  ref="audioElm"
-                  @click.prevent="
-                    playSound(
-                      'https://dictionary.cambridge.org/media/english/uk_pron/u/ukd/ukdus/ukdusts008.mp3'
-                    )
-                  "
-                >
-                  <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 60 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M27.1111 6.85181L14.2716 13.9075H4V28.685H14.2716L27.1111 35.7407V6.85181Z"
-                      stroke="#E5594D"
-                      stroke-width="6"
-                    />
-                    <path
-                      d="M47.4748 3C52.5066 7.85299 55.3333 14.4342 55.3333 21.2963C55.3333 28.1584 52.5066 34.7396 47.4748 39.5926M38 12.1352C40.5159 14.5617 41.9293 17.8523 41.9293 21.2834C41.9293 24.7144 40.5159 28.005 38 30.4315"
-                      stroke="#E5594D"
-                      stroke-width="6"
-                    />
-                  </svg>
-                  Listen
-                </span>
-              </p>
-            </div>
-            <div class="meaning">
-              <p>
-                A moral or legal obligation; a responsibility.
-              </p>
-              <p>
-                A task or action that one is required to perform as part of
-                one’s job.
-              </p>
-            </div>
-          </div>
-        </figure>
-      </article>
-    </section>
-
-    <section class="outer-margin full image">
-      <article class="row">
-        <figure class="image-grid fade-in" v-in-viewport.once>
+        <figure class="column image">
           <img src="/images/about/studio-03.png" />
         </figure>
       </article>
     </section>
 
     <section class="outer-margin services">
-      <article class="row">
-        <figure class="service-title heading fade-in" v-in-viewport.once>
+      <article class="row column">
+        <figure class="column heading fade-in" v-in-viewport.once>
           <h2
             class="markdown title"
             v-html="getMarkdown(about.offeringIntro)"
           ></h2>
         </figure>
 
-        <div class="service-items fade-in" v-in-viewport.once>
-          <figure class="service-item">
-            <div class="text">
-              <div class="body">
-                <p>
-                  We believe it’s our duty as designers to provide the world
-                  with thoughtfully designed products that are both functional,
-                  accessible and visually beautiful.
-                </p>
-                <p>
-                  We believe it’s our duty as designers to provide the world
-                  with thoughtfully designed products that are both functional,
-                  accessible and visually beautiful.
-                </p>
-
-                <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
-              </div>
-            </div>
-          </figure>
-        </div>
+        <figure class="column body fade-in" v-in-viewport.once>
+          <p>
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are both functional, accessible
+            and visually beautiful.
+            <span class="block"></span>
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are both functional, accessible
+            and visually beautiful.
+          </p>
+          <div class="inline-link">
+            <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
+          </div>
+        </figure>
+        <figure class="column link fade-in" v-in-viewport.once>
+          <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
+        </figure>
       </article>
     </section>
 
-    <section class="outer-margin image-carousel fade-in" v-in-viewport.once>
+    <section class="outer-margin carousel fade-in" v-in-viewport.once>
       <article class="row section-main">
-        <figure class="carousel-inner">
+        <figure class="column carousel-inner">
           <swiper
             ref="mySwiper"
             :options="swiperOptions"
             @slideChange="onSlideChange"
             @swiper="onSwiper"
           >
-            <swiper-slide>
+            <swiper-slide data-caption="caption-1">
               <div class="img-container">
                 <img src="/images/offduty/offduty-01@2x.jpg" />
               </div>
             </swiper-slide>
-            <swiper-slide>
+            <swiper-slide data-caption="caption-2">
               <div class="img-container">
                 <img src="/images/offduty/offduty-02@2x.jpg" />
               </div>
             </swiper-slide>
-            <swiper-slide>
+            <swiper-slide data-caption="caption-3">
               <div class="img-container">
                 <img src="/images/offduty/offduty-03@2x.jpg" />
               </div>
             </swiper-slide>
-            <swiper-slide>
+            <swiper-slide data-caption="caption-4">
               <div class="img-container">
                 <img src="/images/offduty/offduty-04@2x.jpg" />
               </div>
@@ -181,22 +123,21 @@
     </section>
 
     <section class="outer-margin people">
-      <article class="row">
+      <article class="row column">
         <figure
-          class="person fade-in"
+          class="column person fade-in"
           v-in-viewport.once
           v-for="person in about.team"
           :key="person.id"
         >
-          <div class="img-wrapper">
+          <div class="image">
             <img
               :src="getUrl(person.image.url)"
               :srcset="getUrl(person.image.url)"
             />
           </div>
-          <div class="main-text-block heading">
+          <div class="body heading">
             <h2 class="title">{{ person.name }}</h2>
-
             <p>{{ person.title }}</p>
             <p>
               <a :href="'callto:' + person.phoneNumber">
@@ -210,25 +151,21 @@
             </p>
           </div>
         </figure>
-        <figure class="foobar fade-in" v-in-viewport.once>
-          <div class="text">
-            <div class="title">
-              <p>Small team = big network</p>
-            </div>
-            <div class="body">
-              <p>
-                We believe it’s our duty as designers to provide the world with
-                thoughtfully designed products that are both functional,
-                accessible and visually beautiful.
-              </p>
-              <p>
-                We believe it’s our duty as designers to provide the world with
-                thoughtfully designed products that are both functional,
-                accessible and visually beautiful.
-              </p>
+        <figure class="column network fade-in" v-in-viewport.once>
+          <div class="body">
+            <p class="body title">Small team = BIG network.</p>
+            <p class="body">
+              We believe it’s our duty as designers to provide the world with
+              thoughtfully designed products that are both functional,
+              accessible and visually beautiful.
+            </p>
+            <p class="body">
+              We believe it’s our duty as designers to provide the world with
+              thoughtfully designed products that are both functional,
+              accessible and visually beautiful.
+            </p>
 
-              <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
-            </div>
+            <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
           </div>
         </figure>
       </article>
@@ -236,10 +173,18 @@
 
     <section class="outer-margin marquee fade-in" v-in-viewport.once>
       <article class="row">
-        <figure class="block">
-          <p>A few of our friends</p>
+        <figure class="column fade-in" v-in-viewport.once>
+          <div class="body heading">
+            <p class="body title">Friend & family</p>
+            <p class="body">
+              We believe it’s our duty as designers to provide the world with
+              thoughtfully designed products that are both functional,
+              accessible and visually beautiful.
+            </p>
+            <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
+          </div>
         </figure>
-        <figure class="block-marquee">
+        <figure class="inline-marquee">
           <ul class="inner heading">
             <li>
               <h1 class="title">Domino’s Pizza</h1>
@@ -421,23 +366,17 @@ export default {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
-
-    // $(".fittext").each(function() {
-    //   let t = $(this),
-    //     width = t.data("width") * 1.5,
-    //     characters = t.html().length,
-    //     size = width / characters;
-
-    //   $(this).css("font-size", `${size}vw`);
-    // });
   },
   computed: {
     pageName() {
       return this.$route.name;
+    },
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
     }
   },
   beforeCreate: function() {
-    document.body.className = "about";
+    document.body.className = "about dark";
   }
 };
 </script>

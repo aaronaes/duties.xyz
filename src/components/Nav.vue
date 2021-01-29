@@ -1,12 +1,9 @@
 <template>
   <header class="outer-margin global">
     <article class="row">
-      <figure class="nav-item heading">
+      <figure class="column nav-item heading">
         <router-link :to="{ name: 'Home' }">
-          <h3 class="title" v-if="$route.name !== 'Project'">
-            XYZ
-          </h3>
-          <div class="svg-container">
+          <mark>
             <svg
               width="300"
               height="147"
@@ -22,32 +19,36 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </div>
+            <h3 class="title" v-if="$route.name !== 'Project'">
+              XYZ
+            </h3>
+          </mark>
         </router-link>
       </figure>
-      <figure class="nav-item logo heading">
+      <figure class="column nav-item heading">
         <router-link :to="{ name: 'Home' }" v-if="$route.name !== 'Project'">
-          <img
-            class="logo hide-for-small-only"
-            src="/images/assets/logo.svg"
-            alt="Logo"
-          />
-          <img
-            class="logo show-for-small-only"
-            src="/images/assets/logo-symbol.svg"
-            alt="Logo"
-          />
-
-          <!-- <div class="logo hide-for-small-only"></div>
-          <div class="logo-symbol show-for-small-only"></div> -->
+          <mark>
+            <h3 class="logo hide-for-small-only">Duties:</h3>
+            <svg
+              width="22"
+              height="70"
+              viewBox="0 0 22 70"
+              fill="none"
+              class="svg"
+            >
+              <path
+                d="M0 10.6018C0 4.77432 4.75482 0 10.7161 0H11.2839C17.1742 0 22 4.70411 22 10.6018C22 16.4293 17.2452 21.2036 11.2839 21.2036H10.7161C4.82579 21.2036 0 16.4293 0 10.6018Z"
+              />
+              <path
+                d="M0 59.3982C0 53.5707 4.75482 48.7964 10.7161 48.7964H11.2839C17.1742 48.7964 22 53.5005 22 59.3982C22 65.2257 17.2452 70 11.2839 70H10.7161C4.82579 70 0 65.2257 0 59.3982Z"
+              />
+            </svg>
+          </mark>
         </router-link>
       </figure>
-      <figure class="nav-item heading">
+      <figure class="column nav-item heading">
         <router-link :to="{ name: 'About' }" v-if="$route.name !== 'Project'">
-          <h3 class="title">
-            About
-          </h3>
-          <div class="svg-container">
+          <mark>
             <svg
               class="svg"
               width="525"
@@ -63,7 +64,10 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </div>
+            <h3 class="title">
+              About
+            </h3>
+          </mark>
         </router-link>
       </figure>
     </article>

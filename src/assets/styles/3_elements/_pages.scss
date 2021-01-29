@@ -1,48 +1,36 @@
-header,
-section {
-  @include my(x3);
+.outer-margin {
+  @include mt(x6);
 
-  &.outer-margin {
+  @include breakpoint(medium) {
+    @include mt(x4);
+  }
+
+  @include breakpoint(large) {
+    @include mt(x2);
+  }
+
+  .row {
     @include display-grid;
-    @include px(x0p5);
+  }
+
+  .column {
+    @include px(x1);
+    @include mb(x1);
 
     @include breakpoint(medium) {
-      @include px(x0p25);
+      @include px(x0p5);
+      @include mb(x0p5);
     }
 
-    &.full {
+    @include breakpoint(x-large) {
       @include px(x0);
-
-      article {
-        &.row {
-          @include px(x0);
-        }
-      }
+      @include mb(x0p25);
     }
+  }
+}
 
-    article {
-      &.row {
-        grid-column: 1 / 26;
-        @include px(x0p5);
-
-        @include breakpoint(medium) {
-          @include px(x0p125);
-        }
-
-        @include breakpoint(large) {
-          @include px(x0);
-        }
-
-        figure {
-          &:last-of-type {
-            @include mb(x0);
-          }
-
-          .module {
-            @include mb(x0p5);
-          }
-        }
-      }
-    }
+article {
+  & > * + * {
+    margin: 0;
   }
 }
