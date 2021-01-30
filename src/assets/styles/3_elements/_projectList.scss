@@ -2,7 +2,7 @@
   @include display-grid;
 
   .project {
-    @include mt(x3);
+    @include mt(x2);
     grid-column: 1 / 26;
 
     @include breakpoint(x-large) {
@@ -31,15 +31,10 @@
           max-width: 100%;
 
           .image {
-            max-height: 70vh;
-            overflow: hidden;
             @include mb(x0p25);
 
-            @include breakpoint(medium) {
-              @include mb(x0p125);
-            }
-
             img {
+              height: clamp(275px, 37vw, 625px);
               object-fit: cover;
               object-position: 0% 50%;
             }
@@ -47,7 +42,6 @@
 
           .caption {
             grid-column: 1 / 26;
-            @include mt(x0p75);
 
             .heading {
               h2,
@@ -65,7 +59,7 @@
                   &:after {
                     content: " :";
                     display: inline;
-                    animation: blinker 1400ms step-start infinite;
+                    animation: blinker 1300ms step-start infinite;
                     padding-left: 2px;
                   }
 
@@ -92,6 +86,18 @@
                 }
               }
             }
+
+            .tags {
+              @include mt(x0p125);
+
+              p {
+                @include mr(x0p125);
+
+                &:after {
+                  @include mr(x0);
+                }
+              }
+            }
           }
         }
       }
@@ -102,6 +108,74 @@
 
       + .isMini {
         grid-column: 4 / 23;
+      }
+
+      .column {
+        &.summary {
+          a.imgBox {
+            .image {
+              @include mb(x0p25);
+
+              img {
+                height: auto;
+                object-fit: cover;
+                object-position: 0% 50%;
+              }
+            }
+
+            .caption {
+              grid-column: 1 / 26;
+
+              .heading {
+                h2,
+                h3 {
+                  @include m(x0);
+                  pointer-events: all;
+                }
+              }
+
+              .body {
+                p {
+                  &.title {
+                    @include pr(x0p125);
+
+                    &:after {
+                      content: " :";
+                      display: inline;
+                      animation: blinker 1300ms step-start infinite;
+                      padding-left: 2px;
+                    }
+
+                    @keyframes blinker {
+                      50% {
+                        opacity: 0;
+                      }
+                    }
+
+                    @keyframes ellipsis {
+                      from {
+                        opacity: 0;
+                        width: 0px;
+                      }
+                      to {
+                        opacity: 1;
+                        width: 20px;
+                      }
+                    }
+                  }
+
+                  code {
+                    font-family: $font-tex-regular !important;
+                  }
+                }
+              }
+
+              .tags {
+                @include mt(x0p25);
+              }
+            }
+          }
+        }
       }
 
       @include breakpoint(medium) {

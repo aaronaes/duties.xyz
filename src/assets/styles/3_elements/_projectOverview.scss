@@ -51,9 +51,6 @@ body {
                         pointer-events: all;
                         cursor: pointer;
                         @include font-size(48px, 156px);
-                        line-height: 0.85;
-                        transition: color 150ms $easing;
-                        will-change: color;
                       }
 
                       .tags {
@@ -63,7 +60,7 @@ body {
                         p {
                           display: inline-block;
                           margin-bottom: clamp(4px, 0.5vw, 12px);
-                          transition: all 150ms ease-in-out;
+                          transition: all 300ms ease-in-out;
                           vertical-align: baseline;
                         }
 

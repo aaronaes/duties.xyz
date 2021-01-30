@@ -1,6 +1,10 @@
 .footer {
-  @include mt(x10);
+  @include mt(x6);
   @include mb(x0);
+
+  @include breakpoint(x-large) {
+    @include mt(x4);
+  }
 
   .row {
     @include display-grid;
@@ -15,18 +19,6 @@
       @include pb(x0p25);
     }
 
-    .column {
-      @include mb(x0p5);
-
-      @include breakpoint(medium) {
-        @include mb(x0p5);
-      }
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 25;
-      }
-    }
-
     .tagline {
       grid-row: 1;
       grid-column: 1 / 26;
@@ -34,6 +26,14 @@
 
       @include breakpoint(medium) {
         @include mb(x1);
+      }
+
+      @include breakpoint(large) {
+        @include mb(x0p5);
+      }
+
+      @include breakpoint(x-large) {
+        grid-column: 2 / 25;
       }
     }
 
@@ -45,6 +45,14 @@
       @include breakpoint(medium) {
         grid-column: 1 / 26;
         @include mb(x1);
+      }
+
+      @include breakpoint(large) {
+        @include mb(x0p5);
+      }
+
+      @include breakpoint(x-large) {
+        grid-column: 2 / 25;
       }
 
       a {
@@ -59,6 +67,10 @@
           @include m(x0);
           @include pb(x0p125);
           @include mb(x0p125);
+
+          span.foo {
+            color: #7f7f85;
+          }
         }
 
         &:hover {
@@ -74,7 +86,15 @@
     .links {
       grid-row: 3;
       grid-column: 1 / 26;
-      @include mb(x0);
+      @include mb(x0p5);
+
+      @include breakpoint(large) {
+        @include mb(x0p25);
+      }
+
+      @include breakpoint(x-large) {
+        grid-column: 2 / 25;
+      }
 
       ul {
         li {
@@ -111,6 +131,10 @@ body {
           a {
             h1 {
               border-color: $grey;
+
+              span.foo {
+                color: #444448;
+              }
             }
             &:hover {
               h1 {

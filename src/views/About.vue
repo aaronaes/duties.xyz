@@ -53,10 +53,10 @@
     <section class="outer-margin services">
       <article class="row column">
         <figure class="column heading fade-in" v-in-viewport.once>
-          <h2
+          <h1
             class="markdown title"
             v-html="getMarkdown(about.offeringIntro)"
-          ></h2>
+          ></h1>
         </figure>
 
         <figure class="column body fade-in" v-in-viewport.once>
@@ -75,49 +75,6 @@
         </figure>
         <figure class="column link fade-in" v-in-viewport.once>
           <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
-        </figure>
-      </article>
-    </section>
-
-    <section class="outer-margin carousel fade-in" v-in-viewport.once>
-      <article class="row section-main">
-        <figure class="column carousel-inner">
-          <swiper
-            ref="mySwiper"
-            :options="swiperOptions"
-            @slideChange="onSlideChange"
-            @swiper="onSwiper"
-          >
-            <swiper-slide data-caption="caption-1">
-              <div class="img-container">
-                <img src="/images/offduty/offduty-01@2x.jpg" />
-              </div>
-            </swiper-slide>
-            <swiper-slide data-caption="caption-2">
-              <div class="img-container">
-                <img src="/images/offduty/offduty-02@2x.jpg" />
-              </div>
-            </swiper-slide>
-            <swiper-slide data-caption="caption-3">
-              <div class="img-container">
-                <img src="/images/offduty/offduty-03@2x.jpg" />
-              </div>
-            </swiper-slide>
-            <swiper-slide data-caption="caption-4">
-              <div class="img-container">
-                <img src="/images/offduty/offduty-04@2x.jpg" />
-              </div>
-            </swiper-slide>
-          </swiper>
-          <div
-            class="carousel-button-next"
-            v-bind:style="{ cursor: cursorNext }"
-          ></div>
-          <div
-            class="carousel-button-prev"
-            v-bind:style="{ cursor: cursorPrev }"
-          ></div>
-          <div class="carousel-pagination"></div>
         </figure>
       </article>
     </section>
@@ -167,6 +124,52 @@
 
             <p>Sound like a good fit? <a href="#">Get wit it.</a></p>
           </div>
+        </figure>
+      </article>
+    </section>
+
+    <section class="outer-margin carousel fade-in" v-in-viewport.once>
+      <article class="row section-main">
+        <figure class="column carousel-inner">
+          <swiper
+            ref="mySwiper"
+            :options="swiperOptions"
+            :auto-update="true"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide data-caption="caption-1">
+              <div class="img-container">
+                <img src="/images/offduty/offduty-01@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide data-caption="caption-2">
+              <div class="img-container">
+                <img src="/images/offduty/offduty-02@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide data-caption="caption-3">
+              <div class="img-container">
+                <img src="/images/offduty/offduty-03@2x.jpg" />
+              </div>
+            </swiper-slide>
+            <swiper-slide data-caption="caption-4">
+              <div class="img-container">
+                <img src="/images/offduty/offduty-04@2x.jpg" />
+              </div>
+            </swiper-slide>
+          </swiper>
+          <div
+            class="carousel-button-next"
+            v-bind:style="{ cursor: cursorNext }"
+          ></div>
+          <div
+            class="carousel-button-prev"
+            v-bind:style="{ cursor: cursorPrev }"
+          ></div>
+        </figure>
+        <figure class="column pagination">
+          <div class="carousel-pagination"></div>
         </figure>
       </article>
     </section>
@@ -286,6 +289,11 @@ export default {
         centeredSlides: false,
         slidesPerView: "auto",
         grabCursor: "true",
+        allowTouchMove: "true",
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false
+        },
         pagination: {
           el: ".carousel-pagination",
           type: "fraction"

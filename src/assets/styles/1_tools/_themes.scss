@@ -1,14 +1,16 @@
 // THEMES //
 body {
-  transition: background-color 300ms $easing, color 300ms $easing;
-  will-change: background-color, color;
-
   &.home {
     background-color: $white;
     color: $black;
 
     svg {
-      fill: $black !important;
+      &.logo,
+      &.symbol {
+        path {
+          fill: $black !important;
+        }
+      }
     }
   }
 
@@ -38,7 +40,12 @@ body {
     background-color: $black;
 
     svg {
-      fill: $grey !important;
+      &.logo,
+      &.symbol {
+        path {
+          fill: $grey !important;
+        }
+      }
     }
 
     a,
@@ -73,6 +80,10 @@ body {
 
     a {
       border-color: $grey;
+
+      &:hover {
+        color: $grey;
+      }
     }
   }
 }

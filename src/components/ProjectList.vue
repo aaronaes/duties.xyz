@@ -121,6 +121,7 @@ export default {
           this.$router.push("/projects/" + project.slug);
         }, 1000);
       }
+      document.body.classList.add("active");
     },
     scrollTo(el) {
       window.scrollTo({

@@ -2,7 +2,7 @@
   <div class="single-project">
     <transition name="loadProject" mode="in-out" appear>
       <section class="outer-margin loading" v-if="isLoading">
-        <article class="nav">
+        <article class="row nav">
           <figure class="column">
             <div class="nav-item heading">
               <h3 class="title blinking">XYZ<span>:</span></h3>
@@ -42,39 +42,40 @@
       <!-- Project Info -->
       <section class="outer-margin info">
         <article class="row">
-          <figure class="column text">
-            <div class="text-container heading">
-              <h1 class="title markdown" v-html="project.subtitle"></h1>
-              <p
-                class="body markdown"
-                v-html="project.description"
-                v-if="project.description.length > 0"
-              ></p>
-              <div class="tags float-left">
-                <p
-                  class="markdown"
-                  v-for="(category, i) in project.categories"
-                  :key="i"
-                >
-                  {{ category.categoryType }}
-                </p>
-              </div>
-              <a class="hide" href="/" target="_blank">
-                <p>Visit site</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="152"
-                  height="20"
-                  viewBox="0 0 152 20"
-                  fill="none"
-                >
-                  <path
-                    d="M75.1069 0.936449C71.0723 1.15875 67.0401 1.42708 63.0085 1.71563C63.6626 1.26373 63.3521 -0.0549248 62.3974 0.00177316C46.8504 0.925782 31.3051 1.86551 15.7593 2.80973C11.3175 3.07974 6.87579 3.34808 2.43404 3.61697C1.7723 3.65683 1.76356 4.64708 2.43404 4.61677C16.004 4.00263 29.5739 3.39748 43.1432 2.77436C39.8298 3.24759 36.5152 3.71521 33.1989 4.17329C27.8875 4.66617 22.5789 5.18655 17.2744 5.74174C11.8203 6.31265 6.36842 6.90939 0.920063 7.52745C-0.271783 7.66274 -0.341103 9.3328 0.920063 9.36817C8.92628 9.5944 16.9156 8.24376 24.8228 7.2041C28.5236 6.7174 32.222 6.21834 35.9199 5.71143C43.502 5.02207 51.0906 4.39222 58.6844 3.83815C64.1566 3.43902 69.6323 3.09995 75.1058 2.72496C76.2894 2.64468 76.3063 0.870207 75.1069 0.936449Z"
-                    fill="#E5594D"
-                  />
-                </svg>
-              </a>
-            </div>
+          <figure class="column heading">
+            <h1 class="title markdown" v-html="project.subtitle"></h1>
+          </figure>
+          <figure class="column body">
+            <p
+              class="body markdown"
+              v-html="project.description"
+              v-if="project.description.length > 0"
+            ></p>
+
+            <a class="hide" href="/" target="_blank">
+              <p>Visit site</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="152"
+                height="20"
+                viewBox="0 0 152 20"
+                fill="none"
+              >
+                <path
+                  d="M75.1069 0.936449C71.0723 1.15875 67.0401 1.42708 63.0085 1.71563C63.6626 1.26373 63.3521 -0.0549248 62.3974 0.00177316C46.8504 0.925782 31.3051 1.86551 15.7593 2.80973C11.3175 3.07974 6.87579 3.34808 2.43404 3.61697C1.7723 3.65683 1.76356 4.64708 2.43404 4.61677C16.004 4.00263 29.5739 3.39748 43.1432 2.77436C39.8298 3.24759 36.5152 3.71521 33.1989 4.17329C27.8875 4.66617 22.5789 5.18655 17.2744 5.74174C11.8203 6.31265 6.36842 6.90939 0.920063 7.52745C-0.271783 7.66274 -0.341103 9.3328 0.920063 9.36817C8.92628 9.5944 16.9156 8.24376 24.8228 7.2041C28.5236 6.7174 32.222 6.21834 35.9199 5.71143C43.502 5.02207 51.0906 4.39222 58.6844 3.83815C64.1566 3.43902 69.6323 3.09995 75.1058 2.72496C76.2894 2.64468 76.3063 0.870207 75.1069 0.936449Z"
+                  fill="#E5594D"
+                />
+              </svg>
+            </a>
+          </figure>
+          <figure class="column tags">
+            <p
+              class="markdown"
+              v-for="(category, i) in project.categories"
+              :key="i"
+            >
+              {{ category.categoryType }}
+            </p>
           </figure>
         </article>
       </section>
@@ -92,7 +93,8 @@
                 ref="mySwiper"
                 :options="swiperOptions"
                 :auto-update="true"
-                :auto-destroy="true"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
               >
                 <swiper-slide
                   v-for="asset in block.imageCarouselAsset"
@@ -114,7 +116,9 @@
                 class="carousel-button-prev"
                 v-bind:style="{ cursor: cursorPrev }"
               ></div>
-              <div class="carousel-pagination"></div>
+            </figure>
+            <figure class="column pagination">
+              <div class="column carousel-pagination"></div>
             </figure>
           </article>
         </section>
@@ -149,13 +153,13 @@
                     />
                   </div>
                 </div>
-                <figcaption v-if="block.caption.length > 0">
-                  <p
-                    class="cell text-container align-center markdown"
-                    v-html="block.caption"
-                  ></p>
-                </figcaption>
               </div>
+              <figcaption v-if="block.caption.length > 0">
+                <p
+                  class="cell text-container align-center markdown"
+                  v-html="block.caption"
+                ></p>
+              </figcaption>
             </figure>
           </article>
         </section>
@@ -203,24 +207,20 @@
           v-if="block._modelApiKey === 'quote'"
         >
           <article class="row">
-            <figure class="column text-container">
-              <div class="heading">
-                <h2
-                  class="title markdown"
-                  v-html="block.title"
-                  v-show="block.title.length > 0"
-                ></h2>
-              </div>
-              <h3
-                class="subtitle markdown"
-                v-html="block.subtitle"
-                v-show="block.subtitle.length > 0"
-              ></h3>
-              <p
-                class="body markdown"
-                v-html="block.text"
-                v-show="block.text.length > 0"
-              ></p>
+            <figure class="column label">
+              <p>↳ Note</p>
+            </figure>
+            <!-- <figure class="column heading" v-show="block.title.length > 0">
+              <h2 class="title markdown" v-html="block.title"></h2>
+            </figure>
+            <figure
+              class="column subheading"
+              v-show="block.subtitle.length > 0"
+            >
+              <h3 class="subtitle markdown" v-html="block.subtitle"></h3>
+            </figure> -->
+            <figure class="column body" v-show="block.text.length > 0">
+              <p class="body markdown" v-html="block.text"></p>
             </figure>
           </article>
         </section>
@@ -277,9 +277,9 @@
           ]"
         >
           <article>
-            <figure class="column section-item">
+            <figure class="column content">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="image fade-in" v-in-viewport.once>
+                <div class="image fade" v-in-viewport.reset>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.leftImage.url)"
@@ -288,9 +288,9 @@
                 </div>
               </div>
             </figure>
-            <figure class="column section-item">
+            <figure class="column content">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="image fade-in" v-in-viewport.once>
+                <div class="image fade" v-in-viewport.reset>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.centerImage.url)"
@@ -299,9 +299,9 @@
                 </div>
               </div>
             </figure>
-            <figure class="column section-item">
+            <figure class="column content">
               <div class="device-inner" :class="{ device: block.device }">
-                <div class="image fade-in" v-in-viewport.once>
+                <div class="image fade" v-in-viewport.reset>
                   <div class="notch"></div>
                   <img
                     :src="getUrl(block.rightImage.url)"
@@ -331,47 +331,60 @@
             </p>
           </figure>
           <figure class="column text-container">
-            <p class="date">This project was launched in {{ project.year }}</p>
+            <p class="date">
+              <span>↳ &nbsp;</span>This project was launched in
+              {{ project.year }}.
+            </p>
+          </figure>
+        </article>
+      </section>
+
+      <section class="outer-margin button">
+        <article class="row">
+          <figure class="column">
+            <router-link :to="'/'">
+              <h2><span class="arrow">⏎</span> BACK</h2>
+            </router-link>
+          </figure>
+        </article>
+      </section>
+
+      <!-- Similar Projects -->
+      <section class="outer-margin similar">
+        <article class="row">
+          <figure class="column similar-list">
+            <p class="title">Similar projects we have worked on...</p>
+            <ul>
+              <li
+                v-for="(projectInList, index) in projects"
+                :key="index"
+                :class="{ isOpen: projectInList.id === project.id }"
+                :id="projectInList.id"
+                v-show="projectInList.readMore === true"
+              >
+                <router-link :to="'/projects/' + projectInList.slug">
+                  <div class="list-item">
+                    <div class="heading">
+                      <h1 class="title">
+                        {{ projectInList.title }}
+                      </h1>
+                    </div>
+                    <div class="tags">
+                      <p
+                        v-for="(category, i) in projectInList.categories"
+                        :key="i"
+                      >
+                        {{ category.categoryType }}
+                      </p>
+                    </div>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
           </figure>
         </article>
       </section>
     </div>
-
-    <!-- Similar Projects -->
-    <section class="outer-margin similar">
-      <article class="row">
-        <figure class="column similar-list">
-          <p class="title">Similar projects we have worked on...</p>
-          <ul>
-            <li
-              v-for="(projectInList, index) in projects"
-              :key="index"
-              :class="{ isOpen: projectInList.id === project.id }"
-              :id="projectInList.id"
-              v-show="projectInList.readMore === true"
-            >
-              <router-link :to="'/projects/' + projectInList.slug">
-                <div class="list-item">
-                  <div class="heading">
-                    <h1 class="title">
-                      {{ projectInList.title }}
-                    </h1>
-                  </div>
-                  <div class="tags">
-                    <p
-                      v-for="(category, i) in projectInList.categories"
-                      :key="i"
-                    >
-                      {{ category.categoryType }}
-                    </p>
-                  </div>
-                </div>
-              </router-link>
-            </li>
-          </ul>
-        </figure>
-      </article>
-    </section>
   </div>
 </template>
 <script>
@@ -430,7 +443,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.isLoading = true;
+      this.isLoading = false;
     }, 3000);
   },
   data() {
@@ -469,6 +482,12 @@ export default {
         centeredSlides: false,
         slidesPerView: "auto",
         grabCursor: "true",
+        allowTouchMove: "true",
+        threshold: 5,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false
+        },
         pagination: {
           el: ".carousel-pagination",
           type: "fraction"

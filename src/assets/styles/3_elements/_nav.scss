@@ -4,7 +4,8 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: opacity 300ms linear;
+    transform: translateY(0);
+    transition: all 600ms $easing;
     transition-delay: 300ms;
 
     &.outer-margin {
@@ -16,13 +17,20 @@ body {
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas: "a b c";
         grid-column: 1 / 26;
-        @include mt(x0p5);
         align-items: center;
+        @include mt(x1p5);
+
+        @include breakpoint(medium) {
+          @include mt(x1);
+        }
+
+        @include breakpoint(large) {
+          @include mt(x0p25);
+        }
 
         @include breakpoint(x-large) {
           grid-column: 2 / 25;
           @include px(x0);
-          @include mt(x0p125);
         }
 
         .nav-item {
@@ -46,23 +54,28 @@ body {
               @include m(x0);
             }
 
-            &:hover,
             &.router-link-exact-active {
-              svg {
-                overflow: visible;
+              mark {
+                .svg {
+                  overflow: visible;
 
-                .path {
-                  animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1) forwards;
+                  .path {
+                    stroke-dasharray: 0;
+                    stroke-dashoffset: 0;
+                  }
                 }
               }
             }
           }
 
-          &:first-of-type {
-            position: relative;
-            grid-area: a;
-
+          &:first-of-type,
+          &:last-of-type {
             mark {
+              display: inline-block;
+              overflow: visible;
+              position: relative;
+              background-color: transparent;
+
               .svg {
                 height: calc(100% + 0.3em);
                 left: -0.3em;
@@ -79,9 +92,19 @@ body {
                   stroke-width: clamp(8px, 1em, 16px);
                   stroke-dasharray: 2000;
                   stroke-dashoffset: 2000;
+                  animation: dashIn 500ms linear forwards;
                 }
 
-                @keyframes dash {
+                @keyframes dashIn {
+                  from {
+                    stroke-dashoffset: 0;
+                  }
+                  to {
+                    stroke-dashoffset: 2000;
+                  }
+                }
+
+                @keyframes dashOut {
                   from {
                     stroke-dashoffset: 0;
                   }
@@ -90,7 +113,23 @@ body {
                   }
                 }
               }
+
+              &:hover {
+                .svg {
+                  overflow: visible;
+
+                  .path {
+                    animation: dashOut 500ms linear forwards;
+                    animation-direction: reverse;
+                  }
+                }
+              }
             }
+          }
+
+          &:first-of-type {
+            position: relative;
+            grid-area: a;
           }
 
           &:nth-of-type(2) {
@@ -117,36 +156,6 @@ body {
             position: relative;
             grid-area: c;
             text-align: right;
-
-            mark {
-              .svg {
-                height: calc(100% + 0.3em);
-                left: -0.3em;
-                pointer-events: none;
-                position: absolute;
-                top: -0.15em;
-                touch-action: none;
-                width: calc(100% + 0.6em);
-                z-index: -1;
-
-                .path {
-                  fill: none;
-                  stroke: $accent;
-                  stroke-width: clamp(8px, 1em, 16px);
-                  stroke-dasharray: 2000;
-                  stroke-dashoffset: 2000;
-                }
-
-                @keyframes dash {
-                  from {
-                    stroke-dashoffset: 0;
-                  }
-                  to {
-                    stroke-dashoffset: 2000;
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -166,8 +175,35 @@ body {
   }
 
   &.active {
-    .global {
+    header.global {
+      transform: translateY(-100%);
       opacity: 0;
     }
   }
+}
+
+// Project Overlay
+.navPop-enter-active {
+  animation: navPop 300ms $easing;
+  animation-delay: 600ms;
+  animation-direction: reverse;
+}
+.navPop-leave-active {
+  animation: navPop 300ms $easing;
+}
+
+@keyframes navPop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.navPop-enter,
+.navPop-leave-to {
+  opacity: 0;
 }

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <transition name="loadPage" mode="out-in">
+    <transition name="navPop">
       <Nav />
     </transition>
-    <transition name="loadPage" mode="out-in">
+    <transition name="loadPage" mode="out-in" appear>
       <slot></slot>
     </transition>
   </div>

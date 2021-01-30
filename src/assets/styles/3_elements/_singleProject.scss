@@ -1,13 +1,15 @@
 $theme-color: $black;
-$radius: clamp(28px, 3.5vw, 56px);
+$radius: clamp(24px, 3.5vw, 56px);
 
 body.project {
   .project-wrap {
     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
-    top: 0;
-    left: 0;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 3000;
@@ -15,13 +17,18 @@ body.project {
     @include m(x0);
     @include p(x0);
 
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
     .single-project {
       grid-column: 1 / 26;
       position: relative;
+      @include m(x0);
+      @include p(x0);
 
       @include breakpoint(x-large) {
         grid-column: 2 / 25;
-        @include my(x0p5);
       }
 
       .loading {
@@ -37,18 +44,33 @@ body.project {
         background-color: $black;
         color: $grey;
         @include m(x0);
+        @include p(x0);
 
         .nav {
           cursor: pointer !important;
           @include display-grid;
-          @include mt(x0p5);
+          @include pt(x1p5);
+
+          @include breakpoint(medium) {
+            @include pt(x1);
+          }
+
+          @include breakpoint(large) {
+            @include pt(x0p5);
+          }
+
+          @include breakpoint(x-large) {
+            grid-column: 2 / 25;
+            @include px(x0);
+          }
 
           .column {
             grid-column: 1 / 26;
 
             @include breakpoint(x-large) {
-             grid-column: 2 / 25;
+              grid-column: 2 / 25;
             }
+
             .nav-item {
               h3 {
                 text-transform: uppercase;
@@ -61,7 +83,7 @@ body.project {
                     overflow: hidden;
                     display: inline-block;
                     vertical-align: bottom;
-                    animation: ellipsis steps(2, end) 1400ms infinite;
+                    animation: ellipsis steps(2, end) 1300ms infinite;
                     width: 0px;
                     margin-left: 6px;
                   }
@@ -131,8 +153,6 @@ body.project {
       .bar {
         position: relative;
         opacity: 0;
-        transition: opacity 100ms linear;
-        transition-delay: 300ms;
 
         &.is-loaded {
           opacity: 1;
@@ -146,14 +166,15 @@ body.project {
           .row {
             width: 100vw;
             opacity: 1;
-            @include mt(x0p5);
+            @include pt(x0p5);
 
             @include breakpoint(x-large) {
-              @include mt(x0p125);
+              @include pt(x0p25);
             }
 
             .heading {
               grid-column: 1 / 26;
+              @include mb(x0p125);
 
               @include breakpoint(x-large) {
                 grid-column: 2 / 25;
@@ -209,37 +230,49 @@ body.project {
           grid-column: 1 / 26;
           background-color: initial;
           opacity: 1;
-          @include mt(x0p5);
-
-          @include breakpoint(medium) {
-            @include mt(x0p125);
-          }
+          @include mt(x0);
+          @include mb(x2);
 
           article {
-            .text {
+            .heading {
               grid-column: 1 / 26;
+              grid-row: 1;
+              @include mb(x0);
+
+              @include breakpoint(medium) {
+                grid-column: 1 / 23;
+              }
+
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
+              }
+            }
+
+            .body {
+              grid-column: 1 / 26;
+              grid-row: 2;
+              @include mb(x0p125);
+
+              @include breakpoint(medium) {
+                grid-column: 1 / 23;
+              }
+
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
+              }
+            }
+
+            .tags {
+              grid-column: 1 / 26;
+              grid-row: 3;
+              @include pb(x0p25);
 
               @include breakpoint(medium) {
                 grid-column: 1 / 24;
               }
 
               @include breakpoint(x-large) {
-                grid-column: 2 / 24;
-              }
-
-              .text-container {
-                .body {
-                  @include pb(x0p25);
-
-                  p {
-                    display: block;
-                    @include pb(x0p25);
-
-                    &:last-of-type {
-                      @include pb(x0p125);
-                    }
-                  }
-                }
+                grid-column: 2 / 25;
               }
             }
           }
@@ -249,191 +282,312 @@ body.project {
         .asset {
           .outer-margin {
             @include mt(x1);
+
+            .column {
+              @include mb(x0);
+            }
           }
 
           .quote {
-            margin: 0 !important;
             @include pt(x1);
             @include pb(x1);
 
-            .text {
-              grid-column: 1 / 26;
+            .row {
+              @include display-grid;
 
-              @include breakpoint(medium) {
-                grid-column: 1 / 13;
+              .label {
+                grid-column: 1 / 26;
+                grid-row: 1;
+
+                @include breakpoint(medium) {
+                  grid-column: 5 / 9;
+                }
+
+                @include breakpoint(x-large) {
+                  grid-column: 7 / 10;
+                }
               }
 
-              .text-container {
-                .heading {
-                  .title {
-                    @include pb(x0p25);
-                  }
+              .heading {
+                grid-column: 1 / 26;
+                grid-row: span;
+
+                @include breakpoint(medium) {
+                  grid-column: 10 / 20;
+                }
+                @include breakpoint(large) {
+                  grid-column: 10 / 20;
                 }
 
-                .subtitle {
-                  @include pb(x0p25);
+                @include breakpoint(x-large) {
+                  grid-column: 10 / 20;
+                }
+              }
+
+              .subheading {
+                grid-column: 1 / 26;
+                grid-row: span;
+
+                @include breakpoint(medium) {
+                  grid-column: 10 / 20;
+                }
+                @include breakpoint(large) {
+                  grid-column: 10 / 20;
                 }
 
-                .body {
-                  p {
-                    padding-bottom: $x1;
+                @include breakpoint(x-large) {
+                  grid-column: 10 / 20;
+                }
+              }
 
-                    &:last-of-type {
-                      padding: 0;
-                    }
+              .body {
+                grid-column: 1 / 26;
+                grid-row: span;
+                @include pb(x0p25);
 
-                    a {
-                    }
-                  }
+                @include breakpoint(medium) {
+                  grid-column: 9 / 22;
+                }
+
+                @include breakpoint(x-large) {
+                  grid-column: 10 / 20;
                 }
               }
             }
           }
 
           .single-img {
-            .column {
-              grid-column: 1 / 26;
+            .row {
+              .column {
+                grid-column: 1 / 26;
 
-              @include breakpoint(x-large) {
-                grid-column: 2 / 25;
-              }
-
-              .content {
-                .device-inner {
-                  .image {
-                    img {
-                      object-fit: cover;
-                      object-position: center center;
-                    }
-                  }
+                @include breakpoint(x-large) {
+                  grid-column: 2 / 25;
                 }
 
-                &.website {
-                  background-color: $sand;
-                  overflow: hidden;
-
-                  img,
-                  video {
-                    border: 2px solid $black;
+                .content {
+                  .device-inner {
+                    .image {
+                      img {
+                        object-fit: cover;
+                        object-position: center center;
+                      }
+                    }
                   }
 
-                  &:before {
-                    content: "•••";
-                    color: $white;
-                    background-color: $black;
-                    padding: 0px $x0p5;
-                    font-size: clamp(6px, 3vw, 12px);
-                    letter-spacing: 2px;
-                    height: clamp(16px, 3vw, 34px);
-                    display: block;
-                    position: relative;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    text-align: left;
-                    justify-content: flex-start;
-                  }
+                  &.website {
+                    background-color: $sand;
+                    overflow: hidden;
 
-                  @include breakpoint(medium) {
-                    @include py(x1);
-                    @include px(x2);
+                    img,
+                    video {
+                      border: 2px solid $black;
+                    }
 
                     &:before {
-                      content: "○○○";
+                      content: "•••";
                       color: $white;
                       background-color: $black;
-                      padding: 0px clamp(6px, 3vw, 12px);
+                      padding: 0px $x0p5;
                       font-size: clamp(6px, 3vw, 12px);
-                      letter-spacing: 3px;
-                      line-height: clamp(16px, 3vw, 34px);
+                      letter-spacing: 2px;
                       height: clamp(16px, 3vw, 34px);
                       display: block;
                       position: relative;
                       width: 100%;
                       display: flex;
                       flex-direction: row;
-                      text-align: justify;
+                      text-align: left;
                       justify-content: flex-start;
+                    }
+
+                    @include breakpoint(medium) {
+                      @include py(x1);
+                      @include px(x2);
+
+                      &:before {
+                        content: "○○○";
+                        color: $white;
+                        background-color: $black;
+                        padding: 0px clamp(6px, 3vw, 12px);
+                        font-size: clamp(6px, 3vw, 12px);
+                        letter-spacing: 3px;
+                        line-height: clamp(16px, 3vw, 34px);
+                        height: clamp(16px, 3vw, 34px);
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: justify;
+                        justify-content: flex-start;
+                      }
+                    }
+
+                    @include breakpoint(large) {
+                      @include px(x3);
                     }
                   }
 
-                  @include breakpoint(large) {
-                    @include px(x3);
-                  }
-                }
+                  &.device {
+                    background-color: $sand;
+                    @include px(x2);
+                    @include py(x2);
 
-                &.device {
-                  background-color: $sand;
-                  @include px(x2);
-                  @include py(x2);
+                    @include breakpoint(large) {
+                      @include px(x3);
+                    }
 
-                  @include breakpoint(large) {
-                    @include px(x3);
-                  }
+                    .device-inner {
+                      position: relative;
 
-                  .device-inner {
-                    position: relative;
-
-                    .image {
-                      img,
-                      video {
-                        width: 100%;
-                        height: auto;
-                        border-radius: $radius;
-                        border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                      .image {
+                        img,
+                        video {
+                          width: 100%;
+                          height: auto;
+                          border-radius: $radius;
+                          border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                        }
                       }
                     }
                   }
-                }
 
-                figcaption {
-                  grid-column: 3 / 24;
-                  padding-top: $x0p5;
+                  figcaption {
+                    grid-column: 3 / 24;
+                    padding-top: $x0p5;
 
-                  @include breakpoint(medium) {
-                    grid-column: 3 / 20;
-                  }
+                    @include breakpoint(medium) {
+                      grid-column: 3 / 20;
+                    }
 
-                  @include breakpoint(large) {
-                    grid-column: 4 / 13;
-                  }
+                    @include breakpoint(large) {
+                      grid-column: 4 / 13;
+                    }
 
-                  p {
-                    font-size: clamp(14px, 1vw, 18px);
-                    line-height: 1.45;
-                    float: left;
+                    p {
+                      font-size: clamp(14px, 1vw, 18px);
+                      line-height: 1.45;
+                      float: left;
+                    }
                   }
                 }
               }
             }
 
             &.full {
-              @include my(x2);
+              @include mb(x2);
               @include px(x0);
-              .column {
-                .content {
+
+              .row {
+                .column {
+                  grid-column: 1 / 26;
                   background-color: transparent !important;
 
-                  .device-inner {
-                    .image {
-                      grid-column: 1 / 26;
-                      background-color: transparent !important;
-                      @include px(x0);
+                  .content {
+                    .device-inner {
+                      .image {
+                        img {
+                          object-fit: cover;
+                          object-position: center center;
+                        }
+                      }
+                    }
 
-                      img {
+                    &.website {
+                      background-color: $sand;
+                      overflow: hidden;
+
+                      img,
+                      video {
+                        border: 2px solid $black;
+                      }
+
+                      &:before {
+                        content: "•••";
+                        color: $white;
+                        background-color: $black;
+                        padding: 0px $x0p5;
+                        font-size: clamp(6px, 3vw, 12px);
+                        letter-spacing: 2px;
+                        height: clamp(16px, 3vw, 34px);
+                        display: block;
+                        position: relative;
                         width: 100%;
-                        height: 44vh;
-                        object-fit: cover;
-                        object-position: 60% 0%;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: left;
+                        justify-content: flex-start;
                       }
 
                       @include breakpoint(medium) {
-                        img {
+                        @include py(x1);
+                        @include px(x2);
+
+                        &:before {
+                          content: "○○○";
+                          color: $white;
+                          background-color: $black;
+                          padding: 0px clamp(6px, 3vw, 12px);
+                          font-size: clamp(6px, 3vw, 12px);
+                          letter-spacing: 3px;
+                          line-height: clamp(16px, 3vw, 34px);
+                          height: clamp(16px, 3vw, 34px);
+                          display: block;
+                          position: relative;
                           width: 100%;
-                          height: auto;
-                          object-fit: unset;
-                          object-position: unset;
+                          display: flex;
+                          flex-direction: row;
+                          text-align: justify;
+                          justify-content: flex-start;
                         }
+                      }
+
+                      @include breakpoint(large) {
+                        @include px(x3);
+                      }
+                    }
+
+                    &.device {
+                      background-color: $sand;
+                      @include px(x2);
+                      @include py(x2);
+
+                      @include breakpoint(large) {
+                        @include px(x3);
+                      }
+
+                      .device-inner {
+                        position: relative;
+
+                        .image {
+                          img,
+                          video {
+                            width: 100%;
+                            height: auto;
+                            border-radius: $radius;
+                            border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                          }
+                        }
+                      }
+                    }
+
+                    figcaption {
+                      grid-column: 3 / 24;
+                      padding-top: $x0p5;
+
+                      @include breakpoint(medium) {
+                        grid-column: 3 / 20;
+                      }
+
+                      @include breakpoint(large) {
+                        grid-column: 4 / 13;
+                      }
+
+                      p {
+                        font-size: clamp(14px, 1vw, 18px);
+                        line-height: 1.45;
+                        float: left;
                       }
                     }
                   }
@@ -442,14 +596,120 @@ body.project {
             }
 
             &.narrow {
-              margin-top: $x3;
-              .column {
-                .content {
-                  .image {
-                    grid-column: 1 / 26;
+              .row {
+                .column {
+                  grid-column: 1 / 26;
+                  background-color: transparent;
 
-                    @include breakpoint(large) {
-                      grid-column: 6 / 21;
+                  @include breakpoint(x-large) {
+                    grid-column: 5 / 22;
+                  }
+
+                  .content {
+                    .device-inner {
+                      .image {
+                        img {
+                          object-fit: cover;
+                          object-position: center center;
+                        }
+                      }
+                    }
+
+                    &.website {
+                      background-color: $sand;
+                      overflow: hidden;
+
+                      img,
+                      video {
+                        border: 2px solid $black;
+                      }
+
+                      &:before {
+                        content: "•••";
+                        color: $white;
+                        background-color: $black;
+                        padding: 0px $x0p5;
+                        font-size: clamp(6px, 3vw, 12px);
+                        letter-spacing: 2px;
+                        height: clamp(16px, 3vw, 34px);
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: left;
+                        justify-content: flex-start;
+                      }
+
+                      @include breakpoint(medium) {
+                        @include py(x1);
+                        @include px(x2);
+
+                        &:before {
+                          content: "○○○";
+                          color: $white;
+                          background-color: $black;
+                          padding: 0px clamp(6px, 3vw, 12px);
+                          font-size: clamp(6px, 3vw, 12px);
+                          letter-spacing: 3px;
+                          line-height: clamp(16px, 3vw, 34px);
+                          height: clamp(16px, 3vw, 34px);
+                          display: block;
+                          position: relative;
+                          width: 100%;
+                          display: flex;
+                          flex-direction: row;
+                          text-align: justify;
+                          justify-content: flex-start;
+                        }
+                      }
+
+                      @include breakpoint(large) {
+                        @include px(x3);
+                      }
+                    }
+
+                    &.device {
+                      background-color: $sand;
+                      @include px(x2);
+                      @include py(x2);
+
+                      @include breakpoint(large) {
+                        @include px(x3);
+                      }
+
+                      .device-inner {
+                        position: relative;
+
+                        .image {
+                          img,
+                          video {
+                            width: 100%;
+                            height: auto;
+                            border-radius: $radius;
+                            border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                          }
+                        }
+                      }
+                    }
+
+                    figcaption {
+                      grid-column: 3 / 24;
+                      padding-top: $x0p5;
+
+                      @include breakpoint(medium) {
+                        grid-column: 3 / 20;
+                      }
+
+                      @include breakpoint(large) {
+                        grid-column: 4 / 13;
+                      }
+
+                      p {
+                        font-size: clamp(14px, 1vw, 18px);
+                        line-height: 1.45;
+                        float: left;
+                      }
                     }
                   }
                 }
@@ -554,21 +814,22 @@ body.project {
             }
 
             article {
-              .section-item {
+              .content {
                 .device-inner {
                   &.device {
                     background-color: $theme-color;
                     border-radius: $radius;
+                    position: relative;
 
                     .image {
                       .notch {
                         position: absolute;
                         top: clamp(6px, 0.6vw, 12px);
                         left: 50%;
-                        width: clamp(96px, 5vw, 148px);
-                        height: clamp(10px, 4vw, 16px);
-                        background-color: $theme-color;
-                        border-radius: 0 0 $x0p5 $x0p5;
+                        width: clamp(96px, 12vw, 256px);
+                        height: clamp(12px, 2vw, 20px);
+                        background-color: $black;
+                        border-radius: 0 0 12px 12px;
                         transform: translateX(-50%);
                         z-index: 9999;
 
@@ -585,7 +846,7 @@ body.project {
                           background-image: radial-gradient(
                             circle at 0 100%,
                             transparent 4px,
-                            $theme-color 4px
+                            $black 4px
                           );
                         }
 
@@ -595,14 +856,14 @@ body.project {
                           background-image: radial-gradient(
                             circle at 100% 100%,
                             transparent 4px,
-                            $theme-color 4px
+                            $black 4px
                           );
                         }
                       }
 
                       img {
                         border-radius: $radius;
-                        border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                        border: clamp(8px, 0.6vw, 12px) solid $black;
                       }
                     }
                   }
@@ -688,18 +949,11 @@ body.project {
             grid-template-columns: repeat(1, auto);
 
             @include mt(x1);
-            @include mb(x2);
-            @include pt(x0);
-            @include pl(x0);
-            @include pr(x0);
-            @include pb(x1);
-
-            @include breakpoint(large) {
-            }
 
             .carousel-inner {
-              @include p(x0);
               position: relative;
+              @include mb(x0p25);
+              @include p(x0);
 
               .swiper-container {
                 overflow-x: hidden;
@@ -725,7 +979,7 @@ body.project {
                       img {
                         height: 100%;
                         width: auto;
-                        height: clamp(275px, 40vw, 500px);
+                        height: clamp(275px, 37vw, 625px);
                       }
                     }
 
@@ -770,32 +1024,28 @@ body.project {
                   display: none;
                 }
               }
+            }
 
-              .carousel-button-prev {
-                cursor: w-resize;
-                position: absolute;
-                left: 0;
-                right: auto;
-              }
+            .carousel-button-prev {
+              cursor: w-resize;
+              position: absolute;
+              left: 0;
+              right: auto;
+            }
 
-              .carousel-button-next {
-                cursor: e-resize;
-                position: absolute;
-                right: 0;
-                left: auto;
-              }
+            .carousel-button-next {
+              cursor: e-resize;
+              position: absolute;
+              right: 0;
+              left: auto;
+            }
+
+            .pagination {
+              grid-row: 2;
 
               .carousel-pagination {
-                grid-row: 1;
-                grid-column: 1 / span 4;
-                position: absolute;
-                bottom: 0;
-                left: $x1;
-                text-align: left;
-                transform: translateY($x2);
-                transition: 500ms opacity;
-                z-index: 1000;
-                text-align: left;
+                @include px(x0p5);
+                text-align: right;
                 @include font-size(18px, 30px);
 
                 span {
@@ -827,10 +1077,6 @@ body.project {
               p {
                 display: inline;
 
-                &:after {
-                  content: ".";
-                }
-
                 span {
                   display: inline;
                 }
@@ -838,110 +1084,112 @@ body.project {
             }
           }
         }
-      }
 
-      .similar {
-        background-color: $sand;
+        .button {
+          @include mb(x0);
 
-        .row {
-          @include display-grid;
-
-          .similar-list {
-            position: relative;
-            grid-column: 1 / 26;
-            grid-row: 1;
-            z-index: 9999;
-            align-self: end;
-            @include my(x0p25);
-
-            @include breakpoint(medium) {
-              @include my(x0p5);
-            }
-
-            @include breakpoint(x-large) {
-              grid-column: 2 / 25;
-            }
-
-            p.title {
-              @include pb(x0p5);
+          .row {
+            .column {
+              position: relative;
               grid-column: 1 / 26;
+
+              a {
+                border: none;
+
+                &:hover {
+                  span {
+                    color: $accent;
+                  }
+                }
+              }
             }
+          }
+        }
 
-            ul {
-              list-style: none;
-              @include p(x0);
-              @include m(x0);
+        .similar {
+          background-color: $sand;
+          height: auto;
+          @include m(x0);
 
-              li {
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: flex-start;
-                width: 100%;
-                list-style: none !important;
+          .row {
+            @include display-grid;
 
-                @include breakpoint(medium) {
-                  width: 200vw;
-                }
+            .similar-list {
+              position: relative;
+              grid-column: 1 / 26;
+              grid-row: 1;
+              z-index: 9999;
+              align-self: end;
+              @include mt(x0p25);
+              @include pb(x0p5);
 
-                a {
-                  border: none;
+              @include breakpoint(medium) {
+                @include mt(x0p5);
+              }
 
-                  .list-item {
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: row;
+              @include breakpoint(x-large) {
+                grid-column: 2 / 25;
+              }
+
+              p.title {
+                @include pb(x0p5);
+                grid-column: 1 / 26;
+              }
+
+              ul {
+                list-style: none;
+                @include p(x0);
+                @include m(x0);
+
+                li {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: row;
+                  justify-content: flex-start;
+                  width: 100%;
+                  list-style: none !important;
+
+                  @include breakpoint(medium) {
                     width: 200vw;
-                    justify-content: flex-start;
-                    align-items: flex-end;
+                  }
 
-                    @include breakpoint(large) {
+                  a {
+                    border: none;
+
+                    .list-item {
+                      display: flex;
                       flex-wrap: wrap;
-                      width: 100%;
-                    }
+                      flex-direction: row;
+                      width: 200vw;
+                      justify-content: flex-start;
+                      align-items: flex-end;
 
-                    h1 {
-                      text-transform: uppercase;
-                      pointer-events: all;
-                      cursor: pointer;
-                      transform: translateX(-3px);
-                      @include font-size(48px, 156px);
-                      border-bottom: 2px solid $black;
-                    }
-
-                    .tags {
-                      display: none;
-                      @include ml(x0p25);
-
-                      p {
-                        display: inline-block;
-                        vertical-align: bottom;
-                        margin-bottom: clamp(0px, 0.5vw, 6px);
+                      h1 {
+                        text-transform: uppercase;
+                        pointer-events: all;
+                        cursor: pointer;
+                        transform: translateX(-3px);
+                        border-bottom: none;
+                        @include font-size(72px, 144px);
+                        line-height: 0.85;
                       }
 
-                      @include breakpoint(medium) {
-                        display: initial;
-                      }
-                    }
-                  }
+                      .tags {
+                        @include ml(x0p125);
 
-                  &:hover {
-                    h1 {
-                      color: $accent;
-                    }
-
-                    .tags {
-                      p {
-                        background-color: $black;
-                        border-color: $black;
-                        color: $white;
+                        transform: translateY(-0.4rem);
+                        p {
+                          background-color: $black;
+                          border-color: $black;
+                          color: $white;
+                        }
                       }
                     }
                   }
-                }
 
-                &.isOpen {
-                  display: none;
+                  &.isOpen {
+                    display: none;
+                  }
                 }
               }
             }

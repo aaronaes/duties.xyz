@@ -18,7 +18,7 @@
     <!-- Studio Block -->
     <section class="outer-margin studio dark">
       <article class="row fade-in" v-in-viewport.once>
-        <figure class="header">
+        <figure class="column header show-for-small-only">
           <div class="heading">
             <h1 class="title">On-duty</h1>
           </div>
@@ -27,6 +27,9 @@
           <img src="/images/about/studio-03.png" />
         </figure>
         <figure class="body">
+          <div class="heading hide-for-small-only">
+            <h1 class="title">On-duty</h1>
+          </div>
           <div class="text">
             <p>
               We allow businesses to achieve their potential through considered
@@ -65,7 +68,13 @@
           </div>
         </figure>
         <figure class="column carousel">
-          <swiper ref="mySwiper" :options="swiperOptions" :auto-update="true">
+          <swiper
+            ref="mySwiper"
+            :options="swiperOptions"
+            :auto-update="true"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+          >
             <swiper-slide>
               <div class="slide-text">
                 <a href="#" target="_blank">
@@ -146,6 +155,12 @@ export default {
         loop: true,
         slidesPerView: "auto",
         grabCursor: "true",
+        allowTouchMove: "true",
+        threshold: 5,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"

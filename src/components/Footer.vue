@@ -1,6 +1,6 @@
 <template>
   <section class="outer-margin footer">
-    <article class="row column">
+    <article class="row">
       <figure class="column tagline fade-in" v-in-viewport.once>
         <p>
           Want to work with us on your next project? <br />
@@ -14,9 +14,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h1 class="title">
-              new@
-            </h1>
+            <h1 class="title">new<span class="foo">@</span></h1>
             <h1 class="title">
               duties.
             </h1>

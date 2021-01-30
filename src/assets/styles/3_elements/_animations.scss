@@ -1,17 +1,10 @@
-// General
-
-// body {
-//   transition: color 300ms $easing, background-color 300ms $easing;
-//   will-change: color, background-color;
-// }
-
 // Page
 .loadPage-enter-active {
-  animation: pageLoadIn 800ms $easing;
+  animation: pageLoadIn 300ms $easing;
 }
 
 .loadPage-leave-active {
-  animation: pageLoadOut 400ms $easing;
+  animation: pageLoadOut 300ms $easing;
 }
 
 @keyframes pageLoadIn {
@@ -39,11 +32,11 @@
 
 // Project Overlay
 .loadProject-enter-active {
-  animation: loadingIn 800ms $easing;
+  animation: loadingIn 300ms $easing;
   overflow: hidden;
 }
 .loadProject-leave-active {
-  animation: loadingOut 400ms $easing;
+  animation: loadingOut 300ms $easing;
   overflow: hidden;
 }
 
@@ -83,10 +76,20 @@
 }
 
 // In Viewport
+.fade {
+  opacity: 0;
+  transition: opacity 300ms linear;
+  transition-delay: 300ms;
+
+  &.in-viewport {
+    opacity: 1;
+  }
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY($x0p5);
-  transition: all 600ms linear;
+  transition: opacity 300ms linear, transform 300ms linear;
   transition-delay: 300ms;
 
   &.in-viewport {
