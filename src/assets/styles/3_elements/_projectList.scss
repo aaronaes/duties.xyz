@@ -1,7 +1,8 @@
 .project-list {
   @include display-grid;
+  @include mt(x0);
 
-  .project {
+  .row {
     @include mt(x2);
     grid-column: 1 / 26;
 
@@ -9,8 +10,8 @@
       grid-column: 2 / 25;
     }
 
-    &:first-of-type {
-      @include mt(x0);
+    @include breakpoint(xx-large) {
+      grid-column: 3 / 24;
     }
 
     .column {
@@ -19,14 +20,12 @@
       background-color: initial;
       visibility: visible;
       z-index: 1;
-      pointer-events: none;
       align-items: flex-start;
 
       &.summary {
         a.imgBox {
           display: block;
           border-bottom: none;
-          pointer-events: all;
           cursor: pointer;
           max-width: 100%;
 
@@ -34,9 +33,8 @@
             @include mb(x0p25);
 
             img {
-              height: clamp(275px, 37vw, 625px);
-              object-fit: cover;
-              object-position: 0% 50%;
+              height: clamp(335px, 55vw, 625px);
+              object-fit: contain;
             }
           }
 
@@ -47,7 +45,6 @@
               h2,
               h3 {
                 @include m(x0);
-                pointer-events: all;
               }
             }
 
@@ -59,7 +56,7 @@
                   &:after {
                     content: " :";
                     display: inline;
-                    animation: blinker 1300ms step-start infinite;
+                    animation: blinker 1000ms step-start infinite;
                     padding-left: 2px;
                   }
 
@@ -112,6 +109,8 @@
 
       .column {
         &.summary {
+          display: block;
+
           a.imgBox {
             .image {
               @include mb(x0p25);
@@ -130,7 +129,6 @@
                 h2,
                 h3 {
                   @include m(x0);
-                  pointer-events: all;
                 }
               }
 
@@ -142,7 +140,7 @@
                     &:after {
                       content: " :";
                       display: inline;
-                      animation: blinker 1300ms step-start infinite;
+                      animation: blinker 1000ms step-start infinite;
                       padding-left: 2px;
                     }
 
@@ -217,6 +215,84 @@
           .column {
             @include px(x0);
           }
+        }
+      }
+    }
+
+    &.story {
+      grid-column: 2 / 25;
+
+      .column {
+        &.summary {
+          @include p(x1);
+          display: block;
+          background-color: $grey;
+
+          .storyImage {
+            display: inline-block;
+            @include mb(x0p25);
+          }
+
+          .heading {
+            @include mb(x0p25);
+            h2,
+            h3 {
+              @include m(x0);
+            }
+          }
+
+          .body {
+            p {
+              &.title {
+                @include pr(x0p125);
+
+                &:after {
+                  content: " :";
+                  display: inline;
+                  animation: blinker 1000ms step-start infinite;
+                  padding-left: 2px;
+                }
+
+                @keyframes blinker {
+                  50% {
+                    opacity: 0;
+                  }
+                }
+
+                @keyframes ellipsis {
+                  from {
+                    opacity: 0;
+                    width: 0px;
+                  }
+                  to {
+                    opacity: 1;
+                    width: 20px;
+                  }
+                }
+              }
+
+              code {
+                font-family: $font-tex-regular !important;
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpoint(medium) {
+        grid-column: 4 / 22;
+
+        .column {
+          @include pr(x0p5);
+          @include pl(x0);
+        }
+      }
+
+      @include breakpoint(x-large) {
+        grid-column: 4 / 21;
+
+        .column {
+          @include px(x0);
         }
       }
     }

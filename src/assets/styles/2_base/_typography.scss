@@ -13,7 +13,6 @@ body {
 }
 
 // Headings
-body,
 h1,
 h2,
 h3,
@@ -25,8 +24,8 @@ h6 {
   padding: 0;
   font-weight: normal;
   color: inherit;
-  letter-spacing: -0.6px;
-  word-spacing: -0.3px;
+  letter-spacing: -1.5px;
+  word-spacing: -0.5px;
   vertical-align: baseline;
 }
 
@@ -53,10 +52,10 @@ h3.markdown > p {
 
 p,
 p.markdown > p {
-  @include font-size(18px, 27px);
+  @include font-size(20px, 28px);
   line-height: 1.4;
 
-  span {
+  span.block {
     display: block;
     @include pb(x1);
 
@@ -104,9 +103,7 @@ a {
     &.title {
       font-family: $font-tex-cond;
       font-weight: 400;
-      line-height: 1;
       text-transform: uppercase;
-      letter-spacing: -0.03em;
     }
   }
 }
@@ -120,25 +117,24 @@ strong {
 }
 
 .body {
-  p {
+  p,
+  ul {
+    padding-bottom: $space-sm;
+
+    @include breakpoint(large) {
+      padding-bottom: $space-md;
+    }
+
+    @include breakpoint(x-large) {
+      padding-bottom: $space-lg;
+    }
+
     &.title {
       opacity: 0.4;
     }
+  }
 
-    &.body {
-      @include pb(x1);
-
-      @include breakpoint(medium) {
-        @include pb(x0p5);
-      }
-
-      @include breakpoint(large) {
-        @include pb(x0p25);
-      }
-
-      &:last-of-type {
-        @include pb(x0);
-      }
-    }
+  p:last-of-type {
+    padding-bottom: 0;
   }
 }

@@ -26,12 +26,8 @@ body {
                   width: 100%;
                   list-style: none !important;
 
-                  @include breakpoint(medium) {
-                    width: 200vw;
-                  }
-
                   a {
-                    text-decoration: none;
+                    border: none;
 
                     .project-content {
                       display: flex;

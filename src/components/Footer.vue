@@ -1,13 +1,10 @@
 <template>
   <section class="outer-margin footer">
-    <article class="row">
-      <figure class="column tagline fade-in" v-in-viewport.once>
-        <p>
-          Want to work with us on your next project? <br />
-          We’d love to hear from you.
-        </p>
+    <article class="row fade-in" v-in-viewport.once>
+      <figure class="column tagline">
+        <p class="title" v-html="footer.tagline"></p>
       </figure>
-      <figure class="column contact fade-in" v-in-viewport.once>
+      <figure class="column contact">
         <div class="heading">
           <a
             href="mailto:new@duties.xyz"
@@ -24,9 +21,9 @@
           </a>
         </div>
       </figure>
-      <figure class="column links fade-in" v-in-viewport.once>
+      <figure class="column links">
         <ul>
-          <li v-for="link in frontpage.contact" :key="link.id">
+          <li v-for="link in footer.links" :key="link.id">
             <p class="heading">
               <a class="title" :href="link.linkUrl" target="_blank">
                 {{ link.linkTitle }}
@@ -46,22 +43,28 @@ import getData from "@/utils/getData";
 export default {
   name: "Footer",
   async created() {
-    this.frontpage = await this.getFrontpage();
+    this.footer = await this.getFooter();
   },
   data() {
     return {
-      title: "Home",
-      frontpage: []
+      title: "Footer",
+      footer: {
+        tagline: "",
+        links: {
+          linkTitle: "",
+          linkURL: ""
+        }
+      }
     };
   },
   methods: {
-    async getFrontpage() {
+    async getFooter() {
       const { data } = await getData({
         query: gql`
           query {
-            frontpage {
-              summary(markdown: true)
-              contact {
+            footer {
+              tagline
+              links {
                 linkTitle
                 linkUrl
               }
@@ -69,7 +72,7 @@ export default {
           }
         `
       });
-      return data.frontpage;
+      return data.footer;
     }
   }
 };

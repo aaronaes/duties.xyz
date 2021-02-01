@@ -1,34 +1,34 @@
 $theme-color: $black;
-$radius: clamp(24px, 3.5vw, 56px);
+$radius: clamp(24px, 4vw, 64px);
 
 body.project {
   .project-wrap {
     position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 3000;
     background-color: $white;
-    @include m(x0);
-    @include p(x0);
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
 
     .single-project {
       grid-column: 1 / 26;
       position: relative;
+      min-height: 100%;
       @include m(x0);
       @include p(x0);
 
       @include breakpoint(x-large) {
         grid-column: 2 / 25;
+      }
+
+      @include breakpoint(xx-large) {
+        grid-column: 3 / 24;
       }
 
       .loading {
@@ -64,11 +64,20 @@ body.project {
             @include px(x0);
           }
 
+          @include breakpoint(xx-large) {
+            grid-column: 3 / 24;
+            @include px(x0);
+          }
+
           .column {
             grid-column: 1 / 26;
 
             @include breakpoint(x-large) {
               grid-column: 2 / 25;
+            }
+
+            @include breakpoint(xx-large) {
+              grid-column: 3 / 24;
             }
 
             .nav-item {
@@ -83,7 +92,7 @@ body.project {
                     overflow: hidden;
                     display: inline-block;
                     vertical-align: bottom;
-                    animation: ellipsis steps(2, end) 1300ms infinite;
+                    animation: ellipsis steps(2, end) 1000ms infinite;
                     width: 0px;
                     margin-left: 6px;
                   }
@@ -113,7 +122,7 @@ body.project {
                       overflow: visible;
 
                       .path {
-                        animation: dash 500ms cubic-bezier(0.75, 0, 0.75, 1)
+                        animation: dash 300ms cubic-bezier(0.75, 0, 0.75, 1)
                           forwards;
                       }
                     }
@@ -166,7 +175,15 @@ body.project {
           .row {
             width: 100vw;
             opacity: 1;
-            @include pt(x0p5);
+            @include pt(x1p5);
+
+            @include breakpoint(medium) {
+              @include pt(x1);
+            }
+
+            @include breakpoint(large) {
+              @include pt(x0p5);
+            }
 
             @include breakpoint(x-large) {
               @include pt(x0p25);
@@ -180,14 +197,16 @@ body.project {
                 grid-column: 2 / 25;
               }
 
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 24;
+              }
+
+              h1,
               h2,
               h3 {
                 a {
                   border-bottom: none;
-                }
-
-                span {
-                  margin-left: 6px;
+                  cursor: pointer;
                 }
 
                 &:hover {
@@ -237,14 +256,22 @@ body.project {
             .heading {
               grid-column: 1 / 26;
               grid-row: 1;
-              @include mb(x0);
+              @include mb(x0p25);
 
               @include breakpoint(medium) {
-                grid-column: 1 / 23;
+                grid-column: 1 / 20;
+              }
+
+              @include breakpoint(large) {
+                grid-column: 1 / 18;
               }
 
               @include breakpoint(x-large) {
-                grid-column: 2 / 25;
+                grid-column: 2 / 18;
+              }
+
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 18;
               }
             }
 
@@ -254,11 +281,25 @@ body.project {
               @include mb(x0p125);
 
               @include breakpoint(medium) {
-                grid-column: 1 / 23;
+                grid-column: 1 / 20;
+              }
+
+              @include breakpoint(medium) {
+                grid-column: 1 / 18;
               }
 
               @include breakpoint(x-large) {
-                grid-column: 2 / 25;
+                grid-column: 2 / 18;
+              }
+
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 18;
+              }
+
+              p {
+                &:not(:last-of-type) {
+                  @include pb(x0p25);
+                }
               }
             }
 
@@ -274,6 +315,10 @@ body.project {
               @include breakpoint(x-large) {
                 grid-column: 2 / 25;
               }
+
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 24;
+              }
             }
           }
         }
@@ -281,7 +326,7 @@ body.project {
         // Case Block
         .asset {
           .outer-margin {
-            @include mt(x1);
+            @include mt(x0p5);
 
             .column {
               @include mb(x0);
@@ -289,68 +334,29 @@ body.project {
           }
 
           .quote {
-            @include pt(x1);
-            @include pb(x1);
+            @include my(x4);
 
             .row {
               @include display-grid;
 
-              .label {
-                grid-column: 1 / 26;
-                grid-row: 1;
-
-                @include breakpoint(medium) {
-                  grid-column: 5 / 9;
-                }
-
-                @include breakpoint(x-large) {
-                  grid-column: 7 / 10;
-                }
-              }
-
               .heading {
-                grid-column: 1 / 26;
-                grid-row: span;
-
-                @include breakpoint(medium) {
-                  grid-column: 10 / 20;
-                }
-                @include breakpoint(large) {
-                  grid-column: 10 / 20;
-                }
-
-                @include breakpoint(x-large) {
-                  grid-column: 10 / 20;
-                }
-              }
-
-              .subheading {
-                grid-column: 1 / 26;
-                grid-row: span;
-
-                @include breakpoint(medium) {
-                  grid-column: 10 / 20;
-                }
-                @include breakpoint(large) {
-                  grid-column: 10 / 20;
-                }
-
-                @include breakpoint(x-large) {
-                  grid-column: 10 / 20;
-                }
-              }
-
-              .body {
-                grid-column: 1 / 26;
-                grid-row: span;
                 @include pb(x0p25);
+              }
+
+              .heading,
+              .body {
+                grid-column: 2 / 25;
 
                 @include breakpoint(medium) {
-                  grid-column: 9 / 22;
+                  grid-column: 4 / 23;
                 }
 
-                @include breakpoint(x-large) {
-                  grid-column: 10 / 20;
+                @include breakpoint(large) {
+                  grid-column: 7 / 20;
+                }
+
+                @include breakpoint(xx-large) {
+                  grid-column: 9 / 18;
                 }
               }
             }
@@ -365,17 +371,156 @@ body.project {
                   grid-column: 2 / 25;
                 }
 
+                @include breakpoint(xx-large) {
+                  grid-column: 3 / 24;
+                }
+
                 .content {
-                  .device-inner {
+                  background-color: transparent;
+                }
+
+                &.website {
+                  .content {
+                    background-color: $sand;
+                    overflow: hidden;
+
                     .image {
-                      img {
-                        object-fit: cover;
-                        object-position: center center;
+                      img,
+                      video {
+                        border: 2px solid $black;
+
+                        @include breakpoint(x-large) {
+                          object-fit: cover;
+                          object-position: top;
+                          height: 50vw;
+                          max-height: 45vw;
+                        }
+                      }
+                    }
+
+                    &:before {
+                      content: "•••";
+                      color: $white;
+                      background-color: $black;
+                      padding: 0px $x0p5;
+                      font-size: clamp(6px, 3vw, 12px);
+                      letter-spacing: 2px;
+                      height: clamp(16px, 3vw, 34px);
+                      display: block;
+                      position: relative;
+                      width: 100%;
+                      display: flex;
+                      flex-direction: row;
+                      text-align: left;
+                      justify-content: flex-start;
+                    }
+
+                    @include breakpoint(medium) {
+                      @include py(x1);
+                      @include px(x2);
+
+                      &:before {
+                        content: "○○○";
+                        color: $white;
+                        background-color: $black;
+                        padding: 0px clamp(6px, 3vw, 12px);
+                        font-size: clamp(6px, 3vw, 12px);
+                        letter-spacing: 3px;
+                        line-height: clamp(16px, 3vw, 34px);
+                        height: clamp(16px, 3vw, 34px);
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: justify;
+                        justify-content: flex-start;
+                      }
+                    }
+
+                    @include breakpoint(large) {
+                      @include px(x3);
+                    }
+                  }
+                }
+
+                &.device {
+                  .content {
+                    background-color: $sand !important;
+                    @include px(x2);
+                    @include py(x2);
+
+                    @include breakpoint(large) {
+                      @include px(x3);
+                    }
+
+                    .device-inner {
+                      position: relative;
+
+                      .image {
+                        img,
+                        video {
+                          width: 100%;
+                          height: auto;
+                          border-radius: $radius;
+                          border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                figcaption {
+                  grid-column: 3 / 24;
+                  padding-top: $x0p5;
+
+                  @include breakpoint(medium) {
+                    grid-column: 3 / 20;
+                  }
+
+                  @include breakpoint(large) {
+                    grid-column: 4 / 13;
+                  }
+
+                  p {
+                    font-size: clamp(14px, 1vw, 18px);
+                    line-height: 1.45;
+                    float: left;
+                  }
+                }
+              }
+            }
+
+            &.full {
+              @include mt(x3);
+
+              .row {
+                .column {
+                  grid-column: 1 / 26;
+                  @include px(x0);
+
+                  .content {
+                    background-color: transparent !important;
+                    .device-inner {
+                      .image {
+                        @include breakpoint(small only) {
+                          img {
+                            height: 100vw;
+                            width: 100vw;
+                            object-fit: cover;
+                            object-position: 50% 50%;
+                          }
+                        }
+
+                        img {
+                          width: 100%;
+                          height: auto;
+                        }
                       }
                     }
                   }
 
-                  &.website {
+                  .website {
                     background-color: $sand;
                     overflow: hidden;
 
@@ -429,7 +574,7 @@ body.project {
                     }
                   }
 
-                  &.device {
+                  .device {
                     background-color: $sand;
                     @include px(x2);
                     @include py(x2);
@@ -475,146 +620,24 @@ body.project {
               }
             }
 
-            &.full {
-              @include mb(x2);
-              @include px(x0);
-
-              .row {
-                .column {
-                  grid-column: 1 / 26;
-                  background-color: transparent !important;
-
-                  .content {
-                    .device-inner {
-                      .image {
-                        img {
-                          object-fit: cover;
-                          object-position: center center;
-                        }
-                      }
-                    }
-
-                    &.website {
-                      background-color: $sand;
-                      overflow: hidden;
-
-                      img,
-                      video {
-                        border: 2px solid $black;
-                      }
-
-                      &:before {
-                        content: "•••";
-                        color: $white;
-                        background-color: $black;
-                        padding: 0px $x0p5;
-                        font-size: clamp(6px, 3vw, 12px);
-                        letter-spacing: 2px;
-                        height: clamp(16px, 3vw, 34px);
-                        display: block;
-                        position: relative;
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        text-align: left;
-                        justify-content: flex-start;
-                      }
-
-                      @include breakpoint(medium) {
-                        @include py(x1);
-                        @include px(x2);
-
-                        &:before {
-                          content: "○○○";
-                          color: $white;
-                          background-color: $black;
-                          padding: 0px clamp(6px, 3vw, 12px);
-                          font-size: clamp(6px, 3vw, 12px);
-                          letter-spacing: 3px;
-                          line-height: clamp(16px, 3vw, 34px);
-                          height: clamp(16px, 3vw, 34px);
-                          display: block;
-                          position: relative;
-                          width: 100%;
-                          display: flex;
-                          flex-direction: row;
-                          text-align: justify;
-                          justify-content: flex-start;
-                        }
-                      }
-
-                      @include breakpoint(large) {
-                        @include px(x3);
-                      }
-                    }
-
-                    &.device {
-                      background-color: $sand;
-                      @include px(x2);
-                      @include py(x2);
-
-                      @include breakpoint(large) {
-                        @include px(x3);
-                      }
-
-                      .device-inner {
-                        position: relative;
-
-                        .image {
-                          img,
-                          video {
-                            width: 100%;
-                            height: auto;
-                            border-radius: $radius;
-                            border: clamp(6px, 0.6vw, 12px) solid $theme-color;
-                          }
-                        }
-                      }
-                    }
-
-                    figcaption {
-                      grid-column: 3 / 24;
-                      padding-top: $x0p5;
-
-                      @include breakpoint(medium) {
-                        grid-column: 3 / 20;
-                      }
-
-                      @include breakpoint(large) {
-                        grid-column: 4 / 13;
-                      }
-
-                      p {
-                        font-size: clamp(14px, 1vw, 18px);
-                        line-height: 1.45;
-                        float: left;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-
             &.narrow {
+              @include mt(x6);
+              @include mb(x6);
+
               .row {
                 .column {
                   grid-column: 1 / 26;
                   background-color: transparent;
 
-                  @include breakpoint(x-large) {
+                  @include breakpoint(medium) {
+                    grid-column: 3 / 24;
+                  }
+
+                  @include breakpoint(large) {
                     grid-column: 5 / 22;
                   }
 
                   .content {
-                    .device-inner {
-                      .image {
-                        img {
-                          object-fit: cover;
-                          object-position: center center;
-                        }
-                      }
-                    }
-
                     &.website {
                       background-color: $sand;
                       overflow: hidden;
@@ -718,7 +741,7 @@ body.project {
           }
 
           .image-text {
-            .img {
+            .image {
               align-self: stretch;
               grid-column: 1 / 26;
 
@@ -735,10 +758,8 @@ body.project {
                 padding-right: $x0p5;
               }
 
-              .image {
-                img {
-                  align-self: flex-start;
-                }
+              img {
+                align-self: flex-start;
               }
             }
 
@@ -762,14 +783,13 @@ body.project {
           }
 
           .double-img {
-            @include mt(x4);
-            @include mb(x4);
+            @include mt(x3);
+            @include mb(x3);
 
             .row {
               .column {
                 &:nth-child(odd) {
                   grid-column: 1 / 13;
-                  @include pr(x0);
 
                   .image {
                     &:first-of-type {
@@ -780,26 +800,33 @@ body.project {
 
                 &:nth-child(even) {
                   grid-column: 14 / 26;
-                  @include pl(x0);
+
+                  .image {
+                    &:first-of-type {
+                      @include mb(x1);
+                    }
+                  }
                 }
 
                 @include breakpoint(medium) {
                   &:nth-child(odd) {
-                    grid-column: 3 / 13;
+                    grid-column: 2 / 13;
+                    @include pr(x0p25);
                   }
 
                   &:nth-child(even) {
-                    grid-column: 14 / 24;
+                    grid-column: 14 / 25;
+                    @include pl(x0p25);
                   }
                 }
 
-                @include breakpoint(x-large) {
+                @include breakpoint(xx-large) {
                   &:nth-child(odd) {
-                    grid-column: 5 / 13;
+                    grid-column: 4 / 12;
                   }
 
                   &:nth-child(even) {
-                    grid-column: 14 / 22;
+                    grid-column: 15 / 23;
                   }
                 }
               }
@@ -807,252 +834,330 @@ body.project {
           }
 
           .triple-img {
-            display: flex;
+            @include px(x0);
 
-            @include breakpoint(small only) {
-              @include px(x0);
-            }
+            .row {
+              background-color: transparent;
+              grid-column: 1 / 26;
 
-            article {
-              .content {
-                .device-inner {
-                  &.device {
-                    background-color: $theme-color;
-                    border-radius: $radius;
+              .column {
+                grid-column: 1 / 26;
+
+                @include breakpoint(small only) {
+                  @include px(x0);
+
+                  .content {
                     position: relative;
+                    background-color: $sand;
+                    grid-column: unset;
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    scroll-padding: 0 0 0 $x4;
+                    scroll-behavior: smooth;
+                    @include px(x1);
+                    @include py(x2);
 
                     .image {
-                      .notch {
-                        position: absolute;
-                        top: clamp(6px, 0.6vw, 12px);
-                        left: 50%;
-                        width: clamp(96px, 12vw, 256px);
-                        height: clamp(12px, 2vw, 20px);
-                        background-color: $black;
-                        border-radius: 0 0 12px 12px;
-                        transform: translateX(-50%);
-                        z-index: 9999;
+                      scroll-snap-align: start;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      position: relative;
+                      min-width: 225px;
+                      width: 40vw;
+                      @include mr(x2);
 
-                        &::before,
-                        &::after {
-                          content: "";
-                          position: absolute;
-                          top: 0;
-                          left: -4px;
-                          width: 8px;
-                          height: 4px;
-                          background-size: 50% 100%;
-                          background-repeat: no-repeat;
-                          background-image: radial-gradient(
-                            circle at 0 100%,
-                            transparent 4px,
-                            $black 4px
-                          );
-                        }
-
-                        &::after {
-                          left: 100%;
-                          margin-right: 4px;
-                          background-image: radial-gradient(
-                            circle at 100% 100%,
-                            transparent 4px,
-                            $black 4px
-                          );
-                        }
+                      &:first-of-type {
+                        @include ml(x1);
                       }
 
-                      img {
-                        border-radius: $radius;
-                        border: clamp(8px, 0.6vw, 12px) solid $black;
+                      &:last-of-type {
+                        @include mr(x0);
                       }
+
+                      .device-inner {
+                        &.device {
+                          background-color: $theme-color;
+                          border-radius: $radius;
+                          position: relative;
+
+                          .notch {
+                            position: absolute;
+                            top: clamp(6px, 0.6vw, 12px);
+                            left: 50%;
+                            width: clamp(64px, 9vw, 112px);
+                            height: clamp(12px, 2vw, 20px);
+                            background-color: $black;
+                            border-radius: 0 0 calc(#{$radius} / 3)
+                              calc(#{$radius} / 3);
+                            transform: translateX(-50%);
+                            z-index: 9999;
+
+                            &::before,
+                            &::after {
+                              content: "";
+                              position: absolute;
+                              top: 0;
+                              left: -4px;
+                              width: 8px;
+                              height: 4px;
+                              background-size: 50% 100%;
+                              background-repeat: no-repeat;
+                              background-image: radial-gradient(
+                                circle at 0 100%,
+                                transparent 4px,
+                                $black 4px
+                              );
+                            }
+
+                            &::after {
+                              left: 100%;
+                              margin-right: 4px;
+                              background-image: radial-gradient(
+                                circle at 100% 100%,
+                                transparent 4px,
+                                $black 4px
+                              );
+                            }
+                          }
+
+                          img {
+                            border-radius: $radius;
+                            border: clamp(8px, 0.6vw, 12px) solid $black;
+                          }
+                        }
+                      }
+                    }
+
+                    &:after {
+                      content: "";
+                      border-right: $x2 solid transparent;
                     }
                   }
                 }
-              }
 
-              @include breakpoint(small only) {
-                position: relative;
-                background-color: $sand;
-                grid-column: unset;
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                scroll-padding: 0 0 0 $x4;
-                scroll-behavior: smooth;
-                @include p(x3);
+                @include breakpoint(medium) {
+                  .content {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-column: 1 / 26;
+                    grid-template-areas: "a b c";
+                    grid-gap: $x1;
+                    grid-auto-flow: column;
+                    overflow: hidden;
+                    position: relative;
+                    @include px(x2);
+                    @include py(x2);
 
-                &::-webkit-scrollbar {
-                  display: none;
-                }
+                    .image {
+                      justify-items: center;
+                      align-items: center;
+                      position: relative;
+                      width: auto;
 
-                &:after {
-                  content: "";
-                  border-right: $x2 solid transparent;
-                }
+                      &:first-of-type {
+                        grid-area: a;
+                      }
 
-                .section-item {
-                  scroll-snap-align: start;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  position: relative;
-                  min-width: 225px;
-                  width: 40vw;
-                  margin-right: $x2;
+                      &:nth-of-type(2) {
+                        grid-area: b;
+                        margin: 0 auto;
+                      }
 
-                  &:last-of-type {
-                    margin-right: 0;
+                      &:last-of-type {
+                        grid-area: c;
+                        margin-left: auto;
+                      }
+
+                      .device-inner {
+                        &.device {
+                          background-color: $theme-color;
+                          border-radius: $radius;
+                          position: relative;
+
+                          .notch {
+                            position: absolute;
+                            top: clamp(6px, 0.6vw, 12px);
+                            left: 50%;
+                            width: clamp(64px, 9vw, 112px);
+                            height: clamp(12px, 2vw, 20px);
+                            background-color: $black;
+                            border-radius: 0 0 calc(#{$radius} / 3)
+                              calc(#{$radius} / 3);
+                            transform: translateX(-50%);
+                            z-index: 9999;
+
+                            &::before,
+                            &::after {
+                              content: "";
+                              position: absolute;
+                              top: 0;
+                              left: -4px;
+                              width: 8px;
+                              height: 4px;
+                              background-size: 50% 100%;
+                              background-repeat: no-repeat;
+                              background-image: radial-gradient(
+                                circle at 0 100%,
+                                transparent 4px,
+                                $black 4px
+                              );
+                            }
+
+                            &::after {
+                              left: 100%;
+                              margin-right: 4px;
+                              background-image: radial-gradient(
+                                circle at 100% 100%,
+                                transparent 4px,
+                                $black 4px
+                              );
+                            }
+                          }
+
+                          img {
+                            border-radius: $radius;
+                            border: clamp(8px, 0.6vw, 12px) solid $black;
+                          }
+                        }
+                      }
+                    }
+
+                    &:after {
+                      display: none;
+                    }
                   }
                 }
-              }
 
-              @include breakpoint(medium) {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-areas: "a b c";
-                grid-gap: $x1;
-                grid-auto-flow: column;
-                overflow: hidden;
-                position: relative;
-                background-color: $sand;
-                @include px(x2);
-                @include py(x2);
+                @include breakpoint(x-large) {
+                  grid-column: 2 / 25;
+                }
 
-                .content {
-                  justify-items: center;
-                  align-items: center;
-                  position: relative;
-                  width: auto;
-
-                  &:first-of-type {
-                    grid-area: a;
-                    @include ml(x0);
-                  }
-
-                  &:nth-of-type(2) {
-                    grid-area: b;
-                    margin: 0 auto;
-                  }
-
-                  &:last-of-type {
-                    grid-area: c;
-                    @include mr(x0);
-                    margin-left: auto;
-                  }
+                @include breakpoint(xx-large) {
+                  grid-column: 3 / 24;
                 }
               }
             }
           }
 
           .image-carousel {
-            display: grid;
-            grid-template-columns: repeat(1, auto);
-
             @include mt(x1);
+            @include mb(x2);
 
-            .carousel-inner {
-              position: relative;
-              @include mb(x0p25);
-              @include p(x0);
+            .row {
+              display: grid;
+              grid-template-columns: repeat(1, auto) !important;
 
-              .swiper-container {
-                overflow-x: hidden;
-                width: 100vw;
-                height: auto;
+              .carousel-inner {
+                position: relative;
+                @include mb(x0p25);
+                @include p(x0);
 
-                .swiper-wrapper {
+                .swiper-container {
+                  overflow-x: hidden;
                   width: 100vw;
-                  @include px(x0p25);
+                  height: auto;
 
-                  .swiper-slide {
-                    cursor: move; /* fallback if grab cursor is unsupported */
-                    cursor: grab;
-                    width: auto;
-                    height: auto;
-                    @include ml(x1);
+                  .swiper-wrapper {
+                    width: 100vw;
+                    @include px(x0p25);
 
-                    @include breakpoint(medium) {
-                      @include ml(x0p5);
-                    }
+                    .swiper-slide {
+                      cursor: move; /* fallback if grab cursor is unsupported */
+                      cursor: grab;
+                      width: auto;
+                      height: auto;
+                      @include ml(x1);
 
-                    .image {
-                      img {
-                        height: 100%;
-                        width: auto;
-                        height: clamp(275px, 37vw, 625px);
+                      &:active {
+                        cursor: grabbing !important;
+                      }
+
+                      @include breakpoint(medium) {
+                        @include ml(x0p5);
+                      }
+
+                      .image {
+                        img {
+                          height: 100%;
+                          width: auto;
+                          height: clamp(275px, 37vw, 625px);
+                        }
+                      }
+
+                      &:first-of-type {
+                        @include ml(x0);
+                      }
+
+                      &:last-of-type {
+                        @include pr(x0p5);
+
+                        @include breakpoint(large) {
+                          @include pr(x1);
+                        }
                       }
                     }
 
-                    &:first-of-type {
-                      @include ml(x0);
-                    }
-
-                    &:last-of-type {
-                      @include pr(x0p5);
-
-                      @include breakpoint(large) {
-                        @include pr(x1);
-                      }
+                    &:after {
+                      content: "";
+                      width: $x1;
+                      display: block;
                     }
                   }
+                }
 
-                  &:after {
-                    content: "";
-                    width: $x1;
-                    display: block;
-                  }
+                .carousel-button-prev,
+                .carousel-button-next {
+                  position: absolute;
+                  top: 0%;
+                  bottom: 0%;
+                  left: 0;
+                  width: 30%;
+                  height: 100%;
+                  margin: 0;
+                  padding: 0;
+                  z-index: 1000 !important;
+                  cursor: pointer;
+                  display: block;
+                  align-items: center;
+                  justify-content: center;
+
+                  // &:after {
+                  //   display: none;
+                  // }
+                }
+
+                .carousel-button-prev {
+                  cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.6078 0L0 16.5L16.6078 33L19.8118 29.8521L8.68658 18.799H48V14.201H8.68658L19.8118 3.16559L16.6078 0Z' fill='black'/%3E%3C/svg%3E%0A"),
+                    pointer;
+                  position: absolute;
+                  left: 0;
+                  right: auto;
+                }
+
+                .carousel-button-next {
+                  cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.3922 33L48 16.5L31.3922 0L28.1882 3.14791L39.3134 14.201H0V18.799H39.3134L28.1882 29.8344L31.3922 33Z' fill='black'/%3E%3C/svg%3E%0A"),
+                    pointer;
+                  position: absolute;
+                  right: 0;
+                  left: auto;
                 }
               }
 
-              .carousel-button-prev,
-              .carousel-button-next {
-                position: absolute;
-                top: 20%;
-                bottom: 20%;
-                left: 0;
-                width: 20%;
-                height: 60%;
-                margin: 0;
-                padding: 0;
-                z-index: 1000 !important;
-                cursor: pointer;
-                display: block;
-                align-items: center;
-                justify-content: center;
+              .pagination {
+                grid-column: 1 / 25;
 
-                &:after {
-                  display: none;
-                }
-              }
-            }
+                .carousel-pagination {
+                  text-align: right;
+                  @include font-size(18px, 30px);
 
-            .carousel-button-prev {
-              cursor: w-resize;
-              position: absolute;
-              left: 0;
-              right: auto;
-            }
-
-            .carousel-button-next {
-              cursor: e-resize;
-              position: absolute;
-              right: 0;
-              left: auto;
-            }
-
-            .pagination {
-              grid-row: 2;
-
-              .carousel-pagination {
-                @include px(x0p5);
-                text-align: right;
-                @include font-size(18px, 30px);
-
-                span {
-                  &.swiper-pagination-current,
-                  &.swiper-pagination-total {
-                    letter-spacing: -3px;
-                    font-weight: normal;
+                  span {
+                    &.swiper-pagination-current,
+                    &.swiper-pagination-total {
+                      letter-spacing: -3px;
+                      font-weight: normal;
+                    }
                   }
                 }
               }
@@ -1061,6 +1166,8 @@ body.project {
         }
 
         .meta {
+          @include mt(x3);
+
           .row {
             .column {
               grid-column: 1 / 26;
@@ -1070,15 +1177,28 @@ body.project {
                 grid-column: 2 / 25;
               }
 
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 24;
+              }
+
               @include breakpoint(small) {
                 padding: 0;
               }
 
-              p {
-                display: inline;
+              &.props {
+                p {
+                  span {
+                    display: inline;
+                  }
+                }
+              }
 
-                span {
-                  display: inline;
+              &.date {
+                @include mt(x0p5);
+                p {
+                  span {
+                    display: inline;
+                  }
                 }
               }
             }
@@ -1086,7 +1206,7 @@ body.project {
         }
 
         .button {
-          @include mb(x0);
+          @include mt(x3);
 
           .row {
             .column {
@@ -1107,28 +1227,30 @@ body.project {
         }
 
         .similar {
-          background-color: $sand;
-          height: auto;
-          @include m(x0);
+          @include mt(x0);
+          @include pb(x0p125);
 
           .row {
             @include display-grid;
+            @include mb(x0);
 
             .similar-list {
               position: relative;
               grid-column: 1 / 26;
               grid-row: 1;
               z-index: 9999;
-              align-self: end;
-              @include mt(x0p25);
-              @include pb(x0p5);
+              @include mt(x2);
 
               @include breakpoint(medium) {
-                @include mt(x0p5);
+                @include mt(x1);
               }
 
               @include breakpoint(x-large) {
                 grid-column: 2 / 25;
+              }
+
+              @include breakpoint(xx-large) {
+                grid-column: 3 / 24;
               }
 
               p.title {
@@ -1149,10 +1271,6 @@ body.project {
                   width: 100%;
                   list-style: none !important;
 
-                  @include breakpoint(medium) {
-                    width: 200vw;
-                  }
-
                   a {
                     border: none;
 
@@ -1160,36 +1278,35 @@ body.project {
                       display: flex;
                       flex-wrap: wrap;
                       flex-direction: row;
-                      width: 200vw;
+                      width: 100vw;
                       justify-content: flex-start;
                       align-items: flex-end;
 
-                      h1 {
-                        text-transform: uppercase;
-                        pointer-events: all;
-                        cursor: pointer;
-                        transform: translateX(-3px);
-                        border-bottom: none;
-                        @include font-size(72px, 144px);
-                        line-height: 0.85;
+                      .heading {
+                        float: left;
+
+                        .title {
+                          transform: translateX(-3px);
+                          @include font-size(72px, 144px);
+                          line-height: 0.8;
+                        }
                       }
 
                       .tags {
+                        float: left;
+                        transform: translateY(-0.4rem);
                         @include ml(x0p125);
 
-                        transform: translateY(-0.4rem);
-                        p {
-                          background-color: $black;
-                          border-color: $black;
-                          color: $white;
+                        @include breakpoint(small only) {
+                          display: none;
                         }
                       }
                     }
                   }
+                }
 
-                  &.isOpen {
-                    display: none;
-                  }
+                &.isOpen {
+                  display: none;
                 }
               }
             }

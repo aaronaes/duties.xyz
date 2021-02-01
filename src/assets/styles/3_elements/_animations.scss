@@ -78,7 +78,7 @@
 // In Viewport
 .fade {
   opacity: 0;
-  transition: opacity 300ms linear;
+  transition: opacity 300ms $easing;
   transition-delay: 300ms;
 
   &.in-viewport {
@@ -88,12 +88,11 @@
 
 .fade-in {
   opacity: 0;
-  transform: translateY($x0p5);
-  transition: opacity 300ms linear, transform 300ms linear;
+
+  transition: opacity 300ms $easing;
   transition-delay: 300ms;
 
   &.in-viewport {
-    transform: translateY(0);
     opacity: 1;
   }
 }

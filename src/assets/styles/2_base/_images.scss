@@ -9,6 +9,8 @@ img {
 video {
   width: 100%;
   height: auto;
+  display: inline-block;
+  border: 0;
 }
 
 img[lazy="loaded"] {
@@ -17,11 +19,11 @@ img[lazy="loaded"] {
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
 
-  100% {
+  to {
     opacity: 1;
   }
 }

@@ -73,21 +73,7 @@ export default {
       isMini: false,
 
       projectOverview: {
-        projects: {
-          readMore: "",
-          title: "",
-          subtitle: "",
-          slug: "",
-          siteLink: "",
-          description: "",
-          id: "",
-          projectThumbnail: {
-            url: ""
-          },
-          categories: {
-            categoryType: ""
-          }
-        }
+        projects: []
       }
     };
   },

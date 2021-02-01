@@ -1,15 +1,18 @@
 .outer-margin {
-  @include mt(x6);
+  @include mt(x4);
 
   @include breakpoint(large) {
-    @include mt(x4);
+    @include mt(x2);
   }
 
   .row {
     @include display-grid;
 
     .column {
-      @include px(x1p5);
+      height: auto;
+      box-sizing: content-box;
+
+      @include px(x1);
       @include mb(x1);
 
       @include breakpoint(medium) {

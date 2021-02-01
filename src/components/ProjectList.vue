@@ -1,58 +1,60 @@
 <template>
   <section class="outer-margin project-list">
     <article
-      class="row project fade-in"
+      class="row fade-in"
       v-in-viewport.once
-      :id="`project-${project.id}`"
-      v-for="(project, i) in projects"
+      v-for="(block, i) in projects"
       :key="i"
+      :id="`project-${block.id}`"
       :class="{
-        isMini: project.readMore === false
+        isMini: block.readMore === false,
+        project: block._modelApiKey === 'project',
+        story: block._modelApiKey === 'story'
       }"
     >
-      <figure class="column summary">
+      <figure class="column summary" v-if="block._modelApiKey === 'project'">
         <a class="imgBox" @click="e => handleProjectClick(e, project)">
           <div
             class="image"
             :class="{
-              device: project.isDevice,
-              website: project.isWebsite
+              device: block.isDevice,
+              website: block.isWebsite
             }"
           >
             <img
-              :src="getUrl(project.projectThumbnail.url)"
-              :srcset="getSrcSet(project.projectThumbnail.url)"
+              :src="getUrl(block.projectThumbnail.url)"
+              :srcset="getSrcSet(block.projectThumbnail.url)"
             />
           </div>
           <div class="caption">
             <div class="heading">
               <h2
-                v-if="project.readMore === true"
+                v-if="block.readMore === true"
                 class="title"
-                v-show="project.title.length > 0"
-                v-html="project.title"
+                v-show="block.title.length > 0"
+                v-html="block.title"
               >
                 :
               </h2>
             </div>
             <div class="body">
               <p
-                v-if="project.readMore === true"
+                v-if="block.readMore === true"
                 class="markdown"
-                v-show="project.subtitle.length > 0"
-                v-html="project.subtitle"
+                v-show="block.subtitle.length > 0"
+                v-html="block.subtitle"
               ></p>
               <p
-                v-if="project.readMore === false"
+                v-if="block.readMore === false"
                 class="markdown"
-                v-show="project.subtitle.length > 0"
-                v-html="project.subtitle"
+                v-show="block.subtitle.length > 0"
+                v-html="block.subtitle"
               ></p>
             </div>
             <div class="tags">
               <p
                 class="body-text markdown"
-                v-for="(category, i) in project.categories"
+                v-for="(category, i) in block.categories"
                 :key="i"
               >
                 {{ category.categoryType }}
@@ -61,7 +63,26 @@
           </div>
         </a>
       </figure>
+
+      <figure class="column summary test" v-if="block._modelApiKey === 'story'">
+        <div class="heading">
+          <p>&rarr; Thoughts</p>
+        </div>
+        <div class="storyImage">
+          <img
+            :src="getUrl(block.storyImage.url)"
+            :srcset="getSrcSet(block.storyImage.url)"
+          />
+        </div>
+        <div class="heading">
+          <h2 class="title" v-html="block.title"></h2>
+        </div>
+        <div class="body">
+          <p class="markdown" v-html="block.description"></p>
+        </div>
+      </figure>
     </article>
+
     <article class="project-wrap" v-if="isOpen" :key="$route.params.id">
       <router-view :key="'a' + $route.params"></router-view>
     </article>
@@ -110,7 +131,7 @@ export default {
         setTimeout(() => {
           this.active = id;
           document.body.classList.add("active");
-        }, 500);
+        }, 250);
       }
     },
     handleProjectClick(e, project) {

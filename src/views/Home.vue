@@ -4,10 +4,7 @@
     <section class="outer-margin hero">
       <article class="row">
         <figure class="column heading">
-          <h1 class="title">
-            A digital design partner and creative studio for ambitious
-            businesses.
-          </h1>
+          <h1 class="title markdown" v-html="frontpage.intro"></h1>
         </figure>
       </article>
     </section>
@@ -20,21 +17,21 @@
       <article class="row fade-in" v-in-viewport.once>
         <figure class="column header show-for-small-only">
           <div class="heading">
-            <h1 class="title">On-duty</h1>
+            <h1 class="title" v-html="frontpage.ondutyTitle"></h1>
           </div>
         </figure>
         <figure class="image">
-          <img src="/images/about/studio-03.png" />
+          <img
+            :src="getUrl(frontpage.ondutyImage.url)"
+            :srcset="getSrcSet(frontpage.ondutyImage.url)"
+          />
         </figure>
         <figure class="body">
           <div class="heading hide-for-small-only">
-            <h1 class="title">On-duty</h1>
+            <h1 class="title" v-html="frontpage.ondutyTitle"></h1>
           </div>
           <div class="text">
-            <p>
-              We allow businesses to achieve their potential through considered
-              design solutions.
-            </p>
+            <p v-html="frontpage.ondutyBody"></p>
           </div>
 
           <div class="link">
@@ -53,18 +50,12 @@
       <article class="row fade-in" v-in-viewport.once>
         <figure class="column header">
           <div class="heading">
-            <h1 class="title">
-              Off-duty <br />
-              Weekends
-            </h1>
+            <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
           </div>
         </figure>
         <figure class="column body">
           <div class="text">
-            <p>
-              When we are off-duty, you can find us creating experimental
-              typefaces, studio merch and curating our studio playlists.
-            </p>
+            <p class="markdown" v-html="frontpage.offBody"></p>
           </div>
         </figure>
         <figure class="column carousel">
@@ -72,53 +63,17 @@
             ref="mySwiper"
             :options="swiperOptions"
             :auto-update="true"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
+            :auto-destroy="true"
           >
-            <swiper-slide>
-              <div class="slide-text">
-                <a href="#" target="_blank">
-                  <p>
-                    ♫ Listen to on Spotify
-                  </p>
-                </a>
-              </div>
+            <swiper-slide v-for="asset in frontpage.offGallery" :key="asset.id">
               <div class="slide-img">
-                <img src="/images/offduty/offduty-01@2x.jpg" alt="Test" />
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="slide-img">
-                <img src="/images/offduty/offduty-03@2x.jpg" alt="Test" />
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="slide-img">
-                <img src="/images/offduty/offduty-02@2x.jpg" alt="Test" />
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="slide-text">
-                <a href="#" target="_blank">
-                  <p>
-                    $ Buy a print
-                  </p>
-                </a>
-              </div>
-              <div class="slide-img">
-                <img src="/images/offduty/offduty-04@2x.jpg" alt="Test" />
+                <img :src="getUrl(asset.url)" :srcset="getSrcSet(asset.url)" />
               </div>
             </swiper-slide>
           </swiper>
           <!-- Add Arrows -->
-          <div
-            class="swiper-button-next"
-            v-bind:style="{ cursor: cursorNext }"
-          ></div>
-          <div
-            class="swiper-button-prev"
-            v-bind:style="{ cursor: cursorPrev }"
-          ></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </figure>
         <figure class="column swiper-pagination"></figure>
       </article>
@@ -130,14 +85,16 @@
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
-import ProjectList from "@/components/ProjectList.vue";
+import imgix from "@/utils/imgix";
+import marked from "marked";
 import Footer from "@/components/Footer.vue";
+import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
-    Footer,
-    ProjectList
+    ProjectList,
+    Footer
   },
   async created() {
     this.projects = await this.getProjects();
@@ -146,10 +103,23 @@ export default {
   data() {
     return {
       title: "Home",
-      frontpage: [],
+      frontpage: {
+        ondutyTitle: "",
+        ondutyBody: "",
+        ondutyImage: {
+          url: ""
+        },
+        offTitle: "",
+        offBody: "",
+        offGallery: [
+          {
+            url: ""
+          }
+        ],
+        intro: ""
+      },
       projects: [],
-      heading:
-        "A creative partner and design studio for thoughtfully crafted products.",
+      footer: [],
       swiperOptions: {
         speed: 200,
         loop: true,
@@ -169,9 +139,7 @@ export default {
           el: ".swiper-pagination",
           type: "fraction"
         }
-      },
-      cursorPrev: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.2388 2.10976C11.6294 1.71923 11.6294 1.08607 11.2388 0.695542C10.8483 0.305018 10.2152 0.305018 9.82463 0.695542L0.824632 9.69554C0.434107 10.0861 0.434107 10.7192 0.824632 11.1098L9.82463 20.1098C10.2152 20.5003 10.8483 20.5003 11.2388 20.1098C11.6294 19.7192 11.6294 19.0861 11.2388 18.6955L3.94595 11.4026H24.5317C25.084 11.4026 25.5317 10.9549 25.5317 10.4026C25.5317 9.85036 25.084 9.40265 24.5317 9.40265H3.94595L11.2388 2.10976Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`,
-      cursorNext: `url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5167 0.695542C16.1262 0.305018 15.493 0.305018 15.1025 0.695542C14.7119 1.08607 14.7119 1.71923 15.1025 2.10976L22.3954 9.40265H1.80957C1.25729 9.40265 0.80957 9.85036 0.80957 10.4026C0.80957 10.9549 1.25729 11.4026 1.80957 11.4026H22.3954L15.1025 18.6955C14.7119 19.0861 14.7119 19.7192 15.1025 20.1098C15.493 20.5003 16.1262 20.5003 16.5167 20.1098L25.5167 11.1098C25.9072 10.7192 25.9072 10.0861 25.5167 9.69554L16.5167 0.695542Z' fill='black'/%3E%3C/svg%3E%0A"), pointer`
+      }
     };
   },
   methods: {
@@ -180,92 +148,98 @@ export default {
         query: gql`
           query {
             frontpage {
-              summary
               projects {
-                updatedAt
-                id
-                title
-                slug
-                subtitle
-                backgroundColor {
-                  hex
-                }
-                siteLink
-                slug
-                readMore
-                categories {
-                  categoryType
-                }
-                client {
-                  name
-                }
-                roles {
-                  name
-                  link
-                  role
-                }
-                blocks {
-                  ... on SingleImageRecord {
-                    id
-                    _modelApiKey
-                    caption
-                    full
-                    image {
-                      url
-                    }
+                ... on StoryRecord {
+                  _modelApiKey
+                  id
+                  title
+                  description
+                  storyImage {
+                    url
                   }
-                  ... on QuoteRecord {
-                    id
-                    _modelApiKey
-                    title
-                    text
+                }
+                ... on ProjectRecord {
+                  _modelApiKey
+                  id
+                  title
+                  slug
+                  subtitle
+                  backgroundColor {
+                    hex
                   }
-                  ... on TwoUpRecord {
-                    id
-                    _modelApiKey
-                    firstImage {
-                      url
-                    }
-                    lastImage {
-                      url
-                    }
-                    full
+                  siteLink
+                  slug
+                  readMore
+                  categories {
+                    categoryType
                   }
-                  ... on ThreeUpRecord {
-                    id
-                    _modelApiKey
-                    leftImage {
-                      url
-                    }
-                    centerImage {
-                      url
-                    }
-                    rightImage {
-                      url
-                    }
+                  client {
+                    name
                   }
-                  ... on ImageCarouselRecord {
-                    id
-                    _modelApiKey
-                    imageCarouselAsset {
+                  roles {
+                    name
+                    link
+                    role
+                  }
+                  blocks {
+                    ... on SingleImageRecord {
                       id
-                      url
+                      _modelApiKey
+                      caption
+                      full
+                      image {
+                        url
+                      }
+                    }
+                    ... on QuoteRecord {
+                      id
+                      _modelApiKey
+                      title
+                      text
+                    }
+                    ... on TwoUpRecord {
+                      id
+                      _modelApiKey
+                      firstImage {
+                        url
+                      }
+                      lastImage {
+                        url
+                      }
+                      full
+                    }
+                    ... on ThreeUpRecord {
+                      id
+                      _modelApiKey
+                      leftImage {
+                        url
+                      }
+                      centerImage {
+                        url
+                      }
+                      rightImage {
+                        url
+                      }
+                    }
+                    ... on ImageCarouselRecord {
+                      id
+                      _modelApiKey
+                      imageCarouselAsset {
+                        id
+                        url
+                      }
                     }
                   }
+                  description
+                  projectThumbnail {
+                    url
+                  }
+                  projectBanner {
+                    url
+                  }
+                  isDevice
+                  isWebsite
                 }
-                description
-                projectThumbnail {
-                  url
-                }
-                projectBanner {
-                  url
-                }
-                isDevice
-                isWebsite
-              }
-              contact {
-                linkTitle
-                linkUrl
               }
             }
           }
@@ -278,17 +252,38 @@ export default {
         query: gql`
           query {
             frontpage {
-              summary(markdown: true)
-              projects(orderBy: position_ASC){[]}
-              contact {
-                linkTitle
-                linkUrl
+              intro
+              ondutyTitle
+              ondutyBody
+              ondutyImage {
+                url
               }
+              offGallery {
+                url
+              }
+              offTitle
+              offBody
             }
           }
         `
       });
       return data.frontpage;
+    },
+    getMarkdown(content) {
+      return marked(content);
+    },
+    getUrl(url) {
+      return imgix({ url: url });
+    },
+    getSrcSet(url) {
+      return `
+      ${imgix({ url: url, w: 640, q: 60 })} 640w,
+      ${imgix({ url: url, w: 768, q: 60 })} 768w,
+      ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
+      ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 80 })} 1920w,
+      `;
     }
   },
   computed: {

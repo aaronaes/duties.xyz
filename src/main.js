@@ -27,11 +27,13 @@ Vue.use(VueMeta, {
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueScrollTo);
+
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   attempt: 1,
   listenEvents: ["scroll"]
 });
+
 Vue.directive("in-viewport", inViewportDirective);
 inViewportDirective.defaults.margin = "10% 10%";
 

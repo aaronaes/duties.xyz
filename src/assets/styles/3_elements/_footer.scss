@@ -1,10 +1,5 @@
 .footer {
-  @include mt(x6);
   @include mb(x0);
-
-  @include breakpoint(x-large) {
-    @include mt(x4);
-  }
 
   .row {
     @include display-grid;
@@ -25,15 +20,22 @@
       @include mb(x1p5);
 
       @include breakpoint(medium) {
+        grid-column: 1 / 20;
         @include mb(x1);
       }
 
       @include breakpoint(large) {
+        grid-column: 1 / 16;
         @include mb(x0p5);
       }
 
       @include breakpoint(x-large) {
+        grid-column: 1 / 13;
         grid-column: 2 / 25;
+      }
+
+      @include breakpoint(xx-large) {
+        grid-column: 3 / 24;
       }
     }
 
@@ -53,6 +55,10 @@
 
       @include breakpoint(x-large) {
         grid-column: 2 / 25;
+      }
+
+      @include breakpoint(xx-large) {
+        grid-column: 3 / 24;
       }
 
       a {
@@ -94,6 +100,10 @@
 
       @include breakpoint(x-large) {
         grid-column: 2 / 25;
+      }
+
+      @include breakpoint(xx-large) {
+        grid-column: 3 / 24;
       }
 
       ul {

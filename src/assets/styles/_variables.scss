@@ -84,6 +84,11 @@ $font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 // Easing
 $easing: cubic-bezier(0.75, 0, 0.25, 1);
 
+// Spacing
+$space-sm: clamp(8px, 1.8vw, 16px);
+$space-md: clamp(16px, 3.2vw, 24px);
+$space-lg: clamp(24px, 7.4vw, 40px);
+
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;
 $grid-margin-gutters: 2.5rem;

@@ -2,8 +2,8 @@ export default function imgix({
   url = null,
   w = null,
   h = null,
-  fm = "png gif",
-  q = 60,
+  fm = "png",
+  q = 50,
   dpr = 1
 }) {
   if (!url) {
