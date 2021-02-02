@@ -30,11 +30,12 @@
           max-width: 100%;
 
           .image {
-            @include mb(x0p25);
+            margin-bottom: $space-sm;
 
             img {
-              height: clamp(335px, 55vw, 625px);
-              object-fit: contain;
+              height: clamp(305px, 50vw, 725px);
+              object-fit: cover;
+              object-position: 50% 50%;
             }
           }
 
@@ -112,6 +113,8 @@
           display: block;
 
           a.imgBox {
+            pointer-events: none;
+
             .image {
               @include mb(x0p25);
 
@@ -162,6 +165,11 @@
                     }
                   }
 
+                  a {
+                    pointer-events: all;
+                    cursor: pointer;
+                  }
+
                   code {
                     font-family: $font-tex-regular !important;
                   }
@@ -203,14 +211,30 @@
       }
 
       @include breakpoint(x-large) {
-        grid-column: 4 / span 8;
+        grid-column: 7 / span 6;
 
         .column {
           @include px(x0);
         }
 
         + .isMini {
-          grid-column: span 8 / 23;
+          grid-column: span 6 / 21;
+
+          .column {
+            @include px(x0);
+          }
+        }
+      }
+
+      @include breakpoint(xx-large) {
+        grid-column: 6 / span 6;
+
+        .column {
+          @include px(x0);
+        }
+
+        + .isMini {
+          grid-column: span 6 / 21;
 
           .column {
             @include px(x0);
@@ -235,6 +259,8 @@
 
           .heading {
             @include mb(x0p25);
+
+            h1,
             h2,
             h3 {
               @include m(x0);

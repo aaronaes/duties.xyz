@@ -38,20 +38,20 @@
               </h2>
             </div>
             <div class="body">
-              <p
+              <div
                 v-if="block.readMore === true"
                 class="markdown"
                 v-show="block.subtitle.length > 0"
                 v-html="block.subtitle"
-              ></p>
-              <p
+              ></div>
+              <div
                 v-if="block.readMore === false"
                 class="markdown"
                 v-show="block.subtitle.length > 0"
                 v-html="block.subtitle"
-              ></p>
+              ></div>
             </div>
-            <div class="tags">
+            <div class="tags" v-if="block.readMore === true">
               <p
                 class="body-text markdown"
                 v-for="(category, i) in block.categories"
@@ -68,7 +68,7 @@
         <div class="heading">
           <p>&rarr; Thoughts</p>
         </div>
-        <div class="storyImage">
+        <div class="storyImage" v-if="hasContent">
           <img
             :src="getUrl(block.storyImage.url)"
             :srcset="getSrcSet(block.storyImage.url)"
@@ -99,6 +99,7 @@ export default {
   data() {
     return {
       title: "Projects",
+      hasContent: false,
       active: "",
       isMini: false,
       hover: false
@@ -135,7 +136,7 @@ export default {
       }
     },
     handleProjectClick(e, project) {
-      if (project.readMore) {
+      if (project.readMore === true) {
         e.preventDefault();
         this.toggle(project.id);
         setTimeout(() => {

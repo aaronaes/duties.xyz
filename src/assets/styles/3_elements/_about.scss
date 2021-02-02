@@ -149,7 +149,7 @@ body.about {
           img {
             height: 50vw;
             width: 100%;
-            height: clamp(335px, 55vw, 625px);
+            height: clamp(305px, 50vw, 725px);
             object-fit: cover;
           }
         }
@@ -189,7 +189,7 @@ body.about {
         }
 
         @include breakpoint(large) {
-          grid-column: 1 / 18;
+          grid-column: 1 / 14;
         }
 
         @include breakpoint(x-large) {
@@ -392,17 +392,29 @@ body.about {
                 @include breakpoint(medium) {
                   @include ml(x0p5);
                 }
+
+                @include breakpoint(x-large) {
+                  @include ml(x2);
+                }
+
+                @include breakpoint(xx-large) {
+                  @include ml(x6);
+                }
               }
 
               @include breakpoint(medium) {
                 @include ml(x0p5);
               }
 
+              @include breakpoint(x-large) {
+                @include ml(x1);
+              }
+
               .img-container {
                 img {
                   height: 100%;
                   width: auto;
-                  height: clamp(275px, 35vw, 445px);
+                  height: clamp(305px, 40vw, 575px);
                 }
               }
             }
@@ -465,6 +477,24 @@ body.about {
             grid-column: 13 / 26;
           }
 
+          @include breakpoint(x-large) {
+            &:first-of-type {
+              grid-column: 2 / 13;
+            }
+            &:last-of-type {
+              grid-column: 13 / 25;
+            }
+          }
+
+          @include breakpoint(xx-large) {
+            &:first-of-type {
+              grid-column: 3 / 13;
+            }
+            &:last-of-type {
+              grid-column: 13 / 24;
+            }
+          }
+
           .tag {
             grid-row: 2;
             width: 20vw;
@@ -494,6 +524,7 @@ body.about {
 
   .marquee {
     width: 100vw;
+    @include my(x4);
 
     article {
       @include display-grid;
@@ -519,6 +550,27 @@ body.about {
 
         @include breakpoint(xx-large) {
           grid-column: 3 / 12;
+        }
+      }
+
+      .test {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0;
+        pointer-events: none;
+
+        &.pop {
+          opacity: 1;
+        }
+
+        img {
+          max-width: 60vw;
+          max-height: 50vh;
+          width: auto;
+          height: auto;
         }
       }
 

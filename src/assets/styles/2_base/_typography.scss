@@ -52,7 +52,7 @@ h3.markdown > p {
 
 p,
 p.markdown > p {
-  @include font-size(20px, 28px);
+  @include font-size(18px, 26px);
   line-height: 1.4;
 
   span.block {
@@ -114,6 +114,11 @@ a {
 
 strong {
   font-weight: bolder;
+}
+
+small {
+  size: 80%;
+  font-family: $font-tex-bold;
 }
 
 .body {

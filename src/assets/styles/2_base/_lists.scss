@@ -13,8 +13,9 @@ ol {
 .tags {
   p {
     display: inline-block;
-    font-family: $font-tex-regular;
-    padding: 3px 10px 2px;
+    min-width: 40px;
+    font-family: $font-tex-cond;
+    padding: 2px 8px 2px;
     margin: 0;
     border: 2px solid $accent;
     border-radius: 24px;
@@ -24,7 +25,7 @@ ol {
     letter-spacing: 0.5px;
     white-space: pre-line;
 
-    @include font-size(12px, 15px);
+    @include font-size(11px, 15px);
     @include mr(x0p5);
 
     @include breakpoint(medium) {

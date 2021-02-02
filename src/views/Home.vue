@@ -87,8 +87,8 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
-import Footer from "@/components/Footer.vue";
 import ProjectList from "@/components/ProjectList.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Home",

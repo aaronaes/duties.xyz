@@ -30,12 +30,11 @@
       }
 
       @include breakpoint(x-large) {
-        grid-column: 1 / 13;
-        grid-column: 2 / 25;
+        grid-column: 2 / 13;
       }
 
       @include breakpoint(xx-large) {
-        grid-column: 3 / 24;
+        grid-column: 3 / 13;
       }
     }
 
@@ -107,6 +106,7 @@
       }
 
       ul {
+        padding: 0;
         li {
           display: inline;
           @include mr(x1);
@@ -117,7 +117,7 @@
           }
 
           @include breakpoint(large) {
-            @include mr(x0p25);
+            @include mr(x0p5);
           }
 
           &:last-of-type {

@@ -4,6 +4,10 @@
       .column {
         grid-column: 1 / 26;
 
+        @include breakpoint(x-large) {
+          grid-column: 2 / 25;
+        }
+
         @include breakpoint(xx-large) {
           grid-column: 3 / 24;
         }
@@ -86,7 +90,7 @@
 
         img {
           width: 100%;
-          height: clamp(275px, 40vw, 575px);
+          height: clamp(305px, 50vw, 725px);
           overflow: hidden;
           object-fit: cover;
           object-position: 0 45%;
@@ -135,15 +139,15 @@
         }
 
         @include breakpoint(large) {
-          grid-column: 18 / 26;
+          grid-column: 17 / 26;
         }
 
         @include breakpoint(x-large) {
-          grid-column: 18 / 25;
+          grid-column: 17 / 25;
         }
 
         @include breakpoint(xx-large) {
-          grid-column: 18 / 24;
+          grid-column: 17 / 24;
         }
       }
 
@@ -159,17 +163,17 @@
         }
 
         @include breakpoint(large) {
-          grid-column: 18 / 26;
+          grid-column: 17 / 26;
           grid-row: 2;
         }
 
         @include breakpoint(x-large) {
           @include px(x0);
-          grid-column: 18 / 25;
+          grid-column: 17 / 25;
         }
 
         @include breakpoint(xx-large) {
-          grid-column: 18 / 24;
+          grid-column: 17 / 24;
         }
 
         .title {
@@ -213,13 +217,9 @@
             position: relative;
 
             .swiper-slide {
-              height: clamp(275px, 40vw, 575px);
+              height: clamp(305px, 40vw, 575px);
               background-color: $black;
               width: auto;
-
-              @include breakpoint(medium) {
-                height: clamp(275px, 40vw, 575px);
-              }
 
               .slide-img {
                 height: 100%;
