@@ -1,60 +1,58 @@
 <template>
   <section class="outer-margin project-list">
     <article
-      class="row fade-in"
+      class="row projectfade-in"
       v-in-viewport.once
-      v-for="(block, i) in projects"
+      v-for="(project, i) in projects"
       :key="i"
-      :id="`project-${block.id}`"
+      :id="`project-${project.id}`"
       :class="{
-        isMini: block.readMore === false,
-        project: block._modelApiKey === 'project',
-        story: block._modelApiKey === 'story'
+        isMini: project.readMore === false
       }"
     >
-      <figure class="column summary" v-if="block._modelApiKey === 'project'">
+      <figure class="column summary">
         <a class="imgBox" @click="e => handleProjectClick(e, project)">
           <div
             class="image"
             :class="{
-              device: block.isDevice,
-              website: block.isWebsite
+              device: project.isDevice,
+              website: project.isWebsite
             }"
           >
             <img
-              :src="getUrl(block.projectThumbnail.url)"
-              :srcset="getSrcSet(block.projectThumbnail.url)"
+              :src="getUrl(project.projectThumbnail.url)"
+              :srcset="getSrcSet(project.projectThumbnail.url)"
             />
           </div>
           <div class="caption">
             <div class="heading">
               <h2
-                v-if="block.readMore === true"
+                v-if="project.readMore === true"
                 class="title"
-                v-show="block.title.length > 0"
-                v-html="block.title"
+                v-show="project.title.length > 0"
+                v-html="project.title"
               >
                 :
               </h2>
             </div>
             <div class="body">
               <div
-                v-if="block.readMore === true"
+                v-if="project.readMore === true"
                 class="markdown"
-                v-show="block.subtitle.length > 0"
-                v-html="block.subtitle"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
               ></div>
               <div
-                v-if="block.readMore === false"
+                v-if="project.readMore === false"
                 class="markdown"
-                v-show="block.subtitle.length > 0"
-                v-html="block.subtitle"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
               ></div>
             </div>
-            <div class="tags" v-if="block.readMore === true">
+            <div class="tags" v-if="project.readMore === true">
               <p
                 class="body-text markdown"
-                v-for="(category, i) in block.categories"
+                v-for="(category, i) in project.categories"
                 :key="i"
               >
                 {{ category.categoryType }}
@@ -62,24 +60,6 @@
             </div>
           </div>
         </a>
-      </figure>
-
-      <figure class="column summary test" v-if="block._modelApiKey === 'story'">
-        <div class="heading">
-          <p>&rarr; Thoughts</p>
-        </div>
-        <div class="storyImage" v-if="hasContent">
-          <img
-            :src="getUrl(block.storyImage.url)"
-            :srcset="getSrcSet(block.storyImage.url)"
-          />
-        </div>
-        <div class="heading">
-          <h2 class="title" v-html="block.title"></h2>
-        </div>
-        <div class="body">
-          <p class="markdown" v-html="block.description"></p>
-        </div>
       </figure>
     </article>
 
@@ -92,14 +72,12 @@
 <script>
 import imgix from "@/utils/imgix";
 import marked from "marked";
-
 export default {
   name: "ProjectList",
   props: ["projects"],
   data() {
     return {
       title: "Projects",
-      hasContent: false,
       active: "",
       isMini: false,
       hover: false
@@ -128,22 +106,20 @@ export default {
       } else {
         const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
-
         setTimeout(() => {
           this.active = id;
           document.body.classList.add("active");
-        }, 250);
+        }, 500);
       }
     },
     handleProjectClick(e, project) {
-      if (project.readMore === true) {
+      if (project.readMore) {
         e.preventDefault();
         this.toggle(project.id);
         setTimeout(() => {
           this.$router.push("/projects/" + project.slug);
         }, 1000);
       }
-      document.body.classList.add("active");
     },
     scrollTo(el) {
       window.scrollTo({

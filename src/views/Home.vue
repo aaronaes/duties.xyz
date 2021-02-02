@@ -149,97 +149,85 @@ export default {
           query {
             frontpage {
               projects {
-                ... on StoryRecord {
-                  _modelApiKey
-                  id
-                  title
-                  description
-                  storyImage {
-                    url
+                id
+                title
+                slug
+                subtitle
+                backgroundColor {
+                  hex
+                }
+                siteLink
+                slug
+                readMore
+                categories {
+                  categoryType
+                }
+                client {
+                  name
+                }
+                roles {
+                  name
+                  link
+                  role
+                }
+                blocks {
+                  ... on SingleImageRecord {
+                    id
+                    _modelApiKey
+                    caption
+                    full
+                    image {
+                      url
+                    }
+                  }
+                  ... on QuoteRecord {
+                    id
+                    _modelApiKey
+                    title
+                    text
+                  }
+                  ... on TwoUpRecord {
+                    id
+                    _modelApiKey
+                    firstImage {
+                      url
+                    }
+                    lastImage {
+                      url
+                    }
+                    full
+                  }
+                  ... on ThreeUpRecord {
+                    id
+                    _modelApiKey
+                    leftImage {
+                      url
+                    }
+                    centerImage {
+                      url
+                    }
+                    rightImage {
+                      url
+                    }
+                  }
+                  ... on ImageCarouselRecord {
+                    id
+                    _modelApiKey
+                    imageCarouselAsset {
+                      id
+                      url
+                    }
                   }
                 }
-                ... on ProjectRecord {
-                  _modelApiKey
-                  id
-                  title
-                  slug
-                  subtitle
-                  backgroundColor {
-                    hex
-                  }
-                  siteLink
-                  slug
-                  readMore
-                  categories {
-                    categoryType
-                  }
-                  client {
-                    name
-                  }
-                  roles {
-                    name
-                    link
-                    role
-                  }
-                  blocks {
-                    ... on SingleImageRecord {
-                      id
-                      _modelApiKey
-                      caption
-                      full
-                      image {
-                        url
-                      }
-                    }
-                    ... on QuoteRecord {
-                      id
-                      _modelApiKey
-                      title
-                      text
-                    }
-                    ... on TwoUpRecord {
-                      id
-                      _modelApiKey
-                      firstImage {
-                        url
-                      }
-                      lastImage {
-                        url
-                      }
-                      full
-                    }
-                    ... on ThreeUpRecord {
-                      id
-                      _modelApiKey
-                      leftImage {
-                        url
-                      }
-                      centerImage {
-                        url
-                      }
-                      rightImage {
-                        url
-                      }
-                    }
-                    ... on ImageCarouselRecord {
-                      id
-                      _modelApiKey
-                      imageCarouselAsset {
-                        id
-                        url
-                      }
-                    }
-                  }
-                  description
-                  projectThumbnail {
-                    url
-                  }
-                  projectBanner {
-                    url
-                  }
-                  isDevice
-                  isWebsite
+                description
+                projectThumbnail {
+                  url
                 }
+                projectBanner {
+                  url
+                }
+                isDevice
+                isWebsite
               }
             }
           }
