@@ -10,6 +10,7 @@ body.about {
         @include mb(x1p5);
 
         @include breakpoint(medium) {
+          grid-column: 1 / 22;
           @include mb(x1);
         }
 
@@ -19,12 +20,12 @@ body.about {
 
         @include breakpoint(x-large) {
           @include mb(x0p25);
-          grid-column: 2 / 25;
+          grid-column: 2 / 20;
         }
 
         @include breakpoint(xx-large) {
           @include mb(x0p25);
-          grid-column: 3 / 24;
+          grid-column-start: 3;
         }
 
         .highlight,
@@ -106,13 +107,11 @@ body.about {
         grid-column: 1 / 26;
 
         @include breakpoint(medium) {
-          grid-column: 1 / 21;
+          grid-column: 1 / 18;
         }
 
         @include breakpoint(large) {
           grid-column: 1 / 18;
-          width: 100%;
-          max-width: 100%;
         }
 
         @include breakpoint(x-large) {
@@ -470,11 +469,13 @@ body.about {
         @include display-grid;
 
         figure {
+          grid-row: 1;
+
           &:first-of-type {
-            grid-column: 1 / 13;
+            grid-column: 1 / 26;
           }
           &:last-of-type {
-            grid-column: 13 / 26;
+            grid-column: span 5 / 26;
           }
 
           @include breakpoint(x-large) {
@@ -524,7 +525,7 @@ body.about {
 
   .marquee {
     width: 100vw;
-    @include my(x4);
+    @include my(x6);
 
     article {
       @include display-grid;

@@ -1,0 +1,133 @@
+.stories {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+
+  .story-title {
+    grid-column: 1 / 26;
+    @include mt(x4);
+    @include pb(x2);
+
+    .heading {
+      @include mb(x1);
+
+      .ticker {
+        display: block;
+        position: relative;
+        width: 200vw;
+        overflow-x: visible;
+        white-space: nowrap;
+        animation: scroll 40s linear infinite;
+
+        h2 {
+          display: inline-block;
+          margin-right: $space-sm;
+        }
+
+        @keyframes scroll {
+          0% {
+            left: 25vw;
+          }
+          100% {
+            left: -175vw;
+          }
+        }
+      }
+    }
+  }
+
+  .story-list {
+    grid-column: 1 / 26;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: $x0p25;
+
+    @include mt(x0);
+    @include px(x3);
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: $x1;
+      @include px(x0p75);
+    }
+
+    @include breakpoint(large) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-column-gap: $x0p75;
+    }
+
+    @include breakpoint(x-large) {
+      grid-column: 2 / 25;
+      grid-column-gap: $x1;
+      @include px(x0);
+    }
+
+    @include breakpoint(xx-large) {
+      grid-column: 3 / 24;
+      grid-template-columns: repeat(8, 1fr);
+      @include px(x0);
+    }
+
+    .story {
+      grid-column: span 24;
+      grid-auto-columns: auto;
+      margin-bottom: $space-lg;
+      grid-column: span 2;
+      order: -1;
+
+      .column {
+        display: block;
+
+        .storyImage {
+          display: inline-block;
+          @include mb(x0p25);
+        }
+
+        .heading {
+          @include mb(x0p25);
+
+          h1,
+          h2,
+          h3 {
+            @include m(x0);
+          }
+        }
+
+        .body {
+          p {
+            &.title {
+              @include pr(x0p125);
+
+              &:after {
+                content: " :";
+                display: inline;
+                animation: blinker 1000ms step-start infinite;
+                padding-left: 2px;
+              }
+
+              @keyframes blinker {
+                50% {
+                  opacity: 0;
+                }
+              }
+
+              @keyframes ellipsis {
+                from {
+                  opacity: 0;
+                  width: 0px;
+                }
+                to {
+                  opacity: 1;
+                  width: 20px;
+                }
+              }
+            }
+
+            code {
+              font-family: $font-tex-regular !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

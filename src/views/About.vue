@@ -6,7 +6,7 @@
           <h1
             v-in-viewport.once="{ margin: '-5% 0%' }"
             :class="{ fadeOut: isHovering }"
-            class="title"
+            class="markdown title"
           >
             <span
               class="audio"
@@ -22,23 +22,15 @@
             >
               Duties<strong>*</strong>
             </span>
-            is an independent digital design studio based in Oslo.
+            is a digital design studio and creative collaborator based in Oslo.
           </h1>
-          <p class="tagline" :class="{ highlight: isHovering }">
+          <p class="markdown tagline" :class="{ highlight: isHovering }">
             * A moral or legal obligation a responsibility.
           </p>
         </figure>
         <figure class="column body">
           <!-- <p v-html="block.title"></p> -->
-          <p>
-            We believe it’s our duty as designers to provide the world with
-            thoughtfully designed products that are both functional, accessible
-            and visually beautiful.
-            <span class="block" />
-            We believe it’s our duty as designers to provide the world with
-            thoughtfully designed products that are both functional, accessible
-            and visually beautiful.
-          </p>
+          <p class="markdown" v-html="about.introduction"></p>
         </figure>
       </article>
     </section>
@@ -98,7 +90,7 @@
           </div>
         </figure>
         <figure class="column network fade-in" v-in-viewport.once>
-          <div class="body title" v-html="about.networkTitle"></div>
+          <p class="markdown title" v-html="about.networkTitle"></p>
           <p class="markdown body" v-html="about.networkBody"></p>
         </figure>
       </article>
@@ -119,14 +111,8 @@
               </div>
             </swiper-slide>
           </swiper>
-          <div
-            class="carousel-button-next"
-            v-bind:style="{ cursor: cursorNext }"
-          ></div>
-          <div
-            class="carousel-button-prev"
-            v-bind:style="{ cursor: cursorPrev }"
-          ></div>
+          <div class="carousel-button-next"></div>
+          <div class="carousel-button-prev"></div>
         </figure>
       </article>
       <article class="row pagination">

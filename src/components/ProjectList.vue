@@ -1,7 +1,7 @@
 <template>
   <section class="outer-margin project-list">
     <article
-      class="row projectfade-in"
+      class="row project fade-in"
       v-in-viewport.once
       v-for="(project, i) in projects"
       :key="i"
@@ -28,7 +28,7 @@
             <div class="heading">
               <h2
                 v-if="project.readMore === true"
-                class="title"
+                class="markdown title"
                 v-show="project.title.length > 0"
                 v-html="project.title"
               >
@@ -36,18 +36,18 @@
               </h2>
             </div>
             <div class="body">
-              <div
+              <p
                 v-if="project.readMore === true"
                 class="markdown"
                 v-show="project.subtitle.length > 0"
                 v-html="project.subtitle"
-              ></div>
-              <div
+              ></p>
+              <p
                 v-if="project.readMore === false"
                 class="markdown"
                 v-show="project.subtitle.length > 0"
                 v-html="project.subtitle"
-              ></div>
+              ></p>
             </div>
             <div class="tags" v-if="project.readMore === true">
               <p

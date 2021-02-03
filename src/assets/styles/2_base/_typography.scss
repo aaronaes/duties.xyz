@@ -54,20 +54,9 @@ p,
 p.markdown > p {
   @include font-size(18px, 26px);
   line-height: 1.4;
-
-  span.block {
-    display: block;
-    @include pb(x1);
-
-    @include breakpoint(medium) {
-      @include pb(x0p5);
-    }
-
-    @include breakpoint(large) {
-      @include pb(x0p25);
-    }
-  }
 }
+
+// Link styles
 
 a {
   color: $black;
@@ -96,6 +85,8 @@ a {
   }
 }
 
+// Heading Styles
+
 .heading {
   h1,
   h2,
@@ -121,10 +112,13 @@ small {
   font-family: $font-tex-bold;
 }
 
-.body {
-  p,
+// Body styles
+
+.body,
+p.body,
+p.markdown {
   ul {
-    padding-bottom: $space-sm;
+    padding-bottom: $space-xs;
 
     @include breakpoint(large) {
       padding-bottom: $space-md;
@@ -133,13 +127,25 @@ small {
     @include breakpoint(x-large) {
       padding-bottom: $space-lg;
     }
+  }
 
-    &.title {
-      opacity: 0.4;
+  p {
+    padding-bottom: $space-xs;
+
+    p:last-of-type {
+      padding-bottom: 0;
+    }
+
+    @include breakpoint(large) {
+      padding-bottom: $space-md;
+    }
+
+    @include breakpoint(x-large) {
+      padding-bottom: $space-lg;
     }
   }
 
-  p:last-of-type {
-    padding-bottom: 0;
+  &.title {
+    opacity: 0.4;
   }
 }

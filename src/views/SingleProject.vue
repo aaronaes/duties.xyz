@@ -27,14 +27,14 @@
 
       <!-- Project Banner -->
       <section class="outer-margin banner">
-        <article class="row" v-if="project.projectBanner">
-          <figure
-            class="column image banner-img"
-            v-lazy-container="{ selector: 'img' }"
-          >
+        <article
+          class="row"
+          v-if="project.projectBanner && project.projectBanner.url.length"
+        >
+          <figure class="column image banner-img">
             <img
-              :data-src="getUrl(project.projectBanner.url)"
-              :data-srcset="getSrcSet(project.projectBanner.url)"
+              :src="getUrl(project.projectBanner.url)"
+              :srcset="getSrcSet(project.projectBanner.url)"
             />
           </figure>
         </article>
@@ -136,32 +136,27 @@
               <div
                 class="content"
                 v-if="(block.device === true, block.website === true)"
-                :style="{
-                  backgroundColor: [
-                    project.backgroundColor.hex || 'transparent'
-                  ]
-                }"
               >
                 <div class="device-inner">
-                  <div class="image" v-lazy-container="{ selector: 'img' }">
+                  <div class="image">
                     <img
-                      :data-src="getUrl(block.image.url)"
-                      :data-srcset="getSrcSet(block.image.url)"
+                      :src="getUrl(block.image.url)"
+                      :srcset="getSrcSet(block.image.url)"
                     />
                   </div>
                 </div>
               </div>
               <div class="content" v-else>
                 <div class="device-inner">
-                  <div class="image" v-lazy-container="{ selector: 'img' }">
+                  <div class="image">
                     <img
-                      :data-src="getUrl(block.image.url)"
-                      :data-srcset="getSrcSet(block.image.url)"
+                      :src="getUrl(block.image.url)"
+                      :srcset="getSrcSet(block.image.url)"
                     />
                   </div>
                 </div>
               </div>
-              <figcaption v-if="block.caption.length !== 0">
+              <figcaption v-if="block.caption && block.caption.length">
                 <p
                   class="cell text-container align-center markdown"
                   v-html="block.caption"
@@ -176,22 +171,18 @@
           v-if="block._modelApiKey === 'image_text'"
         >
           <article class="row" v-if="block._modelApiKey === 'image_text'">
-            <figure
-              class="column image fade-in"
-              v-in-viewport.once
-              v-lazy-container="{ selector: 'img' }"
-            >
+            <figure class="column image fade-in" v-in-viewport.once>
               <img
                 v-in-viewport.once
                 class="fade-in"
-                :data-src="getUrl(block.image.url)"
-                :data-srcset="getSrcSet(block.image.url)"
+                :src="getUrl(block.image.url)"
+                :srcset="getSrcSet(block.image.url)"
               />
             </figure>
 
             <figure class="column text">
               <div class="text-container">
-                <div class="heading" v-if="block.title.length !== 0">
+                <div class="heading" v-if="block.title && block.title.length">
                   <h2 class="align-center title" v-html="block.title"></h2>
                 </div>
                 <div v-if="block.description.length !== 0">
@@ -211,10 +202,13 @@
           v-if="block._modelApiKey === 'quote'"
         >
           <article class="row">
-            <figure class="column heading" v-if="block.title.length !== 0">
+            <figure
+              class="column heading"
+              v-if="block.title && block.title.length"
+            >
               <h2 class="title markdown" v-html="block.title"></h2>
             </figure>
-            <figure class="column body" v-if="block.text.length !== 0">
+            <figure class="column body" v-if="block.text && block.text.length">
               <p class="body markdown" v-html="block.text"></p>
             </figure>
           </article>
@@ -236,12 +230,8 @@
                 class="image fade-in"
                 v-for="image in block.firstImage"
                 :key="image.id"
-                v-lazy-container="{ selector: 'img' }"
               >
-                <img
-                  :data-src="getUrl(image.url)"
-                  :data-srcset="getSrcSet(image.url)"
-                />
+                <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
               </div>
             </figure>
             <figure class="column right-image">
@@ -250,11 +240,10 @@
                 class="image fade-in"
                 v-for="image in block.lastImage"
                 :key="image.id"
-                v-lazy-container="{ selector: 'img' }"
               >
                 <img
-                  :data-src="getUrl(block.lastImage.url)"
-                  :data-srcset="getSrcSet(block.lastImage.url)"
+                  :src="getUrl(block.lastImage.url)"
+                  :srcset="getSrcSet(block.lastImage.url)"
                 />
               </div>
               <div class="text fade-in" v-in-viewport.once>
@@ -270,25 +259,17 @@
         >
           <article class="row">
             <figure class="column">
-              <div
-                class="content"
-                :style="{
-                  backgroundColor: [
-                    project.backgroundColor.hex || 'transparent'
-                  ]
-                }"
-              >
+              <div class="content">
                 <div class="image">
                   <div
                     class="device-inner fade"
                     :class="{ device: block.device }"
                     v-in-viewport.once
-                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :data-src="getUrl(block.leftImage.url)"
-                      :data-srcset="getSrcSet(block.leftImage.url)"
+                      :src="getUrl(block.leftImage.url)"
+                      :srcset="getSrcSet(block.leftImage.url)"
                     />
                   </div>
                 </div>
@@ -297,12 +278,11 @@
                     class="device-inner fade"
                     :class="{ device: block.device }"
                     v-in-viewport.once
-                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :data-src="getUrl(block.centerImage.url)"
-                      :data-srcset="getSrcSet(block.centerImage.url)"
+                      :src="getUrl(block.centerImage.url)"
+                      :srcset="getSrcSet(block.centerImage.url)"
                     />
                   </div>
                 </div>
@@ -311,12 +291,11 @@
                     class="device-inner fade"
                     :class="{ device: block.device }"
                     v-in-viewport.once
-                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :data-src="getUrl(block.rightImage.url)"
-                      :data-srcset="getSrcSet(block.rightImage.url)"
+                      :src="getUrl(block.rightImage.url)"
+                      :srcset="getSrcSet(block.rightImage.url)"
                     />
                   </div>
                 </div>
@@ -326,7 +305,10 @@
         </section>
       </div>
 
-      <section class="outer-margin meta" v-if="project.roles.length !== 0">
+      <section
+        class="outer-margin meta"
+        v-if="project.roles && project.roles.length"
+      >
         <article class="row">
           <figure
             class="column props"
@@ -335,7 +317,7 @@
           >
             <p class="role">
               {{ person.role }} by
-              <span class="name" v-if="person.link.length !== 0">
+              <span class="name" v-if="person.link && person.link.length">
                 <a :href="person.link" target="_blank">{{ person.name }}</a>
               </span>
               <span class="name" v-else>{{ person.name }}</span>
@@ -454,7 +436,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
-    }, 500);
+    }, 4000);
   },
   data() {
     return {
@@ -469,7 +451,7 @@ export default {
         slug: "",
         year: "",
         backgroundColor: {
-          hex: ""
+          hex: null
         },
         subtitle: "",
         readMore: "false",

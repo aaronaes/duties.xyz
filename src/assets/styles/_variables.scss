@@ -85,9 +85,10 @@ $font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 $easing: cubic-bezier(0.75, 0, 0.25, 1);
 
 // Spacing
-$space-sm: clamp(8px, 1.7vw, 12px);
-$space-md: clamp(12px, 3.2vw, 24px);
-$space-lg: clamp(24px, 7.4vw, 40px);
+$space-xs: clamp(4px, 1.5vw, 8px);
+$space-sm: clamp(8px, 1.5vw, 16px);
+$space-md: clamp(16px, 3.2vw, 24px);
+$space-lg: clamp(24px, 7.4vw, 48px);
 
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;
@@ -98,6 +99,7 @@ $x0: 0;
 $x0p125: calc(100vw * 0.125 / 25);
 $x0p25: calc(100vw * 0.25 / 25);
 $x0p5: calc(100vw * 0.5 / 25);
+$x0p75: calc(100vw * 0.75 / 25);
 $x1: calc(100vw * 1 / 25);
 $x1p5: calc(100vw * 1.5 / 25);
 $x2: calc(100vw * 2 / 25);

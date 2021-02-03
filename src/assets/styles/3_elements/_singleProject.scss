@@ -46,10 +46,11 @@ body.project {
         @include m(x0);
         @include p(x0);
 
-        .nav {
+        .row.nav {
           cursor: pointer !important;
           @include display-grid;
           @include pt(x1p5);
+          @include m(x0);
 
           @include breakpoint(medium) {
             @include pt(x1);
@@ -175,6 +176,7 @@ body.project {
           .row {
             width: 100vw;
             opacity: 1;
+            @include m(x0);
             @include pt(x1p5);
 
             @include breakpoint(medium) {
@@ -209,6 +211,10 @@ body.project {
                   cursor: pointer;
                 }
 
+                span {
+                  margin-left: 6px;
+                }
+
                 &:hover {
                   color: $black;
                 }
@@ -229,6 +235,7 @@ body.project {
 
           .row {
             @include p(x0);
+            @include m(x0);
 
             .image {
               grid-column: 1 / 26;
@@ -252,8 +259,10 @@ body.project {
           @include mt(x0);
           @include mb(x2);
 
-          article {
-            .heading {
+          .row {
+            @include mt(x0);
+
+            .column {
               grid-column: 1 / 26;
               grid-row: 1;
               @include mb(x0p25);
@@ -278,7 +287,7 @@ body.project {
             .body {
               grid-column: 1 / 26;
               grid-row: 2;
-              @include mb(x0p125);
+              @include pb(x0p125);
 
               @include breakpoint(medium) {
                 grid-column: 1 / 20;
@@ -381,7 +390,7 @@ body.project {
 
                 &.website {
                   .content {
-                    background-color: $sand;
+                    background-color: $grey;
                     overflow: hidden;
 
                     .image {
@@ -446,7 +455,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: $sand !important;
+                    background-color: $grey !important;
                     @include px(x2);
                     @include py(x2);
 
@@ -521,7 +530,7 @@ body.project {
                   }
 
                   .website {
-                    background-color: $sand;
+                    background-color: $grey;
                     overflow: hidden;
 
                     img,
@@ -575,7 +584,7 @@ body.project {
                   }
 
                   .device {
-                    background-color: $sand;
+                    background-color: $grey;
                     @include px(x2);
                     @include py(x2);
 
@@ -639,7 +648,7 @@ body.project {
 
                   .content {
                     &.website {
-                      background-color: $sand;
+                      background-color: $grey;
                       overflow: hidden;
 
                       img,
@@ -693,7 +702,7 @@ body.project {
                     }
 
                     &.device {
-                      background-color: $sand;
+                      background-color: $grey;
                       @include px(x2);
                       @include py(x2);
 
@@ -741,42 +750,52 @@ body.project {
           }
 
           .image-text {
-            .image {
-              align-self: stretch;
-              grid-column: 1 / 26;
-
-              @include breakpoint(small only) {
-                @include mb(x0p25);
-              }
+            .row {
+              display: grid;
+              grid-template-columns: repeat(8, 1fr);
+              grid-column-gap: $x1;
+              @include px(x1);
 
               @include breakpoint(medium) {
-                grid-column: 1 / 12;
+                @include px(x2);
               }
 
               @include breakpoint(large) {
-                grid-column: 1 / 12;
-                padding-right: $x0p5;
+                @include px(x3);
               }
 
-              img {
-                align-self: flex-start;
-              }
-            }
-
-            .text {
-              grid-column: 1 / 26;
-
-              @include breakpoint(medium) {
-                grid-column: 12 / 26;
+              @include breakpoint(x-large) {
+                @include px(x3);
+                grid-column-gap: $x2;
               }
 
-              @include breakpoint(large) {
-                grid-column: 12 / 226;
+              figure {
+                grid-auto-columns: auto;
+                grid-column: span 4;
+                // @include px(x0);
               }
 
-              .text-container {
-                h2 {
-                  padding-bottom: $x0p5;
+              .image {
+                align-self: stretch;
+
+                @include breakpoint(small only) {
+                  @include mb(x0p25);
+                }
+
+                @include breakpoint(large) {
+                  padding-right: $x0p5;
+                }
+
+                img {
+                  align-self: flex-start;
+                }
+              }
+
+              .text {
+                .text-container {
+                  h2 {
+                    padding-bottom: $x0p5;
+                  }
                 }
               }
             }
@@ -787,48 +806,69 @@ body.project {
             @include mb(x3);
 
             .row {
+              display: grid;
+              grid-template-columns: repeat(8, 1fr);
+              grid-column-gap: $x1;
+              @include px(x1);
+
+              @include breakpoint(medium) {
+                @include px(x2);
+              }
+
+              @include breakpoint(large) {
+                @include px(x3);
+              }
+
+              @include breakpoint(x-large) {
+                @include px(x4);
+              }
+
               .column {
-                &:nth-child(odd) {
-                  grid-column: 1 / 13;
+                grid-auto-columns: auto;
+                grid-column: span 4;
+                @include px(x0);
 
-                  .image {
-                    &:first-of-type {
-                      @include mb(x1);
-                    }
-                  }
+                .image {
+                  @include mb(x1);
                 }
 
-                &:nth-child(even) {
-                  grid-column: 14 / 26;
+                // &:nth-child(odd) {
+                //   .image {
+                //     &:first-of-type {
+                //       @include mb(x1);
+                //     }
+                //   }
+                // }
 
-                  .image {
-                    &:first-of-type {
-                      @include mb(x1);
-                    }
-                  }
-                }
+                // &:nth-child(even) {
+                //   .image {
+                //     &:first-of-type {
+                //       @include mb(x1);
+                //     }
+                //   }
+                // }
 
-                @include breakpoint(medium) {
-                  &:nth-child(odd) {
-                    grid-column: 2 / 13;
-                    @include pr(x0p25);
-                  }
+                // @include breakpoint(medium) {
+                //   &:nth-child(odd) {
+                //     grid-column: 2 / 13;
+                //     @include pr(x0p25);
+                //   }
 
-                  &:nth-child(even) {
-                    grid-column: 14 / 25;
-                    @include pl(x0p25);
-                  }
-                }
+                //   &:nth-child(even) {
+                //     grid-column: 14 / 25;
+                //     @include pl(x0p25);
+                //   }
+                // }
 
-                @include breakpoint(xx-large) {
-                  &:nth-child(odd) {
-                    grid-column: 4 / 12;
-                  }
+                // @include breakpoint(xx-large) {
+                //   &:nth-child(odd) {
+                //     grid-column: 4 / 12;
+                //   }
 
-                  &:nth-child(even) {
-                    grid-column: 15 / 23;
-                  }
-                }
+                //   &:nth-child(even) {
+                //     grid-column: 15 / 23;
+                //   }
+                // }
               }
             }
           }
@@ -837,7 +877,7 @@ body.project {
             @include px(x0);
 
             .row {
-              background-color: transparent;
+              background-color: $grey;
               grid-column: 1 / 26;
 
               .column {
@@ -848,7 +888,7 @@ body.project {
 
                   .content {
                     position: relative;
-                    background-color: $sand;
+                    background-color: $grey;
                     grid-column: unset;
                     display: flex;
                     overflow-x: auto;
@@ -1049,6 +1089,10 @@ body.project {
               display: grid;
               grid-template-columns: repeat(1, auto) !important;
 
+              &:last-of-type {
+                @include mt(x0);
+              }
+
               .carousel-inner {
                 position: relative;
                 @include mb(x0p25);
@@ -1146,7 +1190,7 @@ body.project {
               }
 
               .pagination {
-                grid-column: 1 / 25;
+                grid-column: 1 / 24;
 
                 .carousel-pagination {
                   text-align: right;

@@ -12,6 +12,8 @@
     <!-- Project List -->
     <ProjectList :projects="projects" />
 
+    <StoryList :stories="stories" />
+
     <!-- Studio Block -->
     <section class="outer-margin studio dark">
       <article class="row fade-in" v-in-viewport.once>
@@ -68,6 +70,11 @@
             <swiper-slide v-for="asset in frontpage.offGallery" :key="asset.id">
               <div class="slide-img">
                 <img :src="getUrl(asset.url)" :srcset="getSrcSet(asset.url)" />
+                <div class="tag" v-if="!!asset.customData.link">
+                  <a :href="asset.customData.link" target="_blank">
+                    <p class="foo">{{ asset.title }}</p>
+                  </a>
+                </div>
               </div>
             </swiper-slide>
           </swiper>
@@ -88,21 +95,25 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
 import ProjectList from "@/components/ProjectList.vue";
+import StoryList from "@/components/StoryList.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Home",
   components: {
     ProjectList,
+    StoryList,
     Footer
   },
   async created() {
     this.projects = await this.getProjects();
+    this.stories = await this.getStories();
     this.frontpage = await this.getFrontpage();
   },
   data() {
     return {
       title: "Home",
+      hasContent: false,
       frontpage: {
         ondutyTitle: "",
         ondutyBody: "",
@@ -113,31 +124,39 @@ export default {
         offBody: "",
         offGallery: [
           {
-            url: ""
+            url: "",
+            title: "",
+            customData: {
+              label: "",
+              link: ""
+            }
           }
         ],
         intro: ""
       },
       projects: [],
+      stories: [],
       footer: [],
       swiperOptions: {
-        speed: 200,
-        loop: true,
-        slidesPerView: "auto",
+        speed: 400,
         grabCursor: "true",
         allowTouchMove: "true",
-        threshold: 5,
+        slidesPerView: "auto",
+        touchRatio: 0.2,
+        loop: true,
+        slideToClickedSlide: true,
+        loopedSlides: 50,
         keyboard: {
           enabled: true,
           onlyInViewport: false
         },
+        pagination: {
+          el: ".carousel-pagination",
+          type: "fraction"
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction"
         }
       }
     };
@@ -156,6 +175,15 @@ export default {
                 backgroundColor {
                   hex
                 }
+                description
+                projectThumbnail {
+                  url
+                }
+                projectBanner {
+                  url
+                }
+                isDevice
+                isWebsite
                 siteLink
                 slug
                 readMore
@@ -177,7 +205,8 @@ export default {
                     caption
                     full
                     image {
-                      url
+                      png: url(imgixParams: { fm: png, q: 60 })
+                      webp: url(imgixParams: { fm: webp, q: 60 })
                     }
                   }
                   ... on QuoteRecord {
@@ -219,15 +248,6 @@ export default {
                     }
                   }
                 }
-                description
-                projectThumbnail {
-                  url
-                }
-                projectBanner {
-                  url
-                }
-                isDevice
-                isWebsite
               }
             }
           }
@@ -235,10 +255,32 @@ export default {
       });
       return data.frontpage.projects;
     },
+    async getStories() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            frontpage {
+              stories {
+                id
+                title
+                description
+                storyImage {
+                  url
+                }
+              }
+            }
+          }
+        `
+      });
+      return data.frontpage.stories;
+    },
     async getFrontpage() {
       const { data } = await getData({
         query: gql`
           query {
+            allUploads {
+              customData
+            }
             frontpage {
               intro
               ondutyTitle
@@ -248,6 +290,8 @@ export default {
               }
               offGallery {
                 url
+                title
+                customData
               }
               offTitle
               offBody
@@ -277,6 +321,9 @@ export default {
   computed: {
     pageName() {
       return this.$route.name;
+    },
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
     }
   },
   beforeCreate: function() {

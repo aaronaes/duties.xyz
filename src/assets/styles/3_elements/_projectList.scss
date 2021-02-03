@@ -6,10 +6,6 @@
     grid-column: 1 / 26;
     @include mt(x2);
 
-    &:first-of-type {
-      @include mt(x0);
-    }
-
     @include breakpoint(x-large) {
       grid-column: 2 / 25;
     }
@@ -34,10 +30,10 @@
           max-width: 100%;
 
           .image {
-            margin-bottom: $space-sm;
+            margin-bottom: $space-xs;
 
             img {
-              height: clamp(305px, 50vw, 725px);
+              max-height: clamp(305px, 50vw, 725px);
               object-fit: cover;
               object-position: 50% 50%;
             }
@@ -54,198 +50,160 @@
             }
 
             .body {
-              p {
-                &.title {
-                  @include pr(x0p125);
-
-                  &:after {
-                    content: " :";
-                    display: inline;
-                    animation: blinker 1000ms step-start infinite;
-                    padding-left: 2px;
-                  }
-
-                  @keyframes blinker {
-                    50% {
-                      opacity: 0;
-                    }
-                  }
-
-                  @keyframes ellipsis {
-                    from {
-                      opacity: 0;
-                      width: 0px;
-                    }
-                    to {
-                      opacity: 1;
-                      width: 20px;
-                    }
-                  }
-                }
+              p.markdown {
+                padding-bottom: $space-xs;
 
                 code {
                   font-family: $font-tex-regular !important;
                 }
               }
             }
-
-            .tags {
-              @include mt(x0p125);
-
-              p {
-                @include mr(x0p125);
-
-                &:after {
-                  @include mr(x0);
-                }
-              }
-            }
           }
         }
       }
     }
 
-    &.isMini {
-      grid-column: 4 / 23;
+    // &.isMini {
+    //   grid-column: 4 / 23;
 
-      + .isMini {
-        grid-column: 4 / 23;
-      }
+    //   + .isMini {
+    //     grid-column: 4 / 23;
+    //   }
 
-      .column {
-        &.summary {
-          display: block;
+    //   .column {
+    //     &.summary {
+    //       display: block;
 
-          a.imgBox {
-            pointer-events: none;
+    //       a.imgBox {
+    //         pointer-events: none;
 
-            .image {
-              @include mb(x0p25);
+    //         .image {
+    //           @include mb(x0p25);
 
-              img {
-                height: auto;
-                object-fit: cover;
-                object-position: 0% 50%;
-              }
-            }
+    //           img {
+    //             height: auto;
+    //             object-fit: cover;
+    //             object-position: 0% 50%;
+    //           }
+    //         }
 
-            .caption {
-              grid-column: 1 / 26;
+    //         .caption {
+    //           grid-column: 1 / 26;
 
-              .heading {
-                h2,
-                h3 {
-                  @include m(x0);
-                }
-              }
+    //           .heading {
+    //             h2,
+    //             h3 {
+    //               @include m(x0);
+    //             }
+    //           }
 
-              .body {
-                p {
-                  &.title {
-                    @include pr(x0p125);
+    //           .body {
+    //             p {
+    //               &.title {
+    //                 @include pr(x0p125);
 
-                    &:after {
-                      content: " :";
-                      display: inline;
-                      animation: blinker 1000ms step-start infinite;
-                      padding-left: 2px;
-                    }
+    //                 &:after {
+    //                   content: " :";
+    //                   display: inline;
+    //                   animation: blinker 1000ms step-start infinite;
+    //                   padding-left: 2px;
+    //                 }
 
-                    @keyframes blinker {
-                      50% {
-                        opacity: 0;
-                      }
-                    }
+    //                 @keyframes blinker {
+    //                   50% {
+    //                     opacity: 0;
+    //                   }
+    //                 }
 
-                    @keyframes ellipsis {
-                      from {
-                        opacity: 0;
-                        width: 0px;
-                      }
-                      to {
-                        opacity: 1;
-                        width: 20px;
-                      }
-                    }
-                  }
+    //                 @keyframes ellipsis {
+    //                   from {
+    //                     opacity: 0;
+    //                     width: 0px;
+    //                   }
+    //                   to {
+    //                     opacity: 1;
+    //                     width: 20px;
+    //                   }
+    //                 }
+    //               }
 
-                  a {
-                    pointer-events: all;
-                    cursor: pointer;
-                  }
+    //               a {
+    //                 pointer-events: all;
+    //                 cursor: pointer;
+    //               }
 
-                  code {
-                    font-family: $font-tex-regular !important;
-                  }
-                }
-              }
+    //               code {
+    //                 font-family: $font-tex-regular !important;
+    //               }
+    //             }
+    //           }
 
-              .tags {
-                @include mt(x0p25);
-              }
-            }
-          }
-        }
-      }
+    //           .tags {
+    //             @include mt(x0p25);
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
 
-      @include breakpoint(medium) {
-        grid-column: 3 / span 10;
+    //   @include breakpoint(medium) {
+    //     grid-column: 3 / span 10;
 
-        .column {
-          @include pr(x0p5);
-          @include pl(x0);
-        }
+    //     .column {
+    //       @include pr(x0p5);
+    //       @include pl(x0);
+    //     }
 
-        + .isMini {
-          grid-column: span 10 / 24;
+    //     + .isMini {
+    //       grid-column: span 10 / 24;
 
-          .column {
-            @include pr(x0);
-            @include pl(x0p5);
-          }
-        }
-      }
+    //       .column {
+    //         @include pr(x0);
+    //         @include pl(x0p5);
+    //       }
+    //     }
+    //   }
 
-      @include breakpoint(large) {
-        grid-column: 3 / span 9;
+    //   @include breakpoint(large) {
+    //     grid-column: 3 / span 9;
 
-        + .isMini {
-          grid-column: span 9 / 23;
-        }
-      }
+    //     + .isMini {
+    //       grid-column: span 9 / 23;
+    //     }
+    //   }
 
-      @include breakpoint(x-large) {
-        grid-column: 7 / span 6;
+    //   @include breakpoint(x-large) {
+    //     grid-column: 7 / span 6;
 
-        .column {
-          @include px(x0);
-        }
+    //     .column {
+    //       @include px(x0);
+    //     }
 
-        + .isMini {
-          grid-column: span 6 / 21;
+    //     + .isMini {
+    //       grid-column: span 6 / 21;
 
-          .column {
-            @include px(x0);
-          }
-        }
-      }
+    //       .column {
+    //         @include px(x0);
+    //       }
+    //     }
+    //   }
 
-      @include breakpoint(xx-large) {
-        grid-column: 6 / span 6;
+    //   @include breakpoint(xx-large) {
+    //     grid-column: 6 / span 6;
 
-        .column {
-          @include px(x0);
-        }
+    //     .column {
+    //       @include px(x0);
+    //     }
 
-        + .isMini {
-          grid-column: span 6 / 21;
+    //     + .isMini {
+    //       grid-column: span 6 / 21;
 
-          .column {
-            @include px(x0);
-          }
-        }
-      }
-    }
+    //       .column {
+    //         @include px(x0);
+    //       }
+    //     }
+    //   }
+    // }
 
     // &.story {
     //   grid-column: 2 / 25;
