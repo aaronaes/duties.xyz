@@ -23,8 +23,8 @@
               <h2
                 v-if="project.readMore === true"
                 class="markdown title"
-                v-show="project.subtitle.length > 0"
-                v-html="project.subtitle"
+                v-show="project.title.length > 0"
+                v-html="project.title"
               >
                 :
               </h2>
@@ -33,14 +33,14 @@
               <p
                 v-if="project.readMore === true"
                 class="markdown"
-                v-show="project.title.length > 0"
-                v-html="project.title"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
               ></p>
               <p
                 v-if="project.readMore === false"
                 class="markdown"
-                v-show="project.title.length > 0"
-                v-html="project.title"
+                v-show="project.subtitle.length > 0"
+                v-html="project.subtitle"
               ></p>
             </div>
             <div
