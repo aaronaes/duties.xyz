@@ -10,29 +10,15 @@ body {
 
     &.outer-margin {
       @include display-grid;
-      @include my(x0);
+      margin: 0;
 
       .row {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas: "a b c";
-        grid-column: 1 / 26;
+        grid-column: 2 / 25;
         align-items: center;
-        @include mt(x1p5);
-
-        @include breakpoint(medium) {
-          @include mt(x1);
-        }
-
-        @include breakpoint(large) {
-          @include mt(x0p5);
-        }
-
-        @include breakpoint(x-large) {
-          grid-column: 2 / 25;
-          @include mt(x0p25);
-          @include px(x0);
-        }
+        margin-top: $space-md;
 
         @include breakpoint(xx-large) {
           grid-column: 3 / 24;
@@ -41,7 +27,7 @@ body {
         .nav-item {
           overflow: visible;
           position: relative;
-          @include mb(x0);
+          margin: 0;
 
           a {
             cursor: pointer;
@@ -161,7 +147,7 @@ body {
             grid-area: b;
             position: relative;
             justify-self: center;
-            align-self: flex-end;
+            align-self: center;
 
             @include p(x0);
 
@@ -187,13 +173,13 @@ body {
     }
   }
 
-  &.active,
-  &.product {
-    header.global {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-  }
+  // &.active,
+  // &.product {
+  //   header.global {
+  //     opacity: 0;
+  //     transform: translateY(-100%);
+  //   }
+  // }
 
   &.about {
     header.global {

@@ -12,13 +12,7 @@
     >
       <figure class="column summary">
         <a class="imgBox" @click="e => handleProjectClick(e, project)">
-          <div
-            class="image"
-            :class="{
-              device: project.isDevice,
-              website: project.isWebsite
-            }"
-          >
+          <div class="image" v-if="project.projectThumbnail">
             <img
               :src="getUrl(project.projectThumbnail.url)"
               :srcset="getSrcSet(project.projectThumbnail.url)"
@@ -35,7 +29,7 @@
                 :
               </h2>
             </div>
-            <div class="body">
+            <div class="body hide-for-small-only">
               <p
                 v-if="project.readMore === true"
                 class="markdown"
@@ -49,7 +43,10 @@
                 v-html="project.subtitle"
               ></p>
             </div>
-            <div class="tags" v-if="project.readMore === true">
+            <div
+              class="tags hide-for-small-only"
+              v-if="project.readMore === true"
+            >
               <p
                 class="body-text markdown"
                 v-for="(category, i) in project.categories"

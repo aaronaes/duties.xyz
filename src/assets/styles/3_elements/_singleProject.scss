@@ -17,7 +17,7 @@ body.project {
     background-color: $white;
 
     .single-project {
-      grid-column: 1 / 26;
+      grid-column: 2 / 25;
       position: relative;
       min-height: 100%;
       @include m(x0);
@@ -62,6 +62,7 @@ body.project {
 
           @include breakpoint(x-large) {
             grid-column: 2 / 25;
+            @include pt(x0p25);
             @include px(x0);
           }
 
@@ -71,7 +72,7 @@ body.project {
           }
 
           .column {
-            grid-column: 1 / 26;
+            grid-column: 2 / 25;
 
             @include breakpoint(x-large) {
               grid-column: 2 / 25;
@@ -169,9 +170,10 @@ body.project {
         }
 
         .header {
-          grid-column: 1 / 26;
+          grid-column: 2 / 25;
           z-index: 9999;
           @include m(x0);
+          position: absolute;
 
           .row {
             width: 100vw;
@@ -192,7 +194,7 @@ body.project {
             }
 
             .heading {
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
               @include mb(x0p125);
 
               @include breakpoint(x-large) {
@@ -206,6 +208,13 @@ body.project {
               h1,
               h2,
               h3 {
+                &.inverted {
+                  color: $white !important;
+                  a {
+                    color: $white !important;
+                  }
+                }
+
                 a {
                   border-bottom: none;
                   cursor: pointer;
@@ -244,16 +253,16 @@ body.project {
 
               img {
                 width: 100%;
-                height: clamp(225px, 50vw, 720px);
                 object-fit: cover;
-                object-position: 0 0;
+                object-position: 50% 50%;
+                height: calc(100vh - 40px);
               }
             }
           }
         }
 
         .info {
-          grid-column: 1 / 26;
+          grid-column: 2 / 25;
           background-color: initial;
           opacity: 1;
           @include mt(x0);
@@ -262,8 +271,8 @@ body.project {
           .row {
             @include mt(x0);
 
-            .column {
-              grid-column: 1 / 26;
+            .heading {
+              grid-column: 2 / 25;
               grid-row: 1;
               @include mb(x0p25);
 
@@ -271,38 +280,31 @@ body.project {
                 grid-column: 1 / 20;
               }
 
-              @include breakpoint(large) {
-                grid-column: 1 / 18;
-              }
-
               @include breakpoint(x-large) {
-                grid-column: 2 / 18;
+                grid-column: 2 / 15;
               }
 
               @include breakpoint(xx-large) {
-                grid-column: 3 / 18;
+                grid-column: 3 / 12;
               }
             }
 
             .body {
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
               grid-row: 2;
               @include pb(x0p125);
+              @include mb(x0);
 
               @include breakpoint(medium) {
                 grid-column: 1 / 20;
               }
 
-              @include breakpoint(medium) {
-                grid-column: 1 / 18;
-              }
-
               @include breakpoint(x-large) {
-                grid-column: 2 / 18;
+                grid-column: 2 / 14;
               }
 
               @include breakpoint(xx-large) {
-                grid-column: 3 / 18;
+                grid-column: 3 / 12;
               }
 
               p {
@@ -313,7 +315,7 @@ body.project {
             }
 
             .tags {
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
               grid-row: 3;
               @include pb(x0p25);
 
@@ -343,7 +345,7 @@ body.project {
           }
 
           .quote {
-            @include my(x4);
+            @include mt(x4);
 
             .row {
               @include display-grid;
@@ -374,7 +376,7 @@ body.project {
           .single-img {
             .row {
               .column {
-                grid-column: 1 / 26;
+                grid-column: 2 / 25;
 
                 @include breakpoint(x-large) {
                   grid-column: 2 / 25;
@@ -505,7 +507,7 @@ body.project {
 
               .row {
                 .column {
-                  grid-column: 1 / 26;
+                  grid-column: 2 / 25;
                   @include px(x0);
 
                   .content {
@@ -635,7 +637,7 @@ body.project {
 
               .row {
                 .column {
-                  grid-column: 1 / 26;
+                  grid-column: 2 / 25;
                   background-color: transparent;
 
                   @include breakpoint(medium) {
@@ -877,11 +879,10 @@ body.project {
             @include px(x0);
 
             .row {
-              background-color: $grey;
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
 
               .column {
-                grid-column: 1 / 26;
+                grid-column: 2 / 25;
 
                 @include breakpoint(small only) {
                   @include px(x0);
@@ -981,7 +982,8 @@ body.project {
                   .content {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    grid-column: 1 / 26;
+                    background-color: $grey;
+                    grid-column: 2 / 25;
                     grid-template-areas: "a b c";
                     grid-gap: $x1;
                     grid-auto-flow: column;
@@ -1126,7 +1128,7 @@ body.project {
                         img {
                           height: 100%;
                           width: auto;
-                          height: clamp(305px, 40vw, 575px);
+                          height: clamp(305px, 26vw, 575px);
                         }
                       }
 
@@ -1214,7 +1216,7 @@ body.project {
 
           .row {
             .column {
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
               @include mb(x0);
 
               @include breakpoint(x-large) {
@@ -1255,7 +1257,7 @@ body.project {
           .row {
             .column {
               position: relative;
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
 
               a {
                 border: none;
@@ -1280,7 +1282,7 @@ body.project {
 
             .similar-list {
               position: relative;
-              grid-column: 1 / 26;
+              grid-column: 2 / 25;
               grid-row: 1;
               z-index: 9999;
               @include mt(x2);
@@ -1299,7 +1301,7 @@ body.project {
 
               p.title {
                 @include pb(x0p5);
-                grid-column: 1 / 26;
+                grid-column: 2 / 25;
               }
 
               ul {

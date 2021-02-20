@@ -2,6 +2,11 @@
   <section class="outer-margin stories">
     <section class="outer-margin story-title">
       <div class="heading">
+        <div>
+          <h1 class="title">News & stuff</h1>
+        </div>
+      </div>
+      <div class="heading hide">
         <div class="ticker">
           <h2 class="title">News & stuff &</h2>
           <h2 class="title">News & stuff &</h2>

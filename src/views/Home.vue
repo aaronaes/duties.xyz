@@ -35,14 +35,6 @@
           <div class="text">
             <p v-html="frontpage.ondutyBody"></p>
           </div>
-
-          <div class="link">
-            <p>
-              <router-link :to="{ name: 'About' }">
-                Read more
-              </router-link>
-            </p>
-          </div>
         </figure>
       </article>
     </section>
@@ -50,12 +42,13 @@
     <!-- Off-duty Block -->
     <section class="outer-margin off-duty sand">
       <article class="row fade-in" v-in-viewport.once>
-        <figure class="column header">
+        <!-- <figure class="column header">
           <div class="heading">
             <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
           </div>
-        </figure>
-        <figure class="column body">
+        </figure> -->
+        <figure class="column body heading">
+          <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
           <div class="text">
             <p class="markdown" v-html="frontpage.offBody"></p>
           </div>
@@ -172,6 +165,7 @@ export default {
                 title
                 slug
                 subtitle
+                inverted
                 backgroundColor {
                   hex
                 }
@@ -182,8 +176,6 @@ export default {
                 projectBanner {
                   url
                 }
-                isDevice
-                isWebsite
                 siteLink
                 slug
                 readMore
@@ -204,6 +196,8 @@ export default {
                     _modelApiKey
                     caption
                     full
+                    website
+                    device
                     image {
                       png: url(imgixParams: { fm: png, q: 60 })
                       webp: url(imgixParams: { fm: webp, q: 60 })
@@ -278,9 +272,6 @@ export default {
       const { data } = await getData({
         query: gql`
           query {
-            allUploads {
-              customData
-            }
             frontpage {
               intro
               ondutyTitle

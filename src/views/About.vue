@@ -49,19 +49,48 @@
     <section class="outer-margin services">
       <article class="row column">
         <figure class="column heading fade-in" v-in-viewport.once>
-          <h1 class="title">
-            {{ about.offeringIntro }}
-          </h1>
+          <h1 class="markdown title" v-html="about.offeringIntro"></h1>
         </figure>
 
         <figure class="column body fade-in" v-in-viewport.once>
           <p class="body" v-html="about.offeringContent"></p>
+        </figure>
+
+        <figure class="column list fade-in" v-in-viewport.once>
+          <ul>
+            <li
+              class="heading"
+              v-for="item in about.serviceList"
+              :key="item.id"
+            >
+              <div class="icon">
+                <svg
+                  width="472"
+                  height="326"
+                  viewBox="0 0 472 326"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M371.513 74.9572H337.905C337.905 114.937 355.562 150.855 383.473 175.414H331.159C330.711 175.414 315.538 175.299 293.471 172.519C288.233 126.435 270.701 77.749 239.194 40.5499C199.934 -5.79567 140.289 -9.85607 109.209 15.4318C85.6244 34.6309 74.8359 73.4765 115.287 124.931C151.994 171.62 213.677 192.377 261.758 201.601C261.791 224.876 257.949 246.041 250.521 262.029C241.148 282.207 227.288 292.437 209.323 292.437C178.064 292.437 161.435 272.968 140.382 248.32C112.596 215.791 78.0138 175.306 0 175.306V208.869C62.5068 208.869 87.9142 238.615 114.812 270.103C138.285 297.585 162.557 326 209.323 326C240.619 326 266.079 308.297 281.01 276.153C289.777 257.278 294.602 233.074 295.116 206.633C315.463 208.896 329.338 208.977 331.145 208.977H383.224C355.456 233.531 337.905 269.357 337.905 309.219H371.513C371.513 253.885 416.592 208.869 472 208.869V175.306C416.592 175.306 371.513 130.291 371.513 74.9572ZM141.721 104.205C120.127 76.7349 115.912 53.2787 130.443 41.4484C137.586 35.6373 146.189 33.1849 155.242 33.1849C176.633 33.1849 200.529 46.8738 213.536 62.2285C238.352 91.5266 253.163 129.782 258.945 166.642C218.152 157.781 169.845 139.974 141.721 104.205Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="title markdown" v-html="item.listTitle"></h3>
+            </li>
+          </ul>
         </figure>
       </article>
     </section>
 
     <section class="outer-margin people">
       <article class="row column">
+        <figure class="column network fade-in" v-in-viewport.once>
+          <p class="markdown title" v-html="about.networkTitle"></p>
+          <p class="markdown body" v-html="about.networkBody"></p>
+        </figure>
         <figure
           class="column person fade-in"
           v-in-viewport.once
@@ -78,25 +107,52 @@
             <h2 class="title">{{ person.name }}</h2>
             <p>{{ person.title }}</p>
             <p>
-              <a :href="'callto:' + person.phoneNumber">
-                {{ person.phoneNumber }}
-              </a>
-            </p>
-            <p>
               <a :href="'mailto:' + person.email">
                 {{ person.email }}
               </a>
             </p>
           </div>
         </figure>
-        <figure class="column network fade-in" v-in-viewport.once>
-          <p class="markdown title" v-html="about.networkTitle"></p>
-          <p class="markdown body" v-html="about.networkBody"></p>
+      </article>
+    </section>
+
+    <section class="outer-margin clients">
+      <article class="row">
+        <figure class="column body">
+          <div class="body">
+            <div class="body" v-html="about.ffBody"></div>
+          </div>
+        </figure>
+        <figure class="column list">
+          <div class="heading" v-if="showLess">
+            <h3
+              class="pill title"
+              v-for="asset in about.ffMarqueeOne.slice(0, 9)"
+              :key="asset.id"
+            >
+              {{ asset.name }}
+            </h3>
+            <h3 class="pill title" @click="showLess = false">
+              <span class="arrow">+</span>
+            </h3>
+          </div>
+          <div class="heading" v-else>
+            <h3
+              class="pill title"
+              v-for="asset in about.ffMarqueeOne"
+              :key="asset.id"
+            >
+              {{ asset.name }}
+            </h3>
+            <h3 class="pill title" @click="showLess = true">
+              <span class="arrow">–</span>
+            </h3>
+          </div>
         </figure>
       </article>
     </section>
 
-    <section class="outer-margin carousel">
+    <section class="outer-margin carousel hide">
       <article class="row">
         <figure class="column carousel-inner">
           <swiper
@@ -127,7 +183,7 @@
       </article>
     </section>
 
-    <section class="outer-margin marquee fade-in" v-in-viewport.once>
+    <section class="outer-margin marquee fade-in hide" v-in-viewport.once>
       <article class="row">
         <figure class="column fade-in" v-in-viewport.once>
           <div class="body heading">
@@ -135,18 +191,37 @@
             <div class="body" v-html="about.ffBody"></div>
           </div>
         </figure>
-        <figure class="inline-marquee">
-          <ul class="inner heading">
-            <li v-for="asset in about.ffMarqueeOne" :key="asset.id">
-              <h1 class="title">{{ asset.name }}</h1>
-            </li>
-          </ul>
-
-          <ul class="inner right heading">
-            <li v-for="asset in about.ffMarqueeTwo" :key="asset.id">
-              <h1 class="title">{{ asset.name }}</h1>
-            </li>
-          </ul>
+        <figure class="inline-marquee left">
+          <div class="title inner first heading">
+            <h1
+              class="first"
+              v-for="asset in about.ffMarqueeOne"
+              :key="asset.id"
+            >
+              {{ asset.name }}
+            </h1>
+          </div>
+          <div class="title inner last heading">
+            <h1
+              class="first"
+              v-for="asset in about.ffMarqueeOne"
+              :key="asset.id"
+            >
+              {{ asset.name }}
+            </h1>
+          </div>
+        </figure>
+        <figure class="inline-marquee right">
+          <div class="title inner first heading">
+            <h1 v-for="asset in about.ffMarqueeTwo" :key="asset.id">
+              {{ asset.name }}
+            </h1>
+          </div>
+          <div class="title inner last heading">
+            <h1 v-for="asset in about.ffMarqueeTwo" :key="asset.id">
+              {{ asset.name }}
+            </h1>
+          </div>
         </figure>
       </article>
     </section>
@@ -173,6 +248,7 @@ export default {
   data() {
     return {
       isHovering: false,
+      showLess: true,
       about: {
         introduction: "",
         image: {
@@ -180,6 +256,9 @@ export default {
         },
         offeringIntro: "",
         offeringsContent: "",
+        serviceList: {
+          listTitle: ""
+        },
         team: {
           name: "",
           title: "",
@@ -234,6 +313,9 @@ export default {
               introduction
               offeringIntro
               offeringContent
+              serviceList {
+                listTitle
+              }
               image {
                 url
               }

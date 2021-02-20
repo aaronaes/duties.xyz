@@ -126,7 +126,8 @@ export default {
   name: "Nav",
   data() {
     return {
-      hover: false
+      hover: false,
+      showNav: false
     };
   }
 };

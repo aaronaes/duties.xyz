@@ -16,7 +16,7 @@
       <section class="outer-margin header">
         <article class="row nav">
           <figure class="column heading">
-            <h3 class="title">
+            <h3 class="title" :class="{ inverted: project.inverted === true }">
               <a @click="closeProject()">XYZ</a>
               <span>:</span>
               {{ project.title }}
@@ -162,6 +162,38 @@
                   v-html="block.caption"
                 ></p>
               </figcaption>
+            </figure>
+          </article>
+        </section>
+
+        <section
+          class="outer-margin video fade-in"
+          v-in-viewport.once
+          v-if="block._modelApiKey === 'video'"
+        >
+          <article class="row">
+            <figure class="column">
+              <div class="content">
+                <div class="device-inner">
+                  <video id="video" autoplay loop :key="video">
+                    <source
+                      id="mp4"
+                      :src="getUrl(block.video.url)"
+                      type="video/mp4"
+                    />
+                    <source
+                      id="webm"
+                      :src="getUrl(block.video.url)"
+                      type="video/webm"
+                    />
+                    <source
+                      id="mov"
+                      :src="getUrl(block.video.url)"
+                      type="video/mov"
+                    />
+                  </video>
+                </div>
+              </div>
             </figure>
           </article>
         </section>
@@ -451,10 +483,11 @@ export default {
         slug: "",
         year: "",
         backgroundColor: {
-          hex: null
+          hex: ""
         },
         subtitle: "",
         readMore: "false",
+        inverted: "false",
         categories: [],
         client: {},
         blocks: [],
@@ -540,8 +573,7 @@ export default {
               projectThumbnail {
                 url
               }
-              isDevice
-              isWebsite
+              inverted
               projectBanner {
                 url
               }
@@ -562,6 +594,13 @@ export default {
                 role
               }
               blocks {
+                ... on VideoRecord {
+                  _modelApiKey
+                  id
+                  video {
+                    url
+                  }
+                }
                 ... on SingleImageRecord {
                   id
                   _modelApiKey

@@ -34,6 +34,7 @@ h1.markdown > p {
   font-family: $font-tex-cond;
   line-height: 1;
   @include font-size(48px, 96px);
+  padding: 0;
 }
 
 h2,
@@ -62,6 +63,7 @@ a {
   color: $black;
   border-bottom: 2px solid $black;
   text-decoration: none;
+  transition: border 100ms $easing;
 
   &:hover,
   &:focus,
@@ -72,6 +74,12 @@ a {
 
   &:focus {
     outline: none;
+  }
+
+  span {
+    & > * {
+      text-decoration: none !important;
+    }
   }
 
   @media (hover: hover) {
@@ -95,6 +103,7 @@ a {
       font-family: $font-tex-cond;
       font-weight: 400;
       text-transform: uppercase;
+      padding-bottom: $space-sm;
     }
   }
 }
@@ -130,22 +139,14 @@ p.markdown {
   }
 
   p {
-    padding-bottom: $space-xs;
+    padding-bottom: $space-sm;
 
     p:last-of-type {
       padding-bottom: 0;
     }
-
-    @include breakpoint(large) {
-      padding-bottom: $space-md;
-    }
-
-    @include breakpoint(x-large) {
-      padding-bottom: $space-lg;
-    }
   }
 
   &.title {
-    opacity: 0.4;
+    opacity: 0.5;
   }
 }

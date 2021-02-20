@@ -1,60 +1,25 @@
 .footer {
-  @include mb(x0);
-
   .row {
     @include display-grid;
-    @include px(x0);
-    @include pb(x1);
-
-    @include breakpoint(medium) {
-      @include pb(x0p5);
-    }
-
-    @include breakpoint(x-large) {
-      @include pb(x0p25);
-    }
+    margin-bottom: $space-sm;
 
     .tagline {
       grid-row: 1;
-      grid-column: 1 / 26;
-      @include mb(x1p5);
+      grid-column: 2 / 25;
 
       @include breakpoint(medium) {
-        grid-column: 1 / 20;
-        @include mb(x1);
+        grid-column: 2 / 19;
       }
 
       @include breakpoint(large) {
-        grid-column: 1 / 16;
-        @include mb(x0p5);
-      }
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 13;
-      }
-
-      @include breakpoint(xx-large) {
-        grid-column: 3 / 13;
+        grid-column: 2 / span 7;
       }
     }
 
     .contact {
       grid-row: 2;
-      grid-column: 1 / 22;
-      @include mb(x1p5);
-
-      @include breakpoint(medium) {
-        grid-column: 1 / 26;
-        @include mb(x1);
-      }
-
-      @include breakpoint(large) {
-        @include mb(x0p5);
-      }
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 25;
-      }
+      grid-column: 2 / 25;
+      margin: $space-md 0 $space-sm;
 
       @include breakpoint(xx-large) {
         grid-column: 3 / 24;
@@ -90,16 +55,8 @@
 
     .links {
       grid-row: 3;
-      grid-column: 1 / 26;
-      @include mb(x0p5);
-
-      @include breakpoint(large) {
-        @include mb(x0p25);
-      }
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 25;
-      }
+      grid-column: 2 / 25;
+      margin-bottom: $space-sm;
 
       @include breakpoint(xx-large) {
         grid-column: 3 / 24;

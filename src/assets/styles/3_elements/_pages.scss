@@ -1,13 +1,5 @@
 .outer-margin {
-  @include mt(x6);
-
-  @include breakpoint(medium) {
-    @include mt(x4);
-  }
-
-  @include breakpoint(large) {
-    @include mt(x2);
-  }
+  margin-top: $space-xl;
 
   .row {
     @include display-grid;
@@ -15,26 +7,7 @@
     grid-template-columns: repeat(25, 1fr);
 
     .column {
-      // height: auto;
-      // box-sizing: content-box;
-
-      @include px(x1);
-      @include mb(x1);
-
-      // @include breakpoint(medium) {
-      //   @include px(x0p5);
-      //   @include mb(x0p5);
-      // }
-
-      @include breakpoint(large) {
-        @include px(x0p75);
-        @include mb(x0p75);
-      }
-
-      @include breakpoint(x-large) {
-        @include px(x0);
-        @include mb(x0p5);
-      }
+      margin-top: $space-md;
     }
   }
 }
