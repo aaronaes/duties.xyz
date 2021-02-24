@@ -1,4 +1,6 @@
 .footer {
+  margin-top: $space-xl;
+
   .row {
     @include display-grid;
     margin-bottom: $space-sm;

@@ -49,26 +49,13 @@ body.project {
         .row.nav {
           cursor: pointer !important;
           @include display-grid;
-          @include pt(x1p5);
-          @include m(x0);
-
-          @include breakpoint(medium) {
-            @include pt(x1);
-          }
-
-          @include breakpoint(large) {
-            @include pt(x0p5);
-          }
 
           @include breakpoint(x-large) {
             grid-column: 2 / 25;
-            @include pt(x0p25);
-            @include px(x0);
           }
 
           @include breakpoint(xx-large) {
             grid-column: 3 / 24;
-            @include px(x0);
           }
 
           .column {
@@ -172,30 +159,18 @@ body.project {
         .header {
           grid-column: 2 / 25;
           z-index: 9999;
-          @include m(x0);
           position: absolute;
+          margin: 0;
+          padding: 0;
 
           .row {
             width: 100vw;
             opacity: 1;
-            @include m(x0);
-            @include pt(x1p5);
-
-            @include breakpoint(medium) {
-              @include pt(x1);
-            }
-
-            @include breakpoint(large) {
-              @include pt(x0p5);
-            }
-
-            @include breakpoint(x-large) {
-              @include pt(x0p25);
-            }
+            margin-top: $space-md;
 
             .heading {
               grid-column: 2 / 25;
-              @include mb(x0p125);
+              margin: 0;
 
               @include breakpoint(x-large) {
                 grid-column: 2 / 25;
@@ -265,19 +240,17 @@ body.project {
           grid-column: 2 / 25;
           background-color: initial;
           opacity: 1;
-          @include mt(x0);
-          @include mb(x2);
+          margin-top: 0;
 
           .row {
-            @include mt(x0);
-
             .heading {
               grid-column: 2 / 25;
               grid-row: 1;
-              @include mb(x0p25);
+              margin-top: 0;
+              padding-top: $space-xs;
 
               @include breakpoint(medium) {
-                grid-column: 1 / 20;
+                grid-column: 2 / 20;
               }
 
               @include breakpoint(x-large) {
@@ -292,11 +265,10 @@ body.project {
             .body {
               grid-column: 2 / 25;
               grid-row: 2;
-              @include pb(x0p125);
-              @include mb(x0);
+              margin-top: 0;
 
               @include breakpoint(medium) {
-                grid-column: 1 / 20;
+                grid-column: 2 / 20;
               }
 
               @include breakpoint(x-large) {
@@ -306,21 +278,15 @@ body.project {
               @include breakpoint(xx-large) {
                 grid-column: 3 / 12;
               }
-
-              p {
-                &:not(:last-of-type) {
-                  @include pb(x0p25);
-                }
-              }
             }
 
             .tags {
               grid-column: 2 / 25;
               grid-row: 3;
-              @include pb(x0p25);
+              margin-top: 0;
 
               @include breakpoint(medium) {
-                grid-column: 1 / 24;
+                grid-column: 2 / 24;
               }
 
               @include breakpoint(x-large) {
@@ -337,10 +303,10 @@ body.project {
         // Case Block
         .asset {
           .outer-margin {
-            @include mt(x0p5);
+            margin-top: $space-md;
 
             .column {
-              @include mb(x0);
+              margin-bottom: 0;
             }
           }
 
@@ -503,15 +469,15 @@ body.project {
             }
 
             &.full {
-              @include mt(x3);
+              margin-top: $space-xl;
 
               .row {
                 .column {
-                  grid-column: 2 / 25;
-                  @include px(x0);
+                  grid-column: 1 / 26;
 
                   .content {
                     background-color: transparent !important;
+
                     .device-inner {
                       .image {
                         @include breakpoint(small only) {
@@ -745,6 +711,136 @@ body.project {
                         float: left;
                       }
                     }
+                  }
+                }
+              }
+            }
+          }
+
+          .video {
+            .row {
+              .column {
+                grid-column: 2 / 25;
+
+                @include breakpoint(x-large) {
+                  grid-column: 2 / 25;
+                }
+
+                @include breakpoint(xx-large) {
+                  grid-column: 3 / 24;
+                }
+
+                .content {
+                  background-color: transparent;
+                }
+
+                &.website {
+                  .content {
+                    background-color: $grey;
+                    overflow: hidden;
+
+                    .image {
+                      img,
+                      video {
+                        border: 2px solid $black;
+
+                        @include breakpoint(x-large) {
+                          object-fit: cover;
+                          object-position: top;
+                          height: 50vw;
+                          max-height: 45vw;
+                        }
+                      }
+                    }
+
+                    &:before {
+                      content: "•••";
+                      color: $white;
+                      background-color: $black;
+                      padding: 0px $x0p5;
+                      font-size: clamp(6px, 3vw, 12px);
+                      letter-spacing: 2px;
+                      height: clamp(16px, 3vw, 34px);
+                      display: block;
+                      position: relative;
+                      width: 100%;
+                      display: flex;
+                      flex-direction: row;
+                      text-align: left;
+                      justify-content: flex-start;
+                    }
+
+                    @include breakpoint(medium) {
+                      @include py(x1);
+                      @include px(x2);
+
+                      &:before {
+                        content: "○○○";
+                        color: $white;
+                        background-color: $black;
+                        padding: 0px clamp(6px, 3vw, 12px);
+                        font-size: clamp(6px, 3vw, 12px);
+                        letter-spacing: 3px;
+                        line-height: clamp(16px, 3vw, 34px);
+                        height: clamp(16px, 3vw, 34px);
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        text-align: justify;
+                        justify-content: flex-start;
+                      }
+                    }
+
+                    @include breakpoint(large) {
+                      @include px(x3);
+                    }
+                  }
+                }
+
+                &.device {
+                  .content {
+                    background-color: $grey !important;
+                    @include px(x2);
+                    @include py(x2);
+
+                    @include breakpoint(large) {
+                      @include px(x3);
+                    }
+
+                    .device-inner {
+                      position: relative;
+
+                      .image {
+                        img,
+                        video {
+                          width: 100%;
+                          height: auto;
+                          border-radius: $radius;
+                          border: clamp(6px, 0.6vw, 12px) solid $theme-color;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                figcaption {
+                  grid-column: 3 / 24;
+                  padding-top: $x0p5;
+
+                  @include breakpoint(medium) {
+                    grid-column: 3 / 20;
+                  }
+
+                  @include breakpoint(large) {
+                    grid-column: 4 / 13;
+                  }
+
+                  p {
+                    font-size: clamp(14px, 1vw, 18px);
+                    line-height: 1.45;
+                    float: left;
                   }
                 }
               }
@@ -1084,21 +1180,20 @@ body.project {
           }
 
           .image-carousel {
-            @include mt(x1);
-            @include mb(x2);
+            margin-top: $space-md;
+            margin-bottom: $space-md;
 
             .row {
               display: grid;
               grid-template-columns: repeat(1, auto) !important;
 
               &:last-of-type {
-                @include mt(x0);
+                margin-top: 0;
               }
 
               .carousel-inner {
                 position: relative;
-                @include mb(x0p25);
-                @include p(x0);
+                margin-bottom: $space-sm;
 
                 .swiper-container {
                   overflow-x: hidden;
@@ -1107,28 +1202,23 @@ body.project {
 
                   .swiper-wrapper {
                     width: 100vw;
-                    @include px(x0p25);
 
                     .swiper-slide {
                       cursor: move; /* fallback if grab cursor is unsupported */
                       cursor: grab;
                       width: auto;
                       height: auto;
-                      @include ml(x1);
+                      margin-left: $space-lg;
 
                       &:active {
                         cursor: grabbing !important;
-                      }
-
-                      @include breakpoint(medium) {
-                        @include ml(x0p5);
                       }
 
                       .image {
                         img {
                           height: 100%;
                           width: auto;
-                          height: clamp(305px, 26vw, 575px);
+                          height: clamp(305px, 40vw, 575px);
                         }
                       }
 
@@ -1168,10 +1258,6 @@ body.project {
                   display: block;
                   align-items: center;
                   justify-content: center;
-
-                  // &:after {
-                  //   display: none;
-                  // }
                 }
 
                 .carousel-button-prev {
@@ -1192,11 +1278,12 @@ body.project {
               }
 
               .pagination {
-                grid-column: 1 / 24;
+                grid-column: 1 / 2;
 
                 .carousel-pagination {
                   text-align: right;
                   @include font-size(18px, 30px);
+                  padding-right: $x1;
 
                   span {
                     &.swiper-pagination-current,
@@ -1217,7 +1304,6 @@ body.project {
           .row {
             .column {
               grid-column: 2 / 25;
-              @include mb(x0);
 
               @include breakpoint(x-large) {
                 grid-column: 2 / 25;
@@ -1227,11 +1313,8 @@ body.project {
                 grid-column: 3 / 24;
               }
 
-              @include breakpoint(small) {
-                padding: 0;
-              }
-
               &.props {
+               margin: 0;
                 p {
                   span {
                     display: inline;
@@ -1252,10 +1335,12 @@ body.project {
         }
 
         .button {
-          @include mt(x3);
+          margin-top: $space-xl;
+          padding-bottom: $space-md;
 
           .row {
             .column {
+              margin: 0;
               position: relative;
               grid-column: 2 / 25;
 
@@ -1273,12 +1358,11 @@ body.project {
         }
 
         .similar {
-          @include mt(x0);
-          @include pb(x0p125);
+          margin: 0;
+          padding-bottom: $space-md;
 
           .row {
             @include display-grid;
-            @include mb(x0);
 
             .similar-list {
               position: relative;
@@ -1340,12 +1424,22 @@ body.project {
 
                       .tags {
                         float: left;
-                        transform: translateY(-0.4rem);
+                        transform: translateY(-1rem);
                         @include ml(x0p125);
 
                         @include breakpoint(small only) {
                           display: none;
                         }
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    .tags {
+                      p {
+                        background-color: $black;
+                        border-color: $black;
+                        color: $white;
                       }
                     }
                   }

@@ -175,7 +175,7 @@
             <figure class="column">
               <div class="content">
                 <div class="device-inner">
-                  <video id="video" autoplay loop :key="video">
+                  <video id="video" autoplay muted loop :key="video">
                     <source
                       id="mp4"
                       :src="getUrl(block.video.url)"
@@ -428,7 +428,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: `${this.project.title} – ${this.project.subtitle} — Duties.xyz`,
+      title: `${this.project.title} — Duties.xyz`,
       meta: [
         {
           name: "description",

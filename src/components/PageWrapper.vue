@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav />
-    <transition name="loadPage">
+    <transition name="loadPage" mode="out-in">
       <slot></slot>
     </transition>
   </div>

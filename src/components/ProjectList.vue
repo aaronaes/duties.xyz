@@ -1,68 +1,70 @@
 <template>
-  <section class="outer-margin project-list">
-    <article
-      class="row project fade-in"
-      v-in-viewport.once
-      v-for="(project, i) in projects"
-      :key="i"
-      :id="`project-${project.id}`"
-      :class="{
-        isMini: project.readMore === false
-      }"
-    >
-      <figure class="column summary">
-        <a class="imgBox" @click="e => handleProjectClick(e, project)">
-          <div class="image" v-if="project.projectThumbnail">
-            <img
-              :src="getUrl(project.projectThumbnail.url)"
-              :srcset="getSrcSet(project.projectThumbnail.url)"
-            />
-          </div>
-          <div class="caption">
-            <div class="heading">
-              <h2
+  <section class="outer-margin projects">
+    <section class="project-list">
+      <article
+        class="project fade-in"
+        v-in-viewport.once
+        v-for="(project, i) in projects"
+        :key="i"
+        :id="`project-${project.id}`"
+        :class="{
+          isMini: project.readMore === false
+        }"
+      >
+        <figure class="column summary">
+          <a class="imgBox" @click="e => handleProjectClick(e, project)">
+            <div class="image" v-if="project.projectThumbnail">
+              <img
+                :src="getUrl(project.projectThumbnail.url)"
+                :srcset="getSrcSet(project.projectThumbnail.url)"
+              />
+            </div>
+            <div class="caption">
+              <div class="heading">
+                <h2
+                  v-if="project.readMore === true"
+                  class="markdown title"
+                  v-show="project.title.length > 0"
+                  v-html="project.title"
+                >
+                  :
+                </h2>
+              </div>
+              <div class="body hide-for-small-only">
+                <p
+                  v-if="project.readMore === true"
+                  class="markdown"
+                  v-show="project.subtitle.length > 0"
+                  v-html="project.subtitle"
+                ></p>
+                <p
+                  v-if="project.readMore === false"
+                  class="markdown"
+                  v-show="project.subtitle.length > 0"
+                  v-html="project.subtitle"
+                ></p>
+              </div>
+              <div
+                class="tags hide-for-small-only"
                 v-if="project.readMore === true"
-                class="markdown title"
-                v-show="project.title.length > 0"
-                v-html="project.title"
               >
-                :
-              </h2>
+                <p
+                  class="body-text markdown"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  {{ category.categoryType }}
+                </p>
+              </div>
             </div>
-            <div class="body hide-for-small-only">
-              <p
-                v-if="project.readMore === true"
-                class="markdown"
-                v-show="project.subtitle.length > 0"
-                v-html="project.subtitle"
-              ></p>
-              <p
-                v-if="project.readMore === false"
-                class="markdown"
-                v-show="project.subtitle.length > 0"
-                v-html="project.subtitle"
-              ></p>
-            </div>
-            <div
-              class="tags hide-for-small-only"
-              v-if="project.readMore === true"
-            >
-              <p
-                class="body-text markdown"
-                v-for="(category, i) in project.categories"
-                :key="i"
-              >
-                {{ category.categoryType }}
-              </p>
-            </div>
-          </div>
-        </a>
-      </figure>
-    </article>
+          </a>
+        </figure>
+      </article>
 
-    <article class="project-wrap" v-if="isOpen" :key="$route.params.id">
-      <router-view :key="'a' + $route.params"></router-view>
-    </article>
+      <article class="project-wrap" v-if="isOpen" :key="$route.params.id">
+        <router-view :key="'a' + $route.params"></router-view>
+      </article>
+    </section>
   </section>
 </template>
 

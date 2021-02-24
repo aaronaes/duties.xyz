@@ -25,12 +25,4 @@ body {
   position: relative;
   scroll-behavior: smooth;
   min-height: -webkit-fill-available;
-
-  &.project {
-    overflow: hidden;
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
 }

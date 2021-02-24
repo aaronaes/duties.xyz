@@ -36,19 +36,27 @@
             <p v-html="frontpage.ondutyBody"></p>
           </div>
         </figure>
+        <figure class="link heading">
+          <router-link to="about">
+            <h3 class="title">Read more</h3>
+          </router-link>
+        </figure>
       </article>
     </section>
 
     <!-- Off-duty Block -->
     <section class="outer-margin off-duty sand">
       <article class="row fade-in" v-in-viewport.once>
-        <!-- <figure class="column header">
-          <div class="heading">
+        <figure class="column header">
+          <div class="heading hide-for-small-only">
             <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
           </div>
-        </figure> -->
+        </figure>
         <figure class="column body heading">
-          <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
+          <h1
+            class="title markdown show-for-small-only"
+            v-html="frontpage.offTitle"
+          ></h1>
           <div class="text">
             <p class="markdown" v-html="frontpage.offBody"></p>
           </div>
@@ -133,16 +141,9 @@ export default {
       swiperOptions: {
         speed: 400,
         grabCursor: "true",
-        allowTouchMove: "true",
         slidesPerView: "auto",
-        touchRatio: 0.2,
         loop: true,
-        slideToClickedSlide: true,
         loopedSlides: 50,
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false
-        },
         pagination: {
           el: ".carousel-pagination",
           type: "fraction"

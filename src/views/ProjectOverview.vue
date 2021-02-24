@@ -1,56 +1,35 @@
 <template>
   <div>
-    <section class="outer-margin projectOverview">
-      <article class="project-grid">
-        <figure
-          class="project-item"
-          v-for="project in projectOverview.projects"
-          :key="project.id"
-        >
-          <ul>
-            <li>
-              <a
-                :href="project.siteLink"
-                target="_blank"
-                v-if="project.readMore === false"
-              >
-                <div class="project-content heading">
-                  <h1
-                    class="float-left title markdown"
-                    v-html="project.title"
-                  ></h1>
-                  <div class="tags">
-                    <p
-                      class="body-text markdown"
-                      v-for="(category, i) in project.categories"
-                      :key="i"
-                    >
-                      {{ category.categoryType }}
-                    </p>
-                  </div>
-                </div>
-              </a>
-
-              <a
-                :href="'/projects/' + project.slug"
-                v-if="project.readMore === true"
-                @click="e => handleProject(e, project)"
-              >
-                <div class="project-content heading">
-                  <h1 class="markdown title" v-html="project.title"></h1>
-                  <div class="tags">
-                    <p
-                      class="body-text markdown"
-                      v-for="(category, i) in project.categories"
-                      :key="i"
-                    >
-                      {{ category.categoryType }}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
+    <section class="outer-margin projectOverview project-grid">
+      <article
+        class="project-item"
+        v-for="project in projectOverview.projects"
+        :key="project.id"
+      >
+        <figure>
+          <a
+            :href="'/projects/' + project.slug"
+            @click="e => handleProject(e, project)"
+          >
+            <div class="column image">
+              <img
+                :src="getUrl(project.projectThumbnail.url)"
+                :srcset="getSrcSet(project.projectThumbnail.url)"
+              />
+            </div>
+            <div class="project-content heading">
+              <h3 class="markdown" v-html="project.title"></h3>
+              <div class="tags">
+                <p
+                  class="body-text markdown"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  {{ category.categoryType }}
+                </p>
+              </div>
+            </div>
+          </a>
         </figure>
       </article>
     </section>
