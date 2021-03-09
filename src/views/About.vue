@@ -1,13 +1,14 @@
 <template>
   <main id="about">
     <section class="outer-margin intro">
-      <article class="row">
-        <figure class="column heading">
-          <h1
+      <article class="row first">
+        <figure class="column header">
+          <h3
             v-in-viewport.once="{ margin: '-5% 0%' }"
             :class="{ fadeOut: isHovering }"
-            class="markdown title"
+            class="markdown"
           >
+            At
             <span
               class="audio"
               ref="audioElm"
@@ -22,15 +23,17 @@
             >
               Duties<strong>*</strong>
             </span>
-            is a digital design studio and creative collaborator based in Oslo.
-          </h1>
+            we help our clients and friends with website design, apps, UX, brand
+            identities and a bit of XYZ.
+          </h3>
           <p class="markdown tagline" :class="{ highlight: isHovering }">
             * A moral or legal obligation a responsibility.
           </p>
         </figure>
+      </article>
+      <article class="row hide">
         <figure class="column body">
-          <!-- <p v-html="block.title"></p> -->
-          <p class="markdown" v-html="about.introduction"></p>
+          <h3 class="markdown" v-html="about.introduction"></h3>
         </figure>
       </article>
     </section>
@@ -49,47 +52,58 @@
     <section class="outer-margin services">
       <article class="row column">
         <figure class="column heading fade-in" v-in-viewport.once>
-          <h1 class="markdown title" v-html="about.offeringIntro"></h1>
+          <h1 class="markdown title hide" v-html="about.offeringIntro"></h1>
+          <h1 class="markdown title big outlined">Services</h1>
         </figure>
 
         <figure class="column body fade-in" v-in-viewport.once>
-          <p class="body" v-html="about.offeringContent"></p>
+          <h3>
+            We can help you with <span class="number">1</span> designing your
+            next app, <span class="number">2</span> enhancing user experience,
+            <span class="number">3</span>
+            writing engaging microcopy, <span class="number">4</span> creating a
+            website that converts or <span class="number">5</span> defining your
+            brand position.
+          </h3>
+          <p class="body markdown hide" v-html="about.offeringContent"></p>
         </figure>
 
-        <figure class="column list fade-in" v-in-viewport.once>
-          <ul>
-            <li
-              class="heading"
-              v-for="item in about.serviceList"
-              :key="item.id"
-            >
-              <div class="icon">
-                <svg
-                  width="472"
-                  height="326"
-                  viewBox="0 0 472 326"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M371.513 74.9572H337.905C337.905 114.937 355.562 150.855 383.473 175.414H331.159C330.711 175.414 315.538 175.299 293.471 172.519C288.233 126.435 270.701 77.749 239.194 40.5499C199.934 -5.79567 140.289 -9.85607 109.209 15.4318C85.6244 34.6309 74.8359 73.4765 115.287 124.931C151.994 171.62 213.677 192.377 261.758 201.601C261.791 224.876 257.949 246.041 250.521 262.029C241.148 282.207 227.288 292.437 209.323 292.437C178.064 292.437 161.435 272.968 140.382 248.32C112.596 215.791 78.0138 175.306 0 175.306V208.869C62.5068 208.869 87.9142 238.615 114.812 270.103C138.285 297.585 162.557 326 209.323 326C240.619 326 266.079 308.297 281.01 276.153C289.777 257.278 294.602 233.074 295.116 206.633C315.463 208.896 329.338 208.977 331.145 208.977H383.224C355.456 233.531 337.905 269.357 337.905 309.219H371.513C371.513 253.885 416.592 208.869 472 208.869V175.306C416.592 175.306 371.513 130.291 371.513 74.9572ZM141.721 104.205C120.127 76.7349 115.912 53.2787 130.443 41.4484C137.586 35.6373 146.189 33.1849 155.242 33.1849C176.633 33.1849 200.529 46.8738 213.536 62.2285C238.352 91.5266 253.163 129.782 258.945 166.642C218.152 157.781 169.845 139.974 141.721 104.205Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-
-              <h3 class="title markdown" v-html="item.listTitle"></h3>
-            </li>
-          </ul>
+        <figure class="column legend fade-in" v-in-viewport.once>
+          <p>
+            <span class="number">1</span>
+            <span class="caption">Product design</span>
+          </p>
+          <p>
+            <span class="number">2</span>
+            <span class="caption">UX</span>
+          </p>
+          <p>
+            <span class="number">3</span>
+            <span class="caption">Content</span>
+          </p>
+          <p>
+            <span class="number">4</span>
+            <span class="caption">Strategy</span>
+          </p>
+          <p>
+            <span class="number">5</span>
+            <span class="caption">Branding</span>
+          </p>
         </figure>
       </article>
     </section>
 
     <section class="outer-margin people">
-      <article class="row column">
-        <figure class="column network fade-in" v-in-viewport.once>
-          <p class="markdown title" v-html="about.networkTitle"></p>
-          <p class="markdown body" v-html="about.networkBody"></p>
+      <article class="row">
+        <figure class="heading title fade-in" v-in-viewport.once>
+          <h1 class="markdown title big outlined">Team</h1>
+        </figure>
+        <figure
+          class="column header hide-for-small-only fade-in"
+          v-in-viewport.once
+        >
+          <h3 class="markdown title" v-html="about.networkTitle"></h3>
+          <p class="markdown body " v-html="about.networkBody"></p>
         </figure>
         <figure
           class="column person fade-in"
@@ -104,47 +118,63 @@
             />
           </div>
           <div class="heading">
-            <h2 class="title">{{ person.name }}</h2>
-            <p>{{ person.title }}</p>
+            <h3>{{ person.name }}</h3>
+            <p>
+              <small>{{ person.title }}</small>
+            </p>
             <p>
               <a :href="'mailto:' + person.email">
-                {{ person.email }}
+                <small>{{ person.email }}</small>
               </a>
             </p>
           </div>
         </figure>
+        <figure
+          class="column body show-for-small-only fade-in"
+          v-in-viewport.once
+        >
+          <h3 class="markdown title" v-html="about.networkTitle"></h3>
+          <p class="markdown body" v-html="about.networkBody"></p>
+        </figure>
       </article>
     </section>
 
-    <section class="outer-margin clients">
+    <section class="outer-margin clients hide">
       <article class="row">
-        <figure class="column body">
+        <figure class="column header">
+          <h2>
+            We have been lucky enough to work with a variety of excellent
+            companies and people throughout the years, like NBX, 🍕Domino's
+            Pizza, 🌀Psynapse, 🍜Food Society, 🥗Godtlevert and more.
+          </h2>
+        </figure>
+        <figure class="column body hide">
           <div class="body">
-            <div class="body" v-html="about.ffBody"></div>
+            <h3 class="markdown" v-html="about.ffBody"></h3>
           </div>
         </figure>
         <figure class="column list">
           <div class="heading" v-if="showLess">
             <h3
-              class="pill title"
+              class="pill"
               v-for="asset in about.ffMarqueeOne.slice(0, 9)"
               :key="asset.id"
             >
               {{ asset.name }}
             </h3>
-            <h3 class="pill title" @click="showLess = false">
+            <h3 class="pill" @click="showLess = false">
               <span class="arrow">+</span>
             </h3>
           </div>
           <div class="heading" v-else>
             <h3
-              class="pill title"
+              class="pill"
               v-for="asset in about.ffMarqueeOne"
               :key="asset.id"
             >
               {{ asset.name }}
             </h3>
-            <h3 class="pill title" @click="showLess = true">
+            <h3 class="pill" @click="showLess = true">
               <span class="arrow">–</span>
             </h3>
           </div>
@@ -362,12 +392,12 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 60 })} 640w,
-      ${imgix({ url: url, w: 768, q: 60 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 80 })} 1920w,
+      ${imgix({ url: url, w: 640, q: 50 })} 640w,
+      ${imgix({ url: url, w: 768, q: 50 })} 768w,
+      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+      ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
       `;
     }
   },
@@ -385,7 +415,7 @@ export default {
     }
   },
   beforeCreate: function() {
-    document.body.className = "about dark";
+    document.body.className = "about";
   }
 };
 </script>

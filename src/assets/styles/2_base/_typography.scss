@@ -24,46 +24,62 @@ h6 {
   padding: 0;
   font-weight: normal;
   color: inherit;
-  letter-spacing: -1.5px;
-  word-spacing: -0.3px;
+  letter-spacing: -0.85px;
+  word-spacing: -0.6px;
   vertical-align: baseline;
 }
 
 h1,
 h1.markdown > p {
-  font-family: $font-tex-cond;
+  // font-family: $font-tex-cond;
+  // line-height: 1;
+  // @include font-size(48px, 96px);
+
+  font-family: $font-tex-regular;
+  @include font-size(32px, 96px);
   line-height: 1;
   padding: 0;
-  @include font-size(48px, 112px);
+
+  &.big {
+    font-family: $font-tex-cond;
+    @include font-size(78px, 208px);
+    line-height: 1;
+  }
+
+  &.outlined {
+    color: transparent !important;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $black;
+  }
 }
 
 h2,
 h2.markdown > p {
-  font-family: $font-tex-cond;
-  line-height: 1;
-  @include font-size(40px, 72px);
+  line-height: 1.2;
+  @include font-size(28px, 72px);
 }
 
 h3,
 h3.markdown > p {
-  font-family: $font-tex-cond;
-  line-height: 1;
-  @include font-size(32px, 48px);
+  @include font-size(24px, 56px);
+  line-height: 1.3;
+  margin-bottom: $space-md;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 p,
 p.markdown > p {
-  @include font-size(18px, 26px);
-  line-height: 1.4;
+  @include font-size(20px, 30px);
+  line-height: 1.3;
 }
-
-// Link styles
 
 a {
   color: $black;
   border-bottom: 2px solid $black;
   text-decoration: none;
-  transition: border 100ms $easing;
 
   &:hover,
   &:focus,
@@ -103,14 +119,12 @@ a {
       font-weight: 400;
       text-transform: uppercase;
       padding-bottom: $space-sm;
-      line-height: 0.9;
-    }
-    &.title p {
-      font-family: $font-tex-cond;
-      font-weight: 400;
-      text-transform: uppercase;
-      padding-bottom: $space-sm;
-      line-height: 0.9;
+
+      p {
+        font-family: $font-tex-cond;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
     }
   }
 }
@@ -124,36 +138,44 @@ strong {
 }
 
 small {
-  size: 80%;
-  font-family: $font-tex-bold;
+  @include font-size(18px, 26px);
+  line-height: 1;
 }
 
 // Body styles
 
-.body,
-p.body,
-p.markdown {
-  ul {
-    padding-bottom: $space-xs;
+// .body,
+// p.body,
+// p.markdown {
+//   ul {
+//     padding-bottom: $space-xs;
 
-    @include breakpoint(large) {
-      padding-bottom: $space-md;
-    }
+//     @include breakpoint(large) {
+//       padding-bottom: $space-md;
+//     }
 
-    @include breakpoint(x-large) {
-      padding-bottom: $space-lg;
-    }
-  }
+//     @include breakpoint(x-large) {
+//       padding-bottom: $space-lg;
+//     }
+//   }
 
-  p {
-    padding-bottom: $space-sm;
+//   p {
+//     padding-bottom: $space-md;
 
-    p:last-of-type {
-      padding-bottom: 0;
-    }
-  }
+//     &:only-of-type {
+//       padding-bottom: $space-md;
 
-  &.title {
-    opacity: 0.5;
-  }
-}
+//       &:last-of-type {
+//         padding-bottom: $space-md;
+//       }
+//     }
+
+//     &:last-of-type {
+//       padding-bottom: 0;
+//     }
+//   }
+
+//   &.title {
+//     opacity: 0.5;
+//   }
+// }

@@ -1,3 +1,7 @@
+main {
+  min-height: 100%;
+}
+
 .outer-margin {
   margin-top: $space-xl;
 
@@ -7,7 +11,7 @@
     grid-template-columns: repeat(25, 1fr);
 
     .column {
-      margin-top: $space-sm;
+      margin-bottom: $space-xs;
     }
   }
 }

@@ -1,10 +1,16 @@
 <template>
   <main>
     <!-- Masthead -->
-    <section class="outer-margin hero">
+    <section class="outer-margin hero hide">
       <article class="row">
         <figure class="column heading">
-          <h1 class="title markdown" v-html="frontpage.intro"></h1>
+          <h1
+            class="title markdown hide-for-small-only"
+            v-html="frontpage.intro"
+          ></h1>
+          <h1 class="title markdown show-for-small-only">
+            A digital design partner for ambitious businesses.
+          </h1>
         </figure>
       </article>
     </section>
@@ -12,80 +18,66 @@
     <!-- Project List -->
     <ProjectList :projects="projects" />
 
-    <StoryList :stories="stories" />
+    <!-- Story List -->
+    <NewsList :stories="stories" />
 
-    <!-- Studio Block -->
-    <section class="outer-margin studio dark">
-      <article class="row fade-in" v-in-viewport.once>
-        <figure class="column header show-for-small-only">
-          <div class="heading">
-            <h1 class="title" v-html="frontpage.ondutyTitle"></h1>
-          </div>
-        </figure>
-        <figure class="image">
-          <img
-            :src="getUrl(frontpage.ondutyImage.url)"
-            :srcset="getSrcSet(frontpage.ondutyImage.url)"
-          />
-        </figure>
-        <figure class="body">
-          <div class="heading hide-for-small-only">
-            <h1 class="title" v-html="frontpage.ondutyTitle"></h1>
-          </div>
-          <div class="text">
-            <p v-html="frontpage.ondutyBody"></p>
-          </div>
-        </figure>
-        <figure class="link heading">
-          <router-link to="about">
-            <h3 class="title">Read more</h3>
-          </router-link>
-        </figure>
-      </article>
-    </section>
+    <intersect
+      :threshold="[0.4, 0.8]"
+      :root="main"
+      @enter="addBodyClass"
+      @leave="removeBodyClass"
+    >
+      <section class="outer-margin offduty">
+        <article class="row content top">
+          <figure class="header">
+            <h1 class="title big outlined negative">OFF—DUTY</h1>
+          </figure>
+          <figure class="counter">
+            <div class="pagination"></div>
+          </figure>
+        </article>
+        <article class="row swiper">
+          <figure class="carousel-block">
+            <figure class="carousel">
+              <swiper
+                ref="mySwiper"
+                :options="swiperOptions"
+                :auto-update="true"
+                :auto-destroy="true"
+              >
+                <swiper-slide
+                  v-for="asset in frontpage.offGallery"
+                  :key="asset.id"
+                >
+                  <div class="slide-img">
+                    <img
+                      :src="getUrl(asset.url)"
+                      :srcset="getSrcSet(asset.url)"
+                    />
+                    <div class="tag" v-if="!!asset.customData.link">
+                      <a :href="asset.customData.link" target="_blank">
+                        <p class="foo">{{ asset.title }}</p>
+                      </a>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </swiper>
+              <!-- Add Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </figure>
+          </figure>
+        </article>
+        <article class="row content">
+          <figure class="body heading">
+            <div class="text">
+              <h3 class="markdown" v-html="frontpage.offBody"></h3>
+            </div>
+          </figure>
+        </article>
+      </section>
+    </intersect>
 
-    <!-- Off-duty Block -->
-    <section class="outer-margin off-duty sand">
-      <article class="row fade-in" v-in-viewport.once>
-        <figure class="column header">
-          <div class="heading hide-for-small-only">
-            <h1 class="title markdown" v-html="frontpage.offTitle"></h1>
-          </div>
-        </figure>
-        <figure class="column body heading">
-          <h1
-            class="title markdown show-for-small-only"
-            v-html="frontpage.offTitle"
-          ></h1>
-          <div class="text">
-            <p class="markdown" v-html="frontpage.offBody"></p>
-          </div>
-        </figure>
-        <figure class="column carousel">
-          <swiper
-            ref="mySwiper"
-            :options="swiperOptions"
-            :auto-update="true"
-            :auto-destroy="true"
-          >
-            <swiper-slide v-for="asset in frontpage.offGallery" :key="asset.id">
-              <div class="slide-img">
-                <img :src="getUrl(asset.url)" :srcset="getSrcSet(asset.url)" />
-                <div class="tag" v-if="!!asset.customData.link">
-                  <a :href="asset.customData.link" target="_blank">
-                    <p class="foo">{{ asset.title }}</p>
-                  </a>
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
-          <!-- Add Arrows -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </figure>
-        <figure class="column swiper-pagination"></figure>
-      </article>
-    </section>
     <Footer />
   </main>
 </template>
@@ -96,14 +88,16 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
 import ProjectList from "@/components/ProjectList.vue";
-import StoryList from "@/components/StoryList.vue";
+import NewsList from "@/components/NewsList.vue";
 import Footer from "@/components/Footer.vue";
+import Intersect from "vue-intersect";
 
 export default {
   name: "Home",
   components: {
+    Intersect,
     ProjectList,
-    StoryList,
+    NewsList,
     Footer
   },
   async created() {
@@ -139,13 +133,13 @@ export default {
       stories: [],
       footer: [],
       swiperOptions: {
-        speed: 400,
+        speed: 100,
         grabCursor: "true",
         slidesPerView: "auto",
         loop: true,
-        loopedSlides: 50,
+        loopedSlides: 50000,
         pagination: {
-          el: ".carousel-pagination",
+          el: ".pagination",
           type: "fraction"
         },
         navigation: {
@@ -156,13 +150,23 @@ export default {
     };
   },
   methods: {
+    addBodyClass() {
+      document.body.classList.add("dark");
+    },
+    removeBodyClass() {
+      document.body.classList.remove("dark");
+    },
     async getProjects() {
       const { data } = await getData({
         query: gql`
           query {
+            _allProjectsMeta {
+              count
+            }
             frontpage {
               projects {
                 id
+                icon
                 title
                 slug
                 subtitle
@@ -259,6 +263,9 @@ export default {
                 id
                 title
                 description
+                categories {
+                  categoryType
+                }
                 storyImage {
                   url
                 }
@@ -301,12 +308,12 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 60 })} 640w,
-      ${imgix({ url: url, w: 768, q: 60 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 80 })} 1920w,
+      ${imgix({ url: url, w: 640, q: 50 })} 640w,
+      ${imgix({ url: url, w: 768, q: 50 })} 768w,
+      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+      ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
       `;
     }
   },

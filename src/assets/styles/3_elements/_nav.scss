@@ -1,23 +1,33 @@
-body {
-  header.global {
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    opacity: 1;
-    transform: translateY(0%);
-    transition: all 300ms $easing;
+header {
+  h3 {
+    cursor: pointer;
+    @include font-size(33px, 56px);
+  }
 
-    &.outer-margin {
+  section {
+    .row {
+      figure.nav {
+        transform: translateX(-1em);
+      }
+    }
+
+    &.topNav {
       @include display-grid;
+      position: relative;
+      top: 0;
       margin: 0;
+      width: 100%;
+      z-index: 5000;
+      opacity: 1;
+      transform: translateY(0%);
+      transition: all 300ms $easing;
 
       .row {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: "a b c";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "a a a c";
         grid-column: 2 / 25;
-        align-items: center;
+        align-items: flex-start;
         margin-top: $space-md;
 
         @include breakpoint(xx-large) {
@@ -25,142 +35,45 @@ body {
         }
 
         .nav-item {
-          overflow: visible;
           position: relative;
           margin: 0;
+
+          h3 {
+            cursor: pointer;
+            position: relative;
+            padding: 0;
+            white-space: pre-line;
+
+            &.page-title {
+              padding-left: $space-xs;
+            }
+
+            span.burger {
+              text-align: center;
+              &:before {
+                content: "";
+                position: absolute;
+                top: 52%;
+                left: 52%;
+                transform: translate(-50%, -50%);
+                width: clamp(48px, 5vw, 64px);
+                height: clamp(48px, 5vw, 64px);
+                border-radius: clamp(48px, 5vw, 64px);
+                border: 3px solid;
+              }
+            }
+          }
 
           a {
             cursor: pointer;
             border: none;
             position: relative;
-
-            mark {
-              display: inline-block;
-              overflow: visible;
-              position: relative;
-              background-color: transparent;
-            }
-
-            h3 {
-              @include m(x0);
-            }
-
-            &.router-link-exact-active {
-              mark {
-                .svg {
-                  overflow: visible;
-
-                  .path {
-                    stroke-dasharray: 0;
-                    stroke-dashoffset: 0;
-                    animation: dashOut 300ms linear forwards;
-                    animation-direction: reverse;
-
-                    @keyframes dashIn {
-                      from {
-                        stroke-dashoffset: 0;
-                      }
-                      to {
-                        stroke-dashoffset: 1500;
-                      }
-                    }
-
-                    @keyframes dashOut {
-                      from {
-                        stroke-dashoffset: 0;
-                      }
-                      to {
-                        stroke-dashoffset: 1500;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          &:first-of-type,
-          &:last-of-type {
-            mark {
-              display: inline-block;
-              overflow: visible;
-              position: relative;
-              background-color: transparent;
-
-              .svg {
-                height: calc(100% + 0.3em);
-                left: -0.3em;
-                pointer-events: none;
-                position: absolute;
-                top: -0.5em;
-                touch-action: none;
-                width: calc(100% + 0.6em);
-                z-index: -1;
-
-                .path {
-                  fill: none;
-                  stroke: $accent;
-                  stroke-width: clamp(8px, 1em, 16px);
-                  stroke-dasharray: 1500;
-                  stroke-dashoffset: 1500;
-                  animation: dashIn 300ms linear forwards;
-                }
-
-                @keyframes dashIn {
-                  from {
-                    stroke-dashoffset: 0;
-                  }
-                  to {
-                    stroke-dashoffset: 1500;
-                  }
-                }
-
-                @keyframes dashOut {
-                  from {
-                    stroke-dashoffset: 0;
-                  }
-                  to {
-                    stroke-dashoffset: 1500;
-                  }
-                }
-              }
-
-              &:hover {
-                .svg {
-                  overflow: visible;
-
-                  .path {
-                    animation: dashOut 300ms linear forwards;
-                    animation-direction: reverse;
-                  }
-                }
-              }
-            }
           }
 
           &:first-of-type {
             position: relative;
             grid-area: a;
-          }
-
-          &:nth-of-type(2) {
-            grid-area: b;
-            position: relative;
-            justify-self: center;
-            align-self: center;
-
-            @include p(x0);
-
-            a {
-              display: flex;
-              align-content: center;
-
-              mark {
-                svg {
-                  height: clamp(24px, 2.25vw, 40px);
-                }
-              }
-            }
+            text-align: left;
           }
 
           &:last-of-type {
@@ -171,22 +84,167 @@ body {
         }
       }
     }
-  }
 
-  // &.active,
-  // &.product {
-  //   header.global {
-  //     opacity: 0;
-  //     transform: translateY(-100%);
-  //   }
-  // }
+    &.menu {
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
+      grid-template-rows: auto 1fr auto;
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: $black;
+      z-index: 9000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      visibility: hidden;
 
-  &.about {
-    header.global {
-      & > a {
-        &:hover {
-          h3 {
-            color: $grey !important;
+      * {
+        color: $grey;
+      }
+
+      &.active {
+        visibility: visible;
+      }
+
+      .row {
+        grid-column: 2 / 25;
+        grid-row: 1;
+
+        @include breakpoint(xx-large) {
+          grid-column: 3 / 24;
+        }
+
+        &.header {
+          margin-top: $space-md;
+          .nav-item {
+            position: relative;
+            justify-self: flex-end;
+            margin: 0;
+            grid-column: 1 / 26;
+
+            a,
+            h3 {
+              cursor: pointer;
+              position: relative;
+              text-align: center;
+              padding: 0;
+              white-space: pre-line;
+
+              span.burger {
+                text-align: center;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 52%;
+                  left: 52%;
+                  transform: translate(-50%, -50%);
+                  width: clamp(48px, 5vw, 64px);
+                  height: clamp(48px, 5vw, 64px);
+                  border-radius: clamp(48px, 5vw, 64px);
+                  border: 3px solid;
+                }
+              }
+            }
+          }
+        }
+
+        &.main {
+          grid-row: 1 / 2;
+          margin-top: $space-md;
+
+          @include breakpoint(small only) {
+            margin-top: $space-md;
+            margin-bottom: $space-md;
+            grid-row: 2;
+          }
+
+          .list {
+            grid-column: 1 / 26;
+
+            ul {
+              margin-bottom: $space-md;
+              display: block;
+              float: left;
+
+              li {
+                list-style: none;
+                float: left;
+                display: block;
+                width: 100%;
+                margin-bottom: $space-xxs;
+
+                &.email {
+                  a {
+                    border-bottom: none;
+
+                    h1 {
+                      span {
+                        float: left;
+                        padding-bottom: 4px;
+                        color: transparent;
+                        -webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: $grey;
+                      }
+
+                      &:hover {
+                        span {
+                          color: $accent;
+                          -webkit-text-stroke-width: 1px;
+                          -webkit-text-stroke-color: transparent;
+                        }
+                      }
+                    }
+                  }
+
+                  &:hover {
+                    span {
+                      border-color: transparent !important;
+                    }
+                  }
+                }
+
+                h1 {
+                  display: inline;
+                  line-height: 0.8;
+                  padding-bottom: 4px;
+                  margin: 0;
+
+                  &:hover {
+                    color: rgba($grey, $alpha: 0.25);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.footer {
+          grid-row: 3;
+          padding-bottom: $x1;
+
+          figure {
+            grid-column: 1 / 26;
+
+            ul {
+              li {
+                display: inline;
+                float: left;
+                margin-right: $space-sm;
+
+                p {
+                  a {
+                    border-color: $grey;
+
+                    &:hover {
+                      color: rgba($grey, $alpha: 0.25);
+                      border-color: transparent;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

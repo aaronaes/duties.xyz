@@ -1,6 +1,5 @@
 $theme-color: $black;
 $radius: clamp(24px, 4vw, 64px);
-
 body.project {
   .project-wrap {
     position: fixed;
@@ -13,7 +12,7 @@ body.project {
     left: 0;
     overflow-y: scroll;
     overflow-x: hidden;
-    z-index: 3000;
+    z-index: 4000;
     background-color: $white;
 
     .single-project {
@@ -59,6 +58,7 @@ body.project {
           }
 
           .column {
+            margin-top: $space-md;
             grid-column: 2 / 25;
 
             @include breakpoint(x-large) {
@@ -73,6 +73,7 @@ body.project {
               h3 {
                 text-transform: uppercase;
                 display: inline-block;
+                @include font-size(33px, 56px);
 
                 &.blinking {
                   span {
@@ -83,7 +84,6 @@ body.project {
                     vertical-align: bottom;
                     animation: ellipsis steps(2, end) 1000ms infinite;
                     width: 0px;
-                    margin-left: 6px;
                   }
                 }
 
@@ -163,7 +163,7 @@ body.project {
           margin: 0;
           padding: 0;
 
-          .row {
+          .nav {
             width: 100vw;
             opacity: 1;
             margin-top: $space-md;
@@ -180,9 +180,13 @@ body.project {
                 grid-column: 3 / 24;
               }
 
-              h1,
-              h2,
               h3 {
+                @include font-size(33px, 56px);
+
+                &.page-title {
+                  padding-left: $space-xs;
+                }
+
                 &.inverted {
                   color: $white !important;
                   a {
@@ -193,10 +197,6 @@ body.project {
                 a {
                   border-bottom: none;
                   cursor: pointer;
-                }
-
-                span {
-                  margin-left: 6px;
                 }
 
                 &:hover {
@@ -230,7 +230,11 @@ body.project {
                 width: 100%;
                 object-fit: cover;
                 object-position: 50% 50%;
-                height: calc(100vh - 40px);
+                height: 50vh;
+
+                @include breakpoint(medium) {
+                  height: 110vh;
+                }
               }
             }
           }
@@ -242,45 +246,22 @@ body.project {
           opacity: 1;
           margin-top: 0;
 
-          .row {
+          .project-info {
             .heading {
               grid-column: 2 / 25;
               grid-row: 1;
               margin-top: 0;
               padding-top: $space-xs;
-
-              @include breakpoint(medium) {
-                grid-column: 2 / 20;
-              }
-
-              @include breakpoint(x-large) {
-                grid-column: 2 / 15;
-              }
-
-              @include breakpoint(xx-large) {
-                grid-column: 3 / 12;
-              }
             }
 
             .body {
               grid-column: 2 / 25;
               grid-row: 2;
-              margin-top: 0;
-
-              @include breakpoint(medium) {
-                grid-column: 2 / 20;
-              }
-
-              @include breakpoint(x-large) {
-                grid-column: 2 / 14;
-              }
-
-              @include breakpoint(xx-large) {
-                grid-column: 3 / 12;
-              }
+              margin-top: $x1;
+              margin-bottom: $space-md;
             }
 
-            .tags {
+            .tag {
               grid-column: 2 / 25;
               grid-row: 3;
               margin-top: 0;
@@ -296,6 +277,32 @@ body.project {
               @include breakpoint(xx-large) {
                 grid-column: 3 / 24;
               }
+
+              p {
+                float: left;
+                padding-right: $space-sm;
+
+                span.number {
+                  position: relative;
+                  display: inline-block;
+                  width: clamp(24px, 2.75vw, 40px);
+                  text-align: center;
+                  vertical-align: baseline;
+                  margin-right: $space-xxs;
+
+                  &:before {
+                    content: "";
+                    position: absolute;
+                    top: 55%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: clamp(24px, 2.75vw, 40px);
+                    height: clamp(24px, 2.75vw, 40px);
+                    border-radius: clamp(24px, 2.75vw, 40px);
+                    border: 2px solid;
+                  }
+                }
+              }
             }
           }
         }
@@ -303,7 +310,7 @@ body.project {
         // Case Block
         .asset {
           .outer-margin {
-            margin-top: $space-md;
+            margin-top: $x1;
 
             .column {
               margin-bottom: 0;
@@ -900,14 +907,13 @@ body.project {
           }
 
           .double-img {
-            @include mt(x3);
-            @include mb(x3);
+            margin-top: $space-lg;
+            margin-bottom: $space-xl;
 
             .row {
               display: grid;
               grid-template-columns: repeat(8, 1fr);
               grid-column-gap: $x1;
-              @include px(x1);
 
               @include breakpoint(medium) {
                 @include px(x2);
@@ -929,44 +935,22 @@ body.project {
                 .image {
                   @include mb(x1);
                 }
+              }
+            }
 
-                // &:nth-child(odd) {
-                //   .image {
-                //     &:first-of-type {
-                //       @include mb(x1);
-                //     }
-                //   }
-                // }
+            &.full {
+              .row {
+                @include px(x1);
 
-                // &:nth-child(even) {
-                //   .image {
-                //     &:first-of-type {
-                //       @include mb(x1);
-                //     }
-                //   }
-                // }
+                .column {
+                  grid-auto-columns: auto;
+                  grid-column: span 4;
+                  @include px(x0);
 
-                // @include breakpoint(medium) {
-                //   &:nth-child(odd) {
-                //     grid-column: 2 / 13;
-                //     @include pr(x0p25);
-                //   }
-
-                //   &:nth-child(even) {
-                //     grid-column: 14 / 25;
-                //     @include pl(x0p25);
-                //   }
-                // }
-
-                // @include breakpoint(xx-large) {
-                //   &:nth-child(odd) {
-                //     grid-column: 4 / 12;
-                //   }
-
-                //   &:nth-child(even) {
-                //     grid-column: 15 / 23;
-                //   }
-                // }
+                  .image {
+                    @include mb(x1);
+                  }
+                }
               }
             }
           }
@@ -1193,7 +1177,7 @@ body.project {
 
               .carousel-inner {
                 position: relative;
-                margin-bottom: $space-sm;
+                margin-bottom: $x1;
 
                 .swiper-container {
                   overflow-x: hidden;
@@ -1208,7 +1192,11 @@ body.project {
                       cursor: grab;
                       width: auto;
                       height: auto;
-                      margin-left: $space-lg;
+                      margin-left: $x2;
+
+                      @include breakpoint(medium) {
+                        @include pr(x1);
+                      }
 
                       &:active {
                         cursor: grabbing !important;
@@ -1218,7 +1206,7 @@ body.project {
                         img {
                           height: 100%;
                           width: auto;
-                          height: clamp(305px, 40vw, 575px);
+                          height: clamp(355px, 45vw, 775px);
                         }
                       }
 
@@ -1314,7 +1302,7 @@ body.project {
               }
 
               &.props {
-               margin: 0;
+                margin: 0;
                 p {
                   span {
                     display: inline;
@@ -1336,7 +1324,7 @@ body.project {
 
         .button {
           margin-top: $space-xl;
-          padding-bottom: $space-md;
+          padding-bottom: $x1;
 
           .row {
             .column {

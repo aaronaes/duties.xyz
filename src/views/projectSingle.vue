@@ -1,11 +1,16 @@
 <template>
   <div class="single-project">
-    <transition name="loadProject" mode="in-out" appear>
+    <transition name="loadProject" mode="in-out">
       <section class="outer-margin loading" v-if="isLoading">
         <article class="row nav">
           <figure class="column">
             <div class="nav-item heading">
-              <h3 class="title blinking">XYZ<span>:</span></h3>
+              <h3 class="title blinking hide-for-small-only">
+                Duties<span>:</span>
+              </h3>
+              <h3 class="title blinking show-for-small-only">
+                XYZ<span>:</span>
+              </h3>
             </div>
           </figure>
         </article>
@@ -16,9 +21,24 @@
       <section class="outer-margin header">
         <article class="row nav">
           <figure class="column heading">
-            <h3 class="title" :class="{ inverted: project.inverted === true }">
-              <a @click="closeProject()">XYZ</a>
-              <span>:</span>
+            <router-link to="/">
+              <h3
+                class="title hide-for-small-only"
+                :class="{ inverted: project.inverted === true }"
+              >
+                Duties:
+              </h3>
+              <h3
+                class="title show-for-small-only"
+                :class="{ inverted: project.inverted === true }"
+              >
+                XYZ:
+              </h3>
+            </router-link>
+            <h3
+              class="title page-title"
+              :class="{ inverted: project.inverted === true }"
+            >
               {{ project.title }}
             </h3>
           </figure>
@@ -43,36 +63,22 @@
 
       <!-- Project Info -->
       <section class="outer-margin info">
-        <article class="row">
-          <figure class="column heading">
-            <h1 class="title markdown" v-html="project.subtitle"></h1>
-          </figure>
+        <article class="row project-info">
           <figure class="column body">
-            <p class="body markdown" v-html="project.description"></p>
+            <h3 class="markdown" v-html="project.description"></h3>
 
             <a class="hide" href="/" target="_blank">
               <p>Visit site</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="152"
-                height="20"
-                viewBox="0 0 152 20"
-                fill="none"
-              >
-                <path
-                  d="M75.1069 0.936449C71.0723 1.15875 67.0401 1.42708 63.0085 1.71563C63.6626 1.26373 63.3521 -0.0549248 62.3974 0.00177316C46.8504 0.925782 31.3051 1.86551 15.7593 2.80973C11.3175 3.07974 6.87579 3.34808 2.43404 3.61697C1.7723 3.65683 1.76356 4.64708 2.43404 4.61677C16.004 4.00263 29.5739 3.39748 43.1432 2.77436C39.8298 3.24759 36.5152 3.71521 33.1989 4.17329C27.8875 4.66617 22.5789 5.18655 17.2744 5.74174C11.8203 6.31265 6.36842 6.90939 0.920063 7.52745C-0.271783 7.66274 -0.341103 9.3328 0.920063 9.36817C8.92628 9.5944 16.9156 8.24376 24.8228 7.2041C28.5236 6.7174 32.222 6.21834 35.9199 5.71143C43.502 5.02207 51.0906 4.39222 58.6844 3.83815C64.1566 3.43902 69.6323 3.09995 75.1058 2.72496C76.2894 2.64468 76.3063 0.870207 75.1069 0.936449Z"
-                  fill="#E5594D"
-                />
-              </svg>
             </a>
           </figure>
-          <figure class="column tags">
+          <figure class="column heading tag">
             <p
               class="markdown"
               v-for="(category, i) in project.categories"
               :key="i"
             >
-              {{ category.categoryType }}
+              <span class="number">{{ category.categoryNumber }}</span>
+              <span>{{ category.categoryType }}</span>
             </p>
           </figure>
         </article>
@@ -105,14 +111,8 @@
                   </div>
                 </swiper-slide>
               </swiper>
-              <div
-                class="carousel-button-next"
-                v-bind:style="{ cursor: cursorNext }"
-              ></div>
-              <div
-                class="carousel-button-prev"
-                v-bind:style="{ cursor: cursorPrev }"
-              ></div>
+              <div class="carousel-button-next"></div>
+              <div class="carousel-button-prev"></div>
             </figure>
           </article>
           <article class="row">
@@ -364,17 +364,7 @@
         </article>
       </section>
 
-      <section class="outer-margin button">
-        <article class="row">
-          <figure class="column">
-            <router-link :to="'/'">
-              <h2>⏎BACK</h2>
-            </router-link>
-          </figure>
-        </article>
-      </section>
-
-      <section class="outer-margin similar sand">
+      <section class="outer-margin similar sand hide">
         <article class="row">
           <figure class="column similar-list">
             <p class="title">You might like ↴</p>
@@ -409,15 +399,17 @@
         </article>
       </section>
     </div>
+
+    <Footer />
   </div>
 </template>
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  name: "Project",
   beforeCreate: function() {
     document.body.className = "project";
   },
@@ -470,12 +462,14 @@ export default {
       this.isLoading = false;
     }, 4000);
   },
+  components: {
+    Footer
+  },
   data() {
     return {
       url: process.env.URL,
       isLoading: true,
       isHidden: false,
-      show: false,
       projects: [],
       project: {
         heading: "",
@@ -524,14 +518,6 @@ export default {
     };
   },
   methods: {
-    closeProject() {
-      setTimeout(() => {
-        this.$router.push("/");
-      }, 500);
-      setTimeout(() => {
-        document.body.classList.remove("active");
-      }, 1000);
-    },
     async getAllProjects() {
       const { data } = await getData({
         query: gql`
@@ -583,6 +569,7 @@ export default {
               siteLink
               readMore
               categories {
+                categoryNumber
                 categoryType
               }
               client {
@@ -679,11 +666,11 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 40 })} 640w,
-        ${imgix({ url: url, w: 768, q: 50 })} 768w,
-        ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
-        ${imgix({ url: url, w: 1366, q: 70 })} 1366w,
-        ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
+      ${imgix({ url: url, w: 640, q: 60 })} 640w,
+        ${imgix({ url: url, w: 768, q: 60 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
+        ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
+        ${imgix({ url: url, w: 1600, q: 100 })} 1600w,
         ${imgix({ url: url, w: 1920, q: 100 })} 1920w
       `;
     },

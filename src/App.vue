@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <PageWrapper>
-      <router-view :key="$route.fullPath"></router-view>
-    </PageWrapper>
+    <keep-alive>
+      <PageWrapper>
+        <router-view :key="$route.fullPath"></router-view>
+      </PageWrapper>
+    </keep-alive>
   </div>
 </template>
 

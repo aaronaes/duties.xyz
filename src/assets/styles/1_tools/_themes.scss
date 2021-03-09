@@ -1,5 +1,7 @@
 // THEMES //
 body {
+  transition: all 200ms ease-out;
+
   &.home {
     background-color: $white;
     color: $black;
@@ -24,17 +26,15 @@ body {
         }
       }
     }
+  }
 
+  &.onDuty {
+    background-color: $sand;
     * {
       color: $black;
-
-      &:hover {
-        color: $accent !important;
-      }
     }
   }
 
-  &.about,
   &.dark {
     color: $grey;
     background-color: $black;
@@ -62,27 +62,6 @@ body {
     & > & {
       &:hover {
         color: inherit;
-      }
-    }
-  }
-}
-
-.dark {
-  background-color: $black;
-  * {
-    color: $grey;
-
-    img {
-      svg {
-        fill: $accent !important;
-      }
-    }
-
-    a {
-      border-color: $grey;
-
-      &:hover {
-        color: $grey;
       }
     }
   }

@@ -33,6 +33,7 @@ html {
   font-weight: normal;
   font-style: normal;
   font-display: block;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 @font-face {
@@ -43,6 +44,7 @@ html {
   font-weight: bold;
   font-style: normal;
   font-display: block;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 @font-face {
@@ -54,6 +56,7 @@ html {
   font-weight: normal;
   font-style: normal;
   font-display: block;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 @font-face {
@@ -65,12 +68,13 @@ html {
   font-weight: bold;
   font-style: normal;
   font-display: block;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
 // Colors
 $white: #ffffff;
 $grey: #f1f0ee;
-$sand: #c5c1bc;
+$sand: #f8f7f7;
 $black: #17171c;
 $accent: #ff4f3e;
 
@@ -87,10 +91,10 @@ $easing: cubic-bezier(0.75, 0, 0.25, 1);
 // Spacing
 $space-xxs: clamp(1px, 0.75vw, 4px);
 $space-xs: clamp(4px, 1.5vw, 8px);
-$space-sm: clamp(8px, 1.5vw, 16px);
-$space-md: clamp(16px, 4vw, 32px);
-$space-lg: clamp(24px, 8vw, 64px);
-$space-xl: clamp(48px, 20vw, 248px);
+$space-sm: clamp(8px, 3vw, 16px);
+$space-md: clamp(24px, 6vw, 32px);
+$space-lg: clamp(32px, 9vw, 128px);
+$space-xl: clamp(64px, 25vw, 256px);
 
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;

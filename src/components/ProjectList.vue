@@ -1,8 +1,63 @@
 <template>
   <section class="outer-margin projects">
+    <img
+      class="default hide"
+      :class="{ isVisible: isVisible, showMe: viewMore }"
+      src="https://images.prismic.io/instrument-v5/90185ceb-7a82-44b4-81af-11b622f9f86e_process-one-flipped.jpg?auto=compress,format&w=1920"
+    />
+    <img
+      class="default viewMore"
+      :class="{ showMe: viewMore }"
+      src="https://cdn.dribbble.com/users/1710340/screenshots/3874818/bnsyy____.gif"
+    />
     <section class="project-list">
+      <!-- New shit -->
+      <article class="row">
+        <figure class="column">
+          <h3>
+            We have designed websites, apps, UX, identities for
+          </h3>
+          <a
+            @click="e => handleProjectClick(e, project)"
+            class="clicky"
+            v-for="(project, i) in projects"
+            :key="i"
+            :id="`project-${project.id}`"
+            @mouseover="isVisible = true"
+            @mouseout="isVisible = false"
+          >
+            <div class="item">
+              <h3>
+                <span
+                  class="markdown icon"
+                  v-show="project.icon.length > 0"
+                  v-html="project.icon"
+                ></span>
+                <span
+                  class="markdown name"
+                  v-show="project.title.length > 0"
+                  v-html="project.title"
+                ></span>
+              </h3>
+              <img
+                class="sticker one"
+                :src="getUrl(project.projectThumbnail.url)"
+                :srcset="getSrcSet(project.projectThumbnail.url)"
+              />
+            </div>
+          </a>
+          <h3>
+            and
+            <router-link to="Projects">
+              <span @mouseover="viewMore = true" @mouseout="viewMore = false">
+                more
+              </span> </router-link
+            >.
+          </h3>
+        </figure>
+      </article>
       <article
-        class="project fade-in"
+        class="project fade-in hide"
         v-in-viewport.once
         v-for="(project, i) in projects"
         :key="i"
@@ -22,15 +77,20 @@
             <div class="caption">
               <div class="heading">
                 <h2
-                  v-if="project.readMore === true"
                   class="markdown title"
                   v-show="project.title.length > 0"
                   v-html="project.title"
-                >
+                ></h2>
+                <h2>
                   :
                 </h2>
+                <h3
+                  class="markdown"
+                  v-show="project.subtitle.length > 0"
+                  v-html="project.subtitle"
+                ></h3>
               </div>
-              <div class="body hide-for-small-only">
+              <div class="body hide-for-small-only hide">
                 <p
                   v-if="project.readMore === true"
                   class="markdown"
@@ -45,7 +105,7 @@
                 ></p>
               </div>
               <div
-                class="tags hide-for-small-only"
+                class="tags hide-for-small-only hide"
                 v-if="project.readMore === true"
               >
                 <p
@@ -71,15 +131,16 @@
 <script>
 import imgix from "@/utils/imgix";
 import marked from "marked";
+
 export default {
   name: "ProjectList",
   props: ["projects"],
   data() {
     return {
       title: "Projects",
-      active: "",
       isMini: false,
-      hover: false
+      isVisible: false,
+      viewMore: false
     };
   },
   methods: {
@@ -101,14 +162,14 @@ export default {
         setTimeout(() => {
           this.active = "";
           document.body.classList.remove("active");
-        }, 500);
+        }, 600);
       } else {
         const el = document.querySelector("#project-" + id);
         this.scrollTo(el);
         setTimeout(() => {
           this.active = id;
           document.body.classList.add("active");
-        }, 500);
+        }, 0);
       }
     },
     handleProjectClick(e, project) {
@@ -117,7 +178,7 @@ export default {
         this.toggle(project.id);
         setTimeout(() => {
           this.$router.push("/projects/" + project.slug);
-        }, 1000);
+        }, 300);
       }
     },
     scrollTo(el) {
@@ -128,15 +189,6 @@ export default {
     },
     getMarkdown(content) {
       return marked(content);
-    }
-  },
-  watch: {
-    isOpen: {
-      handler: val => {
-        if (val) document.body.classList.add("active");
-        else document.body.classList.remove("active");
-      },
-      immediate: true
     }
   },
   computed: {

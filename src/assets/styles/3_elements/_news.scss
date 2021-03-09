@@ -1,0 +1,121 @@
+.news,
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+
+  .intro {
+    grid-column: 2 / 25;
+    padding-bottom: $space-md;
+  }
+
+  .news-title {
+    grid-column: 2 / 25;
+    margin-top: $space-xl;
+    padding-bottom: $x1;
+
+    .heading {
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .body {
+      margin-bottom: $x1;
+
+      h3 {
+        margin: 0;
+        padding: 0;
+
+        i {
+          font-style: normal;
+          border-bottom: 3px solid $black;
+        }
+      }
+    }
+  }
+
+  .news-grid {
+    grid-column: 2 / 25;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: $x1;
+    margin-top: 0;
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include breakpoint(large) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include breakpoint(xx-large) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-column: 3 / 24;
+    }
+
+    .story {
+      grid-auto-columns: auto;
+      grid-column: span 2;
+      order: -1;
+      margin-bottom: $space-lg;
+
+      .column {
+        display: block;
+
+        .storyImage {
+          display: inline-block;
+          margin-bottom: $space-xs;
+        }
+
+        .body {
+          p {
+            code {
+              font-family: $font-tex-regular !important;
+            }
+          }
+
+          .categories {
+            margin-top: $space-sm;
+
+            p {
+              @include font-size(16px, 24px);
+              line-height: 1;
+              color: $gray;
+
+              span.number {
+                position: relative;
+                display: inline-block;
+                width: clamp(18px, 6vw, 32px);
+                text-align: center;
+                vertical-align: baseline;
+                margin-right: $space-xs;
+                @include font-size(14px, 18px);
+                line-height: 1;
+                color: $gray;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 57%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: clamp(18px, 6vw, 32px);
+                  height: clamp(18px, 6vw, 32px);
+                  border-radius: clamp(18px, 6vw, 32px);
+                  border: 2px solid;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .story-link {
+    grid-column: 2 / 25;
+    padding-bottom: $x1;
+  }
+}

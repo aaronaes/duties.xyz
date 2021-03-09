@@ -9,7 +9,6 @@ export default new Router({
   mode: "history",
   hashbag: true,
   scrollBehavior(to, from, savedPosition) {
-    if (to.matched.some(m => m.meta.disableScroll)) return;
     if (to.hash) {
       return {
         selector: to.hash
@@ -34,8 +33,8 @@ export default new Router({
         name: "Project",
         component: () =>
           import(
-            /* webpackChunkName: "SingleProject" */
-            "./views/SingleProject.vue"
+            /* webpackChunkName: "projectSingle" */
+            "./views/projectSingle.vue"
           )
       }]
     },
@@ -43,7 +42,7 @@ export default new Router({
       path: "/projects/",
       name: "Projects",
       component: () =>
-        import( /* webpackChunkName: "ProjectOverview" */ "./views/ProjectOverview.vue")
+        import( /* webpackChunkName: "projectIndex" */ "./views/projectIndex.vue")
     },
     {
       path: "/about",
@@ -52,10 +51,16 @@ export default new Router({
         import( /* webpackChunkName: "About" */ "./views/About.vue")
     },
     {
+      path: "/on-duty",
+      name: "OnDuty",
+      component: () =>
+        import( /* webpackChunkName: "News" */ "./views/News.vue")
+    },
+    {
       path: "/imprint",
       name: "Imprint",
       component: () =>
-        import( /* webpackChunkName: "About" */ "./views/Imprint.vue")
+        import( /* webpackChunkName: "Imprint" */ "./views/Imprint.vue")
     }
   ]
 });

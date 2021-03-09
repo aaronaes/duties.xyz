@@ -1,10 +1,10 @@
 // Page
 .loadPage-enter-active {
-  animation: pageLoadIn 500ms $easing;
+  animation: pageLoadIn 75ms $easing;
 }
 
 .loadPage-leave-active {
-  animation: pageLoadOut 500ms $easing;
+  animation: pageLoadOut 75ms $easing;
 }
 
 @keyframes pageLoadIn {
@@ -32,11 +32,11 @@
 
 // Project Overlay
 .loadProject-enter-active {
-  animation: loadingIn 500ms $easing;
+  animation: loadingIn 300ms $easing;
   overflow: hidden;
 }
 .loadProject-leave-active {
-  animation: loadingOut 500ms $easing;
+  animation: loadingOut 300ms $easing;
   overflow: hidden;
 }
 
@@ -78,8 +78,7 @@
 // In Viewport
 .fade {
   opacity: 0;
-  transition: opacity 500ms $easing;
-  transition-delay: 500ms;
+  transition: opacity 100ms $easing;
 
   &.in-viewport {
     opacity: 1;
@@ -88,18 +87,11 @@
 
 .fade-in {
   opacity: 0;
-
-  transition: opacity 500ms $easing;
-  transition-delay: 500ms;
+  transition: opacity 300ms $easing;
+  transition-delay: 300ms;
 
   @media (hover: hover) {
     /* base hover styles from above */
-
-    @for $i from 0 through 100 {
-      &:nth-child(#{$i + 1}) span {
-        transition-delay: 50ms * $i;
-      }
-    }
   }
 
   &.in-viewport {

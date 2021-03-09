@@ -7,24 +7,18 @@ nav ul {
 ul,
 ol {
   list-style: square;
-  padding-left: 24px;
+  padding-left: $space-xs;
 }
 
 .tags {
+  h3,
   p {
+    padding: 4px 24px 9px;
+    border: 2px solid $black;
+    border-radius: 44px;
     display: inline-block;
-    font-family: $font-tex-cond;
-    padding: 1px 16px 2px;
-    margin: 0;
-    border: 2px solid $accent;
-    border-radius: 24px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 0.5px;
-    white-space: pre-line;
-    margin-right: $space-xs;
-
-    @include font-size(14px, 18px);
+    margin-right: 16px;
+    margin-bottom: 17px;
+    transition: all 100ms $easing;
   }
 }
