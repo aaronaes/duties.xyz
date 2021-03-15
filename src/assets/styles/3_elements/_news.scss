@@ -1,112 +1,92 @@
 .news,
 .news-list {
-  display: grid;
-  grid-template-columns: repeat(25, 1fr);
-
-  .intro {
-    grid-column: 2 / 25;
-    padding-bottom: $space-md;
-  }
-
-  .news-title {
-    grid-column: 2 / 25;
-    margin-top: $space-xl;
-    padding-bottom: $x1;
-
-    .heading {
-      h1 {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .body {
-      margin-bottom: $x1;
-
-      h3 {
-        margin: 0;
-        padding: 0;
-
-        i {
-          font-style: normal;
-          border-bottom: 3px solid $black;
-        }
-      }
-    }
-  }
+  @include display-grid;
+  margin-top: $space-md;
 
   .news-grid {
-    grid-column: 2 / 25;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: $x1;
+    grid-template-columns: repeat(25, 1fr);
+    grid-column: 2 / 25;
     margin-top: 0;
+    margin-bottom: $x2;
 
-    @include breakpoint(medium) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .news-item {
+      grid-column: 1 / 26;
+      padding: $space-xs 0;
+      border-bottom: 2px solid;
 
-    @include breakpoint(large) {
-      grid-template-columns: repeat(6, 1fr);
-    }
-
-    @include breakpoint(xx-large) {
-      grid-template-columns: repeat(8, 1fr);
-      grid-column: 3 / 24;
-    }
-
-    .story {
-      grid-auto-columns: auto;
-      grid-column: span 2;
-      order: -1;
-      margin-bottom: $space-lg;
+      &:first-of-type {
+        border-top: 2px solid;
+      }
 
       .column {
-        display: block;
+        grid-column: 1 / 26;
+        display: grid;
+        grid-template-columns: repeat(25, 1fr);
+        grid-template-rows: max-content;
 
-        .storyImage {
-          display: inline-block;
-          margin-bottom: $space-xs;
+        .date {
+          grid-column: 1 / 26;
+          grid-row: 2;
+          color: rgba(var(--black), $alpha: 0.5);
+
+          @include breakpoint(medium) {
+            grid-column: 1 / 5;
+            grid-row: 1;
+          }
         }
 
         .body {
+          grid-column: 1 / 26;
+          grid-row: 3;
+
+          @include breakpoint(medium) {
+            grid-row: 1;
+            grid-column: 5 / 16;
+          }
+
+          @include breakpoint(large) {
+            grid-column: 6 / 16;
+          }
+
           p {
             code {
-              font-family: $font-tex-regular !important;
+              font-family: var(--font-tex-regular) !important;
             }
           }
 
           .categories {
-            margin-top: $space-sm;
+            margin-top: $space-xs;
 
             p {
-              @include font-size(16px, 24px);
-              line-height: 1;
               color: $gray;
+            }
+          }
+        }
 
-              span.number {
-                position: relative;
-                display: inline-block;
-                width: clamp(18px, 6vw, 32px);
-                text-align: center;
-                vertical-align: baseline;
-                margin-right: $space-xs;
-                @include font-size(14px, 18px);
-                line-height: 1;
-                color: $gray;
+        .storyImage {
+          grid-column: 1 / 26;
+          display: block;
+          justify-self: unset;
+          margin-bottom: $space-sm;
 
-                &:before {
-                  content: "";
-                  position: absolute;
-                  top: 57%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  width: clamp(18px, 6vw, 32px);
-                  height: clamp(18px, 6vw, 32px);
-                  border-radius: clamp(18px, 6vw, 32px);
-                  border: 2px solid;
-                }
-              }
+          img {
+            width: 100%;
+            height: auto;
+          }
+
+          @include breakpoint(medium) {
+            grid-column: 20 / 26;
+            display: inline-block;
+            justify-self: flex-end;
+            grid-row: 1;
+            margin-bottom: 0;
+
+            img {
+              object-fit: contain;
+              object-position: top right;
+              width: auto;
+              height: clamp(205px, 20vw, 325px);
             }
           }
         }

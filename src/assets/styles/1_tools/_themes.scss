@@ -1,60 +1,53 @@
 // THEMES //
 body {
-  transition: all 200ms ease-out;
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+  will-change: background-color, color;
 
-  &.home {
-    background-color: $white;
-    color: $black;
+  &.theme--home {
+    background-color: var(--white);
+    color: var(--black);
 
     svg {
       &.logo,
       &.symbol {
         path {
-          fill: $black !important;
+          fill: var(--black);
         }
       }
     }
   }
 
-  &.overview {
-    background-color: $sand;
-
-    .logo {
-      svg {
-        path {
-          fill: $black;
-        }
-      }
-    }
-  }
-
-  &.onDuty {
-    background-color: $sand;
+  &.theme--onDuty {
+    background-color: var(--sand);
     * {
-      color: $black;
+      color: var(--black);
     }
   }
 
-  &.dark {
-    color: $grey;
-    background-color: $black;
+  &.theme--xyz {
+    color: var(--red);
+    background-color: var(--black);
+
+    * {
+      -webkit-text-stroke-color: var(--red);
+    }
 
     svg {
       &.logo,
       &.symbol {
         path {
-          fill: $grey !important;
+          fill: var(--red) !important;
         }
       }
     }
 
     a,
     p a {
-      color: $grey;
-      border-color: $grey;
+      color: var(--red);
+      border-color: var(--red);
       display: inline-block;
       &:hover {
-        color: $grey;
+        color: var(--red);
         border-color: transparent;
       }
     }
@@ -65,11 +58,66 @@ body {
       }
     }
   }
-}
 
-.sand {
-  background-color: $sand;
-  * {
-    color: $black;
+  &.dark {
+    color: var(--grey);
+    background-color: var(--black);
+
+    svg {
+      &.logo,
+      &.symbol {
+        path {
+          fill: var(--grey) !important;
+        }
+      }
+    }
+
+    a,
+    p a {
+      color: var(--grey);
+      border-color: var(--grey);
+      display: inline-block;
+      &:hover {
+        color: var(--grey);
+        border-color: transparent;
+      }
+    }
+
+    & > & {
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+
+  &.light {
+    color: var(--black);
+    background-color: var(--sand);
+
+    svg {
+      &.logo,
+      &.symbol {
+        path {
+          fill: var(--black) !important;
+        }
+      }
+    }
+
+    a,
+    p a {
+      color: var(--black);
+      border-color: var(--black);
+      display: inline-block;
+      &:hover {
+        color: var(--black);
+        border-color: transparent;
+      }
+    }
+
+    & > & {
+      &:hover {
+        color: inherit;
+      }
+    }
   }
 }

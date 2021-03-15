@@ -3,12 +3,8 @@
 
   .row {
     @include display-grid;
-    margin-bottom: $x1;
+    margin-bottom: $space-sm;
     height: 100vh;
-
-    @include breakpoint(small only) {
-      height: 90vh;
-    }
 
     .block {
       align-self: flex-end;
@@ -19,16 +15,13 @@
     .tagline {
       grid-row: 1;
       grid-column: 2 / 25;
+      margin-bottom: $space-sm;
     }
 
     .contact {
       grid-row: 2;
       grid-column: 2 / 25;
-      margin: $space-md 0;
-
-      @include breakpoint(xx-large) {
-        grid-column: 3 / 24;
-      }
+      margin: $space-sm 0;
 
       a {
         display: block;
@@ -40,11 +33,6 @@
           span {
             word-wrap: break-word;
             display: inline-block;
-            border-bottom: 3px solid $black;
-          }
-
-          &:hover {
-            border-color: transparent;
           }
         }
       }
@@ -55,61 +43,21 @@
       grid-column: 2 / 25;
       margin-bottom: $space-sm;
 
-      @include breakpoint(xx-large) {
-        grid-column: 3 / 24;
-      }
-
       ul {
         padding: 0;
+        margin: 0;
+
         li {
           display: inline;
-          @include mr(x1);
-          @include mb(x0);
-
-          @include breakpoint(medium) {
-            @include mr(x0p5);
-          }
-
-          @include breakpoint(large) {
-            @include mr(x0p5);
-          }
-
-          &:last-of-type {
-            @include mr(x0);
-          }
+          padding-right: $space-sm;
 
           p {
             display: inline-block;
-
-            a {
-              border-bottom: 2px solid $black;
-            }
           }
 
           &:hover {
             a {
               border-bottom: 2px solid transparent;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-body {
-  &.about {
-    .footer {
-      .row {
-        .contact {
-          a {
-            h1 {
-              border-color: $grey;
-            }
-            &:hover {
-              h1 {
-                border-color: transparent;
-              }
             }
           }
         }

@@ -1,26 +1,19 @@
 header {
-  h3 {
-    cursor: pointer;
-    @include font-size(33px, 56px);
-  }
-
   section {
-    .row {
-      figure.nav {
-        transform: translateX(-1em);
-      }
-    }
-
     &.topNav {
       @include display-grid;
-      position: relative;
+      position: absolute;
       top: 0;
       margin: 0;
       width: 100%;
-      z-index: 5000;
+      z-index: 9999;
       opacity: 1;
-      transform: translateY(0%);
-      transition: all 300ms $easing;
+
+      &.active {
+        & > * {
+          color: var(--grey);
+        }
+      }
 
       .row {
         display: grid;
@@ -28,11 +21,7 @@ header {
         grid-template-areas: "a a a c";
         grid-column: 2 / 25;
         align-items: flex-start;
-        margin-top: $space-md;
-
-        @include breakpoint(xx-large) {
-          grid-column: 3 / 24;
-        }
+        margin-top: $space-sm;
 
         .nav-item {
           position: relative;
@@ -42,25 +31,11 @@ header {
             cursor: pointer;
             position: relative;
             padding: 0;
+            margin: 0;
             white-space: pre-line;
 
             &.page-title {
               padding-left: $space-xs;
-            }
-
-            span.burger {
-              text-align: center;
-              &:before {
-                content: "";
-                position: absolute;
-                top: 52%;
-                left: 52%;
-                transform: translate(-50%, -50%);
-                width: clamp(48px, 5vw, 64px);
-                height: clamp(48px, 5vw, 64px);
-                border-radius: clamp(48px, 5vw, 64px);
-                border: 3px solid;
-              }
             }
           }
 
@@ -70,16 +45,41 @@ header {
             position: relative;
           }
 
-          &:first-of-type {
+          &.logo {
             position: relative;
             grid-area: a;
             text-align: left;
+
+            &.active {
+              display: none;
+            }
           }
 
-          &:last-of-type {
+          &.nav {
             position: relative;
             grid-area: c;
             text-align: right;
+
+            h3 {
+              &.burger {
+                span {
+                  &.burger {
+                    text-align: center;
+                    &:before {
+                      content: "";
+                      position: absolute;
+                      top: 52%;
+                      left: 52%;
+                      transform: translate(-50%, -50%);
+                      width: clamp(48px, 5vw, 64px);
+                      height: clamp(48px, 5vw, 64px);
+                      border-radius: clamp(48px, 5vw, 64px);
+                      border: 3px solid;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -92,46 +92,79 @@ header {
       margin: 0;
       height: 100vh;
       width: 100vw;
-      background-color: $black;
-      z-index: 9000;
+      background-color: var(--black);
+      z-index: 8888;
       position: fixed;
       top: 0;
       left: 0;
-      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 100ms var(--easing);
 
       * {
-        color: $grey;
+        color: var(--grey);
       }
 
       &.active {
-        visibility: visible;
+        pointer-events: all;
+        opacity: 1;
+        z-index: 8888;
       }
 
       .row {
         grid-column: 2 / 25;
         grid-row: 1;
 
-        @include breakpoint(xx-large) {
-          grid-column: 3 / 24;
-        }
-
         &.header {
-          margin-top: $space-md;
+          margin-top: $space-sm;
+
+          .time {
+            grid-column: 1 / 13;
+            grid-row: 1;
+
+            img {
+              position: fixed;
+              right: $x1;
+              bottom: $space-md;
+              max-width: 40vw;
+              opacity: 0;
+
+              &.showMe {
+                opacity: 1;
+              }
+            }
+
+            p {
+              margin: 0;
+              padding: 0;
+              display: block;
+              color: var(--grey);
+
+              span.highlight {
+                color: var(--red);
+                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👀</text></svg>")
+                    32 32,
+                  auto !important;
+              }
+            }
+          }
+
           .nav-item {
             position: relative;
             justify-self: flex-end;
             margin: 0;
-            grid-column: 1 / 26;
+            grid-row: 1;
+            grid-column: 16 / 26;
 
             a,
-            h3 {
-              cursor: pointer;
+            p {
               position: relative;
               text-align: center;
               padding: 0;
               white-space: pre-line;
 
               span.burger {
+                cursor: pointer;
                 text-align: center;
 
                 &:before {
@@ -152,67 +185,56 @@ header {
 
         &.main {
           grid-row: 1 / 2;
-          margin-top: $space-md;
+          margin-top: $space-sm;
+          height: 100vh;
 
           @include breakpoint(small only) {
-            margin-top: $space-md;
-            margin-bottom: $space-md;
-            grid-row: 2;
+            margin-top: $space-sm;
+            margin-bottom: $space-sm;
           }
 
           .list {
             grid-column: 1 / 26;
+            align-self: flex-end;
+            margin-bottom: $space-sm;
 
             ul {
-              margin-bottom: $space-md;
+              margin-bottom: $x1;
               display: block;
               float: left;
+              padding: 0;
 
               li {
                 list-style: none;
                 float: left;
                 display: block;
-                width: 100%;
-                margin-bottom: $space-xxs;
+                position: relative;
+                clear: both;
+                margin: 0;
 
-                &.email {
-                  a {
-                    border-bottom: none;
+                a {
+                  border: none !important;
 
-                    h1 {
-                      span {
-                        float: left;
-                        padding-bottom: 4px;
-                        color: transparent;
-                        -webkit-text-stroke-width: 1px;
-                        -webkit-text-stroke-color: $grey;
-                      }
+                  h2 {
+                    margin: 0;
+                    padding: 0;
 
-                      &:hover {
-                        span {
-                          color: $accent;
-                          -webkit-text-stroke-width: 1px;
-                          -webkit-text-stroke-color: transparent;
-                        }
-                      }
-                    }
-                  }
-
-                  &:hover {
                     span {
-                      border-color: transparent !important;
+                      &.number {
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: baseline;
+                        font-size: 60%;
+                        transform: translateY(-25%);
+                        padding-right: $space-xxs;
+                      }
                     }
                   }
-                }
-
-                h1 {
-                  display: inline;
-                  line-height: 0.8;
-                  padding-bottom: 4px;
-                  margin: 0;
 
                   &:hover {
-                    color: rgba($grey, $alpha: 0.25);
+                    * {
+                      color: var(--red);
+                    }
                   }
                 }
               }
@@ -235,10 +257,10 @@ header {
 
                 p {
                   a {
-                    border-color: $grey;
+                    border-color: var(--grey);
 
                     &:hover {
-                      color: rgba($grey, $alpha: 0.25);
+                      color: rgba(var(--grey), $alpha: 0.25);
                       border-color: transparent;
                     }
                   }

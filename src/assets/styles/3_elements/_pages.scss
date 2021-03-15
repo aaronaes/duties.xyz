@@ -3,7 +3,20 @@ main {
 }
 
 .outer-margin {
-  margin-top: $space-xl;
+  margin-top: $space-lg;
+
+  &.page-header {
+    margin-top: $space-xl;
+
+    .row {
+      grid-column: 2 / 25;
+
+      .column {
+        grid-column: 2 / 25;
+        margin-bottom: $space-lg;
+      }
+    }
+  }
 
   .row {
     @include display-grid;
@@ -11,7 +24,11 @@ main {
     grid-template-columns: repeat(25, 1fr);
 
     .column {
-      margin-bottom: $space-xs;
+      margin-bottom: $space-md;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }

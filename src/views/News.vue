@@ -1,24 +1,28 @@
 <template>
-  <div>
-    <section class="outer-margin news">
-      <article class="intro">
-        <figure class="column heading">
+  <main>
+    <section class="outer-margin page-header">
+      <article class="row">
+        <figure class="column">
           <h3>
             Our daily duties include helping our clients and friends with
             website design, apps, UX, brand identities and a bit of XYZ.
-            Sometimes we write the occasional article on Medium too.
           </h3>
         </figure>
+        <figure class="column heading hide">
+          <h1 class="title">
+            {{ this.$route.name }}
+          </h1>
+        </figure>
       </article>
-
-      <section class="stories news-grid">
-        <article class="story" v-for="(story, i) in onDuty" :key="i">
+    </section>
+    <section class="outer-margin news">
+      <section class="news-grid">
+        <article class="news-item" v-for="(story, i) in onDuty" :key="i">
           <figure class="column">
-            <div class="storyImage">
-              <img
-                :src="getUrl(story.storyImage.url)"
-                :srcset="getSrcSet(story.storyImage.url)"
-              />
+            <div class="date">
+              <p>
+                {{ getDate(story.createdAt) }}
+              </p>
             </div>
             <div class="body">
               <p class="markdown" v-html="story.description"></p>
@@ -28,17 +32,22 @@
                 :key="item.id"
               >
                 <p>
-                  <span class="number">{{ item.categoryNumber }}</span
-                  >{{ item.categoryType }}
+                  <span class="number">{{ item.categoryNumber }}</span>
+                  <span>{{ item.categoryType }}</span>
                 </p>
               </div>
+            </div>
+            <div class="storyImage">
+              <img
+                :src="getUrl(story.storyImage.url)"
+                :srcset="getSrcSet(story.storyImage.url)"
+              />
             </div>
           </figure>
         </article>
       </section>
     </section>
-    <Footer />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -46,25 +55,31 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
-import Footer from "@/components/Footer.vue";
 
 export default {
-  name: "OnDuty",
-  components: {
-    Footer
-  },
+  name: "News",
+
   async created() {
     this.onDuty = await this.getOnDuty();
   },
   data() {
     return {
-      title: "OnDuty",
+      title: "News",
       onDuty: {
         singleDuty: []
       }
     };
   },
   methods: {
+    getDate(CreatedAt) {
+      const options = {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      };
+
+      return new Date(CreatedAt).toLocaleDateString("us-EN", options);
+    },
     async getOnDuty() {
       const { data } = await getData({
         query: gql`
@@ -74,6 +89,7 @@ export default {
                 url
               }
               title
+              createdAt
               description
               categories {
                 categoryNumber
@@ -105,10 +121,10 @@ export default {
   computed: {
     pageName() {
       return this.$route.name;
+    },
+    formatted() {
+      return this.filter("date")(this.value);
     }
-  },
-  beforeCreate: function() {
-    document.body.className = "onDuty";
   }
 };
 </script>

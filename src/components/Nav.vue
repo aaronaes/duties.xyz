@@ -1,30 +1,56 @@
 <template>
   <header>
-    <section class="outer-margin topNav" v-if="$route.name !== 'Project'">
+    <section
+      class="outer-margin topNav"
+      :class="{ active: show }"
+      v-if="$route.name !== 'Project'"
+    >
       <article class="row">
-        <figure class="column nav-item heading">
+        <figure class="column nav-item heading logo" :class="{ active: show }">
           <router-link :to="{ name: 'Home' }">
-            <h3 class="title hide-for-small-only">
+            <h3 class="title hide-for-small-only" v-if="$route.name !== 'XYZ'">
               Duties:
             </h3>
-            <h3 class="title show-for-small-only">
+            <h3 class="title show-for-small-only" v-if="$route.name !== 'XYZ'">
               XYZ:
             </h3>
 
             <h3 class="title page-title" v-if="$route.name === 'OnDuty'">
-              On-duty
+              News
             </h3>
             <h3 class="title page-title" v-if="$route.name === 'Projects'">
-              <h3 class="title">Projects</h3>
+              Projects
+            </h3>
+            <h3 class="title page-title" v-if="$route.name === 'News'">
+              News
+            </h3>
+            <h3 class="title page-title" v-if="$route.name === 'XYZ'">
+              &larr; Back
             </h3>
           </router-link>
         </figure>
-        <figure class="column nav-item heading nav">
+        <figure
+          class="column nav-item heading nav"
+          v-if="$route.name !== 'XYZ'"
+        >
           <h3 class="title show-for-small-only" @click="showNav()">
-            <span class="burger">M</span>
+            <span class="burger" v-if="show === false">M</span>
+            <span class="burger" v-if="show === true">X</span>
           </h3>
-          <h3 class="title hide-for-small-only burger" @click="showNav()">
+
+          <h3
+            class="title hide-for-small-only burger"
+            @click="showNav()"
+            v-if="show === false"
+          >
             Menu
+          </h3>
+          <h3
+            class="title hide-for-small-only burger"
+            @click="showNav()"
+            v-if="show === true"
+          >
+            Close
           </h3>
         </figure>
       </article>
@@ -32,73 +58,65 @@
 
     <section class="outer-margin menu" :class="{ active: show }">
       <article class="row header">
-        <figure class="column nav-item nav heading">
-          <h3 class="title hide-for-small-only" @click="hideNav()">
-            Close
-          </h3>
-          <h3 class="title show-for-small-only" @click="hideNav()">
-            <span class="burger">X</span>
-          </h3>
+        <figure class="column time">
+          <img
+            v-if="isMorning()"
+            :class="{ showMe: isVisible }"
+            src="https://media1.tenor.com/images/16bf98d44e79307914de07d044257f1f/tenor.gif?itemid=9553858"
+          />
+          <img
+            v-else
+            :class="{ showMe: isVisible }"
+            src="https://media1.tenor.com/images/5a77a38f05546da59092a9650c08bef5/tenor.gif?itemid=4946897"
+          />
+          <p class="title">
+            It is <span class="time" v-text="currentTime"></span> in Oslo,
+            Norway.
+          </p>
+
+          <p
+            class="title"
+            @mouseover="isVisible = true"
+            @mouseout="isVisible = false"
+          >
+            We are currently:
+            <span class="highlight" v-if="isMorning()">ON-DUTY</span>
+            <span class="highlight" v-else>OFF-DUTY</span>
+          </p>
         </figure>
       </article>
       <article class="row main">
-        <figure class="list">
+        <figure class="column list">
           <ul>
-            <li class="heading fade-in" v-in-viewport.once>
-              <router-link :to="{ name: 'About' }">
-                <h1 class="title big" @click="hideNav()">
-                  About
-                </h1>
+            <li class="heading">
+              <router-link :to="{ name: 'Home' }">
+                <h2 @click="hideNav()"><span class="number">➀</span>Home</h2>
               </router-link>
             </li>
-            <li class="heading fade-in" v-in-viewport.once>
-              <router-link :to="{ name: 'OnDuty' }">
-                <h1 class="title big" @click="hideNav()">
-                  On-duty
-                </h1>
-              </router-link>
-            </li>
-            <li class="heading fade-in" v-in-viewport.once>
+            <li class="heading">
               <router-link :to="{ name: 'Projects' }">
-                <h1 class="title big" @click="hideNav()">
-                  Projects
-                </h1>
+                <h2 @click="hideNav()"><span class="number">➁</span>Work</h2>
               </router-link>
             </li>
-            <li
-              class="heading email show-for-small-only fade-in"
-              v-in-viewport.once
-            >
-              <a
-                href="mailto:new@duties.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h1 class="title big outlined">
-                  <span>new@</span><br /><span>duties</span><br /><span
-                    >.xyz</span
-                  >
-                </h1>
-              </a>
+            <li class="heading">
+              <router-link :to="{ name: 'About' }">
+                <h2 @click="hideNav()"><span class="number">➂</span>Studio</h2>
+              </router-link>
             </li>
-            <li
-              class="heading email hide-for-small-only fade-in"
-              v-in-viewport.once
-            >
-              <a
-                href="mailto:new@duties.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h1 class="title big outlined">
-                  <span>new@</span><span>duties</span><span>.xyz</span>
-                </h1>
-              </a>
+            <li class="heading">
+              <router-link :to="{ name: 'News' }">
+                <h2 @click="hideNav()"><span class="number">➃</span>News</h2>
+              </router-link>
+            </li>
+            <li class="heading">
+              <router-link :to="{ name: 'XYZ' }">
+                <h2 @click="hideNav()"><span class="number">➄</span>XYZ</h2>
+              </router-link>
             </li>
           </ul>
         </figure>
       </article>
-      <article class="row footer">
+      <article class="row hide footer">
         <figure>
           <ul class="links">
             <li>
@@ -146,16 +164,34 @@ export default {
   name: "Nav",
   data() {
     return {
-      show: false
+      show: false,
+      currentTime: null,
+      isVisible: false
     };
   },
   methods: {
     showNav() {
-      this.show = true;
+      // this.show = true;
+      document.body.classList.toggle("navOpen");
+      this.show = !this.show;
     },
     hideNav() {
       this.show = false;
+      document.body.classList.remove("navOpen");
+    },
+    isMorning() {
+      return new Date().getHours() > 9 && new Date().getHours() < 17
+        ? true
+        : false;
+    },
+    /* eslint-disable no-undef */
+    updateCurrentTime() {
+      this.currentTime = moment().format("LT");
     }
+  },
+  created() {
+    this.currentTime = moment().format("LT");
+    setInterval(() => this.updateCurrentTime(), 1 * 1000);
   }
 };
 </script>

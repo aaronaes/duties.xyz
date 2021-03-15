@@ -10,8 +10,8 @@
 }
 
 ::selection {
-  color: $grey;
-  background: $accent;
+  color: var(--grey);
+  background: $red;
 }
 
 body.hasHover {

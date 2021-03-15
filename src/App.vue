@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <PageWrapper>
+    <PageWrapper>
+      <keep-alive>
         <router-view :key="$route.fullPath"></router-view>
-      </PageWrapper>
-    </keep-alive>
+      </keep-alive>
+    </PageWrapper>
   </div>
 </template>
 
@@ -36,6 +36,18 @@ export default {
         { name: "robots", content: "index,follow" }
       ]
     };
+  },
+  watch: {
+    $route: {
+      handler(to, from) {
+        const foo = document.getElementsByTagName("body")[0];
+        if (from !== undefined) {
+          foo.classList.remove("theme--" + from.name.toLowerCase());
+        }
+        foo.classList.add("theme--" + to.name.toLowerCase());
+      },
+      immediate: true
+    }
   }
 };
 </script>

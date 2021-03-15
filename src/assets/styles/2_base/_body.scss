@@ -19,8 +19,8 @@ body {
 
 body {
   background-color: $white;
-  color: $black;
-  font-family: $font-tex-regular;
+  color: var(--black);
+  font-family: var(--font-tex-regular);
   font-size: 100%;
   position: relative;
   scroll-behavior: smooth;

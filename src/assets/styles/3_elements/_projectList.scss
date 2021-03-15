@@ -1,170 +1,67 @@
 .projects {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
-  min-height: 90vh;
-  margin: 0;
+  margin-top: 0;
 
-  img.default {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    max-width: 50vw;
-    width: auto;
-    max-height: 70vh;
-    height: auto;
-    opacity: 1;
-    display: block;
-    z-index: -1;
-
-    &.showMe {
-      display: none;
-      opacity: 0;
-    }
-
-    &.viewMore {
-      display: none;
-      opacity: 0;
-
-      &.showMe {
-        display: block;
-        opacity: 1;
-      }
-    }
-
-    &.isVisible {
-      display: none;
-      opacity: 0;
-    }
-  }
-
-  .project-list {
+  .project-feed {
     grid-column: 2 / 25;
-    align-self: flex-end;
-    margin-bottom: $x2;
-
-    @include breakpoint(medium) {
-      margin-bottom: $x1;
-    }
-
-    article {
-      figure {
-        grid-column: 1 / 26;
-
-        h3 {
-          margin-bottom: 0;
-        }
-
-        a {
-          border-bottom: none;
-          cursor: pointer;
-          position: relative;
-          display: inline;
-
-          .item {
-            display: inline;
-
-            img.sticker {
-              position: fixed;
-              opacity: 0;
-              z-index: -1;
-
-              &.one {
-                transform: translate(-50%, -50%);
-                top: 50%;
-                left: 50%;
-                max-width: 50vw;
-              }
-            }
-
-            h3 {
-              span {
-                z-index: 999;
-
-                &.icon {
-                  border-bottom: 2px solid transparent;
-                  padding-right: $space-xs;
-                }
-
-                &.name {
-                  border-bottom: 2px solid $black;
-                  display: inline-block;
-                }
-              }
-
-              &:after {
-                content: ",";
-                margin-right: 0.5vw;
-              }
-            }
-          }
-
-          &:last-of-type {
-            .item {
-              h3 {
-                &:after {
-                  content: "";
-                  margin-right: 0.75vw;
-                }
-              }
-            }
-          }
-
-          &:hover {
-            img.sticker {
-              opacity: 1;
-            }
-
-            span {
-              z-index: 999;
-              border-color: transparent;
-            }
-          }
-        }
-      }
-    }
+    margin-bottom: $space-md;
 
     .project {
+      margin-bottom: $x1;
+
       .column {
         align-items: center;
         background-color: initial;
         visibility: visible;
         z-index: 1;
-        align-items: flex-start;
 
         &.summary {
-          a.imgBox {
-            display: block;
+          a {
             border-bottom: none;
             cursor: pointer;
-            max-width: 100%;
+            @include display-grid;
 
-            .image {
-              margin-bottom: $space-xs;
-              background-color: $grey;
+            .project-info {
+              grid-column: 1 / 26;
+              grid-row: 2;
 
-              img {
-                width: 100%;
-                height: clamp(205px, 36vw, 725px);
-                object-fit: cover;
-                object-position: 50% 50%;
+              @include breakpoint(medium) {
+                grid-column: 17 / 26;
+                grid-row: 1;
+              }
+
+              .name,
+              .description {
+                padding-bottom: $space-xs;
+              }
+
+              .categories {
+                p {
+                  display: inline;
+                  padding-left: $space-xs;
+
+                  &:first-of-type {
+                    padding-left: 0;
+                  }
+                }
               }
             }
 
-            .caption {
-              grid-column: 2 / 25;
+            .image {
+              grid-column: 1 / 26;
+              grid-row: 1;
 
-              .heading {
-                h2,
-                h2 > p {
-                  padding: 0;
-                }
+              @include breakpoint(medium) {
+                grid-column: 1 / 16;
+                grid-row: 1;
               }
 
-              .body {
-                p.markdown {
-                  padding-bottom: $space-xxs;
-                }
+              img {
+                width: 100%;
+                height: clamp(205px, 36vw, 625px);
+                object-fit: cover;
+                object-position: 50% 50%;
               }
             }
           }

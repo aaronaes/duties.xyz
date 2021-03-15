@@ -4,7 +4,7 @@
 }
 
 body {
-  color: $black;
+  color: var(--black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -24,68 +24,75 @@ h6 {
   padding: 0;
   font-weight: normal;
   color: inherit;
-  letter-spacing: -0.85px;
+  letter-spacing: -0.5px;
   word-spacing: -0.6px;
   vertical-align: baseline;
 }
 
 h1,
 h1.markdown > p {
-  // font-family: $font-tex-cond;
-  // line-height: 1;
-  // @include font-size(48px, 96px);
-
-  font-family: $font-tex-regular;
-  @include font-size(32px, 96px);
-  line-height: 1;
-  padding: 0;
+  @include font-size(72px, 192px);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
 
   &.big {
-    font-family: $font-tex-cond;
-    @include font-size(78px, 208px);
-    line-height: 1;
+    @include font-size(72px, 192px);
   }
 
   &.outlined {
-    color: transparent !important;
+    color: transparent;
+    line-height: 1;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: $black;
+    -webkit-text-stroke-color: var(--black);
   }
 }
 
 h2,
 h2.markdown > p {
-  line-height: 1.2;
-  @include font-size(28px, 72px);
+  font-family: var(--font-tex-regular);
+  @include font-size(48px, 96px);
+  line-height: 1.15;
 }
 
 h3,
-h3.markdown > p {
+h3.markdown p {
   @include font-size(24px, 56px);
-  line-height: 1.3;
-  margin-bottom: $space-md;
+  line-height: 1.25;
 
-  &:last-of-type {
-    margin-bottom: 0;
+  &:not(:last-of-type) {
+    margin-bottom: $space-sm;
+  }
+
+  span.tnr {
+    font-family: "Ultra", serif;
+    font-size: 125%;
   }
 }
 
 p,
 p.markdown > p {
-  @include font-size(20px, 30px);
-  line-height: 1.3;
+  @include font-size(20px, 32px);
+  line-height: 1.4;
 }
 
 a {
-  color: $black;
-  border-bottom: 2px solid $black;
+  color: var(--black);
+  border-bottom: 2px solid var(--black);
   text-decoration: none;
+  transition: all 50ms ease-out;
+  cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    color: $black;
+    color: var(--black);
     border-color: transparent;
+
+    & > .outlined {
+      color: var(--red);
+      -webkit-text-stroke-width: 0px;
+      -webkit-text-stroke-color: transparent;
+    }
   }
 
   &:focus {
@@ -103,7 +110,7 @@ a {
       &:hover,
       &:active,
       &:focus {
-        color: $black;
+        color: var(--black);
       }
     }
   }
@@ -115,13 +122,12 @@ a {
   h2,
   h3 {
     &.title {
-      font-family: $font-tex-cond;
+      letter-spacing: -0.055em;
       font-weight: 400;
+
       text-transform: uppercase;
-      padding-bottom: $space-sm;
 
       p {
-        font-family: $font-tex-cond;
         font-weight: 400;
         text-transform: uppercase;
       }
@@ -141,41 +147,3 @@ small {
   @include font-size(18px, 26px);
   line-height: 1;
 }
-
-// Body styles
-
-// .body,
-// p.body,
-// p.markdown {
-//   ul {
-//     padding-bottom: $space-xs;
-
-//     @include breakpoint(large) {
-//       padding-bottom: $space-md;
-//     }
-
-//     @include breakpoint(x-large) {
-//       padding-bottom: $space-lg;
-//     }
-//   }
-
-//   p {
-//     padding-bottom: $space-md;
-
-//     &:only-of-type {
-//       padding-bottom: $space-md;
-
-//       &:last-of-type {
-//         padding-bottom: $space-md;
-//       }
-//     }
-
-//     &:last-of-type {
-//       padding-bottom: 0;
-//     }
-//   }
-
-//   &.title {
-//     opacity: 0.5;
-//   }
-// }

@@ -8,26 +8,16 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   hashbag: true,
-  scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        selector: to.hash
-      };
-    }
-    if (savedPosition) {
-      return savedPosition;
-    } else {
-      return {
-        x: 0,
-        y: 0
-      };
-    }
+  scrollBehavior() {
+    return {
+      x: 0,
+      y: 0
+    };
   },
   routes: [{
       path: "/",
       name: "Home",
       component: Home,
-      meta: "disableScroll",
       children: [{
         path: "projects/:slug",
         name: "Project",
@@ -51,10 +41,16 @@ export default new Router({
         import( /* webpackChunkName: "About" */ "./views/About.vue")
     },
     {
-      path: "/on-duty",
-      name: "OnDuty",
+      path: "/news",
+      name: "News",
       component: () =>
         import( /* webpackChunkName: "News" */ "./views/News.vue")
+    },
+    {
+      path: "/xyz",
+      name: "XYZ",
+      component: () =>
+        import( /* webpackChunkName: "XYZ" */ "./views/XYZ.vue")
     },
     {
       path: "/imprint",

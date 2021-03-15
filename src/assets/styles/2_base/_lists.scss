@@ -14,11 +14,54 @@ ol {
   h3,
   p {
     padding: 4px 24px 9px;
-    border: 2px solid $black;
+    border: 2px solid var(--black);
     border-radius: 44px;
     display: inline-block;
     margin-right: 16px;
     margin-bottom: 17px;
-    transition: all 100ms $easing;
+    transition: all 100ms var(--easing);
+  }
+}
+
+h3 {
+  span.number {
+    transform: translateY(2px);
+    border-radius: 50%;
+    height: clamp(24px, 3.75vw, 56px);
+    width: clamp(24px, 3.75vw, 56px);
+    @include font-size(20px, 50px);
+    line-height: clamp(20px, 2.5vw, 50px);
+    display: inline-block;
+    border: 3px solid;
+    text-align: center;
+    vertical-align: top;
+    transform: translateY(12px);
+  }
+}
+
+p {
+  // span.number {
+  //   border-radius: 50%;
+  //   height: clamp(24px, 2.125vw, 40px);
+  //   width: clamp(24px, 2.125vw, 40px);
+  //   @include font-size(16px, 28px);
+  //   line-height: clamp(18px, 1.75vw, 30px);
+  //   display: inline-block;
+  //   border: 2px solid;
+  //   text-align: center;
+  //   margin-right: $space-xxs;
+  //   transform: translateY(-1px);
+  // }
+
+  span {
+    &.number {
+      position: relative;
+      display: inline-block;
+      vertical-align: baseline;
+      font-size: 90%;
+      transform: translateY(-7%);
+      padding-right: $space-xxs;
+      transition: all 50ms ease-out;
+    }
   }
 }

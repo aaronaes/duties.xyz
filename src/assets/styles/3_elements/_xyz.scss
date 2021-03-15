@@ -1,0 +1,75 @@
+.outer-margin {
+  &.xyz {
+    @include display-grid;
+    margin-top: $space-md;
+
+    p {
+      @include font-size(18px, 22px);
+      line-height: 1.25;
+    }
+
+    .xyz-grid {
+      grid-column: 2 / 25;
+      display: grid;
+      column-gap: $x1;
+      row-gap: $x1;
+      grid-template-columns: repeat(3, 1fr);
+
+      align-items: center;
+      justify-items: center;
+
+      @include breakpoint(large) {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      @include breakpoint(x-large) {
+        grid-template-columns: repeat(9, 1fr);
+      }
+
+      .xyz-item {
+        position: relative;
+        margin-bottom: $space-sm;
+        grid-column: span 3;
+        max-width: 90%;
+
+        &:first-of-type {
+          justify-self: flex-start;
+          padding-left: 10%;
+        }
+
+        &:nth-of-type(even) {
+          align-self: center;
+        }
+
+        &:nth-of-type(3) {
+          padding-left: 10%;
+          justify-self: flex-end;
+        }
+
+        .column {
+          .body {
+            p {
+              color: var(--red);
+            }
+          }
+
+          .xyzImage {
+            display: block;
+            justify-self: unset;
+
+            img {
+              width: 100%;
+              height: auto;
+              margin-bottom: $space-xxs;
+            }
+          }
+        }
+      }
+    }
+
+    .story-link {
+      grid-column: 2 / 25;
+      padding-bottom: $x1;
+    }
+  }
+}

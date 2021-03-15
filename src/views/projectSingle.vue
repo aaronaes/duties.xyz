@@ -410,9 +410,6 @@ import imgix from "@/utils/imgix";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  beforeCreate: function() {
-    document.body.className = "project";
-  },
   async created() {
     this.project = await this.getProject(this.$route.params.slug);
     this.projects = await this.getAllProjects();
@@ -688,6 +685,12 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
+  },
+  beforeCreate() {
+    document.body.classList.add("project");
+  },
+  beforeDestroy() {
+    document.body.classList.remove("project");
   }
 };
 </script>

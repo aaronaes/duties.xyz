@@ -39,8 +39,7 @@ inViewportDirective.defaults.margin = "10% 10%";
 
 Vue.use(vueScrollBehavior, {
   router: router, // The router instance
-  el: "#app", // Custom element
-  ignore: [/\/about/, /\/projects/] // ignore some routes, they will directly scroll to the top
+  el: "#app" // Custom element
 });
 
 Vue.use(CursorFx);

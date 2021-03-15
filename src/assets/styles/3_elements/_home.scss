@@ -1,235 +1,205 @@
-body.home {
-  .outer-margin {
-    &.hero {
-      .row {
-        .column {
-          grid-column: 2 / 25;
-          margin-bottom: $x1;
+.hero-list {
+  margin: 0;
 
-          @include breakpoint(medium) {
-            grid-column: 2 / 23;
-          }
+  .row {
+    height: 100vh;
 
-          @include breakpoint(large) {
-            grid-column: 2 / 23;
-          }
+    .column {
+      grid-column: 2 / 25;
+      margin-bottom: $space-sm;
+      position: relative;
 
-          @include breakpoint(x-large) {
-            grid-column: 2 / 18;
-          }
+      h2 {
+        margin: 0;
+        padding: 0;
+      }
 
-          @include breakpoint(xx-large) {
-            grid-column-start: 3;
+      &.hero-list {
+        align-self: flex-end;
+        margin-bottom: $x1;
+
+        * {
+          cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👀</text></svg>")
+              32 32,
+            auto !important;
+        }
+
+        ul {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+
+          .list {
+            list-style: none;
+
+            a {
+              border: none;
+
+              h2 {
+                margin: 0;
+                padding: 0;
+
+                span {
+                  &.number {
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: baseline;
+                    font-size: 60%;
+                    transform: translateY(-25%);
+                    padding-right: $space-xxs;
+                    transition: all 50ms ease-out;
+                  }
+                }
+              }
+
+              &:hover {
+                h2 {
+                  color: var(--red);
+
+                  span {
+                    color: var(--red);
+                  }
+                }
+                .imgBox {
+                  .img {
+                    opacity: 1;
+                  }
+                }
+              }
+
+              .imgBox {
+                position: absolute;
+                left: 0;
+                right: 0;
+                width: calc(100vw * 23 / 25);
+                max-width: none;
+                pointer-events: none;
+
+                @include breakpoint(medium) {
+                  position: absolute;
+                  width: 50vw;
+                  height: 50vh;
+                  left: unset;
+                  right: 0;
+                  bottom: 0;
+                }
+
+                .img {
+                  position: absolute;
+                  opacity: 0;
+                  z-index: -1;
+                  transition: all 100ms linear;
+                  max-width: 70%;
+                  max-height: 70%;
+                  height: auto;
+                  width: auto;
+
+                  img {
+                    max-height: 90%;
+                    object-fit: contain;
+                  }
+
+                  &:nth-of-type(1) {
+                    transition-delay: 0ms;
+                    bottom: 0;
+                    right: 0;
+                  }
+
+                  &:nth-of-type(2) {
+                    transition-delay: 100ms;
+                    top: 0;
+                    left: 0;
+                  }
+
+                  &:nth-of-type(3) {
+                    transition-delay: 200ms;
+                    top: 50%;
+                    left: 50%;
+                    max-width: 70%;
+                    transform: translate(-50%, -50%);
+                  }
+
+                  .label {
+                    display: inline-block;
+                    position: absolute;
+                    z-index: 999;
+                    bottom: $x1;
+                    left: $x1;
+                    text-decoration: underline;
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
+  }
+}
 
-    &.studio {
-      .row {
-        grid-column: 2 / 25;
-        @include display-grid;
-        padding-top: $space-sm;
-        padding-bottom: $space-md;
+.onduty-intro {
+  @include display-grid;
+  grid-auto-flow: column;
+  grid-column: 1 / 26;
 
-        figure {
-          &.header {
-            grid-column: 2 / 25;
-            grid-row: 1;
-            margin: 0;
+  .intro {
+    @include display-grid;
+    grid-column: 1 / 26;
 
-            @include breakpoint(large) {
-              grid-column: 2 / 10;
-              grid-row: 1;
-            }
-
-            @include breakpoint(xx-large) {
-              grid-column: 3 / 10;
-            }
-          }
-
-          &.image {
-            grid-column: 2 / 25;
-            grid-row: 2;
-            padding-bottom: $space-md;
-
-            img {
-              width: 100%;
-              height: auto;
-            }
-
-            @include breakpoint(medium) {
-              grid-column: 12 / 25;
-              grid-row: 1;
-            }
-
-            @include breakpoint(x-large) {
-              grid-column: 14 / 25;
-            }
-
-            @include breakpoint(xx-large) {
-              grid-column: 16 / 24;
-            }
-          }
-
-          &.body {
-            grid-column: 2 / 25;
-            grid-row: 3;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 0;
-
-            @include breakpoint(medium) {
-              grid-row: 1;
-              grid-column: 2 / 13;
-              padding-bottom: $space-lg;
-            }
-
-            @include breakpoint(large) {
-              grid-column: 2 / 11;
-            }
-
-            @include breakpoint(x-large) {
-              grid-column: 2 / 9;
-            }
-
-            @include breakpoint(xx-large) {
-              grid-column: 3 / 9;
-            }
-
-            .text {
-              grid-row: 1;
-              flex: 1;
-            }
-          }
-
-          &.link {
-            padding-top: $space-lg;
-            grid-column: 2 / 25;
-            grid-row: 4;
-
-            @include breakpoint(medium) {
-              grid-row: 3;
-            }
-          }
-        }
-      }
+    .page-subtitle {
+      grid-column: 2 / 25;
+      margin-bottom: $space-lg;
     }
 
-    &.off-duty {
-      background-color: $grey;
-      margin: 0;
+    .page-title {
+      grid-column: 2 / 25;
+      margin-bottom: $space-lg;
+    }
+  }
+}
 
-      .row {
+.news-list {
+  padding-bottom: $space-xl;
+}
+
+.offduty {
+  margin: 0;
+  grid-column: 1 / 26;
+  @include display-grid;
+  padding-top: $space-xl;
+
+  .row {
+    grid-column: 2 / 25;
+
+    &.swiper {
+      grid-column: 1 / 26;
+      padding-top: 0;
+      padding-bottom: $space-md;
+
+      .carousel-block {
         position: relative;
-        padding-top: $space-sm;
-        padding-bottom: $space-lg;
-
-        .header {
-          position: relative;
-          grid-row: 1;
-          grid-column: 2 / 25;
-
-          @include breakpoint(medium) {
-            grid-column: 2 / 25;
-          }
-
-          @include breakpoint(large) {
-            grid-column: 17 / 25;
-          }
-
-          @include breakpoint(x-large) {
-            grid-column: 17 / 25;
-          }
-
-          @include breakpoint(xx-large) {
-            grid-column: 17 / 24;
-          }
-        }
-
-        .body {
-          position: relative;
-          grid-row: 2;
-          grid-column: 2 / 25;
-
-          @include breakpoint(medium) {
-            grid-column: 2 / 18;
-            margin-top: 0;
-            margin-bottom: $space-sm;
-          }
-
-          @include breakpoint(large) {
-            grid-column: 17 / 25;
-            grid-row: 2;
-          }
-
-          @include breakpoint(x-large) {
-            @include px(x0);
-            grid-column: 17 / 25;
-          }
-
-          @include breakpoint(xx-large) {
-            grid-column: 17 / 24;
-          }
-
-          .title {
-            grid-row: 1;
-          }
-
-          .text {
-            grid-row: 2;
-
-            @include breakpoint(large) {
-              grid-column: 13 / 26;
-            }
-          }
-        }
+        grid-column: 1 / 26;
+        grid-row: 3;
 
         .carousel {
-          grid-column: 2 / 25;
-          grid-row: 3;
           position: relative;
-          margin-bottom: $space-md;
-          margin-top: 0;
-
-          @include breakpoint(medium) {
-            grid-column: 2 / 25;
-            grid-row: 3;
-            margin-bottom: 0;
-
-            .swiper-container {
-              width: 100%;
-              max-width: 575px;
-              float: left;
-            }
-          }
-
-          @include breakpoint(large) {
-            grid-column: 2 / span 13;
-            grid-row: 2 / 3;
-
-            .swiper-container {
-              max-width: none;
-              float: unset;
-            }
-          }
-
-          @include breakpoint(xx-large) {
-            grid-column-start: 3;
-          }
+          grid-column: 1 / 26;
 
           .swiper-container {
             position: relative;
-            width: 100%;
+            grid-column: 1 / 26;
 
             .swiper-wrapper {
+              width: 100%;
               width: auto;
               position: relative;
+              overflow: visible;
 
               .swiper-slide {
-                height: clamp(225px, 40vw, 445px);
-                background-color: $black;
+                height: clamp(195px, 52vw, 576px);
+                background-color: var(--black);
                 width: auto;
+                margin-left: $x1;
 
                 .slide-img {
                   height: 100%;
@@ -243,15 +213,13 @@ body.home {
 
                   .tag {
                     position: absolute;
-                    bottom: 1rem;
-                    left: 1rem;
-                    padding: 2px 6px;
-                    background-color: $white;
-                    color: $black;
+                    bottom: $space-md;
+                    left: $space-md;
+                    padding: 8px 16px;
+                    background-color: var(--white);
 
-                    p,
-                    a > p {
-                      @include font-size(14px, 24px);
+                    p {
+                      color: var(--black);
                     }
                   }
                 }
@@ -264,8 +232,8 @@ body.home {
                   cursor: pointer !important;
 
                   p {
-                    background-color: $black;
-                    color: $white;
+                    background-color: var(--black);
+                    color: var(--white);
                     padding: 2px 6px 3px;
                     @include font-size(14px, 16px);
                     @include m(x0);
@@ -275,7 +243,7 @@ body.home {
                     a,
                     a p {
                       background-color: transparent;
-                      color: $white;
+                      color: var(--white);
                     }
 
                     + .slide-img {
@@ -311,339 +279,102 @@ body.home {
           }
 
           .swiper-button-prev {
-            cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.6078 0L0 16.5L16.6078 33L19.8118 29.8521L8.68658 18.799H48V14.201H8.68658L19.8118 3.16559L16.6078 0Z' fill='black'/%3E%3C/svg%3E%0A"),
-              pointer;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👈🏻</text></svg>")
+                24 16,
+              auto !important;
             position: absolute;
             left: 0;
             right: auto;
           }
 
           .swiper-button-next {
-            cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.3922 33L48 16.5L31.3922 0L28.1882 3.14791L39.3134 14.201H0V18.799H39.3134L28.1882 29.8344L31.3922 33Z' fill='black'/%3E%3C/svg%3E%0A"),
-              pointer;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👉🏻</text></svg>")
+                24 16,
+              auto !important;
             position: absolute;
             right: 0;
             left: auto;
           }
         }
+      }
+    }
 
-        .swiper-pagination {
-          grid-column: span 8 / 26;
-          grid-row: 2;
-          position: relative !important;
-          text-align: right;
-          z-index: 1000;
+    &.content {
+      grid-column: 2 / 25;
+
+      &.top {
+        padding-bottom: $space-md;
+
+        .header {
+          grid-column: 1 / 26;
+          grid-row: 1;
           align-self: flex-end;
-          line-height: 0.6;
-          @include font-size(18px, 28px);
-          @include mb(x0);
-
-          span {
-            line-height: 0.6;
-
-            &.swiper-pagination-current,
-            &.swiper-pagination-total {
-              letter-spacing: -3px;
-              font-weight: normal;
-            }
-          }
 
           @include breakpoint(medium) {
-            grid-row: 3;
-            grid-column: span 4 / 25;
-            @include font-size(32px, 48px);
-            font-family: $font-tex-cond;
+            grid-column: 1 / 18;
+          }
+        }
 
-            line-height: 0.9;
+        .counter {
+          grid-row: 2;
+          justify-self: flex-end;
+          grid-column: 1 / 26;
+          align-self: flex-start;
+
+          @include breakpoint(medium) {
+            grid-row: 1;
+            grid-column: 18 / 26;
+            transform: translateY(-3px);
+          }
+
+          .pagination {
+            line-height: 1;
+            @include font-size(72px, 208px);
+            -webkit-text-stroke-color: var(--black);
+            -webkit-text-stroke-width: 2px;
+            color: transparent;
 
             span {
-              line-height: 0.9;
-            }
-          }
+              line-height: 1;
+              @include font-size(72px, 208px);
+              -webkit-text-stroke-color: var(--black);
+              -webkit-text-stroke-width: 2px;
+              color: transparent;
 
-          @include breakpoint(large) {
-            grid-row: 2;
+              &.swiper-pagination-current,
+              &.swiper-pagination-total {
+                letter-spacing: -3px;
+              }
+            }
           }
         }
       }
-    }
 
-    .onduty {
-      // New inserted code
-      background-color: $grey;
-      margin: 0;
-      padding: $x0p5 $x1 $x1 $x1;
-      width: 50vw;
-      height: 100vh;
-      display: inline-block;
-
-      .row {
+      .body {
         position: relative;
-        height: 100%;
-        align-content: space-between;
+        grid-row: 2;
+        grid-column: 1 / 26;
+        padding-bottom: $space-md;
 
-        figure {
-          &.content {
-            grid-column: 1 / 26;
-            margin-bottom: $space-md;
-            align-self: stretch;
+        .title {
+          grid-row: 1;
+        }
 
-            .header {
-              grid-column: 1 / 26;
-              grid-row: 1;
-            }
-
-            .body {
-              grid-column: 1 / 26;
-              grid-row: 2;
-
-              .text {
-                grid-row: 1;
-              }
-            }
-          }
-
-          &.image-block {
-            grid-column: 1 / 26;
-            grid-row: 3;
-
-            .image {
-              grid-column: 1 / 26;
-
-              img {
-                width: 100%;
-                height: clamp(185px, 30vw, 445px);
-                object-fit: cover;
-              }
-            }
-
-            .link {
-              grid-column: 1 / 26;
-              padding-top: $space-sm;
-            }
-          }
+        .text {
+          grid-row: 2;
         }
       }
-    }
 
-    &.news-list {
-      padding-bottom: $space-xl;
-    }
+      .links {
+        position: relative;
+        grid-row: 3;
+        grid-column: 1 / 26;
+        padding-bottom: $x1;
 
-    &.offduty {
-      margin: 0;
-      grid-column: 1 / 26;
-      @include display-grid;
-
-      .row {
-        grid-column: 2 / 25;
-
-        &.swiper {
-          grid-column: 1 / 26;
-          padding-top: 0;
-          padding-bottom: $space-md;
-
-          .carousel-block {
-            position: relative;
-            grid-column: 1 / 26;
-            grid-row: 3;
-
-            .carousel {
-              position: relative;
-              grid-column: 1 / 26;
-
-              .swiper-container {
-                position: relative;
-                width: 100%;
-
-                .swiper-wrapper {
-                  width: 100%;
-                  width: auto;
-                  position: relative;
-                  overflow: visible;
-
-                  .swiper-slide {
-                    height: clamp(225px, 36vw, 576px);
-                    background-color: $black;
-                    width: auto;
-                    margin-left: $x1;
-
-                    .slide-img {
-                      height: 100%;
-                      width: auto;
-
-                      img {
-                        height: 100%;
-                        margin: 0;
-                        width: auto;
-                      }
-
-                      .tag {
-                        position: absolute;
-                        bottom: $space-md;
-                        left: $space-md;
-                        padding: 8px 16px;
-                        background-color: $white;
-
-                        p {
-                          color: $black;
-                        }
-                      }
-                    }
-
-                    .slide-text {
-                      position: absolute;
-                      bottom: 8px;
-                      left: 10px;
-                      z-index: 9999 !important;
-                      cursor: pointer !important;
-
-                      p {
-                        background-color: $black;
-                        color: $white;
-                        padding: 2px 6px 3px;
-                        @include font-size(14px, 16px);
-                        @include m(x0);
-                      }
-
-                      &:hover {
-                        a,
-                        a p {
-                          background-color: transparent;
-                          color: $white;
-                        }
-
-                        + .slide-img {
-                          img {
-                            opacity: 0;
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-
-              .swiper-button-prev,
-              .swiper-button-next {
-                display: block;
-                position: absolute;
-                top: 0;
-                bottom: 20%;
-                width: 30%;
-                height: 80%;
-                margin: 0;
-                padding: 0;
-                z-index: 500 !important;
-                cursor: pointer;
-                display: block;
-                align-items: center;
-                justify-content: center;
-
-                &:after {
-                  display: none;
-                }
-              }
-
-              .swiper-button-prev {
-                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👈🏻</text></svg>")
-                    24 16,
-                  auto !important;
-                position: absolute;
-                left: 0;
-                right: auto;
-              }
-
-              .swiper-button-next {
-                cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👉🏻</text></svg>")
-                    24 16,
-                  auto !important;
-                position: absolute;
-                right: 0;
-                left: auto;
-              }
-            }
-          }
-        }
-
-        &.content {
-          grid-column: 2 / 25;
-
-          &.top {
-            padding-bottom: $space-md;
-
-            .header {
-              grid-column: 1 / 26;
-              grid-row: 1;
-              align-self: flex-end;
-
-              @include breakpoint(medium) {
-                grid-column: 1 / 18;
-              }
-            }
-
-            .counter {
-              grid-row: 2;
-              justify-self: flex-end;
-              grid-column: 1 / 26;
-              align-self: flex-start;
-
-              @include breakpoint(medium) {
-                grid-row: 1;
-                grid-column: 18 / 26;
-                transform: translateY(-3px);
-              }
-
-              .pagination {
-                line-height: 1;
-                @include font-size(72px, 208px);
-                -webkit-text-stroke-color: $black;
-                -webkit-text-stroke-width: 2px;
-                color: transparent;
-
-                span {
-                  line-height: 1;
-                  @include font-size(72px, 208px);
-                  -webkit-text-stroke-color: $black;
-                  -webkit-text-stroke-width: 2px;
-                  color: transparent;
-
-                  &.swiper-pagination-current,
-                  &.swiper-pagination-total {
-                    letter-spacing: -3px;
-                  }
-                }
-              }
-            }
-          }
-
-          .body {
-            position: relative;
-            grid-row: 2;
-            grid-column: 1 / 26;
-            padding-bottom: $space-md;
-
-            .title {
-              grid-row: 1;
-            }
-
-            .text {
-              grid-row: 2;
-            }
-          }
-
-          .links {
-            position: relative;
-            grid-row: 3;
-            grid-column: 1 / 26;
-            padding-bottom: $x1;
-
-            h3.link {
-              margin-right: $space-md;
-              cursor: pointer;
-              float: left;
-            }
-          }
+        h3.link {
+          margin-right: $space-md;
+          cursor: pointer;
+          float: left;
         }
       }
     }
@@ -655,55 +386,23 @@ body.dark {
     &.offduty {
       .row {
         &.content {
-          grid-column: 2 / 25;
-
           &.top {
-            padding-bottom: $space-md;
-
             .header {
-              grid-column: 1 / 26;
-              grid-row: 1;
-              align-self: flex-end;
-
               h1 {
-                -webkit-text-stroke-color: $grey;
+                -webkit-text-stroke-color: var(--grey);
                 -webkit-text-stroke-width: 1px;
-              }
-
-              @include breakpoint(medium) {
-                grid-column: 1 / 18;
               }
             }
 
             .counter {
-              grid-row: 2;
-              justify-self: flex-end;
-              grid-column: 1 / 26;
-              align-self: flex-start;
-
-              @include breakpoint(medium) {
-                grid-row: 1;
-                grid-column: 18 / 26;
-              }
-
               .pagination {
-                line-height: 1;
-                @include font-size(72px, 208px);
-                -webkit-text-stroke-color: $grey;
+                -webkit-text-stroke-color: var(--grey);
                 -webkit-text-stroke-width: 1px;
                 color: transparent;
 
                 span {
-                  line-height: 1;
-                  @include font-size(72px, 208px);
-                  -webkit-text-stroke-color: $grey;
+                  -webkit-text-stroke-color: var(--grey);
                   -webkit-text-stroke-width: 1px;
-                  color: transparent;
-
-                  &.swiper-pagination-current,
-                  &.swiper-pagination-total {
-                    letter-spacing: -3px;
-                  }
                 }
               }
             }

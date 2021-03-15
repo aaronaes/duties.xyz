@@ -1,37 +1,40 @@
 <template>
   <div>
-    <section class="outer-margin project-intro">
-      <article>
-        <figure>
+    <section class="outer-margin page-header" v-if="$route.name === 'Projects'">
+      <article class="row">
+        <figure class="column">
           <h3>
             We have been lucky enough to work with a variety of ambitious
             companies and talented people throughout the years. You can learn
             more about who we are and what we do over here.
           </h3>
         </figure>
+        <figure class="column heading hide">
+          <h1 class="title">On-Duty</h1>
+        </figure>
       </article>
     </section>
     <section class="outer-margin project-legend show-for-small-only">
       <article>
         <figure>
-          <p :class="{ highlight: isHovering }" id="1">
-            <span class="number">1</span>
+          <p :class="{ highlight: isHovering }">
+            <span class="number">➀</span>
             <span class="caption">Product design</span>
           </p>
-          <p :class="{ highlight: isHovering }" id="2">
-            <span class="number">2</span>
+          <p :class="{ highlight: isHovering }">
+            <span class="number">➁</span>
             <span class="caption">UX</span>
           </p>
-          <p :class="{ highlight: isHovering }" id="3">
-            <span class="number">3</span>
+          <p :class="{ highlight: isHovering }">
+            <span class="number">➂</span>
             <span class="caption">Content</span>
           </p>
-          <p :class="{ highlight: isHovering }" id="4">
-            <span class="number">4</span>
+          <p :class="{ highlight: isHovering }">
+            <span class="number">➃</span>
             <span class="caption">Strategy</span>
           </p>
-          <p :class="{ highlight: isHovering }" id="5">
-            <span class="number">5</span>
+          <p :class="{ highlight: isHovering }">
+            <span class="number">➄</span>
             <span class="caption">Branding</span>
           </p>
         </figure>
@@ -47,6 +50,8 @@
           <a
             :href="'/projects/' + project.slug"
             @click="e => handleProject(e, project)"
+            @mouseover="isHovering = true"
+            @mouseout="isHovering = false"
           >
             <div class="project-content">
               <p class="name">
@@ -60,13 +65,7 @@
                 />
               </div>
               <div class="categories">
-                <p
-                  v-for="(category, i) in project.categories"
-                  :key="i"
-                  @mouseover="isHovering = true"
-                  @mouseout="isHovering = false"
-                  :id="category.categoryNumber"
-                >
+                <p v-for="(category, i) in project.categories" :key="i">
                   <span class="number" v-html="category.categoryNumber"></span>
                   <span
                     class="caption show-for-large"
@@ -74,15 +73,39 @@
                   ></span>
                 </p>
               </div>
-              <p class="year hide show-for-large">
-                {{ project.year }}
+              <p class="year show-for-large">
+                <span class="foo">{{ project.year }}</span>
+                <span class="bar">View</span>
               </p>
             </div>
           </a>
         </figure>
       </article>
     </section>
+
     <section class="outer-margin clientOverview">
+      <article class="row">
+        <figure class="header">
+          <h3>Our clients & friends</h3>
+        </figure>
+        <figure class="body">
+          <h3>
+            We have been lucky enough to work with a variety of ambitious
+            companies and talented people throughout the years.
+          </h3>
+          <ul>
+            <li v-for="(client, i) in allClients" :key="i">
+              <p>{{ client.name }}</p>
+            </li>
+          </ul>
+          <p v-if="$route.name !== 'Projects'">
+            You can see the work we have done
+            <router-link :to="{ name: 'Projects' }">here</router-link>.
+          </p>
+        </figure>
+      </article>
+    </section>
+    <section class="outer-margin clientOverview hide">
       <article class="row">
         <figure class="header">
           <p>❤️ Our clients & friends</p>
@@ -96,7 +119,6 @@
         </figure>
       </article>
     </section>
-    <Footer />
   </div>
 </template>
 
@@ -104,7 +126,6 @@
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
-import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Index",
@@ -112,11 +133,10 @@ export default {
     this.projectOverview = await this.getProjectOverview();
     this.allClients = await this.getAllClients();
   },
-  components: {
-    Footer
-  },
+  components: {},
   data() {
     return {
+      title: "Index",
       isMini: false,
       isHovering: false,
       projectOverview: {
@@ -197,14 +217,6 @@ export default {
       ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
       `;
     }
-  },
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
-  },
-  beforeCreate: function() {
-    document.body.className = "overview";
   }
 };
 </script>

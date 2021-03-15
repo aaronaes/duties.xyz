@@ -72,29 +72,29 @@ html {
 }
 
 // Colors
-$white: #ffffff;
-$grey: #f1f0ee;
-$sand: #f8f7f7;
-$black: #17171c;
-$accent: #ff4f3e;
+:root {
+  --white: #ffffff;
+  --grey: #f8f8f8;
+  --sand: #ddd9d5;
+  --black: #17171c;
+  --red: #ff4f3e;
 
-// Fonts
-$font-inter: "Inter", sans-serif;
-$font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
-$font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
-$font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
-$font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
+  --font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
+  --font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
+  --font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 
-// Easing
-$easing: cubic-bezier(0.75, 0, 0.25, 1);
+  --easing: cubic-bezier(0.75, 0, 0.25, 1);
+}
 
 // Spacing
-$space-xxs: clamp(1px, 0.75vw, 4px);
-$space-xs: clamp(4px, 1.5vw, 8px);
-$space-sm: clamp(8px, 3vw, 16px);
-$space-md: clamp(24px, 6vw, 32px);
-$space-lg: clamp(32px, 9vw, 128px);
-$space-xl: clamp(64px, 25vw, 256px);
+$space-xxs: clamp(4px, 0.25vw, 8px);
+$space-xs: clamp(8px, 2vw, 16px);
+$space-sm: clamp(24px, 4vw, 48px);
+$space-md: clamp(40px, 6vw, 72px);
+$space-lg: clamp(72px, 10vw, 144px);
+$space-xl: clamp(96px, 25vw, 288px);
 
 // Foundation gutters
 $grid-padding-gutters: 1.25rem;

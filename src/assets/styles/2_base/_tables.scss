@@ -12,13 +12,13 @@ caption {
 
 th,
 td {
-  border-top: 2px solid $grey;
+  border-top: 2px solid var(--grey);
   vertical-align: top;
   padding-right: 0.25em;
 }
 
 th + *,
 td + * {
-  border-left: 2px solid $grey;
+  border-left: 2px solid var(--grey);
   padding-left: 0.25em;
 }

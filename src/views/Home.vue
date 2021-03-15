@@ -1,31 +1,67 @@
 <template>
   <main>
-    <!-- Masthead -->
-    <section class="outer-margin hero hide">
-      <article class="row">
-        <figure class="column heading">
-          <h1
-            class="title markdown hide-for-small-only"
-            v-html="frontpage.intro"
-          ></h1>
-          <h1 class="title markdown show-for-small-only">
-            A digital design partner for ambitious businesses.
+    <intersect
+      :threshold="[0.4, 0.8]"
+      @enter="addLightmode"
+      @leave="removeLightmode"
+    >
+      <section class="outer-margin hero-list">
+        <article class="row">
+          <figure class="column hero-list">
+            <ul>
+              <li
+                class="list"
+                v-for="(block, i) in frontpage.heroList"
+                :key="i"
+              >
+                <router-link :to="block.heroListLink">
+                  <h2>
+                    <span class="number">{{ block.heroListNumber }}</span>
+                    <span>{{ block.heroListTitle }}</span>
+                  </h2>
+                  <div class="imgBox">
+                    <img
+                      class="img"
+                      v-for="asset in block.heroListGallery"
+                      :key="asset.id"
+                      :src="getUrl(asset.url)"
+                      :srcset="getSrcSet(asset.url)"
+                    />
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+          </figure>
+        </article>
+      </section>
+    </intersect>
+
+    <section class="outer-margin onduty-intro page-header">
+      <article class="intro">
+        <figure class="column page-subtitle">
+          <h3>
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are functional, accessible and
+            visually appealing.
+          </h3>
+        </figure>
+        <figure class="column page-title">
+          <h1 class="title">
+            ON-DUTY
           </h1>
         </figure>
       </article>
     </section>
-
-    <!-- Project List -->
     <ProjectList :projects="projects" />
+    <ProjectIndex />
 
     <!-- Story List -->
-    <NewsList :stories="stories" />
+    <NewsList class="hide" :stories="stories" />
 
     <intersect
       :threshold="[0.4, 0.8]"
-      :root="main"
-      @enter="addBodyClass"
-      @leave="removeBodyClass"
+      @enter="addDarkmode"
+      @leave="removeDarkmode"
     >
       <section class="outer-margin offduty">
         <article class="row content top">
@@ -77,8 +113,6 @@
         </article>
       </section>
     </intersect>
-
-    <Footer />
   </main>
 </template>
 
@@ -88,8 +122,8 @@ import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
 import ProjectList from "@/components/ProjectList.vue";
+import ProjectIndex from "@/views/projectIndex.vue";
 import NewsList from "@/components/NewsList.vue";
-import Footer from "@/components/Footer.vue";
 import Intersect from "vue-intersect";
 
 export default {
@@ -97,8 +131,8 @@ export default {
   components: {
     Intersect,
     ProjectList,
-    NewsList,
-    Footer
+    ProjectIndex,
+    NewsList
   },
   async created() {
     this.projects = await this.getProjects();
@@ -110,6 +144,7 @@ export default {
       title: "Home",
       hasContent: false,
       frontpage: {
+        heroList: [],
         ondutyTitle: "",
         ondutyBody: "",
         ondutyImage: {
@@ -133,7 +168,7 @@ export default {
       stories: [],
       footer: [],
       swiperOptions: {
-        speed: 100,
+        speed: 200,
         grabCursor: "true",
         slidesPerView: "auto",
         loop: true,
@@ -150,11 +185,17 @@ export default {
     };
   },
   methods: {
-    addBodyClass() {
+    addDarkmode() {
       document.body.classList.add("dark");
     },
-    removeBodyClass() {
+    removeDarkmode() {
       document.body.classList.remove("dark");
+    },
+    addLightmode() {
+      document.body.classList.add("light");
+    },
+    removeLightmode() {
+      document.body.classList.remove("light");
     },
     async getProjects() {
       const { data } = await getData({
@@ -185,6 +226,7 @@ export default {
                 slug
                 readMore
                 categories {
+                  categoryNumber
                   categoryType
                 }
                 client {
@@ -261,6 +303,7 @@ export default {
             frontpage {
               stories {
                 id
+                createdAt
                 title
                 description
                 categories {
@@ -282,6 +325,14 @@ export default {
           query {
             frontpage {
               intro
+              heroList {
+                heroListNumber
+                heroListTitle
+                heroListLink
+                heroListGallery {
+                  url
+                }
+              }
               ondutyTitle
               ondutyBody
               ondutyImage {
@@ -324,9 +375,6 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
-  },
-  beforeCreate: function() {
-    document.body.className = "home";
   }
 };
 </script>

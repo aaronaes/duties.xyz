@@ -1,5 +1,6 @@
-$theme-color: $black;
+$theme-color: var(--black);
 $radius: clamp(24px, 4vw, 64px);
+
 body.project {
   .project-wrap {
     position: fixed;
@@ -13,22 +14,12 @@ body.project {
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 4000;
-    background-color: $white;
+    background-color: var(--white);
 
     .single-project {
       grid-column: 2 / 25;
       position: relative;
       min-height: 100%;
-      @include m(x0);
-      @include p(x0);
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 25;
-      }
-
-      @include breakpoint(xx-large) {
-        grid-column: 3 / 24;
-      }
 
       .loading {
         position: fixed;
@@ -40,10 +31,10 @@ body.project {
         width: 100vw;
         opacity: 1;
         z-index: 9999;
-        background-color: $black;
-        color: $grey;
-        @include m(x0);
-        @include p(x0);
+        background-color: var(--black);
+        color: var(--grey);
+        margin: 0;
+        padding: 0;
 
         .row.nav {
           cursor: pointer !important;
@@ -53,12 +44,8 @@ body.project {
             grid-column: 2 / 25;
           }
 
-          @include breakpoint(xx-large) {
-            grid-column: 3 / 24;
-          }
-
           .column {
-            margin-top: $space-md;
+            margin-top: $space-sm;
             grid-column: 2 / 25;
 
             @include breakpoint(x-large) {
@@ -73,7 +60,6 @@ body.project {
               h3 {
                 text-transform: uppercase;
                 display: inline-block;
-                @include font-size(33px, 56px);
 
                 &.blinking {
                   span {
@@ -104,7 +90,7 @@ body.project {
                   &:hover,
                   &.router-link-exact-active {
                     h1 {
-                      color: $white;
+                      color: var(--white);
                     }
 
                     svg {
@@ -166,41 +152,31 @@ body.project {
           .nav {
             width: 100vw;
             opacity: 1;
-            margin-top: $space-md;
+            margin-top: $space-sm;
 
             .heading {
               grid-column: 2 / 25;
               margin: 0;
 
-              @include breakpoint(x-large) {
-                grid-column: 2 / 25;
-              }
+              a {
+                border-bottom: none;
+                cursor: pointer;
 
-              @include breakpoint(xx-large) {
-                grid-column: 3 / 24;
-              }
+                h3 {
+                  &.inverted {
+                    color: var(--white) !important;
+                  }
 
-              h3 {
-                @include font-size(33px, 56px);
-
-                &.page-title {
-                  padding-left: $space-xs;
-                }
-
-                &.inverted {
-                  color: $white !important;
-                  a {
-                    color: $white !important;
+                  &:hover {
+                    color: var(--black);
                   }
                 }
+              }
 
-                a {
-                  border-bottom: none;
-                  cursor: pointer;
-                }
-
-                &:hover {
-                  color: $black;
+              .page-title {
+                margin-left: $space-xxs;
+                &.inverted {
+                  color: var(--white) !important;
                 }
               }
 
@@ -214,17 +190,14 @@ body.project {
         }
 
         .banner {
-          @include m(x0);
-          @include p(x0);
+          margin: 0 !important;
+          padding: 0 !important;
 
           .row {
-            @include p(x0);
-            @include m(x0);
-
             .image {
               grid-column: 1 / 26;
-              margin: 0 !important;
-              padding: 0 !important;
+              margin: 0;
+              padding: 0;
 
               img {
                 width: 100%;
@@ -247,18 +220,10 @@ body.project {
           margin-top: 0;
 
           .project-info {
-            .heading {
-              grid-column: 2 / 25;
-              grid-row: 1;
-              margin-top: 0;
-              padding-top: $space-xs;
-            }
-
             .body {
               grid-column: 2 / 25;
               grid-row: 2;
               margin-top: $x1;
-              margin-bottom: $space-md;
             }
 
             .tag {
@@ -276,32 +241,6 @@ body.project {
 
               @include breakpoint(xx-large) {
                 grid-column: 3 / 24;
-              }
-
-              p {
-                float: left;
-                padding-right: $space-sm;
-
-                span.number {
-                  position: relative;
-                  display: inline-block;
-                  width: clamp(24px, 2.75vw, 40px);
-                  text-align: center;
-                  vertical-align: baseline;
-                  margin-right: $space-xxs;
-
-                  &:before {
-                    content: "";
-                    position: absolute;
-                    top: 55%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: clamp(24px, 2.75vw, 40px);
-                    height: clamp(24px, 2.75vw, 40px);
-                    border-radius: clamp(24px, 2.75vw, 40px);
-                    border: 2px solid;
-                  }
-                }
               }
             }
           }
@@ -365,13 +304,13 @@ body.project {
 
                 &.website {
                   .content {
-                    background-color: $grey;
+                    background-color: var(--grey);
                     overflow: hidden;
 
                     .image {
                       img,
                       video {
-                        border: 2px solid $black;
+                        border: 2px solid var(--black);
 
                         @include breakpoint(x-large) {
                           object-fit: cover;
@@ -384,8 +323,8 @@ body.project {
 
                     &:before {
                       content: "•••";
-                      color: $white;
-                      background-color: $black;
+                      color: var(--white);
+                      background-color: var(--black);
                       padding: 0px $x0p5;
                       font-size: clamp(6px, 3vw, 12px);
                       letter-spacing: 2px;
@@ -405,8 +344,8 @@ body.project {
 
                       &:before {
                         content: "○○○";
-                        color: $white;
-                        background-color: $black;
+                        color: var(--white);
+                        background-color: var(--black);
                         padding: 0px clamp(6px, 3vw, 12px);
                         font-size: clamp(6px, 3vw, 12px);
                         letter-spacing: 3px;
@@ -430,7 +369,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: $grey !important;
+                    background-color: var(--grey) !important;
                     @include px(x2);
                     @include py(x2);
 
@@ -505,18 +444,18 @@ body.project {
                   }
 
                   .website {
-                    background-color: $grey;
+                    background-color: var(--grey);
                     overflow: hidden;
 
                     img,
                     video {
-                      border: 2px solid $black;
+                      border: 2px solid var(--black);
                     }
 
                     &:before {
                       content: "•••";
-                      color: $white;
-                      background-color: $black;
+                      color: var(--white);
+                      background-color: var(--black);
                       padding: 0px $x0p5;
                       font-size: clamp(6px, 3vw, 12px);
                       letter-spacing: 2px;
@@ -536,8 +475,8 @@ body.project {
 
                       &:before {
                         content: "○○○";
-                        color: $white;
-                        background-color: $black;
+                        color: var(--white);
+                        background-color: var(--black);
                         padding: 0px clamp(6px, 3vw, 12px);
                         font-size: clamp(6px, 3vw, 12px);
                         letter-spacing: 3px;
@@ -559,7 +498,7 @@ body.project {
                   }
 
                   .device {
-                    background-color: $grey;
+                    background-color: var(--grey);
                     @include px(x2);
                     @include py(x2);
 
@@ -623,18 +562,18 @@ body.project {
 
                   .content {
                     &.website {
-                      background-color: $grey;
+                      background-color: var(--grey);
                       overflow: hidden;
 
                       img,
                       video {
-                        border: 2px solid $black;
+                        border: 2px solid var(--black);
                       }
 
                       &:before {
                         content: "•••";
-                        color: $white;
-                        background-color: $black;
+                        color: var(--white);
+                        background-color: var(--black);
                         padding: 0px $x0p5;
                         font-size: clamp(6px, 3vw, 12px);
                         letter-spacing: 2px;
@@ -654,8 +593,8 @@ body.project {
 
                         &:before {
                           content: "○○○";
-                          color: $white;
-                          background-color: $black;
+                          color: var(--white);
+                          background-color: var(--black);
                           padding: 0px clamp(6px, 3vw, 12px);
                           font-size: clamp(6px, 3vw, 12px);
                           letter-spacing: 3px;
@@ -677,7 +616,7 @@ body.project {
                     }
 
                     &.device {
-                      background-color: $grey;
+                      background-color: var(--grey);
                       @include px(x2);
                       @include py(x2);
 
@@ -743,13 +682,13 @@ body.project {
 
                 &.website {
                   .content {
-                    background-color: $grey;
+                    background-color: var(--grey);
                     overflow: hidden;
 
                     .image {
                       img,
                       video {
-                        border: 2px solid $black;
+                        border: 2px solid var(--black);
 
                         @include breakpoint(x-large) {
                           object-fit: cover;
@@ -762,8 +701,8 @@ body.project {
 
                     &:before {
                       content: "•••";
-                      color: $white;
-                      background-color: $black;
+                      color: var(--white);
+                      background-color: var(--black);
                       padding: 0px $x0p5;
                       font-size: clamp(6px, 3vw, 12px);
                       letter-spacing: 2px;
@@ -783,8 +722,8 @@ body.project {
 
                       &:before {
                         content: "○○○";
-                        color: $white;
-                        background-color: $black;
+                        color: var(--white);
+                        background-color: var(--black);
                         padding: 0px clamp(6px, 3vw, 12px);
                         font-size: clamp(6px, 3vw, 12px);
                         letter-spacing: 3px;
@@ -808,7 +747,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: $grey !important;
+                    background-color: var(--grey) !important;
                     @include px(x2);
                     @include py(x2);
 
@@ -969,7 +908,7 @@ body.project {
 
                   .content {
                     position: relative;
-                    background-color: $grey;
+                    background-color: var(--grey);
                     grid-column: unset;
                     display: flex;
                     overflow-x: auto;
@@ -1009,7 +948,7 @@ body.project {
                             left: 50%;
                             width: clamp(64px, 9vw, 112px);
                             height: clamp(12px, 2vw, 20px);
-                            background-color: $black;
+                            background-color: var(--black);
                             border-radius: 0 0 calc(#{$radius} / 3)
                               calc(#{$radius} / 3);
                             transform: translateX(-50%);
@@ -1028,7 +967,7 @@ body.project {
                               background-image: radial-gradient(
                                 circle at 0 100%,
                                 transparent 4px,
-                                $black 4px
+                                var(--black) 4px
                               );
                             }
 
@@ -1038,14 +977,14 @@ body.project {
                               background-image: radial-gradient(
                                 circle at 100% 100%,
                                 transparent 4px,
-                                $black 4px
+                                var(--black) 4px
                               );
                             }
                           }
 
                           img {
                             border-radius: $radius;
-                            border: clamp(8px, 0.6vw, 12px) solid $black;
+                            border: clamp(8px, 0.6vw, 12px) solid var(--black);
                           }
                         }
                       }
@@ -1062,7 +1001,7 @@ body.project {
                   .content {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    background-color: $grey;
+                    background-color: var(--grey);
                     grid-column: 2 / 25;
                     grid-template-areas: "a b c";
                     grid-gap: $x1;
@@ -1104,7 +1043,7 @@ body.project {
                             left: 50%;
                             width: clamp(64px, 9vw, 112px);
                             height: clamp(12px, 2vw, 20px);
-                            background-color: $black;
+                            background-color: var(--black);
                             border-radius: 0 0 calc(#{$radius} / 3)
                               calc(#{$radius} / 3);
                             transform: translateX(-50%);
@@ -1123,7 +1062,7 @@ body.project {
                               background-image: radial-gradient(
                                 circle at 0 100%,
                                 transparent 4px,
-                                $black 4px
+                                var(--black) 4px
                               );
                             }
 
@@ -1133,14 +1072,14 @@ body.project {
                               background-image: radial-gradient(
                                 circle at 100% 100%,
                                 transparent 4px,
-                                $black 4px
+                                var(--black) 4px
                               );
                             }
                           }
 
                           img {
                             border-radius: $radius;
-                            border: clamp(8px, 0.6vw, 12px) solid $black;
+                            border: clamp(8px, 0.6vw, 12px) solid var(--black);
                           }
                         }
                       }
@@ -1337,7 +1276,7 @@ body.project {
 
                 &:hover {
                   span {
-                    color: $accent;
+                    color: var(--red);
                   }
                 }
               }
@@ -1425,9 +1364,9 @@ body.project {
                   &:hover {
                     .tags {
                       p {
-                        background-color: $black;
-                        border-color: $black;
-                        color: $white;
+                        background-color: var(--black);
+                        border-color: var(--black);
+                        color: var(--white);
                       }
                     }
                   }

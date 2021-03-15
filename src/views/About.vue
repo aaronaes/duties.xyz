@@ -1,9 +1,9 @@
 <template>
   <main id="about">
-    <section class="outer-margin intro">
+    <section class="outer-margin page-header intro">
       <article class="row first">
         <figure class="column header">
-          <h3
+          <h2
             v-in-viewport.once="{ margin: '-5% 0%' }"
             :class="{ fadeOut: isHovering }"
             class="markdown"
@@ -25,9 +25,10 @@
             </span>
             we help our clients and friends with website design, apps, UX, brand
             identities and a bit of XYZ.
-          </h3>
-          <p class="markdown tagline" :class="{ highlight: isHovering }">
-            * A moral or legal obligation a responsibility.
+          </h2>
+          <p class="tagline" :class="{ highlight: isHovering }">
+            <span class="icon" :class="{ highlight: isHovering }">*</span>
+            <span>A moral or legal obligation a responsibility.</span>
           </p>
         </figure>
       </article>
@@ -51,12 +52,12 @@
 
     <section class="outer-margin services">
       <article class="row column">
-        <figure class="column heading fade-in" v-in-viewport.once>
+        <figure class="column header">
           <h1 class="markdown title hide" v-html="about.offeringIntro"></h1>
-          <h1 class="markdown title big outlined">Services</h1>
+          <h3>Services & Capabilities</h3>
         </figure>
 
-        <figure class="column body fade-in" v-in-viewport.once>
+        <figure class="column main">
           <h3>
             We can help you with <span class="number">1</span> designing your
             next app, <span class="number">2</span> enhancing user experience,
@@ -66,197 +67,111 @@
             brand position.
           </h3>
           <p class="body markdown hide" v-html="about.offeringContent"></p>
-        </figure>
 
-        <figure class="column legend fade-in" v-in-viewport.once>
-          <p>
-            <span class="number">1</span>
-            <span class="caption">Product design</span>
-          </p>
-          <p>
-            <span class="number">2</span>
-            <span class="caption">UX</span>
-          </p>
-          <p>
-            <span class="number">3</span>
-            <span class="caption">Content</span>
-          </p>
-          <p>
-            <span class="number">4</span>
-            <span class="caption">Strategy</span>
-          </p>
-          <p>
-            <span class="number">5</span>
-            <span class="caption">Branding</span>
-          </p>
+          <div class="body">
+            <div class="legend">
+              <p>Capabilites</p>
+              <p>
+                <span class="number">1</span>
+                <span class="caption">Product design</span>
+              </p>
+              <p>
+                <span class="number">2</span>
+                <span class="caption">UX</span>
+              </p>
+              <p>
+                <span class="number">3</span>
+                <span class="caption">Content</span>
+              </p>
+              <p>
+                <span class="number">4</span>
+                <span class="caption">Strategy</span>
+              </p>
+              <p>
+                <span class="number">5</span>
+                <span class="caption">Branding</span>
+              </p>
+            </div>
+            <div class="copy">
+              <p>
+                We believe it’s our duty as designers to provide the world with
+                thoughtfully designed products that are both functional,
+                accessible and visually beautiful.
+              </p>
+              <p>
+                Being a small independent studio enables us to advise,
+                collaborate and engage with clients and creative agencies of all
+                scales.
+              </p>
+              <p>
+                Sound like a good fit?
+                <a>Get in touch</a>
+              </p>
+            </div>
+          </div>
         </figure>
       </article>
     </section>
 
     <section class="outer-margin people">
       <article class="row">
-        <figure class="heading title fade-in" v-in-viewport.once>
-          <h1 class="markdown title big outlined">Team</h1>
+        <figure class="header">
+          <h3>Team & Network</h3>
         </figure>
-        <figure
-          class="column header hide-for-small-only fade-in"
-          v-in-viewport.once
-        >
-          <h3 class="markdown title" v-html="about.networkTitle"></h3>
-          <p class="markdown body " v-html="about.networkBody"></p>
-        </figure>
-        <figure
-          class="column person fade-in"
-          v-in-viewport.once
-          v-for="person in about.team"
-          :key="person.id"
-        >
+        <figure class="person" v-for="person in about.team" :key="person.id">
           <div class="image">
             <img
               :src="getUrl(person.image.url)"
               :srcset="getUrl(person.image.url)"
             />
           </div>
-          <div class="heading">
-            <h3>{{ person.name }}</h3>
+          <div>
+            <h3 class="title">{{ person.name }}</h3>
             <p>
-              <small>{{ person.title }}</small>
+              {{ person.title }}
             </p>
             <p>
               <a :href="'mailto:' + person.email">
-                <small>{{ person.email }}</small>
+                {{ person.email }}
               </a>
             </p>
           </div>
         </figure>
-        <figure
-          class="column body show-for-small-only fade-in"
-          v-in-viewport.once
-        >
-          <h3 class="markdown title" v-html="about.networkTitle"></h3>
-          <p class="markdown body" v-html="about.networkBody"></p>
+        <figure class="body">
+          <p class="markdown" v-html="about.networkBody"></p>
         </figure>
       </article>
     </section>
 
-    <section class="outer-margin clients hide">
-      <article class="row">
-        <figure class="column header">
-          <h2>
-            We have been lucky enough to work with a variety of excellent
-            companies and people throughout the years, like NBX, 🍕Domino's
-            Pizza, 🌀Psynapse, 🍜Food Society, 🥗Godtlevert and more.
-          </h2>
-        </figure>
-        <figure class="column body hide">
-          <div class="body">
-            <h3 class="markdown" v-html="about.ffBody"></h3>
-          </div>
-        </figure>
-        <figure class="column list">
-          <div class="heading" v-if="showLess">
-            <h3
-              class="pill"
-              v-for="asset in about.ffMarqueeOne.slice(0, 9)"
-              :key="asset.id"
-            >
-              {{ asset.name }}
+    <intersect
+      :threshold="[0.2, 0.2]"
+      :root="main"
+      @enter="addBodyClass"
+      @leave="removeBodyClass"
+    >
+      <section class="outer-margin clientOverview">
+        <article class="row">
+          <figure class="header">
+            <h3>Our clients & friends</h3>
+          </figure>
+          <figure class="body">
+            <h3>
+              We have been lucky enough to work with a variety of ambitious
+              companies and talented people throughout the years.
             </h3>
-            <h3 class="pill" @click="showLess = false">
-              <span class="arrow">+</span>
-            </h3>
-          </div>
-          <div class="heading" v-else>
-            <h3
-              class="pill"
-              v-for="asset in about.ffMarqueeOne"
-              :key="asset.id"
-            >
-              {{ asset.name }}
-            </h3>
-            <h3 class="pill" @click="showLess = true">
-              <span class="arrow">–</span>
-            </h3>
-          </div>
-        </figure>
-      </article>
-    </section>
-
-    <section class="outer-margin carousel hide">
-      <article class="row">
-        <figure class="column carousel-inner">
-          <swiper
-            ref="mySwiper"
-            :options="swiperOptions"
-            :auto-update="true"
-            :auto-destroy="true"
-          >
-            <swiper-slide v-for="asset in about.gallery" :key="asset.id">
-              <div class="img-container">
-                <img :src="getUrl(asset.url)" :srcset="getSrcSet(asset.url)" />
-              </div>
-            </swiper-slide>
-          </swiper>
-          <div class="carousel-button-next"></div>
-          <div class="carousel-button-prev"></div>
-        </figure>
-      </article>
-      <article class="row pagination">
-        <figure class="column">
-          <div class="body">
-            <p class="title">(we have some pretty cool friends...)</p>
-          </div>
-        </figure>
-        <figure class="column">
-          <p class=" title carousel-pagination"></p>
-        </figure>
-      </article>
-    </section>
-
-    <section class="outer-margin marquee fade-in hide" v-in-viewport.once>
-      <article class="row">
-        <figure class="column fade-in" v-in-viewport.once>
-          <div class="body heading">
-            <p class="body title">{{ about.ffTitle }}</p>
-            <div class="body" v-html="about.ffBody"></div>
-          </div>
-        </figure>
-        <figure class="inline-marquee left">
-          <div class="title inner first heading">
-            <h1
-              class="first"
-              v-for="asset in about.ffMarqueeOne"
-              :key="asset.id"
-            >
-              {{ asset.name }}
-            </h1>
-          </div>
-          <div class="title inner last heading">
-            <h1
-              class="first"
-              v-for="asset in about.ffMarqueeOne"
-              :key="asset.id"
-            >
-              {{ asset.name }}
-            </h1>
-          </div>
-        </figure>
-        <figure class="inline-marquee right">
-          <div class="title inner first heading">
-            <h1 v-for="asset in about.ffMarqueeTwo" :key="asset.id">
-              {{ asset.name }}
-            </h1>
-          </div>
-          <div class="title inner last heading">
-            <h1 v-for="asset in about.ffMarqueeTwo" :key="asset.id">
-              {{ asset.name }}
-            </h1>
-          </div>
-        </figure>
-      </article>
-    </section>
-
-    <Footer />
+            <ul>
+              <li v-for="(client, i) in allClients" :key="i">
+                <p>{{ client.name }}</p>
+              </li>
+            </ul>
+            <p>
+              You can see the work we have done
+              <router-link :to="{ name: 'Projects' }">here</router-link>.
+            </p>
+          </figure>
+        </article>
+      </section>
+    </intersect>
   </main>
 </template>
 
@@ -265,52 +180,24 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
-import Footer from "@/components/Footer.vue";
+import Intersect from "vue-intersect";
 
 export default {
   name: "About",
   async created() {
     this.about = await this.getAbout();
+    this.allClients = await this.getAllClients();
   },
   components: {
-    Footer
+    Intersect
   },
   data() {
     return {
       isHovering: false,
       showLess: true,
-      about: {
-        introduction: "",
-        image: {
-          url: ""
-        },
-        offeringIntro: "",
-        offeringsContent: "",
-        serviceList: {
-          listTitle: ""
-        },
-        team: {
-          name: "",
-          title: "",
-          phoneNumber: "",
-          email: "",
-          image: {
-            url: ""
-          }
-        },
-        networkTitle: "",
-        networkBody: "",
-        gallery: {
-          url: ""
-        },
-        ffTitle: "",
-        ffBody: "",
-        ffMarqueeOne: {
-          name: ""
-        },
-        ffMarqueeTwo: {
-          name: ""
-        }
+      about: [],
+      allClients: {
+        client: []
       },
       swiperOptions: {
         speed: 200,
@@ -378,6 +265,24 @@ export default {
       });
       return data.about;
     },
+    async getAllClients() {
+      const { data } = await getData({
+        query: gql`
+          query {
+            allClients(orderBy: name_ASC) {
+              name
+            }
+          }
+        `
+      });
+      return data.allClients;
+    },
+    addBodyClass() {
+      document.body.classList.add("dark");
+    },
+    removeBodyClass() {
+      document.body.classList.remove("dark");
+    },
     getMarkdown(content) {
       return marked(content);
     },
@@ -413,9 +318,6 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
-  },
-  beforeCreate: function() {
-    document.body.className = "about";
   }
 };
 </script>

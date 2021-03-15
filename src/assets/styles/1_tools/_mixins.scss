@@ -1,7 +1,7 @@
 // ==============================
 
-$lock-min: 576px;
-$lock-max: 1680px;
+$lock-min: 375px;
+$lock-max: 1800px;
 
 // ==============================
 // Font-size Mixin
@@ -240,11 +240,6 @@ $spacing-important: true !default;
 @mixin display-grid {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
-}
-
-@mixin display-grid-24 {
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
 }
 
 @mixin grid-child($col-start, $col-end, $row-start, $row-end) {
