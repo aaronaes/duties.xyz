@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section class="outer-margin page-header">
+  <div id="content">
+    <section class="outer-margin section header-pad">
       <article class="row">
         <figure class="column">
           <h3>
@@ -17,37 +17,27 @@
     </section>
     <section class="outer-margin news">
       <section class="news-grid">
-        <article class="news-item" v-for="(story, i) in onDuty" :key="i">
+        <article class="post card" v-for="(story, i) in onDuty" :key="i">
           <figure class="column">
-            <div class="date">
+            <div class="media">
+              <img
+                :src="getUrl(story.storyImage.url)"
+                :srcset="getSrcSet(story.storyImage.url)"
+              />
+            </div>
+            <div class="date hide-for-small-only">
               <p>
                 {{ getDate(story.createdAt) }}
               </p>
             </div>
             <div class="body">
               <p class="markdown" v-html="story.description"></p>
-              <div
-                class="categories"
-                v-for="item in story.categories"
-                :key="item.id"
-              >
-                <p>
-                  <span class="number">{{ item.categoryNumber }}</span>
-                  <span>{{ item.categoryType }}</span>
-                </p>
-              </div>
-            </div>
-            <div class="storyImage">
-              <img
-                :src="getUrl(story.storyImage.url)"
-                :srcset="getSrcSet(story.storyImage.url)"
-              />
             </div>
           </figure>
         </article>
       </section>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -73,9 +63,8 @@ export default {
   methods: {
     getDate(CreatedAt) {
       const options = {
-        year: "numeric",
         month: "short",
-        day: "numeric"
+        year: "numeric"
       };
 
       return new Date(CreatedAt).toLocaleDateString("us-EN", options);
@@ -84,17 +73,13 @@ export default {
       const { data } = await getData({
         query: gql`
           query {
-            allStories {
+            allStories(orderBy: _createdAt_DESC) {
+              createdAt
+              title
               storyImage {
                 url
               }
-              title
-              createdAt
               description
-              categories {
-                categoryNumber
-                categoryType
-              }
             }
           }
         `
@@ -125,6 +110,9 @@ export default {
     formatted() {
       return this.filter("date")(this.value);
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

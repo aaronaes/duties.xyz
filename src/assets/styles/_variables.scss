@@ -73,23 +73,53 @@ html {
 
 // Colors
 :root {
-  --white: #ffffff;
-  --grey: #f8f8f8;
-  --sand: #ddd9d5;
-  --black: #17171c;
   --red: #ff4f3e;
+  --black: #17171c;
+  --sand: #ddd9d5;
+  --white: #f8f8f8;
 
-  --font-inter: "Inter", sans-serif;
+  --font-inter: "Inter", Helvetica, sans-serif;
   --font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
   --font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
   --font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
   --font-tex-cond-bold: "TeXGyreHerosCondBold", "Inter", sans-serif;
 
   --easing: cubic-bezier(0.75, 0, 0.25, 1);
+
+  // Font Sizes
+  --heading-lg: clamp(72px, 10.75vw, 192px);
+  --heading-md: clamp(40px, 5.5vw, 96px);
+  --heading-sm: clamp(24px, 3vw, 48px);
+  --body: clamp(18px, 1.8vw, 32px);
+
+  // Verical Space
+  --space-xxs: clamp(2px, 1vw, 4px);
+  --space-xs: clamp(8px, 1.5vw, 12px);
+  --space-sm: clamp(16px, 2.5vw, 32px);
+  --space-md: clamp(24px, 7.4vw, 40px);
+  --space-lg: clamp(40px, 10vw, 144px);
+  --space-xl: clamp(144px, 25vw, 320px);
+
+  // Grid Space
+  --x0p125: calc(100vw * 0.125 / 25);
+  --x0p25: calc(100vw * 0.25 / 25);
+  --x0p5: calc(100vw * 0.5 / 25);
+  --x0p75: calc(100vw * 0.75 / 25);
+  --x1: calc(100vw * 1 / 25);
+  --x1p5: calc(100vw * 1.5 / 25);
+  --x2: calc(100vw * 2 / 25);
+  --x3: calc(100vw * 3 / 25);
+  --x4: calc(100vw * 4 / 25);
+  --x5: calc(100vw * 5 / 25);
+  --x6: calc(100vw * 6 / 25);
+  --x7: calc(100vw * 7 / 25);
+  --x8: calc(100vw * 8 / 25);
+  --x9: calc(100vw * 9 / 25);
+  --x10: calc(100vw * 10 / 25);
 }
 
 // Spacing
-$space-xxs: clamp(4px, 0.25vw, 8px);
+$space-xxs: clamp(2px, 0.125vw, 8px);
 $space-xs: clamp(8px, 2vw, 16px);
 $space-sm: clamp(24px, 4vw, 48px);
 $space-md: clamp(40px, 6vw, 72px);

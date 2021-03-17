@@ -32,7 +32,7 @@ body.project {
         opacity: 1;
         z-index: 9999;
         background-color: var(--black);
-        color: var(--grey);
+        color: var(--white);
         margin: 0;
         padding: 0;
 
@@ -45,7 +45,7 @@ body.project {
           }
 
           .column {
-            margin-top: $space-sm;
+            margin-top: var(--space-sm);
             grid-column: 2 / 25;
 
             @include breakpoint(x-large) {
@@ -97,7 +97,7 @@ body.project {
                       overflow: visible;
 
                       .path {
-                        animation: dash 300ms cubic-bezier(0.75, 0, 0.75, 1)
+                        animation: dash 200ms cubic-bezier(0.75, 0, 0.75, 1)
                           forwards;
                       }
                     }
@@ -152,7 +152,7 @@ body.project {
           .nav {
             width: 100vw;
             opacity: 1;
-            margin-top: $space-sm;
+            margin-top: var(--space-sm);
 
             .heading {
               grid-column: 2 / 25;
@@ -304,7 +304,7 @@ body.project {
 
                 &.website {
                   .content {
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     overflow: hidden;
 
                     .image {
@@ -369,7 +369,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: var(--grey) !important;
+                    background-color: var(--white) !important;
                     @include px(x2);
                     @include py(x2);
 
@@ -444,7 +444,7 @@ body.project {
                   }
 
                   .website {
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     overflow: hidden;
 
                     img,
@@ -498,7 +498,7 @@ body.project {
                   }
 
                   .device {
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     @include px(x2);
                     @include py(x2);
 
@@ -562,7 +562,7 @@ body.project {
 
                   .content {
                     &.website {
-                      background-color: var(--grey);
+                      background-color: var(--white);
                       overflow: hidden;
 
                       img,
@@ -616,7 +616,7 @@ body.project {
                     }
 
                     &.device {
-                      background-color: var(--grey);
+                      background-color: var(--white);
                       @include px(x2);
                       @include py(x2);
 
@@ -682,7 +682,7 @@ body.project {
 
                 &.website {
                   .content {
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     overflow: hidden;
 
                     .image {
@@ -747,7 +747,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: var(--grey) !important;
+                    background-color: var(--white) !important;
                     @include px(x2);
                     @include py(x2);
 
@@ -908,7 +908,7 @@ body.project {
 
                   .content {
                     position: relative;
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     grid-column: unset;
                     display: flex;
                     overflow-x: auto;
@@ -1001,7 +1001,7 @@ body.project {
                   .content {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    background-color: var(--grey);
+                    background-color: var(--white);
                     grid-column: 2 / 25;
                     grid-template-areas: "a b c";
                     grid-gap: $x1;

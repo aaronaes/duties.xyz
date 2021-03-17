@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section class="outer-margin page-header">
+  <div id="content">
+    <section class="outer-margin section header-pad">
       <article class="row">
         <figure class="column">
           <h3>
@@ -21,12 +21,16 @@
     <section class="outer-margin xyz">
       <section class="xyz-grid">
         <article
-          class="xyz-item"
+          class="xyz-item fade-in"
           v-for="(block, i) in offDuty.xyzPosts"
           :key="i"
+          v-in-viewport.once
         >
           <figure class="column">
-            <div class="xyzImage">
+            <div
+              class="xyzImage"
+              v-if="block.xyzImage && block.xyzImage.url.length"
+            >
               <img
                 :src="getUrl(block.xyzImage.url)"
                 :srcset="getSrcSet(block.xyzImage.url)"
@@ -39,7 +43,7 @@
         </article>
       </section>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -110,6 +114,12 @@ export default {
     pageName() {
       return this.$route.name;
     }
+  },
+  beforeCreate() {
+    this.$nextTick().then(() => document.body.classList.add("page-xyz"));
+  },
+  beforeDestroy() {
+    this.$nextTick().then(() => document.body.classList.remove("page-xyz"));
   }
 };
 </script>

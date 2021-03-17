@@ -8,8 +8,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "calt", "dlig", "liga", "ss02";
-  font-feature-settings: "case" on, "kern" off;
 }
 
 // Headings
@@ -31,36 +29,36 @@ h6 {
 
 h1,
 h1.markdown > p {
-  @include font-size(72px, 192px);
+  font-size: var(--heading-lg);
   line-height: 0.9;
   letter-spacing: -0.055em;
-
-  &.big {
-    @include font-size(72px, 192px);
-  }
 
   &.outlined {
     color: transparent;
     line-height: 1;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--black);
+
+    * {
+      color: transparent;
+      transition: all 200ms ease;
+    }
   }
 }
 
 h2,
-h2.markdown > p {
-  font-family: var(--font-tex-regular);
-  @include font-size(48px, 96px);
+h2.markdown p {
+  font-size: var(--heading-md);
   line-height: 1.15;
 }
 
 h3,
 h3.markdown p {
-  @include font-size(24px, 56px);
+  font-size: var(--heading-sm);
   line-height: 1.25;
 
   &:not(:last-of-type) {
-    margin-bottom: $space-sm;
+    margin-bottom: var(--space-xs);
   }
 
   span.tnr {
@@ -71,15 +69,16 @@ h3.markdown p {
 
 p,
 p.markdown > p {
-  @include font-size(20px, 32px);
+  font-size: var(--body);
   line-height: 1.4;
 }
 
 a {
+  display: inline-block;
   color: var(--black);
   border-bottom: 2px solid var(--black);
   text-decoration: none;
-  transition: all 50ms ease-out;
+  transition: all 200ms var(--easing);
   cursor: pointer;
 
   &:hover,
@@ -88,10 +87,9 @@ a {
     color: var(--black);
     border-color: transparent;
 
-    & > .outlined {
-      color: var(--red);
-      -webkit-text-stroke-width: 0px;
-      -webkit-text-stroke-color: transparent;
+    .outlined,
+    .outlined span {
+      color: var(--black);
     }
   }
 
@@ -117,20 +115,19 @@ a {
 }
 
 // Heading Styles
-.heading {
-  h1,
-  h2,
-  h3 {
-    &.title {
-      letter-spacing: -0.055em;
+
+h1,
+h2,
+h3 {
+  &.title {
+    letter-spacing: -0.055em;
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    p {
       font-weight: 400;
-
       text-transform: uppercase;
-
-      p {
-        font-weight: 400;
-        text-transform: uppercase;
-      }
     }
   }
 }

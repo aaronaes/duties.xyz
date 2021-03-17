@@ -1,9 +1,9 @@
 <template>
-  <section class="outer-margin footer">
+  <footer class="outer-margin footer">
     <article class="row fade-in" v-in-viewport.once>
-      <article class="block">
+      <article>
         <figure class="column tagline">
-          <h3 class="title" v-html="footer.tagline"></h3>
+          <p v-html="footer.tagline"></p>
         </figure>
         <figure class="column contact">
           <div class="heading">
@@ -21,7 +21,7 @@
         <figure class="column links">
           <ul>
             <li v-for="link in footer.links" :key="link.id">
-              <p class="heading">
+              <p>
                 <a class="title" :href="link.linkUrl" target="_blank">
                   {{ link.linkTitle }}
                 </a>
@@ -31,7 +31,7 @@
         </figure>
       </article>
     </article>
-  </section>
+  </footer>
 </template>
 
 <script>

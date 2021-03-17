@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <section class="outer-margin page-header" v-if="$route.name === 'Projects'">
+  <div id="content">
+    <section
+      class="outer-margin section header-pad"
+      v-if="$route.name === 'Projects'"
+    >
       <article class="row">
         <figure class="column">
           <h3>
             We have been lucky enough to work with a variety of ambitious
-            companies and talented people throughout the years. You can learn
-            more about who we are and what we do over here.
+            companies and talented people throughout the years.
           </h3>
         </figure>
         <figure class="column heading hide">
@@ -14,76 +16,90 @@
         </figure>
       </article>
     </section>
-    <section class="outer-margin project-legend show-for-small-only">
-      <article>
-        <figure>
-          <p :class="{ highlight: isHovering }">
-            <span class="number">➀</span>
-            <span class="caption">Product design</span>
-          </p>
-          <p :class="{ highlight: isHovering }">
-            <span class="number">➁</span>
-            <span class="caption">UX</span>
-          </p>
-          <p :class="{ highlight: isHovering }">
-            <span class="number">➂</span>
-            <span class="caption">Content</span>
-          </p>
-          <p :class="{ highlight: isHovering }">
-            <span class="number">➃</span>
-            <span class="caption">Strategy</span>
-          </p>
-          <p :class="{ highlight: isHovering }">
-            <span class="number">➄</span>
-            <span class="caption">Branding</span>
-          </p>
-        </figure>
-      </article>
-    </section>
-    <section class="outer-margin projectOverview project-grid">
+    <section
+      class="outer-margin project-grid"
+      v-if="$route.name !== 'Projects'"
+    >
       <article
-        v-for="project in projectOverview.projects"
+        v-for="project in projectOverview.projects.slice(3, 9999999)"
         :key="project.id"
-        class="project"
+        class="main project"
       >
-        <figure>
-          <a
-            :href="'/projects/' + project.slug"
-            @click="e => handleProject(e, project)"
-            @mouseover="isHovering = true"
-            @mouseout="isHovering = false"
-          >
+        <a
+          :href="'/projects/' + project.slug"
+          @click="e => handleProject(e, project)"
+        >
+          <figure id="dildo" class="column">
             <div class="project-content">
               <p class="name">
                 <span class="markdown icon" v-html="project.icon"></span>
                 {{ project.title }}
               </p>
-              <div class="image hide-for-small-only">
+              <div class="image follow">
                 <img
                   :src="getUrl(project.projectThumbnail.url)"
                   :srcset="getSrcSet(project.projectThumbnail.url)"
                 />
               </div>
-              <div class="categories">
-                <p v-for="(category, i) in project.categories" :key="i">
-                  <span class="number" v-html="category.categoryNumber"></span>
-                  <span
-                    class="caption show-for-large"
-                    v-html="category.categoryType"
-                  ></span>
+              <div class="categories show-for-medium">
+                <p
+                  class="number"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  <span class="markdown" v-html="category.categoryNumber">
+                  </span>
+                  <span class="show-for-medium">{{
+                    category.categoryType
+                  }}</span>
                 </p>
               </div>
-              <p class="year show-for-large">
-                <span class="foo">{{ project.year }}</span>
-                <span class="bar">View</span>
-              </p>
             </div>
-          </a>
-        </figure>
+          </figure>
+        </a>
       </article>
     </section>
-
-    <section class="outer-margin clientOverview">
+    <section class="outer-margin project-grid" v-else>
+      <article
+        v-for="project in projectOverview.projects"
+        :key="project.id"
+        class="main project"
+      >
+        <a
+          :href="'/projects/' + project.slug"
+          @click="e => handleProject(e, project)"
+        >
+          <figure id="dildo" class="column">
+            <div class="project-content">
+              <p class="name">
+                <span class="markdown icon" v-html="project.icon"></span>
+                {{ project.title }}
+              </p>
+              <div class="image follow">
+                <img
+                  :src="getUrl(project.projectThumbnail.url)"
+                  :srcset="getSrcSet(project.projectThumbnail.url)"
+                />
+              </div>
+              <div class="categories show-for-medium">
+                <p
+                  class="number"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  <span class="markdown" v-html="category.categoryNumber">
+                  </span>
+                  <span class="show-for-medium">{{
+                    category.categoryType
+                  }}</span>
+                </p>
+              </div>
+            </div>
+          </figure>
+        </a>
+      </article>
+    </section>
+    <section class="outer-margin client-overview">
       <article class="row">
         <figure class="header">
           <h3>Our clients & friends</h3>
@@ -98,24 +114,19 @@
               <p>{{ client.name }}</p>
             </li>
           </ul>
-          <p v-if="$route.name !== 'Projects'">
-            You can see the work we have done
-            <router-link :to="{ name: 'Projects' }">here</router-link>.
+          <p class="link" v-if="$route.name !== 'Projects'">
+            Check out
+            <router-link to="projects">our work</router-link> we have done or
+            catch up on the latest news
+            <router-link to="news">here</router-link>.
           </p>
-        </figure>
-      </article>
-    </section>
-    <section class="outer-margin clientOverview hide">
-      <article class="row">
-        <figure class="header">
-          <p>❤️ Our clients & friends</p>
-        </figure>
-        <figure class="body">
-          <ul>
-            <li v-for="(client, i) in allClients" :key="i">
-              <p class="markdown" v-html="client.name"></p>
-            </li>
-          </ul>
+          <p class="link" v-if="$route.name === 'Projects'">
+            You can learn more about who we are and what we do over
+            <router-link to="/studio">here</router-link>.
+            <br />
+            Catch up on the latest news in the studio
+            <router-link to="news">here</router-link>.
+          </p>
         </figure>
       </article>
     </section>
@@ -148,6 +159,12 @@ export default {
     };
   },
   methods: {
+    addDarkmode() {
+      document.body.classList.add("darkmode");
+    },
+    removeDarkmode() {
+      document.body.classList.remove("darkmode");
+    },
     async getAllClients() {
       const { data } = await getData({
         query: gql`
@@ -217,6 +234,17 @@ export default {
       ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
       `;
     }
+  },
+  mounted: function() {
+    $(document).mousemove(function(e) {
+      $(".follow").offset({
+        left: e.pageX,
+        top: e.pageY
+      });
+    });
+  },
+  destroyed() {
+    document.body.classList.remove("darkmode");
   }
 };
 </script>

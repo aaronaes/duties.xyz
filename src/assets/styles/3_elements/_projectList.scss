@@ -5,7 +5,7 @@
 
   .project-feed {
     grid-column: 2 / 25;
-    margin-bottom: $space-md;
+    margin-bottom: var(--space-sm);
 
     .project {
       margin-bottom: $x1;
@@ -33,17 +33,12 @@
 
               .name,
               .description {
-                padding-bottom: $space-xs;
+                padding-bottom: var(--space-xs);
               }
 
               .categories {
                 p {
                   display: inline;
-                  padding-left: $space-xs;
-
-                  &:first-of-type {
-                    padding-left: 0;
-                  }
                 }
               }
             }

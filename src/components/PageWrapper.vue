@@ -1,8 +1,10 @@
 <template>
   <div>
     <Nav />
-    <transition name="loadPage" mode="out-in" appear>
-      <slot></slot>
+    <transition name="page" mode="out-in">
+      <main id="page">
+        <slot></slot>
+      </main>
     </transition>
     <Footer />
   </div>

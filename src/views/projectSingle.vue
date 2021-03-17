@@ -73,11 +73,11 @@
           </figure>
           <figure class="column heading tag">
             <p
-              class="markdown"
+              class="markdown number"
               v-for="(category, i) in project.categories"
               :key="i"
             >
-              <span class="number">{{ category.categoryNumber }}</span>
+              <span>{{ category.categoryNumber }}</span>
               <span>{{ category.categoryType }}</span>
             </p>
           </figure>

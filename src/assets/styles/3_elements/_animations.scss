@@ -1,42 +1,23 @@
 // Page
-.loadPage-enter-active {
-  animation: pageLoadIn 150ms var(--easing);
+.page-enter-active,
+.page-leave-active {
+  transition: all 200ms var(--easing);
+  opacity: 1;
 }
 
-.loadPage-leave-active {
-  animation: pageLoadOut 150ms var(--easing);
-}
-
-@keyframes pageLoadIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes pageLoadOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.loadPage-enter,
-.loadPage-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
+  transition-delay: 200ms;
 }
 
 // Project Overlay
 .loadProject-enter-active {
-  animation: loadingIn 300ms var(--easing);
+  animation: loadingIn 200ms var(--easing);
   overflow: hidden;
 }
 .loadProject-leave-active {
-  animation: loadingOut 300ms var(--easing);
+  animation: loadingOut 200ms var(--easing);
   overflow: hidden;
 }
 
@@ -76,23 +57,10 @@
 }
 
 // In Viewport
-.fade {
-  opacity: 0;
-  transition: opacity 100ms var(--easing);
-
-  &.in-viewport {
-    opacity: 1;
-  }
-}
-
 .fade-in {
   opacity: 0;
   transition: opacity 300ms var(--easing);
   transition-delay: 300ms;
-
-  @media (hover: hover) {
-    /* base hover styles from above */
-  }
 
   &.in-viewport {
     opacity: 1;

@@ -1,13 +1,9 @@
 <template>
-  <main id="about">
-    <section class="outer-margin page-header intro">
-      <article class="row first">
+  <div id="content">
+    <section class="outer-margin section header-pad">
+      <article class="row">
         <figure class="column header">
-          <h2
-            v-in-viewport.once="{ margin: '-5% 0%' }"
-            :class="{ fadeOut: isHovering }"
-            class="markdown"
-          >
+          <h2 :class="{ fadeOut: isHovering }">
             At
             <span
               class="audio"
@@ -28,7 +24,7 @@
           </h2>
           <p class="tagline" :class="{ highlight: isHovering }">
             <span class="icon" :class="{ highlight: isHovering }">*</span>
-            <span>A moral or legal obligation a responsibility.</span>
+            <span>A moral or legal obligation; a responsibility.</span>
           </p>
         </figure>
       </article>
@@ -39,7 +35,7 @@
       </article>
     </section>
 
-    <section class="outer-margin image fade-in" v-in-viewport.once>
+    <section class="outer-margin image">
       <article class="row">
         <figure class="column image">
           <img
@@ -51,45 +47,42 @@
     </section>
 
     <section class="outer-margin services">
-      <article class="row column">
-        <figure class="column header">
-          <h1 class="markdown title hide" v-html="about.offeringIntro"></h1>
+      <article class="row">
+        <figure class="header">
           <h3>Services & Capabilities</h3>
         </figure>
 
         <figure class="column main">
-          <h3>
-            We can help you with <span class="number">1</span> designing your
-            next app, <span class="number">2</span> enhancing user experience,
-            <span class="number">3</span>
-            writing engaging microcopy, <span class="number">4</span> creating a
-            website that converts or <span class="number">5</span> defining your
-            brand position.
+          <h3 class="number">
+            We can help you with designing your next app<sup>1</sup>, enhancing
+            user-experience<sup>2</sup>, writing engaging microcopy<sup>3</sup>,
+            creating a website that converts<sup>4</sup> or defining your brand
+            position<sup>5</sup>.
           </h3>
           <p class="body markdown hide" v-html="about.offeringContent"></p>
 
           <div class="body">
-            <div class="legend">
+            <div class="legend hide-for-small-only">
               <p>Capabilites</p>
-              <p>
-                <span class="number">1</span>
-                <span class="caption">Product design</span>
-              </p>
-              <p>
-                <span class="number">2</span>
+              <p class="number">
+                <span>➀</span>
                 <span class="caption">UX</span>
               </p>
-              <p>
-                <span class="number">3</span>
-                <span class="caption">Content</span>
+              <p class="number">
+                <span>➁</span>
+                <span class="caption">Apps</span>
               </p>
-              <p>
-                <span class="number">4</span>
-                <span class="caption">Strategy</span>
+              <p class="number">
+                <span>➂</span>
+                <span class="caption">Websites</span>
               </p>
-              <p>
-                <span class="number">5</span>
+              <p class="number">
+                <span>➃</span>
                 <span class="caption">Branding</span>
+              </p>
+              <p class="number">
+                <span>➄</span>
+                <span class="caption">XYZ</span>
               </p>
             </div>
             <div class="copy">
@@ -118,25 +111,27 @@
         <figure class="header">
           <h3>Team & Network</h3>
         </figure>
-        <figure class="person" v-for="person in about.team" :key="person.id">
-          <div class="image">
-            <img
-              :src="getUrl(person.image.url)"
-              :srcset="getUrl(person.image.url)"
-            />
-          </div>
-          <div>
-            <h3 class="title">{{ person.name }}</h3>
-            <p>
-              {{ person.title }}
-            </p>
-            <p>
+        <div class="team">
+          <figure class="person" v-for="person in about.team" :key="person.id">
+            <div class="image">
+              <img
+                :src="getUrl(person.image.url)"
+                :srcset="getUrl(person.image.url)"
+              />
+            </div>
+            <div>
+              <h3>{{ person.name }}</h3>
+              <p>
+                {{ person.title }}
+              </p>
               <a :href="'mailto:' + person.email">
-                {{ person.email }}
+                <p>
+                  {{ person.email }}
+                </p>
               </a>
-            </p>
-          </div>
-        </figure>
+            </div>
+          </figure>
+        </div>
         <figure class="body">
           <p class="markdown" v-html="about.networkBody"></p>
         </figure>
@@ -144,12 +139,12 @@
     </section>
 
     <intersect
-      :threshold="[0.2, 0.2]"
+      :threshold="[0.5]"
       :root="main"
-      @enter="addBodyClass"
-      @leave="removeBodyClass"
+      @enter="addIntersectClass"
+      @leave="removeIntersectClass"
     >
-      <section class="outer-margin clientOverview">
+      <section class="outer-margin client-overview">
         <article class="row">
           <figure class="header">
             <h3>Our clients & friends</h3>
@@ -164,7 +159,7 @@
                 <p>{{ client.name }}</p>
               </li>
             </ul>
-            <p>
+            <p @click="removeIntersectClass()">
               You can see the work we have done
               <router-link :to="{ name: 'Projects' }">here</router-link>.
             </p>
@@ -172,7 +167,7 @@
         </article>
       </section>
     </intersect>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -277,11 +272,11 @@ export default {
       });
       return data.allClients;
     },
-    addBodyClass() {
-      document.body.classList.add("dark");
+    addIntersectClass() {
+      document.body.classList.add("darkmode");
     },
-    removeBodyClass() {
-      document.body.classList.remove("dark");
+    removeIntersectClass() {
+      document.body.classList.remove("darkmode");
     },
     getMarkdown(content) {
       return marked(content);
@@ -307,9 +302,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
+    window.scrollTo(0, 0);
   },
   computed: {
     pageName() {

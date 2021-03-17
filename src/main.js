@@ -13,8 +13,6 @@ import VueScrollTo from "vue-scrollto";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import vueScrollBehavior from "vue-scroll-behavior";
 import inViewportDirective from "vue-in-viewport-directive";
-import CursorFx from "@luxdamore/vue-cursor-fx";
-import "@luxdamore/vue-cursor-fx/dist/CursorFx.css";
 
 import "./assets/scripts/main.js";
 import "./assets/styles/main.scss";
@@ -41,8 +39,6 @@ Vue.use(vueScrollBehavior, {
   router: router, // The router instance
   el: "#app" // Custom element
 });
-
-Vue.use(CursorFx);
 
 new Vue({
   router,

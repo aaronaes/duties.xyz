@@ -1,34 +1,63 @@
-main {
-  min-height: 100%;
+#page {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: background-color;
 }
 
-.outer-margin {
-  margin-top: $space-lg;
+.section {
+  &.page-hero {
+    height: 100vh;
+    margin-top: 0;
+    grid-column: 1 / 26;
 
-  &.page-header {
-    margin-top: $space-xl;
+    @include breakpoint(medium) {
+      height: 80vh;
+    }
+  }
+  &.header-pad {
+    display: flex;
+    padding-top: var(--space-xl);
 
-    .row {
-      grid-column: 2 / 25;
+    // @include breakpoint(medium) {
+    //   height: calc(100vh - var(--space-md));
+    // }
 
-      .column {
-        grid-column: 2 / 25;
-        margin-bottom: $space-lg;
-      }
+    article {
+      align-self: flex-end;
     }
   }
 
   .row {
     @include display-grid;
-    display: grid;
-    grid-template-columns: repeat(25, 1fr);
-
     .column {
-      margin-bottom: $space-md;
+      grid-column: 2 / 25;
+      margin-bottom: var(--space-md);
+    }
+  }
+}
 
-      &:last-of-type {
-        margin-bottom: 0;
-      }
+.outer-margin {
+  padding-left: var(--x0p5);
+  padding-right: var(--x0p5);
+
+  @include breakpoint(medium) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.row {
+  @include display-grid;
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+
+  .column {
+    margin-bottom: var(--x1);
+    grid-column: 2 / 25;
+
+    &:last-of-type {
+      margin-bottom: 0;
     }
   }
 }
@@ -37,4 +66,13 @@ article {
   & > * + * {
     margin: 0;
   }
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
 }

@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <PageWrapper>
-      <keep-alive>
-        <router-view :key="$route.fullPath"></router-view>
-      </keep-alive>
+      <router-view :key="$route.fullPath"></router-view>
     </PageWrapper>
   </div>
 </template>
@@ -42,9 +40,9 @@ export default {
       handler(to, from) {
         const foo = document.getElementsByTagName("body")[0];
         if (from !== undefined) {
-          foo.classList.remove("theme--" + from.name.toLowerCase());
+          foo.classList.remove("page-" + from.name.toLowerCase());
         }
-        foo.classList.add("theme--" + to.name.toLowerCase());
+        foo.classList.add("page-" + to.name.toLowerCase());
       },
       immediate: true
     }

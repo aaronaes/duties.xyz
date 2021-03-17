@@ -18,8 +18,12 @@
                 {{ project.subtitle }}
               </p>
               <div class="categories">
-                <p v-for="(category, i) in project.categories" :key="i">
-                  <span class="number" v-html="category.categoryNumber"></span>
+                <p
+                  class="number"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  <span v-html="category.categoryNumber"></span>
                   <span class="caption" v-html="category.categoryType"></span>
                 </p>
               </div>

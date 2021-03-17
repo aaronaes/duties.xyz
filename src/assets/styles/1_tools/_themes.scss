@@ -1,9 +1,9 @@
 // THEMES //
 body {
-  transition: background-color 300ms ease-out, color 300ms ease-out;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
   will-change: background-color, color;
 
-  &.theme--home {
+  &.page-home {
     background-color: var(--white);
     color: var(--black);
 
@@ -17,19 +17,31 @@ body {
     }
   }
 
-  &.theme--onDuty {
-    background-color: var(--sand);
+  &.page-news {
+    background-color: var(--white);
     * {
       color: var(--black);
     }
   }
 
-  &.theme--xyz {
-    color: var(--red);
+  &.page-xyz {
     background-color: var(--black);
 
     * {
-      -webkit-text-stroke-color: var(--red);
+      color: var(--red);
+    }
+
+    * h1.outlined {
+      span {
+        color: transparent;
+        -webkit-text-stroke-width: 1px !important;
+        -webkit-text-stroke-color: var(--red) !important;
+      }
+      &:hover {
+        * {
+          color: var(--red);
+        }
+      }
     }
 
     svg {
@@ -60,25 +72,25 @@ body {
   }
 
   &.dark {
-    color: var(--grey);
+    color: var(--white);
     background-color: var(--black);
 
     svg {
       &.logo,
       &.symbol {
         path {
-          fill: var(--grey) !important;
+          fill: var(--white) !important;
         }
       }
     }
 
     a,
     p a {
-      color: var(--grey);
-      border-color: var(--grey);
+      color: var(--white);
+      border-color: var(--white);
       display: inline-block;
       &:hover {
-        color: var(--grey);
+        color: var(--white);
         border-color: transparent;
       }
     }

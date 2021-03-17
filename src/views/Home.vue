@@ -1,22 +1,22 @@
 <template>
-  <main>
+  <div id="content">
     <intersect
-      :threshold="[0.4, 0.8]"
+      :threshold="[0.1]"
       @enter="addLightmode"
       @leave="removeLightmode"
     >
-      <section class="outer-margin hero-list">
+      <section class="outer-margin section page-hero">
         <article class="row">
           <figure class="column hero-list">
-            <ul>
+            <ul class="list">
               <li
-                class="list"
+                class="list-item"
                 v-for="(block, i) in frontpage.heroList"
                 :key="i"
               >
                 <router-link :to="block.heroListLink">
-                  <h2>
-                    <span class="number">{{ block.heroListNumber }}</span>
+                  <h2 class="number">
+                    <span class="markdown" v-html="block.heroListNumber"></span>
                     <span>{{ block.heroListTitle }}</span>
                   </h2>
                   <div class="imgBox">
@@ -36,8 +36,8 @@
       </section>
     </intersect>
 
-    <section class="outer-margin onduty-intro page-header">
-      <article class="intro">
+    <section class="outer-margin onduty-intro section header-pad">
+      <article class="row intro">
         <figure class="column page-subtitle">
           <h3>
             We believe it’s our duty as designers to provide the world with
@@ -53,20 +53,19 @@
       </article>
     </section>
     <ProjectList :projects="projects" />
+
     <ProjectIndex />
 
     <!-- Story List -->
     <NewsList class="hide" :stories="stories" />
 
-    <intersect
-      :threshold="[0.4, 0.8]"
-      @enter="addDarkmode"
-      @leave="removeDarkmode"
-    >
+    <intersect :threshold="[0.5]" @enter="addDarkmode" @leave="removeDarkmode">
       <section class="outer-margin offduty">
         <article class="row content top">
           <figure class="header">
-            <h1 class="title big outlined negative">OFF—DUTY</h1>
+            <router-link :to="{ name: 'XYZ' }">
+              <h1 class="title big outlined negative">OFF—DUTY</h1>
+            </router-link>
           </figure>
           <figure class="counter">
             <div class="pagination"></div>
@@ -113,7 +112,7 @@
         </article>
       </section>
     </intersect>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -169,7 +168,6 @@ export default {
       footer: [],
       swiperOptions: {
         speed: 200,
-        grabCursor: "true",
         slidesPerView: "auto",
         loop: true,
         loopedSlides: 50000,
@@ -186,10 +184,10 @@ export default {
   },
   methods: {
     addDarkmode() {
-      document.body.classList.add("dark");
+      document.body.classList.add("darkmode");
     },
     removeDarkmode() {
-      document.body.classList.remove("dark");
+      document.body.classList.remove("darkmode");
     },
     addLightmode() {
       document.body.classList.add("light");
@@ -375,6 +373,13 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+  destroyed() {
+    document.body.classList.remove("darkmode");
+    document.body.classList.remove("light");
   }
 };
 </script>

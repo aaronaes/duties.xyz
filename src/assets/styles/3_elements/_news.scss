@@ -1,7 +1,6 @@
 .news,
 .news-list {
-  @include display-grid;
-  margin-top: $space-md;
+  margin-top: var(--space-sm);
 
   .news-grid {
     display: grid;
@@ -10,13 +9,16 @@
     margin-top: 0;
     margin-bottom: $x2;
 
-    .news-item {
-      grid-column: 1 / 26;
-      padding: $space-xs 0;
-      border-bottom: 2px solid;
+    .post {
+      grid-column: 2 / 25;
+      padding: var(--space-sm) 0;
 
-      &:first-of-type {
-        border-top: 2px solid;
+      @include breakpoint(medium) {
+        border-bottom: 2px solid;
+
+        &:first-of-type {
+          border-top: 2px solid;
+        }
       }
 
       .column {
@@ -28,7 +30,6 @@
         .date {
           grid-column: 1 / 26;
           grid-row: 2;
-          color: rgba(var(--black), $alpha: 0.5);
 
           @include breakpoint(medium) {
             grid-column: 1 / 5;
@@ -45,18 +46,8 @@
             grid-column: 5 / 16;
           }
 
-          @include breakpoint(large) {
-            grid-column: 6 / 16;
-          }
-
-          p {
-            code {
-              font-family: var(--font-tex-regular) !important;
-            }
-          }
-
           .categories {
-            margin-top: $space-xs;
+            margin-top: var(--space-xs);
 
             p {
               color: $gray;
@@ -64,11 +55,11 @@
           }
         }
 
-        .storyImage {
+        .media {
           grid-column: 1 / 26;
           display: block;
           justify-self: unset;
-          margin-bottom: $space-sm;
+          margin-bottom: var(--space-xs);
 
           img {
             width: 100%;
@@ -77,16 +68,14 @@
 
           @include breakpoint(medium) {
             grid-column: 20 / 26;
-            display: inline-block;
             justify-self: flex-end;
+            height: fit-content;
             grid-row: 1;
-            margin-bottom: 0;
 
             img {
-              object-fit: contain;
-              object-position: top right;
+              max-width: none;
+              height: clamp(205px, 17vw, 305px);
               width: auto;
-              height: clamp(205px, 20vw, 325px);
             }
           }
         }

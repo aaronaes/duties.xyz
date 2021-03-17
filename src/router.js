@@ -3,16 +3,27 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 
+
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
   hashbag: true,
-  scrollBehavior() {
-    return {
+  scrollBehavior(to, from, savedPosition) {
+    let position = {
       x: 0,
       y: 0
-    };
+    }
+    // Keep scroll position when using browser buttons
+    if (savedPosition) {
+      position = savedPosition
+    }
+
+    // Workaround for transitions scrolling to the top of the page
+    // However, there are still some problems being fixed by the vue team
+    return new Promise((resolve) => {
+      resolve(position)
+    })
   },
   routes: [{
       path: "/",
@@ -35,10 +46,10 @@ export default new Router({
         import( /* webpackChunkName: "projectIndex" */ "./views/projectIndex.vue")
     },
     {
-      path: "/about",
-      name: "About",
+      path: "/studio",
+      name: "Studio",
       component: () =>
-        import( /* webpackChunkName: "About" */ "./views/About.vue")
+        import( /* webpackChunkName: "Studio" */ "./views/Studio.vue")
     },
     {
       path: "/news",

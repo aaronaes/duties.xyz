@@ -1,0 +1,348 @@
+.section {
+  .row {
+    @include display-grid;
+
+    .header {
+      grid-column: 2 / 25;
+      align-self: flex-end;
+      margin-bottom: var(--space-sm);
+
+      @include breakpoint(x-large) {
+        grid-column: 2 / 23;
+      }
+
+      .highlight,
+      .highlight p {
+        color: var(--red);
+        cursor: pointer;
+      }
+
+      .fadeOut {
+        color: var(--black);
+      }
+
+      h2 {
+        margin-bottom: var(--space-xs);
+      }
+
+      .tagline {
+        display: inline;
+        transition: any 50ms var(--easing);
+        @include font-size(18px, 24px);
+        color: var(--black);
+
+        span {
+          opacity: 0.25;
+          &.icon {
+            padding-left: 0;
+            display: inline-block;
+          }
+        }
+
+        &.highlight {
+          span {
+            opacity: 1;
+            color: var(--black);
+            &.icon {
+              color: var(--red);
+            }
+          }
+        }
+      }
+
+      @media (hover: hover) {
+        pointer-events: all;
+      }
+
+      h1,
+      h2 {
+        pointer-events: none;
+        display: block;
+        transition: any 50ms var(--easing);
+
+        .audio {
+          pointer-events: all;
+          display: inline-block;
+          transition: any 50ms var(--easing);
+
+          cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>🔈</text></svg>")
+              16 0,
+            auto;
+
+          strong {
+            font-weight: 400;
+            color: var(--red);
+          }
+        }
+
+        &:hover {
+          pointer-events: none;
+          color: rgba(var(--black), $alpha: 0.15);
+
+          .audio {
+            opacity: 1;
+            pointer-events: all;
+            color: var(--red);
+
+            strong {
+              font-weight: 400;
+              color: var(--red);
+            }
+          }
+
+          &:after {
+            opacity: 1;
+            color: var(--red);
+          }
+        }
+      }
+    }
+
+    .body {
+      grid-column: 2 / 25;
+    }
+  }
+}
+
+.image {
+  margin-top: 0;
+
+  .row {
+    .image {
+      grid-column: 1 / 26;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.services {
+  padding-bottom: var(--space-lg);
+  margin-top: var(--space-md);
+
+  .row {
+    .header {
+      grid-row: 1;
+      grid-column: 2 / 25;
+      padding-bottom: var(--space-xs);
+
+      h3 {
+        &::before {
+          content: "— ";
+        }
+      }
+
+      @include breakpoint(medium) {
+        grid-column: 2 / 7;
+        padding-bottom: var(--space-xs);
+        margin-bottom: var(--space-xs);
+
+        h3 {
+          max-width: 275px;
+
+          &::before {
+            content: "";
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+        grid-column: 2 / 11;
+      }
+    }
+
+    .main {
+      grid-row: 2;
+      grid-column: 2 / 25;
+
+      h3 {
+        margin-bottom: var(--space-md);
+
+        sup {
+          position: relative;
+          display: inline-block;
+          font-size: 50%;
+          font-weight: 600;
+          padding-left: 3px;
+          color: var(--red);
+        }
+      }
+
+      @include breakpoint(medium) {
+        grid-row: 1;
+        grid-column: 7 / 25;
+      }
+
+      @include breakpoint(large) {
+        grid-row: 1;
+        grid-column: 10 / 25;
+      }
+
+      .body {
+        @include display-grid;
+
+        .legend {
+          grid-column: 1 / 26;
+          grid-row: 1;
+
+          p {
+            display: inline-block;
+            color: grey;
+            margin-right: var(--space-xs);
+
+            &:first-of-type {
+              color: var(--black);
+              margin-bottom: var(--space-xs);
+              margin-right: 0;
+            }
+
+            @include breakpoint(medium) {
+              display: block;
+            }
+          }
+
+          @include breakpoint(medium) {
+            grid-row: 1;
+            grid-column: 1 / 7;
+          }
+        }
+
+        .copy {
+          grid-row: 2;
+          grid-column: 1 / 26;
+
+          @include breakpoint(medium) {
+            grid-row: 1;
+            grid-column: 8 / 26;
+          }
+
+          p {
+            &:not(:last-of-type) {
+              margin-bottom: var(--space-xs);
+            }
+          }
+        }
+      }
+
+      .inline-link {
+        display: none;
+
+        @include breakpoint(large) {
+          display: block;
+        }
+
+        p {
+          @include pb(x0);
+        }
+      }
+    }
+
+    .link {
+      grid-row: 3;
+      grid-column: 2 / 25;
+
+      @include breakpoint(large) {
+        grid-column: 14 / 26;
+        display: none;
+      }
+    }
+  }
+}
+
+.people {
+  grid-column: 2 / 25;
+  padding: $space-lg 0;
+
+  .row {
+    grid-template-columns: repeat(25, 1fr);
+
+    .header {
+      grid-row: 1;
+      grid-column: 2 / 25;
+      padding-bottom: var(--space-xs);
+
+      h3 {
+        &:before {
+          content: "— ";
+        }
+      }
+
+      @include breakpoint(medium) {
+        grid-column: 2 / 7;
+        padding-bottom: 0;
+
+        h3 {
+          max-width: 275px;
+
+          &:before {
+            content: "";
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+        grid-column: 2 / 9;
+      }
+    }
+
+    .team {
+      grid-column: 1 / 25;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--x1);
+      margin-bottom: var(--space-md);
+
+      @include breakpoint(medium) {
+        grid-column: 10 / 25;
+      }
+
+      .person {
+        grid-row: 2;
+        margin-bottom: var(--space-sm);
+
+        @include breakpoint(medium) {
+          grid-row: 1;
+        }
+
+        .image {
+          overflow: hidden;
+          padding-bottom: var(--space-xxs);
+          margin: 0;
+        }
+
+        .title {
+          padding-bottom: var(--space-xxs);
+        }
+
+        &:nth-child(even) {
+          grid-column: 2 / 3;
+        }
+
+        &:nth-child(odd) {
+          grid-column: 1 / 2;
+        }
+      }
+    }
+
+    .body {
+      grid-column: 2 / 25;
+      grid-row: 3;
+
+      @include breakpoint(medium) {
+        grid-row: 2;
+        grid-column: 10 / 25;
+      }
+
+      p {
+        &:not(:last-of-type) {
+          margin-bottom: var(--space-sm);
+        }
+      }
+    }
+  }
+}
