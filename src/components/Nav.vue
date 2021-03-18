@@ -112,9 +112,9 @@
       </article>
 
       <article class="row main" :class="{ active: show }">
-        <figure class="list">
+        <figure class="list fade-list">
           <ul>
-            <li class="heading fade-list" style="--item-order:1">
+            <li class="heading list-item" style="--item-order:1">
               <router-link :to="{ name: 'Home' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2780;</span>
@@ -122,7 +122,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading fade-list" style="--item-order:2">
+            <li class="heading list-item" style="--item-order:2">
               <router-link :to="{ name: 'Projects' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2781;</span>
@@ -130,7 +130,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading fade-list" style="--item-order:3">
+            <li class="heading list-item" style="--item-order:3">
               <router-link :to="{ name: 'Studio' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2782;</span>
@@ -138,7 +138,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading fade-list" style="--item-order:4">
+            <li class="heading list-item" style="--item-order:4">
               <router-link :to="{ name: 'News' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2783;</span>
@@ -146,7 +146,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading fade-list" style="--item-order:5">
+            <li class="heading list-item" style="--item-order:5">
               <router-link :to="{ name: 'XYZ' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2784;</span>

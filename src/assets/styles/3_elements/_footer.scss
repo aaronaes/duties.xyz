@@ -3,13 +3,14 @@ footer {
 
   .row {
     grid-column: 1 / 26;
-    margin-bottom: var(--x1);
+    margin-bottom: var(--x2);
     margin-top: var(--space-xl);
     height: 60vh;
 
     @include breakpoint(medium) {
       height: 100vh;
       margin-top: 0;
+      margin-bottom: var(--x1);
     }
 
     article {

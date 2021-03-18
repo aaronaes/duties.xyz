@@ -11,7 +11,7 @@
 
     .post {
       grid-column: 2 / 25;
-      padding: var(--space-sm) 0;
+      margin-bottom: var(--space-md);
 
       @include breakpoint(medium) {
         border-bottom: 2px solid;
@@ -26,6 +26,7 @@
         display: grid;
         grid-template-columns: repeat(25, 1fr);
         grid-template-rows: max-content;
+        padding-bottom: var(--space-sm);
 
         .date {
           grid-column: 1 / 26;

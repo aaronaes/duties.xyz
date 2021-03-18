@@ -2,10 +2,18 @@
   .row {
     @include display-grid;
 
+    .body {
+      grid-column: 2 / 25;
+    }
+  }
+}
+
+.intro {
+  .row {
     .header {
       grid-column: 2 / 25;
       align-self: flex-end;
-      margin-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
 
       @include breakpoint(x-large) {
         grid-column: 2 / 23;
@@ -26,13 +34,12 @@
       }
 
       .tagline {
-        display: inline;
-        transition: any 50ms var(--easing);
-        @include font-size(18px, 24px);
-        color: var(--black);
+        grid-column: 2 / 23;
+        transition: all 50ms var(--easing);
+        font-size: var(--body-small);
+        opacity: 0.25;
 
         span {
-          opacity: 0.25;
           &.icon {
             padding-left: 0;
             display: inline-block;
@@ -97,15 +104,12 @@
         }
       }
     }
-
-    .body {
-      grid-column: 2 / 25;
-    }
   }
 }
 
 .image {
   margin-top: 0;
+  padding: 0;
 
   .row {
     .image {
@@ -114,7 +118,7 @@
 
       img {
         width: 100%;
-        height: 100vh;
+        height: 80vh;
         object-fit: cover;
       }
     }
@@ -129,26 +133,10 @@
     .header {
       grid-row: 1;
       grid-column: 2 / 25;
-      padding-bottom: var(--space-xs);
-
-      h3 {
-        &::before {
-          content: "— ";
-        }
-      }
+      padding-bottom: var(--space-md);
 
       @include breakpoint(medium) {
         grid-column: 2 / 7;
-        padding-bottom: var(--space-xs);
-        margin-bottom: var(--space-xs);
-
-        h3 {
-          max-width: 275px;
-
-          &::before {
-            content: "";
-          }
-        }
       }
 
       @include breakpoint(large) {
@@ -162,11 +150,12 @@
 
       h3 {
         margin-bottom: var(--space-md);
+        margin-right: 0;
 
         sup {
           position: relative;
           display: inline-block;
-          font-size: 50%;
+          font-size: var(--body-small);
           font-weight: 600;
           padding-left: 3px;
           color: var(--red);
@@ -193,11 +182,11 @@
           p {
             display: inline-block;
             color: grey;
-            margin-right: var(--space-xs);
+            margin-right: var(--space-sm);
 
             &:first-of-type {
               color: var(--black);
-              margin-bottom: var(--space-xs);
+              margin-bottom: var(--space-sm);
               margin-right: 0;
             }
 
@@ -256,7 +245,8 @@
 
 .people {
   grid-column: 2 / 25;
-  padding: $space-lg 0;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
 
   .row {
     grid-template-columns: repeat(25, 1fr);
@@ -264,25 +254,11 @@
     .header {
       grid-row: 1;
       grid-column: 2 / 25;
-      padding-bottom: var(--space-xs);
-
-      h3 {
-        &:before {
-          content: "— ";
-        }
-      }
+      padding-bottom: var(--space-md);
 
       @include breakpoint(medium) {
         grid-column: 2 / 7;
         padding-bottom: 0;
-
-        h3 {
-          max-width: 275px;
-
-          &:before {
-            content: "";
-          }
-        }
       }
 
       @include breakpoint(large) {
@@ -291,26 +267,27 @@
     }
 
     .team {
-      grid-column: 1 / 25;
+      grid-column: 2 / 25;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: var(--x1);
+      column-gap: var(--x1p5);
       margin-bottom: var(--space-md);
 
       @include breakpoint(medium) {
+        column-gap: var(--x1);
         grid-column: 10 / 25;
       }
 
       .person {
         grid-row: 2;
         margin-bottom: var(--space-sm);
+        align-self: flex-start;
 
         @include breakpoint(medium) {
           grid-row: 1;
         }
 
         .image {
-          overflow: hidden;
           padding-bottom: var(--space-xxs);
           margin: 0;
         }
@@ -320,11 +297,11 @@
         }
 
         &:nth-child(even) {
-          grid-column: 2 / 3;
+          grid-column: span 1;
         }
 
         &:nth-child(odd) {
-          grid-column: 1 / 2;
+          grid-column: span 1;
         }
       }
     }
@@ -339,6 +316,8 @@
       }
 
       p {
+        grid-column: 2 / 25;
+
         &:not(:last-of-type) {
           margin-bottom: var(--space-sm);
         }

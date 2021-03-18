@@ -7,6 +7,7 @@
     margin: 0;
     border-bottom: 2px solid;
     cursor: pointer;
+    padding: var(--space-xs) 0;
 
     &:first-of-type {
       border-top: 2px solid;
@@ -15,11 +16,10 @@
     a {
       display: grid;
       border: none;
-      padding: var(--space-xxs) 0;
 
       figure {
         grid-column: 1 / 26;
-        padding: var(--space-xs) 0;
+        align-self: center;
 
         .project-content {
           @include display-grid;
@@ -33,6 +33,9 @@
 
           p {
             float: left;
+            vertical-align: middle;
+            position: relative;
+            transform: translateY(-1px);
 
             span {
               display: inline-block;
@@ -46,10 +49,10 @@
 
             @include breakpoint(medium) {
               grid-column: 1 / 8;
-            }
 
-            .icon {
-              filter: grayscale(100%);
+              .icon {
+                filter: grayscale(100%);
+              }
             }
           }
 
@@ -61,6 +64,10 @@
             opacity: 0;
             width: 30vw;
             z-index: -1;
+
+            @include breakpoint(small only) {
+              display: none;
+            }
           }
 
           .categories {
@@ -140,81 +147,6 @@
             }
           }
         }
-      }
-    }
-  }
-}
-
-.client-overview {
-  margin-top: 0;
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-md);
-
-  .row {
-    grid-column: 2 / 25;
-    grid-auto-flow: column;
-
-    .header {
-      grid-row: 1;
-      grid-column: 2 / 10;
-      padding-bottom: var(--space-sm);
-
-      @include breakpoint(medium) {
-        grid-column: 2 / 10;
-        padding-bottom: 0;
-
-        h3 {
-          max-width: 290px;
-          &:before {
-            content: "";
-          }
-        }
-      }
-    }
-
-    .body {
-      display: grid;
-      grid-template-columns: repeat(25, 1fr);
-      grid-row: 2;
-      grid-column: 2 / 25;
-
-      h3 {
-        grid-column: 1 / 26;
-        padding-bottom: var(--space-md);
-      }
-
-      @include breakpoint(medium) {
-        grid-row: 1;
-        grid-column: 10 / 25;
-      }
-
-      ul {
-        margin: 0;
-        padding: 0;
-        columns: 2;
-        padding-bottom: var(--space-md);
-        grid-column: 1 / 26;
-        grid-row: 2;
-
-        @include breakpoint(medium) {
-          grid-column: 1 / 23;
-        }
-
-        @include breakpoint(large) {
-          columns: 3;
-        }
-
-        li {
-          list-style: none;
-          p {
-            display: inline-block;
-          }
-        }
-      }
-
-      p.link {
-        grid-row: 3;
-        grid-column: 1 / 26;
       }
     }
   }

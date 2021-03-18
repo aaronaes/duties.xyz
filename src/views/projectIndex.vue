@@ -100,40 +100,7 @@
         </a>
       </article>
     </section>
-    <section class="outer-margin client-overview">
-      <article class="row">
-        <figure class="header">
-          <h3>
-            Our clients <br />
-            & friends
-          </h3>
-        </figure>
-        <figure class="body">
-          <h3>
-            We have been lucky enough to work with a variety of ambitious
-            companies and talented people throughout the years.
-          </h3>
-          <ul>
-            <li v-for="(client, i) in allClients" :key="i">
-              <p>{{ client.name }}</p>
-            </li>
-          </ul>
-          <p class="link" v-if="$route.name !== 'Projects'">
-            Check out
-            <router-link to="projects">our work</router-link> we have done or
-            catch up on the latest news
-            <router-link to="news">here</router-link>.
-          </p>
-          <p class="link" v-if="$route.name === 'Projects'">
-            You can learn more about who we are and what we do over
-            <router-link to="/studio">here</router-link>.
-            <br />
-            Catch up on the latest news in the studio
-            <router-link to="news">here</router-link>.
-          </p>
-        </figure>
-      </article>
-    </section>
+    <ClientList />
   </div>
 </template>
 
@@ -141,14 +108,16 @@
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
+import ClientList from "@/components/ClientList.vue";
 
 export default {
   name: "Index",
   async created() {
     this.projectOverview = await this.getProjectOverview();
-    this.allClients = await this.getAllClients();
   },
-  components: {},
+  components: {
+    ClientList
+  },
   data() {
     return {
       title: "Index",
@@ -156,9 +125,6 @@ export default {
       isHovering: false,
       projectOverview: {
         projects: []
-      },
-      allClients: {
-        client: []
       }
     };
   },
@@ -168,18 +134,6 @@ export default {
     },
     removeDarkmode() {
       document.body.classList.remove("darkmode");
-    },
-    async getAllClients() {
-      const { data } = await getData({
-        query: gql`
-          query {
-            allClients(orderBy: name_ASC) {
-              name
-            }
-          }
-        `
-      });
-      return data.allClients;
     },
     async getProjectOverview() {
       const { data } = await getData({

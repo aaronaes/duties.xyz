@@ -1,6 +1,6 @@
 <template>
   <div id="content">
-    <section class="outer-margin section header-pad">
+    <section class="outer-margin section intro header-pad">
       <article class="row">
         <figure class="column header">
           <h2 :class="{ fadeOut: isHovering }">
@@ -24,7 +24,7 @@
           </h2>
           <p class="tagline" :class="{ highlight: isHovering }">
             <span class="icon" :class="{ highlight: isHovering }">*</span>
-            <span>A moral or legal obligation; a responsibility.</span>
+            A moral or legal obligation; a responsibility.
           </p>
         </figure>
       </article>
@@ -49,11 +49,14 @@
     <section class="outer-margin services">
       <article class="row">
         <figure class="header">
-          <h3>Services & Capabilities</h3>
+          <h3>
+            Services <br />
+            & Capabilities
+          </h3>
         </figure>
 
         <figure class="column main">
-          <h3 class="number">
+          <h3>
             We can help you with designing your next app<sup>1</sup>, enhancing
             user-experience<sup>2</sup>, writing engaging microcopy<sup>3</sup>,
             creating a website that converts<sup>4</sup> or defining your brand
@@ -109,7 +112,10 @@
     <section class="outer-margin people">
       <article class="row">
         <figure class="header">
-          <h3>Team & Network</h3>
+          <h3>
+            Team & <br />
+            Network
+          </h3>
         </figure>
         <div class="team">
           <figure class="person" v-for="person in about.team" :key="person.id">
@@ -138,35 +144,7 @@
       </article>
     </section>
 
-    <intersect
-      :threshold="[0.5]"
-      :root="main"
-      @enter="addIntersectClass"
-      @leave="removeIntersectClass"
-    >
-      <section class="outer-margin client-overview">
-        <article class="row">
-          <figure class="header">
-            <h3>Our clients & friends</h3>
-          </figure>
-          <figure class="body">
-            <h3>
-              We have been lucky enough to work with a variety of ambitious
-              companies and talented people throughout the years.
-            </h3>
-            <ul>
-              <li v-for="(client, i) in allClients" :key="i">
-                <p>{{ client.name }}</p>
-              </li>
-            </ul>
-            <p @click="removeIntersectClass()">
-              You can see the work we have done
-              <router-link :to="{ name: 'Projects' }">here</router-link>.
-            </p>
-          </figure>
-        </article>
-      </section>
-    </intersect>
+    <ClientList />
   </div>
 </template>
 
@@ -175,16 +153,16 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
-import Intersect from "vue-intersect";
+import ClientList from "@/components/ClientList.vue";
 
 export default {
   name: "About",
+  components: {
+    ClientList
+  },
   async created() {
     this.about = await this.getAbout();
     this.allClients = await this.getAllClients();
-  },
-  components: {
-    Intersect
   },
   data() {
     return {
