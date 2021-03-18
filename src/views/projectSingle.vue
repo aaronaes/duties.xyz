@@ -677,7 +677,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.swiper);
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);

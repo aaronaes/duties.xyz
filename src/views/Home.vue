@@ -384,9 +384,6 @@ export default {
       };
     }
   },
-  mounted() {
-    console.log(this.swiper);
-  },
   destroyed() {
     document.body.classList.remove("darkmode");
     document.body.classList.remove("light");
