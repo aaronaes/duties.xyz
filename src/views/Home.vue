@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div>
     <intersect
       :threshold="[0.1]"
       @enter="addLightmode"

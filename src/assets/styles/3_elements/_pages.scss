@@ -41,6 +41,7 @@
 
   .column {
     margin-bottom: var(--x1);
+    grid-column: 2 / 25;
 
     &:last-of-type {
       margin-bottom: 0;
