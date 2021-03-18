@@ -63,7 +63,8 @@
       <article
         v-for="project in projectOverview.projects"
         :key="project.id"
-        class="main project"
+        class="main project fadeIn"
+        v-in-viewport.once
       >
         <a
           :href="'/projects/' + project.slug"
@@ -102,7 +103,10 @@
     <section class="outer-margin client-overview">
       <article class="row">
         <figure class="header">
-          <h3>Our clients & friends</h3>
+          <h3>
+            Our clients <br />
+            & friends
+          </h3>
         </figure>
         <figure class="body">
           <h3>

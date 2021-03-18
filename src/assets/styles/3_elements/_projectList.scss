@@ -7,8 +7,16 @@
     grid-column: 2 / 25;
     margin-bottom: var(--space-sm);
 
+    @include breakpoint(medium) {
+      margin-bottom: var(--space-sm);
+    }
+
     .project {
-      margin-bottom: $x1;
+      margin-bottom: var(--x3);
+
+      @include breakpoint(medium) {
+        margin-bottom: var(--x1);
+      }
 
       .column {
         align-items: center;
@@ -46,6 +54,7 @@
             .image {
               grid-column: 1 / 26;
               grid-row: 1;
+              padding-bottom: var(--space-xs);
 
               @include breakpoint(medium) {
                 grid-column: 1 / 16;
@@ -54,9 +63,12 @@
 
               img {
                 width: 100%;
-                height: clamp(205px, 36vw, 625px);
-                object-fit: cover;
-                object-position: 50% 50%;
+
+                @include breakpoint(medium) {
+                  height: clamp(205px, 36vw, 625px);
+                  object-fit: cover;
+                  object-position: 50% 50%;
+                }
               }
             }
           }

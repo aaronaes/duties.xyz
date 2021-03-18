@@ -1,6 +1,6 @@
 // .swiper-container {
-//   margin-top: $x1p5;
-//   margin-bottom: $x1p5;
+//   margin-top: var(--x1)p5;
+//   margin-bottom: var(--x1)p5;
 //   overflow-x: hidden;
 //   width: 100vw;
 //   height: auto;
@@ -32,7 +32,7 @@
 //       }
 //       @include breakpoint(small down) {
 //         max-width: 45vw;
-//         margin-left: $x1p5;
+//         margin-left: var(--x1)p5;
 
 //         &:first-of-type {
 //           margin-left: $x2 !important;

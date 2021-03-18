@@ -3,7 +3,8 @@ body {
   transition: background-color 200ms ease-out, color 200ms ease-out;
   will-change: background-color, color;
 
-  &.page-home {
+  &.page-home,
+  &.page-links {
     background-color: var(--white);
     color: var(--black);
 

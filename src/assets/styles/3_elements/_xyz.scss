@@ -11,8 +11,8 @@
     grid-column: 2 / 25;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: $x1;
-    row-gap: $x1;
+    column-gap: var(--x1);
+    row-gap: var(--x1);
     align-items: center;
     justify-items: center;
 

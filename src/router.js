@@ -68,6 +68,12 @@ export default new Router({
       name: "Imprint",
       component: () =>
         import( /* webpackChunkName: "Imprint" */ "./views/Imprint.vue")
+    },
+    {
+      path: "/links",
+      name: "Links",
+      component: () =>
+        import( /* webpackChunkName: "Links" */ "./views/Links.vue")
     }
   ]
 });

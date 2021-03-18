@@ -73,11 +73,11 @@
           </figure>
           <figure class="column heading tag">
             <p
-              class="markdown number"
+              class="number"
               v-for="(category, i) in project.categories"
               :key="i"
             >
-              <span>{{ category.categoryNumber }}</span>
+              <span class="markdown" v-html="category.categoryNumber"></span>
               <span>{{ category.categoryType }}</span>
             </p>
           </figure>
@@ -238,7 +238,7 @@
               class="column heading"
               v-if="block.title && block.title.length"
             >
-              <h2 class="title markdown" v-html="block.title"></h2>
+              <h3 class="markdown" v-html="block.title"></h3>
             </figure>
             <figure class="column body" v-if="block.text && block.text.length">
               <p class="body markdown" v-html="block.text"></p>
@@ -364,7 +364,7 @@
         </article>
       </section>
 
-      <section class="outer-margin similar sand hide">
+      <section class="outer-margin similar hide">
         <article class="row">
           <figure class="column similar-list">
             <p class="title">You might like ↴</p>
@@ -407,6 +407,7 @@
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
+import marked from "marked";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -453,11 +454,6 @@ export default {
         }
       ]
     };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 4000);
   },
   components: {
     Footer
@@ -655,7 +651,9 @@ export default {
       });
       return data.project;
     },
-
+    getMarkdown(content) {
+      return marked(content);
+    },
     getUrl(url) {
       return imgix({
         url: url
@@ -663,10 +661,10 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 60 })} 640w,
-        ${imgix({ url: url, w: 768, q: 60 })} 768w,
+      ${imgix({ url: url, w: 640, q: 50 })} 640w,
+        ${imgix({ url: url, w: 768, q: 65 })} 768w,
         ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
-        ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
+        ${imgix({ url: url, w: 1366, q: 100 })} 1366w,
         ${imgix({ url: url, w: 1600, q: 100 })} 1600w,
         ${imgix({ url: url, w: 1920, q: 100 })} 1920w
       `;
@@ -678,6 +676,12 @@ export default {
       });
     }
   },
+  mounted() {
+    console.log(this.swiper);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
+  },
   computed: {
     pageName() {
       return this.$route.name;
@@ -688,9 +692,6 @@ export default {
   },
   beforeCreate() {
     document.body.classList.add("project");
-  },
-  beforeDestroy() {
-    document.body.classList.remove("project");
   }
 };
 </script>

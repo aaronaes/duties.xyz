@@ -7,25 +7,12 @@
 
 .section {
   &.page-hero {
-    height: 100vh;
     margin-top: 0;
     grid-column: 1 / 26;
-
-    @include breakpoint(medium) {
-      height: 80vh;
-    }
   }
+
   &.header-pad {
-    display: flex;
     padding-top: var(--space-xl);
-
-    // @include breakpoint(medium) {
-    //   height: calc(100vh - var(--space-md));
-    // }
-
-    article {
-      align-self: flex-end;
-    }
   }
 
   .row {
@@ -54,7 +41,6 @@
 
   .column {
     margin-bottom: var(--x1);
-    grid-column: 2 / 25;
 
     &:last-of-type {
       margin-bottom: 0;

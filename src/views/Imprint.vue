@@ -29,11 +29,7 @@ export default {
   },
   data() {
     return {
-      imprint: {
-        title: "",
-        content: "",
-        copywrite: ""
-      }
+      imprint: []
     };
   },
   methods: {

@@ -89,15 +89,16 @@ html {
   // Font Sizes
   --heading-lg: clamp(72px, 10.75vw, 192px);
   --heading-md: clamp(40px, 5.5vw, 96px);
-  --heading-sm: clamp(24px, 3vw, 48px);
-  --body: clamp(18px, 1.8vw, 32px);
+  --heading-sm: clamp(27px, 3vw, 48px);
+  --body: clamp(20px, 1.8vw, 32px);
+  --body-small: clamp(16px, 1.3vw, 20px);
 
   // Verical Space
   --space-xxs: clamp(2px, 1vw, 4px);
   --space-xs: clamp(8px, 1.5vw, 12px);
   --space-sm: clamp(16px, 2.5vw, 32px);
   --space-md: clamp(24px, 7.4vw, 40px);
-  --space-lg: clamp(40px, 10vw, 144px);
+  --space-lg: clamp(72px, 10vw, 144px);
   --space-xl: clamp(144px, 25vw, 320px);
 
   // Grid Space
@@ -116,6 +117,10 @@ html {
   --x8: calc(100vw * 8 / 25);
   --x9: calc(100vw * 9 / 25);
   --x10: calc(100vw * 10 / 25);
+
+  // Other shit
+  --radius: clamp(32px, 3vw, 48px);
+  --device-border: clamp(8px, 0.6vw, 16px) solid var(--black);
 }
 
 // Spacing

@@ -85,6 +85,6 @@
 
   .story-link {
     grid-column: 2 / 25;
-    padding-bottom: $x1;
+    padding-bottom: var(--x1);
   }
 }

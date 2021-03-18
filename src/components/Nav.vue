@@ -1,11 +1,27 @@
 <template>
   <header :class="{ active: show }">
-    <section class="outer-margin navigation" v-if="$route.name !== 'Project'">
+    <section class="outer-margin navigation" v-if="$route.name === 'Links'">
+      <article class="row header">
+        <figure class="column nav-item">
+          <h3 class="site-title">
+            XYZ Links
+          </h3>
+          <br />
+          <br />
+          <h3 class="site-title">
+            At Duties* we help our clients and friends with website design,
+            apps, UX, brand identities and a bit of XYZ.
+          </h3>
+        </figure>
+      </article>
+    </section>
+    <section class="outer-margin navigation " v-if="$route.name !== 'Project'">
       <article class="row header">
         <figure class="column nav-item heading logo" :class="{ active: show }">
-          <router-link :to="{ name: 'Home' }">
-            <h3 class="title site-title">Duties:</h3>
-
+          <router-link :to="{ name: 'Home' }" v-if="$route.name !== 'Links'">
+            <h3 class="title site-title" v-if="$route.name !== 'Links'">
+              Duties:
+            </h3>
             <h3 class="title page-title" v-if="$route.name === 'OnDuty'">
               News
             </h3>
@@ -20,13 +36,37 @@
             </h3>
           </router-link>
         </figure>
-        <figure class="column nav-item nav">
-          <h3 class="title show-for-small-only" @click="showNav()">
-            <span class="burger" v-if="!show">
-              M
-            </span>
-            <span class="burger" v-else>C</span>
-          </h3>
+        <figure class="column nav-item" v-if="$route.name !== 'Links'">
+          <div class="nav show-for-small-only" @click="showNav()">
+            <svg
+              width="24"
+              height="14"
+              viewBox="0 0 24 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="!show"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M24 2V0H0V2H24ZM24 8V6H0V8H24ZM24 12V14H0V12H24Z"
+                fill="#17171C"
+              />
+            </svg>
+            <svg
+              width="18"
+              height="19"
+              viewBox="0 0 18 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-else
+            >
+              <path
+                d="M18.0002 16.586L16.586 18.0312L9.00051 10.2794L1.41426 18.032L0 16.5868L7.58625 8.83415L0.386523 1.47652L1.80078 0.03125L9.00051 7.38887L16.1995 0.0320425L17.6137 1.47732L10.4148 8.83415L18.0002 16.586Z"
+                fill="#17171C"
+              />
+            </svg>
+          </div>
 
           <h3
             class="title hide-for-small-only burger"
@@ -74,7 +114,7 @@
       <article class="row main" :class="{ active: show }">
         <figure class="list">
           <ul>
-            <li class="heading">
+            <li class="heading fade-list" style="--item-order:1">
               <router-link :to="{ name: 'Home' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2780;</span>
@@ -82,7 +122,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading">
+            <li class="heading fade-list" style="--item-order:2">
               <router-link :to="{ name: 'Projects' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2781;</span>
@@ -90,7 +130,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading">
+            <li class="heading fade-list" style="--item-order:3">
               <router-link :to="{ name: 'Studio' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2782;</span>
@@ -98,7 +138,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading">
+            <li class="heading fade-list" style="--item-order:4">
               <router-link :to="{ name: 'News' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2783;</span>
@@ -106,7 +146,7 @@
                 </h2>
               </router-link>
             </li>
-            <li class="heading">
+            <li class="heading fade-list" style="--item-order:5">
               <router-link :to="{ name: 'XYZ' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2784;</span>

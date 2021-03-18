@@ -25,24 +25,17 @@ ol {
 
 h2 {
   &.number {
+    line-height: 1;
     position: relative;
 
     span {
       &:first-of-type {
-        position: absolute;
+        font-family: "Roboto", Helvetica, sans-serif;
+        font-size: 130%;
+        line-height: 0.85;
         display: inline-block;
-        font-size: 65%;
-        top: 55%;
-        transform: translateY(-55%);
-        width: clamp(2.5rem, 5.5vw, 6rem);
-      }
-      &:last-of-type {
-        // padding-left: calc(5vw + 8px);
-        padding-left: clamp(2.5rem, 5.5vw, 6rem);
-
-        // @include breakpoint(medium) {
-        //   padding-left: 6vw;
-        // }
+        transform: translateY(5%);
+        padding-right: var(--space-xs);
       }
     }
   }
@@ -51,27 +44,21 @@ h2 {
 h3,
 p {
   &.number {
-    margin-right: var(--space-xxs);
-
-    @include breakpoint(medium) {
-      margin-right: var(--space-xs);
-    }
+    line-height: 1;
+    position: relative;
+    margin-right: var(--space-xs);
 
     span {
       &:first-of-type {
-        position: relative;
+        font-family: "Roboto", Helvetica, sans-serif;
+        font-size: 140%;
         display: inline-block;
-        top: 55%;
-        transform: translateY(-55%);
-        font-size: 80%;
-        font-weight: 600;
-        transform: translateY(-8%);
+        transform: translateY(7%);
         padding-right: var(--space-xxs);
       }
-    }
-
-    &:last-of-type {
-      margin-right: 0;
+      &:last-of-type {
+        padding: 0 var(--space-xxs);
+      }
     }
   }
 }

@@ -2,14 +2,6 @@
   @include display-grid;
   grid-auto-flow: column;
 
-  .lead {
-    grid-column: 2 / span 10;
-    padding-bottom: var(--space-md);
-    p {
-      font: smaller;
-    }
-  }
-
   .project {
     grid-column: 2 / 25;
     margin: 0;
@@ -50,6 +42,7 @@
           .name {
             grid-row: 1;
             grid-column: 1 / 13;
+            height: fit-content;
 
             @include breakpoint(medium) {
               grid-column: 1 / 8;
@@ -61,14 +54,12 @@
           }
 
           .image {
-            position: relative;
-            grid-row: 1;
             grid-column: 9 / 19;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             opacity: 0;
-            width: 40vw;
+            width: 30vw;
             z-index: -1;
           }
 

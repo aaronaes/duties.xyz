@@ -5,30 +5,31 @@
       @enter="addLightmode"
       @leave="removeLightmode"
     >
-      <section class="outer-margin section page-hero">
+      <section class="outer-margin section hero-block">
         <article class="row">
-          <figure class="column hero-list">
-            <ul class="list">
+          <figure class="column">
+            <ul class="hero-list">
               <li
-                class="list-item"
-                v-for="(block, i) in frontpage.heroList"
-                :key="i"
+                class="list-item fade-list"
+                v-for="(block, index) in frontpage.heroList"
+                :key="index"
+                :style="`--item-order:${index + 1}`"
               >
-                <router-link :to="block.heroListLink">
-                  <h2 class="number">
+                <h2 class="number">
+                  <router-link :to="block.heroListLink">
                     <span class="markdown" v-html="block.heroListNumber"></span>
                     <span>{{ block.heroListTitle }}</span>
-                  </h2>
-                  <div class="imgBox">
-                    <img
-                      class="img"
-                      v-for="asset in block.heroListGallery"
-                      :key="asset.id"
-                      :src="getUrl(asset.url)"
-                      :srcset="getSrcSet(asset.url)"
-                    />
-                  </div>
-                </router-link>
+                  </router-link>
+                </h2>
+                <div class="imgBox">
+                  <img
+                    class="img"
+                    v-for="asset in block.heroListGallery"
+                    :key="asset.id"
+                    :src="getUrl(asset.url)"
+                    :srcset="getSrcSet(asset.url)"
+                  />
+                </div>
               </li>
             </ul>
           </figure>
@@ -36,8 +37,8 @@
       </section>
     </intersect>
 
-    <section class="outer-margin onduty-intro section header-pad">
-      <article class="row intro">
+    <section class="outer-margin section onduty-block">
+      <article class="row">
         <figure class="column page-subtitle">
           <h3>
             We believe it’s our duty as designers to provide the world with
@@ -142,6 +143,7 @@ export default {
     return {
       title: "Home",
       hasContent: false,
+      a: "1",
       frontpage: {
         heroList: [],
         ondutyTitle: "",
@@ -364,6 +366,9 @@ export default {
       ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
       ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
       `;
+    },
+    increment: function() {
+      this.a += 1;
     }
   },
   computed: {
@@ -372,10 +377,15 @@ export default {
     },
     swiper() {
       return this.$refs.mySwiper.$swiper;
+    },
+    cssVars: function() {
+      return {
+        "--item-order": this.a
+      };
     }
   },
   mounted() {
-    window.scrollTo(0, 0);
+    console.log(this.swiper);
   },
   destroyed() {
     document.body.classList.remove("darkmode");
