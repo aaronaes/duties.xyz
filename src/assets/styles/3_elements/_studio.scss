@@ -137,6 +137,7 @@
 
       @include breakpoint(medium) {
         grid-column: 2 / 7;
+        padding-bottom: 0;
       }
 
       @include breakpoint(large) {
@@ -154,7 +155,7 @@
 
         sup {
           position: relative;
-          display: inline-block;
+          display: inline;
           font-size: var(--body-small);
           font-weight: 600;
           padding-left: 3px;
@@ -197,7 +198,7 @@
 
           @include breakpoint(medium) {
             grid-row: 1;
-            grid-column: 1 / 7;
+            grid-column: 1 / 8;
           }
         }
 
@@ -257,6 +258,7 @@
       padding-bottom: var(--space-md);
 
       @include breakpoint(medium) {
+        grid-row: 1 / 2;
         grid-column: 2 / 7;
         padding-bottom: 0;
       }

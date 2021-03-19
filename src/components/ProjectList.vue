@@ -1,6 +1,6 @@
 <template>
   <section class="outer-margin projects">
-    <section class="project-feed">
+    <section class="project-feed-2">
       <article
         class="project"
         v-for="(project, i) in projects"
@@ -12,7 +12,7 @@
             <div class="project-info">
               <h3 class="name">
                 <span class="markdown icon" v-html="project.icon"></span>
-                {{ project.title }}
+                <span class="markdown title" v-html="project.title"></span>
               </h3>
               <p class="description">
                 {{ project.subtitle }}
@@ -77,31 +77,19 @@ export default {
       if (id === this.active) {
         setTimeout(() => {
           this.active = "";
-          document.body.classList.remove("active");
         }, 600);
       } else {
-        const el = document.querySelector("#project-" + id);
-        this.scrollTo(el);
         setTimeout(() => {
           this.active = id;
-          document.body.classList.add("active");
         }, 0);
       }
     },
     handleProjectClick(e, project) {
-      if (project.readMore) {
-        e.preventDefault();
-        this.toggle(project.id);
-        setTimeout(() => {
-          this.$router.push("/projects/" + project.slug);
-        }, 2000);
-      }
-    },
-    scrollTo(el) {
-      window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top,
-        behavior: "smooth"
-      });
+      e.preventDefault();
+      this.toggle(project.id);
+      setTimeout(() => {
+        this.$router.push("/projects/" + project.slug);
+      }, 0);
     },
     getMarkdown(content) {
       return marked(content);

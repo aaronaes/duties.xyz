@@ -11,7 +11,6 @@
 
     .post {
       grid-column: 2 / 25;
-      margin-bottom: var(--space-md);
 
       @include breakpoint(medium) {
         border-bottom: 2px solid;
@@ -25,8 +24,7 @@
         grid-column: 1 / 26;
         display: grid;
         grid-template-columns: repeat(25, 1fr);
-        grid-template-rows: max-content;
-        padding-bottom: var(--space-sm);
+        padding: var(--space-sm) 0;
 
         .date {
           grid-column: 1 / 26;
@@ -45,6 +43,11 @@
           @include breakpoint(medium) {
             grid-row: 1;
             grid-column: 5 / 16;
+          }
+
+          @include breakpoint(large) {
+            grid-row: 1;
+            grid-column: 5 / 14;
           }
 
           .categories {
@@ -68,14 +71,14 @@
           }
 
           @include breakpoint(medium) {
-            grid-column: 20 / 26;
+            grid-column: 18 / 26;
             justify-self: flex-end;
-            height: fit-content;
             grid-row: 1;
 
             img {
-              max-width: none;
-              height: clamp(205px, 17vw, 305px);
+              max-width: 24vw;
+              max-height: clamp(205px, 14vw, 305px);
+              height: auto;
               width: auto;
             }
           }

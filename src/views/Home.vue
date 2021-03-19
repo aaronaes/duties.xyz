@@ -1,10 +1,6 @@
 <template>
   <div>
-    <intersect
-      :threshold="[0.1]"
-      @enter="addLightmode"
-      @leave="removeLightmode"
-    >
+    <intersect :threshold="[0.1]">
       <section class="outer-margin section hero-block">
         <article class="row">
           <figure class="column">
@@ -15,19 +11,19 @@
                 :key="index"
                 :style="`--item-order:${index + 1}`"
               >
-                <h2 class="number">
-                  <router-link :to="block.heroListLink">
+                <router-link :to="block.heroListLink">
+                  <h2 class="number">
                     <span class="markdown" v-html="block.heroListNumber"></span>
                     <span>{{ block.heroListTitle }}</span>
-                  </router-link>
-                </h2>
+                  </h2>
+                </router-link>
                 <div class="imgBox">
                   <img
-                    class="img"
                     v-for="asset in block.heroListGallery"
                     :key="asset.id"
                     :src="getUrl(asset.url)"
                     :srcset="getSrcSet(asset.url)"
+                    :style="`--item-order:${index + 1}`"
                   />
                 </div>
               </li>
@@ -47,15 +43,17 @@
           </h3>
         </figure>
         <figure class="column page-title">
-          <h1 class="title">
-            ON-DUTY
-          </h1>
+          <router-link :to="{ name: Projects }">
+            <h1 class="title">
+              ON-DUTY
+            </h1>
+          </router-link>
         </figure>
       </article>
     </section>
     <ProjectList :projects="projects" />
 
-    <ProjectIndex />
+    <ProjectIndex class="hide" />
 
     <!-- Story List -->
     <NewsList class="hide" :stories="stories" />
@@ -65,7 +63,7 @@
         <article class="row content top">
           <figure class="header">
             <router-link :to="{ name: 'XYZ' }">
-              <h1 class="title big outlined negative">OFF—DUTY</h1>
+              <h1 class="title big outlined negative">OFF – DUTY</h1>
             </router-link>
           </figure>
           <figure class="counter">
@@ -76,7 +74,7 @@
           <figure class="carousel-block">
             <figure class="carousel">
               <swiper
-                ref="mySwiper"
+                ref="swiper"
                 :options="swiperOptions"
                 :auto-update="true"
                 :auto-destroy="true"
@@ -141,9 +139,8 @@ export default {
   },
   data() {
     return {
-      title: "Home",
       hasContent: false,
-      a: "1",
+      show: false,
       frontpage: {
         heroList: [],
         ondutyTitle: "",
@@ -359,16 +356,13 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 50 })} 640w,
-      ${imgix({ url: url, w: 768, q: 50 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
+      ${imgix({ url: url, w: 640, q: 40 })} 640w,
+        ${imgix({ url: url, w: 768, q: 50 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+        ${imgix({ url: url, w: 1366, q: 70 })} 1366w,
+        ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
+        ${imgix({ url: url, w: 1920, q: 70 })} 1920w
       `;
-    },
-    increment: function() {
-      this.a += 1;
     }
   },
   computed: {

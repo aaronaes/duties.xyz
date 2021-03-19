@@ -1,4 +1,4 @@
-body.project {
+body.page-project {
   .project-wrap {
     position: fixed;
     display: block;
@@ -29,7 +29,7 @@ body.project {
         opacity: 1;
         z-index: 9999;
         background-color: var(--black);
-        color: var(--white);
+        color: var(--grey);
         margin: 0;
         padding: 0;
 
@@ -87,7 +87,7 @@ body.project {
                   &:hover,
                   &.router-link-exact-active {
                     h1 {
-                      color: var(--white);
+                      color: var(--grey);
                     }
 
                     svg {
@@ -155,25 +155,21 @@ body.project {
               grid-column: 2 / 25;
               margin: 0;
 
-              a {
-                border-bottom: none;
+              h3 {
                 cursor: pointer;
+                &.inverted {
+                  color: var(--grey) !important;
+                }
 
-                h3 {
-                  &.inverted {
-                    color: var(--white) !important;
-                  }
-
-                  &:hover {
-                    color: var(--black);
-                  }
+                &:hover {
+                  color: var(--black);
                 }
               }
 
               .page-title {
-                margin-left: var(--space-xx) s;
+                margin-left: var(--space-xs);
                 &.inverted {
-                  color: var(--white) !important;
+                  color: var(--grey) !important;
                 }
               }
 
@@ -221,6 +217,15 @@ body.project {
               grid-column: 2 / 25;
               grid-row: 2;
               margin-top: var(--x1);
+
+              h3,
+              & > p {
+                margin-bottom: var(--space-md);
+
+                &:last-of-type {
+                  margin-bottom: 0;
+                }
+              }
             }
 
             .tag {
@@ -275,7 +280,7 @@ body.project {
                   background-color: var(--sand);
 
                   .content {
-                    background-color: var(--white);
+                    background-color: var(--grey);
                     overflow: hidden;
 
                     .image {
@@ -294,7 +299,7 @@ body.project {
 
                     &:before {
                       content: "•••";
-                      color: var(--white);
+                      color: var(--grey);
                       background-color: var(--black);
                       padding: 0px var(--x0p5);
                       font-size: clamp(6px, 3vw, 12px);
@@ -312,7 +317,7 @@ body.project {
                     @include breakpoint(medium) {
                       &:before {
                         content: "○○○";
-                        color: var(--white);
+                        color: var(--grey);
                         background-color: var(--black);
                         padding: 0px clamp(6px, 3vw, 12px);
                         font-size: clamp(6px, 3vw, 12px);
@@ -333,7 +338,7 @@ body.project {
 
                 &.device {
                   .content {
-                    background-color: var(--white) !important;
+                    background-color: var(--grey) !important;
                     padding: var(--x2);
 
                     @include breakpoint(large) {
@@ -399,7 +404,7 @@ body.project {
                   }
 
                   .website {
-                    background-color: var(--white);
+                    background-color: var(--grey);
                     overflow: hidden;
 
                     img,
@@ -409,7 +414,7 @@ body.project {
 
                     &:before {
                       content: "•••";
-                      color: var(--white);
+                      color: var(--grey);
                       background-color: var(--black);
                       padding: 0px var(--x0p5);
                       font-size: clamp(6px, 3vw, 12px);
@@ -430,7 +435,7 @@ body.project {
 
                       &:before {
                         content: "○○○";
-                        color: var(--white);
+                        color: var(--grey);
                         background-color: var(--black);
                         padding: 0px clamp(6px, 3vw, 12px);
                         font-size: clamp(6px, 3vw, 12px);
@@ -453,7 +458,7 @@ body.project {
                   }
 
                   .device {
-                    background-color: var(--white);
+                    background-color: var(--grey);
                     @include px(x2);
                     @include py(x2);
 
@@ -514,7 +519,7 @@ body.project {
 
                   .content {
                     &.website {
-                      background-color: var(--white);
+                      background-color: var(--grey);
                       overflow: hidden;
 
                       img,
@@ -524,7 +529,7 @@ body.project {
 
                       &:before {
                         content: "•••";
-                        color: var(--white);
+                        color: var(--grey);
                         background-color: var(--black);
                         padding: 0px var(--x0p5);
                         font-size: clamp(6px, 3vw, 12px);
@@ -544,7 +549,7 @@ body.project {
 
                         &:before {
                           content: "○○○";
-                          color: var(--white);
+                          color: var(--grey);
                           background-color: var(--black);
                           padding: 0px clamp(6px, 3vw, 12px);
                           font-size: clamp(6px, 3vw, 12px);
@@ -567,7 +572,7 @@ body.project {
                     }
 
                     &.device {
-                      background-color: var(--white);
+                      background-color: var(--grey);
                       padding: var(--x2);
 
                       @include breakpoint(large) {
@@ -684,16 +689,9 @@ body.project {
 
             &.full {
               .row {
-                @include px(x1);
-
                 .column {
                   grid-auto-columns: auto;
-                  grid-column: span 4;
-                  @include px(x0);
-
-                  .image {
-                    @include mb(x1);
-                  }
+                  grid-column: span 1;
                 }
               }
             }
@@ -711,10 +709,6 @@ body.project {
             .row {
               .column {
                 grid-column: 2 / 25;
-
-                @include breakpoint(x-large) {
-                  // grid-column: 4 / 23;
-                }
 
                 @include breakpoint(small only) {
                   overflow-x: visible;
@@ -811,7 +805,7 @@ body.project {
                   .content {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    background-color: var(--white);
+                    background-color: var(--grey);
                     grid-column: 2 / 25;
                     grid-template-areas: "a b c";
                     grid-gap: var(--x2);
@@ -904,120 +898,142 @@ body.project {
           }
 
           .image-carousel {
-            margin-top: var(--space-md);
-            margin-bottom: var(--space-md);
+            @include display-grid;
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            grid-column: 1 / 26;
+            padding-left: 0;
+            padding-right: 0;
 
             .row {
-              display: grid;
-              grid-template-columns: repeat(1, auto) !important;
+              grid-column: 2 / 25;
 
-              &:last-of-type {
-                margin-top: 0;
-              }
+              &.swiper {
+                grid-column: 1 / 26;
+                padding-top: 0;
+                padding-bottom: var(--space-sm);
 
-              .carousel-inner {
-                position: relative;
-                margin-bottom: var(--x1);
+                .carousel-block {
+                  position: relative;
+                  grid-column: 1 / 26;
+                  grid-row: 3;
 
-                .swiper-container {
-                  overflow-x: hidden;
-                  width: 100vw;
-                  height: auto;
+                  .carousel {
+                    position: relative;
+                    grid-column: 1 / 26;
+                    width: 100%;
+                    height: 100%;
 
-                  .swiper-wrapper {
-                    width: 100vw;
+                    .swiper-container {
+                      position: relative;
+                      grid-column: 1 / 26;
 
-                    .swiper-slide {
-                      cursor: move; /* fallback if grab cursor is unsupported */
-                      cursor: grab;
-                      width: auto;
-                      height: auto;
-                      margin-left: $x2;
+                      .swiper-wrapper {
+                        width: 100%;
+                        width: auto;
+                        position: relative;
+                        overflow: visible;
 
-                      @include breakpoint(medium) {
-                        @include pr(x1);
-                      }
-
-                      &:active {
-                        cursor: grabbing !important;
-                      }
-
-                      .image {
-                        img {
-                          height: 100%;
+                        .swiper-slide {
+                          height: var(--image-height);
                           width: auto;
-                          height: clamp(355px, 45vw, 775px);
-                        }
-                      }
+                          margin-left: var(--x1);
 
-                      &:first-of-type {
-                        @include ml(x0);
-                      }
+                          @include breakpoint(small only) {
+                            margin-left: var(--x1p5);
+                          }
 
-                      &:last-of-type {
-                        @include pr(x0p5);
+                          .slide-img {
+                            height: 100%;
+                            width: auto;
 
-                        @include breakpoint(large) {
-                          @include pr(x1);
+                            img {
+                              height: 100%;
+                              margin: 0;
+                              width: auto;
+                            }
+                          }
                         }
                       }
                     }
 
-                    &:after {
-                      content: "";
-                      width: var(--x1);
+                    .swiper-button-prev,
+                    .swiper-button-next {
                       display: block;
+                      position: absolute;
+                      top: 0;
+                      bottom: 20%;
+                      width: 30%;
+                      height: 80%;
+                      margin: 0;
+                      padding: 0;
+                      z-index: 500 !important;
+                      cursor: pointer;
+                      display: block;
+                      align-items: center;
+                      justify-content: center;
+
+                      &:after {
+                        display: none;
+                      }
+
+                      @include breakpoint(small only) {
+                        display: none;
+                      }
+                    }
+
+                    .swiper-button-prev {
+                      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👈🏻</text></svg>")
+                          24 16,
+                        auto !important;
+                      position: absolute;
+                      left: 0;
+                      right: auto;
+                    }
+
+                    .swiper-button-next {
+                      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 100' style='fill:black;font-size:60px;'><text y='50%'>👉🏻</text></svg>")
+                          24 16,
+                        auto !important;
+                      position: absolute;
+                      right: 0;
+                      left: auto;
                     }
                   }
                 }
-
-                .carousel-button-prev,
-                .carousel-button-next {
-                  position: absolute;
-                  top: 0%;
-                  bottom: 0%;
-                  left: 0;
-                  width: 30%;
-                  height: 100%;
-                  margin: 0;
-                  padding: 0;
-                  z-index: 1000 !important;
-                  cursor: pointer;
-                  display: block;
-                  align-items: center;
-                  justify-content: center;
-                }
-
-                .carousel-button-prev {
-                  cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.6078 0L0 16.5L16.6078 33L19.8118 29.8521L8.68658 18.799H48V14.201H8.68658L19.8118 3.16559L16.6078 0Z' fill='black'/%3E%3C/svg%3E%0A"),
-                    pointer;
-                  position: absolute;
-                  left: 0;
-                  right: auto;
-                }
-
-                .carousel-button-next {
-                  cursor: url("data:image/svg+xml,%3Csvg width='48' height='33' viewBox='0 0 48 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31.3922 33L48 16.5L31.3922 0L28.1882 3.14791L39.3134 14.201H0V18.799H39.3134L28.1882 29.8344L31.3922 33Z' fill='black'/%3E%3C/svg%3E%0A"),
-                    pointer;
-                  position: absolute;
-                  right: 0;
-                  left: auto;
-                }
               }
 
-              .pagination {
-                grid-column: 1 / 2;
+              &.content {
+                grid-column: 2 / 25;
+                position: relative;
 
-                .carousel-pagination {
-                  text-align: right;
-                  @include font-size(18px, 30px);
-                  padding-right: var(--x1);
+                .counter {
+                  position: relative;
+                  margin-top: var(--x1);
 
-                  span {
-                    &.swiper-pagination-current,
-                    &.swiper-pagination-total {
-                      letter-spacing: -3px;
-                      font-weight: normal;
+                  .swiper-pagination {
+                    &.swiper-pagination-fraction {
+                      text-align: left;
+                      font-size: var(--body-small);
+
+                      &::before {
+                        content: "Image";
+                        font-size: var(--body-small);
+                        letter-spacing: 0px;
+                        margin-right: var(--space-xxs);
+                        padding-right: var(--space-xxs);
+                      }
+
+                      span {
+                        &.swiper-pagination-current,
+                        &.swiper-pagination-total {
+                          width: 23px;
+                          display: inline-block;
+                          text-align: center;
+                          letter-spacing: 0px;
+                          font-weight: 400;
+                        }
+                      }
                     }
                   }
                 }
@@ -1167,7 +1183,7 @@ body.project {
                       p {
                         background-color: var(--black);
                         border-color: var(--black);
-                        color: var(--white);
+                        color: var(--grey);
                       }
                     }
                   }

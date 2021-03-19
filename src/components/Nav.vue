@@ -36,7 +36,7 @@
             </h3>
           </router-link>
         </figure>
-        <figure class="column nav-item" v-if="$route.name !== 'Links'">
+        <figure class="column nav-item burger" v-if="$route.name !== 'Links'">
           <div class="nav show-for-small-only" @click="showNav()">
             <svg
               width="24"
@@ -60,6 +60,7 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               v-else
+              class="close"
             >
               <path
                 d="M18.0002 16.586L16.586 18.0312L9.00051 10.2794L1.41426 18.032L0 16.5868L7.58625 8.83415L0.386523 1.47652L1.80078 0.03125L9.00051 7.38887L16.1995 0.0320425L17.6137 1.47732L10.4148 8.83415L18.0002 16.586Z"
@@ -69,14 +70,14 @@
           </div>
 
           <h3
-            class="title hide-for-small-only burger"
+            class="title hide-for-small-only"
             @click="showNav()"
             v-if="show === false"
           >
             Menu
           </h3>
           <h3
-            class="title hide-for-small-only burger"
+            class="title hide-for-small-only"
             @click="showNav()"
             v-if="show === true"
           >
@@ -84,16 +85,6 @@
           </h3>
         </figure>
         <figure class="column time" :class="{ active: show }">
-          <img
-            v-if="isMorning()"
-            :class="{ showMe: isVisible }"
-            src="https://media1.tenor.com/images/16bf98d44e79307914de07d044257f1f/tenor.gif?itemid=9553858"
-          />
-          <img
-            v-else
-            :class="{ showMe: isVisible }"
-            src="https://media1.tenor.com/images/5a77a38f05546da59092a9650c08bef5/tenor.gif?itemid=4946897"
-          />
           <p class="title">
             It is <span class="currentTime" v-text="currentTime"></span> in
             Oslo, Norway.
@@ -110,6 +101,18 @@
           </p>
         </figure>
       </article>
+      <div class="media">
+        <img
+          v-if="isMorning()"
+          :class="{ showMe: isVisible }"
+          src="https://media1.tenor.com/images/16bf98d44e79307914de07d044257f1f/tenor.gif?itemid=9553858"
+        />
+        <img
+          v-else
+          :class="{ showMe: isVisible }"
+          src="https://media1.tenor.com/images/5a77a38f05546da59092a9650c08bef5/tenor.gif?itemid=4946897"
+        />
+      </div>
 
       <article class="row main" :class="{ active: show }">
         <figure class="list fade-list">
@@ -147,7 +150,7 @@
               </router-link>
             </li>
             <li class="heading list-item" style="--item-order:5">
-              <router-link :to="{ name: 'XYZ' }">
+              <router-link :to="{ name: 'Offduty' }">
                 <h2 class="number markdown" @click="hideNav()">
                   <span>&#x2784;</span>
                   <span>XYZ</span>
@@ -173,13 +176,14 @@ export default {
   },
   methods: {
     showNav() {
-      // this.show = true;
       document.body.classList.toggle("navOpen");
       this.show = !this.show;
     },
     hideNav() {
-      this.show = false;
-      document.body.classList.remove("navOpen");
+      setTimeout(() => {
+        this.show = false;
+        document.body.classList.remove("navOpen");
+      }, 1000);
     },
     isMorning() {
       return new Date().getHours() > 9 && new Date().getHours() < 17

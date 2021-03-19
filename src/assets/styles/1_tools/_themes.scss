@@ -5,7 +5,7 @@ body {
 
   &.page-home,
   &.page-links {
-    background-color: var(--white);
+    background-color: var(--grey);
     color: var(--black);
 
     svg {
@@ -19,7 +19,7 @@ body {
   }
 
   &.page-news {
-    background-color: var(--white);
+    background-color: var(--grey);
     * {
       color: var(--black);
     }
@@ -73,25 +73,25 @@ body {
   }
 
   &.dark {
-    color: var(--white);
+    color: var(--grey);
     background-color: var(--black);
 
     svg {
       &.logo,
       &.symbol {
         path {
-          fill: var(--white) !important;
+          fill: var(--grey) !important;
         }
       }
     }
 
     a,
     p a {
-      color: var(--white);
-      border-color: var(--white);
+      color: var(--grey);
+      border-color: var(--grey);
       display: inline-block;
       &:hover {
-        color: var(--white);
+        color: var(--grey);
         border-color: transparent;
       }
     }

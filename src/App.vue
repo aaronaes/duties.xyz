@@ -38,11 +38,11 @@ export default {
   watch: {
     $route: {
       handler(to, from) {
-        const foo = document.getElementsByTagName("body")[0];
+        const bodyClass = document.getElementsByTagName("body")[0];
         if (from !== undefined) {
-          foo.classList.remove("page-" + from.name.toLowerCase());
+          bodyClass.classList.remove("page-" + from.name.toLowerCase());
         }
-        foo.classList.add("page-" + to.name.toLowerCase());
+        bodyClass.classList.add("page-" + to.name.toLowerCase());
       },
       immediate: true
     }

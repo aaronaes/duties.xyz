@@ -21,20 +21,20 @@
       <section class="outer-margin header">
         <article class="row nav">
           <figure class="column heading">
-            <router-link to="/">
-              <h3
-                class="title hide-for-small-only"
-                :class="{ inverted: project.inverted === true }"
-              >
-                Duties:
-              </h3>
-              <h3
-                class="title show-for-small-only"
-                :class="{ inverted: project.inverted === true }"
-              >
-                XYZ:
-              </h3>
-            </router-link>
+            <h3
+              @click="e => closeProject(e)"
+              class="title hide-for-small-only"
+              :class="{ inverted: project.inverted === true }"
+            >
+              Duties:
+            </h3>
+            <h3
+              class="title show-for-small-only"
+              :class="{ inverted: project.inverted === true }"
+            >
+              XYZ:
+            </h3>
+
             <h3
               class="title page-title"
               :class="{ inverted: project.inverted === true }"
@@ -66,10 +66,6 @@
         <article class="row project-info">
           <figure class="column body">
             <h3 class="markdown" v-html="project.description"></h3>
-
-            <a class="hide" href="/" target="_blank">
-              <p>Visit site</p>
-            </a>
           </figure>
           <figure class="column heading tag">
             <p
@@ -90,34 +86,36 @@
           class="outer-margin image-carousel"
           v-if="block._modelApiKey === 'image_carousel'"
         >
-          <article class="row">
-            <figure class="column carousel-inner">
-              <swiper
-                ref="mySwiper"
-                :options="swiperOptions"
-                :auto-update="true"
-                :auto-destroy="true"
-              >
-                <swiper-slide
-                  v-for="asset in block.imageCarouselAsset"
-                  :key="asset.id"
+          <article class="row swiper">
+            <figure class="carousel-block">
+              <figure class="column carousel">
+                <swiper
+                  ref="mySwiper"
+                  :options="swiperOptions"
+                  :auto-update="true"
+                  :auto-destroy="true"
                 >
-                  <div class="image">
-                    <img
-                      :src="getUrl(asset.url)"
-                      :srcset="getSrcSet(asset.url)"
-                      class="swiper-lazy"
-                    />
-                  </div>
-                </swiper-slide>
-              </swiper>
-              <div class="carousel-button-next"></div>
-              <div class="carousel-button-prev"></div>
+                  <swiper-slide
+                    v-for="asset in block.imageCarouselAsset"
+                    :key="asset.id"
+                  >
+                    <div class="slide-img">
+                      <img
+                        :src="getUrl(asset.url)"
+                        :srcset="getSrcSet(asset.url)"
+                        class="swiper-lazy"
+                      />
+                    </div>
+                  </swiper-slide>
+                </swiper>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </figure>
             </figure>
           </article>
-          <article class="row">
-            <figure class="column pagination">
-              <div class="carousel-pagination"></div>
+          <article class="row content">
+            <figure class="column counter">
+              <div class="swiper-pagination"></div>
             </figure>
           </article>
         </section>
@@ -489,23 +487,27 @@ export default {
       },
       swiperOptions: {
         speed: 200,
-        loop: true,
-        centeredSlides: false,
         slidesPerView: "auto",
-        grabCursor: "true",
-        allowTouchMove: "true",
-        threshold: 5,
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false
-        },
+        loop: true,
+        loopedSlides: 50000,
         pagination: {
-          el: ".carousel-pagination",
-          type: "fraction"
+          el: ".swiper-pagination",
+          type: "fraction",
+          renderFraction: function(currentClass, totalClass) {
+            return (
+              '<span class="' +
+              currentClass +
+              '"></span>' +
+              " of " +
+              '<span class="' +
+              totalClass +
+              '"></span>'
+            );
+          }
         },
         navigation: {
-          nextEl: ".carousel-button-next",
-          prevEl: ".carousel-button-prev"
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
         }
       }
     };
@@ -651,6 +653,12 @@ export default {
       });
       return data.project;
     },
+    closeProject(e) {
+      e.preventDefault();
+      setTimeout(() => {
+        this.$router.push("/");
+      }, 1000);
+    },
     getMarkdown(content) {
       return marked(content);
     },
@@ -661,12 +669,12 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 50 })} 640w,
-        ${imgix({ url: url, w: 768, q: 65 })} 768w,
-        ${imgix({ url: url, w: 1024, q: 80 })} 1024w,
-        ${imgix({ url: url, w: 1366, q: 100 })} 1366w,
-        ${imgix({ url: url, w: 1600, q: 100 })} 1600w,
-        ${imgix({ url: url, w: 1920, q: 100 })} 1920w
+      ${imgix({ url: url, w: 640, q: 40 })} 640w,
+        ${imgix({ url: url, w: 768, q: 50 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
+        ${imgix({ url: url, w: 1366, q: 70 })} 1366w,
+        ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
+        ${imgix({ url: url, w: 1920, q: 70 })} 1920w
       `;
     },
     scrollTo(el) {
@@ -690,7 +698,7 @@ export default {
     }
   },
   beforeCreate() {
-    document.body.classList.add("project");
+    document.body.classList.add("page-project");
   }
 };
 </script>

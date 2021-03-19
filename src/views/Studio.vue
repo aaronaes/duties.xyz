@@ -35,7 +35,7 @@
       </article>
     </section>
 
-    <section class="outer-margin image">
+    <section class="outer-margin image fade-in" v-in-viewport.once>
       <article class="row">
         <figure class="column image">
           <img

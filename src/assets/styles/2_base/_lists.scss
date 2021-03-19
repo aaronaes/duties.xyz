@@ -51,10 +51,10 @@ p {
     span {
       &:first-of-type {
         font-family: "Roboto", Helvetica, sans-serif;
-        font-size: 140%;
+        font-size: 130%;
         display: inline-block;
-        transform: translateY(7%);
-        padding-right: var(--space-xxs);
+        transform: translateY(9%);
+        font-weight: 500;
       }
       &:last-of-type {
         padding: 0 var(--space-xxs);

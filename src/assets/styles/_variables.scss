@@ -71,12 +71,27 @@ html {
   unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
 
-// Colors
 :root {
+  // Breakpoints
+  --breakpoint-sm: 0px;
+  --breakpoint-md: 640px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-xxl: 1800px;
+
+  // Colors, Hex
   --red: #ff4f3e;
   --black: #17171c;
-  --sand: #ddd9d5;
-  --white: #f8f8f8;
+  --sand: #d1cfcc;
+  --grey: #f8f8f8;
+  --white: #ffffff;
+
+  // Colors, RGB
+  --red-rgb: 255, 79, 62;
+  --black-rgb: 23, 23, 28;
+  --sand-rgb: 209, 207, 204;
+  --grey-rgb: 248, 248, 248;
+  --white-rgb: 255, 255, 255;
 
   --font-inter: "Inter", Helvetica, sans-serif;
   --font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
@@ -86,12 +101,16 @@ html {
 
   --easing: cubic-bezier(0.75, 0, 0.25, 1);
 
+  --swiper-pagination-color: red;
+  --swiper-theme-color: blue;
+
   // Font Sizes
-  --heading-lg: clamp(72px, 10.75vw, 192px);
+  --heading-lg: clamp(72px, 10vw, 192px);
+  --heading-lg-lh: 1;
   --heading-md: clamp(40px, 5.5vw, 96px);
-  --heading-sm: clamp(27px, 3vw, 48px);
-  --body: clamp(18px, 1.5vw, 32px);
-  --body-small: clamp(16px, 1.3vw, 20px);
+  --heading-sm: clamp(24px, 3.8vw, 56px);
+  --body: clamp(18px, 2.2vw, 32px);
+  --body-small: clamp(14px, 2vw, 22px);
 
   // Verical Space
   --space-xxs: clamp(2px, 1vw, 4px);
@@ -117,6 +136,13 @@ html {
   --x8: calc(100vw * 8 / 25);
   --x9: calc(100vw * 9 / 25);
   --x10: calc(100vw * 10 / 25);
+
+  // CSS Grid Stuff
+  --grid: grid;
+  --columns-count: repeat(25, 1fr);
+
+  // Swiper Styles
+  --image-height: clamp(225px, 52vw, 500px);
 
   // Other shit
   --radius: clamp(32px, 3vw, 48px);

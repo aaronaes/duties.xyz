@@ -13,10 +13,22 @@ video {
   border: 0;
 }
 
+img.fade {
+  opacity: 0;
+  filter: blur(4.5px);
+  transition: all 300ms var(--easing);
+  transition-delay: 300ms;
+
+  &.in-viewport {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 img[lazy="loaded"] {
   animation: fadeIn 300ms var(--easing);
   animation-delay: 300ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeIn {

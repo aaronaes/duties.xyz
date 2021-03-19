@@ -29,6 +29,9 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home,
+      meta: {
+        bodyClass: 'page-home'
+      },
       children: [{
         path: "projects/:slug",
         name: "Project",
@@ -42,24 +45,36 @@ export default new Router({
     {
       path: "/projects/",
       name: "Projects",
+      meta: {
+        bodyClass: 'page-projects'
+      },
       component: () =>
         import( /* webpackChunkName: "projectIndex" */ "./views/projectIndex.vue")
     },
     {
       path: "/studio",
       name: "Studio",
+      meta: {
+        bodyClass: 'page-studio'
+      },
       component: () =>
         import( /* webpackChunkName: "Studio" */ "./views/Studio.vue")
     },
     {
       path: "/news",
       name: "News",
+      meta: {
+        bodyClass: 'page-news'
+      },
       component: () =>
         import( /* webpackChunkName: "News" */ "./views/News.vue")
     },
     {
       path: "/xyz",
       name: "XYZ",
+      meta: {
+        bodyClass: 'page-xyz'
+      },
       component: () =>
         import( /* webpackChunkName: "XYZ" */ "./views/XYZ.vue")
     },
@@ -72,6 +87,9 @@ export default new Router({
     {
       path: "/links",
       name: "Links",
+      meta: {
+        bodyClass: 'page-links'
+      },
       component: () =>
         import( /* webpackChunkName: "Links" */ "./views/Links.vue")
     }

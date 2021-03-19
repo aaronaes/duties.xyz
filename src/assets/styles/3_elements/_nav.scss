@@ -4,21 +4,27 @@ header {
   top: 0;
   margin: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 9000;
+  transition: all 300ms linear;
 
   &.active {
     background-color: var(--black);
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
 
+    @include breakpoint(small only) {
+      @media (hover: none) and (pointer: coarse) {
+        height: 85vh;
+      }
+    }
+
     * {
-      color: var(--white);
-      fill: var(--white);
+      color: var(--grey);
+      fill: var(--grey);
     }
   }
 
@@ -26,19 +32,43 @@ header {
     @include display-grid;
     grid-column: 1 / 26;
     width: 100vw;
+    position: relative;
 
     .header {
-      grid-column: 2 / 25;
-      display: flex;
-      flex-direction: row;
+      grid-column: 1 / 26;
+      position: relative;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
+      height: fit-content;
       margin: var(--space-sm) 0;
 
       .nav-item {
         position: relative;
         margin: 0;
         padding: 0;
+        grid-row: 1;
+
+        &.burger {
+          position: relative;
+          justify-self: flex-end;
+          float: right;
+
+          .nav {
+            position: relative;
+            display: flex;
+            padding: var(--x0p5);
+            height: 40px;
+            width: 40px;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
 
         h3 {
           cursor: pointer;
@@ -103,25 +133,18 @@ header {
 
       .time {
         position: relative;
-        width: fit-content;
         margin: 0;
         display: none;
         order: -1;
 
-        &.active {
-          display: block;
+        @include breakpoint(small only) {
+          position: absolute;
+          top: 0;
+          left: 0;
         }
 
-        img {
-          position: fixed;
-          right: var(--x1);
-          bottom: var(--space-md);
-          max-width: 40vw;
-          opacity: 0;
-
-          &.showMe {
-            opacity: 1;
-          }
+        &.active {
+          display: block;
         }
 
         h3,
@@ -129,7 +152,7 @@ header {
           margin: 0;
           padding: 0;
           display: inline-block;
-          color: var(--white);
+          color: var(--grey);
 
           &.title {
             grid-column: 1 / 6;
@@ -166,6 +189,29 @@ header {
               auto !important;
             padding-left: var(--space-xxs);
           }
+        }
+      }
+    }
+
+    .media {
+      position: absolute;
+      right: var(--x1);
+      bottom: var(--space-md);
+      width: var(--x10);
+      z-index: -1;
+
+      @include breakpoint(small only) {
+        @media (hover: none) and (pointer: coarse) {
+          width: calc(var(--x10) - var(--x0p5));
+          right: var(--x1p5);
+          bottom: var(--space-md);
+        }
+      }
+
+      img {
+        opacity: 0;
+        &.showMe {
+          opacity: 1;
         }
       }
     }
@@ -241,11 +287,22 @@ header {
   }
 }
 
+main {
+  transition: filter 150ms linear;
+}
+
 body.navOpen {
   height: 100vh;
   overflow: hidden;
 
   @include breakpoint(small only) {
     position: fixed;
+  }
+
+  @include breakpoint(small only) {
+    main#page {
+      filter: url(#blur);
+      filter: blur(4px);
+    }
   }
 }

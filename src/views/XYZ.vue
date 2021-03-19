@@ -21,10 +21,9 @@
     <section class="outer-margin xyz">
       <section class="xyz-grid">
         <article
-          class="xyz-item fade-in"
+          class="xyz-item"
           v-for="(block, i) in offDuty.xyzPosts"
           :key="i"
-          v-in-viewport.once
         >
           <figure class="column">
             <div
@@ -32,8 +31,10 @@
               v-if="block.xyzImage && block.xyzImage.url.length"
             >
               <img
+                class="fade"
                 :src="getUrl(block.xyzImage.url)"
                 :srcset="getSrcSet(block.xyzImage.url)"
+                v-in-viewport.once
               />
             </div>
             <div class="body">
@@ -102,11 +103,11 @@ export default {
     getSrcSet(url) {
       return `
       ${imgix({ url: url, w: 640, q: 50 })} 640w,
-      ${imgix({ url: url, w: 768, q: 50 })} 768w,
+      ${imgix({ url: url, w: 768, q: 60 })} 768w,
       ${imgix({ url: url, w: 1024, q: 70 })} 1024w,
       ${imgix({ url: url, w: 1366, q: 80 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 80 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 80 })} 1920w,
+      ${imgix({ url: url, w: 1600, q: 90 })} 1600w,
+      ${imgix({ url: url, w: 1920, q: 100 })} 1920w,
       `;
     }
   },

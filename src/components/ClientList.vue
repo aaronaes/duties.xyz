@@ -18,13 +18,13 @@
             <p>{{ client.name }}</p>
           </li>
         </ul>
-        <p class="link" v-if="$route.name !== 'Projects'">
+        <p class="link" v-if="$route.name === 'Projects'">
           <router-link to="news">Read our latest news</router-link> &rarr;
         </p>
-        <p class="link" v-if="$route.name === 'Projects'">
+        <p class="link" v-if="$route.name !== 'Projects'">
           <router-link to="/studio">Out work</router-link> &rarr;
           <br />
-          <router-link to="news">Latest news</router-link> &rarr;
+          <router-link to="news">Read our latest news</router-link> &rarr;
         </p>
       </figure>
     </article>
@@ -38,7 +38,7 @@ import imgix from "@/utils/imgix";
 import marked from "marked";
 
 export default {
-  name: "Client List",
+  name: "ClientList",
   data() {
     return {
       title: "Client List",

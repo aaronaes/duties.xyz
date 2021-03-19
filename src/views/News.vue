@@ -18,10 +18,11 @@
     <section class="outer-margin news">
       <section class="news-grid">
         <article
-          class="post card fadeIn"
+          class="post card fade-in"
           v-for="(story, index) in onDuty"
           :key="index"
           :style="`--item-order:${index + 1}`"
+          v-in-viewport.once
         >
           <figure class="column">
             <div class="media">
