@@ -1,12 +1,13 @@
 <template>
-  <section class="outer-margin client-overview">
+  <section
+    class="outer-margin section client-overview fade-in"
+    v-in-viewport.reset
+  >
     <article class="row">
       <figure class="header">
-        <h3>
-          Our clients
-          <br />
-          & friends
-        </h3>
+        <p>
+          Our clients & friends
+        </p>
       </figure>
       <figure class="body">
         <h3>
@@ -22,7 +23,7 @@
           <router-link to="news">Read our latest news</router-link> &rarr;
         </p>
         <p class="link" v-if="$route.name !== 'Projects'">
-          <router-link to="/studio">Out work</router-link> &rarr;
+          <router-link to="/projects">Out work</router-link> &rarr;
           <br />
           <router-link to="news">Read our latest news</router-link> &rarr;
         </p>
@@ -41,7 +42,6 @@ export default {
   name: "ClientList",
   data() {
     return {
-      title: "Client List",
       allClients: {
         client: []
       }

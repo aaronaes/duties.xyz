@@ -1,23 +1,43 @@
 <template>
-  <section class="outer-margin projects">
-    <section class="project-feed-2">
+  <section class="outer-margin section projects">
+    <section class="project-feed row">
       <article
-        class="project"
+        class="project fade-in"
+        v-in-viewport.once
         v-for="(project, i) in projects"
         :key="i"
         :id="`project-${project.id}`"
       >
-        <figure class="column summary">
-          <a @click="e => handleProjectClick(e, project)">
+        <div class="column summary">
+          <a
+            :href="'/projects/' + project.slug"
+            @click="e => handleProject(e, project)"
+          >
             <div class="project-info">
-              <h3 class="name">
+              <div
+                class="media aspect-ratio fade-img"
+                v-in-viewport.once
+                style="--aspect-ratio: 2/3"
+                v-if="project.projectThumbnail"
+                v-lazy-container="{ selector: 'img' }"
+              >
+                <img
+                  :data-src="getUrl(project.projectThumbnail.url)"
+                  :data-srcset="getSrcSet(project.projectThumbnail.url)"
+                />
+              </div>
+              <p class="label">
                 <span class="markdown icon" v-html="project.icon"></span>
                 <span class="markdown title" v-html="project.title"></span>
-              </h3>
-              <p class="description">
+                <span
+                  class="markdown subtitle"
+                  v-html="project.subtitle"
+                ></span>
+              </p>
+              <p class="description hide">
                 {{ project.subtitle }}
               </p>
-              <div class="categories">
+              <div class="categories hide">
                 <p
                   class="number"
                   v-for="(category, i) in project.categories"
@@ -28,15 +48,16 @@
                 </p>
               </div>
             </div>
-            <div class="image" v-if="project.projectThumbnail">
-              <img
-                :src="getUrl(project.projectThumbnail.url)"
-                :srcset="getSrcSet(project.projectThumbnail.url)"
-              />
-            </div>
           </a>
-        </figure>
+        </div>
       </article>
+      <section class="row bottom">
+        <figure class="column">
+          <router-link :to="{ name: 'Projects' }">
+            <p>Jump to Projects &rarr;</p>
+          </router-link>
+        </figure>
+      </section>
 
       <article class="project-wrap" v-if="isOpen" :key="$route.params.id">
         <router-view :key="'a' + $route.params"></router-view>

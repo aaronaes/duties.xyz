@@ -1,10 +1,10 @@
 <template>
   <div class="single-project">
-    <transition name="loadProject" mode="in-out">
-      <section class="outer-margin loading" v-if="isLoading">
+    <transition name="loadProject" mode="out-in">
+      <section class="outer-margin loading" v-show="isLoading">
         <article class="row nav">
           <figure class="column">
-            <div class="nav-item heading">
+            <div class="nav-item">
               <h3 class="title blinking hide-for-small-only">
                 Duties<span>:</span>
               </h3>
@@ -18,9 +18,22 @@
     </transition>
 
     <div class="bar" :class="{ 'is-loaded': !isLoading }">
-      <section class="outer-margin header">
+      <section class="outer-margin section topNav">
         <article class="row nav">
-          <figure class="column heading">
+          <figure class="column">
+            <h3
+              @click="e => closeProject(e)"
+              :class="{ inverted: project.inverted === true }"
+            >
+              Close
+            </h3>
+          </figure>
+        </article>
+      </section>
+
+      <section class="outer-margin section banner">
+        <article class="row nav">
+          <figure class="column">
             <h3
               @click="e => closeProject(e)"
               class="title hide-for-small-only"
@@ -29,6 +42,7 @@
               Duties:
             </h3>
             <h3
+              @click="e => closeProject(e)"
               class="title show-for-small-only"
               :class="{ inverted: project.inverted === true }"
             >
@@ -36,57 +50,82 @@
             </h3>
 
             <h3
-              class="title page-title"
+              class="page-title"
               :class="{ inverted: project.inverted === true }"
             >
               {{ project.title }}
             </h3>
           </figure>
         </article>
-      </section>
-
-      <!-- Project Banner -->
-      <section class="outer-margin banner">
-        <article
-          class="row"
-          v-if="project.projectBanner && project.projectBanner.url.length"
-        >
-          <figure class="column image banner-img">
+        <img
+          :src="getUrl(project.projectBanner.url)"
+          :srcset="getSrcSet(project.projectBanner.url)"
+        />
+        <article class="row hide">
+          <figure class="column image">
             <img
               :src="getUrl(project.projectBanner.url)"
               :srcset="getSrcSet(project.projectBanner.url)"
             />
           </figure>
         </article>
-        <article v-else></article>
       </section>
 
       <!-- Project Info -->
+
       <section class="outer-margin info">
-        <article class="row project-info">
-          <figure class="column body">
-            <h3 class="markdown" v-html="project.description"></h3>
-          </figure>
-          <figure class="column heading tag">
-            <p
-              class="number"
-              v-for="(category, i) in project.categories"
-              :key="i"
-            >
-              <span class="markdown" v-html="category.categoryNumber"></span>
-              <span>{{ category.categoryType }}</span>
+        <article class="row info-block">
+          <figure class="header hide-for-small-only">
+            <p>
+              Project <br />
+              Information
             </p>
+          </figure>
+
+          <figure class="column main">
+            <div class="column header">
+              <h3 class="markdown" v-html="project.description"></h3>
+            </div>
+
+            <div class="body">
+              <div class="legend hide-for-small-only">
+                <div class="header">
+                  <p>Capabilites</p>
+                </div>
+                <div
+                  class="number"
+                  v-for="(category, i) in project.categories"
+                  :key="i"
+                >
+                  <p class="num" v-html="category.categoryNumber"></p>
+                  <p class="markdown type" v-html="category.categoryType"></p>
+                </div>
+              </div>
+              <div class="copy">
+                <h3 class="markdown" v-html="project.description"></h3>
+              </div>
+              <div class="link">
+                <p>
+                  <a :href="project.siteLink" target="_blank">
+                    Visit site
+                  </a>
+                </p>
+              </div>
+            </div>
           </figure>
         </article>
       </section>
 
-      <div class="asset" v-for="block in project.blocks" :key="block.id">
-        <!-- Asset - Carousel -->
+      <div
+        class="modular-block"
+        v-for="block in project.blocks"
+        :key="block.id"
+      >
         <section
           class="outer-margin image-carousel"
           v-if="block._modelApiKey === 'image_carousel'"
         >
-          <article class="row swiper">
+          <article class="row swiper slider">
             <figure class="carousel-block">
               <figure class="column carousel">
                 <swiper
@@ -103,7 +142,6 @@
                       <img
                         :src="getUrl(asset.url)"
                         :srcset="getSrcSet(asset.url)"
-                        class="swiper-lazy"
                       />
                     </div>
                   </swiper-slide>
@@ -111,11 +149,6 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
               </figure>
-            </figure>
-          </article>
-          <article class="row content">
-            <figure class="column counter">
-              <div class="swiper-pagination"></div>
             </figure>
           </article>
         </section>
@@ -136,20 +169,20 @@
                 v-if="(block.device === true, block.website === true)"
               >
                 <div class="device-inner">
-                  <div class="image">
+                  <div class="image" v-lazy-container="{ selector: 'img' }">
                     <img
-                      :src="getUrl(block.image.url)"
-                      :srcset="getSrcSet(block.image.url)"
+                      :data-src="getUrl(block.image.url)"
+                      :data-srcset="getSrcSet(block.image.url)"
                     />
                   </div>
                 </div>
               </div>
               <div class="content" v-else>
                 <div class="device-inner">
-                  <div class="image">
+                  <div class="image" v-lazy-container="{ selector: 'img' }">
                     <img
-                      :src="getUrl(block.image.url)"
-                      :srcset="getSrcSet(block.image.url)"
+                      :data-src="getUrl(block.image.url)"
+                      :data-srcset="getSrcSet(block.image.url)"
                     />
                   </div>
                 </div>
@@ -165,32 +198,19 @@
         </section>
 
         <section
-          class="outer-margin video fade-in"
-          v-in-viewport.once
+          class="outer-margin video"
           v-if="block._modelApiKey === 'video'"
         >
           <article class="row">
             <figure class="column">
               <div class="content">
-                <div class="device-inner">
-                  <video id="video" autoplay muted loop :key="video">
-                    <source
-                      id="mp4"
-                      :src="getUrl(block.video.url)"
-                      type="video/mp4"
-                    />
-                    <source
-                      id="webm"
-                      :src="getUrl(block.video.url)"
-                      type="video/webm"
-                    />
-                    <source
-                      id="mov"
-                      :src="getUrl(block.video.url)"
-                      type="video/mov"
-                    />
-                  </video>
-                </div>
+                <video
+                  :src="getUrl(block.video.url)"
+                  muted
+                  autoplay
+                  loop
+                  playsinline
+                ></video>
               </div>
             </figure>
           </article>
@@ -200,13 +220,15 @@
           class="outer-margin image-text"
           v-if="block._modelApiKey === 'image_text'"
         >
-          <article class="row" v-if="block._modelApiKey === 'image_text'">
-            <figure class="column image fade-in" v-in-viewport.once>
+          <article class="row">
+            <figure
+              class="column image fade-in"
+              v-in-viewport.once
+              v-lazy-container="{ selector: 'img' }"
+            >
               <img
-                v-in-viewport.once
-                class="fade-in"
-                :src="getUrl(block.image.url)"
-                :srcset="getSrcSet(block.image.url)"
+                :data-src="getUrl(block.image.url)"
+                :data-srcset="getSrcSet(block.image.url)"
               />
             </figure>
 
@@ -231,7 +253,7 @@
           :class="{ big: block.big }"
           v-if="block._modelApiKey === 'quote'"
         >
-          <article class="row">
+          <article class="row fade-in" v-in-viewport.once>
             <figure
               class="column heading"
               v-if="block.title && block.title.length"
@@ -254,26 +276,29 @@
           }"
         >
           <article class="row">
-            <figure class="column left-image">
+            <figure class="column left-image fade-in" v-in-viewport.once>
               <div
-                v-in-viewport.once
-                class="image fade-in"
+                class="image"
                 v-for="image in block.firstImage"
                 :key="image.id"
-              >
-                <img :src="getUrl(image.url)" :srcset="getSrcSet(image.url)" />
-              </div>
-            </figure>
-            <figure class="column right-image">
-              <div
-                v-in-viewport.once
-                class="image fade-in"
-                v-for="image in block.lastImage"
-                :key="image.id"
+                v-lazy-container="{ selector: 'img' }"
               >
                 <img
-                  :src="getUrl(block.lastImage.url)"
-                  :srcset="getSrcSet(block.lastImage.url)"
+                  :data-src="getUrl(image.url)"
+                  :data-srcset="getSrcSet(image.url)"
+                />
+              </div>
+            </figure>
+            <figure class="column right-image fade-in" v-in-viewport.once>
+              <div
+                class="image"
+                v-for="image in block.lastImage"
+                :key="image.id"
+                v-lazy-container="{ selector: 'img' }"
+              >
+                <img
+                  :data-src="getUrl(block.lastImage.url)"
+                  :data-srcset="getSrcSet(block.lastImage.url)"
                 />
               </div>
               <div class="text fade-in" v-in-viewport.once>
@@ -287,45 +312,45 @@
           class="outer-margin triple-img"
           v-if="block._modelApiKey === 'three_up'"
         >
-          <article class="row">
+          <article class="row fade-in" v-in-viewport.once>
             <figure class="column">
               <div class="content">
-                <div class="image">
+                <div class="image fade-in" v-in-viewport.once>
                   <div
-                    class="device-inner fade"
+                    class="device-inner"
                     :class="{ device: block.device }"
-                    v-in-viewport.once
+                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :src="getUrl(block.leftImage.url)"
-                      :srcset="getSrcSet(block.leftImage.url)"
+                      :data-src="getUrl(block.leftImage.url)"
+                      :data-srcset="getSrcSet(block.leftImage.url)"
                     />
                   </div>
                 </div>
-                <div class="image">
+                <div class="image fade-in" v-in-viewport.once>
                   <div
-                    class="device-inner fade"
+                    class="device-inner"
                     :class="{ device: block.device }"
-                    v-in-viewport.once
+                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :src="getUrl(block.centerImage.url)"
-                      :srcset="getSrcSet(block.centerImage.url)"
+                      :data-src="getUrl(block.centerImage.url)"
+                      :data-srcset="getSrcSet(block.centerImage.url)"
                     />
                   </div>
                 </div>
-                <div class="image">
+                <div class="image fade-in" v-in-viewport.once>
                   <div
-                    class="device-inner fade"
+                    class="device-inner"
                     :class="{ device: block.device }"
-                    v-in-viewport.once
+                    v-lazy-container="{ selector: 'img' }"
                   >
                     <div class="notch"></div>
                     <img
-                      :src="getUrl(block.rightImage.url)"
-                      :srcset="getSrcSet(block.rightImage.url)"
+                      :data-src="getUrl(block.rightImage.url)"
+                      :data-srcset="getSrcSet(block.rightImage.url)"
                     />
                   </div>
                 </div>
@@ -340,59 +365,21 @@
         v-if="project.roles && project.roles.length"
       >
         <article class="row">
+          <figure class="column props">
+            <p>Extra duties:</p>
+          </figure>
           <figure
             class="column props"
             v-for="person in project.roles"
             :key="person.id"
           >
             <p class="role">
-              {{ person.role }} by
+              &rarr; {{ person.role }} by
               <span class="name" v-if="person.link && person.link.length">
                 <a :href="person.link" target="_blank">{{ person.name }}</a>
               </span>
               <span class="name" v-else>{{ person.name }}</span>
             </p>
-          </figure>
-          <figure class="column date">
-            <p>
-              <span>↳ &nbsp;</span>This project was launched in
-              {{ project.year }}.
-            </p>
-          </figure>
-        </article>
-      </section>
-
-      <section class="outer-margin similar hide">
-        <article class="row">
-          <figure class="column similar-list">
-            <p class="title">You might like ↴</p>
-            <ul>
-              <li
-                v-for="(projectInList, index) in projects"
-                :key="index"
-                :class="{ isOpen: projectInList.id === project.id }"
-                :id="projectInList.id"
-                v-show="projectInList.readMore === true"
-              >
-                <router-link :to="'/projects/' + projectInList.slug">
-                  <div class="list-item">
-                    <div class="heading">
-                      <h1 class="title">
-                        {{ projectInList.title }}
-                      </h1>
-                    </div>
-                    <div class="tags">
-                      <p
-                        v-for="(category, i) in projectInList.categories"
-                        :key="i"
-                      >
-                        {{ category.categoryType }}
-                      </p>
-                    </div>
-                  </div>
-                </router-link>
-              </li>
-            </ul>
           </figure>
         </article>
       </section>
@@ -401,6 +388,7 @@
     <Footer />
   </div>
 </template>
+
 <script>
 import gql from "graphql-tag";
 import getData from "@/utils/getData";
@@ -412,7 +400,6 @@ export default {
   async created() {
     this.project = await this.getProject(this.$route.params.slug);
     this.projects = await this.getAllProjects();
-    this.frontpage = await this.getFrontpage();
   },
   metaInfo() {
     return {
@@ -461,6 +448,8 @@ export default {
       url: process.env.URL,
       isLoading: true,
       isHidden: false,
+      showNavbar: true,
+      lastScrollPosition: 0,
       projects: [],
       project: {
         heading: "",
@@ -486,19 +475,17 @@ export default {
         projectThumb: []
       },
       swiperOptions: {
-        speed: 200,
-        slidesPerView: "auto",
         loop: true,
-        loopedSlides: 50000,
+        slidesPerView: "auto",
         pagination: {
-          el: ".swiper-pagination",
+          el: ".foo-pagination",
           type: "fraction",
           renderFraction: function(currentClass, totalClass) {
             return (
               '<span class="' +
               currentClass +
               '"></span>' +
-              " of " +
+              "." +
               '<span class="' +
               totalClass +
               '"></span>'
@@ -517,6 +504,9 @@ export default {
       const { data } = await getData({
         query: gql`
           query {
+            _allProjectsMeta {
+              count
+            }
             allProjects {
               id
               title
@@ -566,6 +556,9 @@ export default {
               categories {
                 categoryNumber
                 categoryType
+                categoryIcon {
+                  url
+                }
               }
               client {
                 name
@@ -578,9 +571,12 @@ export default {
               blocks {
                 ... on VideoRecord {
                   _modelApiKey
-                  id
                   video {
                     url
+                    video {
+                      streamingUrl
+                      thumbnailUrl(format: jpg)
+                    }
                   }
                 }
                 ... on SingleImageRecord {
@@ -662,6 +658,12 @@ export default {
     getMarkdown(content) {
       return marked(content);
     },
+    showMenu() {
+      document.body.classList.add("showMenu");
+    },
+    hideMenu() {
+      document.body.classList.remove("showMenu");
+    },
     getUrl(url) {
       return imgix({
         url: url
@@ -676,29 +678,27 @@ export default {
         ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
         ${imgix({ url: url, w: 1920, q: 70 })} 1920w
       `;
-    },
-    scrollTo(el) {
-      window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top,
-        behavior: "smooth"
-      });
     }
   },
   mounted() {
+    document.body.classList.add("page-single");
+
     setTimeout(() => {
       this.isLoading = false;
-    }, 3000);
+    }, 2000);
+
+    window.addEventListener("scroll", this.onScroll);
   },
   computed: {
-    pageName() {
-      return this.$route.name;
-    },
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
   },
-  beforeCreate() {
-    document.body.classList.add("page-project");
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  destroyed: function() {
+    document.body.classList.remove("page-single");
   }
 };
 </script>

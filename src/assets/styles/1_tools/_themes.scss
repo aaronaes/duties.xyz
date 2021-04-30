@@ -3,9 +3,17 @@ body {
   transition: background-color 200ms ease-out, color 200ms ease-out;
   will-change: background-color, color;
 
+  &.baddmono {
+    * {
+      font-family: var(--font-baddmono);
+      color: var(--black);
+    }
+  }
+
   &.page-home,
   &.page-links {
-    background-color: var(--grey);
+    //background-color: var(--grey);
+    background-color: #bcbcbc;
     color: var(--black);
 
     svg {
@@ -19,17 +27,21 @@ body {
   }
 
   &.page-news {
-    background-color: var(--grey);
+    background-color: var(--white);
     * {
       color: var(--black);
     }
   }
 
   &.page-xyz {
-    background-color: var(--black);
+    background-color: var(--black) !important;
+
+    main {
+      background-color: var(--black) !important;
+    }
 
     * {
-      color: var(--red);
+      color: var(--red) !important;
     }
 
     * h1.outlined {
@@ -105,13 +117,13 @@ body {
 
   &.light {
     color: var(--black);
-    background-color: var(--sand);
+    background-color: var(--white);
 
     svg {
       &.logo,
       &.symbol {
         path {
-          fill: var(--black) !important;
+          fill: var(--black);
         }
       }
     }

@@ -3,6 +3,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: background-color;
+  min-height: 100%;
 }
 
 .section {
@@ -17,18 +18,26 @@
 
   .row {
     @include display-grid;
+    margin-left: var(--x0p5);
+    margin-right: var(--x0p5);
+
     .column {
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       margin-bottom: var(--space-md);
     }
   }
 }
 
 .outer-margin {
-  padding-left: var(--x0p5);
-  padding-right: var(--x0p5);
+  padding-left: var(--x1);
+  padding-right: var(--x1);
 
   @include breakpoint(medium) {
+    padding-left: var(--x0p5);
+    padding-right: var(--x0p5);
+  }
+
+  @include breakpoint(large) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -41,7 +50,7 @@
 
   .column {
     margin-bottom: var(--x1);
-    grid-column: 2 / 25;
+    grid-column: 1 / 26;
 
     &:last-of-type {
       margin-bottom: 0;

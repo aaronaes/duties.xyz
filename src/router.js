@@ -30,15 +30,18 @@ export default new Router({
       name: "Home",
       component: Home,
       meta: {
-        bodyClass: 'page-home'
+        title: 'home'
       },
       children: [{
         path: "projects/:slug",
         name: "Project",
+        meta: {
+          title: 'project'
+        },
         component: () =>
           import(
-            /* webpackChunkName: "projectSingle" */
-            "./views/projectSingle.vue"
+            /* webpackChunkName: "Single" */
+            "./views/Single.vue"
           )
       }]
     },
@@ -46,16 +49,16 @@ export default new Router({
       path: "/projects/",
       name: "Projects",
       meta: {
-        bodyClass: 'page-projects'
+        title: 'projects'
       },
       component: () =>
-        import( /* webpackChunkName: "projectIndex" */ "./views/projectIndex.vue")
+        import( /* webpackChunkName: "Projects" */ "./views/Projects.vue")
     },
     {
       path: "/studio",
       name: "Studio",
       meta: {
-        bodyClass: 'page-studio'
+        title: 'studio'
       },
       component: () =>
         import( /* webpackChunkName: "Studio" */ "./views/Studio.vue")
@@ -64,7 +67,7 @@ export default new Router({
       path: "/news",
       name: "News",
       meta: {
-        bodyClass: 'page-news'
+        title: 'news'
       },
       component: () =>
         import( /* webpackChunkName: "News" */ "./views/News.vue")
@@ -73,7 +76,7 @@ export default new Router({
       path: "/xyz",
       name: "XYZ",
       meta: {
-        bodyClass: 'page-xyz'
+        title: 'xyz'
       },
       component: () =>
         import( /* webpackChunkName: "XYZ" */ "./views/XYZ.vue")
@@ -88,7 +91,7 @@ export default new Router({
       path: "/links",
       name: "Links",
       meta: {
-        bodyClass: 'page-links'
+        title: 'links'
       },
       component: () =>
         import( /* webpackChunkName: "Links" */ "./views/Links.vue")

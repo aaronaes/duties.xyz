@@ -15,6 +15,28 @@ html {
 }
 
 @font-face {
+  font-family: "Badd Mono";
+  src: url("/fonts/BaddMonoRegular.woff2") format("woff2"),
+    url("/fonts/BaddMonoRegular.woff") format("woff"),
+    url("/fonts/BaddMonoRegular.ttf") format("truetype"),
+    url("/fonts/BaddMonoRegular.svg#BaddMonoRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Badd Nums";
+  src: url("/fonts/BaddNumsRegular.woff2") format("woff2"),
+    url("/fonts/BaddNumsRegular.woff") format("woff"),
+    url("/fonts/BaddNumsRegular.ttf") format("truetype"),
+    url("/fonts/BaddNumsRegular.svg#BaddNumsRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Sneak Regular";
   src: local("Custom Font"), url("/fonts/Sneak-Regular.woff2") format("woff2"),
     url("/fonts/Sneak-Regular.woff") format("woff"),
@@ -82,6 +104,7 @@ html {
   // Colors, Hex
   --red: #ff4f3e;
   --black: #17171c;
+  --blue: #0000ff;
   --sand: #d1cfcc;
   --grey: #f8f8f8;
   --white: #ffffff;
@@ -94,6 +117,7 @@ html {
   --white-rgb: 255, 255, 255;
 
   --font-inter: "Inter", Helvetica, sans-serif;
+  --font-baddmono: "Badd Mono", Helvetica, sans-serif;
   --font-tex-regular: "TeXGyreHeros", "Inter", sans-serif;
   --font-tex-bold: "TeXGyreHerosBold", "Inter", sans-serif;
   --font-tex-cond: "TeXGyreHerosCond", "Inter", sans-serif;
@@ -107,16 +131,19 @@ html {
   // Font Sizes
   --heading-lg: clamp(72px, 10vw, 192px);
   --heading-lg-lh: 1;
-  --heading-md: clamp(40px, 5.5vw, 96px);
-  --heading-sm: clamp(24px, 3.8vw, 56px);
-  --body: clamp(18px, 2.2vw, 32px);
-  --body-small: clamp(14px, 2vw, 22px);
+  --heading-md: clamp(40px, 5.5vw, 80px);
+  --heading-md-lh: 1.1;
+  --heading-sm: clamp(27px, 3vw, 56px);
+  --heading-sm-lh: 1.2;
+  --paragraph: clamp(18px, 2vw, 32px);
+  --paragraph-lh: 1.4;
+  --paragraph-small: clamp(14px, 2vw, 20px);
 
   // Verical Space
   --space-xxs: clamp(2px, 1vw, 4px);
   --space-xs: clamp(8px, 1.5vw, 12px);
-  --space-sm: clamp(16px, 2.5vw, 32px);
-  --space-md: clamp(24px, 7.4vw, 40px);
+  --space-sm: clamp(16px, 3vw, 32px);
+  --space-md: clamp(24px, 7.4vw, 56px);
   --space-lg: clamp(72px, 10vw, 144px);
   --space-xl: clamp(144px, 25vw, 320px);
 
@@ -142,12 +169,24 @@ html {
   --columns-count: repeat(25, 1fr);
 
   // Swiper Styles
+  // --image-height: clamp(225px, 52vw, 500px);
   --image-height: clamp(225px, 52vw, 500px);
+  --slide-height: clamp(225px, 30vw, 325px);
+  --slide-width: clamp(225px, 20vw, 325px);
 
   // Other shit
   --radius: clamp(32px, 3vw, 48px);
   --device-border: clamp(8px, 0.6vw, 16px) solid var(--black);
 }
+
+// Breakpoints
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  x-large: 1220px,
+  xx-large: 1680px
+);
 
 // Spacing
 $space-xxs: clamp(2px, 0.125vw, 8px);

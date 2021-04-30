@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div>
     <section class="outer-margin section intro header-pad">
       <article class="row">
         <figure class="column header">
@@ -17,7 +17,7 @@
               @mouseout="isHovering = false"
               :class="{ highlight: isHovering }"
             >
-              Duties<strong>*</strong>
+              Duties<sup>*</sup>
             </span>
             we help our clients and friends with website design, apps, UX, brand
             identities and a bit of XYZ.
@@ -28,31 +28,25 @@
           </p>
         </figure>
       </article>
-      <article class="row hide">
-        <figure class="column body">
-          <h3 class="markdown" v-html="about.introduction"></h3>
-        </figure>
-      </article>
     </section>
 
-    <section class="outer-margin image fade-in" v-in-viewport.once>
+    <section class="outer-margin banner">
       <article class="row">
-        <figure class="column image">
+        <figure class="column media fade-in" v-in-viewport.once>
           <img
             :src="getUrl(about.image.url)"
-            :srcset="getSrcSet(about.image.url)"
+            :srcset="getUrl(about.image.url)"
           />
         </figure>
       </article>
     </section>
 
-    <section class="outer-margin services">
+    <section class="outer-margin section services">
       <article class="row">
         <figure class="header">
-          <h3>
-            Services <br />
-            & Capabilities
-          </h3>
+          <p>
+            Services & Capabilities
+          </p>
         </figure>
 
         <figure class="column main">
@@ -68,23 +62,23 @@
             <div class="legend hide-for-small-only">
               <p>Capabilites</p>
               <p class="number">
-                <span>➀</span>
-                <span class="caption">UX</span>
-              </p>
-              <p class="number">
-                <span>➁</span>
-                <span class="caption">Apps</span>
-              </p>
-              <p class="number">
-                <span>➂</span>
+                <span>1</span>
                 <span class="caption">Websites</span>
               </p>
               <p class="number">
-                <span>➃</span>
+                <span>2</span>
+                <span class="caption">Apps</span>
+              </p>
+              <p class="number">
+                <span>3</span>
+                <span class="caption">UX</span>
+              </p>
+              <p class="number">
+                <span>4</span>
                 <span class="caption">Branding</span>
               </p>
               <p class="number">
-                <span>➄</span>
+                <span>5</span>
                 <span class="caption">XYZ</span>
               </p>
             </div>
@@ -109,23 +103,23 @@
       </article>
     </section>
 
-    <section class="outer-margin people">
+    <section class="outer-margin section people">
       <article class="row">
-        <figure class="header">
-          <h3>
-            Team & <br />
-            Network
-          </h3>
-        </figure>
+        <div class="header">
+          <p>
+            Team & Network
+          </p>
+        </div>
         <div class="team">
           <figure class="person" v-for="person in about.team" :key="person.id">
-            <div class="image">
+            <div class="media fade" v-in-viewport.reset>
               <img
                 :src="getUrl(person.image.url)"
                 :srcset="getUrl(person.image.url)"
               />
             </div>
-            <div>
+
+            <div class="meta">
               <h3>{{ person.name }}</h3>
               <p>
                 {{ person.title }}
@@ -208,11 +202,25 @@ export default {
               }
               image {
                 url
+                width
+                height
+                responsiveImage {
+                  aspectRatio
+                  base64
+                  bgColor
+                }
               }
               team {
                 _modelApiKey
                 image {
                   url
+                  width
+                  height
+                  responsiveImage {
+                    aspectRatio
+                    base64
+                    bgColor
+                  }
                 }
                 name
                 title
@@ -223,6 +231,13 @@ export default {
               networkBody
               gallery {
                 url
+                width
+                height
+                responsiveImage {
+                  aspectRatio
+                  base64
+                  bgColor
+                }
               }
               ffTitle
               ffBody
@@ -270,12 +285,12 @@ export default {
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 50 })} 640w,
-      ${imgix({ url: url, w: 768, q: 50 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
-      ${imgix({ url: url, w: 1600, q: 70 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
+      ${imgix({ url: url, w: 640, q: 30 })} 640w,
+        ${imgix({ url: url, w: 768, q: 40 })} 768w,
+        ${imgix({ url: url, w: 1024, q: 50 })} 1024w,
+        ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+        ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
+        ${imgix({ url: url, w: 1920, q: 70 })} 1920w
       `;
     }
   },

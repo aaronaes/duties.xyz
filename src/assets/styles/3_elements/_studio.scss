@@ -1,23 +1,9 @@
-.section {
-  .row {
-    @include display-grid;
-
-    .body {
-      grid-column: 2 / 25;
-    }
-  }
-}
-
 .intro {
   .row {
     .header {
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       align-self: flex-end;
       margin-bottom: var(--space-md);
-
-      @include breakpoint(x-large) {
-        grid-column: 2 / 23;
-      }
 
       .highlight,
       .highlight p {
@@ -36,8 +22,8 @@
       .tagline {
         grid-column: 2 / 23;
         transition: all 50ms var(--easing);
-        font-size: var(--body-small);
-        opacity: 0.25;
+        font-size: var(--paragraph-small);
+        opacity: 0.5;
 
         span {
           &.icon {
@@ -76,30 +62,29 @@
               16 0,
             auto;
 
-          strong {
-            font-weight: 400;
-            color: var(--red);
+          sup {
+            color: var(--red) !important;
           }
         }
 
         &:hover {
           pointer-events: none;
-          color: rgba(var(--black), $alpha: 0.15);
+          color: rgba(var(--red), $alpha: 0.15) !important;
 
           .audio {
             opacity: 1;
             pointer-events: all;
-            color: var(--red);
+            color: var(--red) !important;
 
-            strong {
+            sup {
               font-weight: 400;
-              color: var(--red);
+              color: var(--red) !important;
             }
           }
 
           &:after {
             opacity: 1;
-            color: var(--red);
+            color: var(--red) !important;
           }
         }
       }
@@ -107,18 +92,18 @@
   }
 }
 
-.image {
+.banner {
   margin-top: 0;
   padding: 0;
 
   .row {
-    .image {
+    .media {
       grid-column: 1 / 26;
       position: relative;
 
       img {
         width: 100%;
-        height: 80vh;
+        height: 100vh;
         object-fit: cover;
       }
     }
@@ -132,45 +117,50 @@
   .row {
     .header {
       grid-row: 1;
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       padding-bottom: var(--space-md);
 
       @include breakpoint(medium) {
-        grid-column: 2 / 7;
+        grid-column: 1 / 8;
         padding-bottom: 0;
+
+        h3,
+        p {
+          max-width: 14vw;
+          line-height: 1;
+        }
       }
 
-      @include breakpoint(large) {
-        grid-column: 2 / 11;
+      @include breakpoint(x-large) {
+        grid-column: 1 / 10;
       }
     }
 
     .main {
       grid-row: 2;
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
 
       h3 {
         margin-bottom: var(--space-md);
         margin-right: 0;
 
         sup {
-          position: relative;
-          display: inline;
-          font-size: var(--body-small);
-          font-weight: 600;
-          padding-left: 3px;
-          color: var(--red);
+          font-family: "Badd Nums", "Inter", sans-serif;
+          display: inline-block;
+          font-size: 75%;
+          width: 1.25vw;
+          transform: translateY(4px);
         }
       }
 
       @include breakpoint(medium) {
         grid-row: 1;
-        grid-column: 7 / 25;
+        grid-column: 8 / 26;
       }
 
-      @include breakpoint(large) {
+      @include breakpoint(x-large) {
         grid-row: 1;
-        grid-column: 10 / 25;
+        grid-column: 10 / 26;
       }
 
       .body {
@@ -183,16 +173,21 @@
           p {
             display: inline-block;
             color: grey;
-            margin-right: var(--space-sm);
 
             &:first-of-type {
-              color: var(--black);
               margin-bottom: var(--space-sm);
-              margin-right: 0;
             }
 
             @include breakpoint(medium) {
               display: block;
+            }
+
+            span {
+              &:first-of-type {
+                font-family: "Badd Nums", "Inter", sans-serif;
+                display: inline-block;
+                transform: translateY(4px);
+              }
             }
           }
 
@@ -213,7 +208,7 @@
 
           p {
             &:not(:last-of-type) {
-              margin-bottom: var(--space-xs);
+              margin-bottom: var(--space-sm);
             }
           }
         }
@@ -234,7 +229,7 @@
 
     .link {
       grid-row: 3;
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
 
       @include breakpoint(large) {
         grid-column: 14 / 26;
@@ -245,7 +240,7 @@
 }
 
 .people {
-  grid-column: 2 / 25;
+  grid-column: 1 / 26;
   padding-top: var(--space-lg);
   padding-bottom: var(--space-lg);
 
@@ -254,30 +249,47 @@
 
     .header {
       grid-row: 1;
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       padding-bottom: var(--space-md);
 
       @include breakpoint(medium) {
-        grid-row: 1 / 2;
-        grid-column: 2 / 7;
+        grid-column: 1 / 8;
         padding-bottom: 0;
+
+        h3,
+        p {
+          max-width: 14vw;
+          line-height: 1;
+        }
       }
 
-      @include breakpoint(large) {
-        grid-column: 2 / 9;
+      @include breakpoint(x-large) {
+        grid-column: 1 / 10;
+        padding-bottom: 0;
+
+        h3,
+        p {
+          max-width: 14vw;
+          line-height: 1;
+        }
       }
     }
 
     .team {
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: var(--x1p5);
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: var(--x0p5);
       margin-bottom: var(--space-md);
 
       @include breakpoint(medium) {
-        column-gap: var(--x1);
-        grid-column: 10 / 25;
+        grid-row: 1;
+        grid-column: 8 / 26;
+      }
+
+      @include breakpoint(x-large) {
+        grid-row: 1;
+        grid-column: 10 / 26;
       }
 
       .person {
@@ -287,11 +299,24 @@
 
         @include breakpoint(medium) {
           grid-row: 1;
+          margin-bottom: 0;
         }
 
-        .image {
-          padding-bottom: var(--space-xxs);
-          margin: 0;
+        .media {
+          margin-bottom: var(--space-xs);
+          display: block;
+        }
+
+        .meta {
+          h3 {
+            margin-bottom: var(--space-xxs);
+          }
+          @include breakpoint(small only) {
+            p,
+            a > p {
+              font-size: var(--paragraph-small);
+            }
+          }
         }
 
         .title {
@@ -299,26 +324,31 @@
         }
 
         &:nth-child(even) {
-          grid-column: span 1;
+          grid-column: span 2;
         }
 
         &:nth-child(odd) {
-          grid-column: span 1;
+          grid-column: span 2;
         }
       }
     }
 
     .body {
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       grid-row: 3;
 
       @include breakpoint(medium) {
         grid-row: 2;
-        grid-column: 10 / 25;
+        grid-column: 8 / 26;
+      }
+
+      @include breakpoint(x-large) {
+        grid-row: 2;
+        grid-column: 10 / 26;
       }
 
       p {
-        grid-column: 2 / 25;
+        grid-column: 1 / 26;
 
         &:not(:last-of-type) {
           margin-bottom: var(--space-sm);

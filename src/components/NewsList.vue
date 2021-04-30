@@ -37,10 +37,10 @@
               <p>{{ item.categoryType }}</p>
             </div>
           </div>
-          <div class="storyImage">
+          <div class="storyImage" v-lazy-container="{ selector: 'img' }">
             <img
-              :src="getUrl(story.storyImage.url)"
-              :srcset="getSrcSet(story.storyImage.url)"
+              :data-src="getUrl(story.storyImage.url)"
+              :data-srcset="getSrcSet(story.storyImage.url)"
             />
           </div>
         </figure>

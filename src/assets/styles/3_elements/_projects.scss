@@ -3,8 +3,7 @@
   grid-auto-flow: column;
 
   .project {
-    grid-column: 2 / 25;
-    margin: 0;
+    grid-column: 1 / 26;
     border-bottom: 2px solid;
     cursor: pointer;
     padding: var(--space-xs) 0;
@@ -15,6 +14,7 @@
 
     a {
       display: grid;
+      grid-column: 1 / 26;
       border: none;
 
       figure {
@@ -22,52 +22,58 @@
         align-self: center;
 
         .project-content {
-          @include display-grid;
+          display: flex;
           position: relative;
-
-          @include breakpoint(small only) {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-          }
+          align-items: center;
+          justify-content: space-between;
+          z-index: 0;
 
           p {
-            float: left;
-            vertical-align: middle;
             position: relative;
-            transform: translateY(-1px);
 
             span {
               display: inline-block;
             }
           }
 
-          .name {
-            grid-row: 1;
-            grid-column: 1 / 13;
-            height: fit-content;
+          .info {
+            display: block;
 
-            @include breakpoint(medium) {
-              grid-column: 1 / 8;
+            .project-icon,
+            .project-title,
+            .project-subtitle {
+              font-size: var(--heading-sm);
+              margin: 0;
+              padding: 0;
+              padding-top: var(--space-xxs);
+              vertical-align: middle;
+            }
 
-              .icon {
-                filter: grayscale(100%);
-              }
+            .project-icon,
+            .project-title {
+              display: none;
+            }
+
+            .project-subtitle {
+              display: inline-block;
             }
           }
 
           .image {
-            grid-column: 9 / 19;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            display: inline-block;
             opacity: 0;
             width: 30vw;
-            z-index: -1;
-            transition: filter 300ms linear;
-            filter: url(#blur);
-            filter: blur(4.5px);
-            filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+            z-index: 0;
+            top: 0;
+            right: 0;
+            transition: background-color 300ms linear;
+            background-color: blue;
+
+            img {
+              mix-blend-mode: darken;
+              z-index: -1;
+            }
 
             @include breakpoint(small only) {
               display: none;
@@ -75,16 +81,16 @@
           }
 
           .categories {
-            grid-row: 1;
-            grid-column: 18 / 26;
-            justify-self: flex-end;
+            display: inline-block;
+            transform: translateY(-3px);
 
             @include breakpoint(medium) {
               grid-column: 10 / 26;
 
-              p {
+              .number {
                 display: inline-block;
                 margin-right: var(--space-xs);
+                margin: 0;
 
                 &:last-of-type {
                   margin-right: 0;
@@ -93,13 +99,16 @@
             }
 
             @include breakpoint(large) {
-              p {
+              .number {
                 display: inline-block;
                 margin-right: var(--space-xxs);
 
                 span {
                   &:first-of-type {
                     padding-right: 0px;
+                  }
+                  &:last-of-type {
+                    display: none;
                   }
                 }
               }
@@ -126,20 +135,36 @@
     }
 
     &:hover {
+      * {
+        color: var(--black);
+      }
+
       a {
         figure {
           .project-content {
-            .name {
-              .icon {
-                filter: grayscale(0%);
+            .info {
+              .project-icon,
+              .project-title {
+                display: inline-block;
+              }
+              .project-subtitle {
+                display: none;
               }
             }
 
             .image {
               opacity: 1;
-              filter: url(#blur);
-              filter: blur(0px);
-              filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+              background-color: transparent;
+            }
+
+            .categories {
+              .number {
+                span {
+                  &:last-of-type {
+                    display: inline-block;
+                  }
+                }
+              }
             }
 
             .year {

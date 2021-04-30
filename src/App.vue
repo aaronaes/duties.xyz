@@ -14,6 +14,7 @@ export default {
   components: {
     PageWrapper
   },
+
   metaInfo() {
     return {
       title:
@@ -34,18 +35,19 @@ export default {
         { name: "robots", content: "index,follow" }
       ]
     };
-  },
-  watch: {
-    $route: {
-      handler(to, from) {
-        const bodyClass = document.getElementsByTagName("body")[0];
-        if (from !== undefined) {
-          bodyClass.classList.remove("page-" + from.name.toLowerCase());
-        }
-        bodyClass.classList.add("page-" + to.name.toLowerCase());
-      },
-      immediate: true
-    }
   }
+  // watch: {
+  //   $route: {
+  //     handler(to, from) {
+  //       if (from !== undefined) {
+  //         document.body.classList.remove(
+  //           "page-" + from.meta.title.toLowerCase()
+  //         );
+  //       }
+  //       document.body.classList.add("page-" + to.meta.title.toLowerCase());
+  //     },
+  //     immediate: true
+  //   }
+  // }
 };
 </script>

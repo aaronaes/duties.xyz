@@ -1,6 +1,11 @@
+/* eslint-disable vue/return-in-computed-property */
 <template>
   <div>
-    <intersect :threshold="[0.1]">
+    <intersect
+      :threshold="[0.1]"
+      @enter="addLightmode"
+      @leave="removeLightmode"
+    >
       <section class="outer-margin section hero-block">
         <article class="row">
           <figure class="column">
@@ -17,7 +22,7 @@
                     <span>{{ block.heroListTitle }}</span>
                   </h2>
                 </router-link>
-                <div class="imgBox">
+                <div class="media imgbox">
                   <img
                     v-for="asset in block.heroListGallery"
                     :key="asset.id"
@@ -42,75 +47,151 @@
             visually appealing.
           </h3>
         </figure>
-        <figure class="column page-title">
-          <router-link :to="{ name: Projects }">
-            <h1 class="title">
-              ON-DUTY
-            </h1>
-          </router-link>
-        </figure>
       </article>
     </section>
     <ProjectList :projects="projects" />
 
-    <ProjectIndex class="hide" />
-
-    <!-- Story List -->
-    <NewsList class="hide" :stories="stories" />
-
-    <intersect :threshold="[0.5]" @enter="addDarkmode" @leave="removeDarkmode">
-      <section class="outer-margin offduty">
-        <article class="row content top">
-          <figure class="header">
-            <router-link :to="{ name: 'XYZ' }">
-              <h1 class="title big outlined negative">OFF – DUTY</h1>
-            </router-link>
-          </figure>
-          <figure class="counter">
-            <div class="pagination"></div>
-          </figure>
-        </article>
-        <article class="row swiper">
-          <figure class="carousel-block">
-            <figure class="carousel">
-              <swiper
-                ref="swiper"
-                :options="swiperOptions"
-                :auto-update="true"
-                :auto-destroy="true"
+    <section class="outer-margin section blocky">
+      <article class="row">
+        <figure class="column">
+          <h2>On-duty</h2>
+          <p>
+            We believe it’s our duty as designers to provide the world with
+            thoughtfully designed products that are functional, accessible and
+            visually appealing.
+          </p>
+          <ul>
+            <li>
+              <router-link :to="{ name: 'Projects' }">
+                <p>All work &rarr;</p>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'News' }">
+                <p>News and shit &rarr;</p>
+              </router-link>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                class="title"
+                href="https://www.linkedin.com/company/duties"
               >
-                <swiper-slide
-                  v-for="asset in frontpage.offGallery"
-                  :key="asset.id"
-                >
-                  <div class="slide-img">
-                    <img
-                      :src="getUrl(asset.url)"
-                      :srcset="getSrcSet(asset.url)"
-                    />
-                    <div class="tag" v-if="!!asset.customData.link">
-                      <a :href="asset.customData.link" target="_blank">
-                        <p class="foo">{{ asset.title }}</p>
-                      </a>
-                    </div>
+                <p>LinkedIn &nearr;</p>
+              </a>
+            </li>
+          </ul>
+        </figure>
+        <figure class="column">
+          <h2>Off-duty</h2>
+          <p>
+            When we are off-duty you can find us dabbling in experimental
+            typefaces, curating our studio playlist and working on physical
+            products for our in-house line of merch.
+          </p>
+          <ul>
+            <li>
+              <router-link :to="{ name: 'XYZ' }">
+                <p>XYZ &rarr;</p>
+              </router-link>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                class="title"
+                href="https://instagram.com/duties.xyz"
+              >
+                <p>Instagram &nearr;</p>
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                class="title"
+                href="https://medium.com/@duties.xyz"
+              >
+                <p>Medium &nearr;</p>
+              </a>
+            </li>
+          </ul>
+        </figure>
+      </article>
+    </section>
+
+    <section class="outer-margin section hide offduty">
+      <article class="row top">
+        <figure class="header">
+          <h1 class="big outlined negative">
+            OFF–DUTY
+          </h1>
+        </figure>
+        <figure class="counter">
+          <div class="pagination"></div>
+        </figure>
+      </article>
+      <article class="row body">
+        <figure class="column body heading">
+          <div class="text">
+            <h3 class="markdown" v-html="frontpage.offBody"></h3>
+          </div>
+        </figure>
+      </article>
+      <article class="horizontal-snap">
+        <div
+          v-for="asset in frontpage.offGallery"
+          :key="asset.id"
+          class="slide-img"
+        >
+          <img :src="getUrl(asset.url)" :srcset="getSrcSet(asset.url)" />
+          <div class="tag" v-if="!!asset.customData.link">
+            <a :href="asset.customData.link" target="_blank">
+              <p class="foo">{{ asset.title }}</p>
+            </a>
+          </div>
+        </div>
+      </article>
+      <article class="row hide swiper slider">
+        <figure class="carousel-block">
+          <figure class="column carousel">
+            <swiper
+              ref="mySwiper"
+              :options="swiperOptions"
+              :auto-update="true"
+              :auto-destroy="true"
+            >
+              <swiper-slide
+                v-for="asset in frontpage.offGallery"
+                :key="asset.id"
+              >
+                <div class="slide-img">
+                  <img
+                    :src="getUrl(asset.url)"
+                    :srcset="getSrcSet(asset.url)"
+                  />
+                  <div class="tag" v-if="!!asset.customData.link">
+                    <a :href="asset.customData.link" target="_blank">
+                      <p class="foo">{{ asset.title }}</p>
+                    </a>
                   </div>
-                </swiper-slide>
-              </swiper>
-              <!-- Add Arrows -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </figure>
+                </div>
+              </swiper-slide>
+            </swiper>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </figure>
-        </article>
-        <article class="row content">
-          <figure class="body heading">
-            <div class="text">
-              <h3 class="markdown" v-html="frontpage.offBody"></h3>
-            </div>
-          </figure>
-        </article>
-      </section>
-    </intersect>
+        </figure>
+      </article>
+      <article class="row bottom">
+        <figure class="column">
+          <p>
+            <router-link to="/xyz">
+              Jump to XYZ &rarr;
+            </router-link>
+          </p>
+          <div class="pagination"></div>
+        </figure>
+      </article>
+    </section>
   </div>
 </template>
 
@@ -119,18 +200,15 @@ import gql from "graphql-tag";
 import getData from "@/utils/getData";
 import imgix from "@/utils/imgix";
 import marked from "marked";
-import ProjectList from "@/components/ProjectList.vue";
-import ProjectIndex from "@/views/projectIndex.vue";
-import NewsList from "@/components/NewsList.vue";
 import Intersect from "vue-intersect";
+
+import ProjectList from "@/components/ProjectList.vue";
 
 export default {
   name: "Home",
   components: {
     Intersect,
-    ProjectList,
-    ProjectIndex,
-    NewsList
+    ProjectList
   },
   async created() {
     this.projects = await this.getProjects();
@@ -164,15 +242,24 @@ export default {
       },
       projects: [],
       stories: [],
-      footer: [],
       swiperOptions: {
-        speed: 200,
-        slidesPerView: "auto",
         loop: true,
-        loopedSlides: 50000,
+        loopedSlides: 5000,
+        slidesPerView: "auto",
         pagination: {
-          el: ".pagination",
-          type: "fraction"
+          el: ".swiper-pagination",
+          type: "fraction",
+          renderFraction: function(currentClass, totalClass) {
+            return (
+              '<span class="' +
+              currentClass +
+              '"></span>' +
+              "." +
+              '<span class="' +
+              totalClass +
+              '"></span>'
+            );
+          }
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -182,11 +269,11 @@ export default {
     };
   },
   methods: {
-    addDarkmode() {
-      document.body.classList.add("darkmode");
+    onSwiper(swiper) {
+      console.log(swiper);
     },
-    removeDarkmode() {
-      document.body.classList.remove("darkmode");
+    onSlideChange() {
+      console.log("slide change");
     },
     addLightmode() {
       document.body.classList.add("light");
@@ -327,7 +414,7 @@ export default {
                 heroListTitle
                 heroListLink
                 heroListGallery {
-                  url
+                  url(imgixParams: { auto: format, q: 50 })
                 }
               }
               ondutyTitle
@@ -336,7 +423,7 @@ export default {
                 url
               }
               offGallery {
-                url
+                url(imgixParams: { auto: format, q: 50 })
                 title
                 customData
               }
@@ -366,19 +453,23 @@ export default {
     }
   },
   computed: {
+    cssVars: function() {
+      return {
+        "--item-order": this.a
+      };
+    },
     pageName() {
       return this.$route.name;
     },
     swiper() {
       return this.$refs.mySwiper.$swiper;
-    },
-    cssVars: function() {
-      return {
-        "--item-order": this.a
-      };
     }
   },
+  mounted() {
+    document.body.classList.add("page-home");
+  },
   destroyed() {
+    document.body.classList.remove("page-home");
     document.body.classList.remove("darkmode");
     document.body.classList.remove("light");
   }

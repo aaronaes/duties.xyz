@@ -2,17 +2,18 @@
   @include display-grid;
   margin-top: var(--space-sm);
 
-  p {
-    @include font-size(18px, 22px);
+  p,
+  p > p {
+    font-size: var(--paragraph-small);
     line-height: 1.25;
   }
 
-  .xyz-grid {
-    grid-column: 2 / 25;
+  .grid {
+    grid-column: 1 / 26;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: var(--x1);
-    row-gap: var(--x1);
+    column-gap: var(--x1p5);
+    row-gap: var(--x1p5);
     align-items: center;
     justify-items: center;
 
@@ -20,11 +21,11 @@
       grid-template-columns: repeat(6, 1fr);
     }
 
-    @include breakpoint(x-large) {
+    @include breakpoint(large) {
       grid-template-columns: repeat(9, 1fr);
     }
 
-    .xyz-item {
+    .item {
       position: relative;
       margin-bottom: var(--space-md);
       grid-column: span 3;
@@ -41,20 +42,13 @@
       .column {
         padding: 0;
 
+        .media {
+          margin-bottom: var(--space-xs);
+        }
+
         .body {
           p {
             color: var(--red);
-          }
-        }
-
-        .xyzImage {
-          display: block;
-          justify-self: unset;
-
-          img {
-            width: 100%;
-            height: auto;
-            margin-bottom: var(--space-xs);
           }
         }
       }

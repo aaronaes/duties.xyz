@@ -7,18 +7,22 @@
   grid-template-columns: repeat(25, 1fr);
   margin-top: 0;
 
-  .project-feed-2 {
-    grid-column: 2 / 25;
+  .project-feed {
+    grid-column: 1 / 26;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: var(--x1);
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: var(--x0p5);
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     .project {
       grid-column: span 1;
       margin-bottom: var(--x3);
 
       @include breakpoint(medium) {
-        margin-bottom: var(--x1);
+        margin-bottom: 0;
       }
 
       .column {
@@ -43,19 +47,32 @@
                 grid-row: 2;
               }
 
-              .name {
-                font-size: var(--heading-h2);
-
+              .label {
                 span {
-                  &.title {
-                    border-bottom: none;
-                  }
                   &.icon {
                     position: relative;
-                    display: inline-block;
+                    display: inline;
+                    float: left;
                     transform: scale(0.9);
                     transform-origin: center;
-                    margin-right: var(--space-xs);
+                    margin-right: var(--space-xxs);
+                  }
+                  &.title {
+                    border-bottom: none;
+                    float: none;
+                    display: inline-block;
+
+                    &:after {
+                      content: ":";
+                      font-family: var(--font-tex-regular);
+                      line-height: 1;
+                      margin-right: var(--space-xxs);
+                    }
+                  }
+                  &.subtitle {
+                    border-bottom: none;
+                    float: none;
+                    display: inline;
                   }
                 }
               }
@@ -69,30 +86,20 @@
               .categories {
                 p {
                   color: rgba(var(--black-rgb), 0.5);
-                  font-size: var(--body-small);
+                  font-size: var(--paragraph-small);
                   display: inline;
                 }
               }
             }
 
-            .image {
+            .media {
               grid-column: span 2;
               grid-row: 1;
-              padding-bottom: var(--space-xs);
+              margin-bottom: var(--space-xs);
 
               @include breakpoint(medium) {
                 grid-column: span 2;
                 grid-row: 1;
-              }
-
-              img {
-                width: 100%;
-
-                @include breakpoint(medium) {
-                  height: var(--image-height);
-                  object-fit: cover;
-                  object-position: 50% 50%;
-                }
               }
             }
           }
@@ -115,87 +122,9 @@
         }
       }
     }
-  }
 
-  .project-feed {
-    grid-column: 2 / 25;
-    margin-bottom: var(--space-sm);
-
-    @include breakpoint(medium) {
-      margin-bottom: var(--space-sm);
-    }
-
-    .project {
-      margin-bottom: var(--x3);
-
-      @include breakpoint(medium) {
-        margin-bottom: var(--x1);
-      }
-
-      .column {
-        align-items: center;
-        background-color: initial;
-        visibility: visible;
-        z-index: 1;
-
-        &.summary {
-          a {
-            border-bottom: none;
-            cursor: pointer;
-            @include display-grid;
-
-            .project-info {
-              grid-column: 1 / 26;
-              grid-row: 2;
-
-              @include breakpoint(medium) {
-                grid-column: 17 / 26;
-                grid-row: 1;
-              }
-
-              .name,
-              .description {
-                width: 100%;
-                padding-bottom: var(--space-xs);
-
-                span {
-                  font-size: 80%;
-                  transform: translateY(-2px);
-                  position: relative;
-                  display: inline-block;
-                }
-              }
-
-              .categories {
-                p {
-                  display: inline;
-                }
-              }
-            }
-
-            .image {
-              grid-column: 1 / 26;
-              grid-row: 1;
-              padding-bottom: var(--space-xs);
-
-              @include breakpoint(medium) {
-                grid-column: 1 / 16;
-                grid-row: 1;
-              }
-
-              img {
-                width: 100%;
-
-                @include breakpoint(medium) {
-                  height: clamp(205px, 36vw, 625px);
-                  object-fit: cover;
-                  object-position: 50% 50%;
-                }
-              }
-            }
-          }
-        }
-      }
+    .bottom {
+      margin: var(--space-lg  ) 0 0 0;
     }
   }
 }

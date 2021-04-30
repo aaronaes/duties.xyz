@@ -5,26 +5,24 @@ header {
   margin: 0;
   width: 100%;
   z-index: 9000;
-  transition: all 300ms linear;
 
   &.active {
     background-color: var(--black);
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     top: 0;
     right: 0;
     left: 0;
 
     @include breakpoint(small only) {
       @media (hover: none) and (pointer: coarse) {
-        height: 85vh;
+        height: 100vh;
       }
     }
 
-    * {
-      color: var(--grey);
-      fill: var(--grey);
+    & > * {
+      color: var(--white) !important;
     }
   }
 
@@ -38,27 +36,43 @@ header {
       grid-column: 1 / 26;
       position: relative;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       height: fit-content;
-      margin: var(--space-sm) 0;
+      margin-top: var(--space-sm);
+      margin-bottom: var(--space-sm);
+
+      @include breakpoint(small only) {
+        margin-top: var(--x1p5);
+      }
 
       .nav-item {
         position: relative;
         margin: 0;
         padding: 0;
         grid-row: 1;
+        align-self: center;
 
-        &.burger {
+        &.menu {
           position: relative;
           justify-self: flex-end;
           float: right;
+          cursor: pointer;
 
-          .nav {
+          &.active {
+            .burger {
+              svg {
+                path {
+                  fill: #bcbcbc !important;
+                }
+              }
+            }
+          }
+
+          .burger {
             position: relative;
             display: flex;
-            padding: var(--x0p5);
-            height: 40px;
-            width: 40px;
+            width: clamp(32px, 4vw, 40px);
+            height: clamp(32px, 4vw, 40px);
             align-items: center;
             justify-content: center;
 
@@ -66,18 +80,11 @@ header {
               position: absolute;
               top: 50%;
               transform: translateY(-50%);
+
+              path {
+                fill: var(--blue) !important;
+              }
             }
-          }
-        }
-
-        h3 {
-          cursor: pointer;
-          position: relative;
-          padding: 0;
-          margin: 0;
-
-          &.page-title {
-            padding-left: var(--space-xs);
           }
         }
 
@@ -88,11 +95,59 @@ header {
         }
 
         &.logo {
-          text-align: left;
+          cursor: pointer;
+          a {
+            display: block;
+            width: fit-content;
+            height: clamp(32px, 4vw, 40px);
 
-          .site-title {
             &:hover {
-              border-bottom: 2px solid;
+              span {
+                display: inline-block;
+
+                &.site-title {
+                  opacity: 0;
+                  display: none;
+                }
+
+                &.close {
+                  display: block;
+                  opacity: 1;
+                }
+
+                &.page-title {
+                  opacity: 0;
+                  display: none;
+                }
+              }
+            }
+
+            h3 {
+              line-height: 1;
+
+              span {
+                display: inline-block;
+
+                &.site-title {
+                  display: inline-block;
+                  margin-right: var(--space-xs);
+
+                  &:after {
+                    content: ":";
+                    font-family: var(--font-tex-regular);
+                  }
+                }
+
+                &.close {
+                  display: none;
+                  opacity: 0;
+                }
+
+                &.page-title {
+                  display: inline-block;
+                  margin-right: var(--space-xs);
+                }
+              }
             }
           }
 
@@ -100,51 +155,31 @@ header {
             display: none;
           }
         }
-
-        .nav {
-          text-align: right;
-
-          svg {
-            vertical-align: middle;
-          }
-
-          h3 {
-            &.burger {
-              span {
-                &.burger {
-                  text-align: center;
-                  &:before {
-                    content: "";
-                    position: absolute;
-                    top: 52%;
-                    left: 52%;
-                    transform: translate(-50%, -50%);
-                    width: clamp(48px, 5vw, 64px);
-                    height: clamp(48px, 5vw, 64px);
-                    border-radius: clamp(48px, 5vw, 64px);
-                    border: 3px solid;
-                  }
-                }
-              }
-            }
-          }
-        }
       }
 
       .time {
-        position: relative;
+        position: absolute;
+        top: 0;
         margin: 0;
         display: none;
         order: -1;
+        grid-row: 1;
+        transform: translateY(12px);
+        grid-column: 1 / 23;
 
         @include breakpoint(small only) {
           position: absolute;
           top: 0;
           left: 0;
+          transform: translateY(0px);
         }
 
         &.active {
           display: block;
+        }
+
+        .font-swapper {
+          cursor: pointer;
         }
 
         h3,
@@ -152,7 +187,6 @@ header {
           margin: 0;
           padding: 0;
           display: inline-block;
-          color: var(--grey);
 
           &.title {
             grid-column: 1 / 6;
@@ -195,9 +229,9 @@ header {
 
     .media {
       position: absolute;
-      right: var(--x1);
-      bottom: var(--space-md);
-      width: var(--x10);
+      right: var(--x0p5);
+      bottom: var(--x0p5);
+      width: var(--x8);
       z-index: -1;
 
       @include breakpoint(small only) {
@@ -217,11 +251,11 @@ header {
     }
 
     .main {
-      grid-column: 2 / 25;
+      grid-column: 1 / 26;
       grid-row: 2;
       align-self: flex-end;
       display: none;
-      margin-bottom: var(--x1);
+      margin-bottom: var(--x0p5);
       pointer-events: none;
 
       &.active {
@@ -263,7 +297,9 @@ header {
 
                 &::after {
                   content: ":";
-                  display: none;
+                  font-family: var(--font-tex-regular);
+                  visibility: hidden;
+                  line-height: 1;
                 }
               }
 
@@ -275,7 +311,7 @@ header {
                 h2 {
                   &::after {
                     content: ":";
-                    display: inline;
+                    visibility: visible;
                   }
                 }
               }
@@ -287,13 +323,13 @@ header {
   }
 }
 
-main {
-  transition: filter 150ms linear;
-}
-
 body.navOpen {
   height: 100vh;
   overflow: hidden;
+
+  * {
+    color: var(--white);
+  }
 
   @include breakpoint(small only) {
     position: fixed;

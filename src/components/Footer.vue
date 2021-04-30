@@ -1,6 +1,6 @@
 <template>
-  <footer class="outer-margin footer">
-    <article class="row fade-in" v-in-viewport.once>
+  <footer class="outer-margin section footer fade-in" v-in-viewport.once>
+    <article class="row">
       <article>
         <figure class="column tagline">
           <p v-html="footer.tagline"></p>

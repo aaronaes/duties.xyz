@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Nav />
-    <main id="page">
-      <transition name="fade" mode="out-in">
+    <transition name="fade-in" appear>
+      <Nav />
+      <main id="page">
         <slot></slot>
-      </transition>
-    </main>
-    <Footer />
+      </main>
+      <Footer />
+    </transition>
   </div>
 </template>
 

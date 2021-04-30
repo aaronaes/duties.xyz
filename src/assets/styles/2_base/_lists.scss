@@ -19,45 +19,29 @@ ol {
     display: inline-block;
     margin-right: 16px;
     margin-bottom: 17px;
-    transition: all 200ms var(--easing);
+    transition: all 200ms linear;
   }
 }
 
-h2 {
-  &.number {
-    line-height: 1;
-    position: relative;
-
-    span {
-      &:first-of-type {
-        font-family: "Roboto", Helvetica, sans-serif;
-        font-size: 130%;
-        line-height: 0.85;
-        display: inline-block;
-        transform: translateY(5%);
-        padding-right: var(--space-xs);
-      }
-    }
-  }
-}
-
+h2,
 h3,
 p {
   &.number {
-    line-height: 1;
+    line-height: 1.2;
     position: relative;
-    margin-right: var(--space-xs);
 
     span {
       &:first-of-type {
-        font-family: "Roboto", Helvetica, sans-serif;
+        font-family: "Badd Nums", "Inter", sans-serif;
         font-size: 130%;
+        line-height: 0.75;
+        transform: translateY(0.5vw);
         display: inline-block;
-        transform: translateY(9%);
-        font-weight: 500;
-      }
-      &:last-of-type {
-        padding: 0 var(--space-xxs);
+        padding-right: var(--space-xs);
+
+        @include breakpoint(small only) {
+          transform: translateY(1.75vw);
+        }
       }
     }
   }

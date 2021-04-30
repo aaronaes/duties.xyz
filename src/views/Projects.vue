@@ -24,17 +24,19 @@
         v-for="project in projectOverview.projects.slice(3, 9999999)"
         :key="project.id"
         class="main project"
+        value="project.category.categoryType"
       >
         <a
           :href="'/projects/' + project.slug"
           @click="e => handleProject(e, project)"
         >
-          <figure id="dildo" class="column">
+          <figure class="column">
             <div class="project-content">
               <p class="name">
                 <span class="markdown icon" v-html="project.icon"></span>
-                {{ project.title }}
+                {{ project.subtitle }}
               </p>
+
               <div class="image follow">
                 <img
                   :src="getUrl(project.projectThumbnail.url)"
@@ -59,31 +61,39 @@
         </a>
       </article>
     </section>
-    <section class="outer-margin project-grid" v-else>
+    <section class="outer-margin section project-grid">
       <article
-        v-for="project in projectOverview.projects"
+        v-for="(project, index) in projectOverview.projects"
         :key="project.id"
-        class="main project fadeIn"
+        class="main row project fade-in"
+        :style="`--item-order:${index + 1}`"
         v-in-viewport.once
       >
         <a
           :href="'/projects/' + project.slug"
           @click="e => handleProject(e, project)"
         >
-          <figure id="dildo" class="column">
+          <figure class="column">
             <div class="project-content">
-              <p class="name">
-                <span class="markdown icon" v-html="project.icon"></span>
-                {{ project.title }}
-              </p>
-              <div class="image follow">
+              <div class="info">
+                <h3 class="project-icon">
+                  <span class="markdown icon" v-html="project.icon"></span>
+                </h3>
+                <h3 class="project-title" v-html="project.title"></h3>
+                <h3
+                  class="project-subtitle markdown"
+                  v-html="project.subtitle"
+                ></h3>
+              </div>
+
+              <div class="image" v-lazy-container="{ selector: 'img' }">
                 <img
-                  :src="getUrl(project.projectThumbnail.url)"
-                  :srcset="getSrcSet(project.projectThumbnail.url)"
+                  :data-src="getUrl(project.projectThumbnail.url)"
+                  :data-srcset="getSrcSet(project.projectThumbnail.url)"
                 />
               </div>
-              <div class="categories show-for-medium">
-                <p
+              <div class="categories hide show-for-medium">
+                <h3
                   class="number"
                   v-for="(category, i) in project.categories"
                   :key="i"
@@ -93,7 +103,7 @@
                   <span class="show-for-medium">{{
                     category.categoryType
                   }}</span>
-                </p>
+                </h3>
               </div>
             </div>
           </figure>
@@ -112,9 +122,6 @@ import ClientList from "@/components/ClientList.vue";
 
 export default {
   name: "Index",
-  async created() {
-    this.projectOverview = await this.getProjectOverview();
-  },
   components: {
     ClientList
   },
@@ -125,8 +132,12 @@ export default {
       isHovering: false,
       projectOverview: {
         projects: []
-      }
+      },
+      selectedCategory: "All"
     };
+  },
+  async created() {
+    this.projectOverview = await this.getProjectOverview();
   },
   methods: {
     addDarkmode() {
@@ -173,26 +184,21 @@ export default {
         this.$router.push("/projects/" + project.slug);
       }
     },
-    scrollTo(el) {
-      window.scrollTo({
-        top: window.pageYOffset + el.getBoundingClientRect().top,
-        behavior: "smooth"
-      });
-    },
     myFilter: function() {
       this.isActive = !this.isActive;
     },
     getSrcSet(url) {
       return `
-      ${imgix({ url: url, w: 640, q: 60 })} 640w,
-      ${imgix({ url: url, w: 768, q: 60 })} 768w,
-      ${imgix({ url: url, w: 1024, q: 60 })} 1024w,
-      ${imgix({ url: url, w: 1366, q: 60 })} 1366w,
+      ${imgix({ url: url, w: 640, q: 30 })} 640w,
+      ${imgix({ url: url, w: 768, q: 30 })} 768w,
+      ${imgix({ url: url, w: 1024, q: 40 })} 1024w,
+      ${imgix({ url: url, w: 1366, q: 50 })} 1366w,
       ${imgix({ url: url, w: 1600, q: 60 })} 1600w,
-      ${imgix({ url: url, w: 1920, q: 60 })} 1920w,
+      ${imgix({ url: url, w: 1920, q: 70 })} 1920w,
       `;
     }
   },
+
   mounted: function() {
     $(document).mousemove(function(e) {
       $(".follow").offset({

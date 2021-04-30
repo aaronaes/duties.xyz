@@ -4,39 +4,58 @@ img {
   vertical-align: middle;
   height: auto;
   width: 100%;
+  pointer-events: none;
 }
 
 video {
   width: 100%;
   height: auto;
-  display: inline-block;
   border: 0;
+  pointer-events: none;
 }
 
-img.fade {
-  opacity: 0;
-  filter: blur(4.5px);
-  transition: all 300ms var(--easing);
-  transition-delay: 300ms;
+.aspect-ratio {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: calc(100% / (var(--aspect-ratio)));
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+
+.slider {
+  &:hover {
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.fade-img {
+  overflow: hidden;
+
+  img {
+    opacity: 0;
+    transition: opacity 300ms var(--easing);
+  }
 
   &.in-viewport {
-    filter: blur(0px);
-    opacity: 1;
+    img {
+      opacity: 1;
+    }
   }
 }
 
 img[lazy="loaded"] {
-  animation: fadeIn 300ms var(--easing);
-  animation-delay: 300ms;
-  animation-fill-mode: both;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  opacity: 1;
 }

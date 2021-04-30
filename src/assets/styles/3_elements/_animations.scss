@@ -1,30 +1,31 @@
 // Page animations
-.page-enter-active,
+.page-enter-active {
+  animation: pageIn 200ms var(--easing);
+}
 .page-leave-active {
-  transition: all 300ms linear;
-  opacity: 1;
+  animation: pageOut 200ms var(--easing);
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pageOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .page-enter,
 .page-leave-to {
-  opacity: 0;
-  transition-delay: 600ms;
-}
-
-// ------------------------------------
-
-.fade-enter-active,
-.fade-leave-active {
-  transition-property: opacity;
-  transition-duration: 0.25s;
-}
-
-.fade-enter-active {
-  transition-delay: 0.25s;
-}
-
-.fade-enter,
-.fade-leave-active {
   opacity: 0;
 }
 
@@ -33,68 +34,70 @@
 // ------------------------------------
 
 .loadProject-enter-active {
-  animation: loadingIn 300ms linear;
+  animation: loadingIn 400ms var(--easing);
   overflow: hidden;
 }
 .loadProject-leave-active {
-  animation: loadingOut 300ms linear;
+  animation: loadingOut 400ms var(--easing);
   overflow: hidden;
 }
 
 @keyframes loadingIn {
   from {
     opacity: 0;
-    filter: blur(50px);
-    // transform: translateY(0vh);
-    // height: 100vh;
-    // overflow: hidden;
+    transform: translateY(0vh);
+    height: 100vh;
+    overflow: hidden;
   }
   to {
-    filter: blur(0px);
     opacity: 1;
-    // transform: translateY(0vh);
-    // height: 100vh;
-    // overflow: hidden;
+    transform: translateY(0vh);
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
 @keyframes loadingOut {
   from {
-    // opacity: 1;
-    // transform: translateY(0vh);
-    // height: 100vh;
-    // overflow: hidden;
     opacity: 1;
+    transform: translateY(0vh);
+    height: 100vh;
+    overflow: hidden;
   }
   to {
-    // transform: translateY(0vh);
-    // height: 0vh;
-    // opacity: 1;
-    // overflow: hidden;
-    opacity: 0;
+    transform: translateY(0vh);
+    height: 0vh;
+    opacity: 1;
+    overflow: hidden;
   }
 }
 
 .loading-enter,
 .loading-leave-to {
   opacity: 0;
-  transition-delay: 600ms;
 }
 
-// In Viewport
+// ------------------------------------
+// Viewport directive
+// ------------------------------------
+
 .fade-in {
   opacity: 0;
-  transition: opacity 300ms var(--easing);
+  transition: opacity 300ms ease-in-out;
 
   &.in-viewport {
     opacity: 1;
   }
 }
 
+// ------------------------------------
+// Animated list
+// ------------------------------------
+
 .fade-list {
   .list-item {
     animation-name: animateIn;
-    animation-duration: 150ms;
+    animation-duration: 300ms;
     animation-delay: calc(var(--item-order) * 50ms);
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
@@ -102,7 +105,7 @@
     @keyframes animateIn {
       0% {
         opacity: 0;
-        transform: translateY(-8px);
+        transform: translateY(8px);
       }
 
       100% {

@@ -1,6 +1,9 @@
 <template>
   <header :class="{ active: show }">
-    <section class="outer-margin navigation" v-if="$route.name === 'Links'">
+    <section
+      class="outer-margin section navigation"
+      v-if="$route.name === 'Links'"
+    >
       <article class="row header">
         <figure class="column nav-item">
           <h3 class="site-title">
@@ -15,29 +18,35 @@
         </figure>
       </article>
     </section>
-    <section class="outer-margin navigation " v-if="$route.name !== 'Project'">
+    <section
+      class="outer-margin section navigation "
+      v-if="$route.name !== 'Project'"
+    >
       <article class="row header">
-        <figure class="column nav-item heading logo" :class="{ active: show }">
+        <figure class="column nav-item logo" :class="{ active: show }">
           <router-link :to="{ name: 'Home' }" v-if="$route.name !== 'Links'">
-            <h3 class="title site-title" v-if="$route.name !== 'Links'">
-              Duties:
-            </h3>
-            <h3 class="title page-title" v-if="$route.name === 'OnDuty'">
-              News
-            </h3>
-            <h3 class="title page-title" v-if="$route.name === 'Projects'">
-              Projects
-            </h3>
-            <h3 class="title page-title" v-if="$route.name === 'News'">
-              News
-            </h3>
-            <h3 class="title page-title" v-if="$route.name === 'XYZ'">
-              XYZ
+            <h3 class="title">
+              <span class="markdown site-title" v-if="$route.name !== 'Links'"
+                >Duties</span
+              >
+              <span class="markdown close" v-if="$route.name !== 'Links'"
+                >Home</span
+              >
+              <span
+                class="title page-title"
+                v-if="$route.name !== 'Links' && $route.name !== 'Home'"
+              >
+                {{ this.$route.name }}
+              </span>
             </h3>
           </router-link>
         </figure>
-        <figure class="column nav-item burger" v-if="$route.name !== 'Links'">
-          <div class="nav show-for-small-only" @click="showNav()">
+        <figure
+          class="column nav-item menu"
+          :class="{ active: show }"
+          v-if="$route.name !== 'Links'"
+        >
+          <div class="burger show-for-small-only" @click="showNav()">
             <svg
               width="24"
               height="14"
@@ -99,6 +108,16 @@
             <span class="highlight" v-if="isMorning()">ON-DUTY</span>
             <span class="highlight" v-else>OFF-DUTY</span>
           </p>
+          <br />
+          <p
+            @click="
+              toggleBadd();
+              hideNav();
+            "
+          >
+            <span v-if="isFucked === true">Jeg vil hjeeeem!</span>
+            <span v-else>BaddMode?</span>
+          </p>
         </figure>
       </article>
       <div class="media">
@@ -120,7 +139,7 @@
             <li class="heading list-item" style="--item-order:1">
               <router-link :to="{ name: 'Home' }">
                 <h2 class="number markdown" @click="hideNav()">
-                  <span>&#x2780;</span>
+                  <span>1</span>
                   <span>Home</span>
                 </h2>
               </router-link>
@@ -128,7 +147,7 @@
             <li class="heading list-item" style="--item-order:2">
               <router-link :to="{ name: 'Projects' }">
                 <h2 class="number markdown" @click="hideNav()">
-                  <span>&#x2781;</span>
+                  <span>2</span>
                   <span>Work</span>
                 </h2>
               </router-link>
@@ -136,7 +155,7 @@
             <li class="heading list-item" style="--item-order:3">
               <router-link :to="{ name: 'Studio' }">
                 <h2 class="number markdown" @click="hideNav()">
-                  <span>&#x2782;</span>
+                  <span>3</span>
                   <span>Studio</span>
                 </h2>
               </router-link>
@@ -144,15 +163,15 @@
             <li class="heading list-item" style="--item-order:4">
               <router-link :to="{ name: 'News' }">
                 <h2 class="number markdown" @click="hideNav()">
-                  <span>&#x2783;</span>
+                  <span>4</span>
                   <span>News</span>
                 </h2>
               </router-link>
             </li>
             <li class="heading list-item" style="--item-order:5">
-              <router-link :to="{ name: 'Offduty' }">
+              <router-link :to="{ name: 'XYZ' }">
                 <h2 class="number markdown" @click="hideNav()">
-                  <span>&#x2784;</span>
+                  <span>5</span>
                   <span>XYZ</span>
                 </h2>
               </router-link>
@@ -171,7 +190,9 @@ export default {
     return {
       show: false,
       currentTime: null,
-      isVisible: false
+      isVisible: false,
+      toggle: false,
+      isFucked: false
     };
   },
   methods: {
@@ -183,7 +204,11 @@ export default {
       setTimeout(() => {
         this.show = false;
         document.body.classList.remove("navOpen");
-      }, 1000);
+      }, 250);
+    },
+    toggleBadd() {
+      document.body.classList.toggle("baddmono");
+      this.isFucked = !this.isFucked;
     },
     isMorning() {
       return new Date().getHours() > 9 && new Date().getHours() < 17

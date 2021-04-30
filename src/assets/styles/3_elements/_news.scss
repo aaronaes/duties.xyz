@@ -1,86 +1,59 @@
 .news,
 .news-list {
   margin-top: var(--space-sm);
+  grid-column: 1 / 26;
 
-  .news-grid {
+  .news-feed {
     display: grid;
-    grid-template-columns: repeat(25, 1fr);
-    grid-column: 2 / 25;
-    margin-top: 0;
-    margin-bottom: $x2;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: var(--x1);
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(x-large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
     .post {
-      grid-column: 2 / 25;
+      grid-column: span 1;
+      margin-bottom: var(--x3);
 
       @include breakpoint(medium) {
-        border-bottom: 2px solid;
+        margin-bottom: var(--x1);
+      }
 
-        &:first-of-type {
-          border-top: 2px solid;
-        }
+      @include breakpoint(large) {
+        margin-bottom: var(--x0p5);
       }
 
       .column {
-        grid-column: 1 / 26;
-        display: grid;
-        grid-template-columns: repeat(25, 1fr);
-        padding: var(--space-sm) 0;
-
-        .date {
-          grid-column: 1 / 26;
-          grid-row: 2;
-
-          @include breakpoint(medium) {
-            grid-column: 1 / 5;
-            grid-row: 1;
-          }
-        }
+        display: block;
 
         .body {
-          grid-column: 1 / 26;
-          grid-row: 3;
+          p {
+            font-size: var(--paragraph-small);
 
-          @include breakpoint(medium) {
-            grid-row: 1;
-            grid-column: 5 / 16;
-          }
-
-          @include breakpoint(large) {
-            grid-row: 1;
-            grid-column: 5 / 14;
-          }
-
-          .categories {
-            margin-top: var(--space-xs);
-
-            p {
-              color: $gray;
+            time {
+              float: left;
+              opacity: 0.5;
+              font-size: var(--paragraph-small);
+              &:after {
+                content: ":";
+                padding-right: var(--space-xs);
+              }
             }
           }
         }
 
         .media {
-          grid-column: 1 / 26;
           display: block;
-          justify-self: unset;
           margin-bottom: var(--space-xs);
 
           img {
             width: 100%;
             height: auto;
-          }
-
-          @include breakpoint(medium) {
-            grid-column: 18 / 26;
-            justify-self: flex-end;
-            grid-row: 1;
-
-            img {
-              max-width: 24vw;
-              max-height: clamp(205px, 14vw, 305px);
-              height: auto;
-              width: auto;
-            }
           }
         }
       }
@@ -88,7 +61,7 @@
   }
 
   .story-link {
-    grid-column: 2 / 25;
+    grid-column: 1 / 26;
     padding-bottom: var(--x1);
   }
 }
